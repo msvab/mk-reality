@@ -196,11 +196,13 @@ def find_school_website(school_name: str, city: str, cache: dict, cache_lock: th
     key = f"{school_name}||{city}"
     if cache_lock:
         with cache_lock:
+            has_cached = key in cache
             cached = cache.get(key)
     else:
+        has_cached = key in cache
         cached = cache.get(key)
-    if cached:
-        return cached
+    if has_cached:
+        return cached or None
 
     q = urllib.parse.quote_plus(f"{school_name} {city} základní škola")
     search_urls = [
@@ -410,522 +412,529 @@ def overpass_query(query: str) -> dict:
                 time.sleep(1.0)
     raise last_err
 
-print("Fetching municipalities from Overpass...", flush=True)
-places = overpass_query(place_query)
-print("Fetching schools from Overpass...", flush=True)
-schools = overpass_query(school_query)
-print("Fetching amenities from Overpass...", flush=True)
-amenities = overpass_query(amenity_query)
 
-municipalities = []
-for el in places.get("elements", []):
-    tags = el.get("tags", {})
-    name = tags.get("name")
-    if not name:
-        continue
-    if "lat" in el and "lon" in el:
-        lat = el["lat"]
-        lon = el["lon"]
-    elif "center" in el:
-        lat = el["center"]["lat"]
-        lon = el["center"]["lon"]
-    else:
-        lat = None
-        lon = None
-    if lat is None or lon is None:
-        continue
-    pop = tags.get("population")
-    pop_num = None
-    if pop:
-        digits = "".join(ch for ch in pop if ch.isdigit())
-        if digits:
-            pop_num = int(digits)
-    municipalities.append({
-        "name": name,
-        "lat": lat,
-        "lon": lon,
-        "population": pop_num,
-        "schools": [],
-        "amenities": {
-            "kindergarten": False,
-            "cinema": False,
-            "theatre": False,
-        }
-    })
-
-# deduplicate by name using closest to Dobruska
-by_name = {}
-for m in municipalities:
-    d = haversine_km(DOBRUSKA[0], DOBRUSKA[1], m["lat"], m["lon"])
-    cur = by_name.get(m["name"])
-    if cur is None or d < cur["_d"]:
-        m["_d"] = d
-        by_name[m["name"]] = m
-municipalities = list(by_name.values())
-
-school_points = []
-for el in schools.get("elements", []):
-    tags = el.get("tags", {})
-    name = tags.get("name")
-    if not name:
-        continue
-    if "lat" in el and "lon" in el:
-        lat, lon = el["lat"], el["lon"]
-    elif "center" in el:
-        lat, lon = el["center"]["lat"], el["center"]["lon"]
-    else:
-        continue
-    website = normalize_url(tags.get("website") or tags.get("contact:website") or tags.get("url"))
-    school_points.append({"name": name, "lat": lat, "lon": lon, "website": website, "tags": tags})
-
-
-def amenity_bucket(value: str) -> str | None:
-    v = (value or "").lower()
-    if v == "kindergarten":
-        return "kindergarten"
-    if v == "cinema":
-        return "cinema"
-    if v == "theatre":
-        return "theatre"
-    return None
-
-
-def amenity_city_key(s: str) -> str:
-    t = (s or "").lower()
-    repl = {
-        "á": "a", "č": "c", "ď": "d", "é": "e", "ě": "e", "í": "i", "ň": "n",
-        "ó": "o", "ř": "r", "š": "s", "ť": "t", "ú": "u", "ů": "u", "ý": "y", "ž": "z",
-    }
-    for k, v in repl.items():
-        t = t.replace(k, v)
-    t = re.sub(r"[^a-z0-9 ]+", " ", t)
-    return re.sub(r"\s+", " ", t).strip()
-
-
-for el in amenities.get("elements", []):
-    tags = el.get("tags", {})
-    bucket = amenity_bucket(tags.get("amenity", ""))
-    if not bucket:
-        continue
-    if "lat" in el and "lon" in el:
-        lat, lon = el["lat"], el["lon"]
-    elif "center" in el:
-        lat, lon = el["center"]["lat"], el["center"]["lon"]
-    else:
-        continue
-
-    explicit_city = amenity_city_key(tags.get("addr:city") or tags.get("is_in:city") or "")
-    if explicit_city:
-        matched = False
-        for m in municipalities:
-            if amenity_city_key(m["name"]) == explicit_city:
-                m["amenities"][bucket] = True
-                matched = True
-                break
-        if matched:
+def main() -> None:
+    print("Fetching municipalities from Overpass...", flush=True)
+    places = overpass_query(place_query)
+    print("Fetching schools from Overpass...", flush=True)
+    schools = overpass_query(school_query)
+    print("Fetching amenities from Overpass...", flush=True)
+    amenities = overpass_query(amenity_query)
+    
+    municipalities = []
+    for el in places.get("elements", []):
+        tags = el.get("tags", {})
+        name = tags.get("name")
+        if not name:
             continue
-
-    nearest = None
-    nearest_d = 999.0
+        if "lat" in el and "lon" in el:
+            lat = el["lat"]
+            lon = el["lon"]
+        elif "center" in el:
+            lat = el["center"]["lat"]
+            lon = el["center"]["lon"]
+        else:
+            lat = None
+            lon = None
+        if lat is None or lon is None:
+            continue
+        pop = tags.get("population")
+        pop_num = None
+        if pop:
+            digits = "".join(ch for ch in pop if ch.isdigit())
+            if digits:
+                pop_num = int(digits)
+        municipalities.append({
+            "name": name,
+            "lat": lat,
+            "lon": lon,
+            "population": pop_num,
+            "schools": [],
+            "amenities": {
+                "kindergarten": False,
+                "cinema": False,
+                "theatre": False,
+            }
+        })
+    
+    # deduplicate by name using closest to Dobruska
+    by_name = {}
     for m in municipalities:
-        d = haversine_km(lat, lon, m["lat"], m["lon"])
-        if d < nearest_d:
-            nearest = m
-            nearest_d = d
-    if nearest is not None and nearest_d <= 2.5:
-        nearest["amenities"][bucket] = True
-
-
-def looks_primary_school(tags: dict) -> bool:
-    name = (tags.get("name") or "").lower()
-    isced = (tags.get("isced:level") or "").replace(" ", "")
-    school_type = (tags.get("school") or "").lower()
-    operator_type = (tags.get("operator:type") or "").lower()
-    if "základní škola" in name or "zakladni skola" in name or " zš" in f" {name}":
-        return True
-    if "1" in isced:
-        return True
-    if "primary" in school_type or "elementary" in school_type:
-        return True
-    if "primary" in operator_type:
-        return True
-    return False
-
-
-def infer_school_type(tags: dict, name: str) -> str:
-    n = (name or "").lower()
-    grades = (tags.get("grades") or "").lower()
-    isced = (tags.get("isced:level") or "").replace(" ", "")
-    school_type = (tags.get("school") or "").lower()
-    description = (tags.get("description") or "").lower()
-    combined = " ".join([n, grades, isced, school_type, description])
-
-    if "malotř" in combined or "malotr" in combined:
-        return "Malotřídka"
-
-    compact_grades = grades.replace(" ", "")
-    if compact_grades:
-        if "1-2" in compact_grades or compact_grades in {"1,2", "1;2"}:
-            return "1-2"
-        if "1-5" in compact_grades or compact_grades in {"1,2,3,4,5", "1;2;3;4;5"}:
-            return "1-5"
-        if "1-9" in compact_grades or compact_grades in {"1,2,3,4,5,6,7,8,9", "1;2;3;4;5;6;7;8;9"}:
-            return "1-9"
-        if compact_grades in {"1", "grade1"}:
-            return "1."
-
-    if isced in {"1;2", "1,2", "1-2", "12"}:
-        return "1-9"
-    if isced == "1":
-        return "1-5"
-
-    if "1. stupe" in combined or "i. stupe" in combined or "1.stupe" in combined:
-        if "2. stupe" in combined or "ii. stupe" in combined or "2.stupe" in combined:
-            return "1-9"
-        return "1-5"
-    return "Neuvedeno"
-
-
-def infer_school_type_from_text(text: str) -> str:
-    t = text.lower()
-    if "malotř" in t or "malotr" in t:
-        m = re.search(r"\b1\s*[-–]\s*([2-9])\b", t)
-        if m:
-            return f"Malotřídka (1-{m.group(1)})"
-        return "Malotřídka"
-    for pattern, value in [
-        (r"\b1\.\s*-\s*9\.", "1-9"),
-        (r"\b1\.\s*-\s*5\.", "1-5"),
-        (r"\b1\.\s*-\s*4\.", "1-4"),
-        (r"\b1\.\s*-\s*2\.", "1-2"),
-        (r"\b1\s*[-–]\s*9\b", "1-9"),
-        (r"\b1\s*[-–]\s*5\b", "1-5"),
-        (r"\b1\s*[-–]\s*4\b", "1-4"),
-        (r"\b1\s*[-–]\s*2\b", "1-2"),
-    ]:
-        if re.search(pattern, t):
-            return value
-    if "první stupeň" in t or "prvni stupen" in t or "i. stupeň" in t or "i. stupen" in t:
-        if "druhý stupeň" in t or "druhy stupen" in t or "ii. stupeň" in t or "ii. stupen" in t:
-            return "1-9"
-        return "1-5"
-    return "Neuvedeno"
-
-
-def infer_type_from_website(url: str, city: str, school_name: str, type_cache: dict, cache_lock: threading.Lock | None = None) -> str:
-    key = f"{url}||{city}||{school_name}"
-    if cache_lock:
-        with cache_lock:
-            cached = type_cache.get(key)
-    else:
-        cached = type_cache.get(key)
-    if cached is not None:
-        return cached
-    try:
-        html = http_get_text(url, timeout=8)
-        detected = infer_school_type_from_text(strip_html_text(html))
-        if detected == "Neuvedeno":
-            candidate_pages = extract_internal_links(url, html)
-            preferred = []
-            for u in candidate_pages:
-                l = u.lower()
-                if any(k in l for k in ["o-skole", "o-skola", "o-nas", "charakteristika", "zakladni-skola", "zs/"]):
-                    preferred.append(u)
-            for sub_url in preferred[:4]:
-                try:
-                    sub_html = http_get_text(sub_url, timeout=6)
-                except Exception:
-                    continue
-                detected = infer_school_type_from_text(strip_html_text(sub_html))
-                if detected != "Neuvedeno":
-                    break
-    except Exception:
-        detected = "Neuvedeno"
-    if cache_lock:
-        with cache_lock:
-            type_cache[key] = detected
-    else:
-        type_cache[key] = detected
-    return detected
-
-
-def normalize_text(s: str) -> str:
-    t = (s or "").lower()
-    repl = {
-        "á": "a", "č": "c", "ď": "d", "é": "e", "ě": "e", "í": "i", "ň": "n",
-        "ó": "o", "ř": "r", "š": "s", "ť": "t", "ú": "u", "ů": "u", "ý": "y", "ž": "z",
-    }
-    for k, v in repl.items():
-        t = t.replace(k, v)
-    t = re.sub(r"[^a-z0-9 ]+", " ", t)
-    return re.sub(r"\s+", " ", t).strip()
-
-
-def school_name_tokens(name: str) -> set[str]:
-    stop = {"zakladni", "skola", "a", "ms", "zs", "materska", "okres"}
-    toks = set(normalize_text(name).split())
-    return {t for t in toks if len(t) > 2 and t not in stop}
-
-
-def registry_search_by_city(city: str) -> list[dict]:
-    url = "https://isv.gov.cz/rssz/api/v1/sub/vyhledej"
-    payload = json.dumps({"nazev": city}).encode("utf-8")
-    req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(req, timeout=20) as r:
-        data = json.loads(r.read().decode("utf-8"))
-    return data.get("list", [])
-
-
-def registry_pick_candidate(city: str, school_name: str, candidates: list[dict]) -> dict | None:
-    city_n = normalize_text(city)
-    target_tokens = school_name_tokens(school_name)
-    best = None
-    best_score = -1
-    for c in candidates:
-        cname_n = normalize_text(c.get("nazev", ""))
-        cadr_n = normalize_text(c.get("adresa", ""))
-        score = 0
-        if "zakladni skola" in cname_n:
-            score += 5
-        if city_n and (city_n in cname_n or city_n in cadr_n):
-            score += 4
-        score += len(target_tokens & school_name_tokens(c.get("nazev", ""))) * 3
-        if score > best_score:
-            best = c
-            best_score = score
-    if best_score < 6:
+        d = haversine_km(DOBRUSKA[0], DOBRUSKA[1], m["lat"], m["lon"])
+        cur = by_name.get(m["name"])
+        if cur is None or d < cur["_d"]:
+            m["_d"] = d
+            by_name[m["name"]] = m
+    municipalities = list(by_name.values())
+    
+    school_points = []
+    for el in schools.get("elements", []):
+        tags = el.get("tags", {})
+        name = tags.get("name")
+        if not name:
+            continue
+        if "lat" in el and "lon" in el:
+            lat, lon = el["lat"], el["lon"]
+        elif "center" in el:
+            lat, lon = el["center"]["lat"], el["center"]["lon"]
+        else:
+            continue
+        website = normalize_url(tags.get("website") or tags.get("contact:website") or tags.get("url"))
+        school_points.append({"name": name, "lat": lat, "lon": lon, "website": website, "tags": tags})
+    
+    
+    def amenity_bucket(value: str) -> str | None:
+        v = (value or "").lower()
+        if v == "kindergarten":
+            return "kindergarten"
+        if v == "cinema":
+            return "cinema"
+        if v == "theatre":
+            return "theatre"
         return None
-    return best
-
-
-def registry_type_for_school(city: str, school_name: str, registry_cache: dict, cache_lock: threading.Lock | None = None) -> str:
-    key = f"{city}||{school_name}"
-    if cache_lock:
-        with cache_lock:
-            cached = registry_cache.get(key)
-    else:
-        cached = registry_cache.get(key)
-    if cached is not None:
-        return cached
-    try:
-        candidates = registry_search_by_city(city)
-        picked = registry_pick_candidate(city, school_name, candidates)
-        if not picked:
-            if cache_lock:
-                with cache_lock:
-                    registry_cache[key] = "Neuvedeno"
-            else:
-                registry_cache[key] = "Neuvedeno"
-            return "Neuvedeno"
-        sub_id = picked["id"]
-        date_s = time.strftime("%Y-%m-%d")
-        sub = http_get(f"https://isv.gov.cz/rssz/api/v1/sub/{sub_id}?stavKeDni={date_s}")
-        zs_units = [z for z in sub.get("zarizeni", []) if z.get("druhSkoly") == "B00"]
-        if not zs_units:
-            if cache_lock:
-                with cache_lock:
-                    registry_cache[key] = "Neuvedeno"
-            else:
-                registry_cache[key] = "Neuvedeno"
-            return "Neuvedeno"
-        unit_id = zs_units[0]["id"]
-        det = http_get(f"https://isv.gov.cz/rssz/api/v1/skola-skolske-zarizeni/{unit_id}?stavKeDni={date_s}")
-        years = []
-        for o in det.get("obory", []):
-            m = re.match(r"\s*(\d+)\s*r", o.get("delkaVzdelavani", ""))
-            if m:
-                years.append(int(m.group(1)))
-        if not years:
-            out = "Neuvedeno"
-        else:
-            y = max(years)
-            out = {9: "1-9", 5: "1-5", 4: "1-4", 2: "1-2", 1: "1."}.get(y, "1-9" if y > 9 else "Neuvedeno")
-        if cache_lock:
-            with cache_lock:
-                registry_cache[key] = out
-        else:
-            registry_cache[key] = out
-        return out
-    except Exception:
-        if cache_lock:
-            with cache_lock:
-                registry_cache[key] = "Neuvedeno"
-        else:
-            registry_cache[key] = "Neuvedeno"
-        return "Neuvedeno"
-
-# assign schools to nearest municipality within 6km
-for s in school_points:
-    if not looks_primary_school(s["tags"]):
-        continue
-    nearest = None
-    nearest_d = 999
-    for m in municipalities:
-        d = haversine_km(s["lat"], s["lon"], m["lat"], m["lon"])
-        if d < nearest_d:
-            nearest = m
-            nearest_d = d
-    if nearest is not None and nearest_d <= 6:
-        nearest["schools"].append(s)
-
-# only municipalities with at least one matched primary school
-municipalities = [m for m in municipalities if m["schools"]]
-
-rows = []
-url_cache = load_cache()
-type_cache = load_type_cache()
-registry_cache = load_registry_cache()
-malotridky_cache = load_malotridky_cache()
-print(f"Loaded URL cache entries: {len(url_cache)}", flush=True)
-print(f"Loaded type cache entries: {len(type_cache)}", flush=True)
-print(f"Loaded registry cache entries: {len(registry_cache)}", flush=True)
-malotridky_points = fetch_mapotic_malotridky(malotridky_cache)
-print(f"Loaded malotridky points: {len(malotridky_points)}", flush=True)
-
-cache_io_lock = threading.Lock()
-
-def save_all_caches() -> None:
-    with cache_io_lock:
-        save_cache(url_cache)
-        save_type_cache(type_cache)
-        save_registry_cache(registry_cache)
-        save_malotridky_cache(malotridky_cache)
-
-
-def _on_interrupt(signum, _frame):
-    print(f"Received signal {signum}, saving caches...", flush=True)
-    save_all_caches()
-    raise KeyboardInterrupt
-
-
-atexit.register(save_all_caches)
-signal.signal(signal.SIGINT, _on_interrupt)
-signal.signal(signal.SIGTERM, _on_interrupt)
-
-try:
-    url_cache_lock = cache_io_lock
-    type_cache_lock = cache_io_lock
-    registry_cache_lock = cache_io_lock
-
-    def process_municipality(m: dict) -> dict | None:
-        dur = osrm_duration_sec(m["lat"], m["lon"])
-        time.sleep(0.08)
-        if dur is None or dur > MAX_DRIVE_SEC:
-            return None
-        school = sorted(m["schools"], key=lambda x: (0 if x.get("website") else 1, x["name"]))[0]
-        school_url = school.get("website")
-        # Skip lookup when URL is already present from OSM.
-        if not school_url:
-            school_url = find_school_website(school["name"], m["name"], url_cache, url_cache_lock)
-        detected_type = infer_school_type(school["tags"], school["name"])
-        if detected_type == "Neuvedeno":
-            detected_type = registry_type_for_school(m["name"], school["name"], registry_cache, registry_cache_lock)
-        # Skip website scrape unless still unresolved and URL exists.
-        if detected_type == "Neuvedeno" and school_url:
-            detected_type = infer_type_from_website(
-                school_url, m["name"], school["name"], type_cache, type_cache_lock
-            )
-        is_malotridka = is_selected_school_malotridka(school, malotridky_points)
-        if is_malotridka:
-            detected_type = "Malotřídka"
-
-        return {
-            "city": m["name"],
-            "population": m["population"],
-            "drive_min": int(round(dur / 60)),
-            "amenities": ", ".join(
-                x for x, ok in [
-                    ("MŠ", m["amenities"]["kindergarten"]),
-                    ("kino", m["amenities"]["cinema"]),
-                    ("divadlo", m["amenities"]["theatre"]),
-                ] if ok
-            ) or "—",
-            "school_type": detected_type,
-            "school_name": school["name"],
-            "school_url": school_url
+    
+    
+    def amenity_city_key(s: str) -> str:
+        t = (s or "").lower()
+        repl = {
+            "á": "a", "č": "c", "ď": "d", "é": "e", "ě": "e", "í": "i", "ň": "n",
+            "ó": "o", "ř": "r", "š": "s", "ť": "t", "ú": "u", "ů": "u", "ý": "y", "ž": "z",
         }
+        for k, v in repl.items():
+            t = t.replace(k, v)
+        t = re.sub(r"[^a-z0-9 ]+", " ", t)
+        return re.sub(r"\s+", " ", t).strip()
+    
+    
+    for el in amenities.get("elements", []):
+        tags = el.get("tags", {})
+        bucket = amenity_bucket(tags.get("amenity", ""))
+        if not bucket:
+            continue
+        if "lat" in el and "lon" in el:
+            lat, lon = el["lat"], el["lon"]
+        elif "center" in el:
+            lat, lon = el["center"]["lat"], el["center"]["lon"]
+        else:
+            continue
+    
+        explicit_city = amenity_city_key(tags.get("addr:city") or tags.get("is_in:city") or "")
+        if explicit_city:
+            matched = False
+            for m in municipalities:
+                if amenity_city_key(m["name"]) == explicit_city:
+                    m["amenities"][bucket] = True
+                    matched = True
+                    break
+            if matched:
+                continue
+    
+        nearest = None
+        nearest_d = 999.0
+        for m in municipalities:
+            d = haversine_km(lat, lon, m["lat"], m["lon"])
+            if d < nearest_d:
+                nearest = m
+                nearest_d = d
+        if nearest is not None and nearest_d <= 2.5:
+            nearest["amenities"][bucket] = True
+    
+    
+    def looks_primary_school(tags: dict) -> bool:
+        name = (tags.get("name") or "").lower()
+        isced = (tags.get("isced:level") or "").replace(" ", "")
+        school_type = (tags.get("school") or "").lower()
+        operator_type = (tags.get("operator:type") or "").lower()
+        if "základní škola" in name or "zakladni skola" in name or " zš" in f" {name}":
+            return True
+        if "1" in isced:
+            return True
+        if "primary" in school_type or "elementary" in school_type:
+            return True
+        if "primary" in operator_type:
+            return True
+        return False
+    
+    
+    def infer_school_type(tags: dict, name: str) -> str:
+        n = (name or "").lower()
+        grades = (tags.get("grades") or "").lower()
+        isced = (tags.get("isced:level") or "").replace(" ", "")
+        school_type = (tags.get("school") or "").lower()
+        description = (tags.get("description") or "").lower()
+        combined = " ".join([n, grades, isced, school_type, description])
+    
+        if "malotř" in combined or "malotr" in combined:
+            return "Malotřídka"
+    
+        compact_grades = grades.replace(" ", "")
+        if compact_grades:
+            if "1-2" in compact_grades or compact_grades in {"1,2", "1;2"}:
+                return "1-2"
+            if "1-5" in compact_grades or compact_grades in {"1,2,3,4,5", "1;2;3;4;5"}:
+                return "1-5"
+            if "1-9" in compact_grades or compact_grades in {"1,2,3,4,5,6,7,8,9", "1;2;3;4;5;6;7;8;9"}:
+                return "1-9"
+            if compact_grades in {"1", "grade1"}:
+                return "1."
+    
+        if isced in {"1;2", "1,2", "1-2", "12"}:
+            return "1-9"
+        if isced == "1":
+            return "1-5"
+    
+        if "1. stupe" in combined or "i. stupe" in combined or "1.stupe" in combined:
+            if "2. stupe" in combined or "ii. stupe" in combined or "2.stupe" in combined:
+                return "1-9"
+            return "1-5"
+        return "Neuvedeno"
+    
+    
+    def infer_school_type_from_text(text: str) -> str:
+        t = text.lower()
+        if "malotř" in t or "malotr" in t:
+            m = re.search(r"\b1\s*[-–]\s*([2-9])\b", t)
+            if m:
+                return f"Malotřídka (1-{m.group(1)})"
+            return "Malotřídka"
+        for pattern, value in [
+            (r"\b1\.\s*-\s*9\.", "1-9"),
+            (r"\b1\.\s*-\s*5\.", "1-5"),
+            (r"\b1\.\s*-\s*4\.", "1-4"),
+            (r"\b1\.\s*-\s*2\.", "1-2"),
+            (r"\b1\s*[-–]\s*9\b", "1-9"),
+            (r"\b1\s*[-–]\s*5\b", "1-5"),
+            (r"\b1\s*[-–]\s*4\b", "1-4"),
+            (r"\b1\s*[-–]\s*2\b", "1-2"),
+        ]:
+            if re.search(pattern, t):
+                return value
+        if "první stupeň" in t or "prvni stupen" in t or "i. stupeň" in t or "i. stupen" in t:
+            if "druhý stupeň" in t or "druhy stupen" in t or "ii. stupeň" in t or "ii. stupen" in t:
+                return "1-9"
+            return "1-5"
+        return "Neuvedeno"
+    
+    
+    def infer_type_from_website(url: str, city: str, school_name: str, type_cache: dict, cache_lock: threading.Lock | None = None) -> str:
+        key = f"{url}||{city}||{school_name}"
+        if cache_lock:
+            with cache_lock:
+                cached = type_cache.get(key)
+        else:
+            cached = type_cache.get(key)
+        if cached is not None:
+            return cached
+        try:
+            html = http_get_text(url, timeout=8)
+            detected = infer_school_type_from_text(strip_html_text(html))
+            if detected == "Neuvedeno":
+                candidate_pages = extract_internal_links(url, html)
+                preferred = []
+                for u in candidate_pages:
+                    l = u.lower()
+                    if any(k in l for k in ["o-skole", "o-skola", "o-nas", "charakteristika", "zakladni-skola", "zs/"]):
+                        preferred.append(u)
+                for sub_url in preferred[:4]:
+                    try:
+                        sub_html = http_get_text(sub_url, timeout=6)
+                    except Exception:
+                        continue
+                    detected = infer_school_type_from_text(strip_html_text(sub_html))
+                    if detected != "Neuvedeno":
+                        break
+        except Exception:
+            detected = "Neuvedeno"
+        if cache_lock:
+            with cache_lock:
+                type_cache[key] = detected
+        else:
+            type_cache[key] = detected
+        return detected
+    
+    
+    def normalize_text(s: str) -> str:
+        t = (s or "").lower()
+        repl = {
+            "á": "a", "č": "c", "ď": "d", "é": "e", "ě": "e", "í": "i", "ň": "n",
+            "ó": "o", "ř": "r", "š": "s", "ť": "t", "ú": "u", "ů": "u", "ý": "y", "ž": "z",
+        }
+        for k, v in repl.items():
+            t = t.replace(k, v)
+        t = re.sub(r"[^a-z0-9 ]+", " ", t)
+        return re.sub(r"\s+", " ", t).strip()
+    
+    
+    def school_name_tokens(name: str) -> set[str]:
+        stop = {"zakladni", "skola", "a", "ms", "zs", "materska", "okres"}
+        toks = set(normalize_text(name).split())
+        return {t for t in toks if len(t) > 2 and t not in stop}
+    
+    
+    def registry_search_by_city(city: str) -> list[dict]:
+        url = "https://isv.gov.cz/rssz/api/v1/sub/vyhledej"
+        payload = json.dumps({"nazev": city}).encode("utf-8")
+        req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json"})
+        with urllib.request.urlopen(req, timeout=20) as r:
+            data = json.loads(r.read().decode("utf-8"))
+        return data.get("list", [])
+    
+    
+    def registry_pick_candidate(city: str, school_name: str, candidates: list[dict]) -> dict | None:
+        city_n = normalize_text(city)
+        target_tokens = school_name_tokens(school_name)
+        best = None
+        best_score = -1
+        for c in candidates:
+            cname_n = normalize_text(c.get("nazev", ""))
+            cadr_n = normalize_text(c.get("adresa", ""))
+            score = 0
+            if "zakladni skola" in cname_n:
+                score += 5
+            if city_n and (city_n in cname_n or city_n in cadr_n):
+                score += 4
+            score += len(target_tokens & school_name_tokens(c.get("nazev", ""))) * 3
+            if score > best_score:
+                best = c
+                best_score = score
+        if best_score < 6:
+            return None
+        return best
+    
+    
+    def registry_type_for_school(city: str, school_name: str, registry_cache: dict, cache_lock: threading.Lock | None = None) -> str:
+        key = f"{city}||{school_name}"
+        if cache_lock:
+            with cache_lock:
+                cached = registry_cache.get(key)
+        else:
+            cached = registry_cache.get(key)
+        if cached is not None:
+            return cached
+        try:
+            candidates = registry_search_by_city(city)
+            picked = registry_pick_candidate(city, school_name, candidates)
+            if not picked:
+                if cache_lock:
+                    with cache_lock:
+                        registry_cache[key] = "Neuvedeno"
+                else:
+                    registry_cache[key] = "Neuvedeno"
+                return "Neuvedeno"
+            sub_id = picked["id"]
+            date_s = time.strftime("%Y-%m-%d")
+            sub = http_get(f"https://isv.gov.cz/rssz/api/v1/sub/{sub_id}?stavKeDni={date_s}")
+            zs_units = [z for z in sub.get("zarizeni", []) if z.get("druhSkoly") == "B00"]
+            if not zs_units:
+                if cache_lock:
+                    with cache_lock:
+                        registry_cache[key] = "Neuvedeno"
+                else:
+                    registry_cache[key] = "Neuvedeno"
+                return "Neuvedeno"
+            unit_id = zs_units[0]["id"]
+            det = http_get(f"https://isv.gov.cz/rssz/api/v1/skola-skolske-zarizeni/{unit_id}?stavKeDni={date_s}")
+            years = []
+            for o in det.get("obory", []):
+                m = re.match(r"\s*(\d+)\s*r", o.get("delkaVzdelavani", ""))
+                if m:
+                    years.append(int(m.group(1)))
+            if not years:
+                out = "Neuvedeno"
+            else:
+                y = max(years)
+                out = {9: "1-9", 5: "1-5", 4: "1-4", 2: "1-2", 1: "1."}.get(y, "1-9" if y > 9 else "Neuvedeno")
+            if cache_lock:
+                with cache_lock:
+                    registry_cache[key] = out
+            else:
+                registry_cache[key] = out
+            return out
+        except Exception:
+            if cache_lock:
+                with cache_lock:
+                    registry_cache[key] = "Neuvedeno"
+            else:
+                registry_cache[key] = "Neuvedeno"
+            return "Neuvedeno"
+    
+    # assign schools to nearest municipality within 6km
+    for s in school_points:
+        if not looks_primary_school(s["tags"]):
+            continue
+        nearest = None
+        nearest_d = 999
+        for m in municipalities:
+            d = haversine_km(s["lat"], s["lon"], m["lat"], m["lon"])
+            if d < nearest_d:
+                nearest = m
+                nearest_d = d
+        if nearest is not None and nearest_d <= 6:
+            nearest["schools"].append(s)
+    
+    # only municipalities with at least one matched primary school
+    municipalities = [m for m in municipalities if m["schools"]]
+    
+    rows = []
+    url_cache = load_cache()
+    type_cache = load_type_cache()
+    registry_cache = load_registry_cache()
+    malotridky_cache = load_malotridky_cache()
+    print(f"Loaded URL cache entries: {len(url_cache)}", flush=True)
+    print(f"Loaded type cache entries: {len(type_cache)}", flush=True)
+    print(f"Loaded registry cache entries: {len(registry_cache)}", flush=True)
+    malotridky_points = fetch_mapotic_malotridky(malotridky_cache)
+    print(f"Loaded malotridky points: {len(malotridky_points)}", flush=True)
+    
+    cache_io_lock = threading.Lock()
+    
+    def save_all_caches() -> None:
+        with cache_io_lock:
+            save_cache(url_cache)
+            save_type_cache(type_cache)
+            save_registry_cache(registry_cache)
+            save_malotridky_cache(malotridky_cache)
+    
+    
+    def _on_interrupt(signum, _frame):
+        print(f"Received signal {signum}, saving caches...", flush=True)
+        save_all_caches()
+        raise KeyboardInterrupt
+    
+    
+    atexit.register(save_all_caches)
+    signal.signal(signal.SIGINT, _on_interrupt)
+    signal.signal(signal.SIGTERM, _on_interrupt)
+    
+    try:
+        url_cache_lock = cache_io_lock
+        type_cache_lock = cache_io_lock
+        registry_cache_lock = cache_io_lock
+    
+        def process_municipality(m: dict) -> dict | None:
+            dur = osrm_duration_sec(m["lat"], m["lon"])
+            time.sleep(0.08)
+            if dur is None or dur > MAX_DRIVE_SEC:
+                return None
+            school = sorted(m["schools"], key=lambda x: (0 if x.get("website") else 1, x["name"]))[0]
+            school_url = school.get("website")
+            # Skip lookup when URL is already present from OSM.
+            if not school_url:
+                school_url = find_school_website(school["name"], m["name"], url_cache, url_cache_lock)
+            detected_type = infer_school_type(school["tags"], school["name"])
+            if detected_type == "Neuvedeno":
+                detected_type = registry_type_for_school(m["name"], school["name"], registry_cache, registry_cache_lock)
+            # Skip website scrape unless still unresolved and URL exists.
+            if detected_type == "Neuvedeno" and school_url:
+                detected_type = infer_type_from_website(
+                    school_url, m["name"], school["name"], type_cache, type_cache_lock
+                )
+            is_malotridka = is_selected_school_malotridka(school, malotridky_points)
+            if is_malotridka:
+                detected_type = "Malotřídka"
+    
+            return {
+                "city": m["name"],
+                "population": m["population"],
+                "drive_min": int(round(dur / 60)),
+                "amenities": ", ".join(
+                    x for x, ok in [
+                        ("MŠ", m["amenities"]["kindergarten"]),
+                        ("kino", m["amenities"]["cinema"]),
+                        ("divadlo", m["amenities"]["theatre"]),
+                    ] if ok
+                ) or "—",
+                "school_type": detected_type,
+                "school_name": school["name"],
+                "school_url": school_url
+            }
+    
+        max_workers = 10
+        completed = 0
+        with ThreadPoolExecutor(max_workers=max_workers) as ex:
+            futures = [ex.submit(process_municipality, m) for m in municipalities]
+            for fut in as_completed(futures):
+                try:
+                    row = fut.result()
+                except Exception as e:
+                    print(f"Worker failed: {e}", flush=True)
+                    row = None
+                completed += 1
+                if row is not None:
+                    rows.append(row)
+                if completed % 10 == 0:
+                    save_all_caches()
+                if completed % 30 == 0:
+                    print(f"processed {completed}/{len(municipalities)}", flush=True)
+    except KeyboardInterrupt:
+        print("Interrupted. Caches were saved.", flush=True)
+        raise
+    finally:
+        save_all_caches()
+    
+    rows.sort(key=lambda r: (r["drive_min"], r["city"]))
+    
+    html_rows = []
+    for r in rows:
+        pop = f"{r['population']:,}".replace(",", " ") if r["population"] is not None else "N/A"
+        city_text = escape(str(r["city"]))
+        pop_text = escape(pop)
+        drive_text = escape(str(r["drive_min"]))
+        amenities_text = escape(str(r["amenities"]))
+        school_type_text = escape(str(r["school_type"]))
+        school_name_text = escape(str(r["school_name"]))
+        href = safe_href(r.get("school_url"))
+        if href:
+            school_cell = f'<a href="{escape(href, quote=True)}" target="_blank" rel="noopener noreferrer">{school_name_text}</a>'
+        else:
+            school_cell = school_name_text
+        html_rows.append(
+            f"<tr><td>{city_text}</td><td>{pop_text}</td><td>{drive_text}</td><td>{amenities_text}</td><td>{school_type_text}</td><td>{school_cell}</td></tr>"
+        )
+    
+    generated_on = time.strftime("%Y-%m-%d")
+    html = f"""<!doctype html>
+    <html lang=\"en\">
+    <head>
+      <meta charset=\"utf-8\" />
+      <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />
+      <title>Kde bydlet?</title>
+      <style>
+        body {{ font-family: Arial, sans-serif; margin: 24px; }}
+        h1 {{ margin-bottom: 8px; }}
+        p {{ color: #444; margin-top: 0; }}
+        table {{ border-collapse: collapse; width: 100%; }}
+        th, td {{ border: 1px solid #ddd; padding: 8px; text-align: left; }}
+        th {{ background: #f4f4f4; }}
+        tr:nth-child(even) {{ background: #fafafa; }}
+      </style>
+    </head>
+    <body>
+      <h1>Kde bydlet?</h1>
+      <p>Zdroj dat: OpenStreetMap (obce/školy/populace) + OSRM routing. Vygenerováno dne {generated_on}. Záznamů: {len(rows)}.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Město</th>
+            <th>Počet obyvatel</th>
+            <th>Dojezd z Dobrušky (min)</th>
+            <th>Vybavenost</th>
+            <th>Typ školy</th>
+            <th>Základní škola</th>
+          </tr>
+        </thead>
+        <tbody>
+          {''.join(html_rows)}
+        </tbody>
+      </table>
+    </body>
+    </html>
+    """
+    
+    Path("index.html").write_text(html, encoding="utf-8")
+    Path("dobruska_primary_schools.json").write_text(json.dumps(rows, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"Wrote {len(rows)} rows")
 
-    max_workers = 10
-    completed = 0
-    with ThreadPoolExecutor(max_workers=max_workers) as ex:
-        futures = [ex.submit(process_municipality, m) for m in municipalities]
-        for fut in as_completed(futures):
-            try:
-                row = fut.result()
-            except Exception as e:
-                print(f"Worker failed: {e}", flush=True)
-                row = None
-            completed += 1
-            if row is not None:
-                rows.append(row)
-            if completed % 10 == 0:
-                save_all_caches()
-            if completed % 30 == 0:
-                print(f"processed {completed}/{len(municipalities)}", flush=True)
-except KeyboardInterrupt:
-    print("Interrupted. Caches were saved.", flush=True)
-    raise
-finally:
-    save_all_caches()
 
-rows.sort(key=lambda r: (r["drive_min"], r["city"]))
-
-html_rows = []
-for r in rows:
-    pop = f"{r['population']:,}".replace(",", " ") if r["population"] is not None else "N/A"
-    city_text = escape(str(r["city"]))
-    pop_text = escape(pop)
-    drive_text = escape(str(r["drive_min"]))
-    amenities_text = escape(str(r["amenities"]))
-    school_type_text = escape(str(r["school_type"]))
-    school_name_text = escape(str(r["school_name"]))
-    href = safe_href(r.get("school_url"))
-    if href:
-        school_cell = f'<a href="{escape(href, quote=True)}" target="_blank" rel="noopener noreferrer">{school_name_text}</a>'
-    else:
-        school_cell = school_name_text
-    html_rows.append(
-        f"<tr><td>{city_text}</td><td>{pop_text}</td><td>{drive_text}</td><td>{amenities_text}</td><td>{school_type_text}</td><td>{school_cell}</td></tr>"
-    )
-
-html = f"""<!doctype html>
-<html lang=\"en\">
-<head>
-  <meta charset=\"utf-8\" />
-  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />
-  <title>Kde bydlet?</title>
-  <style>
-    body {{ font-family: Arial, sans-serif; margin: 24px; }}
-    h1 {{ margin-bottom: 8px; }}
-    p {{ color: #444; margin-top: 0; }}
-    table {{ border-collapse: collapse; width: 100%; }}
-    th, td {{ border: 1px solid #ddd; padding: 8px; text-align: left; }}
-    th {{ background: #f4f4f4; }}
-    tr:nth-child(even) {{ background: #fafafa; }}
-  </style>
-</head>
-<body>
-  <h1>Kde bydlet?</h1>
-  <p>Zdroj dat: OpenStreetMap (obce/školy/populace) + OSRM routing. Vygenerováno dne 2026-05-16. Záznamů: {len(rows)}.</p>
-  <table>
-    <thead>
-      <tr>
-        <th>Město</th>
-        <th>Počet obyvatel</th>
-        <th>Dojezd z Dobrušky (min)</th>
-        <th>Vybavenost</th>
-        <th>Typ školy</th>
-        <th>Základní škola</th>
-      </tr>
-    </thead>
-    <tbody>
-      {''.join(html_rows)}
-    </tbody>
-  </table>
-</body>
-</html>
-"""
-
-Path("index.html").write_text(html, encoding="utf-8")
-Path("dobruska_primary_schools.json").write_text(json.dumps(rows, ensure_ascii=False, indent=2), encoding="utf-8")
-print(f"Wrote {len(rows)} rows")
+if __name__ == "__main__":
+    main()
