@@ -418,8 +418,15 @@ for el in places.get("elements", []):
     name = tags.get("name")
     if not name:
         continue
-    lat = el.get("lat")
-    lon = el.get("lon")
+    if "lat" in el and "lon" in el:
+        lat = el["lat"]
+        lon = el["lon"]
+    elif "center" in el:
+        lat = el["center"]["lat"]
+        lon = el["center"]["lon"]
+    else:
+        lat = None
+        lon = None
     if lat is None or lon is None:
         continue
     pop = tags.get("population")
