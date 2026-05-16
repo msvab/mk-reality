@@ -347,6 +347,24 @@ def fetch_mapotic_malotridky(cache: dict) -> list[dict]:
     return points
 
 
+def normalize_text(s: str) -> str:
+    t = (s or "").lower()
+    repl = {
+        "á": "a", "č": "c", "ď": "d", "é": "e", "ě": "e", "í": "i", "ň": "n",
+        "ó": "o", "ř": "r", "š": "s", "ť": "t", "ú": "u", "ů": "u", "ý": "y", "ž": "z",
+    }
+    for k, v in repl.items():
+        t = t.replace(k, v)
+    t = re.sub(r"[^a-z0-9 ]+", " ", t)
+    return re.sub(r"\s+", " ", t).strip()
+
+
+def school_name_tokens(name: str) -> set[str]:
+    stop = {"zakladni", "skola", "a", "ms", "zs", "materska", "okres"}
+    toks = set(normalize_text(name).split())
+    return {t for t in toks if len(t) > 2 and t not in stop}
+
+
 def is_selected_school_malotridka(selected_school: dict, malotridky_points: list[dict]) -> bool:
     school_name_n = normalize_text(selected_school.get("name", ""))
     school_tokens = school_name_tokens(school_name_n)
@@ -398,7 +416,11 @@ area["ISO3166-1"="CZ"][admin_level=2]->.cz;
 out center tags;
 """.strip()
 
-endpoints = ["https://overpass.kumi.systems/api/interpreter"]
+endpoints = [
+    "https://overpass.kumi.systems/api/interpreter",
+    "https://overpass-api.de/api/interpreter",
+    "https://overpass.private.coffee/api/interpreter",
+]
 
 def overpass_query(query: str) -> dict:
     payload = urllib.parse.urlencode({"data": query})
