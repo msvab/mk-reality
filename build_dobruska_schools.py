@@ -443,7 +443,7 @@ def infer_school_type(tags: dict, name: str) -> str:
     combined = " ".join([n, grades, isced, school_type, description])
 
     if "malotř" in combined or "malotr" in combined:
-        return "Malotridka"
+        return "Malotřídka"
 
     compact_grades = grades.replace(" ", "")
     if compact_grades:
@@ -473,8 +473,8 @@ def infer_school_type_from_text(text: str) -> str:
     if "malotř" in t or "malotr" in t:
         m = re.search(r"\b1\s*[-–]\s*([2-9])\b", t)
         if m:
-            return f"Malotridka (1-{m.group(1)})"
-        return "Malotridka"
+            return f"Malotřídka (1-{m.group(1)})"
+        return "Malotřídka"
     for pattern, value in [
         (r"\b1\.\s*-\s*9\.", "1-9"),
         (r"\b1\.\s*-\s*5\.", "1-5"),
@@ -668,7 +668,7 @@ try:
             detected_type = infer_type_from_website(school_url, m["name"], school["name"], type_cache)
         is_malotridka = is_selected_school_malotridka(school, malotridky_points)
         if is_malotridka:
-            detected_type = "Malotridka"
+            detected_type = "Malotřídka"
 
         rows.append({
             "city": m["name"],
