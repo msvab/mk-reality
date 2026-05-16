@@ -492,9 +492,7 @@ def main() -> None:
     school_points = []
     for el in schools.get("elements", []):
         tags = el.get("tags", {})
-        name = tags.get("name")
-        if not name:
-            continue
+        name = tags.get("name") or tags.get("official_name") or tags.get("name:cs") or ""
         if "lat" in el and "lon" in el:
             lat, lon = el["lat"], el["lon"]
         elif "center" in el:
@@ -780,9 +778,13 @@ def main() -> None:
                 registry_cache[key] = "Neuvedeno"
             return "Neuvedeno"
     
-    # assign schools to nearest municipality within 6km
+    unnamed_school_points = []
+    # assign primary schools to nearest municipality within 6km
     for s in school_points:
         if not looks_primary_school(s["tags"]):
+            # Keep unnamed schools as fallback signal for municipalities where OSM lacks school names/tags.
+            if not s["name"] and s["tags"].get("amenity") == "school":
+                unnamed_school_points.append(s)
             continue
         nearest = None
         nearest_d = 999
@@ -793,6 +795,26 @@ def main() -> None:
                 nearest_d = d
         if nearest is not None and nearest_d <= 6:
             nearest["schools"].append(s)
+
+    # Fallback: if a municipality has no matched primary school, use a very nearby unnamed school.
+    for m in municipalities:
+        if m["schools"]:
+            continue
+        nearest = None
+        nearest_d = 999.0
+        for s in unnamed_school_points:
+            d = haversine_km(s["lat"], s["lon"], m["lat"], m["lon"])
+            if d < nearest_d:
+                nearest = s
+                nearest_d = d
+        if nearest is not None and nearest_d <= 1.0:
+            m["schools"].append({
+                "name": f"Základní škola ({m['name']})",
+                "lat": nearest["lat"],
+                "lon": nearest["lon"],
+                "website": nearest.get("website"),
+                "tags": nearest.get("tags", {}),
+            })
     
     # only municipalities with at least one matched primary school
     municipalities = [m for m in municipalities if m["schools"]]
