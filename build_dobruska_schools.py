@@ -10,6 +10,7 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 from html import unescape
+from html import escape
 
 DOBRUSKA = (50.2921062, 16.1605457)  # lat, lon
 RADIUS_M = 55000
@@ -95,6 +96,18 @@ def normalize_url(url):
     if not parsed.netloc or "." not in parsed.netloc:
         return None
     return u
+
+
+def safe_href(url: str | None) -> str | None:
+    cleaned = normalize_url(url)
+    if not cleaned:
+        return None
+    parsed = urllib.parse.urlparse(cleaned)
+    if parsed.scheme not in {"http", "https"}:
+        return None
+    if not parsed.netloc:
+        return None
+    return cleaned
 
 
 def is_bad_domain(url: str) -> bool:
@@ -843,12 +856,19 @@ rows.sort(key=lambda r: (r["drive_min"], r["city"]))
 html_rows = []
 for r in rows:
     pop = f"{r['population']:,}".replace(",", " ") if r["population"] is not None else "N/A"
-    if r["school_url"]:
-        school_cell = f'<a href="{r["school_url"]}" target="_blank" rel="noopener noreferrer">{r["school_name"]}</a>'
+    city_text = escape(str(r["city"]))
+    pop_text = escape(pop)
+    drive_text = escape(str(r["drive_min"]))
+    amenities_text = escape(str(r["amenities"]))
+    school_type_text = escape(str(r["school_type"]))
+    school_name_text = escape(str(r["school_name"]))
+    href = safe_href(r.get("school_url"))
+    if href:
+        school_cell = f'<a href="{escape(href, quote=True)}" target="_blank" rel="noopener noreferrer">{school_name_text}</a>'
     else:
-        school_cell = r["school_name"]
+        school_cell = school_name_text
     html_rows.append(
-        f"<tr><td>{r['city']}</td><td>{pop}</td><td>{r['drive_min']}</td><td>{r['amenities']}</td><td>{r['school_type']}</td><td>{school_cell}</td></tr>"
+        f"<tr><td>{city_text}</td><td>{pop_text}</td><td>{drive_text}</td><td>{amenities_text}</td><td>{school_type_text}</td><td>{school_cell}</td></tr>"
     )
 
 html = f"""<!doctype html>
