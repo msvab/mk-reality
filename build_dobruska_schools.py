@@ -706,7 +706,7 @@ html = f"""<!doctype html>
 <head>
   <meta charset=\"utf-8\" />
   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />
-  <title>Municipalities within ~65 minutes drive from Dobruška with primary schools</title>
+  <title>Places to live?</title>
   <style>
     body {{ font-family: Arial, sans-serif; margin: 24px; }}
     h1 {{ margin-bottom: 8px; }}
@@ -718,7 +718,7 @@ html = f"""<!doctype html>
   </style>
 </head>
 <body>
-  <h1>Municipalities within ~65 minutes drive from Dobruška (CZ) with primary schools</h1>
+  <h1>Places to live?</h1>
   <p>Data source: OpenStreetMap (municipalities/schools/population tags) + OSRM routing. Generated on 2026-05-16. Records: {len(rows)}.</p>
   <table>
     <thead>
@@ -739,5 +739,6 @@ html = f"""<!doctype html>
 """
 
 Path("dobruska_primary_schools.html").write_text(html, encoding="utf-8")
+Path("index.html").write_text(html, encoding="utf-8")
 Path("dobruska_primary_schools.json").write_text(json.dumps(rows, ensure_ascii=False, indent=2), encoding="utf-8")
 print(f"Wrote {len(rows)} rows")
