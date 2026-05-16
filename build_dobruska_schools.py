@@ -706,7 +706,7 @@ html = f"""<!doctype html>
 <head>
   <meta charset=\"utf-8\" />
   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />
-  <title>Places to live?</title>
+  <title>Kde bydlet?</title>
   <style>
     body {{ font-family: Arial, sans-serif; margin: 24px; }}
     h1 {{ margin-bottom: 8px; }}
@@ -718,16 +718,16 @@ html = f"""<!doctype html>
   </style>
 </head>
 <body>
-  <h1>Places to live?</h1>
-  <p>Data source: OpenStreetMap (municipalities/schools/population tags) + OSRM routing. Generated on 2026-05-16. Records: {len(rows)}.</p>
+  <h1>Kde bydlet?</h1>
+  <p>Zdroj dat: OpenStreetMap (obce/školy/populace) + OSRM routing. Vygenerováno dne 2026-05-16. Záznamů: {len(rows)}.</p>
   <table>
     <thead>
       <tr>
-        <th>City</th>
-        <th>Population</th>
-        <th>Drive from Dobruška in minutes</th>
-        <th>School type</th>
-        <th>Primary school</th>
+        <th>Město</th>
+        <th>Počet obyvatel</th>
+        <th>Dojezd z Dobrušky (min)</th>
+        <th>Typ školy</th>
+        <th>Základní škola</th>
       </tr>
     </thead>
     <tbody>
