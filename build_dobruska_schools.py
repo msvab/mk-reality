@@ -782,11 +782,14 @@ print(f"Loaded registry cache entries: {len(registry_cache)}", flush=True)
 malotridky_points = fetch_mapotic_malotridky(malotridky_cache)
 print(f"Loaded malotridky points: {len(malotridky_points)}", flush=True)
 
+cache_io_lock = threading.Lock()
+
 def save_all_caches() -> None:
-    save_cache(url_cache)
-    save_type_cache(type_cache)
-    save_registry_cache(registry_cache)
-    save_malotridky_cache(malotridky_cache)
+    with cache_io_lock:
+        save_cache(url_cache)
+        save_type_cache(type_cache)
+        save_registry_cache(registry_cache)
+        save_malotridky_cache(malotridky_cache)
 
 
 def _on_interrupt(signum, _frame):
@@ -800,10 +803,9 @@ signal.signal(signal.SIGINT, _on_interrupt)
 signal.signal(signal.SIGTERM, _on_interrupt)
 
 try:
-    url_cache_lock = threading.Lock()
-    type_cache_lock = threading.Lock()
-    registry_cache_lock = threading.Lock()
-    save_lock = threading.Lock()
+    url_cache_lock = cache_io_lock
+    type_cache_lock = cache_io_lock
+    registry_cache_lock = cache_io_lock
 
     def process_municipality(m: dict) -> dict | None:
         dur = osrm_duration_sec(m["lat"], m["lon"])
@@ -848,13 +850,16 @@ try:
     with ThreadPoolExecutor(max_workers=max_workers) as ex:
         futures = [ex.submit(process_municipality, m) for m in municipalities]
         for fut in as_completed(futures):
-            row = fut.result()
+            try:
+                row = fut.result()
+            except Exception as e:
+                print(f"Worker failed: {e}", flush=True)
+                row = None
             completed += 1
             if row is not None:
                 rows.append(row)
             if completed % 10 == 0:
-                with save_lock:
-                    save_all_caches()
+                save_all_caches()
             if completed % 30 == 0:
                 print(f"processed {completed}/{len(municipalities)}", flush=True)
 except KeyboardInterrupt:
