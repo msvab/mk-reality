@@ -117,6 +117,7 @@ def is_bad_domain(url: str) -> bool:
         "google.",
         "bing.com",
         "r.bing.com",
+        "seznam.cz",
         "facebook.com",
         "instagram.com",
         "youtube.com",
@@ -722,61 +723,118 @@ def main() -> None:
         return best
     
     
-    def registry_type_for_school(city: str, school_name: str, registry_cache: dict, cache_lock: threading.Lock | None = None) -> str:
+    def registry_type_for_school(
+        city: str,
+        school_name: str,
+        registry_cache: dict,
+        cache_lock: threading.Lock | None = None,
+        force_refresh_if_unknown: bool = False,
+    ) -> str:
         key = f"{city}||{school_name}"
         if cache_lock:
             with cache_lock:
                 cached = registry_cache.get(key)
         else:
             cached = registry_cache.get(key)
-        if cached is not None:
+        if cached is not None and not (force_refresh_if_unknown and cached == "Neuvedeno"):
             return cached
-        try:
-            candidates = registry_search_by_city(city)
-            picked = registry_pick_candidate(city, school_name, candidates)
-            if not picked:
+        attempts = 3 if force_refresh_if_unknown else 1
+        for attempt in range(attempts):
+            try:
+                candidates = registry_search_by_city(city)
+                picked = registry_pick_candidate(city, school_name, candidates)
+                if not picked:
+                    out = "Neuvedeno"
+                else:
+                    sub_id = picked["id"]
+                    date_s = time.strftime("%Y-%m-%d")
+                    sub = http_get(f"https://isv.gov.cz/rssz/api/v1/sub/{sub_id}?stavKeDni={date_s}")
+                    zs_units = [z for z in sub.get("zarizeni", []) if z.get("druhSkoly") == "B00"]
+                    if not zs_units:
+                        out = "Neuvedeno"
+                    else:
+                        unit_id = zs_units[0]["id"]
+                        det = http_get(f"https://isv.gov.cz/rssz/api/v1/skola-skolske-zarizeni/{unit_id}?stavKeDni={date_s}")
+                        years = []
+                        for o in det.get("obory", []):
+                            m = re.match(r"\s*(\d+)\s*r", o.get("delkaVzdelavani", ""))
+                            if m:
+                                years.append(int(m.group(1)))
+                        if not years:
+                            out = "Neuvedeno"
+                        else:
+                            y = max(years)
+                            out = {9: "1-9", 5: "1-5", 4: "1-4", 2: "1-2", 1: "1."}.get(y, "1-9" if y > 9 else "Neuvedeno")
                 if cache_lock:
                     with cache_lock:
-                        registry_cache[key] = "Neuvedeno"
+                        registry_cache[key] = out
                 else:
-                    registry_cache[key] = "Neuvedeno"
-                return "Neuvedeno"
-            sub_id = picked["id"]
-            date_s = time.strftime("%Y-%m-%d")
-            sub = http_get(f"https://isv.gov.cz/rssz/api/v1/sub/{sub_id}?stavKeDni={date_s}")
-            zs_units = [z for z in sub.get("zarizeni", []) if z.get("druhSkoly") == "B00"]
-            if not zs_units:
-                if cache_lock:
-                    with cache_lock:
-                        registry_cache[key] = "Neuvedeno"
-                else:
-                    registry_cache[key] = "Neuvedeno"
-                return "Neuvedeno"
-            unit_id = zs_units[0]["id"]
-            det = http_get(f"https://isv.gov.cz/rssz/api/v1/skola-skolske-zarizeni/{unit_id}?stavKeDni={date_s}")
-            years = []
-            for o in det.get("obory", []):
-                m = re.match(r"\s*(\d+)\s*r", o.get("delkaVzdelavani", ""))
-                if m:
-                    years.append(int(m.group(1)))
-            if not years:
-                out = "Neuvedeno"
-            else:
-                y = max(years)
-                out = {9: "1-9", 5: "1-5", 4: "1-4", 2: "1-2", 1: "1."}.get(y, "1-9" if y > 9 else "Neuvedeno")
-            if cache_lock:
-                with cache_lock:
                     registry_cache[key] = out
-            else:
-                registry_cache[key] = out
-            return out
-        except Exception:
-            if cache_lock:
-                with cache_lock:
-                    registry_cache[key] = "Neuvedeno"
-            else:
+                return out
+            except Exception:
+                if attempt < attempts - 1:
+                    time.sleep(0.5)
+                    continue
+        if cache_lock:
+            with cache_lock:
                 registry_cache[key] = "Neuvedeno"
-            return "Neuvedeno"
+        else:
+            registry_cache[key] = "Neuvedeno"
+        return "Neuvedeno"
+
+
+    def registry_type_for_city_primary(city: str, registry_cache: dict, cache_lock: threading.Lock | None = None) -> str:
+        key = f"{city}||__PRIMARY_BY_CITY__"
+        if cache_lock:
+            with cache_lock:
+                cached = registry_cache.get(key)
+        else:
+            cached = registry_cache.get(key)
+        if cached is not None and cached != "Neuvedeno":
+            return cached
+
+        city_n = normalize_text(city)
+        out = "Neuvedeno"
+        for attempt in range(5):
+            try:
+                candidates = registry_search_by_city(city)
+                picked = None
+                for c in candidates:
+                    cname_n = normalize_text(c.get("nazev", ""))
+                    cadr_n = normalize_text(c.get("adresa", ""))
+                    if "zakladni skola" in cname_n and (city_n in cname_n or city_n in cadr_n):
+                        picked = c
+                        break
+                if not picked:
+                    break
+                sub_id = picked["id"]
+                date_s = time.strftime("%Y-%m-%d")
+                sub = http_get(f"https://isv.gov.cz/rssz/api/v1/sub/{sub_id}?stavKeDni={date_s}")
+                zs_units = [z for z in sub.get("zarizeni", []) if z.get("druhSkoly") == "B00"]
+                if not zs_units:
+                    break
+                unit_id = zs_units[0]["id"]
+                det = http_get(f"https://isv.gov.cz/rssz/api/v1/skola-skolske-zarizeni/{unit_id}?stavKeDni={date_s}")
+                years = []
+                for o in det.get("obory", []):
+                    m = re.match(r"\s*(\d+)\s*r", o.get("delkaVzdelavani", ""))
+                    if m:
+                        years.append(int(m.group(1)))
+                if years:
+                    y = max(years)
+                    out = {9: "1-9", 5: "1-5", 4: "1-4", 2: "1-2", 1: "1."}.get(y, "1-9" if y > 9 else "Neuvedeno")
+                break
+            except Exception:
+                if attempt < 4:
+                    time.sleep(0.8)
+                    continue
+
+        if cache_lock:
+            with cache_lock:
+                registry_cache[key] = out
+        else:
+            registry_cache[key] = out
+        return out
     
     unnamed_school_points = []
     # assign primary schools to nearest municipality within 6km
@@ -814,6 +872,7 @@ def main() -> None:
                 "lon": nearest["lon"],
                 "website": nearest.get("website"),
                 "tags": nearest.get("tags", {}),
+                "synthetic": True,
             })
     
     # only municipalities with at least one matched primary school
@@ -861,15 +920,25 @@ def main() -> None:
             if dur is None or dur > MAX_DRIVE_SEC:
                 return None
             school = sorted(m["schools"], key=lambda x: (0 if x.get("website") else 1, x["name"]))[0]
+            synthetic_school = bool(school.get("synthetic"))
             school_url = school.get("website")
             # Skip lookup when URL is already present from OSM.
-            if not school_url:
+            if not school_url and not synthetic_school:
                 school_url = find_school_website(school["name"], m["name"], url_cache, url_cache_lock)
             detected_type = infer_school_type(school["tags"], school["name"])
             if detected_type == "Neuvedeno":
-                detected_type = registry_type_for_school(m["name"], school["name"], registry_cache, registry_cache_lock)
+                registry_name = "Základní škola" if synthetic_school else school["name"]
+                detected_type = registry_type_for_school(
+                    m["name"],
+                    registry_name,
+                    registry_cache,
+                    registry_cache_lock,
+                    force_refresh_if_unknown=synthetic_school,
+                )
+            if detected_type == "Neuvedeno" and synthetic_school:
+                detected_type = registry_type_for_city_primary(m["name"], registry_cache, registry_cache_lock)
             # Skip website scrape unless still unresolved and URL exists.
-            if detected_type == "Neuvedeno" and school_url:
+            if detected_type == "Neuvedeno" and school_url and not synthetic_school:
                 detected_type = infer_type_from_website(
                     school_url, m["name"], school["name"], type_cache, type_cache_lock
                 )
@@ -915,7 +984,17 @@ def main() -> None:
         raise
     finally:
         save_all_caches()
-    
+
+    # Final sequential pass for synthetic fallback schools that stayed unresolved.
+    for r in rows:
+        if r.get("school_type") != "Neuvedeno":
+            continue
+        if not str(r.get("school_name", "")).startswith("Základní škola ("):
+            continue
+        resolved = registry_type_for_city_primary(r["city"], registry_cache, registry_cache_lock)
+        if resolved != "Neuvedeno":
+            r["school_type"] = resolved
+
     rows.sort(key=lambda r: (r["drive_min"], r["city"]))
     
     html_rows = []
