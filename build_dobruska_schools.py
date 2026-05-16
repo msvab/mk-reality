@@ -738,7 +738,6 @@ html = f"""<!doctype html>
 </html>
 """
 
-Path("dobruska_primary_schools.html").write_text(html, encoding="utf-8")
 Path("index.html").write_text(html, encoding="utf-8")
 Path("dobruska_primary_schools.json").write_text(json.dumps(rows, ensure_ascii=False, indent=2), encoding="utf-8")
 print(f"Wrote {len(rows)} rows")
