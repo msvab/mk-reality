@@ -11,6 +11,7 @@ import urllib.request
 from pathlib import Path
 from html import unescape
 from html import escape
+import tempfile
 
 DOBRUSKA = (50.2921062, 16.1605457)  # lat, lon
 RADIUS_M = 55000
@@ -251,15 +252,12 @@ def load_cache() -> dict:
         return {}
     try:
         return json.loads(CACHE_PATH.read_text(encoding="utf-8"))
-    except Exception:
-        return {}
+    except json.JSONDecodeError as e:
+        raise RuntimeError(f"Corrupted cache file: {CACHE_PATH}") from e
 
 
 def save_cache(cache: dict) -> None:
-    CACHE_PATH.write_text(
-        json.dumps(cache, ensure_ascii=False, indent=2),
-        encoding="utf-8"
-    )
+    _write_json_atomic(CACHE_PATH, cache)
 
 
 def load_type_cache() -> dict:
@@ -267,15 +265,12 @@ def load_type_cache() -> dict:
         return {}
     try:
         return json.loads(TYPE_CACHE_PATH.read_text(encoding="utf-8"))
-    except Exception:
-        return {}
+    except json.JSONDecodeError as e:
+        raise RuntimeError(f"Corrupted cache file: {TYPE_CACHE_PATH}") from e
 
 
 def save_type_cache(cache: dict) -> None:
-    TYPE_CACHE_PATH.write_text(
-        json.dumps(cache, ensure_ascii=False, indent=2),
-        encoding="utf-8"
-    )
+    _write_json_atomic(TYPE_CACHE_PATH, cache)
 
 
 def load_registry_cache() -> dict:
@@ -283,15 +278,12 @@ def load_registry_cache() -> dict:
         return {}
     try:
         return json.loads(REGISTRY_CACHE_PATH.read_text(encoding="utf-8"))
-    except Exception:
-        return {}
+    except json.JSONDecodeError as e:
+        raise RuntimeError(f"Corrupted cache file: {REGISTRY_CACHE_PATH}") from e
 
 
 def save_registry_cache(cache: dict) -> None:
-    REGISTRY_CACHE_PATH.write_text(
-        json.dumps(cache, ensure_ascii=False, indent=2),
-        encoding="utf-8"
-    )
+    _write_json_atomic(REGISTRY_CACHE_PATH, cache)
 
 
 def load_malotridky_cache() -> dict:
@@ -299,15 +291,28 @@ def load_malotridky_cache() -> dict:
         return {}
     try:
         return json.loads(MALOTRIDKY_CACHE_PATH.read_text(encoding="utf-8"))
-    except Exception:
-        return {}
+    except json.JSONDecodeError as e:
+        raise RuntimeError(f"Corrupted cache file: {MALOTRIDKY_CACHE_PATH}") from e
 
 
 def save_malotridky_cache(cache: dict) -> None:
-    MALOTRIDKY_CACHE_PATH.write_text(
-        json.dumps(cache, ensure_ascii=False, indent=2),
-        encoding="utf-8"
-    )
+    _write_json_atomic(MALOTRIDKY_CACHE_PATH, cache)
+
+
+def _write_json_atomic(path: Path, data: dict) -> None:
+    payload = json.dumps(data, ensure_ascii=False, indent=2)
+    with tempfile.NamedTemporaryFile(
+        mode="w",
+        encoding="utf-8",
+        dir=path.parent,
+        prefix=f".{path.name}.",
+        suffix=".tmp",
+        delete=False,
+    ) as tmp:
+        tmp.write(payload)
+        tmp.flush()
+        tmp_name = tmp.name
+    Path(tmp_name).replace(path)
 
 
 def fetch_mapotic_malotridky(cache: dict) -> list[dict]:
