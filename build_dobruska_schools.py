@@ -1184,7 +1184,7 @@ def registry_school_website(
                 return None
             school = sorted(m["schools"], key=lambda x: (0 if x.get("website") else 1, x["name"]))[0]
             synthetic_school = bool(school.get("synthetic"))
-            school_url = school.get("website") or manual_city_school_url(m["name"])
+            school_url = manual_city_school_url(m["name"]) or school.get("website")
             if not is_usable_school_url(school_url):
                 school_url = None
             if not school_url:
@@ -1284,6 +1284,12 @@ def registry_school_website(
     for r in rows:
         if not is_usable_school_url(r.get("school_url")):
             r["school_url"] = None
+
+    # Final manual corrections for known city-level school URLs.
+    for r in rows:
+        forced_url = manual_city_school_url(r["city"])
+        if forced_url:
+            r["school_url"] = forced_url
 
     # Backfill MŠ amenity using registry if OSM amenities missed it.
     for r in rows:
