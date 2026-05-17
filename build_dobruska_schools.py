@@ -20,6 +20,9 @@ CACHE_PATH = Path("school_url_cache.json")
 TYPE_CACHE_PATH = Path("school_type_cache.json")
 REGISTRY_CACHE_PATH = Path("school_registry_cache.json")
 MALOTRIDKY_CACHE_PATH = Path("mapotic_malotridky_cache.json")
+MANUAL_CITY_SCHOOL_URLS = {
+    "Třebechovice pod Orebem": "https://www.zst.cz/w/zakladni-skola/",
+}
 
 
 def http_post(url: str, data: str, timeout: int = 120) -> dict:
@@ -409,6 +412,10 @@ def load_cache() -> dict:
         if is_usable_school_url(value):
             cleaned[key] = value
     return cleaned
+
+
+def manual_city_school_url(city: str) -> str | None:
+    return MANUAL_CITY_SCHOOL_URLS.get(city)
 
 
 def save_cache(cache: dict) -> None:
@@ -1177,7 +1184,7 @@ def registry_school_website(
                 return None
             school = sorted(m["schools"], key=lambda x: (0 if x.get("website") else 1, x["name"]))[0]
             synthetic_school = bool(school.get("synthetic"))
-            school_url = school.get("website")
+            school_url = school.get("website") or manual_city_school_url(m["name"])
             if not is_usable_school_url(school_url):
                 school_url = None
             if not school_url:
@@ -1264,8 +1271,11 @@ def registry_school_website(
     for r in rows:
         if is_usable_school_url(r.get("school_url")):
             continue
-        filled = registry_school_website(r["city"], r["school_name"], registry_cache, registry_cache_lock)
+        filled = manual_city_school_url(r["city"])
+        synthetic_school = str(r.get("school_name", "")).startswith("Základní škola (")
         if not filled:
+            filled = registry_school_website(r["city"], r["school_name"], registry_cache, registry_cache_lock)
+        if not filled and not synthetic_school:
             filled = find_school_website_by_city(r["city"], url_cache, url_cache_lock)
         if filled:
             r["school_url"] = filled
