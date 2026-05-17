@@ -143,6 +143,38 @@ def is_bad_domain(url: str) -> bool:
     return any(x in host for x in blocked)
 
 
+def email_domain_candidates(emails: list[str]) -> list[str]:
+    blocked_domains = {
+        "gmail.com",
+        "seznam.cz",
+        "email.cz",
+        "centrum.cz",
+        "atlas.cz",
+        "post.cz",
+        "volny.cz",
+        "tiscali.cz",
+        "icloud.com",
+        "outlook.com",
+        "hotmail.com",
+    }
+    out = []
+    seen = set()
+    for email in emails or []:
+        if "@" not in email:
+            continue
+        domain = email.split("@", 1)[1].strip().lower()
+        domain = domain.strip(" .")
+        if not domain or domain in blocked_domains or "." not in domain:
+            continue
+        for candidate in (f"https://{domain}/", f"https://www.{domain}/"):
+            cleaned = normalize_url(candidate)
+            if not cleaned or cleaned in seen or is_bad_domain(cleaned):
+                continue
+            seen.add(cleaned)
+            out.append(cleaned)
+    return out
+
+
 def extract_candidate_links(html: str) -> list[str]:
     links = re.findall(r"""href=['"]([^'"]+)['"]""", html, flags=re.IGNORECASE)
     out = []
@@ -188,14 +220,63 @@ def extract_internal_links(base_url: str, html: str) -> list[str]:
     return out
 
 
-def score_school_url(url: str, city: str) -> int:
+def expand_school_name_queries(school_name: str, city: str) -> list[str]:
+    raw = (school_name or "").strip()
+    city = (city or "").strip()
+    variants = []
+
+    def add(query: str) -> None:
+        query = re.sub(r"\s+", " ", (query or "").strip())
+        if query and query not in variants:
+            variants.append(query)
+
+    expanded = raw
+    expanded = re.sub(r"\bZŠ\b", "Základní škola", expanded)
+    expanded = re.sub(r"\bMŠ\b", "mateřská škola", expanded)
+    compact = raw.replace("-", " ").replace(",", " ")
+    compact = re.sub(r"\s+", " ", compact).strip()
+
+    add(f"{raw} {city}")
+    add(f"{expanded} {city}")
+    add(f"{compact} {city}")
+    add(f"{raw} {city} oficiální stránky")
+    add(f"{expanded} {city} oficiální stránky")
+    add(f"{raw} {city} základní škola")
+    add(f"{expanded} {city} základní škola")
+
+    # Generic OSM names need city-driven fallbacks with common Czech variants.
+    generic_names = {
+        "základní škola",
+        "základní škola a mateřská škola",
+        "zš",
+        "zš a mš",
+    }
+    if normalize_text(raw) in generic_names:
+        add(f"ZŠ {city}")
+        add(f"Základní škola {city}")
+        add(f"ZŠ a MŠ {city}")
+        add(f"Základní škola a mateřská škola {city}")
+
+    return variants
+
+
+def score_school_url(url: str, city: str, school_name: str = "") -> int:
     host = urllib.parse.urlparse(url).netloc.lower()
     path = urllib.parse.urlparse(url).path.lower()
     text = f"{host}{path}"
+    normalized_text = normalize_text(text.replace(".", " ").replace("/", " ").replace("-", " ").replace("_", " "))
+    city_tokens = set(normalize_text(city).split())
+    school_tokens = school_name_tokens(school_name)
     score = 0
     if "zs" in text or "skola" in text or "edu" in text:
         score += 3
-    if city.lower().replace(" ", "") in text.replace("-", "").replace("_", ""):
+    if normalize_text(city).replace(" ", "") in normalized_text.replace(" ", ""):
+        score += 2
+    score += len(city_tokens & set(normalized_text.split())) * 2
+    score += len(school_tokens & set(normalized_text.split())) * 3
+    if school_tokens and len(school_tokens & set(normalized_text.split())) >= 2:
+        score += 2
+    if any(x in host for x in ["zs", "skola", "edu"]):
         score += 2
     if host.endswith(".cz"):
         score += 1
@@ -214,19 +295,20 @@ def find_school_website(school_name: str, city: str, cache: dict, cache_lock: th
     if has_cached:
         return cached or None
 
-    q = urllib.parse.quote_plus(f"{school_name} {city} základní škola")
-    search_urls = [
-        f"https://duckduckgo.com/html/?q={q}",
-        f"https://search.seznam.cz/?q={q}",
-        f"https://www.bing.com/search?q={q}",
-    ]
     candidates = []
-    for search_url in search_urls:
-        try:
-            html = http_get_text(search_url, timeout=10)
-        except Exception:
-            continue
-        candidates.extend(extract_candidate_links(html))
+    for qraw in expand_school_name_queries(school_name, city):
+        q = urllib.parse.quote_plus(qraw)
+        search_urls = [
+            f"https://duckduckgo.com/html/?q={q}",
+            f"https://search.seznam.cz/?q={q}",
+            f"https://www.bing.com/search?q={q}",
+        ]
+        for search_url in search_urls:
+            try:
+                html = http_get_text(search_url, timeout=10)
+            except Exception:
+                continue
+            candidates.extend(extract_candidate_links(html))
     candidates = candidates[:12]
 
     seen = set()
@@ -235,7 +317,7 @@ def find_school_website(school_name: str, city: str, cache: dict, cache_lock: th
         if cleaned in seen:
             continue
         seen.add(cleaned)
-        ranked.append((score_school_url(cleaned, city), cleaned))
+        ranked.append((score_school_url(cleaned, city, school_name), cleaned))
     ranked.sort(reverse=True)
     if ranked and ranked[0][0] > 0:
         if cache_lock:
@@ -762,55 +844,100 @@ def infer_type_from_website(url: str, city: str, school_name: str, type_cache: d
     else:
         type_cache[key] = detected
     return detected
-    
-    
-    def normalize_text(s: str) -> str:
-        t = (s or "").lower()
-        repl = {
-            "á": "a", "č": "c", "ď": "d", "é": "e", "ě": "e", "í": "i", "ň": "n",
-            "ó": "o", "ř": "r", "š": "s", "ť": "t", "ú": "u", "ů": "u", "ý": "y", "ž": "z",
-        }
-        for k, v in repl.items():
-            t = t.replace(k, v)
-        t = re.sub(r"[^a-z0-9 ]+", " ", t)
-        return re.sub(r"\s+", " ", t).strip()
-    
-    
-    def school_name_tokens(name: str) -> set[str]:
-        stop = {"zakladni", "skola", "a", "ms", "zs", "materska", "okres"}
-        toks = set(normalize_text(name).split())
-        return {t for t in toks if len(t) > 2 and t not in stop}
-    
-    
-    def registry_search_by_city(city: str) -> list[dict]:
-        url = "https://isv.gov.cz/rssz/api/v1/sub/vyhledej"
-        payload = json.dumps({"nazev": city}).encode("utf-8")
-        req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json"})
-        with urllib.request.urlopen(req, timeout=20) as r:
-            data = json.loads(r.read().decode("utf-8"))
-        return data.get("list", [])
-    
-    
-    def registry_pick_candidate(city: str, school_name: str, candidates: list[dict]) -> dict | None:
-        city_n = normalize_text(city)
-        target_tokens = school_name_tokens(school_name)
-        best = None
-        best_score = -1
-        for c in candidates:
-            cname_n = normalize_text(c.get("nazev", ""))
-            cadr_n = normalize_text(c.get("adresa", ""))
-            score = 0
-            if "zakladni skola" in cname_n:
-                score += 5
-            if city_n and (city_n in cname_n or city_n in cadr_n):
-                score += 4
-            score += len(target_tokens & school_name_tokens(c.get("nazev", ""))) * 3
-            if score > best_score:
-                best = c
-                best_score = score
-        if best_score < 6:
-            return None
-        return best
+def normalize_text(s: str) -> str:
+    t = (s or "").lower()
+    repl = {
+        "á": "a", "č": "c", "ď": "d", "é": "e", "ě": "e", "í": "i", "ň": "n",
+        "ó": "o", "ř": "r", "š": "s", "ť": "t", "ú": "u", "ů": "u", "ý": "y", "ž": "z",
+    }
+    for k, v in repl.items():
+        t = t.replace(k, v)
+    t = re.sub(r"[^a-z0-9 ]+", " ", t)
+    return re.sub(r"\s+", " ", t).strip()
+
+
+def school_name_tokens(name: str) -> set[str]:
+    stop = {"zakladni", "skola", "a", "ms", "zs", "materska", "okres"}
+    toks = set(normalize_text(name).split())
+    return {t for t in toks if len(t) > 2 and t not in stop}
+
+
+def registry_search_by_city(city: str) -> list[dict]:
+    url = "https://isv.gov.cz/rssz/api/v1/sub/vyhledej"
+    payload = json.dumps({"nazev": city}).encode("utf-8")
+    req = urllib.request.Request(url, data=payload, headers={"Content-Type": "application/json"})
+    with urllib.request.urlopen(req, timeout=20) as r:
+        data = json.loads(r.read().decode("utf-8"))
+    return data.get("list", [])
+
+
+def registry_pick_candidate(city: str, school_name: str, candidates: list[dict]) -> dict | None:
+    city_n = normalize_text(city)
+    target_tokens = school_name_tokens(school_name)
+    best = None
+    best_score = -1
+    for c in candidates:
+        cname_n = normalize_text(c.get("nazev", ""))
+        cadr_n = normalize_text(c.get("adresa", ""))
+        score = 0
+        if "zakladni skola" in cname_n:
+            score += 5
+        if city_n and (city_n in cname_n or city_n in cadr_n):
+            score += 4
+        score += len(target_tokens & school_name_tokens(c.get("nazev", ""))) * 3
+        if score > best_score:
+            best = c
+            best_score = score
+    if best_score < 6:
+        return None
+    return best
+
+
+def registry_school_website(
+    city: str,
+    school_name: str,
+    registry_cache: dict,
+    cache_lock: threading.Lock | None = None,
+) -> str | None:
+    key = f"{city}||{school_name}||__URL__"
+    if cache_lock:
+        with cache_lock:
+            cached = registry_cache.get(key)
+    else:
+        cached = registry_cache.get(key)
+    if cached is not None:
+        return cached or None
+
+    out = ""
+    try:
+        candidates = registry_search_by_city(city)
+        picked = registry_pick_candidate(city, school_name, candidates)
+        if picked:
+            date_s = time.strftime("%Y-%m-%d")
+            sub = http_get(f"https://isv.gov.cz/rssz/api/v1/sub/{picked['id']}?stavKeDni={date_s}")
+            urls = []
+            for url in email_domain_candidates(sub.get("emaily", [])):
+                score = score_school_url(url, city, school_name)
+                urls.append((score, url))
+            urls.sort(reverse=True)
+            if urls:
+                best_score, best_url = urls[0]
+                best_text = normalize_text(best_url.replace(".", " ").replace("/", " ").replace("-", " ").replace("_", " "))
+                best_tokens = set(best_text.split())
+                best_host = urllib.parse.urlparse(best_url).netloc.lower()
+                has_school_marker = any(x in best_host for x in ["zs", "skola", "edu"])
+                token_overlap = len(school_name_tokens(school_name) & best_tokens)
+                if best_score > 0 and (has_school_marker or token_overlap >= 1):
+                    out = best_url
+    except Exception:
+        out = ""
+
+    if cache_lock:
+        with cache_lock:
+            registry_cache[key] = out
+    else:
+        registry_cache[key] = out
+    return out or None
     
     
     def registry_type_for_school(
@@ -1052,6 +1179,13 @@ def infer_type_from_website(url: str, city: str, school_name: str, type_cache: d
             school_url = school.get("website")
             if not is_usable_school_url(school_url):
                 school_url = None
+            if not school_url:
+                school_url = registry_school_website(
+                    m["name"],
+                    school["name"],
+                    registry_cache,
+                    registry_cache_lock,
+                )
             # Skip lookup when URL is already present from OSM.
             if not school_url and not synthetic_school:
                 school_url = find_school_website(school["name"], m["name"], url_cache, url_cache_lock)
@@ -1127,9 +1261,11 @@ def infer_type_from_website(url: str, city: str, school_name: str, type_cache: d
 
     # Fill missing school links using city-focused primary school search.
     for r in rows:
-        if r.get("school_url"):
+        if is_usable_school_url(r.get("school_url")):
             continue
-        filled = find_school_website_by_city(r["city"], url_cache, url_cache_lock)
+        filled = registry_school_website(r["city"], r["school_name"], registry_cache, registry_cache_lock)
+        if not filled:
+            filled = find_school_website_by_city(r["city"], url_cache, url_cache_lock)
         if filled:
             r["school_url"] = filled
 
