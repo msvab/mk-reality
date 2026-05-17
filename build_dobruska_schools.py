@@ -274,6 +274,8 @@ def find_school_website_by_city(city: str, cache: dict, cache_lock: threading.Lo
     queries = [
         f"ZŠ {city}",
         f"Základní škola {city}",
+        f"ZŠ a MŠ {city}",
+        f"Základní škola a mateřská škola {city}",
     ]
     candidates = []
     for qraw in queries:
