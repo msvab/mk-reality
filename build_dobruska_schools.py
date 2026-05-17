@@ -99,6 +99,13 @@ def normalize_url(url):
     return u
 
 
+def is_usable_school_url(url: str | None) -> bool:
+    cleaned = normalize_url(url)
+    if not cleaned:
+        return False
+    return not is_bad_domain(cleaned)
+
+
 def safe_href(url: str | None) -> str | None:
     cleaned = normalize_url(url)
     if not cleaned:
@@ -307,9 +314,13 @@ def load_cache() -> dict:
     if not CACHE_PATH.exists():
         return {}
     try:
-        return json.loads(CACHE_PATH.read_text(encoding="utf-8"))
+        raw = json.loads(CACHE_PATH.read_text(encoding="utf-8"))
     except json.JSONDecodeError as e:
         raise RuntimeError(f"Corrupted cache file: {CACHE_PATH}") from e
+    cleaned = {}
+    for key, value in raw.items():
+        cleaned[key] = value if is_usable_school_url(value) else ""
+    return cleaned
 
 
 def save_cache(cache: dict) -> None:
@@ -701,41 +712,43 @@ def main() -> None:
         return "Neuvedeno"
     
     
-    def infer_type_from_website(url: str, city: str, school_name: str, type_cache: dict, cache_lock: threading.Lock | None = None) -> str:
-        key = f"{url}||{city}||{school_name}"
-        if cache_lock:
-            with cache_lock:
-                cached = type_cache.get(key)
-        else:
+def infer_type_from_website(url: str, city: str, school_name: str, type_cache: dict, cache_lock: threading.Lock | None = None) -> str:
+    if not is_usable_school_url(url):
+        return "Neuvedeno"
+    key = f"{url}||{city}||{school_name}"
+    if cache_lock:
+        with cache_lock:
             cached = type_cache.get(key)
-        if cached is not None:
-            return cached
-        try:
-            html = http_get_text(url, timeout=8)
-            detected = infer_school_type_from_text(strip_html_text(html))
-            if detected == "Neuvedeno":
-                candidate_pages = extract_internal_links(url, html)
-                preferred = []
-                for u in candidate_pages:
-                    l = u.lower()
-                    if any(k in l for k in ["o-skole", "o-skola", "o-nas", "charakteristika", "zakladni-skola", "zs/"]):
-                        preferred.append(u)
-                for sub_url in preferred[:4]:
-                    try:
-                        sub_html = http_get_text(sub_url, timeout=6)
-                    except Exception:
-                        continue
-                    detected = infer_school_type_from_text(strip_html_text(sub_html))
-                    if detected != "Neuvedeno":
-                        break
-        except Exception:
-            detected = "Neuvedeno"
-        if cache_lock:
-            with cache_lock:
-                type_cache[key] = detected
-        else:
+    else:
+        cached = type_cache.get(key)
+    if cached is not None:
+        return cached
+    try:
+        html = http_get_text(url, timeout=8)
+        detected = infer_school_type_from_text(strip_html_text(html))
+        if detected == "Neuvedeno":
+            candidate_pages = extract_internal_links(url, html)
+            preferred = []
+            for u in candidate_pages:
+                l = u.lower()
+                if any(k in l for k in ["o-skole", "o-skola", "o-nas", "charakteristika", "zakladni-skola", "zs/"]):
+                    preferred.append(u)
+            for sub_url in preferred[:4]:
+                try:
+                    sub_html = http_get_text(sub_url, timeout=6)
+                except Exception:
+                    continue
+                detected = infer_school_type_from_text(strip_html_text(sub_html))
+                if detected != "Neuvedeno":
+                    break
+    except Exception:
+        detected = "Neuvedeno"
+    if cache_lock:
+        with cache_lock:
             type_cache[key] = detected
-        return detected
+    else:
+        type_cache[key] = detected
+    return detected
     
     
     def normalize_text(s: str) -> str:
@@ -1024,6 +1037,8 @@ def main() -> None:
             school = sorted(m["schools"], key=lambda x: (0 if x.get("website") else 1, x["name"]))[0]
             synthetic_school = bool(school.get("synthetic"))
             school_url = school.get("website")
+            if not is_usable_school_url(school_url):
+                school_url = None
             # Skip lookup when URL is already present from OSM.
             if not school_url and not synthetic_school:
                 school_url = find_school_website(school["name"], m["name"], url_cache, url_cache_lock)
