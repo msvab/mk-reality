@@ -96,7 +96,8 @@ def normalize_url(url):
     parsed = urllib.parse.urlparse(u)
     if not parsed.netloc or "." not in parsed.netloc:
         return None
-    return u
+    cleaned = parsed._replace(query="", fragment="")
+    return urllib.parse.urlunparse(cleaned)
 
 
 def is_usable_school_url(url: str | None) -> bool:
