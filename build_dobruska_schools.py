@@ -250,6 +250,59 @@ def find_school_website(school_name: str, city: str, cache: dict, cache_lock: th
     return None
 
 
+def find_school_website_by_city(city: str, cache: dict, cache_lock: threading.Lock | None = None) -> str | None:
+    key = f"__city__||{city}"
+    if cache_lock:
+        with cache_lock:
+            has_cached = key in cache
+            cached = cache.get(key)
+    else:
+        has_cached = key in cache
+        cached = cache.get(key)
+    if has_cached:
+        return cached or None
+
+    queries = [
+        f"ZŠ {city}",
+        f"Základní škola {city}",
+    ]
+    candidates = []
+    for qraw in queries:
+        q = urllib.parse.quote_plus(qraw)
+        search_urls = [
+            f"https://duckduckgo.com/html/?q={q}",
+            f"https://search.seznam.cz/?q={q}",
+            f"https://www.bing.com/search?q={q}",
+        ]
+        for search_url in search_urls:
+            try:
+                html = http_get_text(search_url, timeout=10)
+            except Exception:
+                continue
+            candidates.extend(extract_candidate_links(html))
+
+    ranked = []
+    seen = set()
+    for url in candidates[:20]:
+        if url in seen:
+            continue
+        seen.add(url)
+        score = score_school_url(url, city)
+        host = urllib.parse.urlparse(url).netloc.lower()
+        if any(x in host for x in ["zs", "skola", "edu"]):
+            score += 2
+        ranked.append((score, url))
+    ranked.sort(reverse=True)
+
+    out = ranked[0][1] if ranked and ranked[0][0] > 0 else ""
+    if cache_lock:
+        with cache_lock:
+            cache[key] = out
+    else:
+        cache[key] = out
+    return out or None
+
+
 def load_cache() -> dict:
     if not CACHE_PATH.exists():
         return {}
@@ -575,6 +628,17 @@ def main() -> None:
         if "primary" in operator_type:
             return True
         return False
+
+
+    def looks_kindergarten_hint(tags: dict, name: str) -> bool:
+        n = (name or "").lower()
+        school_type = (tags.get("school") or "").lower()
+        desc = (tags.get("description") or "").lower()
+        combined = " ".join([n, school_type, desc])
+        return any(
+            x in combined
+            for x in ["mateřská škola", "materska skola", " mš", " ms", "zš a mš", "zs a ms"]
+        )
     
     
     def infer_school_type(tags: dict, name: str) -> str:
@@ -835,6 +899,42 @@ def main() -> None:
         else:
             registry_cache[key] = out
         return out
+
+
+    def registry_city_has_kindergarten(city: str, registry_cache: dict, cache_lock: threading.Lock | None = None) -> bool:
+        key = f"{city}||__HAS_MATERSKA__"
+        if cache_lock:
+            with cache_lock:
+                cached = registry_cache.get(key)
+        else:
+            cached = registry_cache.get(key)
+        if cached is not None:
+            return cached == "1"
+
+        out = False
+        city_n = normalize_text(city)
+        for attempt in range(3):
+            try:
+                candidates = registry_search_by_city(city)
+                for c in candidates:
+                    cname_n = normalize_text(c.get("nazev", ""))
+                    cadr_n = normalize_text(c.get("adresa", ""))
+                    if city_n and not (city_n in cname_n or city_n in cadr_n):
+                        continue
+                    if "materska skola" in cname_n or " m s " in f" {cname_n} ":
+                        out = True
+                        break
+                break
+            except Exception:
+                if attempt < 2:
+                    time.sleep(0.5)
+                    continue
+        if cache_lock:
+            with cache_lock:
+                registry_cache[key] = "1" if out else "0"
+        else:
+            registry_cache[key] = "1" if out else "0"
+        return out
     
     unnamed_school_points = []
     # assign primary schools to nearest municipality within 6km
@@ -853,6 +953,8 @@ def main() -> None:
                 nearest_d = d
         if nearest is not None and nearest_d <= 6:
             nearest["schools"].append(s)
+            if looks_kindergarten_hint(s["tags"], s["name"]):
+                nearest["amenities"]["kindergarten"] = True
 
     # Fallback: if a municipality has no matched primary school, use a very nearby unnamed school.
     for m in municipalities:
@@ -994,6 +1096,21 @@ def main() -> None:
         resolved = registry_type_for_city_primary(r["city"], registry_cache, registry_cache_lock)
         if resolved != "Neuvedeno":
             r["school_type"] = resolved
+
+    # Fill missing school links using city-focused primary school search.
+    for r in rows:
+        if r.get("school_url"):
+            continue
+        filled = find_school_website_by_city(r["city"], url_cache, url_cache_lock)
+        if filled:
+            r["school_url"] = filled
+
+    # Backfill MŠ amenity using registry if OSM amenities missed it.
+    for r in rows:
+        if "MŠ" in r.get("amenities", ""):
+            continue
+        if registry_city_has_kindergarten(r["city"], registry_cache, registry_cache_lock):
+            r["amenities"] = "MŠ" if r["amenities"] == "—" else f"MŠ, {r['amenities']}"
 
     rows.sort(key=lambda r: (r["drive_min"], r["city"]))
     
