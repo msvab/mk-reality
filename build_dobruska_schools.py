@@ -124,6 +124,7 @@ def is_bad_domain(url: str) -> bool:
         "google.",
         "bing.com",
         "r.bing.com",
+        "duckduckgo.com",
         "seznam.cz",
         "edulist.cz",
         "facebook.com",
@@ -320,12 +321,17 @@ def load_cache() -> dict:
         raise RuntimeError(f"Corrupted cache file: {CACHE_PATH}") from e
     cleaned = {}
     for key, value in raw.items():
-        cleaned[key] = value if is_usable_school_url(value) else ""
+        if is_usable_school_url(value):
+            cleaned[key] = value
     return cleaned
 
 
 def save_cache(cache: dict) -> None:
-    _write_json_atomic(CACHE_PATH, cache)
+    filtered = {}
+    for key, value in cache.items():
+        if is_usable_school_url(value):
+            filtered[key] = value
+    _write_json_atomic(CACHE_PATH, filtered)
 
 
 def load_type_cache() -> dict:
@@ -1124,6 +1130,11 @@ def infer_type_from_website(url: str, city: str, school_name: str, type_cache: d
         filled = find_school_website_by_city(r["city"], url_cache, url_cache_lock)
         if filled:
             r["school_url"] = filled
+
+    # Never publish search-engine placeholders as school URLs.
+    for r in rows:
+        if not is_usable_school_url(r.get("school_url")):
+            r["school_url"] = None
 
     # Backfill MŠ amenity using registry if OSM amenities missed it.
     for r in rows:
