@@ -125,6 +125,7 @@ def is_bad_domain(url: str) -> bool:
         "bing.com",
         "r.bing.com",
         "seznam.cz",
+        "edulist.cz",
         "facebook.com",
         "instagram.com",
         "youtube.com",
@@ -702,6 +703,10 @@ def main() -> None:
             (r"\b1\s*[-–]\s*5\b", "1-5"),
             (r"\b1\s*[-–]\s*4\b", "1-4"),
             (r"\b1\s*[-–]\s*2\b", "1-2"),
+            (r"\bod\s*1\.\s*do\s*9\.\s*t", "1-9"),
+            (r"\bod\s*1\.\s*do\s*5\.\s*t", "1-5"),
+            (r"\bod\s*1\.\s*do\s*4\.\s*t", "1-4"),
+            (r"\bod\s*1\.\s*do\s*2\.\s*t", "1-2"),
         ]:
             if re.search(pattern, t):
                 return value
