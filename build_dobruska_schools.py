@@ -20,6 +20,7 @@ CACHE_PATH = Path("school_url_cache.json")
 TYPE_CACHE_PATH = Path("school_type_cache.json")
 REGISTRY_CACHE_PATH = Path("school_registry_cache.json")
 MALOTRIDKY_CACHE_PATH = Path("mapotic_malotridky_cache.json")
+REAL_ESTATE_ADS_BY_CITY_PATH = Path("real_estate_ads_by_city.json")
 MANUAL_CITY_SCHOOL_URLS = {
     "Třebechovice pod Orebem": "https://www.zst.cz/w/zakladni-skola/",
 }
@@ -120,6 +121,215 @@ def safe_href(url: str | None) -> str | None:
     if not parsed.netloc:
         return None
     return cleaned
+
+
+def load_real_estate_ads_by_city() -> dict | None:
+    if not REAL_ESTATE_ADS_BY_CITY_PATH.exists():
+        return None
+    try:
+        payload = json.loads(REAL_ESTATE_ADS_BY_CITY_PATH.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as e:
+        print(f"Skipping real estate ads feed: invalid JSON in {REAL_ESTATE_ADS_BY_CITY_PATH}: {e}", flush=True)
+        return None
+    if not isinstance(payload, dict):
+        print(f"Skipping real estate ads feed: expected object in {REAL_ESTATE_ADS_BY_CITY_PATH}", flush=True)
+        return None
+    cities = payload.get("cities", {})
+    if not isinstance(cities, dict):
+        print(f"Skipping real estate ads feed: expected 'cities' object in {REAL_ESTATE_ADS_BY_CITY_PATH}", flush=True)
+        return None
+    payload["cities"] = cities
+    return payload
+
+
+def _display_join(value) -> str:
+    if isinstance(value, list):
+        return ", ".join(str(item) for item in value if str(item).strip()) or "—"
+    text = str(value).strip() if value is not None else ""
+    return text or "—"
+
+
+def _json_script_payload(value) -> str:
+    return json.dumps(value, ensure_ascii=False).replace("</", "<\\/")
+
+
+def city_ads_bundle(feed: dict | None, city: str) -> dict:
+    if not feed:
+        return {"count": 0, "ads": [], "coverage": {}, "assumptions": [], "gaps": []}
+    cities = feed.get("cities", {})
+    bundle = cities.get(city, {})
+    if not isinstance(bundle, dict):
+        return {"count": 0, "ads": [], "coverage": {}, "assumptions": [], "gaps": []}
+    ads = bundle.get("ads", [])
+    if not isinstance(ads, list):
+        ads = []
+    coverage = bundle.get("coverage", {})
+    if not isinstance(coverage, dict):
+        coverage = {}
+    assumptions = bundle.get("assumptions", [])
+    if not isinstance(assumptions, list):
+        assumptions = []
+    gaps = bundle.get("gaps", [])
+    if not isinstance(gaps, list):
+        gaps = []
+    count = bundle.get("count", len(ads))
+    if not isinstance(count, int):
+        count = len(ads)
+    return {
+        "count": count,
+        "ads": ads,
+        "coverage": coverage,
+        "assumptions": assumptions,
+        "gaps": gaps,
+    }
+
+
+def render_ads_count_cell(city: str, feed: dict | None) -> str:
+    bundle = city_ads_bundle(feed, city)
+    count = bundle["count"]
+    if count <= 0:
+        return '<span class="ads-count ads-count-empty">0</span>'
+    city_attr = escape(city, quote=True)
+    return f'<button type="button" class="ads-count ads-count-button" data-city="{city_attr}">{count}</button>'
+
+
+def render_ads_drawer_assets(feed: dict | None) -> str:
+    if not feed:
+        return ""
+    payload = {}
+    for city, bundle in feed.get("cities", {}).items():
+        if not isinstance(bundle, dict):
+            continue
+        payload[city] = city_ads_bundle(feed, city)
+    return f"""
+      <div class="ads-drawer-backdrop" id="ads-drawer-backdrop" hidden></div>
+      <aside class="ads-drawer" id="ads-drawer" aria-hidden="true">
+        <div class="ads-drawer-header">
+          <div>
+            <h2 id="ads-drawer-title">Inzeráty</h2>
+            <p id="ads-drawer-summary">Vyberte obec.</p>
+          </div>
+          <button type="button" class="ads-drawer-close" id="ads-drawer-close" aria-label="Zavřít">×</button>
+        </div>
+        <div class="ads-drawer-meta" id="ads-drawer-meta"></div>
+        <div class="ads-drawer-table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Portál</th>
+                <th>Nabídka</th>
+                <th>Lokalita</th>
+                <th>Typ</th>
+                <th>Cena</th>
+                <th>Dům m2</th>
+                <th>Pozemek m2</th>
+                <th>Odkazy</th>
+                <th>Poznámky</th>
+              </tr>
+            </thead>
+            <tbody id="ads-drawer-body"></tbody>
+          </table>
+        </div>
+      </aside>
+      <script id="ads-by-city-data" type="application/json">{_json_script_payload(payload)}</script>
+      <script>
+        (() => {{
+          const dataNode = document.getElementById("ads-by-city-data");
+          if (!dataNode) return;
+          const adsByCity = JSON.parse(dataNode.textContent || "{{}}");
+          const drawer = document.getElementById("ads-drawer");
+          const backdrop = document.getElementById("ads-drawer-backdrop");
+          const closeButton = document.getElementById("ads-drawer-close");
+          const title = document.getElementById("ads-drawer-title");
+          const summary = document.getElementById("ads-drawer-summary");
+          const meta = document.getElementById("ads-drawer-meta");
+          const body = document.getElementById("ads-drawer-body");
+
+          const escapeHtml = (value) => String(value ?? "—")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#39;");
+
+          const displayValue = (value) => {{
+            if (Array.isArray(value)) {{
+              const joined = value.filter(Boolean).join(", ");
+              return joined || "—";
+            }}
+            if (value === null || value === undefined || value === "") return "—";
+            return String(value);
+          }};
+
+          const renderLinks = (urls) => {{
+            if (!Array.isArray(urls) || urls.length === 0) return "—";
+            return urls.map((url) => {{
+              try {{
+                const host = new URL(url).host || "odkaz";
+                return `<a href="${{escapeHtml(url)}}" target="_blank" rel="noopener noreferrer">${{escapeHtml(host)}}</a>`;
+              }} catch (_err) {{
+                return "";
+              }}
+            }}).filter(Boolean).join("<br>");
+          }};
+
+          const closeDrawer = () => {{
+            drawer.setAttribute("aria-hidden", "true");
+            drawer.classList.remove("ads-drawer-open");
+            backdrop.hidden = true;
+          }};
+
+          const openDrawer = (city) => {{
+            const bundle = adsByCity[city];
+            if (!bundle) return;
+            title.textContent = `Inzeráty: ${{city}}`;
+            summary.textContent = `Počet inzerátů: ${{bundle.count ?? 0}}`;
+            const workers = bundle.coverage || {{}};
+            const metaParts = [];
+            if (workers.workers_with_results !== undefined && workers.workers_launched !== undefined) {{
+              metaParts.push(`Portály s výsledky: ${{workers.workers_with_results}}/${{workers.workers_launched}}`);
+            }}
+            if (Array.isArray(bundle.gaps) && bundle.gaps.length > 0) {{
+              metaParts.push(`Mezery: ${{bundle.gaps.join(", ")}}`);
+            }}
+            meta.textContent = metaParts.join(" | ");
+            body.innerHTML = "";
+
+            for (const ad of bundle.ads || []) {{
+              const row = document.createElement("tr");
+              const cells = [
+                {{ html: escapeHtml(displayValue(ad.portal)) }},
+                {{ html: escapeHtml(displayValue(ad.title)) }},
+                {{ html: escapeHtml(displayValue(ad.location)) }},
+                {{ html: escapeHtml(displayValue(ad.property_type)) }},
+                {{ html: escapeHtml(displayValue(ad.price)) }},
+                {{ html: escapeHtml(displayValue(ad.house_area_m2)) }},
+                {{ html: escapeHtml(displayValue(ad.land_area_m2)) }},
+                {{ html: renderLinks(ad.urls) }},
+                {{ html: escapeHtml(displayValue(ad.notes)) }},
+              ];
+              row.innerHTML = cells.map((cell) => `<td>${{cell.html}}</td>`).join("");
+              body.appendChild(row);
+            }}
+
+            drawer.setAttribute("aria-hidden", "false");
+            drawer.classList.add("ads-drawer-open");
+            backdrop.hidden = false;
+          }};
+
+          document.querySelectorAll(".ads-count-button").forEach((button) => {{
+            button.addEventListener("click", () => openDrawer(button.dataset.city));
+          }});
+          closeButton?.addEventListener("click", closeDrawer);
+          backdrop?.addEventListener("click", closeDrawer);
+          document.addEventListener("keydown", (event) => {{
+            if (event.key === "Escape" && drawer.classList.contains("ads-drawer-open")) {{
+              closeDrawer();
+            }}
+          }});
+        }})();
+      </script>
+    """
 
 
 def is_bad_domain(url: str) -> bool:
@@ -1299,7 +1509,8 @@ def registry_school_website(
             r["amenities"] = "MŠ" if r["amenities"] == "—" else f"MŠ, {r['amenities']}"
 
     rows.sort(key=lambda r: (r["drive_min"], r["city"]))
-    
+
+    ads_by_city = load_real_estate_ads_by_city()
     html_rows = []
     for r in rows:
         pop = f"{r['population']:,}".replace(",", " ") if r["population"] is not None else "N/A"
@@ -1309,15 +1520,17 @@ def registry_school_website(
         amenities_text = escape(str(r["amenities"]))
         school_type_text = escape(str(r["school_type"]))
         school_name_text = escape(str(r["school_name"]))
+        ads_count_cell = render_ads_count_cell(r["city"], ads_by_city)
         href = safe_href(r.get("school_url"))
         if href:
             school_cell = f'<a href="{escape(href, quote=True)}" target="_blank" rel="noopener noreferrer">{school_name_text}</a>'
         else:
             school_cell = school_name_text
         html_rows.append(
-            f"<tr><td>{city_text}</td><td>{pop_text}</td><td>{drive_text}</td><td>{amenities_text}</td><td>{school_type_text}</td><td>{school_cell}</td></tr>"
+            f"<tr><td>{city_text}</td><td>{pop_text}</td><td>{drive_text}</td><td>{amenities_text}</td><td>{ads_count_cell}</td><td>{school_type_text}</td><td>{school_cell}</td></tr>"
         )
-    
+
+    ads_drawer_assets = render_ads_drawer_assets(ads_by_city)
     generated_on = time.strftime("%Y-%m-%d")
     html = f"""<!doctype html>
     <html lang=\"en\">
@@ -1333,6 +1546,25 @@ def registry_school_website(
         th, td {{ border: 1px solid #ddd; padding: 8px; text-align: left; }}
         th {{ background: #f4f4f4; }}
         tr:nth-child(even) {{ background: #fafafa; }}
+        .ads-count {{ display: inline-flex; align-items: center; justify-content: center; min-width: 36px; padding: 4px 10px; border-radius: 999px; font-size: 14px; }}
+        .ads-count-empty {{ background: #ececec; color: #666; }}
+        .ads-count-button {{ border: 0; background: #0f766e; color: #fff; cursor: pointer; }}
+        .ads-count-button:hover {{ background: #115e59; }}
+        .ads-drawer-backdrop {{ position: fixed; inset: 0; background: rgba(15, 23, 42, 0.45); }}
+        .ads-drawer {{ position: fixed; top: 0; right: 0; width: min(820px, 100vw); height: 100vh; background: #fff; box-shadow: -10px 0 30px rgba(0, 0, 0, 0.18); transform: translateX(100%); transition: transform 0.2s ease; z-index: 20; display: flex; flex-direction: column; }}
+        .ads-drawer-open {{ transform: translateX(0); }}
+        .ads-drawer-header {{ display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 20px 24px 8px; border-bottom: 1px solid #e5e7eb; }}
+        .ads-drawer-header h2 {{ margin: 0 0 6px; }}
+        .ads-drawer-close {{ border: 0; background: transparent; font-size: 32px; line-height: 1; cursor: pointer; color: #555; }}
+        .ads-drawer-meta {{ padding: 12px 24px 0; color: #555; font-size: 14px; }}
+        .ads-drawer-table-wrap {{ overflow: auto; padding: 16px 24px 24px; }}
+        @media (max-width: 720px) {{
+          body {{ margin: 12px; }}
+          th, td {{ padding: 6px; font-size: 14px; }}
+          .ads-drawer-header {{ padding: 16px 16px 8px; }}
+          .ads-drawer-meta {{ padding: 12px 16px 0; }}
+          .ads-drawer-table-wrap {{ padding: 16px; }}
+        }}
       </style>
     </head>
     <body>
@@ -1345,6 +1577,7 @@ def registry_school_website(
             <th>Počet obyvatel</th>
             <th>Dojezd z Dobrušky (min)</th>
             <th>Vybavenost</th>
+            <th>Počet inzerátů</th>
             <th>Typ školy</th>
             <th>Základní škola</th>
           </tr>
@@ -1353,6 +1586,7 @@ def registry_school_website(
           {''.join(html_rows)}
         </tbody>
       </table>
+      {ads_drawer_assets}
     </body>
     </html>
     """

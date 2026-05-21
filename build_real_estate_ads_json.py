@@ -1,0 +1,240 @@
+import argparse
+import json
+import re
+import time
+import urllib.parse
+from pathlib import Path
+
+
+DEFAULT_WORKERS = [
+    "reality.idnes.cz",
+    "mmreality.cz",
+    "realitymix.cz",
+    "reality.aktualne.cz",
+]
+
+
+def normalize_url(url: str | None) -> str | None:
+    if not url:
+        return None
+    value = str(url).strip()
+    if not value:
+        return None
+    if not (value.startswith("http://") or value.startswith("https://")):
+        value = "https://" + value
+    parsed = urllib.parse.urlparse(value)
+    if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+        return None
+    cleaned = parsed._replace(query="", fragment="")
+    return urllib.parse.urlunparse(cleaned)
+
+
+def normalize_list(value) -> list[str]:
+    if value is None:
+        return []
+    if isinstance(value, list):
+        items = value
+    else:
+        items = [value]
+    out = []
+    seen = set()
+    for item in items:
+        text = str(item).strip()
+        if not text or text in seen:
+            continue
+        seen.add(text)
+        out.append(text)
+    return out
+
+
+def normalize_text(text: str) -> str:
+    return re.sub(r"\s+", " ", text.strip().lower())
+
+
+def parse_price_czk(value) -> int | None:
+    if value is None:
+        return None
+    text = normalize_text(str(value))
+    if not text or text == "unknown":
+        return None
+    compact = text.replace("\xa0", " ")
+    million_match = re.search(r"(\d+(?:[.,]\d+)?)\s*mil", compact)
+    if million_match:
+        return int(round(float(million_match.group(1).replace(",", ".")) * 1_000_000))
+    digits = re.sub(r"[^\d]", "", compact)
+    if not digits:
+        return None
+    return int(digits)
+
+
+def parse_area_m2(value) -> int | None:
+    if value is None:
+        return None
+    text = normalize_text(str(value))
+    if not text or text == "unknown":
+        return None
+    match = re.search(r"\d[\d\s\xa0.,]*", text)
+    if not match:
+        return None
+    digits = re.sub(r"[^\d]", "", match.group(0))
+    if not digits:
+        return None
+    return int(digits)
+
+
+def normalize_listing(raw: dict) -> dict | None:
+    title = str(raw.get("title", "")).strip()
+    location = str(raw.get("location", "")).strip()
+    property_type = normalize_text(str(raw.get("property_type", "") or "unknown"))
+    price = str(raw.get("price", "")).strip()
+    portals = normalize_list(raw.get("portal"))
+    urls = [url for url in (normalize_url(item) for item in normalize_list(raw.get("urls"))) if url]
+    notes = normalize_list(raw.get("notes"))
+
+    if not title or not location or not portals or not urls:
+        return None
+
+    price_czk = parse_price_czk(price)
+    house_area_m2 = parse_area_m2(raw.get("house_area_m2"))
+    land_area_m2 = parse_area_m2(raw.get("land_area_m2"))
+
+    if price_czk is None:
+        return None
+    if property_type in {"house", "land"}:
+        if land_area_m2 is None or land_area_m2 < 1000:
+            return None
+
+    return {
+        "portal": portals,
+        "title": title,
+        "location": location,
+        "property_type": property_type or "unknown",
+        "price": price,
+        "price_czk": price_czk,
+        "house_area_m2": house_area_m2,
+        "land_area_m2": land_area_m2,
+        "urls": urls,
+        "notes": notes,
+    }
+
+
+def listing_fingerprint(listing: dict) -> tuple:
+    return (
+        normalize_text(listing["location"]),
+        listing["property_type"],
+        normalize_text(listing["title"]),
+        listing["house_area_m2"],
+        listing["land_area_m2"],
+    )
+
+
+def merge_listing(base: dict, incoming: dict) -> dict:
+    merged = dict(base)
+    merged["portal"] = sorted(set(base["portal"]) | set(incoming["portal"]))
+    merged["urls"] = sorted(set(base["urls"]) | set(incoming["urls"]))
+    merged["notes"] = list(base["notes"])
+    for note in incoming["notes"]:
+        if note not in merged["notes"]:
+            merged["notes"].append(note)
+    if incoming["price_czk"] < base["price_czk"]:
+        merged["notes"].append(f"duplicate-price:{','.join(base['portal'])}={base['price']}")
+        merged["price"] = incoming["price"]
+        merged["price_czk"] = incoming["price_czk"]
+    elif incoming["price_czk"] > base["price_czk"]:
+        merged["notes"].append(f"duplicate-price:{','.join(incoming['portal'])}={incoming['price']}")
+    for portal in incoming["portal"]:
+        tag = f"duplicate-merged-from:{portal}"
+        if tag not in merged["notes"]:
+            merged["notes"].append(tag)
+    if (incoming["house_area_m2"] or 0) > (merged["house_area_m2"] or 0):
+        merged["house_area_m2"] = incoming["house_area_m2"]
+    if (incoming["land_area_m2"] or 0) > (merged["land_area_m2"] or 0):
+        merged["land_area_m2"] = incoming["land_area_m2"]
+    return merged
+
+
+def dedupe_and_sort(listings: list[dict]) -> list[dict]:
+    merged = {}
+    for listing in listings:
+        key = listing_fingerprint(listing)
+        if key in merged:
+            merged[key] = merge_listing(merged[key], listing)
+        else:
+            merged[key] = listing
+    return sorted(
+        merged.values(),
+        key=lambda row: (
+            -row["price_czk"],
+            -(1 if row["house_area_m2"] is not None else 0),
+            -(1 if row["land_area_m2"] is not None else 0),
+            ",".join(row["portal"]),
+            normalize_text(row["title"]),
+            normalize_text(row["location"]),
+        ),
+    )
+
+
+def load_input(path: Path) -> dict:
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(payload, dict):
+        raise ValueError("Input JSON must be an object.")
+    return payload
+
+
+def build_output(payload: dict) -> dict:
+    raw_listings = payload.get("listings", [])
+    if not isinstance(raw_listings, list):
+        raise ValueError("Input field 'listings' must be an array.")
+
+    normalized = []
+    zero_result_portals = []
+    for raw in raw_listings:
+        if not isinstance(raw, dict):
+            continue
+        listing = normalize_listing(raw)
+        if listing:
+            normalized.append(listing)
+
+    deduped = dedupe_and_sort(normalized)
+
+    coverage = payload.get("coverage", {}) if isinstance(payload.get("coverage"), dict) else {}
+    workers_launched = coverage.get("workers_launched", len(DEFAULT_WORKERS))
+    workers_with_results = coverage.get("workers_with_results")
+    if workers_with_results is None:
+        seen_portals = {portal for row in deduped for portal in row["portal"]}
+        workers_with_results = sum(1 for portal in DEFAULT_WORKERS if portal in seen_portals)
+        zero_result_portals = [portal for portal in DEFAULT_WORKERS if portal not in seen_portals]
+    else:
+        zero_result_portals = coverage.get("zero_result_portals", [])
+
+    return {
+        "generated_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
+        "query": payload.get("query", {}),
+        "assumptions": payload.get("assumptions", []),
+        "coverage": {
+            "workers_launched": workers_launched,
+            "workers_with_results": workers_with_results,
+            "candidates_gathered": len(normalized),
+            "rows_retained": len(deduped),
+            "zero_result_portals": zero_result_portals,
+            "blocked_portals": coverage.get("blocked_portals", []),
+        },
+        "gaps": payload.get("gaps", []),
+        "listings": deduped,
+    }
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Normalize real estate ads skill output into a JSON feed for HTML.")
+    parser.add_argument("--input", required=True, help="Path to raw JSON input collected from the skill.")
+    parser.add_argument("--output", default="real_estate_ads.json", help="Path to output JSON feed.")
+    args = parser.parse_args()
+
+    payload = load_input(Path(args.input))
+    output = build_output(payload)
+    Path(args.output).write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
+    print(f"Wrote {len(output['listings'])} listings to {args.output}")
+
+
+if __name__ == "__main__":
+    main()
