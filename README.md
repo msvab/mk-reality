@@ -9,7 +9,7 @@ The repo currently has two connected pipelines:
 
 ## Main Files
 
-### [build_dobruska_schools.py](/Users/michal-mbp/dev/reality/build_dobruska_schools.py)
+### [build_html.py](/Users/michal-mbp/dev/reality/build_html.py)
 
 Primary site generator.
 
@@ -38,7 +38,7 @@ Important outputs:
 Typical usage:
 
 ```bash
-rtk python3 build_dobruska_schools.py
+rtk python3 build_html.py
 ```
 
 ### [build_real_estate_ads_json.py](/Users/michal-mbp/dev/reality/build_real_estate_ads_json.py)
@@ -172,7 +172,7 @@ Contains one object per municipality with fields such as:
 
 ### [real_estate_ads_by_city.json](/Users/michal-mbp/dev/reality/real_estate_ads_by_city.json)
 
-Generated aggregated ads artifact used by `build_dobruska_schools.py`.
+Generated aggregated ads artifact used by `build_html.py`.
 
 Contains:
 
@@ -205,7 +205,7 @@ Contains:
 
 ### Base Site Flow
 
-1. Run `build_dobruska_schools.py`.
+1. Run `build_html.py`.
 2. The script fetches and enriches municipality and school data.
 3. It writes `dobruska_primary_schools.json`.
 4. It writes `index.html`.
@@ -223,7 +223,7 @@ Contains:
 
 ### Final Render Flow
 
-1. Run `build_dobruska_schools.py` after `real_estate_ads_by_city.json` exists.
+1. Run `build_html.py` after `real_estate_ads_by_city.json` exists.
 2. The generator reads the aggregated ads file.
 3. It adds a `Počet inzerátů` column to each municipality row.
 4. If a city has ads, the count is rendered as a clickable button.
@@ -235,18 +235,18 @@ For a fresh or partial ads refresh:
 
 ```bash
 rtk python3 run_real_estate_ads_by_city.py --limit 5 --aggregate-after-each
-rtk python3 build_dobruska_schools.py
+rtk python3 build_html.py
 ```
 
 After verifying the first few cities:
 
 ```bash
 rtk python3 run_real_estate_ads_by_city.py --aggregate-after-each
-rtk python3 build_dobruska_schools.py
+rtk python3 build_html.py
 ```
 
 ## Notes
 
 - This repo uses the RTK wrapper, so shell commands should be prefixed with `rtk`.
-- `build_dobruska_schools.py` remains the source of truth for `index.html`.
+- `build_html.py` remains the source of truth for `index.html`.
 - The ads pipeline is designed so raw city outputs are durable and resumable; the aggregate file can always be rebuilt from them.
