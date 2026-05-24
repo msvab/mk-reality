@@ -17,13 +17,20 @@
     },
     "query": {
       "type": "object",
-      "additionalProperties": true,
+      "additionalProperties": false,
       "required": [
         "municipality",
         "location_scope",
         "country",
         "property_types",
-        "land_size_min_m2"
+        "price_min",
+        "price_max",
+        "house_size_min_m2",
+        "house_size_max_m2",
+        "land_size_min_m2",
+        "land_size_max_m2",
+        "must_have",
+        "exclude"
       ],
       "properties": {
         "municipality": {
@@ -42,11 +49,58 @@
             "type": "string"
           }
         },
+        "price_min": {
+          "type": [
+            "string",
+            "number",
+            "null"
+          ]
+        },
+        "price_max": {
+          "type": [
+            "string",
+            "number",
+            "null"
+          ]
+        },
+        "house_size_min_m2": {
+          "type": [
+            "string",
+            "number",
+            "null"
+          ]
+        },
+        "house_size_max_m2": {
+          "type": [
+            "string",
+            "number",
+            "null"
+          ]
+        },
         "land_size_min_m2": {
           "type": [
             "string",
             "number"
           ]
+        },
+        "land_size_max_m2": {
+          "type": [
+            "string",
+            "number",
+            "null"
+          ]
+        },
+        "must_have": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "exclude": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     },
@@ -58,10 +112,14 @@
     },
     "coverage": {
       "type": "object",
-      "additionalProperties": true,
+      "additionalProperties": false,
       "required": [
         "workers_launched",
-        "workers_with_results"
+        "workers_with_results",
+        "candidates_gathered",
+        "rows_retained",
+        "zero_result_portals",
+        "blocked_portals"
       ],
       "properties": {
         "workers_launched": {

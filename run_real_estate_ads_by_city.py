@@ -110,6 +110,7 @@ Requirements:
 - keep only buildable or residential land
 - use the skill's deduplication and ranking rules
 - if no credible listings are found, still return a valid JSON object with an empty `listings` array and explain any coverage/gaps in `gaps`
+- do not spawn sub-agents in this run; use the skill's documented single-agent fallback while preserving the same portal-by-portal discipline
 
 Set:
 - `city` to `{city}`
@@ -152,14 +153,12 @@ def run_city(
         temp_output_path = Path(handle.name)
     cmd = [
         codex_bin,
-        "exec",
         "--search",
+        "exec",
         "--color",
         "never",
         "-C",
         str(repo_root),
-        "-a",
-        "never",
         "--output-schema",
         str(schema_path),
         "-o",
@@ -171,13 +170,20 @@ def run_city(
 
     try:
         completed = subprocess.run(cmd, check=True, capture_output=True, text=True)
-        if completed.stdout.strip():
-            print(completed.stdout.strip(), flush=True)
-        if completed.stderr.strip():
-            print(completed.stderr.strip(), file=sys.stderr, flush=True)
         payload = json.loads(temp_output_path.read_text(encoding="utf-8"))
         validate_raw_output(payload, city)
         temp_output_path.replace(output_path)
+    except subprocess.CalledProcessError as exc:
+        if temp_output_path.exists():
+            temp_output_path.unlink()
+        details = []
+        if exc.stdout and exc.stdout.strip():
+            details.append(exc.stdout.strip())
+        if exc.stderr and exc.stderr.strip():
+            details.append(exc.stderr.strip())
+        if details:
+            raise RuntimeError("\n".join(details)) from exc
+        raise
     except Exception:
         if temp_output_path.exists():
             temp_output_path.unlink()
