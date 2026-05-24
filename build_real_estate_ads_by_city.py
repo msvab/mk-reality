@@ -71,17 +71,7 @@ def discover_raw_files(raw_dir: Path) -> list[Path]:
     return sorted(path for path in raw_dir.glob("*.json") if path.is_file())
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser(description="Aggregate per-city real estate skill outputs into one HTML-ready JSON file.")
-    parser.add_argument("--schools-input", default="dobruska_primary_schools.json", help="Path to the schools JSON used as the city source list.")
-    parser.add_argument("--raw-dir", required=True, help="Directory with one raw skill-output JSON file per city.")
-    parser.add_argument("--output", default="real_estate_ads_by_city.json", help="Path to the aggregated JSON output.")
-    args = parser.parse_args()
-
-    schools_input = Path(args.schools_input)
-    raw_dir = Path(args.raw_dir)
-    output_path = Path(args.output)
-
+def build_aggregate_output(schools_input: Path, raw_dir: Path) -> dict:
     school_cities = load_school_cities(schools_input)
     raw_files = discover_raw_files(raw_dir)
 
@@ -110,9 +100,24 @@ def main() -> None:
         "unmatched_raw_files": unmatched_files,
         "cities": cities,
     }
+    return output
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="Aggregate per-city real estate skill outputs into one HTML-ready JSON file.")
+    parser.add_argument("--schools-input", default="dobruska_primary_schools.json", help="Path to the schools JSON used as the city source list.")
+    parser.add_argument("--raw-dir", required=True, help="Directory with one raw skill-output JSON file per city.")
+    parser.add_argument("--output", default="real_estate_ads_by_city.json", help="Path to the aggregated JSON output.")
+    args = parser.parse_args()
+
+    schools_input = Path(args.schools_input)
+    raw_dir = Path(args.raw_dir)
+    output_path = Path(args.output)
+
+    output = build_aggregate_output(schools_input, raw_dir)
 
     output_path.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
-    print(f"Wrote {len(cities)} cities to {output_path}")
+    print(f"Wrote {len(output['cities'])} cities to {output_path}")
 
 
 if __name__ == "__main__":

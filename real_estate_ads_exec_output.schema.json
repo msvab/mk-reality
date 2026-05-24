@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "city",
+    "query",
+    "assumptions",
+    "coverage",
+    "gaps",
+    "listings"
+  ],
+  "properties": {
+    "city": {
+      "type": "string",
+      "minLength": 1
+    },
+    "query": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "municipality",
+        "location_scope",
+        "country",
+        "property_types",
+        "land_size_min_m2"
+      ],
+      "properties": {
+        "municipality": {
+          "type": "string",
+          "minLength": 1
+        },
+        "location_scope": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "property_types": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "land_size_min_m2": {
+          "type": [
+            "string",
+            "number"
+          ]
+        }
+      }
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": [
+        "workers_launched",
+        "workers_with_results"
+      ],
+      "properties": {
+        "workers_launched": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "workers_with_results": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "candidates_gathered": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "rows_retained": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "zero_result_portals": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "blocked_portals": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "gaps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "listings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "portal",
+          "title",
+          "location",
+          "property_type",
+          "price",
+          "house_area_m2",
+          "land_area_m2",
+          "urls",
+          "notes"
+        ],
+        "properties": {
+          "portal": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "title": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "property_type": {
+            "type": "string"
+          },
+          "price": {
+            "type": "string"
+          },
+          "house_area_m2": {
+            "type": "string"
+          },
+          "land_area_m2": {
+            "type": "string"
+          },
+          "urls": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
