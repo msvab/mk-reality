@@ -24,7 +24,9 @@ interface:
     - Prefer actual detail pages under realitymix.cz/detail/... over category, directory, and article pages.
     - Capture the realitymix.cz detail URL for every retained row.
     - If the listing snapshot already provides all fields needed for filtering and normalized output, the row may be retained without extra navigation.
+    - Verify each retained realitymix.cz/detail/... candidate with a direct fetch before returning it. In this repo, use `rtk proxy curl -L -A 'Mozilla/5.0' <detail-url>` for that page-body check unless it is genuinely unavailable.
     - If a realitymix.cz/detail/... URL opens a generic fallback page such as "Požadovaný inzerát již není v naší databázi", treat the listing as removed and exclude it.
+    - Do not switch to browser automation or search-snippet-only verification for the fallback-marker check when a direct fetch can read the page body.
     - If the detail page visibly names the underlying agency, record that source in notes, for example aggregator-source:mmreality.cz.
     - Do not replace the realitymix.cz detail URL with an external agency URL.
 
