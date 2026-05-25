@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-05-24T19:18:50+0200",
+  "generated_at": "2026-05-25T07:01:34+0200",
   "schools_input": "dobruska_primary_schools.json",
   "raw_dir": "data/real_estate_ads_raw",
   "coverage": {
     "school_cities": 132,
-    "raw_files_found": 2,
-    "cities_with_ads": 2,
-    "cities_with_raw_output": 2
+    "raw_files_found": 7,
+    "cities_with_ads": 6,
+    "cities_with_raw_output": 7
   },
   "unmatched_raw_files": [],
   "cities": {
@@ -168,84 +168,394 @@
       ]
     },
     "Krčín": {
-      "count": 0,
+      "count": 2,
       "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
+        "workers_launched": 4,
+        "workers_with_results": 2,
+        "candidates_gathered": 2,
+        "rows_retained": 2,
+        "zero_result_portals": [
+          "mmreality.cz",
+          "reality.aktualne.cz"
+        ],
         "blocked_portals": []
       },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
+      "assumptions": [
+        "Krčín was matched only when the portal explicitly labeled the locality with \"Krčín\"; broader Nové Město nad Metují rows without that sublocality were excluded.",
+        "The Na Strážnici house and land ads appear to market the same underlying property in two active categories; they were retained separately because the portals present them as distinct sale listings with different normalized property types."
       ],
-      "ads": []
+      "gaps": [
+        "mmreality.cz surfaced only non-qualifying or stale items for the area during this run, including an excluded chata/recreational listing and an inactive land listing.",
+        "reality.aktualne.cz did not surface any credible Krčín sale listing matching the filters in this run.",
+        "reality.idnes.cz returned a 429 when opening one house detail URL, but the current broker page still exposed the active listing title, price, locality, parcel size, and detail URL, so the row was retained.",
+        "The retained house and land rows likely describe the same underlying Na Strážnici property marketed in two categories; this cross-type duplication was not collapsed further to preserve the distinct active ads."
+      ],
+      "ads": [
+        {
+          "portal": [
+            "reality.idnes.cz",
+            "realitymix.cz"
+          ],
+          "title": "Prodej dvougenerační rodinné vily Nové Město nad Metují",
+          "location": "Na Strážnici, Krčín, Nové Město nad Metují, okr. Náchod",
+          "property_type": "house",
+          "price": "7 600 000 Kč",
+          "price_czk": 7600000,
+          "house_area_m2": 198,
+          "land_area_m2": 2759,
+          "urls": [
+            "https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-na-straznici/69578c36a03c5dfbeb071987/",
+            "https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-dvougeneracni-rodinne-vily-nove-mesto-nad-metuji-8320117.html"
+          ],
+          "notes": [
+            "duplicate-merged-from:realitymix.cz",
+            "possible-cross-type-duplicate-with:land-Na-Straznici-Krcin-7600000",
+            "reality.idnes.cz-detail-rate-limited-429",
+            "active-on-current-broker-pages"
+          ]
+        },
+        {
+          "portal": [
+            "reality.idnes.cz",
+            "realitymix.cz"
+          ],
+          "title": "Prodej stavebního pozemku 3 112 m2",
+          "location": "Na Strážnici, Krčín, Nové Město nad Metují, okr. Náchod",
+          "property_type": "land",
+          "price": "7 600 000 Kč",
+          "price_czk": 7600000,
+          "house_area_m2": null,
+          "land_area_m2": 3112,
+          "urls": [
+            "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji-na-straznici/690865177bf2c8f307067f19/",
+            "https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-stavebniho-pozemku-3-112-m2-8430099.html"
+          ],
+          "notes": [
+            "duplicate-merged-from:realitymix.cz",
+            "buildable-use-explicit",
+            "possible-cross-type-duplicate-with:house-Na-Straznici-Krcin-7600000",
+            "active-on-current-broker-pages"
+          ]
+        }
+      ]
     },
     "Nový Hrádek": {
-      "count": 0,
+      "count": 7,
       "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
+        "workers_launched": 4,
+        "workers_with_results": 2,
+        "candidates_gathered": 7,
+        "rows_retained": 7,
+        "zero_result_portals": [
+          "mmreality.cz",
+          "reality.aktualne.cz"
+        ],
         "blocked_portals": []
       },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
+      "assumptions": [
+        "Single-agent fallback was used as requested; each supported portal was checked separately without spawning sub-agents.",
+        "Only rows with a verifiable sale price and parcel area were retained.",
+        "Chalupa listings were normalized to property_type 'house'; chata listings were excluded."
       ],
-      "ads": []
+      "gaps": [
+        "No credible mmreality.cz row survived filtering: the active Nový Hrádek detail page found there was a louka, while other Nový Hrádek house/chalupa/building-land references were sold, inactive, or not available as an authoritative active detail URL in this run.",
+        "reality.aktualne.cz exposed Nový Hrádek search-result snippets, but I could not obtain stable detail-page URLs with enough fields for retention in this run.",
+        "Some cross-portal snapshot prices drifted for the same property; deduplication kept the lowest verified visible price only when at least one retained row had a usable detail URL."
+      ],
+      "ads": [
+        {
+          "portal": [
+            "reality.idnes.cz"
+          ],
+          "title": "Prodej chalupy 375m², pozemek 9736 m², Nový Hrádek",
+          "location": "Končiny, Nový Hrádek, okr. Náchod",
+          "property_type": "house",
+          "price": "19 900 000 Kč",
+          "price_czk": 19900000,
+          "house_area_m2": 375,
+          "land_area_m2": 9736,
+          "urls": [
+            "https://reality.idnes.cz/detail/prodej/dum/novy-hradek-konciny/67e3dead943bbbb1da000bd2/"
+          ],
+          "notes": [
+            "normalized-from:chalupa"
+          ]
+        },
+        {
+          "portal": [
+            "realitymix.cz"
+          ],
+          "title": "Prodej rodinného domu, pozemek 8649 m², Nový Hrádek - Rzy",
+          "location": "Rzy, Nový Hrádek, okr. Náchod",
+          "property_type": "house",
+          "price": "13 490 000 Kč",
+          "price_czk": 13490000,
+          "house_area_m2": 110,
+          "land_area_m2": 8649,
+          "urls": [
+            "https://realitymix.cz/detail/novy-hradek/prodej-rodinneho-domu-pozemek-8649-m-novy-hradek-rzy-8569313.html"
+          ],
+          "notes": [
+            "aggregator-source:mmreality.cz"
+          ]
+        },
+        {
+          "portal": [
+            "reality.idnes.cz",
+            "realitymix.cz"
+          ],
+          "title": "Prodej chalupy, 1846 m², Nový Hrádek, ul. Bukovecká",
+          "location": "Nový Hrádek, okr. Náchod",
+          "property_type": "house",
+          "price": "4 950 000 Kč",
+          "price_czk": 4950000,
+          "house_area_m2": 52,
+          "land_area_m2": 1846,
+          "urls": [
+            "https://reality.idnes.cz/detail/prodej/dum/novy-hradek-bukovecka/69732ba194d881b978001e06/",
+            "https://realitymix.cz/detail/novy-hradek/prodej-chalupy-1846-m-novy-hradek-ul-bukovecka-8486767.html"
+          ],
+          "notes": [
+            "normalized-from:chalupa",
+            "duplicate-merged-from:realitymix.cz",
+            "duplicate-price:realitymix.cz=5490000"
+          ]
+        },
+        {
+          "portal": [
+            "realitymix.cz"
+          ],
+          "title": "Prodej domu, 1816 m², Nový Hrádek, ul. Náchodská",
+          "location": "Náchodská, Nový Hrádek, okr. Náchod",
+          "property_type": "house",
+          "price": "3 150 000 Kč",
+          "price_czk": 3150000,
+          "house_area_m2": 150,
+          "land_area_m2": 1816,
+          "urls": [
+            "https://realitymix.cz/detail/novy-hradek/prodej-domu-1816-m-novy-hradek-ul-nachodska-8382163.html"
+          ],
+          "notes": [
+            "residential-zoning:SV"
+          ]
+        },
+        {
+          "portal": [
+            "realitymix.cz"
+          ],
+          "title": "Prodej dům Rodinný, 110㎡|Královéhradecký kraj, Náchod, Nový Hrádek, Rokolská 127, 54922",
+          "location": "Rokolská, Nový Hrádek, okr. Náchod",
+          "property_type": "house",
+          "price": "3 145 000 Kč",
+          "price_czk": 3145000,
+          "house_area_m2": 110,
+          "land_area_m2": 2481,
+          "urls": [
+            "https://realitymix.cz/detail/novy-hradek/prodej-dum-rodinny-110-kralovehradecky-kraj-nachod-novy-hradek-rokolska-127-54922-8540171.html"
+          ],
+          "notes": []
+        },
+        {
+          "portal": [
+            "realitymix.cz"
+          ],
+          "title": "Prodej pozemku k bydlení, 2648 m², Nový Hrádek - Rzy",
+          "location": "Rzy, Nový Hrádek, okr. Náchod",
+          "property_type": "land",
+          "price": "1 890 000 Kč",
+          "price_czk": 1890000,
+          "house_area_m2": null,
+          "land_area_m2": 2648,
+          "urls": [
+            "https://realitymix.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-2648-m-novy-hradek-rzy-8373019.html"
+          ],
+          "notes": [
+            "buildable-land",
+            "aggregator-source:mmreality.cz"
+          ]
+        },
+        {
+          "portal": [
+            "realitymix.cz"
+          ],
+          "title": "Prodej pozemku k bydlení, 1925 m², Nový Hrádek - Rzy",
+          "location": "Rzy, Nový Hrádek, okr. Náchod",
+          "property_type": "land",
+          "price": "1 690 000 Kč",
+          "price_czk": 1690000,
+          "house_area_m2": null,
+          "land_area_m2": 1925,
+          "urls": [
+            "https://realitymix.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1925-m-novy-hradek-rzy-8310361.html"
+          ],
+          "notes": [
+            "buildable-land",
+            "aggregator-source:mmreality.cz"
+          ]
+        }
+      ]
     },
     "České Meziříčí": {
-      "count": 0,
+      "count": 2,
       "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
+        "workers_launched": 4,
+        "workers_with_results": 1,
+        "candidates_gathered": 2,
+        "rows_retained": 2,
+        "zero_result_portals": [
+          "reality.idnes.cz",
+          "mmreality.cz",
+          "reality.aktualne.cz"
+        ],
         "blocked_portals": []
       },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
+      "assumptions": [
+        "Sale listings only.",
+        "`chalupa` was searched as a house-like input type but no retained row needed separate normalization.",
+        "Land rows were kept only when the listing explicitly indicated buildable or residential use.",
+        "Single-agent fallback was used portal-by-portal without sub-agents, per the skill instructions."
       ],
-      "ads": []
+      "gaps": [
+        "`reality.idnes.cz`: no credible municipality-specific sale detail hit was surfaced for České Meziříčí under the required filters.",
+        "`mmreality.cz`: surfaced municipality matches were excluded because the active house listing had only 892 m2 of land and the surfaced MM link for the Záhumenská land listing was explicitly inactive.",
+        "`reality.aktualne.cz`: municipality matches were visible on search-result pages, but the surfaced snippets did not expose parcel area or a usable detail page needed to verify the 1000 m2 land minimum, so no row was retained.",
+        "`realitymix.cz`: excluded additional rows for being `Rezervováno`, below the 1000 m2 land minimum, or not explicitly buildable/residential (`zahrada`).",
+        "For the retained house on Na Nábřeží, the land area was corroborated from a same-listing mirror excerpt while keeping the original RealityMix detail URL in the output."
+      ],
+      "ads": [
+        {
+          "portal": [
+            "realitymix.cz"
+          ],
+          "title": "Prodej Rodinný dům, 124㎡",
+          "location": "Na Nábřeží, České Meziříčí, okr. Rychnov nad Kněžnou",
+          "property_type": "house",
+          "price": "7 200 000 Kč",
+          "price_czk": 7200000,
+          "house_area_m2": 124,
+          "land_area_m2": 1420,
+          "urls": [
+            "https://realitymix.cz/detail/ceske-mezirici/prodej-rodinny-dum-124-8554997.html"
+          ],
+          "notes": [
+            "mirror-land-area:sreality.cz=1420",
+            "detail-url-verified:realitymix.cz",
+            "ranking-price-parsed:7200000"
+          ]
+        },
+        {
+          "portal": [
+            "realitymix.cz"
+          ],
+          "title": "Prodej pozemku k bydlení v Českém Meziříčí, ul. Záhumenská",
+          "location": "Záhumenská, České Meziříčí, okr. Rychnov nad Kněžnou",
+          "property_type": "land",
+          "price": "3 490 000 Kč",
+          "price_czk": 3490000,
+          "house_area_m2": null,
+          "land_area_m2": 3698,
+          "urls": [
+            "https://realitymix.cz/detail/ceske-mezirici/prodej-pozemku-k-bydleni-v-ceskem-mezirici-ul-zahumenska-8571747.html"
+          ],
+          "notes": [
+            "buildable-residential-explicit",
+            "detail-url-verified:realitymix.cz",
+            "ranking-price-parsed:3490000"
+          ]
+        }
+      ]
     },
     "Bražec": {
       "count": 0,
       "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
+        "workers_launched": 4,
+        "workers_with_results": 2,
         "candidates_gathered": 0,
         "rows_retained": 0,
-        "zero_result_portals": [],
+        "zero_result_portals": [
+          "mmreality.cz",
+          "reality.aktualne.cz"
+        ],
         "blocked_portals": []
       },
-      "assumptions": [],
+      "assumptions": [
+        "Interpreted `Bražec` as the exact municipality Bražec in Karlovy Vary District, not the Náchod city-part also named Bražec.",
+        "Applied `sale`-only scope and excluded any candidate outside the exact municipality because `location_scope` is `municipality_only`.",
+        "Normalized `chalupa` as a search input only; no retained output rows use `chalupa` as a property_type."
+      ],
       "gaps": [
-        "missing-raw-skill-output"
+        "No credible active listings matching the exact municipality Bražec were retained across the supported portals.",
+        "reality.idnes.cz surfaced Náchod - Bražec listings, including a house in V Náměrkách and a buildable land listing in V Kalhotách, but these are in the city-part Bražec under Náchod and were excluded as outside the exact municipality.",
+        "realitymix.cz surfaced the same Náchod - Bražec house and the same sub-threshold 873 m2 Náchod - Bražec buildable land listing; both were excluded, first for wrong municipality and second also for land area below 1000 m2.",
+        "reality.aktualne.cz portal-scoped search for sale houses and land in Bražec did not surface a credible exact-municipality match during this run.",
+        "reality.idnes.cz detail-page verification hit a fetch/rate-limit failure on clicked detail URLs, but that did not change the retained result because the surfaced candidates were already outside the target municipality or below the land-size threshold."
       ],
       "ads": []
     },
     "Velká Jesenice": {
-      "count": 0,
+      "count": 2,
       "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
+        "workers_launched": 4,
+        "workers_with_results": 2,
+        "candidates_gathered": 2,
+        "rows_retained": 2,
+        "zero_result_portals": [
+          "realitymix.cz",
+          "reality.aktualne.cz"
+        ],
         "blocked_portals": []
       },
       "assumptions": [],
       "gaps": [
-        "missing-raw-skill-output"
+        "realitymix.cz and reality.aktualne.cz surfaced Velká Jesenice ads, but the candidates visible in accessible snapshots were either below the 1000 m2 land minimum or lacked enough verified field coverage to survive filtering.",
+        "reality.idnes.cz accessible search snapshots exposed matching rows but not stable detail-page URLs for the retained duplicates, so iDNES was used as duplicate corroboration rather than as the canonical URL source.",
+        "The retained land listing shows locality wording drift across portals (Velká Jesenice vs. Velká Jesenice - Veselice), but Veselice is a local part of the municipality Velká Jesenice, so it was kept within municipality_only scope."
       ],
-      "ads": []
+      "ads": [
+        {
+          "portal": [
+            "mmreality.cz",
+            "reality.idnes.cz"
+          ],
+          "title": "Prodej rodinného domu, 200 m², Velká Jesenice",
+          "location": "Velká Jesenice, okres Náchod",
+          "property_type": "house",
+          "price": "5 998 000 Kč",
+          "price_czk": 5998000,
+          "house_area_m2": 200,
+          "land_area_m2": 1149,
+          "urls": [
+            "https://www.mmreality.cz/nemovitosti/910514/"
+          ],
+          "notes": [
+            "duplicate-merged-from:reality.idnes.cz",
+            "idnes-search-snapshot-only"
+          ]
+        },
+        {
+          "portal": [
+            "mmreality.cz",
+            "reality.idnes.cz"
+          ],
+          "title": "Prodej pozemku k bydlení, 1867 m², Velká Jesenice",
+          "location": "Velká Jesenice - Veselice, okres Náchod",
+          "property_type": "land",
+          "price": "1 790 000 Kč",
+          "price_czk": 1790000,
+          "house_area_m2": null,
+          "land_area_m2": 1867,
+          "urls": [
+            "https://www.mmreality.cz/nemovitosti/918734/"
+          ],
+          "notes": [
+            "duplicate-merged-from:reality.idnes.cz",
+            "duplicate-price:reality.idnes.cz=2290000",
+            "buildable-BV",
+            "municipality-subarea:Veselice",
+            "idnes-search-snapshot-only"
+          ]
+        }
+      ]
     },
     "Voděrady": {
       "count": 0,
