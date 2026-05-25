@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-25T07:25:18+0200",
+  "generated_at": "2026-05-25T07:46:24+0200",
   "schools_input": "dobruska_primary_schools.json",
   "raw_dir": "data/real_estate_ads_raw",
   "coverage": {
@@ -26,15 +26,16 @@
         ]
       },
       "assumptions": [
-        "`municipality_only` was interpreted to include municipal parts explicitly shown as part of Opočno in listings, notably Čánka and Dobříkovec.",
+        "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Opočno, notably Dobříkovec.",
         "`chalupa` was searched as a house-like input type, but no credible retained chalupa listing meeting the parcel-size rule was found."
       ],
       "gaps": [
-        "`reality.idnes.cz` search snippets showed Opočno listings, including Dobříkovec buildable land and sub-1000 m2 houses, but direct page fetch hit HTTP 429 and no detail-page URLs were safely recoverable from the snippets, so iDNES rows were not retained as sources.",
-        "`mmreality.cz` exposed an active Opočno house detail page in Družstevní, but the parcel area was 797 m2, so it failed the mandatory 1000 m2 land filter.",
-        "`reality.aktualne.cz` only surfaced `Opočno u Loun`, which is outside the target municipality and was excluded.",
-        "No credible retained house listing in the target municipality met the parcel minimum of 1000 m2 during this run.",
-        "Removed one stale RealityMix detail URL on 2026-05-25 after live validation showed the target page had been replaced by a generic 'requested ad is no longer in our database' page."
+        "`reality.idnes.cz` search snippets previously showed Opočno listings, but direct page verification was not refreshed in this spot update.",
+        "`mmreality.cz` previously exposed an Opočno house detail page in Družstevní, but the parcel area was 797 m2, so it failed the mandatory 1000 m2 land filter.",
+        "`reality.aktualne.cz` previously surfaced `Opočno u Loun`, which is outside the target municipality and was excluded.",
+        "Live `realitymix.cz` verification on 2026-05-25 retained two active Dobříkovec buildable-land listings under Opočno and excluded current exact-Opočno house candidates for parcel area below 1000 m2.",
+        "The current exact-Opočno land candidate was agricultural (`pole`) rather than buildable/residential land.",
+        "A previously cached RealityMix Čánka detail URL was removed earlier because the page had been replaced by the generic 'Požadovaný inzerát již není v naší databázi' fallback."
       ],
       "ads": [
         {
@@ -54,7 +55,7 @@
           "notes": [
             "buildable-land",
             "municipal-part:Dobrikovec",
-            "snapshot-sufficient"
+            "detail-url-verified:realitymix.cz"
           ]
         },
         {
@@ -74,7 +75,7 @@
           "notes": [
             "buildable-land",
             "municipal-part:Dobrikovec",
-            "snapshot-sufficient"
+            "detail-url-verified:realitymix.cz"
           ]
         }
       ]

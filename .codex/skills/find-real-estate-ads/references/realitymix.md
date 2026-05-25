@@ -17,7 +17,7 @@ Default scope:
 
 - Keep all search and verification scoped to `realitymix.cz`.
 - Search sale listings only. Do not search rent inventory.
-- When `location_scope = municipality_only`, restrict results to the provided municipality.
+- When `location_scope = municipality_only`, restrict results to the provided municipality, including municipal parts explicitly shown by RealityMix as part of that municipality.
 - Expand beyond the exact municipality only when `location_scope = nearby_allowed`, and use `nearby_radius_km` only when it is present in the parent brief.
 - Include `chalupa` when it is listed as a house-like property, but always normalize it to `house` in output.
 - Exclude `chata` unless the parent brief explicitly allows it.
@@ -31,6 +31,7 @@ Default scope:
 - Prefer actual listing detail pages over category pages, directory pages, and article content.
 - Use search/detail pages first. When portal navigation is noisy, use narrow site-scoped queries to find `realitymix.cz/detail/...` pages for the target municipality and property type.
 - Capture the `realitymix.cz/detail/...` URL for every retained row.
+- If the detail page breadcrumb or visible locality places the listing in a municipal part of the target municipality, retain it and record the municipal part in `notes`.
 - If the listing snapshot already provides all fields needed for filtering and normalized output, the row may be retained without extra navigation.
 - If the detail page is reachable, prefer it over snippet-only extraction.
 - Verify candidate `realitymix.cz/detail/...` pages with a direct fetch before retaining them. In this repo, use `rtk proxy curl -L -A 'Mozilla/5.0' <detail-url>` for this check unless that command path is genuinely unavailable.

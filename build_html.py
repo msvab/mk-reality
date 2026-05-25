@@ -216,15 +216,12 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
           <table>
             <thead>
               <tr>
-                <th>Portál</th>
                 <th>Nabídka</th>
-                <th>Lokalita</th>
                 <th>Typ</th>
                 <th>Cena</th>
                 <th>Dům m2</th>
                 <th>Pozemek m2</th>
                 <th>Odkazy</th>
-                <th>Poznámky</th>
               </tr>
             </thead>
             <tbody id="ads-drawer-body"></tbody>
@@ -273,6 +270,17 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
             }}).filter(Boolean).join("<br>");
           }};
 
+          const renderListingCell = (ad) => {{
+            const title = escapeHtml(displayValue(ad.title));
+            const location = escapeHtml(displayValue(ad.location));
+            return `
+              <div class="ad-listing-cell">
+                <div class="ad-listing-title">${{title}}</div>
+                <div class="ad-listing-location">${{location}}</div>
+              </div>
+            `;
+          }};
+
           const closeDrawer = () => {{
             drawer.setAttribute("aria-hidden", "true");
             drawer.classList.remove("ads-drawer-open");
@@ -298,15 +306,12 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
             for (const ad of bundle.ads || []) {{
               const row = document.createElement("tr");
               const cells = [
-                {{ html: escapeHtml(displayValue(ad.portal)) }},
-                {{ html: escapeHtml(displayValue(ad.title)) }},
-                {{ html: escapeHtml(displayValue(ad.location)) }},
+                {{ html: renderListingCell(ad) }},
                 {{ html: escapeHtml(displayValue(ad.property_type)) }},
-                {{ html: escapeHtml(displayValue(ad.price)) }},
+                {{ html: `<span class="ads-price-cell">${{escapeHtml(displayValue(ad.price))}}</span>` }},
                 {{ html: escapeHtml(displayValue(ad.house_area_m2)) }},
                 {{ html: escapeHtml(displayValue(ad.land_area_m2)) }},
                 {{ html: renderLinks(ad.urls) }},
-                {{ html: escapeHtml(displayValue(ad.notes)) }},
               ];
               row.innerHTML = cells.map((cell) => `<td>${{cell.html}}</td>`).join("");
               body.appendChild(row);
@@ -1822,12 +1827,17 @@ def registry_city_has_kindergarten(city: str, registry_cache: dict, cache_lock: 
         .ads-drawer-close {{ border: 0; background: transparent; font-size: 32px; line-height: 1; cursor: pointer; color: #555; }}
         .ads-drawer-meta {{ padding: 12px 24px 0; color: #555; font-size: 14px; }}
         .ads-drawer-table-wrap {{ overflow: auto; padding: 16px 24px 24px; }}
+        .ad-listing-cell {{ min-width: 240px; }}
+        .ad-listing-title {{ font-weight: 700; }}
+        .ad-listing-location {{ margin-top: 4px; color: #6b7280; font-size: 13px; line-height: 1.35; }}
+        .ads-price-cell {{ white-space: nowrap; }}
         @media (max-width: 720px) {{
           body {{ margin: 12px; }}
           th, td {{ padding: 6px; font-size: 14px; }}
           .ads-drawer-header {{ padding: 16px 16px 8px; }}
           .ads-drawer-meta {{ padding: 12px 16px 0; }}
           .ads-drawer-table-wrap {{ padding: 16px; }}
+          .ad-listing-cell {{ min-width: 180px; }}
         }}
       </style>
     </head>
@@ -2193,12 +2203,17 @@ def main() -> None:
         .ads-drawer-close {{ border: 0; background: transparent; font-size: 32px; line-height: 1; cursor: pointer; color: #555; }}
         .ads-drawer-meta {{ padding: 12px 24px 0; color: #555; font-size: 14px; }}
         .ads-drawer-table-wrap {{ overflow: auto; padding: 16px 24px 24px; }}
+        .ad-listing-cell {{ min-width: 240px; }}
+        .ad-listing-title {{ font-weight: 700; }}
+        .ad-listing-location {{ margin-top: 4px; color: #6b7280; font-size: 13px; line-height: 1.35; }}
+        .ads-price-cell {{ white-space: nowrap; }}
         @media (max-width: 720px) {{
           body {{ margin: 12px; }}
           th, td {{ padding: 6px; font-size: 14px; }}
           .ads-drawer-header {{ padding: 16px 16px 8px; }}
           .ads-drawer-meta {{ padding: 12px 16px 0; }}
           .ads-drawer-table-wrap {{ padding: 16px; }}
+          .ad-listing-cell {{ min-width: 180px; }}
         }}
       </style>
     </head>

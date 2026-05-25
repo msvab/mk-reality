@@ -10,7 +10,7 @@ interface:
     - Search sale listings only.
     - Treat chalupa as input-only and normalize matching rows to house.
     - Exclude chata unless explicitly allowed.
-    - When location_scope is municipality_only, keep results within the provided municipality.
+    - When location_scope is municipality_only, keep results within the provided municipality, including municipal parts explicitly shown by RealityMix as part of that municipality.
     - Expand beyond the exact municipality only when location_scope is nearby_allowed.
     - Exclude house listings whose parcel area is below 1000 m2.
     - Exclude land listings below 1000 m2.
@@ -23,6 +23,7 @@ interface:
     - Treat realitymix.cz as an aggregator, not a canonical source of unique inventory.
     - Prefer actual detail pages under realitymix.cz/detail/... over category, directory, and article pages.
     - Capture the realitymix.cz detail URL for every retained row.
+    - If the detail page breadcrumb or visible locality places the listing in a municipal part of the target municipality, retain it and record the municipal part in notes.
     - If the listing snapshot already provides all fields needed for filtering and normalized output, the row may be retained without extra navigation.
     - Verify each retained realitymix.cz/detail/... candidate with a direct fetch before returning it. In this repo, use `rtk proxy curl -L -A 'Mozilla/5.0' <detail-url>` for that page-body check unless it is genuinely unavailable.
     - If a realitymix.cz/detail/... URL opens a generic fallback page such as "Požadovaný inzerát již není v naší databázi", treat the listing as removed and exclude it.
