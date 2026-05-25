@@ -232,7 +232,7 @@ def main() -> None:
 
     payload = load_input(Path(args.input))
     output = build_output(payload)
-    Path(args.output).write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
+    Path(args.output).write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote {len(output['listings'])} listings to {args.output}")
 
 

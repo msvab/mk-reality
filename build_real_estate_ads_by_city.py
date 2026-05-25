@@ -116,7 +116,7 @@ def main() -> None:
 
     output = build_aggregate_output(schools_input, raw_dir)
 
-    output_path.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding="utf-8")
+    output_path.write_text(json.dumps(output, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote {len(output['cities'])} cities to {output_path}")
 
 

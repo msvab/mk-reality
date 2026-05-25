@@ -681,7 +681,7 @@ def save_malotridky_cache(cache: dict) -> None:
 
 
 def _write_json_atomic(path: Path, data: dict) -> None:
-    payload = json.dumps(data, ensure_ascii=False, indent=2)
+    payload = json.dumps(data, ensure_ascii=False, indent=2) + "\n"
     with tempfile.NamedTemporaryFile(
         mode="w",
         encoding="utf-8",
@@ -1864,9 +1864,9 @@ def registry_city_has_kindergarten(city: str, registry_cache: dict, cache_lock: 
     </body>
     </html>
     """
-    
+
     Path("index.html").write_text(html, encoding="utf-8")
-    Path("dobruska_primary_schools.json").write_text(json.dumps(rows, ensure_ascii=False, indent=2), encoding="utf-8")
+    Path("dobruska_primary_schools.json").write_text(json.dumps(rows, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote {len(rows)} rows")
 
 
@@ -2242,7 +2242,7 @@ def main() -> None:
     """
 
     Path("index.html").write_text(html, encoding="utf-8")
-    Path("dobruska_primary_schools.json").write_text(json.dumps(rows, ensure_ascii=False, indent=2), encoding="utf-8")
+    Path("dobruska_primary_schools.json").write_text(json.dumps(rows, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote {len(rows)} rows")
 
 
