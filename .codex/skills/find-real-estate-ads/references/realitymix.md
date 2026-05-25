@@ -33,6 +33,8 @@ Default scope:
 - Capture the `realitymix.cz/detail/...` URL for every retained row.
 - If the listing snapshot already provides all fields needed for filtering and normalized output, the row may be retained without extra navigation.
 - If the detail page is reachable, prefer it over snippet-only extraction.
+- If a `realitymix.cz/detail/...` URL resolves to a generic fallback page instead of a live ad, exclude the row.
+- Treat pages containing the text `Požadovaný inzerát již není v naší databázi` as removed listings, even if the URL still returns HTTP 200.
 
 ## Aggregator Caveat
 

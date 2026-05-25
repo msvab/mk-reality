@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-25T07:01:34+0200",
+  "generated_at": "2026-05-25T07:25:18+0200",
   "schools_input": "dobruska_primary_schools.json",
   "raw_dir": "data/real_estate_ads_raw",
   "coverage": {
@@ -11,12 +11,12 @@
   "unmatched_raw_files": [],
   "cities": {
     "Opočno": {
-      "count": 3,
+      "count": 2,
       "coverage": {
         "workers_launched": 4,
         "workers_with_results": 1,
-        "candidates_gathered": 3,
-        "rows_retained": 3,
+        "candidates_gathered": 2,
+        "rows_retained": 2,
         "zero_result_portals": [
           "mmreality.cz",
           "reality.aktualne.cz"
@@ -33,7 +33,8 @@
         "`reality.idnes.cz` search snippets showed Opočno listings, including Dobříkovec buildable land and sub-1000 m2 houses, but direct page fetch hit HTTP 429 and no detail-page URLs were safely recoverable from the snippets, so iDNES rows were not retained as sources.",
         "`mmreality.cz` exposed an active Opočno house detail page in Družstevní, but the parcel area was 797 m2, so it failed the mandatory 1000 m2 land filter.",
         "`reality.aktualne.cz` only surfaced `Opočno u Loun`, which is outside the target municipality and was excluded.",
-        "No credible retained house listing in the target municipality met the parcel minimum of 1000 m2 during this run."
+        "No credible retained house listing in the target municipality met the parcel minimum of 1000 m2 during this run.",
+        "Removed one stale RealityMix detail URL on 2026-05-25 after live validation showed the target page had been replaced by a generic 'requested ad is no longer in our database' page."
       ],
       "ads": [
         {
@@ -73,26 +74,6 @@
           "notes": [
             "buildable-land",
             "municipal-part:Dobrikovec",
-            "snapshot-sufficient"
-          ]
-        },
-        {
-          "portal": [
-            "realitymix.cz"
-          ],
-          "title": "PRODEJ STAVEBNÍHO POZEMKU 1021 m2, obec Čánka",
-          "location": "Čánka, Opočno, okr. Rychnov nad Kněžnou",
-          "property_type": "land",
-          "price": "2 042 000 Kč",
-          "price_czk": 2042000,
-          "house_area_m2": null,
-          "land_area_m2": 1021,
-          "urls": [
-            "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-1021-m2-obec-canka-8141125.html"
-          ],
-          "notes": [
-            "buildable-land",
-            "municipal-part:Canka",
             "snapshot-sufficient"
           ]
         }

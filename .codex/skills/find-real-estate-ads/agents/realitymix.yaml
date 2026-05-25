@@ -24,6 +24,7 @@ interface:
     - Prefer actual detail pages under realitymix.cz/detail/... over category, directory, and article pages.
     - Capture the realitymix.cz detail URL for every retained row.
     - If the listing snapshot already provides all fields needed for filtering and normalized output, the row may be retained without extra navigation.
+    - If a realitymix.cz/detail/... URL opens a generic fallback page such as "Požadovaný inzerát již není v naší databázi", treat the listing as removed and exclude it.
     - If the detail page visibly names the underlying agency, record that source in notes, for example aggregator-source:mmreality.cz.
     - Do not replace the realitymix.cz detail URL with an external agency URL.
 
