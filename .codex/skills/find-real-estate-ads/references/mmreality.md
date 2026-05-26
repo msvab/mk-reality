@@ -16,6 +16,10 @@ Default scope:
 ## Search Discipline
 
 - Keep all search and verification scoped to `mmreality.cz`.
+- Use the helper script for the repeatable fetch, inactive-status checks, filtering, and normalization path:
+  `rtk proxy python3 .codex/skills/find-real-estate-ads/scripts/mmreality_fetch.py --municipality '<municipality>'`
+- The script accepts one or more `--result-url` inputs and/or explicit `--detail-url` inputs.
+- The worker should spend tokens only on discovering relevant MM Reality result pages or explicit MM detail URLs for the target municipality.
 - Prefer listing detail pages over listing-category pages.
 - Use location and property-type terms from the shared search brief.
 - Search sale listings only. Do not search rent inventory.
@@ -36,6 +40,16 @@ Default scope:
 - Use alternate URL variants only as supporting evidence or fallback navigation, not to override an inactive generic `/nemovitosti/<id>/` result.
 - If normal browsing does not expose enough MM Reality detail, request a narrow persistent approval for `["rtk", "proxy", "curl"]` for direct fetches.
 - Do not request broad approvals such as all `curl`, all `python3`, or all proxy-wrapped commands.
+- The helper script already does the authoritative generic-detail fetch and normalized filtering. Prefer returning its JSON rather than reimplementing those checks in the prompt.
+
+## Script-First Workflow
+
+1. Find one or more relevant MM Reality municipality-scoped result pages, or explicit detail URLs, for the in-scope categories.
+2. Run the helper with:
+   `rtk proxy python3 .codex/skills/find-real-estate-ads/scripts/mmreality_fetch.py --municipality '<municipality>' --result-url '<url>'`
+3. Add more `--result-url` flags when multiple MM results pages are needed, and use `--detail-url '<url>'` when you only have explicit MM detail URLs.
+4. Use the script JSON as the authoritative worker payload for `coverage`, `gaps`, and normalized `listings`.
+5. Only fall back to manual row-by-row extraction if the script is genuinely broken against the current portal markup, and explain that failure in `gaps`.
 
 ## Expected Output
 

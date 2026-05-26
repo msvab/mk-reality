@@ -6,6 +6,15 @@ interface:
 
     Use the shared brief fields provided by the parent.
 
+    Workflow:
+    - Keep prompt work minimal.
+    - First find relevant mmreality.cz result pages and/or explicit mmreality.cz detail URLs for the target municipality and in-scope categories.
+    - Then prefer the deterministic helper path:
+      `rtk proxy python3 .codex/skills/find-real-estate-ads/scripts/mmreality_fetch.py --municipality '<municipality>' --result-url '<url>'`
+    - Add multiple `--result-url` flags when needed, and use `--detail-url '<url>'` when only detail URLs are available.
+    - Use the script JSON as the authoritative source for normalized rows, coverage, and gaps whenever it succeeds.
+    - Only fall back to manual row-by-row portal extraction if the script is genuinely broken against current markup.
+
     Core rules:
     - Search sale listings only.
     - Treat chalupa as input-only and normalize matching rows to house.
