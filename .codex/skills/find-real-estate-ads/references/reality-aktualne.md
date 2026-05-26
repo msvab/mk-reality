@@ -16,6 +16,10 @@ Default scope:
 ## Search Discipline
 
 - Keep all search and verification scoped to `reality.aktualne.cz`.
+- Use the helper script for the repeatable detail verification, filtering, and normalization path:
+  `rtk proxy python3 .codex/skills/find-real-estate-ads/scripts/reality_aktualne_fetch.py --municipality '<municipality>'`
+- The script accepts explicit `--detail-url` inputs and can also extract detail URLs from any provided `--result-url`.
+- The worker should spend tokens only on discovering relevant Reality Aktuálně detail URLs or result pages for the target municipality.
 - Search sale listings only. Do not search rent inventory.
 - When `location_scope = municipality_only`, restrict results to the provided municipality.
 - Expand beyond the exact municipality only when `location_scope = nearby_allowed`, and use `nearby_radius_km` only when it is present in the parent brief.
@@ -32,6 +36,16 @@ Default scope:
 - Use narrow site-scoped queries or portal search pages to find `reality.aktualne.cz/detail/...` pages for the target municipality and property type.
 - Capture the `reality.aktualne.cz/detail/...` URL for every retained row.
 - If the detail page is reachable, prefer it over snippet-only extraction because the detail page typically exposes price, address/locality, house or parcel area, source agency, and listing identifier.
+- The helper script already does the detail-page verification and normalized filtering. Prefer returning its JSON rather than reimplementing those checks in the prompt.
+
+## Script-First Workflow
+
+1. Find one or more relevant Reality Aktuálně detail URLs, or a result page that already exposes those detail URLs.
+2. Run the helper with:
+   `rtk proxy python3 .codex/skills/find-real-estate-ads/scripts/reality_aktualne_fetch.py --municipality '<municipality>' --detail-url '<url>'`
+3. Add more `--detail-url` flags when needed, and use `--result-url '<url>'` only when that page already contains usable `reality.aktualne.cz/detail/...` links.
+4. Use the script JSON as the authoritative worker payload for `coverage`, `gaps`, and normalized `listings`.
+5. Only fall back to manual row-by-row extraction if the script is genuinely broken against the current portal markup, and explain that failure in `gaps`.
 
 ## Aggregator Caveat
 
