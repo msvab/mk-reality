@@ -1,0 +1,374 @@
+#!/usr/bin/env python3
+
+import argparse
+import json
+import re
+import subprocess
+import sys
+from html import unescape
+from pathlib import Path
+from urllib.parse import urljoin, urlsplit, urlunsplit
+
+
+BASE_URL = "https://www.realitymix.cz"
+FETCH_BASE_URL = "https://www.realitymix.cz"
+USER_AGENT = "Mozilla/5.0"
+REMOVED_MARKER = "Požadovaný inzerát již není v naší databázi"
+
+CATEGORY_ROOTS = {
+    "house": "/reality/domy/prodej/",
+    "land": "/reality/pozemky/pro-bydleni/prodej/",
+}
+
+
+def slug_normalize(value: str) -> str:
+    text = unescape(value).strip().casefold()
+    replacements = {
+        "á": "a",
+        "ä": "a",
+        "č": "c",
+        "ď": "d",
+        "é": "e",
+        "ě": "e",
+        "í": "i",
+        "ň": "n",
+        "ó": "o",
+        "ř": "r",
+        "š": "s",
+        "ť": "t",
+        "ú": "u",
+        "ů": "u",
+        "ý": "y",
+        "ž": "z",
+    }
+    for src, dst in replacements.items():
+        text = text.replace(src, dst)
+    return re.sub(r"\s+", " ", text)
+
+
+def run_fetch(url: str) -> str:
+    fetch_url = url.replace("https://realitymix.cz", FETCH_BASE_URL).replace("http://realitymix.cz", FETCH_BASE_URL)
+    completed = subprocess.run(
+        ["curl", "-sL", "-A", USER_AGENT, fetch_url],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    return completed.stdout
+
+
+def canonicalize_detail_url(url: str) -> str:
+    parts = urlsplit(url)
+    scheme = "https"
+    netloc = "realitymix.cz"
+    path = parts.path.rstrip("/")
+    if path.endswith(".html"):
+        path = path
+    return urlunsplit((scheme, netloc, path, "", ""))
+
+
+def find_municipality_path(root_html: str, municipality: str) -> str | None:
+    pattern = re.compile(
+        r'<input[^>]+name="form\[adresa_obec_id]\[(?P<district>\d+)]\[\]"[^>]*>'
+        r'\s*<label[^>]*>\s*<a href="(?P<href>[^"]+)"[^>]*>\s*(?P<label>.*?)\s*</a>',
+        re.S,
+    )
+    target = slug_normalize(municipality)
+    matches = []
+    for match in pattern.finditer(root_html):
+        label = re.sub(r"<[^>]+>", "", unescape(match.group("label"))).strip()
+        if slug_normalize(label) == target:
+            matches.append(match.group("href"))
+    if not matches:
+        return None
+    return matches[0]
+
+
+def extract_detail_urls(result_html: str, municipality: str) -> list[str]:
+    urls = set()
+    id_queue_match = re.search(r'<span id="id_queue" data-ids="([^"]+)"', result_html)
+    if id_queue_match:
+        raw = unescape(id_queue_match.group(1))
+        try:
+            payload = json.loads(raw)
+        except json.JSONDecodeError:
+            payload = []
+        for item in payload:
+            if not isinstance(item, dict):
+                continue
+            seo_city = str(item.get("seo_mesto", "")).strip()
+            seo_name = str(item.get("seo_nazev", "")).strip()
+            listing_id = item.get("nabidka_id")
+            if seo_city and seo_name and listing_id:
+                urls.add(canonicalize_detail_url(f"{BASE_URL}/detail/{seo_city}/{seo_name}-{listing_id}.html"))
+
+    for href in re.findall(r'href="(https://realitymix\.cz/detail/[^"]+)"', result_html):
+        urls.add(canonicalize_detail_url(href))
+    for href in re.findall(r'href="(https://www\.realitymix\.cz/detail/[^"]+)"', result_html):
+        urls.add(canonicalize_detail_url(href))
+    for href in re.findall(r'href="(/detail/[^"]+)"', result_html):
+        urls.add(canonicalize_detail_url(urljoin(BASE_URL, href)))
+
+    target = f"/detail/{slug_normalize(municipality).replace(' ', '-')}/"
+    ordered = sorted(urls)
+    return [url for url in ordered if target in slug_normalize(url).replace(" ", "-")]
+
+
+def extract_meta_content(html: str, prop: str) -> str | None:
+    match = re.search(
+        rf'<meta\s+(?:property|name)="{re.escape(prop)}"\s+content="([^"]*)"',
+        html,
+        re.IGNORECASE,
+    )
+    return unescape(match.group(1)).strip() if match else None
+
+
+def extract_canonical_url(html: str, fallback: str) -> str:
+    match = re.search(r'<link rel="canonical" href="([^"]+)"', html, re.IGNORECASE)
+    if match:
+        return unescape(match.group(1)).strip()
+    return fallback
+
+
+def extract_location(html: str) -> str | None:
+    match = re.search(r'<p class="advert-detail-heading__address">\s*(.*?)\s*</p>', html, re.S)
+    if not match:
+        return None
+    text = re.sub(r"<[^>]+>", " ", match.group(1))
+    return re.sub(r"\s+", " ", unescape(text)).strip()
+
+
+def extract_detail_pairs(html: str) -> dict[str, str]:
+    pairs = {}
+    for key, value in re.findall(
+        r'<li class="detail-information__data-item">\s*<span>(.*?)</span>\s*<span>(.*?)</span>',
+        html,
+        re.S,
+    ):
+        clean_key = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", unescape(key))).strip().rstrip(":")
+        clean_value = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", unescape(value))).strip()
+        if clean_key:
+            pairs[clean_key] = clean_value
+    return pairs
+
+
+def extract_price(html: str) -> str | None:
+    match = re.search(r'<tr class="advert-description__short-props-price">.*?<td>Cena:</td>\s*<td>(.*?)</td>', html, re.S)
+    if not match:
+        return None
+    text = re.sub(r"<[^>]+>", " ", unescape(match.group(1)))
+    text = re.sub(r"\s+", " ", text).strip()
+    text = re.sub(r"\s+Nabídněte cenu$", "", text)
+    return text or None
+
+
+def extract_area_value(text: str | None) -> int | None:
+    if not text:
+        return None
+    match = re.search(r"(\d[\d\s.]*)\s*m", text)
+    if not match:
+        return None
+    digits = re.sub(r"[^\d]", "", match.group(1))
+    return int(digits) if digits else None
+
+
+def infer_property_type(title: str, canonical_url: str) -> str:
+    lowered = f"{title} {canonical_url}".casefold()
+    if "pozem" in lowered:
+        return "land"
+    return "house"
+
+
+def land_is_buildable(title: str, html: str) -> bool:
+    details = extract_detail_pairs(html)
+    land_type = details.get("Druh pozemku", "")
+    description_match = re.search(r'<h2[^>]*>.*?</h2>\s*<p>(.*?)</p>', html, re.S)
+    description = description_match.group(1) if description_match else ""
+    lowered = " ".join([title, land_type, re.sub(r"<[^>]+>", " ", description)]).casefold()
+    if any(marker in lowered for marker in ["zeměděl", "zemedel", "orná půda", "orna puda", "pole"]):
+        return False
+    return any(marker in lowered for marker in ["staveb", "pro bydlení", "pro-bydleni"])
+
+
+def discover_result_page_url(category: str, municipality: str) -> str | None:
+    root_url = urljoin(BASE_URL, CATEGORY_ROOTS[category])
+    root_html = run_fetch(root_url)
+    pattern = re.compile(r'href="(/reality/[^"]+/[^"/?#]+)"')
+    target_slug = slug_normalize(municipality).replace(" ", "-")
+    candidates = []
+    for href in pattern.findall(root_html):
+        lowered = slug_normalize(href).replace(" ", "-")
+        if not lowered.startswith(CATEGORY_ROOTS[category]):
+            continue
+        if not lowered.endswith(f"/{target_slug}"):
+            continue
+        candidates.append(urljoin(BASE_URL, href))
+    if candidates:
+        return sorted(set(candidates))[0]
+    return None
+
+
+def municipality_note(location: str, municipality: str) -> str | None:
+    parts = [part.strip() for part in location.split(",") if part.strip()]
+    if len(parts) < 2:
+        return None
+    if slug_normalize(parts[1]) == slug_normalize(municipality) and slug_normalize(parts[0]) != slug_normalize(municipality):
+        return f"municipal-part:{parts[0]}"
+    return None
+
+
+def listing_from_detail(url: str, html: str, municipality: str) -> tuple[dict | None, str | None]:
+    if REMOVED_MARKER.casefold() in html.casefold():
+        return None, "removed-fallback-page"
+
+    canonical_url = extract_canonical_url(html, url)
+    title = extract_meta_content(html, "og:title") or extract_meta_content(html, "title") or ""
+    location = extract_location(html) or municipality
+    if slug_normalize(municipality) not in slug_normalize(location):
+        return None, "outside-municipality"
+
+    details = extract_detail_pairs(html)
+    property_type = infer_property_type(title, canonical_url)
+    price = extract_price(html)
+    house_area = details.get("Užitná plocha")
+    land_area = details.get("Plocha parcely") or details.get("Celková plocha")
+
+    house_area_m2 = extract_area_value(house_area)
+    land_area_m2 = extract_area_value(land_area)
+
+    if not price:
+        return None, "missing-price"
+    if property_type in {"house", "land"} and (land_area_m2 is None or land_area_m2 < 1000):
+        return None, "land-below-threshold"
+    if property_type == "land" and not land_is_buildable(title, html):
+        return None, "non-buildable-land"
+
+    notes = ["detail-url-verified:realitymix.cz"]
+    municipal_part = municipality_note(location, municipality)
+    if municipal_part:
+        notes.append(municipal_part)
+    if property_type == "land" and "staveb" in title.casefold():
+        notes.append("buildable-land")
+
+    return {
+        "portal": ["realitymix.cz"],
+        "title": title or "unknown",
+        "location": location,
+        "property_type": property_type,
+        "price": price,
+        "house_area_m2": str(house_area_m2) if house_area_m2 is not None else "unknown",
+        "land_area_m2": str(land_area_m2) if land_area_m2 is not None else "unknown",
+        "urls": [canonical_url],
+        "notes": notes,
+    }, None
+
+
+def collect_category_urls(category: str, municipality: str, page_url: str | None) -> tuple[list[str], list[str]]:
+    if not page_url:
+        page_url = discover_result_page_url(category, municipality)
+    if not page_url:
+        return [], [f"missing-page-url:{category}"]
+    result_html = run_fetch(page_url)
+    return extract_detail_urls(result_html, municipality), []
+
+
+def build_output(
+    municipality: str,
+    location_scope: str,
+    include_houses: bool,
+    include_land: bool,
+    house_page_url: str | None,
+    land_page_url: str | None,
+) -> dict:
+    categories = []
+    if include_houses:
+        categories.append("house")
+    if include_land:
+        categories.append("land")
+
+    assumptions = []
+    if location_scope == "municipality_only":
+        assumptions.append(
+            f"`municipality_only` includes municipal parts explicitly shown by RealityMix as part of {municipality}."
+        )
+
+    coverage = {
+        "workers_launched": 1,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": [],
+    }
+    gaps = []
+    listings = []
+    seen_urls = set()
+
+    for category in categories:
+        page_url = house_page_url if category == "house" else land_page_url
+        detail_urls, category_gaps = collect_category_urls(category, municipality, page_url)
+        gaps.extend(category_gaps)
+        coverage["candidates_gathered"] += len(detail_urls)
+        for detail_url in detail_urls:
+            if detail_url in seen_urls:
+                continue
+            seen_urls.add(detail_url)
+            html = run_fetch(detail_url)
+            listing, reason = listing_from_detail(detail_url, html, municipality)
+            if listing is not None:
+                listings.append(listing)
+            elif reason:
+                gaps.append(f"{reason}:{detail_url}")
+
+    listings.sort(key=lambda item: re.sub(r"[^\d]", "", item["price"]), reverse=True)
+    coverage["rows_retained"] = len(listings)
+    coverage["workers_with_results"] = 1 if listings else 0
+    if not listings:
+        coverage["zero_result_portals"].append("realitymix.cz")
+
+    return {
+        "city": municipality,
+        "query": {
+            "municipality": municipality,
+            "location_scope": location_scope,
+            "country": "Czech Republic",
+            "property_types": [item for item, enabled in (("house", include_houses), ("chalupa", include_houses), ("land", include_land)) if enabled],
+            "land_size_min_m2": 1000,
+        },
+        "assumptions": assumptions,
+        "coverage": coverage,
+        "gaps": gaps,
+        "listings": listings,
+    }
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Fetch and normalize realitymix.cz listings for one municipality.")
+    parser.add_argument("--municipality", required=True)
+    parser.add_argument("--location-scope", default="municipality_only")
+    parser.add_argument("--include-houses", action="store_true", default=True)
+    parser.add_argument("--include-land", action="store_true", default=True)
+    parser.add_argument("--house-page-url")
+    parser.add_argument("--land-page-url")
+    parser.add_argument("--output")
+    args = parser.parse_args()
+
+    payload = build_output(
+        municipality=args.municipality,
+        location_scope=args.location_scope,
+        include_houses=args.include_houses,
+        include_land=args.include_land,
+        house_page_url=args.house_page_url,
+        land_page_url=args.land_page_url,
+    )
+
+    rendered = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
+    if args.output:
+        Path(args.output).write_text(rendered, encoding="utf-8")
+    else:
+        sys.stdout.write(rendered)
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

@@ -15,6 +15,11 @@ Default scope:
 
 ## Search Discipline
 
+- Use the helper script for the repeatable fetch, filter, and normalization path:
+  `rtk proxy python3 .codex/skills/find-real-estate-ads/scripts/realitymix_fetch.py --municipality '<municipality>' --house-page-url '<url>' --land-page-url '<url>'`
+- The script owns candidate extraction, direct-fetch verification, filtering, normalization, and coverage/gap reporting.
+- The worker should spend tokens only on the thin portal-navigation step needed to locate the municipality result page URLs for houses and land.
+
 - Keep all search and verification scoped to `realitymix.cz`.
 - Search sale listings only. Do not search rent inventory.
 - When `location_scope = municipality_only`, restrict results to the provided municipality, including municipal parts explicitly shown by RealityMix as part of that municipality.
@@ -29,12 +34,13 @@ Default scope:
 - Exclude agricultural, non-buildable, or clearly non-residential land unless the parent brief explicitly allows it.
 - If a land listing mixes residential and recreational positioning, keep it only when residential/buildable use is still explicit and record the ambiguity in `notes`.
 - Prefer actual listing detail pages over category pages, directory pages, and article content.
-- Use search/detail pages first. When portal navigation is noisy, use narrow site-scoped queries to find `realitymix.cz/detail/...` pages for the target municipality and property type.
+- Use search/detail pages first. When portal navigation is noisy, use the minimum necessary manual lookup to find the municipality result page for the script, not to hand-collect and hand-filter individual listings.
 - Capture the `realitymix.cz/detail/...` URL for every retained row.
 - If the detail page breadcrumb or visible locality places the listing in a municipal part of the target municipality, retain it and record the municipal part in `notes`.
 - If the listing snapshot already provides all fields needed for filtering and normalized output, the row may be retained without extra navigation.
 - If the detail page is reachable, prefer it over snippet-only extraction.
 - Verify candidate `realitymix.cz/detail/...` pages with a direct fetch before retaining them. In this repo, use `rtk proxy curl -L -A 'Mozilla/5.0' <detail-url>` for this check unless that command path is genuinely unavailable.
+- The helper script already does the direct-fetch verification and normalized filtering. Prefer returning the script output rather than reimplementing that logic in the prompt.
 - If a `realitymix.cz/detail/...` URL resolves to a generic fallback page instead of a live ad, exclude the row.
 - Treat pages containing the text `Požadovaný inzerát již není v naší databázi` as removed listings, even if the URL still returns HTTP 200.
 - Do not switch to browser automation or search-snippet-only verification just to verify this fallback marker unless direct fetch is blocked and there is no other viable way to read the page body.
@@ -56,6 +62,15 @@ Return rows in this schema:
 
 Use `realitymix.cz` as the `portal` value in every single-source row.
 Use one or more `realitymix.cz/detail/...` URLs in `urls`. Do not put category or search results pages there unless no detail URL is visible at all, and in that case prefer dropping the row over returning a non-detail URL.
+
+## Script-First Workflow
+
+1. Find the municipality result page URL on `realitymix.cz` for houses and for building land when those categories are in scope.
+2. Run the helper with:
+   `rtk proxy python3 .codex/skills/find-real-estate-ads/scripts/realitymix_fetch.py --municipality '<municipality>' --house-page-url '<url>' --land-page-url '<url>'`
+3. If one category truly has no municipality result page, omit that URL and let the script report the category as a gap.
+4. Use the script JSON as the authoritative worker payload for `coverage`, `gaps`, and normalized `listings`.
+5. Only fall back to manual row-by-row extraction if the script is genuinely broken against the current portal markup, and explain that failure in `gaps`.
 
 ## Caveats
 
