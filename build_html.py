@@ -766,11 +766,9 @@ place_query = f"""
 [out:json][timeout:180];
 area["ISO3166-1"="CZ"][admin_level=2]->.cz;
 (
-  node(area.cz)(around:{RADIUS_M},{DOBRUSKA[0]},{DOBRUSKA[1]})["place"~"city|town|village"];
-  way(area.cz)(around:{RADIUS_M},{DOBRUSKA[0]},{DOBRUSKA[1]})["place"~"city|town|village"];
-  relation(area.cz)(around:{RADIUS_M},{DOBRUSKA[0]},{DOBRUSKA[1]})["place"~"city|town|village"];
+  relation(area.cz)(around:{RADIUS_M},{DOBRUSKA[0]},{DOBRUSKA[1]})["boundary"="administrative"]["admin_level"="8"];
 );
-out body;
+out center tags;
 """.strip()
 
 school_query = f"""
@@ -1661,7 +1659,16 @@ def registry_city_has_kindergarten(city: str, registry_cache: dict, cache_lock: 
             time.sleep(0.08)
             if dur is None or dur > MAX_DRIVE_SEC:
                 return None
-            school = sorted(m["schools"], key=lambda x: (0 if x.get("website") else 1, x["name"]))[0]
+            # Prefer the school closest to the municipality center so merged local parts
+            # do not arbitrarily replace the parent municipality's representative school.
+            school = sorted(
+                m["schools"],
+                key=lambda x: (
+                    haversine_km(m["lat"], m["lon"], x["lat"], x["lon"]),
+                    0 if x.get("website") else 1,
+                    x["name"],
+                ),
+            )[0]
             synthetic_school = bool(school.get("synthetic"))
             school_url = manual_city_school_url(m["name"]) or school.get("website")
             if not is_usable_school_url(school_url):
