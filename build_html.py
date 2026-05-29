@@ -93,6 +93,8 @@ def normalize_url(url):
     u = url.strip()
     if not u:
         return None
+    if u.lower().startswith(("mailto:", "tel:")):
+        return None
     if " " in u or "barrier=" in u:
         return None
     if not (u.startswith("http://") or u.startswith("https://")):
@@ -742,6 +744,15 @@ def school_name_tokens(name: str) -> set[str]:
     stop = {"zakladni", "skola", "a", "ms", "zs", "materska", "okres"}
     toks = set(normalize_text(name).split())
     return {t for t in toks if len(t) > 2 and t not in stop}
+
+
+def is_generic_primary_school_name(name: str) -> bool:
+    return normalize_text(name) in {
+        "zakladni skola",
+        "zakladni skola a materska skola",
+        "zs",
+        "zs a ms",
+    }
 
 
 def is_selected_school_malotridka(selected_school: dict, malotridky_points: list[dict]) -> bool:
@@ -1659,13 +1670,12 @@ def registry_city_has_kindergarten(city: str, registry_cache: dict, cache_lock: 
             time.sleep(0.08)
             if dur is None or dur > MAX_DRIVE_SEC:
                 return None
-            # Prefer the school closest to the municipality center so merged local parts
-            # do not arbitrarily replace the parent municipality's representative school.
             school = sorted(
                 m["schools"],
                 key=lambda x: (
-                    haversine_km(m["lat"], m["lon"], x["lat"], x["lon"]),
+                    1 if is_generic_primary_school_name(x["name"]) else 0,
                     0 if x.get("website") else 1,
+                    haversine_km(m["lat"], m["lon"], x["lat"], x["lon"]),
                     x["name"],
                 ),
             )[0]
@@ -2052,7 +2062,15 @@ def main() -> None:
             time.sleep(0.08)
             if dur is None or dur > MAX_DRIVE_SEC:
                 return None
-            school = sorted(m["schools"], key=lambda x: (0 if x.get("website") else 1, x["name"]))[0]
+            school = sorted(
+                m["schools"],
+                key=lambda x: (
+                    1 if is_generic_primary_school_name(x["name"]) else 0,
+                    0 if x.get("website") else 1,
+                    haversine_km(m["lat"], m["lon"], x["lat"], x["lon"]),
+                    x["name"],
+                ),
+            )[0]
             synthetic_school = bool(school.get("synthetic"))
             school_url = manual_city_school_url(m["name"]) or school.get("website")
             if not is_usable_school_url(school_url):

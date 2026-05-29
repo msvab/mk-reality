@@ -1,14 +1,19 @@
 {
-  "generated_at": "2026-05-29T20:08:12+0200",
+  "generated_at": "2026-05-29T21:02:32+0200",
   "schools_input": "dobruska_primary_schools.json",
   "raw_dir": "data/real_estate_ads_raw",
   "coverage": {
-    "school_cities": 131,
+    "school_cities": 109,
     "raw_files_found": 6,
     "cities_with_ads": 5,
-    "cities_with_raw_output": 6
+    "cities_with_raw_output": 5
   },
-  "unmatched_raw_files": [],
+  "unmatched_raw_files": [
+    {
+      "city": "Bražec",
+      "file": "brazec.json"
+    }
+  ],
   "cities": {
     "Opočno": {
       "count": 2,
@@ -375,33 +380,6 @@
         }
       ]
     },
-    "Bražec": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 4,
-        "workers_with_results": 2,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [
-          "mmreality.cz",
-          "reality.aktualne.cz"
-        ],
-        "blocked_portals": []
-      },
-      "assumptions": [
-        "Interpreted `Bražec` as the exact municipality Bražec in Karlovy Vary District, not the Náchod city-part also named Bražec.",
-        "Applied `sale`-only scope and excluded any candidate outside the exact municipality because `location_scope` is `municipality_only`.",
-        "Normalized `chalupa` as a search input only; no retained output rows use `chalupa` as a property_type."
-      ],
-      "gaps": [
-        "No credible active listings matching the exact municipality Bražec were retained across the supported portals.",
-        "reality.idnes.cz surfaced Náchod - Bražec listings, including a house in V Náměrkách and a buildable land listing in V Kalhotách, but these are in the city-part Bražec under Náchod and were excluded as outside the exact municipality.",
-        "realitymix.cz surfaced the same Náchod - Bražec house and the same sub-threshold 873 m2 Náchod - Bražec buildable land listing; both were excluded, first for wrong municipality and second also for land area below 1000 m2.",
-        "reality.aktualne.cz portal-scoped search for sale houses and land in Bražec did not surface a credible exact-municipality match during this run.",
-        "reality.idnes.cz detail-page verification hit a fetch/rate-limit failure on clicked detail URLs, but that did not change the retained result because the surfaced candidates were already outside the target municipality or below the land-size threshold."
-      ],
-      "ads": []
-    },
     "Velká Jesenice": {
       "count": 2,
       "coverage": {
@@ -515,119 +493,7 @@
       ],
       "ads": []
     },
-    "Náchod": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Týniště nad Orlicí": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
     "Třebechovice pod Orebem": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Česká Skalice": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Česká Čermná": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Častolovice": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Josefov": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Librantice": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -659,7 +525,23 @@
       ],
       "ads": []
     },
-    "Černilov": {
+    "Náchod": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Česká Skalice": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -691,6 +573,22 @@
       ],
       "ads": []
     },
+    "Častolovice": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
     "Jaroměř": {
       "count": 0,
       "coverage": {
@@ -707,7 +605,7 @@
       ],
       "ads": []
     },
-    "Javornice": {
+    "Černilov": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -723,7 +621,39 @@
       ],
       "ads": []
     },
-    "Vamberk": {
+    "Librantice": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Rasošky": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Týniště nad Orlicí": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -755,6 +685,22 @@
       ],
       "ads": []
     },
+    "Javornice": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
     "Kostelec nad Orlicí": {
       "count": 0,
       "coverage": {
@@ -771,7 +717,7 @@
       ],
       "ads": []
     },
-    "Slatina": {
+    "Vamberk": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -803,71 +749,7 @@
       ],
       "ads": []
     },
-    "Všeliby": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Potštejn": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Velichovky": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
     "Černožice": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Velké Poříčí": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -899,7 +781,7 @@
       ],
       "ads": []
     },
-    "Červený Kostelec": {
+    "Potštejn": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -915,7 +797,39 @@
       ],
       "ads": []
     },
-    "Choustníkovo Hradiště": {
+    "Velké Poříčí": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Červená Hora": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Hronov": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -947,54 +861,6 @@
       ],
       "ads": []
     },
-    "Bohousová": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Žireč": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Horní Jelení": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
     "Hradec Králové": {
       "count": 0,
       "coverage": {
@@ -1011,7 +877,55 @@
       ],
       "ads": []
     },
-    "Velký Dřevíč": {
+    "Stanovice": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Červený Kostelec": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Záchlumí": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Choustníkovo Hradiště": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -1043,7 +957,7 @@
       ],
       "ads": []
     },
-    "Rokytnice v Orlických horách": {
+    "Bezděkov nad Metují": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -1059,7 +973,7 @@
       ],
       "ads": []
     },
-    "Rtyně v Podkrkonoší": {
+    "Rokytnice v Orlických horách": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -1091,71 +1005,7 @@
       ],
       "ads": []
     },
-    "Žamberk": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Bezděkov nad Metují": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
     "Dvůr Králové nad Labem": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Hořiněves": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Hajnice": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -1187,6 +1037,54 @@
       ],
       "ads": []
     },
+    "Rtyně v Podkrkonoší": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Žamberk": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Běstovice": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
     "Ostřetín": {
       "count": 0,
       "coverage": {
@@ -1203,39 +1101,7 @@
       ],
       "ads": []
     },
-    "Stěžery": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Úpice": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Brandýs nad Orlicí": {
+    "Batňovice": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -1267,7 +1133,7 @@
       ],
       "ads": []
     },
-    "Dolní Ředice": {
+    "Horní Ředice": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -1283,7 +1149,7 @@
       ],
       "ads": []
     },
-    "Opatovice nad Labem": {
+    "Stěžery": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -1299,183 +1165,7 @@
       ],
       "ads": []
     },
-    "Police nad Metují": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Sezemice": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Stárkov": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Bukovice": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Machov": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Dolní Přím": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Libčany": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Čeperka": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Hnátnice": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Machovská Lhota": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Zámrsk": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Bílá Třemešná": {
+    "Brandýs nad Orlicí": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -1507,7 +1197,167 @@
       ],
       "ads": []
     },
-    "Klášterec nad Orlicí": {
+    "Hajnice": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Opatovice nad Labem": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Stárkov": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Dolní Ředice": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Machov": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Sezemice": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Bukovice": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Bílá Třemešná": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Úpice": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Zámrsk": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Libčany": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -1555,7 +1405,7 @@
       ],
       "ads": []
     },
-    "Nemojov": {
+    "Srch": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -1571,7 +1421,7 @@
       ],
       "ads": []
     },
-    "Ústí nad Orlicí": {
+    "Vysoká nad Labem": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -1603,22 +1453,6 @@
       ],
       "ads": []
     },
-    "Letohrad": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
     "Spojil": {
       "count": 0,
       "coverage": {
@@ -1635,7 +1469,7 @@
       ],
       "ads": []
     },
-    "Vraclav": {
+    "Čeperka": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -1651,7 +1485,7 @@
       ],
       "ads": []
     },
-    "Ráby": {
+    "Nemojov": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -1667,71 +1501,7 @@
       ],
       "ads": []
     },
-    "Srch": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Hořice": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Nechanice": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Staré Hradiště": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Boharyně": {
+    "Hnátnice": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -1763,7 +1533,71 @@
       ],
       "ads": []
     },
+    "Letohrad": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Ráby": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Hořice": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
     "Jablonné nad Orlicí": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Nechanice": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -1795,7 +1629,39 @@
       ],
       "ads": []
     },
+    "Staré Hradiště": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
     "Vysoké Mýto": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Horní Brusnice": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -1827,23 +1693,7 @@
       ],
       "ads": []
     },
-    "Chroustovice": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Pardubice": {
+    "Klášterec nad Orlicí": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -1875,7 +1725,23 @@
       ],
       "ads": []
     },
-    "Nové Město": {
+    "Pardubice": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Ústí nad Orlicí": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -1939,23 +1805,7 @@
       ],
       "ads": []
     },
-    "Nemošice": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Poříčí": {
+    "Nové Město": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -2019,55 +1869,7 @@
       ],
       "ads": []
     },
-    "Zadní Mostek": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Chvaleč": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
     "Lázně Bohdaneč": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Lázně Bělohrad": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -2099,198 +1901,6 @@
       ],
       "ads": []
     },
-    "Broumov": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Chlumec nad Cidlinou": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Kalná Voda": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Lichkov": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Dolní Sloupnice": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Meziměstí": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Orličky": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Ostřešany": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Staré Jesenčany": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Tisová": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Vlčice": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Voletiny": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
     "Česká Třebová": {
       "count": 0,
       "coverage": {
@@ -2307,7 +1917,7 @@
       ],
       "ads": []
     },
-    "Břehy": {
+    "Lichkov": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -2355,7 +1965,7 @@
       ],
       "ads": []
     },
-    "Vojice": {
+    "Tisová": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -2371,7 +1981,7 @@
       ],
       "ads": []
     },
-    "Výprachtice": {
+    "Chlumec nad Cidlinou": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -2387,7 +1997,71 @@
       ],
       "ads": []
     },
-    "Živanice": {
+    "Vlčice": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Břehy": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Chrudim": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Broumov": {
+      "count": 0,
+      "coverage": {
+        "workers_launched": 0,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": []
+      },
+      "assumptions": [],
+      "gaps": [
+        "missing-raw-skill-output"
+      ],
+      "ads": []
+    },
+    "Ostřešany": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
@@ -2420,38 +2094,6 @@
       "ads": []
     },
     "Chomutice": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Chrudim": {
-      "count": 0,
-      "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
-        "blocked_portals": []
-      },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
-      ],
-      "ads": []
-    },
-    "Skřivany": {
       "count": 0,
       "coverage": {
         "workers_launched": 0,
