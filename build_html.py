@@ -1,3 +1,4 @@
+import argparse
 import json
 import math
 import re
@@ -6,6 +7,7 @@ import atexit
 import signal
 import threading
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from datetime import datetime
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -21,6 +23,7 @@ TYPE_CACHE_PATH = Path("school_type_cache.json")
 REGISTRY_CACHE_PATH = Path("school_registry_cache.json")
 MALOTRIDKY_CACHE_PATH = Path("mapotic_malotridky_cache.json")
 REAL_ESTATE_ADS_BY_CITY_PATH = Path("real_estate_ads_by_city.json")
+OVERPASS_CACHE_DIR = Path("data/overpass")
 MANUAL_CITY_SCHOOL_URLS = {
     "Třebechovice pod Orebem": "https://www.zst.cz/w/zakladni-skola/",
 }
@@ -797,9 +800,7 @@ amenity_query = f"""
 [out:json][timeout:180];
 area["ISO3166-1"="CZ"][admin_level=2]->.cz;
 (
-  node(area.cz)(around:{RADIUS_M},{DOBRUSKA[0]},{DOBRUSKA[1]})["amenity"~"kindergarten|cinema|theatre"];
-  way(area.cz)(around:{RADIUS_M},{DOBRUSKA[0]},{DOBRUSKA[1]})["amenity"~"kindergarten|cinema|theatre"];
-  relation(area.cz)(around:{RADIUS_M},{DOBRUSKA[0]},{DOBRUSKA[1]})["amenity"~"kindergarten|cinema|theatre"];
+  nwr(area.cz)(around:{RADIUS_M},{DOBRUSKA[0]},{DOBRUSKA[1]})["amenity"~"^(kindergarten|cinema|theatre)$"];
 );
 out center tags;
 """.strip()
@@ -823,13 +824,60 @@ def overpass_query(query: str) -> dict:
     raise last_err
 
 
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Build the Dobruška school and real-estate HTML report.")
+    parser.add_argument(
+        "--refresh-overpass",
+        action="store_true",
+        help="Fetch fresh municipality, school, and amenity data from Overpass instead of using cached raw responses.",
+    )
+    parser.add_argument(
+        "--overpass-cache-dir",
+        default=str(OVERPASS_CACHE_DIR),
+        help="Directory for cached raw Overpass responses.",
+    )
+    return parser.parse_args()
+
+
+def load_or_fetch_overpass(name: str, query: str, cache_dir: Path, refresh: bool) -> dict:
+    cache_path = cache_dir / f"{name}.json"
+    if not refresh and cache_path.exists():
+        cached = json.loads(cache_path.read_text(encoding="utf-8"))
+        if cached.get("query") == query and isinstance(cached.get("response"), dict):
+            print(f"Using cached {name} from {cache_path}", flush=True)
+            return cached["response"]
+        print(f"Cache miss for {name}: query changed, refreshing Overpass data.", flush=True)
+
+    print(f"Fetching {name} from Overpass...", flush=True)
+    response = overpass_query(query)
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    cache_path.write_text(
+        json.dumps(
+            {
+                "fetched_at": datetime.now().astimezone().strftime("%Y-%m-%dT%H:%M:%S%z"),
+                "query": query,
+                "response": response,
+            },
+            ensure_ascii=False,
+            indent=2,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    return response
+
+
+def load_overpass_inputs(args: argparse.Namespace) -> tuple[dict, dict, dict]:
+    cache_dir = Path(args.overpass_cache_dir)
+    places = load_or_fetch_overpass("municipalities", place_query, cache_dir, args.refresh_overpass)
+    schools = load_or_fetch_overpass("schools", school_query, cache_dir, args.refresh_overpass)
+    amenities = load_or_fetch_overpass("amenities", amenity_query, cache_dir, args.refresh_overpass)
+    return places, schools, amenities
+
+
 def main() -> None:
-    print("Fetching municipalities from Overpass...", flush=True)
-    places = overpass_query(place_query)
-    print("Fetching schools from Overpass...", flush=True)
-    schools = overpass_query(school_query)
-    print("Fetching amenities from Overpass...", flush=True)
-    amenities = overpass_query(amenity_query)
+    args = parse_args()
+    places, schools, amenities = load_overpass_inputs(args)
     
     municipalities = []
     for el in places.get("elements", []):
@@ -1888,12 +1936,8 @@ def registry_city_has_kindergarten(city: str, registry_cache: dict, cache_lock: 
 
 
 def main() -> None:
-    print("Fetching municipalities from Overpass...", flush=True)
-    places = overpass_query(place_query)
-    print("Fetching schools from Overpass...", flush=True)
-    schools = overpass_query(school_query)
-    print("Fetching amenities from Overpass...", flush=True)
-    amenities = overpass_query(amenity_query)
+    args = parse_args()
+    places, schools, amenities = load_overpass_inputs(args)
 
     municipalities = []
     for el in places.get("elements", []):

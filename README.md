@@ -24,6 +24,9 @@ What it does:
 
 Important inputs:
 
+- `data/overpass/municipalities.json`
+- `data/overpass/schools.json`
+- `data/overpass/amenities.json`
 - `school_url_cache.json`
 - `school_type_cache.json`
 - `school_registry_cache.json`
@@ -39,6 +42,13 @@ Typical usage:
 
 ```bash
 rtk python3 build_html.py
+```
+
+By default, `build_html.py` uses cached raw Overpass responses from `data/overpass`.
+Refresh those source files explicitly when the Overpass query changes or the cached source data needs to be updated:
+
+```bash
+rtk proxy python3 build_html.py --refresh-overpass
 ```
 
 ### [build_real_estate_ads_json.py](/Users/michal-mbp/dev/reality/build_real_estate_ads_json.py)
@@ -206,7 +216,7 @@ Contains:
 ### Base Site Flow
 
 1. Run `build_html.py`.
-2. The script fetches and enriches municipality and school data.
+2. The script reads cached Overpass municipality, school, and amenity data unless `--refresh-overpass` is used.
 3. It writes `dobruska_primary_schools.json`.
 4. It writes `index.html`.
 
