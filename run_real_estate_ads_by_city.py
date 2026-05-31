@@ -11,7 +11,6 @@ from pathlib import Path
 from build_real_estate_ads_by_city import build_aggregate_output, load_school_cities
 from build_real_estate_ads_json import build_output
 
-
 DEFAULT_RAW_DIR = Path("data/real_estate_ads_raw")
 DEFAULT_STATE_PATH = Path("real_estate_ads_run_state.json")
 DEFAULT_AGGREGATE_PATH = Path("real_estate_ads_by_city.json")
@@ -169,7 +168,7 @@ def run_city(
         cmd[2:2] = ["--model", model]
 
     try:
-        completed = subprocess.run(cmd, check=True, capture_output=True, text=True)
+        subprocess.run(cmd, check=True, capture_output=True, text=True)
         payload = json.loads(temp_output_path.read_text(encoding="utf-8"))
         validate_raw_output(payload, city)
         temp_output_path.replace(output_path)

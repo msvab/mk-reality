@@ -5,7 +5,6 @@ import time
 import urllib.parse
 from pathlib import Path
 
-
 DEFAULT_WORKERS = [
     "reality.idnes.cz",
     "mmreality.cz",
@@ -32,10 +31,7 @@ def normalize_url(url: str | None) -> str | None:
 def normalize_list(value) -> list[str]:
     if value is None:
         return []
-    if isinstance(value, list):
-        items = value
-    else:
-        items = [value]
+    items = value if isinstance(value, list) else [value]
     out = []
     seen = set()
     for item in items:
@@ -100,9 +96,8 @@ def normalize_listing(raw: dict) -> dict | None:
 
     if price_czk is None:
         return None
-    if property_type in {"house", "land"}:
-        if land_area_m2 is None or land_area_m2 < 1000:
-            return None
+    if property_type in {"house", "land"} and (land_area_m2 is None or land_area_m2 < 1000):
+        return None
 
     return {
         "portal": portals,
