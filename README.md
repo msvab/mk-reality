@@ -63,12 +63,14 @@ What it does:
 - filters out unusable rows
 - enforces the minimum `1000 m2` land rule
 - deduplicates listings
+- normalizes portal-level fetch status, including rate limits and partial detail-fetch failures
 - sorts retained listings
 - writes one normalized JSON file for downstream use
 
 Important input shape:
 
 - one raw per-city JSON object with `query`, `coverage`, `gaps`, and `listings`
+- optional `portal_status` keyed by supported portal domain
 
 Typical usage:
 
@@ -146,6 +148,24 @@ Resume later:
 rtk python3 run_real_estate_ads_by_city.py --aggregate-after-each
 ```
 
+### [summarize_real_estate_fetch_errors.py](/Users/michal-mbp/dev/reality/summarize_real_estate_fetch_errors.py)
+
+Portal warning reporter for the ads aggregate.
+
+Use it to identify portal errors after a batch fetch, including rate limits, DNS failures, cache misses, inactive pages, fallback pages, and partial snapshot-based results.
+
+Typical usage:
+
+```bash
+rtk python3 summarize_real_estate_fetch_errors.py
+```
+
+Machine-readable usage:
+
+```bash
+rtk python3 summarize_real_estate_fetch_errors.py --json
+```
+
 ### [real_estate_ads_exec_output.schema.json](/Users/michal-mbp/dev/reality/real_estate_ads_exec_output.schema.json)
 
 JSON schema passed to `codex exec`.
@@ -154,6 +174,7 @@ What it does:
 
 - constrains the final response format of the non-interactive ads search run
 - ensures the runner gets a machine-readable JSON object instead of markdown
+- allows optional `portal_status` so portal fetch failures are structured instead of only described in text
 
 ### [real_estate_ads_input.example.json](/Users/michal-mbp/dev/reality/real_estate_ads_input.example.json)
 

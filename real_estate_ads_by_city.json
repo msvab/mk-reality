@@ -1,12 +1,13 @@
 {
-  "generated_at": "2026-05-31T22:59:15+0200",
+  "generated_at": "2026-05-31T23:14:37+0200",
   "schools_input": "dobruska_primary_schools.json",
   "raw_dir": "data/real_estate_ads_raw",
   "coverage": {
     "school_cities": 109,
     "raw_files_found": 21,
     "cities_with_ads": 14,
-    "cities_with_raw_output": 20
+    "cities_with_raw_output": 20,
+    "cities_with_portal_warnings": 13
   },
   "unmatched_raw_files": [
     {
@@ -27,6 +28,28 @@
           "reality.aktualne.cz"
         ],
         "blocked_portals": []
+      },
+      "portal_status": {
+        "reality.idnes.cz": {
+          "status": "partial",
+          "retained_from_snapshot": true,
+          "message": "reality.idnes.cz exposed six matching Opočno-Dobříkovec building-land rows in the search snapshot, but accessible detail content did not expose enough lot-specific title data to merge those URLs safely into the per-parcel RealityMix rows.",
+          "evidence": [
+            "reality.idnes.cz exposed six matching Opočno-Dobříkovec building-land rows in the search snapshot, but accessible detail content did not expose enough lot-specific title data to merge those URLs safely into the per-parcel RealityMix rows."
+          ]
+        },
+        "mmreality.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        },
+        "realitymix.cz": {
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
+        },
+        "reality.aktualne.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        }
       },
       "assumptions": [
         "No sub-agents were spawned; the skill's single-agent fallback was used portal by portal.",
@@ -175,6 +198,31 @@
         ],
         "blocked_portals": []
       },
+      "portal_status": {
+        "reality.idnes.cz": {
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
+        },
+        "mmreality.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        },
+        "realitymix.cz": {
+          "status": "fetch_error",
+          "message": "detail-open-cache-miss",
+          "retained_from_snapshot": true,
+          "evidence": [
+            "snapshot-sufficient",
+            "detail-open-cache-miss",
+            "realitymix.cz detail pages returned cache-miss through the fetch tool for some direct detail URLs, so the retained RealityMix land row relies on a search snapshot that exposed title, exact municipality, sale type, residential/buildable land use, price, land area, and detail URL."
+          ],
+          "stage": "detail_fetch"
+        },
+        "reality.aktualne.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        }
+      },
       "assumptions": [
         "Single-agent fallback used as requested; no sub-agents were spawned.",
         "municipality_only includes municipal parts explicitly shown as part of Nové Město nad Metují, such as Krčín and Rezek.",
@@ -239,6 +287,29 @@
         "rows_retained": 8,
         "zero_result_portals": [],
         "blocked_portals": []
+      },
+      "portal_status": {
+        "reality.idnes.cz": {
+          "status": "partial",
+          "message": "snapshot-sufficient",
+          "retained_from_snapshot": true,
+          "evidence": [
+            "snapshot-sufficient",
+            "reality.idnes.cz detail pages were partly available only through indexed/cached detail snapshots during this run; retained iDNES rows used snapshots that exposed price, location, house area, land area, and detail URL."
+          ]
+        },
+        "mmreality.cz": {
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
+        },
+        "realitymix.cz": {
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
+        },
+        "reality.aktualne.cz": {
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
+        }
       },
       "assumptions": [
         "No sub-agents were spawned; the skill's single-agent fallback was used portal-by-portal across reality.idnes.cz, mmreality.cz, realitymix.cz, and reality.aktualne.cz.",
@@ -462,6 +533,37 @@
         ],
         "blocked_portals": []
       },
+      "portal_status": {
+        "reality.idnes.cz": {
+          "status": "partial",
+          "message": "`reality.idnes.cz`: current searchable result pages surfaced several České Meziříčí rows, but most municipality matches either had parcel area below 1000 m2, looked stale across newer search snapshots, or lacked a usable detail URL for retained output.",
+          "retained_from_snapshot": true,
+          "evidence": [
+            "`reality.idnes.cz`: current searchable result pages surfaced several České Meziříčí rows, but most municipality matches either had parcel area below 1000 m2, looked stale across newer search snapshots, or lacked a usable detail URL for retained output."
+          ]
+        },
+        "mmreality.cz": {
+          "status": "inactive",
+          "message": "`mmreality.cz`: the surfaced Záhumenská land listing was excluded because the M&M detail page says the property is no longer in offer.",
+          "evidence": [
+            "`mmreality.cz`: the surfaced Záhumenská land listing was excluded because the M&M detail page says the property is no longer in offer."
+          ]
+        },
+        "realitymix.cz": {
+          "status": "partial",
+          "message": "parcel-area-verified-from-current-cross-portal-snapshots",
+          "retained_from_snapshot": true,
+          "evidence": [
+            "parcel-area-verified-from-current-cross-portal-snapshots",
+            "price-updated-from-current-search-snapshots",
+            "`realitymix.cz`: current/searchable snapshots surfaced the retained Na Nábřeží house; another Záhumenská house appeared to meet the parcel threshold, but no usable exact detail URL was surfaced, so it was excluded under the skill rules."
+          ]
+        },
+        "reality.aktualne.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        }
+      },
       "assumptions": [
         "Single-agent fallback was used portal-by-portal without spawning sub-agents.",
         "`chalupa` was treated as a house-like input category and would be normalised to `house` in retained output.",
@@ -517,6 +619,7 @@
           "reality.aktualne.cz"
         ]
       },
+      "portal_status": {},
       "assumptions": [
         "Could not perform a live portal search because the configured response schema requires a final JSON object and no callable real-estate portal sub-agent/fallback browsing result is available in this run.",
         "Applied the requested filters conservatively: municipality_only, sale listings only, houses/chalupy/land, land area >= 1000 m2, exclude chata, and land must be buildable or residential."
@@ -543,6 +646,24 @@
         ],
         "blocked_portals": []
       },
+      "portal_status": {
+        "reality.idnes.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        },
+        "mmreality.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        },
+        "realitymix.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        },
+        "reality.aktualne.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        }
+      },
       "assumptions": [
         "Searched sale listings only.",
         "Treated Černé Voděrady, Polní Voděrady, and Voděrádky as outside municipality_scope because they are not the exact municipality name Voděrady.",
@@ -567,6 +688,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [
         "Unable to perform live portal search in this response path without risking non-JSON output; no listings were asserted from memory."
       ],
@@ -587,6 +709,46 @@
         "blocked_portals": [
           "Some detail pages on reality.idnes.cz, mmreality.cz, realitymix.cz, and reality.aktualne.cz returned cache-miss/internal fetch errors, so sufficient listing/search snapshots were used only where they exposed all required fields."
         ]
+      },
+      "portal_status": {
+        "reality.idnes.cz": {
+          "status": "fetch_error",
+          "message": "detail-fetch-cache-miss",
+          "retained_from_snapshot": true,
+          "evidence": [
+            "snapshot-sufficient",
+            "detail-fetch-cache-miss",
+            "Some detail pages on reality.idnes.cz, mmreality.cz, realitymix.cz, and reality.aktualne.cz returned cache-miss/internal fetch errors, so sufficient listing/search snapshots were used only where they exposed all required fields."
+          ],
+          "stage": "detail_fetch"
+        },
+        "mmreality.cz": {
+          "status": "fetch_error",
+          "message": "Some detail pages on reality.idnes.cz, mmreality.cz, realitymix.cz, and reality.aktualne.cz returned cache-miss/internal fetch errors, so sufficient listing/search snapshots were used only where they exposed all required fields.",
+          "stage": "detail_fetch",
+          "retained_from_snapshot": true,
+          "evidence": [
+            "Some detail pages on reality.idnes.cz, mmreality.cz, realitymix.cz, and reality.aktualne.cz returned cache-miss/internal fetch errors, so sufficient listing/search snapshots were used only where they exposed all required fields."
+          ]
+        },
+        "realitymix.cz": {
+          "status": "fetch_error",
+          "message": "Some detail pages on reality.idnes.cz, mmreality.cz, realitymix.cz, and reality.aktualne.cz returned cache-miss/internal fetch errors, so sufficient listing/search snapshots were used only where they exposed all required fields.",
+          "stage": "detail_fetch",
+          "retained_from_snapshot": true,
+          "evidence": [
+            "Some detail pages on reality.idnes.cz, mmreality.cz, realitymix.cz, and reality.aktualne.cz returned cache-miss/internal fetch errors, so sufficient listing/search snapshots were used only where they exposed all required fields."
+          ]
+        },
+        "reality.aktualne.cz": {
+          "status": "fetch_error",
+          "message": "Some detail pages on reality.idnes.cz, mmreality.cz, realitymix.cz, and reality.aktualne.cz returned cache-miss/internal fetch errors, so sufficient listing/search snapshots were used only where they exposed all required fields.",
+          "stage": "detail_fetch",
+          "retained_from_snapshot": true,
+          "evidence": [
+            "Some detail pages on reality.idnes.cz, mmreality.cz, realitymix.cz, and reality.aktualne.cz returned cache-miss/internal fetch errors, so sufficient listing/search snapshots were used only where they exposed all required fields."
+          ]
+        }
       },
       "assumptions": [
         "No sub-agents were spawned; this used the skill's single-agent fallback with separate portal-by-portal passes.",
@@ -701,6 +863,28 @@
         ],
         "blocked_portals": []
       },
+      "portal_status": {
+        "reality.idnes.cz": {
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
+        },
+        "mmreality.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        },
+        "realitymix.cz": {
+          "status": "partial",
+          "message": "detail-url-verified:realitymix.cz-search-snapshot",
+          "retained_from_snapshot": true,
+          "evidence": [
+            "detail-url-verified:realitymix.cz-search-snapshot"
+          ]
+        },
+        "reality.aktualne.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        }
+      },
       "assumptions": [
         "No sub-agents were spawned; coverage counts refer to single-agent portal-by-portal passes using the skill fallback.",
         "municipality_only includes municipal parts explicitly shown by portals as part of Třebechovice pod Orebem, including Krňovice and Polánky nad Dědinou.",
@@ -814,6 +998,25 @@
           "reality.idnes.cz"
         ]
       },
+      "portal_status": {
+        "reality.idnes.cz": {
+          "status": "rate_limited",
+          "http_status": 429,
+          "stage": "detail_fetch",
+          "message": "reality.idnes.cz returned municipality-relevant listing/search snippets, including houses in Lípa nad Orlicí with parcel areas above 1000 m2, but detail-page retrieval hit 429 Too Many Requests and no direct detail URLs could be verified; those rows were excluded under the skill rules.",
+          "evidence": [
+            "reality.idnes.cz returned municipality-relevant listing/search snippets, including houses in Lípa nad Orlicí with parcel areas above 1000 m2, but detail-page retrieval hit 429 Too Many Requests and no direct detail URLs could be verified; those rows were excluded under the skill rules."
+          ]
+        },
+        "realitymix.cz": {
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
+        },
+        "reality.aktualne.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        }
+      },
       "assumptions": [
         "Used the find-real-estate-ads single-agent fallback as requested; no sub-agents were spawned.",
         "Treated chalupa as an input-only house-like type and normalized retained house-like matches to house.",
@@ -861,6 +1064,33 @@
           "reality.idnes.cz"
         ],
         "blocked_portals": []
+      },
+      "portal_status": {
+        "reality.idnes.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        },
+        "mmreality.cz": {
+          "status": "inactive",
+          "message": "helper-conflict:mmreality.cz-inactive-generic-page",
+          "evidence": [
+            "helper-conflict:mmreality.cz-inactive-generic-page",
+            "mmreality.cz helper flagged the generic 918301 page inactive, but the current browser-readable M&M detail page exposed active listing fields; the row was retained because the direct page had price, location, usable area, parcel area, and listing number."
+          ]
+        },
+        "realitymix.cz": {
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
+        },
+        "reality.aktualne.cz": {
+          "status": "fallback_page",
+          "message": "helper-conflict:reality.aktualne.cz-detail-fallback-page",
+          "stage": "detail_fetch",
+          "evidence": [
+            "helper-conflict:reality.aktualne.cz-detail-fallback-page",
+            "reality.aktualne.cz helper treated the 1130 m2 house page as a fallback page, but the browser-readable detail page exposed active listing fields; it was merged as supporting evidence only."
+          ]
+        }
       },
       "assumptions": [
         "No sub-agents were spawned; the skill's single-agent fallback was used portal-by-portal.",
@@ -983,6 +1213,37 @@
           "reality.aktualne.cz"
         ],
         "blocked_portals": []
+      },
+      "portal_status": {
+        "reality.idnes.cz": {
+          "status": "rate_limited",
+          "message": "detail-rate-limited:429",
+          "retained_from_snapshot": true,
+          "evidence": [
+            "snapshot-sufficient:reality.idnes.cz",
+            "detail-rate-limited:429",
+            "reality.idnes.cz returned 429/cache errors for several detail pages; retained only rows where the result snapshot exposed all required fields and a detail URL."
+          ],
+          "http_status": 429,
+          "stage": "detail_fetch"
+        },
+        "mmreality.cz": {
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
+        },
+        "realitymix.cz": {
+          "status": "partial",
+          "message": "snapshot-sufficient:realitymix.cz",
+          "retained_from_snapshot": true,
+          "evidence": [
+            "snapshot-sufficient:realitymix.cz",
+            "realitymix.cz automatic municipality page discovery returned no category URLs, so only search-discovered detail candidates were considered; retained RealityMix rows only as duplicates where the snapshot was sufficient."
+          ]
+        },
+        "reality.aktualne.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        }
       },
       "assumptions": [
         "Used the find-real-estate-ads single-agent fallback; workers_launched below counts logical portal-specific passes, not spawned sub-agents.",
@@ -1162,6 +1423,24 @@
         ],
         "blocked_portals": []
       },
+      "portal_status": {
+        "reality.idnes.cz": {
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
+        },
+        "mmreality.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        },
+        "realitymix.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        },
+        "reality.aktualne.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        }
+      },
       "assumptions": [
         "No sub-agents were spawned; workers_launched counts the four single-agent portal passes required by the skill registry.",
         "Sale listings only; municipality_only was treated as exact Dolní Radechová.",
@@ -1211,6 +1490,37 @@
           "reality.aktualne.cz"
         ],
         "blocked_portals": []
+      },
+      "portal_status": {
+        "reality.idnes.cz": {
+          "status": "rate_limited",
+          "message": "detail-rate-limited:429",
+          "retained_from_snapshot": true,
+          "evidence": [
+            "listing-snapshot-sufficient",
+            "detail-rate-limited:429",
+            "reality.idnes.cz detail navigation for the retained land listing returned HTTP 429 during verification, so the row is retained from a current iDNES result snapshot that exposed sale status, buildable land type, municipality, area, price, and detail URL."
+          ],
+          "http_status": 429,
+          "stage": "detail_fetch"
+        },
+        "mmreality.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        },
+        "realitymix.cz": {
+          "status": "partial",
+          "message": "content-from-indexed-portal-snapshot",
+          "retained_from_snapshot": true,
+          "evidence": [
+            "content-from-indexed-portal-snapshot",
+            "realitymix.cz detail content for the retained house was available through indexed portal content and an HTTP 200 HEAD check, but full body refetch was inconsistent during the run; confidence is lower than a clean detail-page body verification."
+          ]
+        },
+        "reality.aktualne.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        }
       },
       "assumptions": [
         "Used the skill's single-agent fallback, preserving portal-by-portal discipline and searching only supported portals: reality.idnes.cz, mmreality.cz, realitymix.cz, reality.aktualne.cz.",
@@ -1285,6 +1595,24 @@
         ],
         "blocked_portals": []
       },
+      "portal_status": {
+        "reality.idnes.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        },
+        "mmreality.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        },
+        "realitymix.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        },
+        "reality.aktualne.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        }
+      },
       "assumptions": [
         "Unable to execute the live portal search in this response because no portal data was available in the current context."
       ],
@@ -1307,6 +1635,28 @@
           "reality.aktualne.cz"
         ],
         "blocked_portals": []
+      },
+      "portal_status": {
+        "reality.idnes.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        },
+        "mmreality.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        },
+        "realitymix.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        },
+        "reality.aktualne.cz": {
+          "status": "fallback_page",
+          "message": "reality.aktualne.cz exposed a Černilov house candidate with garden/land below 1000 m2, and helper verification also reported a detail fallback page for one stale candidate.",
+          "stage": "detail_fetch",
+          "evidence": [
+            "reality.aktualne.cz exposed a Černilov house candidate with garden/land below 1000 m2, and helper verification also reported a detail fallback page for one stale candidate."
+          ]
+        }
       },
       "assumptions": [
         "Sale listings only.",
@@ -1335,6 +1685,24 @@
           "reality.aktualne.cz"
         ],
         "blocked_portals": []
+      },
+      "portal_status": {
+        "reality.idnes.cz": {
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
+        },
+        "mmreality.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        },
+        "realitymix.cz": {
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
+        },
+        "reality.aktualne.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        }
       },
       "assumptions": [
         "No sub-agents were launched; the skill's single-agent fallback was used with separate portal-by-portal checks.",
@@ -1407,6 +1775,28 @@
         ],
         "blocked_portals": []
       },
+      "portal_status": {
+        "reality.idnes.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        },
+        "mmreality.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        },
+        "realitymix.cz": {
+          "status": "partial",
+          "message": "price-verified-from-indexed-detail",
+          "retained_from_snapshot": true,
+          "evidence": [
+            "price-verified-from-indexed-detail"
+          ]
+        },
+        "reality.aktualne.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        }
+      },
       "assumptions": [
         "No sub-agents were spawned; used the skill's single-agent fallback with separate portal checks for reality.idnes.cz, mmreality.cz, realitymix.cz, and reality.aktualne.cz.",
         "The duplicate RealityMix house and land advertisements appear to describe the same underlying TRIGA Reality property, so they were merged into one retained row."
@@ -1460,6 +1850,24 @@
         ],
         "blocked_portals": []
       },
+      "portal_status": {
+        "reality.idnes.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        },
+        "mmreality.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        },
+        "realitymix.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        },
+        "reality.aktualne.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        }
+      },
       "assumptions": [
         "No sub-agents were spawned; I used the skill's single-agent fallback and kept the search separated by supported portal.",
         "`municipality_only` was treated as Týniště nad Orlicí and its explicit municipal parts only; nearby municipalities such as Nová Ves were excluded even when listings mentioned proximity to Týniště nad Orlicí.",
@@ -1487,6 +1895,37 @@
           "reality.aktualne.cz"
         ],
         "blocked_portals": []
+      },
+      "portal_status": {
+        "reality.idnes.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope rows."
+        },
+        "mmreality.cz": {
+          "status": "inactive",
+          "message": "mmreality.cz: checked M&M detail candidates 916249, 916251, and 921843; generic M&M detail checks were inactive or had missing/unknown price, so none were retained under the skill rules.",
+          "evidence": [
+            "mmreality.cz: checked M&M detail candidates 916249, 916251, and 921843; generic M&M detail checks were inactive or had missing/unknown price, so none were retained under the skill rules."
+          ]
+        },
+        "realitymix.cz": {
+          "status": "partial",
+          "message": "category-snapshot-price:2490000",
+          "retained_from_snapshot": true,
+          "evidence": [
+            "category-snapshot-price:2490000",
+            "mmreality-generic-inactive",
+            "realitymix.cz showed a price drift between the search/category snapshot and detail page for the retained land listing; the detail page price was used and the drift is recorded in notes."
+          ]
+        },
+        "reality.aktualne.cz": {
+          "status": "fallback_page",
+          "message": "reality.aktualne.cz: site-scoped searches did not surface a credible matching Doudleby nad Orlicí detail page; a guessed mirror detail URL resolved as a fallback page.",
+          "stage": "detail_fetch",
+          "evidence": [
+            "reality.aktualne.cz: site-scoped searches did not surface a credible matching Doudleby nad Orlicí detail page; a guessed mirror detail URL resolved as a fallback page."
+          ]
+        }
       },
       "assumptions": [
         "No sub-agents were spawned; this used the skill's single-agent fallback with separate portal-by-portal passes.",
@@ -1536,6 +1975,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1552,6 +1992,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1568,6 +2009,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1584,6 +2026,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1600,6 +2043,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1616,6 +2060,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1632,6 +2077,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1648,6 +2094,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1664,6 +2111,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1680,6 +2128,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1696,6 +2145,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1712,6 +2162,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1728,6 +2179,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1744,6 +2196,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1760,6 +2213,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1776,6 +2230,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1792,6 +2247,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1808,6 +2264,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1824,6 +2281,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1840,6 +2298,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1856,6 +2315,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1872,6 +2332,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1888,6 +2349,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1904,6 +2366,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1920,6 +2383,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1936,6 +2400,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1952,6 +2417,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1968,6 +2434,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1984,6 +2451,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2000,6 +2468,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2016,6 +2485,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2032,6 +2502,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2048,6 +2519,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2064,6 +2536,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2080,6 +2553,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2096,6 +2570,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2112,6 +2587,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2128,6 +2604,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2144,6 +2621,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2160,6 +2638,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2176,6 +2655,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2192,6 +2672,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2208,6 +2689,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2224,6 +2706,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2240,6 +2723,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2256,6 +2740,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2272,6 +2757,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2288,6 +2774,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2304,6 +2791,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2320,6 +2808,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2336,6 +2825,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2352,6 +2842,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2368,6 +2859,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2384,6 +2876,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2400,6 +2893,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2416,6 +2910,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2432,6 +2927,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2448,6 +2944,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2464,6 +2961,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2480,6 +2978,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2496,6 +2995,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2512,6 +3012,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2528,6 +3029,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2544,6 +3046,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2560,6 +3063,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2576,6 +3080,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2592,6 +3097,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2608,6 +3114,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2624,6 +3131,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2640,6 +3148,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2656,6 +3165,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2672,6 +3182,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2688,6 +3199,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2704,6 +3216,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2720,6 +3233,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2736,6 +3250,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2752,6 +3267,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2768,6 +3284,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2784,6 +3301,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2800,6 +3318,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2816,6 +3335,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2832,6 +3352,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2848,6 +3369,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2864,6 +3386,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2880,6 +3403,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2896,6 +3420,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2912,6 +3437,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2928,6 +3454,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2944,6 +3471,7 @@
         "zero_result_portals": [],
         "blocked_portals": []
       },
+      "portal_status": {},
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"

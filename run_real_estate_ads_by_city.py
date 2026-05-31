@@ -110,6 +110,7 @@ Requirements:
 - use the skill's deduplication and ranking rules
 - if no credible listings are found, still return a valid JSON object with an empty `listings` array and explain any coverage/gaps in `gaps`
 - do not spawn sub-agents in this run; use the skill's documented single-agent fallback while preserving the same portal-by-portal discipline
+- include `portal_status` for each checked supported portal so fetch problems are machine-readable; do not hide 429/rate-limit, DNS, timeout, cache-miss, inactive, or fallback-page evidence only in `gaps`
 
 Set:
 - `city` to `{city}`
@@ -118,6 +119,13 @@ Set:
 - `query.country` to `Czech Republic`
 - `query.property_types` to [\"house\", \"chalupa\", \"land\"]
 - `query.land_size_min_m2` to 1000
+
+For `portal_status`, use portal domains as keys and objects with:
+- `status`: one of `ok`, `no_results`, `rate_limited`, `fetch_error`, `dns_error`, `timeout`, `blocked`, `inactive`, `fallback_page`, `partial`, or `unknown`
+- `http_status`: include numeric HTTP code when known, e.g. `429`
+- `stage`: where it happened, e.g. `search_fetch`, `detail_fetch`, `helper_fetch`, or `browser_open`
+- `retained_from_snapshot`: true when a row was kept from a listing/search/indexed snapshot because detail fetch failed
+- `message` and `evidence`: concise human-readable detail
 """
 
 

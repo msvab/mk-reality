@@ -12,6 +12,19 @@ DEFAULT_WORKERS = [
     "reality.aktualne.cz",
 ]
 
+PORTAL_STATUS_PRECEDENCE = {
+    "ok": 0,
+    "no_results": 1,
+    "inactive": 2,
+    "fallback_page": 3,
+    "partial": 4,
+    "fetch_error": 5,
+    "blocked": 6,
+    "timeout": 7,
+    "dns_error": 8,
+    "rate_limited": 9,
+}
+
 
 def normalize_url(url: str | None) -> str | None:
     if not url:
@@ -45,6 +58,161 @@ def normalize_list(value) -> list[str]:
 
 def normalize_text(text: str) -> str:
     return re.sub(r"\s+", " ", text.strip().lower())
+
+
+def detect_fetch_status(text: str) -> tuple[str | None, int | None]:
+    normalized = normalize_text(text)
+    if not normalized:
+        return None, None
+    if "429" in normalized or "too many requests" in normalized or "rate-limit" in normalized or "rate limit" in normalized:
+        return "rate_limited", 429
+    if "dns" in normalized:
+        return "dns_error", None
+    if "timeout" in normalized or "timed out" in normalized:
+        return "timeout", None
+    if "blocked" in normalized:
+        return "blocked", None
+    if "fallback page" in normalized or "detail-fallback" in normalized:
+        return "fallback_page", None
+    if "inactive" in normalized or "no longer in offer" in normalized or "no longer in our database" in normalized:
+        return "inactive", None
+    if (
+        "cache-miss" in normalized
+        or "cache miss" in normalized
+        or "internal fetch" in normalized
+        or "fetch failed" in normalized
+        or "detail fetch failed" in normalized
+        or "detail-open-cache-miss" in normalized
+    ):
+        return "fetch_error", None
+    if "snapshot" in normalized or "indexed" in normalized or "partial" in normalized or "intermittent" in normalized:
+        return "partial", None
+    return None, None
+
+
+def merge_portal_status(
+    statuses: dict[str, dict],
+    portal: str,
+    status: str,
+    *,
+    http_status: int | None = None,
+    stage: str | None = None,
+    retained_from_snapshot: bool | None = None,
+    message: str | None = None,
+    evidence: str | None = None,
+) -> None:
+    if portal not in DEFAULT_WORKERS:
+        return
+    current = statuses.get(portal, {})
+    current_status = current.get("status", "ok")
+    status_upgraded = PORTAL_STATUS_PRECEDENCE.get(status, -1) > PORTAL_STATUS_PRECEDENCE.get(current_status, -1)
+    if status_upgraded or PORTAL_STATUS_PRECEDENCE.get(status, -1) == PORTAL_STATUS_PRECEDENCE.get(current_status, -1):
+        current["status"] = status
+    if http_status is not None:
+        current["http_status"] = http_status
+    if stage and not current.get("stage"):
+        current["stage"] = stage
+    if retained_from_snapshot is True:
+        current["retained_from_snapshot"] = True
+    elif retained_from_snapshot is not None and "retained_from_snapshot" not in current:
+        current["retained_from_snapshot"] = retained_from_snapshot
+    if message and (status_upgraded or not current.get("message")):
+        current["message"] = message
+    if evidence:
+        current.setdefault("evidence", [])
+        if evidence not in current["evidence"]:
+            current["evidence"].append(evidence)
+    statuses[portal] = current
+
+
+def normalize_portal_status_entry(raw: dict) -> dict:
+    status = str(raw.get("status") or "unknown").strip() or "unknown"
+    output = {"status": status}
+    http_status = raw.get("http_status")
+    if isinstance(http_status, int):
+        output["http_status"] = http_status
+    for key in ("stage", "message"):
+        value = str(raw.get(key) or "").strip()
+        if value:
+            output[key] = value
+    retained_from_snapshot = raw.get("retained_from_snapshot")
+    if isinstance(retained_from_snapshot, bool):
+        output["retained_from_snapshot"] = retained_from_snapshot
+    evidence = normalize_list(raw.get("evidence"))
+    if evidence:
+        output["evidence"] = evidence
+    return output
+
+
+def infer_portal_status(payload: dict, listings: list[dict], coverage: dict) -> dict[str, dict]:
+    statuses: dict[str, dict] = {}
+    raw_statuses = payload.get("portal_status", {})
+    if isinstance(raw_statuses, dict):
+        for portal, raw_status in raw_statuses.items():
+            portal_name = str(portal).strip()
+            if portal_name in DEFAULT_WORKERS and isinstance(raw_status, dict):
+                statuses[portal_name] = normalize_portal_status_entry(raw_status)
+
+    for portal in coverage.get("zero_result_portals", []):
+        merge_portal_status(statuses, str(portal).strip(), "no_results", message="No retained in-scope rows.")
+
+    seen_portals = {portal for row in listings for portal in row["portal"]}
+    for portal in seen_portals:
+        merge_portal_status(statuses, portal, "ok", message="Retained at least one in-scope row.")
+
+    evidence_sources = []
+    evidence_sources.extend(str(item) for item in coverage.get("blocked_portals", []))
+    evidence_sources.extend(str(item) for item in payload.get("gaps", []) if isinstance(item, str))
+    for listing in listings:
+        portals = [portal for portal in listing["portal"] if portal in DEFAULT_WORKERS]
+        for note in listing.get("notes", []):
+            note_text = str(note)
+            mentioned = [portal for portal in portals if portal in note_text]
+            target_portals = mentioned or (portals if len(portals) == 1 else [])
+            status, http_status = detect_fetch_status(note_text)
+            retained_from_snapshot = "snapshot" in normalize_text(note_text) or "indexed" in normalize_text(note_text)
+            for portal in target_portals:
+                if status:
+                    merge_portal_status(
+                        statuses,
+                        portal,
+                        status,
+                        http_status=http_status,
+                        stage="detail_fetch" if status in {"rate_limited", "fetch_error", "fallback_page"} else None,
+                        retained_from_snapshot=retained_from_snapshot or None,
+                        message=note_text,
+                        evidence=note_text,
+                    )
+                elif retained_from_snapshot:
+                    merge_portal_status(
+                        statuses,
+                        portal,
+                        "partial",
+                        retained_from_snapshot=True,
+                        message=note_text,
+                        evidence=note_text,
+                    )
+
+    for text in evidence_sources:
+        status, http_status = detect_fetch_status(text)
+        if not status:
+            continue
+        mentioned_portals = [portal for portal in DEFAULT_WORKERS if portal in text]
+        if not mentioned_portals and text.strip() in DEFAULT_WORKERS:
+            mentioned_portals = [text.strip()]
+        for portal in mentioned_portals:
+            merge_portal_status(
+                statuses,
+                portal,
+                status,
+                http_status=http_status,
+                stage="detail_fetch" if status in {"rate_limited", "fetch_error", "fallback_page"} else None,
+                retained_from_snapshot=("snapshot" in normalize_text(text) or "indexed" in normalize_text(text)) or None,
+                message=text,
+                evidence=text,
+            )
+
+    return {portal: statuses[portal] for portal in DEFAULT_WORKERS if portal in statuses}
 
 
 def parse_price_czk(value) -> int | None:
@@ -202,18 +370,21 @@ def build_output(payload: dict) -> dict:
     else:
         zero_result_portals = coverage.get("zero_result_portals", [])
 
+    normalized_coverage = {
+        "workers_launched": workers_launched,
+        "workers_with_results": workers_with_results,
+        "candidates_gathered": len(normalized),
+        "rows_retained": len(deduped),
+        "zero_result_portals": zero_result_portals,
+        "blocked_portals": coverage.get("blocked_portals", []),
+    }
+
     return {
         "generated_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
         "query": payload.get("query", {}),
         "assumptions": payload.get("assumptions", []),
-        "coverage": {
-            "workers_launched": workers_launched,
-            "workers_with_results": workers_with_results,
-            "candidates_gathered": len(normalized),
-            "rows_retained": len(deduped),
-            "zero_result_portals": zero_result_portals,
-            "blocked_portals": coverage.get("blocked_portals", []),
-        },
+        "coverage": normalized_coverage,
+        "portal_status": infer_portal_status(payload, deduped, normalized_coverage),
         "gaps": payload.get("gaps", []),
         "listings": deduped,
     }

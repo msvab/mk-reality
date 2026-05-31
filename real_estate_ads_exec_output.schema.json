@@ -152,6 +152,61 @@
         }
       }
     },
+    "portal_status": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "status"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok",
+              "no_results",
+              "rate_limited",
+              "fetch_error",
+              "dns_error",
+              "timeout",
+              "blocked",
+              "inactive",
+              "fallback_page",
+              "partial",
+              "unknown"
+            ]
+          },
+          "http_status": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "stage": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "retained_from_snapshot": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
     "gaps": {
       "type": "array",
       "items": {
