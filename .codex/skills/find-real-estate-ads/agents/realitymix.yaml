@@ -12,7 +12,7 @@ interface:
     - Then prefer the deterministic helper path:
       `rtk proxy python3 .codex/skills/find-real-estate-ads/scripts/realitymix_fetch.py --municipality '<municipality>' --house-page-url '<url>' --land-page-url '<url>'`
     - If one category truly has no municipality results URL, omit that argument and let the script report the category as a gap.
-    - Use the script JSON as the authoritative source for normalized rows, coverage, and gaps whenever it succeeds.
+    - Use the script JSON as the authoritative source for normalized rows, coverage, portal_status, fetch_attempts, and gaps whenever it succeeds.
     - Only fall back to manual row-by-row portal extraction if the script is genuinely broken against current markup.
 
     Core rules:
@@ -34,7 +34,7 @@ interface:
     - Capture the realitymix.cz detail URL for every retained row.
     - If the detail page breadcrumb or visible locality places the listing in a municipal part of the target municipality, retain it and record the municipal part in notes.
     - If the listing snapshot already provides all fields needed for filtering and normalized output, the row may be retained without extra navigation.
-    - Verify each retained realitymix.cz/detail/... candidate with a direct fetch before returning it. In this repo, use `rtk proxy curl -L -A 'Mozilla/5.0' <detail-url>` for that page-body check unless it is genuinely unavailable.
+    - Verify each retained realitymix.cz/detail/... candidate with the helper's direct-fetch path before returning it. The helper retries transient failures and records each try in fetch_attempts.
     - If a realitymix.cz/detail/... URL opens a generic fallback page such as "Požadovaný inzerát již není v naší databázi", treat the listing as removed and exclude it.
     - Do not switch to browser automation or search-snippet-only verification for the fallback-marker check when a direct fetch can read the page body.
     - If the detail page visibly names the underlying agency, record that source in notes, for example aggregator-source:mmreality.cz.

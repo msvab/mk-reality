@@ -64,6 +64,7 @@ What it does:
 - enforces the minimum `1000 m2` land rule
 - deduplicates listings
 - normalizes portal-level fetch status, including rate limits and partial detail-fetch failures
+- preserves structured `fetch_attempts` for retry/error auditability when raw outputs provide them
 - sorts retained listings
 - writes one normalized JSON file for downstream use
 
@@ -71,6 +72,7 @@ Important input shape:
 
 - one raw per-city JSON object with `query`, `coverage`, `gaps`, and `listings`
 - optional `portal_status` keyed by supported portal domain
+- optional `fetch_attempts` array with per-URL fetch/retry outcomes
 
 Typical usage:
 
@@ -175,6 +177,7 @@ What it does:
 - constrains the final response format of the non-interactive ads search run
 - ensures the runner gets a machine-readable JSON object instead of markdown
 - allows optional `portal_status` so portal fetch failures are structured instead of only described in text
+- allows optional `fetch_attempts` so retries and direct fetch failures can be audited later
 
 ### [real_estate_ads_input.example.json](/Users/michal-mbp/dev/reality/real_estate_ads_input.example.json)
 

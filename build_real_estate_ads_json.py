@@ -144,7 +144,50 @@ def normalize_portal_status_entry(raw: dict) -> dict:
     return output
 
 
-def infer_portal_status(payload: dict, listings: list[dict], coverage: dict) -> dict[str, dict]:
+def normalize_fetch_attempts(payload: dict) -> list[dict]:
+    raw_attempts = payload.get("fetch_attempts", [])
+    if not isinstance(raw_attempts, list):
+        return []
+    attempts = []
+    seen = set()
+    for raw in raw_attempts:
+        if not isinstance(raw, dict):
+            continue
+        portal = str(raw.get("portal") or "").strip()
+        url = normalize_url(raw.get("url"))
+        stage = str(raw.get("stage") or "").strip()
+        status = str(raw.get("status") or "").strip()
+        attempt_number = raw.get("attempt")
+        if not portal or not url or not stage or not status or not isinstance(attempt_number, int) or attempt_number < 1:
+            continue
+        item = {
+            "portal": portal,
+            "url": url,
+            "stage": stage,
+            "attempt": attempt_number,
+            "status": status,
+        }
+        http_status = raw.get("http_status")
+        if isinstance(http_status, int):
+            item["http_status"] = http_status
+        for key in ("error", "message"):
+            value = str(raw.get(key) or "").strip()
+            if value:
+                item[key] = value
+        key = tuple(item.get(field) for field in ("portal", "url", "stage", "attempt", "status", "http_status"))
+        if key in seen:
+            continue
+        seen.add(key)
+        attempts.append(item)
+    return attempts
+
+
+def infer_portal_status(
+    payload: dict,
+    listings: list[dict],
+    coverage: dict,
+    fetch_attempts: list[dict],
+) -> dict[str, dict]:
     statuses: dict[str, dict] = {}
     raw_statuses = payload.get("portal_status", {})
     if isinstance(raw_statuses, dict):
@@ -159,6 +202,21 @@ def infer_portal_status(payload: dict, listings: list[dict], coverage: dict) -> 
     seen_portals = {portal for row in listings for portal in row["portal"]}
     for portal in seen_portals:
         merge_portal_status(statuses, portal, "ok", message="Retained at least one in-scope row.")
+
+    for attempt in fetch_attempts:
+        portal = attempt.get("portal")
+        status = attempt.get("status")
+        if status in {None, "ok", "no_results"}:
+            continue
+        merge_portal_status(
+            statuses,
+            str(portal),
+            str(status),
+            http_status=attempt.get("http_status") if isinstance(attempt.get("http_status"), int) else None,
+            stage=str(attempt.get("stage") or "") or None,
+            message=str(attempt.get("error") or attempt.get("message") or "") or None,
+            evidence=f"{attempt.get('stage')}:{attempt.get('status')}:{attempt.get('url')}",
+        )
 
     evidence_sources = []
     evidence_sources.extend(str(item) for item in coverage.get("blocked_portals", []))
@@ -359,6 +417,7 @@ def build_output(payload: dict) -> dict:
             normalized.append(listing)
 
     deduped = dedupe_and_sort(normalized)
+    fetch_attempts = normalize_fetch_attempts(payload)
 
     coverage = payload.get("coverage", {}) if isinstance(payload.get("coverage"), dict) else {}
     workers_launched = coverage.get("workers_launched", len(DEFAULT_WORKERS))
@@ -384,7 +443,8 @@ def build_output(payload: dict) -> dict:
         "query": payload.get("query", {}),
         "assumptions": payload.get("assumptions", []),
         "coverage": normalized_coverage,
-        "portal_status": infer_portal_status(payload, deduped, normalized_coverage),
+        "portal_status": infer_portal_status(payload, deduped, normalized_coverage, fetch_attempts),
+        "fetch_attempts": fetch_attempts,
         "gaps": payload.get("gaps", []),
         "listings": deduped,
     }

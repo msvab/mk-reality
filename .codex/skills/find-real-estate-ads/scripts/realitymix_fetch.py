@@ -5,6 +5,7 @@ import json
 import re
 import subprocess
 import sys
+import time
 from html import unescape
 from pathlib import Path
 from urllib.parse import urljoin, urlsplit, urlunsplit
@@ -14,6 +15,8 @@ BASE_URL = "https://www.realitymix.cz"
 FETCH_BASE_URL = "https://www.realitymix.cz"
 USER_AGENT = "Mozilla/5.0"
 REMOVED_MARKER = "Požadovaný inzerát již není v naší databázi"
+DEFAULT_RETRIES = 2
+DEFAULT_BACKOFF_SECONDS = 2.0
 
 CATEGORY_ROOTS = {
     "house": "/reality/domy/prodej/",
@@ -46,15 +49,90 @@ def slug_normalize(value: str) -> str:
     return re.sub(r"\s+", " ", text)
 
 
-def run_fetch(url: str) -> str:
+def classify_fetch(http_status: int | None, returncode: int, body: str, stderr: str) -> tuple[str, str | None]:
+    if returncode != 0:
+        return "fetch_error", stderr.strip() or f"curl exited with {returncode}"
+    if http_status == 429:
+        return "rate_limited", "HTTP 429"
+    if http_status is not None and http_status >= 500:
+        return "fetch_error", f"HTTP {http_status}"
+    if http_status is not None and http_status >= 400:
+        return "blocked", f"HTTP {http_status}"
+    if not body.strip():
+        return "fetch_error", "empty response body"
+    return "ok", None
+
+
+def append_fetch_attempt(
+    attempts: list[dict],
+    *,
+    url: str,
+    stage: str,
+    attempt: int,
+    status: str,
+    http_status: int | None = None,
+    error: str | None = None,
+    message: str | None = None,
+) -> None:
+    row = {
+        "portal": "realitymix.cz",
+        "url": canonicalize_detail_url(url) if "/detail/" in url else url,
+        "stage": stage,
+        "attempt": attempt,
+        "status": status,
+    }
+    if http_status is not None:
+        row["http_status"] = http_status
+    if error:
+        row["error"] = error
+    if message:
+        row["message"] = message
+    attempts.append(row)
+
+
+def run_fetch(
+    url: str,
+    *,
+    attempts: list[dict] | None = None,
+    stage: str = "fetch",
+    retries: int = DEFAULT_RETRIES,
+    backoff_seconds: float = DEFAULT_BACKOFF_SECONDS,
+) -> str:
     fetch_url = url.replace("https://realitymix.cz", FETCH_BASE_URL).replace("http://realitymix.cz", FETCH_BASE_URL)
-    completed = subprocess.run(
-        ["curl", "-sL", "-A", USER_AGENT, fetch_url],
-        check=True,
-        capture_output=True,
-        text=True,
-    )
-    return completed.stdout
+    last_error = None
+    for attempt in range(1, retries + 2):
+        completed = subprocess.run(
+            ["curl", "-sL", "-A", USER_AGENT, "-w", "\n__HTTP_STATUS__:%{http_code}", fetch_url],
+            check=False,
+            capture_output=True,
+            text=True,
+        )
+        body, marker, raw_http_status = completed.stdout.rpartition("\n__HTTP_STATUS__:")
+        if not marker:
+            body = completed.stdout
+            http_status = None
+        else:
+            try:
+                http_status = int(raw_http_status.strip())
+            except ValueError:
+                http_status = None
+        status, error = classify_fetch(http_status, completed.returncode, body, completed.stderr)
+        if attempts is not None:
+            append_fetch_attempt(
+                attempts,
+                url=url,
+                stage=stage,
+                attempt=attempt,
+                status=status,
+                http_status=http_status,
+                error=error,
+            )
+        if status == "ok":
+            return body
+        last_error = error or status
+        if attempt <= retries:
+            time.sleep(backoff_seconds * attempt)
+    raise RuntimeError(f"Failed to fetch {url}: {last_error}")
 
 
 def canonicalize_detail_url(url: str) -> str:
@@ -190,9 +268,21 @@ def land_is_buildable(title: str, html: str) -> bool:
     return any(marker in lowered for marker in ["staveb", "pro bydlení", "pro-bydleni"])
 
 
-def discover_result_page_url(category: str, municipality: str) -> str | None:
+def discover_result_page_url(
+    category: str,
+    municipality: str,
+    attempts: list[dict],
+    retries: int,
+    backoff_seconds: float,
+) -> str | None:
     root_url = urljoin(BASE_URL, CATEGORY_ROOTS[category])
-    root_html = run_fetch(root_url)
+    root_html = run_fetch(
+        root_url,
+        attempts=attempts,
+        stage=f"{category}_root_fetch",
+        retries=retries,
+        backoff_seconds=backoff_seconds,
+    )
     pattern = re.compile(r'href="(/reality/[^"]+/[^"/?#]+)"')
     target_slug = slug_normalize(municipality).replace(" ", "-")
     candidates = []
@@ -263,12 +353,61 @@ def listing_from_detail(url: str, html: str, municipality: str) -> tuple[dict | 
     }, None
 
 
-def collect_category_urls(category: str, municipality: str, page_url: str | None) -> tuple[list[str], list[str]]:
+def build_portal_status(fetch_attempts: list[dict], listings: list[dict]) -> dict:
+    status_order = {
+        "ok": 0,
+        "fallback_page": 3,
+        "blocked": 6,
+        "fetch_error": 7,
+        "rate_limited": 9,
+    }
+    status = "ok" if listings else "no_results"
+    chosen_attempt = None
+    for attempt in fetch_attempts:
+        attempt_status = str(attempt.get("status", "unknown"))
+        if attempt_status in {"ok", "no_results"}:
+            continue
+        if status_order.get(attempt_status, -1) > status_order.get(status, -1):
+            status = attempt_status
+            chosen_attempt = attempt
+    output = {"status": status}
+    if chosen_attempt:
+        if chosen_attempt.get("http_status") is not None:
+            output["http_status"] = chosen_attempt["http_status"]
+        if chosen_attempt.get("stage"):
+            output["stage"] = chosen_attempt["stage"]
+        message = chosen_attempt.get("error") or chosen_attempt.get("message")
+        if message:
+            output["message"] = message
+        output["evidence"] = [
+            ":".join(str(chosen_attempt.get(key, "")) for key in ("stage", "status", "url")).rstrip(":")
+        ]
+    elif listings:
+        output["message"] = "Retained at least one detail-verified RealityMix row."
+    else:
+        output["message"] = "No retained in-scope RealityMix rows."
+    return output
+
+
+def collect_category_urls(
+    category: str,
+    municipality: str,
+    page_url: str | None,
+    attempts: list[dict],
+    retries: int,
+    backoff_seconds: float,
+) -> tuple[list[str], list[str]]:
     if not page_url:
-        page_url = discover_result_page_url(category, municipality)
+        page_url = discover_result_page_url(category, municipality, attempts, retries, backoff_seconds)
     if not page_url:
         return [], [f"missing-page-url:{category}"]
-    result_html = run_fetch(page_url)
+    result_html = run_fetch(
+        page_url,
+        attempts=attempts,
+        stage=f"{category}_result_fetch",
+        retries=retries,
+        backoff_seconds=backoff_seconds,
+    )
     return extract_detail_urls(result_html, municipality), []
 
 
@@ -279,6 +418,8 @@ def build_output(
     include_land: bool,
     house_page_url: str | None,
     land_page_url: str | None,
+    retries: int = DEFAULT_RETRIES,
+    backoff_seconds: float = DEFAULT_BACKOFF_SECONDS,
 ) -> dict:
     categories = []
     if include_houses:
@@ -303,21 +444,54 @@ def build_output(
     gaps = []
     listings = []
     seen_urls = set()
+    fetch_attempts = []
 
     for category in categories:
         page_url = house_page_url if category == "house" else land_page_url
-        detail_urls, category_gaps = collect_category_urls(category, municipality, page_url)
-        gaps.extend(category_gaps)
+        try:
+            detail_urls, category_gaps = collect_category_urls(
+                category,
+                municipality,
+                page_url,
+                fetch_attempts,
+                retries,
+                backoff_seconds,
+            )
+            gaps.extend(category_gaps)
+        except RuntimeError as exc:
+            gaps.append(f"category-fetch-error:{category}:{exc}")
+            coverage["blocked_portals"].append(f"realitymix.cz {category} result fetch failed: {exc}")
+            continue
         coverage["candidates_gathered"] += len(detail_urls)
         for detail_url in detail_urls:
             if detail_url in seen_urls:
                 continue
             seen_urls.add(detail_url)
-            html = run_fetch(detail_url)
+            try:
+                html = run_fetch(
+                    detail_url,
+                    attempts=fetch_attempts,
+                    stage="detail_fetch",
+                    retries=retries,
+                    backoff_seconds=backoff_seconds,
+                )
+            except RuntimeError as exc:
+                gaps.append(f"detail-fetch-error:{detail_url}")
+                coverage["blocked_portals"].append(f"realitymix.cz detail fetch failed: {detail_url}: {exc}")
+                continue
             listing, reason = listing_from_detail(detail_url, html, municipality)
             if listing is not None:
                 listings.append(listing)
             elif reason:
+                if reason == "removed-fallback-page":
+                    append_fetch_attempt(
+                        fetch_attempts,
+                        url=detail_url,
+                        stage="detail_parse",
+                        attempt=1,
+                        status="fallback_page",
+                        message=REMOVED_MARKER,
+                    )
                 gaps.append(f"{reason}:{detail_url}")
 
     listings.sort(key=lambda item: re.sub(r"[^\d]", "", item["price"]), reverse=True)
@@ -337,6 +511,10 @@ def build_output(
         },
         "assumptions": assumptions,
         "coverage": coverage,
+        "portal_status": {
+            "realitymix.cz": build_portal_status(fetch_attempts, listings),
+        },
+        "fetch_attempts": fetch_attempts,
         "gaps": gaps,
         "listings": listings,
     }
@@ -350,6 +528,8 @@ def main() -> int:
     parser.add_argument("--include-land", action="store_true", default=True)
     parser.add_argument("--house-page-url")
     parser.add_argument("--land-page-url")
+    parser.add_argument("--retries", type=int, default=DEFAULT_RETRIES, help="Retries per RealityMix fetch after the first attempt.")
+    parser.add_argument("--backoff-seconds", type=float, default=DEFAULT_BACKOFF_SECONDS, help="Base retry backoff in seconds.")
     parser.add_argument("--output")
     args = parser.parse_args()
 
@@ -360,6 +540,8 @@ def main() -> int:
         include_land=args.include_land,
         house_page_url=args.house_page_url,
         land_page_url=args.land_page_url,
+        retries=args.retries,
+        backoff_seconds=args.backoff_seconds,
     )
 
     rendered = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"

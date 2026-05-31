@@ -18,6 +18,7 @@ Default scope:
 - Use the helper script for the repeatable fetch, filter, and normalization path:
   `rtk proxy python3 .codex/skills/find-real-estate-ads/scripts/realitymix_fetch.py --municipality '<municipality>' --house-page-url '<url>' --land-page-url '<url>'`
 - The script owns candidate extraction, direct-fetch verification, filtering, normalization, and coverage/gap reporting.
+- The script retries fetches by default and emits `fetch_attempts`; preserve those attempts in the parent output.
 - The worker should spend tokens only on the thin portal-navigation step needed to locate the municipality result page URLs for houses and land.
 
 - Keep all search and verification scoped to `realitymix.cz`.
@@ -39,7 +40,7 @@ Default scope:
 - If the detail page breadcrumb or visible locality places the listing in a municipal part of the target municipality, retain it and record the municipal part in `notes`.
 - If the listing snapshot already provides all fields needed for filtering and normalized output, the row may be retained without extra navigation.
 - If the detail page is reachable, prefer it over snippet-only extraction.
-- Verify candidate `realitymix.cz/detail/...` pages with a direct fetch before retaining them. In this repo, use `rtk proxy curl -L -A 'Mozilla/5.0' <detail-url>` for this check unless that command path is genuinely unavailable.
+- Verify candidate `realitymix.cz/detail/...` pages with the helper's direct-fetch path before retaining them. The helper retries transient failures and records each try in `fetch_attempts`.
 - The helper script already does the direct-fetch verification and normalized filtering. Prefer returning the script output rather than reimplementing that logic in the prompt.
 - If a `realitymix.cz/detail/...` URL resolves to a generic fallback page instead of a live ad, exclude the row.
 - Treat pages containing the text `Požadovaný inzerát již není v naší databázi` as removed listings, even if the URL still returns HTTP 200.
@@ -70,7 +71,8 @@ Use one or more `realitymix.cz/detail/...` URLs in `urls`. Do not put category o
    `rtk proxy python3 .codex/skills/find-real-estate-ads/scripts/realitymix_fetch.py --municipality '<municipality>' --house-page-url '<url>' --land-page-url '<url>'`
 3. If one category truly has no municipality result page, omit that URL and let the script report the category as a gap.
 4. Use the script JSON as the authoritative worker payload for `coverage`, `gaps`, and normalized `listings`.
-5. Only fall back to manual row-by-row extraction if the script is genuinely broken against the current portal markup, and explain that failure in `gaps`.
+5. Preserve the script's `portal_status` and `fetch_attempts` in the parent output when available.
+6. Only fall back to manual row-by-row extraction if the script is genuinely broken against the current portal markup, and explain that failure in `gaps`.
 
 ## Caveats
 

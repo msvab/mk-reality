@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-31T23:14:37+0200",
+  "generated_at": "2026-05-31T23:22:29+0200",
   "schools_input": "dobruska_primary_schools.json",
   "raw_dir": "data/real_estate_ads_raw",
   "coverage": {
@@ -51,6 +51,7 @@
           "message": "No retained in-scope rows."
         }
       },
+      "fetch_attempts": [],
       "assumptions": [
         "No sub-agents were spawned; the skill's single-agent fallback was used portal by portal.",
         "municipality_only includes municipal parts explicitly shown by supported portals as part of Opočno, notably Dobříkovec."
@@ -223,6 +224,7 @@
           "message": "No retained in-scope rows."
         }
       },
+      "fetch_attempts": [],
       "assumptions": [
         "Single-agent fallback used as requested; no sub-agents were spawned.",
         "municipality_only includes municipal parts explicitly shown as part of Nové Město nad Metují, such as Krčín and Rezek.",
@@ -311,6 +313,7 @@
           "message": "Retained at least one in-scope row."
         }
       },
+      "fetch_attempts": [],
       "assumptions": [
         "No sub-agents were spawned; the skill's single-agent fallback was used portal-by-portal across reality.idnes.cz, mmreality.cz, realitymix.cz, and reality.aktualne.cz.",
         "municipality_only includes municipal parts explicitly shown as part of Nový Hrádek, such as Rzy, Dlouhé, Bukovecká, Končiny, and Rokolská.",
@@ -564,6 +567,7 @@
           "message": "No retained in-scope rows."
         }
       },
+      "fetch_attempts": [],
       "assumptions": [
         "Single-agent fallback was used portal-by-portal without spawning sub-agents.",
         "`chalupa` was treated as a house-like input category and would be normalised to `house` in retained output.",
@@ -620,6 +624,7 @@
         ]
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [
         "Could not perform a live portal search because the configured response schema requires a final JSON object and no callable real-estate portal sub-agent/fallback browsing result is available in this run.",
         "Applied the requested filters conservatively: municipality_only, sale listings only, houses/chalupy/land, land area >= 1000 m2, exclude chata, and land must be buildable or residential."
@@ -664,6 +669,7 @@
           "message": "No retained in-scope rows."
         }
       },
+      "fetch_attempts": [],
       "assumptions": [
         "Searched sale listings only.",
         "Treated Černé Voděrady, Polní Voděrady, and Voděrádky as outside municipality_scope because they are not the exact municipality name Voděrady.",
@@ -689,6 +695,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [
         "Unable to perform live portal search in this response path without risking non-JSON output; no listings were asserted from memory."
       ],
@@ -750,6 +757,7 @@
           ]
         }
       },
+      "fetch_attempts": [],
       "assumptions": [
         "No sub-agents were spawned; this used the skill's single-agent fallback with separate portal-by-portal passes.",
         "Rows with unknown price, parcel area below 1000 m2, non-residential commercial use, or exact locations outside the municipality were excluded.",
@@ -885,6 +893,7 @@
           "message": "No retained in-scope rows."
         }
       },
+      "fetch_attempts": [],
       "assumptions": [
         "No sub-agents were spawned; coverage counts refer to single-agent portal-by-portal passes using the skill fallback.",
         "municipality_only includes municipal parts explicitly shown by portals as part of Třebechovice pod Orebem, including Krňovice and Polánky nad Dědinou.",
@@ -1017,6 +1026,7 @@
           "message": "No retained in-scope rows."
         }
       },
+      "fetch_attempts": [],
       "assumptions": [
         "Used the find-real-estate-ads single-agent fallback as requested; no sub-agents were spawned.",
         "Treated chalupa as an input-only house-like type and normalized retained house-like matches to house.",
@@ -1092,6 +1102,7 @@
           ]
         }
       },
+      "fetch_attempts": [],
       "assumptions": [
         "No sub-agents were spawned; the skill's single-agent fallback was used portal-by-portal.",
         "municipality_only includes municipal parts explicitly shown as part of Náchod, such as Bražec and Malé Poříčí."
@@ -1245,6 +1256,7 @@
           "message": "No retained in-scope rows."
         }
       },
+      "fetch_attempts": [],
       "assumptions": [
         "Used the find-real-estate-ads single-agent fallback; workers_launched below counts logical portal-specific passes, not spawned sub-agents.",
         "municipality_only includes listings explicitly shown as Česká Skalice municipal parts such as Zlíč and Spyta.",
@@ -1441,6 +1453,7 @@
           "message": "No retained in-scope rows."
         }
       },
+      "fetch_attempts": [],
       "assumptions": [
         "No sub-agents were spawned; workers_launched counts the four single-agent portal passes required by the skill registry.",
         "Sale listings only; municipality_only was treated as exact Dolní Radechová.",
@@ -1522,6 +1535,7 @@
           "message": "No retained in-scope rows."
         }
       },
+      "fetch_attempts": [],
       "assumptions": [
         "Used the skill's single-agent fallback, preserving portal-by-portal discipline and searching only supported portals: reality.idnes.cz, mmreality.cz, realitymix.cz, reality.aktualne.cz.",
         "Treated chalupa as an input-only house-like type and normalized retained house-like rows to house.",
@@ -1613,6 +1627,7 @@
           "message": "No retained in-scope rows."
         }
       },
+      "fetch_attempts": [],
       "assumptions": [
         "Unable to execute the live portal search in this response because no portal data was available in the current context."
       ],
@@ -1658,6 +1673,7 @@
           ]
         }
       },
+      "fetch_attempts": [],
       "assumptions": [
         "Sale listings only.",
         "Single-agent fallback used; no sub-agents were spawned.",
@@ -1704,6 +1720,7 @@
           "message": "No retained in-scope rows."
         }
       },
+      "fetch_attempts": [],
       "assumptions": [
         "No sub-agents were launched; the skill's single-agent fallback was used with separate portal-by-portal checks.",
         "`chalupa` is input-only and matching house-like rows are normalized to `house`.",
@@ -1797,6 +1814,7 @@
           "message": "No retained in-scope rows."
         }
       },
+      "fetch_attempts": [],
       "assumptions": [
         "No sub-agents were spawned; used the skill's single-agent fallback with separate portal checks for reality.idnes.cz, mmreality.cz, realitymix.cz, and reality.aktualne.cz.",
         "The duplicate RealityMix house and land advertisements appear to describe the same underlying TRIGA Reality property, so they were merged into one retained row."
@@ -1868,6 +1886,7 @@
           "message": "No retained in-scope rows."
         }
       },
+      "fetch_attempts": [],
       "assumptions": [
         "No sub-agents were spawned; I used the skill's single-agent fallback and kept the search separated by supported portal.",
         "`municipality_only` was treated as Týniště nad Orlicí and its explicit municipal parts only; nearby municipalities such as Nová Ves were excluded even when listings mentioned proximity to Týniště nad Orlicí.",
@@ -1927,6 +1946,7 @@
           ]
         }
       },
+      "fetch_attempts": [],
       "assumptions": [
         "No sub-agents were spawned; this used the skill's single-agent fallback with separate portal-by-portal passes.",
         "Chalupa was treated as a house-like input type and retained output property types are normalized to house or land.",
@@ -1976,6 +1996,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -1993,6 +2014,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2010,6 +2032,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2027,6 +2050,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2044,6 +2068,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2061,6 +2086,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2078,6 +2104,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2095,6 +2122,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2112,6 +2140,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2129,6 +2158,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2146,6 +2176,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2163,6 +2194,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2180,6 +2212,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2197,6 +2230,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2214,6 +2248,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2231,6 +2266,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2248,6 +2284,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2265,6 +2302,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2282,6 +2320,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2299,6 +2338,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2316,6 +2356,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2333,6 +2374,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2350,6 +2392,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2367,6 +2410,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2384,6 +2428,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2401,6 +2446,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2418,6 +2464,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2435,6 +2482,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2452,6 +2500,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2469,6 +2518,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2486,6 +2536,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2503,6 +2554,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2520,6 +2572,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2537,6 +2590,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2554,6 +2608,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2571,6 +2626,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2588,6 +2644,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2605,6 +2662,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2622,6 +2680,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2639,6 +2698,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2656,6 +2716,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2673,6 +2734,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2690,6 +2752,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2707,6 +2770,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2724,6 +2788,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2741,6 +2806,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2758,6 +2824,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2775,6 +2842,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2792,6 +2860,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2809,6 +2878,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2826,6 +2896,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2843,6 +2914,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2860,6 +2932,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2877,6 +2950,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2894,6 +2968,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2911,6 +2986,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2928,6 +3004,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2945,6 +3022,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2962,6 +3040,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2979,6 +3058,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -2996,6 +3076,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -3013,6 +3094,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -3030,6 +3112,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -3047,6 +3130,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -3064,6 +3148,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -3081,6 +3166,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -3098,6 +3184,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -3115,6 +3202,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -3132,6 +3220,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -3149,6 +3238,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -3166,6 +3256,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -3183,6 +3274,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -3200,6 +3292,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -3217,6 +3310,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -3234,6 +3328,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -3251,6 +3346,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -3268,6 +3364,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -3285,6 +3382,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -3302,6 +3400,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -3319,6 +3418,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -3336,6 +3436,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -3353,6 +3454,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -3370,6 +3472,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -3387,6 +3490,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -3404,6 +3508,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -3421,6 +3526,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -3438,6 +3544,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -3455,6 +3562,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"
@@ -3472,6 +3580,7 @@
         "blocked_portals": []
       },
       "portal_status": {},
+      "fetch_attempts": [],
       "assumptions": [],
       "gaps": [
         "missing-raw-skill-output"

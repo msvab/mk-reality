@@ -111,6 +111,7 @@ Requirements:
 - if no credible listings are found, still return a valid JSON object with an empty `listings` array and explain any coverage/gaps in `gaps`
 - do not spawn sub-agents in this run; use the skill's documented single-agent fallback while preserving the same portal-by-portal discipline
 - include `portal_status` for each checked supported portal so fetch problems are machine-readable; do not hide 429/rate-limit, DNS, timeout, cache-miss, inactive, or fallback-page evidence only in `gaps`
+- include `fetch_attempts` for direct portal/search/detail fetches where available, especially every retry or failed detail fetch
 
 Set:
 - `city` to `{city}`
@@ -126,6 +127,11 @@ For `portal_status`, use portal domains as keys and objects with:
 - `stage`: where it happened, e.g. `search_fetch`, `detail_fetch`, `helper_fetch`, or `browser_open`
 - `retained_from_snapshot`: true when a row was kept from a listing/search/indexed snapshot because detail fetch failed
 - `message` and `evidence`: concise human-readable detail
+
+For `fetch_attempts`, include objects with:
+- `portal`, `url`, `stage`, `attempt`, and `status`
+- `http_status` when known
+- `error` or `message` when the attempt failed or fell back
 """
 
 
