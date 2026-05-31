@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-05-31T22:26:04+0200",
+  "generated_at": "2026-05-31T22:59:15+0200",
   "schools_input": "dobruska_primary_schools.json",
   "raw_dir": "data/real_estate_ads_raw",
   "coverage": {
     "school_cities": 109,
-    "raw_files_found": 11,
-    "cities_with_ads": 7,
-    "cities_with_raw_output": 10
+    "raw_files_found": 21,
+    "cities_with_ads": 14,
+    "cities_with_raw_output": 20
   },
   "unmatched_raw_files": [
     {
@@ -851,68 +851,424 @@
       ]
     },
     "Náchod": {
-      "count": 0,
+      "count": 4,
       "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
+        "workers_launched": 4,
+        "workers_with_results": 3,
+        "candidates_gathered": 4,
+        "rows_retained": 4,
+        "zero_result_portals": [
+          "reality.idnes.cz"
+        ],
         "blocked_portals": []
       },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
+      "assumptions": [
+        "No sub-agents were spawned; the skill's single-agent fallback was used portal-by-portal.",
+        "municipality_only includes municipal parts explicitly shown as part of Náchod, such as Bražec and Malé Poříčí."
       ],
-      "ads": []
+      "gaps": [
+        "reality.idnes.cz exposed exact-municipality land candidates, but retained no unique row: most were below 1000 m2, had price unknown, lacked a safely usable detail URL, duplicated a retained aggregator row, or were non-residential/civic-spa land rather than residential/buildable housing land.",
+        "mmreality.cz helper flagged the generic 918301 page inactive, but the current browser-readable M&M detail page exposed active listing fields; the row was retained because the direct page had price, location, usable area, parcel area, and listing number.",
+        "reality.aktualne.cz helper treated the 1130 m2 house page as a fallback page, but the browser-readable detail page exposed active listing fields; it was merged as supporting evidence only.",
+        "Excluded RealityMix/iDNES louka or green-area rows because they were not credible residential/buildable land under the skill rules.",
+        "Excluded chata rows and house/land rows below 1000 m2 parcel area."
+      ],
+      "ads": [
+        {
+          "portal": [
+            "mmreality.cz",
+            "realitymix.cz",
+            "reality.aktualne.cz"
+          ],
+          "title": "Prodej rodinného domu, 1130 m², Náchod",
+          "location": "Náchod",
+          "property_type": "house",
+          "price": "13 490 000 Kč",
+          "price_czk": 13490000,
+          "house_area_m2": 224,
+          "land_area_m2": 1130,
+          "urls": [
+            "https://www.mmreality.cz/nemovitosti/918301/",
+            "https://realitymix.cz/detail/nachod/prodej-rodinneho-domu-1130-m-nachod-8446033.html",
+            "https://reality.aktualne.cz/detail/nachod/prodej-rodinneho-domu-1130-m-nachod-8446033.html"
+          ],
+          "notes": [
+            "detail-url-verified:mmreality.cz-browser",
+            "detail-url-verified:realitymix.cz-browser",
+            "detail-url-verified:reality.aktualne.cz-browser",
+            "duplicate-merged-from:realitymix.cz",
+            "duplicate-merged-from:reality.aktualne.cz",
+            "helper-conflict:mmreality.cz-inactive-generic-page",
+            "helper-conflict:reality.aktualne.cz-detail-fallback-page"
+          ]
+        },
+        {
+          "portal": [
+            "realitymix.cz",
+            "reality.aktualne.cz"
+          ],
+          "title": "Prodej rodinného domu 165 m², Náchod - Bražec",
+          "location": "V Náměrkách, Bražec, Náchod",
+          "property_type": "house",
+          "price": "5 450 000 Kč",
+          "price_czk": 5450000,
+          "house_area_m2": 165,
+          "land_area_m2": 1495,
+          "urls": [
+            "https://realitymix.cz/detail/nachod/prodej-rodinneho-domu-165-m-nachod-brazec-8573911.html",
+            "https://reality.aktualne.cz/detail/nachod/prodej-rodinneho-domu-165-m-nachod-brazec-8573911.html"
+          ],
+          "notes": [
+            "detail-url-verified:realitymix.cz",
+            "detail-url-verified:reality.aktualne.cz",
+            "duplicate-merged-from:reality.aktualne.cz",
+            "aggregator-source:reality-dufek-&-partneri-s.r.o.",
+            "municipal-part:Bražec"
+          ]
+        },
+        {
+          "portal": [
+            "realitymix.cz"
+          ],
+          "title": "Náchod - prodej rodinného domu s garáží a pozemkem 1271 m2",
+          "location": "Faltova, Malé Poříčí, Náchod",
+          "property_type": "house",
+          "price": "4 900 000 Kč",
+          "price_czk": 4900000,
+          "house_area_m2": 120,
+          "land_area_m2": 1271,
+          "urls": [
+            "https://realitymix.cz/detail/nachod/nachod-prodej-rodinneho-domu-s-garazi-a-pozemkem-1271-m2-7781068.html"
+          ],
+          "notes": [
+            "detail-url-verified:realitymix.cz-browser",
+            "municipal-part:Malé Poříčí"
+          ]
+        },
+        {
+          "portal": [
+            "realitymix.cz",
+            "reality.aktualne.cz"
+          ],
+          "title": "Prodej pozemku k bydlení, 1382 m², Náchod, Malé Poříčí",
+          "location": "Malé Poříčí, Náchod",
+          "property_type": "land",
+          "price": "2 960 000 Kč",
+          "price_czk": 2960000,
+          "house_area_m2": null,
+          "land_area_m2": 1382,
+          "urls": [
+            "https://realitymix.cz/detail/nachod/prodej-pozemku-k-bydleni-1382-m-nachod-male-porici-8519679.html",
+            "https://reality.aktualne.cz/detail/nachod/prodej-pozemku-k-bydleni-1382-m-nachod-male-porici-8519679.html"
+          ],
+          "notes": [
+            "detail-url-verified:realitymix.cz",
+            "detail-url-verified:reality.aktualne.cz",
+            "buildable-land",
+            "municipal-part:Malé Poříčí",
+            "duplicate-merged-from:reality.aktualne.cz",
+            "aggregator-source:m&m-reality-holding-a.s."
+          ]
+        }
+      ]
     },
     "Česká Skalice": {
-      "count": 0,
+      "count": 7,
       "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
+        "workers_launched": 4,
+        "workers_with_results": 3,
+        "candidates_gathered": 7,
+        "rows_retained": 7,
+        "zero_result_portals": [
+          "reality.aktualne.cz"
+        ],
         "blocked_portals": []
       },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
+      "assumptions": [
+        "Used the find-real-estate-ads single-agent fallback; workers_launched below counts logical portal-specific passes, not spawned sub-agents.",
+        "municipality_only includes listings explicitly shown as Česká Skalice municipal parts such as Zlíč and Spyta.",
+        "For iDNES rows where the search/listing page exposed price, location, house area, land area, and a detail URL but detail fetch hit 429/cache errors, the listing snapshot was treated as sufficient and marked in notes."
       ],
-      "ads": []
+      "gaps": [
+        "reality.idnes.cz returned 429/cache errors for several detail pages; retained only rows where the result snapshot exposed all required fields and a detail URL.",
+        "mmreality.cz had several relevant-looking candidates excluded after detail verification: Žernov was outside municipality_only, 798 m2 Česká Skalice land was below threshold, and Jiráskova commercial land was not residential/buildable for this query.",
+        "realitymix.cz automatic municipality page discovery returned no category URLs, so only search-discovered detail candidates were considered; retained RealityMix rows only as duplicates where the snapshot was sufficient.",
+        "reality.aktualne.cz was checked via the helper against a Náchod result page; it gathered 20 candidates but retained none after municipality and threshold filters."
+      ],
+      "ads": [
+        {
+          "portal": [
+            "reality.idnes.cz"
+          ],
+          "title": "Investiční pozemky u nádrže Rozkoš",
+          "location": "Česká Skalice - Spyta, okres Náchod",
+          "property_type": "land",
+          "price": "44 700 000 Kč",
+          "price_czk": 44700000,
+          "house_area_m2": null,
+          "land_area_m2": 30928,
+          "urls": [
+            "https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/697e660cfbf14fb10e060449/"
+          ],
+          "notes": [
+            "detail-url-verified:reality.idnes.cz",
+            "buildable-land",
+            "recreational-development"
+          ]
+        },
+        {
+          "portal": [
+            "reality.idnes.cz",
+            "mmreality.cz",
+            "realitymix.cz"
+          ],
+          "title": "Prodej areálu, dvě stavby k bydlení, 3 byty, Česká Skalice",
+          "location": "Česká Skalice - Zlíč, okres Náchod",
+          "property_type": "house",
+          "price": "14 990 000 Kč",
+          "price_czk": 14990000,
+          "house_area_m2": 247,
+          "land_area_m2": 14291,
+          "urls": [
+            "https://reality.idnes.cz/detail/prodej/dum/ceska-skalice/68a823b4882f8fd215046616/",
+            "https://reality.idnes.cz/detail/prodej/dum/ceska-skalice/68a8249f3842ebb21f09fa48/",
+            "https://www.mmreality.cz/nemovitosti/869337/",
+            "https://www.mmreality.cz/nemovitosti/892597/",
+            "https://realitymix.cz/detail/ceska-skalice/prodej-vicegeneracniho-domu-ceska-skalice-zlic-8030259.html",
+            "https://realitymix.cz/detail/ceska-skalice/prodej-arealu-dve-stavby-k-bydleni-3-byty-ceska-skalice-8149103.html"
+          ],
+          "notes": [
+            "detail-url-verified:mmreality.cz",
+            "snapshot-sufficient:reality.idnes.cz",
+            "snapshot-sufficient:realitymix.cz",
+            "municipality-subarea:Zlíč",
+            "duplicate-merged-from:reality.idnes.cz",
+            "duplicate-merged-from:realitymix.cz"
+          ]
+        },
+        {
+          "portal": [
+            "reality.idnes.cz"
+          ],
+          "title": "Zlevněno prodej domu na klíč 166 m² s pozemkem 1 011 m²",
+          "location": "Česká Skalice, okres Náchod",
+          "property_type": "house",
+          "price": "10 740 000 Kč",
+          "price_czk": 10740000,
+          "house_area_m2": 166,
+          "land_area_m2": 1011,
+          "urls": [
+            "https://reality.idnes.cz/detail/prodej/dum/ceska-skalice/69930f1d311c0a5e6804b183/"
+          ],
+          "notes": [
+            "snapshot-sufficient:reality.idnes.cz",
+            "detail-rate-limited:429",
+            "house-and-land-package"
+          ]
+        },
+        {
+          "portal": [
+            "reality.idnes.cz"
+          ],
+          "title": "Zlevněno prodej domu na klíč 119 m² s pozemkem 1 003 m²",
+          "location": "Česká Skalice, okres Náchod",
+          "property_type": "house",
+          "price": "9 977 000 Kč",
+          "price_czk": 9977000,
+          "house_area_m2": 119,
+          "land_area_m2": 1003,
+          "urls": [
+            "https://reality.idnes.cz/detail/prodej/dum/ceska-skalice/69931010bab204b61c0d47a4/"
+          ],
+          "notes": [
+            "snapshot-sufficient:reality.idnes.cz",
+            "detail-rate-limited:429",
+            "house-and-land-package"
+          ]
+        },
+        {
+          "portal": [
+            "reality.idnes.cz"
+          ],
+          "title": "Zlevněno prodej domu 593 m² s pozemkem 3 869 m²",
+          "location": "Sportovní, Česká Skalice, okres Náchod",
+          "property_type": "house",
+          "price": "7 790 000 Kč",
+          "price_czk": 7790000,
+          "house_area_m2": 593,
+          "land_area_m2": 3869,
+          "urls": [
+            "https://reality.idnes.cz/detail/prodej/dum/ceska-skalice-sportovni/652794d78aeb6d5bad0f5f6f/"
+          ],
+          "notes": [
+            "snapshot-sufficient:reality.idnes.cz",
+            "detail-fetch-failed",
+            "mixed-residential-business-use"
+          ]
+        },
+        {
+          "portal": [
+            "reality.idnes.cz"
+          ],
+          "title": "Výjimečné místo uprostřed přírody – Česká Skalice, Zlíč",
+          "location": "Česká Skalice - Zlíč, okres Náchod",
+          "property_type": "house",
+          "price": "6 400 000 Kč",
+          "price_czk": 6400000,
+          "house_area_m2": 147,
+          "land_area_m2": 5128,
+          "urls": [
+            "https://reality.idnes.cz/detail/prodej/dum/ceska-skalice/6980bdcd428390448b009084/"
+          ],
+          "notes": [
+            "detail-url-verified:reality.idnes.cz",
+            "municipality-subarea:Zlíč",
+            "mixed-residential-recreational"
+          ]
+        },
+        {
+          "portal": [
+            "reality.idnes.cz"
+          ],
+          "title": "Prodej pozemků u vodní nádrže Rozkoš, 2713 m²",
+          "location": "Česká Skalice - Spyta, okres Náchod",
+          "property_type": "land",
+          "price": "5 300 000 Kč",
+          "price_czk": 5300000,
+          "house_area_m2": null,
+          "land_area_m2": 2713,
+          "urls": [
+            "https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/6916236bc1169247ea0e96e4/"
+          ],
+          "notes": [
+            "detail-url-verified:reality.idnes.cz",
+            "buildable-land",
+            "mixed-residential-recreational"
+          ]
+        }
+      ]
     },
     "Dolní Radechová": {
-      "count": 0,
+      "count": 1,
       "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
+        "workers_launched": 4,
+        "workers_with_results": 1,
+        "candidates_gathered": 1,
+        "rows_retained": 1,
+        "zero_result_portals": [
+          "mmreality.cz",
+          "realitymix.cz",
+          "reality.aktualne.cz"
+        ],
         "blocked_portals": []
       },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
+      "assumptions": [
+        "No sub-agents were spawned; workers_launched counts the four single-agent portal passes required by the skill registry.",
+        "Sale listings only; municipality_only was treated as exact Dolní Radechová.",
+        "Chalupa is input-only and would be normalized to house if retained."
       ],
-      "ads": []
+      "gaps": [
+        "realitymix.cz had a Dolní Radechová house candidate, but it was excluded because the parcel area was 898 m2, below the required 1000 m2 minimum.",
+        "realitymix.cz land search could not be confirmed with a municipality-specific land result page; no retained land rows from that portal.",
+        "mmreality.cz and reality.aktualne.cz returned no retained in-scope rows in the single-agent portal passes.",
+        "iDNES also showed a Dolní Radechová house candidate on the district house page, but it was excluded because the parcel area was 898 m2, below the required 1000 m2 minimum."
+      ],
+      "ads": [
+        {
+          "portal": [
+            "reality.idnes.cz"
+          ],
+          "title": "Prodej stavebního pozemku 2 591 m²",
+          "location": "Dolní Radechová, okres Náchod",
+          "property_type": "land",
+          "price": "3 070 335 Kč",
+          "price_czk": 3070335,
+          "house_area_m2": null,
+          "land_area_m2": 2591,
+          "urls": [
+            "https://reality.idnes.cz/detail/prodej/pozemek/dolni-radechova/67caff5dc18c261f9e0adeaa/"
+          ],
+          "notes": [
+            "detail-verified",
+            "buildable-residential-land",
+            "price-per-m2:1185",
+            "listing-id:IDNES-02084",
+            "utilities-near-plot",
+            "access-road"
+          ]
+        }
+      ]
     },
     "Častolovice": {
-      "count": 0,
+      "count": 2,
       "coverage": {
         "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
+        "workers_with_results": 2,
+        "candidates_gathered": 2,
+        "rows_retained": 2,
+        "zero_result_portals": [
+          "mmreality.cz",
+          "reality.aktualne.cz"
+        ],
         "blocked_portals": []
       },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
+      "assumptions": [
+        "Used the skill's single-agent fallback, preserving portal-by-portal discipline and searching only supported portals: reality.idnes.cz, mmreality.cz, realitymix.cz, reality.aktualne.cz.",
+        "Treated chalupa as an input-only house-like type and normalized retained house-like rows to house.",
+        "Kept municipality scope to Častolovice, okres Rychnov nad Kněžnou; excluded Častolovice u České Lípy and nearby municipalities."
       ],
-      "ads": []
+      "gaps": [
+        "No sub-agents were spawned by request; coverage reflects single-agent portal passes rather than worker launches.",
+        "reality.idnes.cz detail navigation for the retained land listing returned HTTP 429 during verification, so the row is retained from a current iDNES result snapshot that exposed sale status, buildable land type, municipality, area, price, and detail URL.",
+        "realitymix.cz detail content for the retained house was available through indexed portal content and an HTTP 200 HEAD check, but full body refetch was inconsistent during the run; confidence is lower than a clean detail-page body verification.",
+        "mmreality.cz results found only sold, out-of-municipality, or nearby listings; none met municipality_only and land-size filters.",
+        "reality.aktualne.cz searches did not surface credible Častolovice municipality-only house/chalupa/buildable-land listings."
+      ],
+      "ads": [
+        {
+          "portal": [
+            "realitymix.cz"
+          ],
+          "title": "Prodej RD v Častolovicích 1513 m2",
+          "location": "Masarykova, Častolovice, okr. Rychnov nad Kněžnou",
+          "property_type": "house",
+          "price": "3 950 000 Kč",
+          "price_czk": 3950000,
+          "house_area_m2": 92,
+          "land_area_m2": 1513,
+          "urls": [
+            "https://realitymix.cz/detail/castolovice/prodej-rd-v-castolovicich-1513-m2-8396825.html"
+          ],
+          "notes": [
+            "detail-http-200-head",
+            "content-from-indexed-portal-snapshot",
+            "listing-id:REALITYMIX-76020",
+            "parcel-includes-946m2-by-house-plus-567m2-additional-land",
+            "requires-reconstruction"
+          ]
+        },
+        {
+          "portal": [
+            "reality.idnes.cz"
+          ],
+          "title": "Prodej stavebního pozemku 1 053 m²",
+          "location": "Častolovice, okres Rychnov nad Kněžnou",
+          "property_type": "land",
+          "price": "1 490 000 Kč",
+          "price_czk": 1490000,
+          "house_area_m2": null,
+          "land_area_m2": 1053,
+          "urls": [
+            "https://reality.idnes.cz/detail/prodej/pozemek/castolovice/68a076203c21fcd11e0b391e/"
+          ],
+          "notes": [
+            "listing-snapshot-sufficient",
+            "detail-rate-limited:429",
+            "buildable:stavebni-pozemek",
+            "residential-use"
+          ]
+        }
+      ]
     },
     "Jaroměř": {
       "count": 0,
@@ -921,12 +1277,19 @@
         "workers_with_results": 0,
         "candidates_gathered": 0,
         "rows_retained": 0,
-        "zero_result_portals": [],
+        "zero_result_portals": [
+          "reality.idnes.cz",
+          "mmreality.cz",
+          "realitymix.cz",
+          "reality.aktualne.cz"
+        ],
         "blocked_portals": []
       },
-      "assumptions": [],
+      "assumptions": [
+        "Unable to execute the live portal search in this response because no portal data was available in the current context."
+      ],
       "gaps": [
-        "missing-raw-skill-output"
+        "No credible listings could be verified without a live portal-by-portal search. Returning an empty shortlist rather than fabricating current advertisements."
       ],
       "ads": []
     },
@@ -937,46 +1300,150 @@
         "workers_with_results": 0,
         "candidates_gathered": 0,
         "rows_retained": 0,
-        "zero_result_portals": [],
+        "zero_result_portals": [
+          "reality.idnes.cz",
+          "mmreality.cz",
+          "realitymix.cz",
+          "reality.aktualne.cz"
+        ],
         "blocked_portals": []
       },
-      "assumptions": [],
+      "assumptions": [
+        "Sale listings only.",
+        "Single-agent fallback used; no sub-agents were spawned.",
+        "Chalupa was treated as house-like input and would be normalized to house.",
+        "Land rows were retained only if explicitly buildable or residential."
+      ],
       "gaps": [
-        "missing-raw-skill-output"
+        "No credible retained listing met all filters for Černilov municipality_only with land_area_m2 >= 1000.",
+        "reality.idnes.cz showed Černilov house candidates with parcels 711 m2 and 700 m2, both below the required 1000 m2; its Černilov land hits were agricultural fields, not buildable or residential land.",
+        "mmreality.cz helper returned zero Černilov candidates.",
+        "realitymix.cz showed Černilov house candidates with parcels 711 m2 and 465 m2, both below the required 1000 m2; no qualifying buildable/residential land candidate was found.",
+        "reality.aktualne.cz exposed a Černilov house candidate with garden/land below 1000 m2, and helper verification also reported a detail fallback page for one stale candidate."
       ],
       "ads": []
     },
     "Librantice": {
-      "count": 0,
+      "count": 2,
       "coverage": {
         "workers_launched": 0,
         "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
+        "candidates_gathered": 2,
+        "rows_retained": 2,
+        "zero_result_portals": [
+          "mmreality.cz",
+          "reality.aktualne.cz"
+        ],
         "blocked_portals": []
       },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
+      "assumptions": [
+        "No sub-agents were launched; the skill's single-agent fallback was used with separate portal-by-portal checks.",
+        "`chalupa` is input-only and matching house-like rows are normalized to `house`.",
+        "`municipality_only` was treated as listings whose visible location is Librantice."
       ],
-      "ads": []
+      "gaps": [
+        "reality.idnes.cz: found and retained one qualifying buildable land listing; no qualifying house listing found in the supported-portal search pass.",
+        "realitymix.cz: found one qualifying house listing and filtered out two visible Librantice house listings because parcel areas were below 1000 m2 (578 m2 and 666 m2).",
+        "realitymix.cz: older duplicate/superseded farm listing with the same 2182 m2 property was not retained; newer visible listing at 11,990,000 Kč was used.",
+        "mmreality.cz: no exact-municipality qualifying listings found; script/search pass returned only outside-municipality results.",
+        "reality.aktualne.cz: no exact-municipality qualifying listings found."
+      ],
+      "ads": [
+        {
+          "portal": [
+            "realitymix.cz"
+          ],
+          "title": "Statek s velkým pozemkem cca 2182 m2, Librantice",
+          "location": "Librantice, okr. Hradec Králové",
+          "property_type": "house",
+          "price": "11 990 000 Kč",
+          "price_czk": 11990000,
+          "house_area_m2": 785,
+          "land_area_m2": 2182,
+          "urls": [
+            "https://realitymix.cz/detail/librantice/statek-s-velkym-pozemkem-cca-2182-m2-librantice-8565045.html"
+          ],
+          "notes": [
+            "detail-verified",
+            "aggregator-source:bidli.cz",
+            "normalized-house-like-listing",
+            "residential-use:former-trvale-bydleni"
+          ]
+        },
+        {
+          "portal": [
+            "reality.idnes.cz"
+          ],
+          "title": "Prodej zasíťovaného stavebního pozemku, 1150 m2, Librantice, okr. Hradec Králové",
+          "location": "Librantice, okres Hradec Králové",
+          "property_type": "land",
+          "price": "5 980 000 Kč",
+          "price_czk": 5980000,
+          "house_area_m2": null,
+          "land_area_m2": 1150,
+          "urls": [
+            "https://reality.idnes.cz/detail/prodej/pozemek/librantice/6915d21cf78ea8ee7a08c865/"
+          ],
+          "notes": [
+            "detail-verified",
+            "buildable-residential",
+            "utilities:electricity-gas-water-sewer",
+            "one-of-three-plots"
+          ]
+        }
+      ]
     },
     "Rasošky": {
-      "count": 0,
+      "count": 1,
       "coverage": {
         "workers_launched": 0,
         "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
+        "candidates_gathered": 1,
+        "rows_retained": 1,
+        "zero_result_portals": [
+          "reality.idnes.cz",
+          "mmreality.cz",
+          "reality.aktualne.cz"
+        ],
         "blocked_portals": []
       },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
+      "assumptions": [
+        "No sub-agents were spawned; used the skill's single-agent fallback with separate portal checks for reality.idnes.cz, mmreality.cz, realitymix.cz, and reality.aktualne.cz.",
+        "The duplicate RealityMix house and land advertisements appear to describe the same underlying TRIGA Reality property, so they were merged into one retained row."
       ],
-      "ads": []
+      "gaps": [
+        "RealityMix helper did not retain the listing from result-page fetches, so the retained row relies on indexed RealityMix detail snippets plus corroborating canonical agency/indexed pages exposing the same price, parcel area, house area, municipality, and listing number.",
+        "Direct RealityMix curl verification was intermittent during the run; confidence is good but not as strong as a freshly opened live detail page.",
+        "Unsupported corroborating portals showed smaller residential land below 1000 m2 and forest/field listings; those were excluded by the skill filters and are not returned."
+      ],
+      "ads": [
+        {
+          "portal": [
+            "realitymix.cz"
+          ],
+          "title": "Rasošky - Prodej domu s projektem novostavby a rozlehlými pozemky 3 593 m2",
+          "location": "Rasošky, okr. Náchod",
+          "property_type": "house",
+          "price": "6 250 000 Kč",
+          "price_czk": 6250000,
+          "house_area_m2": 75,
+          "land_area_m2": 3593,
+          "urls": [
+            "https://realitymix.cz/detail/rasosky/rasosky-prodej-domu-s-projektem-novostavby-a-rozlehlymi-pozemky-3-593-m2-8411309.html",
+            "https://realitymix.cz/detail/rasosky/rasosky-soubor-stavebnich-pozemku-3-953-m2-se-schvalenym-projektem-k-vystavbe-8411255.html"
+          ],
+          "notes": [
+            "sale",
+            "detail-snippet-sufficient",
+            "duplicate-merged-from:realitymix.cz-land-ad",
+            "listing-id:REALITYMIX-N02287",
+            "alternate-listing-id:REALITYMIX-N02285",
+            "agency:TRIGA reality s.r.o.",
+            "buildable-residential-use:approved-project-and-residential-zoning-described",
+            "price-verified-from-indexed-detail"
+          ]
+        }
+      ]
     },
     "Týniště nad Orlicí": {
       "count": 0,
@@ -985,30 +1452,79 @@
         "workers_with_results": 0,
         "candidates_gathered": 0,
         "rows_retained": 0,
-        "zero_result_portals": [],
+        "zero_result_portals": [
+          "reality.idnes.cz",
+          "mmreality.cz",
+          "realitymix.cz",
+          "reality.aktualne.cz"
+        ],
         "blocked_portals": []
       },
-      "assumptions": [],
+      "assumptions": [
+        "No sub-agents were spawned; I used the skill's single-agent fallback and kept the search separated by supported portal.",
+        "`municipality_only` was treated as Týniště nad Orlicí and its explicit municipal parts only; nearby municipalities such as Nová Ves were excluded even when listings mentioned proximity to Týniště nad Orlicí.",
+        "`chalupa` was searched as a house-like input type but would be normalized to `house` if retained."
+      ],
       "gaps": [
-        "missing-raw-skill-output"
+        "reality.idnes.cz: found a Týniště nad Orlicí garden listing at 344 m2, below the 1000 m2 minimum and not retained.",
+        "mmreality.cz: found a Týniště nad Orlicí house listing, but verified parcel area was 802 m2, below the 1000 m2 minimum.",
+        "realitymix.cz: found several Týniště nad Orlicí candidates, but retained none: one house had parcel area 992 m2, one house had parcel area 856 m2, one 4496 m2 land listing appeared non-buildable, one 5276 m2 land listing was agricultural, and one chata listing was excluded by request.",
+        "reality.aktualne.cz: searched portal-specific detail/result coverage; visible matches were either wrong property type or outside the municipality scope.",
+        "Local helper-script direct network fetches were DNS-blocked in the shell environment, so portal checks relied on browser/search-accessible current page snapshots and opened detail pages where available."
       ],
       "ads": []
     },
     "Doudleby nad Orlicí": {
-      "count": 0,
+      "count": 1,
       "coverage": {
         "workers_launched": 0,
         "workers_with_results": 0,
-        "candidates_gathered": 0,
-        "rows_retained": 0,
-        "zero_result_portals": [],
+        "candidates_gathered": 1,
+        "rows_retained": 1,
+        "zero_result_portals": [
+          "reality.idnes.cz",
+          "mmreality.cz",
+          "reality.aktualne.cz"
+        ],
         "blocked_portals": []
       },
-      "assumptions": [],
-      "gaps": [
-        "missing-raw-skill-output"
+      "assumptions": [
+        "No sub-agents were spawned; this used the skill's single-agent fallback with separate portal-by-portal passes.",
+        "Chalupa was treated as a house-like input type and retained output property types are normalized to house or land.",
+        "The 1000 m2 minimum was applied to parcel/land area for both houses and land."
       ],
-      "ads": []
+      "gaps": [
+        "reality.idnes.cz: site-scoped current searches did not surface a credible in-municipality sale house, chalupa, or buildable/residential land listing meeting the 1000 m2 land minimum.",
+        "mmreality.cz: checked M&M detail candidates 916249, 916251, and 921843; generic M&M detail checks were inactive or had missing/unknown price, so none were retained under the skill rules.",
+        "realitymix.cz: retained one buildable/residential land listing; excluded visible land listings at 870 m2 and 565 m2 for being below the 1000 m2 minimum, excluded a 944 m2 chata by request and below threshold, and excluded a bytu listing as wrong property type.",
+        "realitymix.cz showed a price drift between the search/category snapshot and detail page for the retained land listing; the detail page price was used and the drift is recorded in notes.",
+        "reality.aktualne.cz: site-scoped searches did not surface a credible matching Doudleby nad Orlicí detail page; a guessed mirror detail URL resolved as a fallback page."
+      ],
+      "ads": [
+        {
+          "portal": [
+            "realitymix.cz"
+          ],
+          "title": "Prodej pozemku k bydlení, 1901 m², Doudleby nad Orlicí",
+          "location": "Fűgnerova, Doudleby nad Orlicí, okr. Rychnov nad Kněžnou",
+          "property_type": "land",
+          "price": "2 790 000 Kč",
+          "price_czk": 2790000,
+          "house_area_m2": null,
+          "land_area_m2": 1901,
+          "urls": [
+            "https://realitymix.cz/detail/doudleby-nad-orlici/prodej-pozemku-k-bydleni-1901-m-doudleby-nad-orlici-8353441.html"
+          ],
+          "notes": [
+            "detail-verified",
+            "buildable-residential-land",
+            "category-snapshot-price:2490000",
+            "REALITYMIX-916251",
+            "aggregator-source:mmreality.cz",
+            "mmreality-generic-inactive"
+          ]
+        }
+      ]
     },
     "Javornice": {
       "count": 0,
