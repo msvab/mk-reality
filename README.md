@@ -225,6 +225,7 @@ Contains:
 - `count` for the table cell
 - active `ads` for the drawer
 - `hidden_ads` for previously seen ads missing from the latest snapshot
+- `price_history` on active and hidden ads, appending only when a matched ad's parsed `price_czk` changes
 - `coverage`, `assumptions`, and `gaps` for each city
 
 ### `data/real_estate_ads_raw/*.json`

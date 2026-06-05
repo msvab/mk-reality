@@ -125,6 +125,51 @@ def index_previous_ads(previous_bundle: dict | None) -> dict[tuple[str, str], di
     return indexed
 
 
+def price_history_entry(ad: dict, seen_at: str) -> dict:
+    return {
+        "seen_at": seen_at,
+        "price": ad.get("price"),
+        "price_czk": ad.get("price_czk"),
+    }
+
+
+def normalize_price_history(value) -> list[dict]:
+    if not isinstance(value, list):
+        return []
+    history = []
+    for item in value:
+        if not isinstance(item, dict):
+            continue
+        seen_at = str(item.get("seen_at") or "").strip()
+        if not seen_at:
+            continue
+        history.append(
+            {
+                "seen_at": seen_at,
+                "price": item.get("price"),
+                "price_czk": item.get("price_czk"),
+            }
+        )
+    return history
+
+
+def merge_price_history(ad: dict, previous: dict | None, generated_at: str) -> list[dict]:
+    if not previous:
+        return [price_history_entry(ad, generated_at)]
+
+    history = normalize_price_history(previous.get("price_history"))
+    if not history:
+        history = [price_history_entry(previous, previous.get("first_seen_at", previous.get("last_seen_at", generated_at)))]
+
+    previous_price = previous.get("price_czk")
+    current_price = ad.get("price_czk")
+    if previous_price != current_price:
+        last = history[-1] if history else {}
+        if last.get("price_czk") != current_price or last.get("price") != ad.get("price"):
+            history.append(price_history_entry(ad, generated_at))
+    return history
+
+
 def merge_previous_city_bundle(bundle: dict, previous_bundle: dict | None, generated_at: str) -> dict:
     if "missing-raw-skill-output" in bundle.get("gaps", []) and isinstance(previous_bundle, dict):
         preserved = dict(previous_bundle)
@@ -145,6 +190,7 @@ def merge_previous_city_bundle(bundle: dict, previous_bundle: dict | None, gener
         enriched["status"] = "active"
         enriched["first_seen_at"] = previous.get("first_seen_at", previous.get("last_seen_at", generated_at)) if previous else generated_at
         enriched["last_seen_at"] = generated_at
+        enriched["price_history"] = merge_price_history(ad, previous, generated_at)
         active_ads.append(enriched)
 
     hidden_ads = []
