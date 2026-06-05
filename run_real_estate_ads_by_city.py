@@ -164,16 +164,19 @@ Set:
 - `query.land_size_min_m2` to 1000
 
 For `portal_status`, use portal domains as keys and objects with:
+- include all four supported portal keys: `reality.idnes.cz`, `mmreality.cz`, `realitymix.cz`, and `reality.aktualne.cz`
 - `status`: one of `ok`, `no_results`, `rate_limited`, `fetch_error`, `dns_error`, `timeout`, `blocked`, `inactive`, `fallback_page`, `partial`, or `unknown`
 - `http_status`: include numeric HTTP code when known, e.g. `429`
 - `stage`: where it happened, e.g. `search_fetch`, `detail_fetch`, `helper_fetch`, or `browser_open`
 - `retained_from_snapshot`: true when a row was kept from a listing/search/indexed snapshot because detail fetch failed
 - `message` and `evidence`: concise human-readable detail
+- include every key; use null for unknown `http_status`, `stage`, or `retained_from_snapshot`, an empty string for `message`, and an empty array for `evidence`
 
 For `fetch_attempts`, include objects with:
 - `portal`, `url`, `stage`, `attempt`, and `status`
 - `http_status` when known
 - `error` or `message` when the attempt failed or fell back
+- include every key; use null for unknown `http_status`, `error`, or `message`
 {cache_block}
 """
 

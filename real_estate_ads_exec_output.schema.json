@@ -7,6 +7,8 @@
     "query",
     "assumptions",
     "coverage",
+    "portal_status",
+    "fetch_attempts",
     "gaps",
     "listings"
   ],
@@ -154,56 +156,25 @@
     },
     "portal_status": {
       "type": "object",
-      "additionalProperties": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": [
-          "status"
-        ],
-        "properties": {
-          "status": {
-            "type": "string",
-            "enum": [
-              "ok",
-              "no_results",
-              "rate_limited",
-              "fetch_error",
-              "dns_error",
-              "timeout",
-              "blocked",
-              "inactive",
-              "fallback_page",
-              "partial",
-              "unknown"
-            ]
-          },
-          "http_status": {
-            "type": [
-              "integer",
-              "null"
-            ]
-          },
-          "stage": {
-            "type": [
-              "string",
-              "null"
-            ]
-          },
-          "retained_from_snapshot": {
-            "type": [
-              "boolean",
-              "null"
-            ]
-          },
-          "message": {
-            "type": "string"
-          },
-          "evidence": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          }
+      "additionalProperties": false,
+      "required": [
+        "reality.idnes.cz",
+        "mmreality.cz",
+        "realitymix.cz",
+        "reality.aktualne.cz"
+      ],
+      "properties": {
+        "reality.idnes.cz": {
+          "$ref": "#/$defs/portal_status_entry"
+        },
+        "mmreality.cz": {
+          "$ref": "#/$defs/portal_status_entry"
+        },
+        "realitymix.cz": {
+          "$ref": "#/$defs/portal_status_entry"
+        },
+        "reality.aktualne.cz": {
+          "$ref": "#/$defs/portal_status_entry"
         }
       }
     },
@@ -217,7 +188,10 @@
           "url",
           "stage",
           "attempt",
-          "status"
+          "status",
+          "http_status",
+          "error",
+          "message"
         ],
         "properties": {
           "portal": {
@@ -256,10 +230,16 @@
             ]
           },
           "error": {
-            "type": "string"
+            "type": [
+              "string",
+              "null"
+            ]
           },
           "message": {
-            "type": "string"
+            "type": [
+              "string",
+              "null"
+            ]
           }
         }
       }
@@ -322,6 +302,68 @@
             "items": {
               "type": "string"
             }
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "portal_status_entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "http_status",
+        "stage",
+        "retained_from_snapshot",
+        "message",
+        "evidence"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "ok",
+            "no_results",
+            "rate_limited",
+            "fetch_error",
+            "dns_error",
+            "timeout",
+            "blocked",
+            "inactive",
+            "fallback_page",
+            "partial",
+            "unknown"
+          ]
+        },
+        "http_status": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "stage": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "retained_from_snapshot": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "message": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
           }
         }
       }
