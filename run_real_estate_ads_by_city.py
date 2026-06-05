@@ -59,7 +59,8 @@ def load_state(path: Path) -> dict:
             "failed_cities": {},
             "last_completed_city": None,
             "current_city": None,
-            "remaining_cities": []
+            "remaining_cities": [],
+            "daily_refresh": {},
         }
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -90,6 +91,45 @@ def save_state(
             "remaining_cities": remaining_cities,
         }
     )
+    atomic_write_json(path, state)
+
+
+def today_string() -> str:
+    return time.strftime("%Y-%m-%d")
+
+
+def daily_refresh_city_completed_today(state: dict, city: str, today: str | None = None) -> bool:
+    today = today or today_string()
+    daily_refresh = state.get("daily_refresh", {})
+    if not isinstance(daily_refresh, dict):
+        return False
+    cities = daily_refresh.get("cities", {})
+    if not isinstance(cities, dict):
+        return False
+    city_state = cities.get(city, {})
+    if not isinstance(city_state, dict):
+        return False
+    return city_state.get("last_completed_on") == today
+
+
+def record_daily_refresh_city_completion(
+    path: Path,
+    state: dict,
+    *,
+    city: str,
+) -> None:
+    daily_refresh = state.get("daily_refresh", {})
+    if not isinstance(daily_refresh, dict):
+        daily_refresh = {}
+    cities = daily_refresh.get("cities", {})
+    if not isinstance(cities, dict):
+        cities = {}
+    cities[city] = {
+        "last_completed_on": today_string(),
+        "last_completed_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
+    }
+    daily_refresh["cities"] = cities
+    state["daily_refresh"] = daily_refresh
     atomic_write_json(path, state)
 
 
@@ -288,6 +328,11 @@ def main() -> None:
         action="store_true",
         help="Refresh every city, pass previous active ads as prompt cache, and hide ads missing from the latest snapshot.",
     )
+    parser.add_argument(
+        "--force-daily-refresh",
+        action="store_true",
+        help="Allow --daily-refresh to run even when a daily refresh already completed today.",
+    )
     args = parser.parse_args()
 
     repo_root = Path.cwd()
@@ -311,6 +356,10 @@ def main() -> None:
 
     for city in all_cities:
         output_path = raw_dir / f"{slugify_city(city)}.json"
+        if args.daily_refresh and not args.force_daily_refresh and daily_refresh_city_completed_today(state, city):
+            completed_cities.append(city)
+            failed_cities.pop(city, None)
+            continue
         if should_skip_city(city, output_path, overwrite):
             completed_cities.append(city)
             failed_cities.pop(city, None)
@@ -366,6 +415,8 @@ def main() -> None:
                 )
                 completed_cities.append(city)
                 failed_cities.pop(city, None)
+                if args.daily_refresh:
+                    record_daily_refresh_city_completion(state_path, state, city=city)
                 if args.aggregate_after_each:
                     aggregate_outputs(schools_input, raw_dir, aggregate_output, previous_aggregate=previous_aggregate)
             except Exception as exc:
