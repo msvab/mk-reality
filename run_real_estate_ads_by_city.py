@@ -93,7 +93,49 @@ def save_state(
     atomic_write_json(path, state)
 
 
-def build_prompt(city: str) -> str:
+def cached_ads_for_prompt(previous_aggregate: dict | None, city: str) -> list[dict]:
+    if not isinstance(previous_aggregate, dict):
+        return []
+    cities = previous_aggregate.get("cities", {})
+    if not isinstance(cities, dict):
+        return []
+    bundle = cities.get(city, {})
+    if not isinstance(bundle, dict):
+        return []
+    ads = bundle.get("ads", [])
+    if not isinstance(ads, list):
+        return []
+    out = []
+    for ad in ads:
+        if not isinstance(ad, dict):
+            continue
+        out.append(
+            {
+                "title": ad.get("title"),
+                "location": ad.get("location"),
+                "property_type": ad.get("property_type"),
+                "price": ad.get("price"),
+                "house_area_m2": ad.get("house_area_m2"),
+                "land_area_m2": ad.get("land_area_m2"),
+                "urls": ad.get("urls", []),
+            }
+        )
+    return out
+
+
+def build_prompt(city: str, cached_ads: list[dict] | None = None) -> str:
+    cached_ads = cached_ads or []
+    cache_block = ""
+    if cached_ads:
+        cache_block = f"""
+Known active ads from the previous local aggregate are provided below. Treat them as a cache, not as proof that the ad is still active.
+
+Use this cache to avoid unnecessary detail lookups for ads whose current search result still exposes the same URL/title/location/price/areas. Still run current municipality-level searches so new ads can be discovered and missing cached ads can be omitted from the latest `listings` array.
+
+Previous active ads:
+{json.dumps(cached_ads, ensure_ascii=False, indent=2)}
+"""
+
     return f"""Use the `find-real-estate-ads` skill.
 
 Search only sale listings in the Czech municipality `{city}`.
@@ -132,6 +174,7 @@ For `fetch_attempts`, include objects with:
 - `portal`, `url`, `stage`, `attempt`, and `status`
 - `http_status` when known
 - `error` or `message` when the attempt failed or fell back
+{cache_block}
 """
 
 
@@ -148,8 +191,17 @@ def validate_raw_output(payload: dict, city: str) -> None:
     build_output(payload)
 
 
-def aggregate_outputs(schools_input: Path, raw_dir: Path, aggregate_output: Path) -> None:
-    payload = build_aggregate_output(schools_input, raw_dir)
+def load_previous_aggregate(path: Path) -> dict | None:
+    if not path.exists():
+        return None
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(payload, dict):
+        raise ValueError(f"{path} must contain a JSON object.")
+    return payload
+
+
+def aggregate_outputs(schools_input: Path, raw_dir: Path, aggregate_output: Path, previous_aggregate: dict | None = None) -> None:
+    payload = build_aggregate_output(schools_input, raw_dir, previous_aggregate=previous_aggregate)
     atomic_write_json(aggregate_output, payload)
 
 
@@ -160,6 +212,7 @@ def run_city(
     output_path: Path,
     codex_bin: str,
     model: str | None,
+    cached_ads: list[dict] | None = None,
 ) -> None:
     output_path.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.NamedTemporaryFile("w", encoding="utf-8", dir=output_path.parent, delete=False, suffix=".json") as handle:
@@ -176,7 +229,7 @@ def run_city(
         str(schema_path),
         "-o",
         str(temp_output_path),
-        build_prompt(city),
+        build_prompt(city, cached_ads=cached_ads),
     ]
     if model:
         cmd[2:2] = ["--model", model]
@@ -227,6 +280,11 @@ def main() -> None:
     parser.add_argument("--overwrite", action="store_true", help="Re-run even when a valid raw output file already exists.")
     parser.add_argument("--retry-failed", action="store_true", help="Retry cities recorded as failed in the state file.")
     parser.add_argument("--aggregate-after-each", action="store_true", help="Refresh the aggregate JSON after every successful city.")
+    parser.add_argument(
+        "--daily-refresh",
+        action="store_true",
+        help="Refresh every city, pass previous active ads as prompt cache, and hide ads missing from the latest snapshot.",
+    )
     args = parser.parse_args()
 
     repo_root = Path.cwd()
@@ -235,6 +293,9 @@ def main() -> None:
     aggregate_output = Path(args.aggregate_output)
     state_path = Path(args.state_path)
     schema_path = Path(args.schema_path)
+    previous_aggregate = load_previous_aggregate(aggregate_output) if args.daily_refresh and aggregate_output.exists() else None
+    overwrite = args.overwrite or args.daily_refresh
+    retry_failed = args.retry_failed or args.daily_refresh
 
     signal.signal(signal.SIGINT, request_stop)
     signal.signal(signal.SIGTERM, request_stop)
@@ -247,11 +308,11 @@ def main() -> None:
 
     for city in all_cities:
         output_path = raw_dir / f"{slugify_city(city)}.json"
-        if should_skip_city(city, output_path, args.overwrite):
+        if should_skip_city(city, output_path, overwrite):
             completed_cities.append(city)
             failed_cities.pop(city, None)
             continue
-        if city in failed_cities and not args.retry_failed:
+        if city in failed_cities and not retry_failed:
             continue
         pending_cities.append(city)
 
@@ -291,11 +352,19 @@ def main() -> None:
             output_path = raw_dir / f"{slugify_city(city)}.json"
             print(f"[{index + 1}/{len(pending_cities)}] {city}", flush=True)
             try:
-                run_city(city, repo_root, schema_path, output_path, args.codex_bin, args.model)
+                run_city(
+                    city,
+                    repo_root,
+                    schema_path,
+                    output_path,
+                    args.codex_bin,
+                    args.model,
+                    cached_ads=cached_ads_for_prompt(previous_aggregate, city),
+                )
                 completed_cities.append(city)
                 failed_cities.pop(city, None)
                 if args.aggregate_after_each:
-                    aggregate_outputs(schools_input, raw_dir, aggregate_output)
+                    aggregate_outputs(schools_input, raw_dir, aggregate_output, previous_aggregate=previous_aggregate)
             except Exception as exc:
                 failed_cities[city] = {
                     "failed_at": time.strftime("%Y-%m-%dT%H:%M:%S%z"),
@@ -315,7 +384,7 @@ def main() -> None:
                     remaining_cities,
                     "running" if not STOP_REQUESTED else "interrupted",
                 )
-        aggregate_outputs(schools_input, raw_dir, aggregate_output)
+        aggregate_outputs(schools_input, raw_dir, aggregate_output, previous_aggregate=previous_aggregate)
     finally:
         final_status = "completed"
         if STOP_REQUESTED:

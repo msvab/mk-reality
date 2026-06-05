@@ -130,6 +130,7 @@ Useful flags:
 - `--limit N` processes only the next `N` cities in this run
 - `--retry-failed` retries municipalities recorded as failed in the state file
 - `--overwrite` forces re-fetch even if a valid raw file already exists
+- `--daily-refresh` refreshes every city, passes previous active ads as prompt cache, and hides ads missing from the latest snapshot
 - `--aggregate-after-each` refreshes `real_estate_ads_by_city.json` after every successful city
 
 Typical usage:
@@ -149,6 +150,15 @@ Resume later:
 ```bash
 rtk python3 run_real_estate_ads_by_city.py --aggregate-after-each
 ```
+
+Daily refresh:
+
+```bash
+rtk python3 run_real_estate_ads_by_city.py --daily-refresh --aggregate-after-each
+rtk python3 build_html.py
+```
+
+The daily refresh still runs current municipality-level searches so it can detect new and removed ads. It reuses the previous aggregate as a prompt cache, so known active ads do not need full detail re-discovery when the current search result still exposes the same URL/title/location/price/areas. Ads that were present previously but are missing from the latest city snapshot move from `ads` into `hidden_ads`; only active `ads` are counted and rendered.
 
 ### [summarize_real_estate_fetch_errors.py](/Users/michal-mbp/dev/reality/summarize_real_estate_fetch_errors.py)
 
@@ -213,7 +223,8 @@ Contains:
 - top-level coverage metadata
 - one city entry per municipality
 - `count` for the table cell
-- `ads` for the drawer
+- active `ads` for the drawer
+- `hidden_ads` for previously seen ads missing from the latest snapshot
 - `coverage`, `assumptions`, and `gaps` for each city
 
 ### `data/real_estate_ads_raw/*.json`
@@ -255,6 +266,8 @@ Contains:
 7. The runner writes progress into `real_estate_ads_run_state.json`.
 8. The runner rebuilds `real_estate_ads_by_city.json`.
 
+For the daily refresh path, pass `--daily-refresh`. That forces each city to be refreshed instead of skipped, gives the worker cached active ads from the previous aggregate, and marks missing previous ads as hidden in the rebuilt aggregate.
+
 ### Final Render Flow
 
 1. Run `build_html.py` after `real_estate_ads_by_city.json` exists.
@@ -284,3 +297,4 @@ rtk python3 build_html.py
 - This repo uses the RTK wrapper, so shell commands should be prefixed with `rtk`.
 - `build_html.py` remains the source of truth for `index.html`.
 - The ads pipeline is designed so raw city outputs are durable and resumable; the aggregate file can always be rebuilt from them.
+- The daily refresh uses the previous aggregate as cache context, but removals can only be detected by refreshing the current city search results.
