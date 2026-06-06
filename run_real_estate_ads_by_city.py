@@ -456,6 +456,11 @@ def main() -> None:
         action="store_true",
         help="Try deterministic local cached-detail fetchers before falling back to Codex.",
     )
+    parser.add_argument(
+        "--local-only",
+        action="store_true",
+        help="Use only deterministic local cached-detail fetchers and fail cities that would need Codex fallback.",
+    )
     args = parser.parse_args()
 
     repo_root = Path.cwd()
@@ -464,7 +469,9 @@ def main() -> None:
     aggregate_output = Path(args.aggregate_output)
     state_path = Path(args.state_path)
     schema_path = Path(args.schema_path)
-    previous_aggregate = load_previous_aggregate(aggregate_output) if args.daily_refresh and aggregate_output.exists() else None
+    use_local_fetchers = args.local_first or args.local_only
+    needs_previous_aggregate = args.daily_refresh or use_local_fetchers
+    previous_aggregate = load_previous_aggregate(aggregate_output) if needs_previous_aggregate and aggregate_output.exists() else None
     overwrite = args.overwrite or args.daily_refresh
     retry_failed = args.retry_failed or args.daily_refresh
 
@@ -528,14 +535,18 @@ def main() -> None:
             print(f"[{index + 1}/{len(pending_cities)}] {city}", flush=True)
             try:
                 used_local_fetchers = False
-                if args.local_first:
+                if use_local_fetchers:
                     try:
                         used_local_fetchers = run_local_fetchers(city, repo_root, output_path, previous_aggregate)
                         if used_local_fetchers:
                             print(f"  used local cached-detail fetchers for {city}", flush=True)
                     except Exception as local_exc:
+                        if args.local_only:
+                            raise RuntimeError(f"local fetchers failed for {city}: {local_exc}") from local_exc
                         print(f"  local fetchers failed for {city}: {local_exc}; falling back to Codex", flush=True)
                 if not used_local_fetchers:
+                    if args.local_only:
+                        raise RuntimeError(f"local-only requested but no cached detail URLs were verified for {city}")
                     run_city(
                         city,
                         repo_root,
