@@ -3,6 +3,7 @@ import subprocess
 
 from run_real_estate_ads_by_city import (
     cached_detail_urls_by_portal,
+    cached_mmreality_result_page_urls,
     cached_realitymix_result_page_urls,
     combine_local_fetcher_payloads,
     daily_refresh_city_completed_today,
@@ -101,6 +102,48 @@ def test_cached_realitymix_result_page_urls_are_grouped_by_category():
         "house": "https://realitymix.cz/reality/domy/prodej/kralovehradecky/rychnov-nad-kneznou/opocno",
         "land": "https://realitymix.cz/reality/pozemky/pro-bydleni/kralovehradecky/rychnov-nad-kneznou/opocno",
     }
+
+
+def test_cached_mmreality_result_page_urls_ignore_detail_pages():
+    previous_aggregate = {
+        "cities": {
+            "Opočno": {
+                "fetch_attempts": [
+                    {
+                        "portal": "mmreality.cz",
+                        "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/kralovehradecky-kraj/",
+                        "stage": "search_fetch",
+                        "status": "ok",
+                    },
+                    {
+                        "portal": "mmreality.cz",
+                        "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/rychnov-nad-kneznou/",
+                        "stage": "search_fetch",
+                        "status": "ok",
+                    },
+                    {
+                        "portal": "mmreality.cz",
+                        "url": "https://www.mmreality.cz/nemovitosti/123456/",
+                        "stage": "detail_fetch",
+                        "status": "ok",
+                    },
+                    {
+                        "portal": "mmreality.cz",
+                        "url": "https://www.mmreality.cz/nemovitosti/prodej/byty/kralovehradecky-kraj/",
+                        "stage": "search_fetch",
+                        "status": "fetch_error",
+                    },
+                ]
+            }
+        }
+    }
+
+    urls = cached_mmreality_result_page_urls(previous_aggregate, "Opočno")
+
+    assert urls == [
+        "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/kralovehradecky-kraj/",
+        "https://www.mmreality.cz/nemovitosti/prodej/pozemky/rychnov-nad-kneznou/",
+    ]
 
 
 def test_local_fetcher_payloads_are_combined_into_raw_city_payload():
@@ -231,6 +274,60 @@ def test_local_fetchers_pass_cached_realitymix_result_page_urls(tmp_path, monkey
     assert "--land-page-url" in commands[0]
     assert "https://realitymix.cz/reality/domy/prodej/kralovehradecky/rychnov-nad-kneznou/opocno" in commands[0]
     assert "https://realitymix.cz/reality/pozemky/pro-bydleni/kralovehradecky/rychnov-nad-kneznou/opocno" in commands[0]
+
+
+def test_local_fetchers_pass_cached_mmreality_result_page_urls(tmp_path, monkeypatch):
+    commands = []
+
+    def fake_run(cmd, check, capture_output, text):
+        commands.append(cmd)
+        payload = {
+            "city": "Opočno",
+            "query": {
+                "municipality": "Opočno",
+                "location_scope": "municipality_only",
+                "country": "Czech Republic",
+                "property_types": ["house", "chalupa", "land"],
+                "land_size_min_m2": 1000,
+            },
+            "assumptions": [],
+            "coverage": {
+                "workers_launched": 1,
+                "workers_with_results": 0,
+                "candidates_gathered": 0,
+                "rows_retained": 0,
+                "zero_result_portals": ["mmreality.cz"],
+                "blocked_portals": [],
+            },
+            "portal_status": {"mmreality.cz": {"status": "no_results"}},
+            "fetch_attempts": [],
+            "gaps": [],
+            "listings": [],
+        }
+        return subprocess.CompletedProcess(cmd, 0, stdout=json.dumps(payload), stderr="")
+
+    previous_aggregate = {
+        "cities": {
+            "Opočno": {
+                "fetch_attempts": [
+                    {
+                        "portal": "mmreality.cz",
+                        "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/kralovehradecky-kraj/",
+                        "stage": "search_fetch",
+                        "status": "ok",
+                    }
+                ],
+            }
+        }
+    }
+    monkeypatch.setattr("run_real_estate_ads_by_city.subprocess.run", fake_run)
+
+    assert run_local_fetchers("Opočno", tmp_path, tmp_path / "raw.json", previous_aggregate)
+
+    assert commands[0][1].endswith("mmreality_fetch.py")
+    assert "--result-url" in commands[0]
+    assert "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/kralovehradecky-kraj/" in commands[0]
+    assert "--detail-url" not in commands[0]
 
 
 def test_local_fetchers_raise_when_helper_reports_blocked_requests(tmp_path, monkeypatch):

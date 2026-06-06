@@ -192,25 +192,39 @@ def cached_detail_urls_by_portal(previous_aggregate: dict | None, city: str) -> 
     return urls_by_portal
 
 
-def cached_realitymix_result_page_urls(previous_aggregate: dict | None, city: str) -> dict[str, str]:
+def cached_portal_fetch_attempts(previous_aggregate: dict | None, city: str, portal: str) -> list[dict]:
     if not isinstance(previous_aggregate, dict):
-        return {}
+        return []
     cities = previous_aggregate.get("cities", {})
     if not isinstance(cities, dict):
-        return {}
+        return []
     bundle = cities.get(city, {})
     if not isinstance(bundle, dict):
-        return {}
+        return []
     fetch_attempts = bundle.get("fetch_attempts", [])
     if not isinstance(fetch_attempts, list):
-        return {}
+        return []
+    return [attempt for attempt in fetch_attempts if isinstance(attempt, dict) and attempt.get("portal") == portal]
 
+
+def cached_mmreality_result_page_urls(previous_aggregate: dict | None, city: str) -> list[str]:
+    urls = []
+    for attempt in cached_portal_fetch_attempts(previous_aggregate, city, "mmreality.cz"):
+        if attempt.get("status") != "ok":
+            continue
+        url = str(attempt.get("url", ""))
+        if "mmreality.cz" not in url:
+            continue
+        if "/nemovitosti/" not in url or re.search(r"/nemovitosti/\d+/?$", url):
+            continue
+        if url not in urls:
+            urls.append(url)
+    return urls
+
+
+def cached_realitymix_result_page_urls(previous_aggregate: dict | None, city: str) -> dict[str, str]:
     urls = {}
-    for attempt in fetch_attempts:
-        if not isinstance(attempt, dict):
-            continue
-        if attempt.get("portal") != "realitymix.cz":
-            continue
+    for attempt in cached_portal_fetch_attempts(previous_aggregate, city, "realitymix.cz"):
         if attempt.get("status") != "ok":
             continue
         stage = attempt.get("stage")
@@ -234,7 +248,7 @@ def combine_local_fetcher_payloads(city: str, payloads: list[dict]) -> dict:
         "blocked_portals": [],
     }
     assumptions = [
-        "local-first cached detail verification was used; RealityMix result-page discovery was used when available, while other local portals remain cached-detail only."
+        "local-first cached detail verification was used; cached MM Reality result pages and RealityMix result-page discovery were used when available, while other local portals remain cached-detail only."
     ]
     gaps = []
     listings = []
@@ -291,14 +305,19 @@ def run_local_fetchers(
     previous_aggregate: dict | None,
 ) -> bool:
     urls_by_portal = cached_detail_urls_by_portal(previous_aggregate, city)
+    mmreality_result_urls = cached_mmreality_result_page_urls(previous_aggregate, city)
     realitymix_result_urls = cached_realitymix_result_page_urls(previous_aggregate, city)
     payloads = []
     for portal, urls in urls_by_portal.items():
+        use_cached_mmreality_results = portal == "mmreality.cz" and bool(mmreality_result_urls)
         discover_realitymix = portal == "realitymix.cz"
-        if not urls and not discover_realitymix:
+        if not urls and not discover_realitymix and not use_cached_mmreality_results:
             continue
         script_path = repo_root / LOCAL_FETCHERS[portal]
         cmd = [sys.executable, str(script_path), "--municipality", city]
+        if use_cached_mmreality_results:
+            for result_url in mmreality_result_urls:
+                cmd.extend(["--result-url", result_url])
         if discover_realitymix:
             cmd.append("--discover-results")
             if realitymix_result_urls.get("house"):
