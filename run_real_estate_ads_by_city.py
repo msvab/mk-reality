@@ -192,6 +192,38 @@ def cached_detail_urls_by_portal(previous_aggregate: dict | None, city: str) -> 
     return urls_by_portal
 
 
+def cached_realitymix_result_page_urls(previous_aggregate: dict | None, city: str) -> dict[str, str]:
+    if not isinstance(previous_aggregate, dict):
+        return {}
+    cities = previous_aggregate.get("cities", {})
+    if not isinstance(cities, dict):
+        return {}
+    bundle = cities.get(city, {})
+    if not isinstance(bundle, dict):
+        return {}
+    fetch_attempts = bundle.get("fetch_attempts", [])
+    if not isinstance(fetch_attempts, list):
+        return {}
+
+    urls = {}
+    for attempt in fetch_attempts:
+        if not isinstance(attempt, dict):
+            continue
+        if attempt.get("portal") != "realitymix.cz":
+            continue
+        if attempt.get("status") != "ok":
+            continue
+        stage = attempt.get("stage")
+        url = str(attempt.get("url", ""))
+        if "/reality/" not in url:
+            continue
+        if stage == "house_result_fetch":
+            urls.setdefault("house", url)
+        elif stage == "land_result_fetch":
+            urls.setdefault("land", url)
+    return urls
+
+
 def combine_local_fetcher_payloads(city: str, payloads: list[dict]) -> dict:
     coverage = {
         "workers_launched": len(payloads),
@@ -202,7 +234,7 @@ def combine_local_fetcher_payloads(city: str, payloads: list[dict]) -> dict:
         "blocked_portals": [],
     }
     assumptions = [
-        "local-first cached detail verification was used; new listing discovery requires the Codex fallback path."
+        "local-first cached detail verification was used; RealityMix result-page discovery was used when available, while other local portals remain cached-detail only."
     ]
     gaps = []
     listings = []
@@ -259,17 +291,29 @@ def run_local_fetchers(
     previous_aggregate: dict | None,
 ) -> bool:
     urls_by_portal = cached_detail_urls_by_portal(previous_aggregate, city)
+    realitymix_result_urls = cached_realitymix_result_page_urls(previous_aggregate, city)
     payloads = []
     for portal, urls in urls_by_portal.items():
-        if not urls:
+        discover_realitymix = portal == "realitymix.cz"
+        if not urls and not discover_realitymix:
             continue
         script_path = repo_root / LOCAL_FETCHERS[portal]
         cmd = [sys.executable, str(script_path), "--municipality", city]
+        if discover_realitymix:
+            cmd.append("--discover-results")
+            if realitymix_result_urls.get("house"):
+                cmd.extend(["--house-page-url", realitymix_result_urls["house"]])
+            if realitymix_result_urls.get("land"):
+                cmd.extend(["--land-page-url", realitymix_result_urls["land"]])
         for url in urls:
             cmd.extend(["--detail-url", url])
         completed = subprocess.run(cmd, check=True, capture_output=True, text=True)
         payload = json.loads(completed.stdout)
         if isinstance(payload, dict):
+            coverage = payload.get("coverage", {})
+            blocked_portals = coverage.get("blocked_portals", []) if isinstance(coverage, dict) else []
+            if blocked_portals:
+                raise RuntimeError(f"{portal} local fetch reported blocked or failed requests: {blocked_portals}")
             payloads.append(payload)
 
     if not payloads:

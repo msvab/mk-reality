@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-06-06T08:25:34+0200",
+  "generated_at": "2026-06-06T08:41:35+0200",
   "schools_input": "dobruska_primary_schools.json",
   "raw_dir": "data/real_estate_ads_raw",
   "coverage": {
     "school_cities": 109,
     "raw_files_found": 21,
     "cities_with_ads": 15,
-    "hidden_ads": 4,
+    "hidden_ads": 7,
     "cities_with_raw_output": 20,
-    "cities_with_portal_warnings": 14
+    "cities_with_portal_warnings": 13
   },
   "unmatched_raw_files": [
     {
@@ -110,7 +110,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -140,7 +140,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -170,7 +170,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -200,7 +200,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -230,7 +230,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -260,7 +260,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -273,139 +273,37 @@
       "hidden_ads": []
     },
     "Nové Město nad Metují": {
-      "count": 4,
+      "count": 3,
       "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
-        "candidates_gathered": 4,
-        "rows_retained": 4,
+        "workers_launched": 3,
+        "workers_with_results": 3,
+        "candidates_gathered": 3,
+        "rows_retained": 3,
         "zero_result_portals": [],
         "blocked_portals": []
       },
       "portal_status": {
-        "reality.idnes.cz": {
-          "status": "fetch_error",
-          "stage": "detail_fetch",
-          "message": "ConnectionResetError [Errno 54] Connection reset by peer",
-          "retained_from_snapshot": true,
-          "evidence": [
-            "search_fetch:https://reality.idnes.cz/s/nove-mesto-nad-metuji-okres-nachod/:200",
-            "detail_fetch:https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-rezek/69991032788d156d9209e3bf/:200",
-            "detail_fetch:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/69aedd09645e9176190b54b8/:200",
-            "detail_fetch:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji-na-straznici/690865177bf2c8f307067f19/:inactive",
-            "detail_fetch:inactive:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji-na-straznici/690865177bf2c8f307067f19/",
-            "detail_fetch:fetch_error:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/68eb7613f4e8379a6207acaa/",
-            "detail_fetch:fetch_error:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/69f1c8aaf37e6ea21a0e4aec/",
-            "snapshot-sufficient:reality.idnes.cz"
-          ],
-          "http_status": 200
-        },
         "mmreality.cz": {
-          "status": "fetch_error",
-          "stage": "detail_fetch",
-          "message": "HTTP Error 404: Not Found",
-          "retained_from_snapshot": false,
-          "evidence": [
-            "detail_fetch:https://www.mmreality.cz/nemovitosti/939531/:ok",
-            "detail_fetch:https://www.mmreality.cz/nemovitosti/931748/:land-below-threshold",
-            "search_fetch:fetch_error:https://www.mmreality.cz/prodej/pozemky/nove-mesto-nad-metuji/",
-            "search_fetch:fetch_error:https://www.mmreality.cz/prodej/domy/nove-mesto-nad-metuji/"
-          ],
-          "http_status": 404
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
         },
         "realitymix.cz": {
           "status": "ok",
-          "http_status": 200,
-          "stage": "detail_fetch",
-          "message": "RealityMix helper retained one detail-verified 1 956 m2 residential-land row; house candidates were below the land-size threshold.",
-          "retained_from_snapshot": false,
-          "evidence": [
-            "house_result_fetch:https://realitymix.cz/reality/domy/prodej/kralovehradecky/nachod/nove-mesto-nad-metuji:200",
-            "land_result_fetch:https://realitymix.cz/reality/pozemky/pro-bydleni/kralovehradecky/nachod/nove-mesto-nad-metuji:200",
-            "detail_fetch:https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-pozemku-k-bydleni-v-novem-meste-nad-metuji-8578121.html:200"
-          ]
+          "message": "Retained at least one detail-verified RealityMix row."
         },
         "reality.aktualne.cz": {
-          "status": "fetch_error",
-          "stage": "detail_fetch",
-          "message": "HTTP Error 404: Not Found",
-          "retained_from_snapshot": false,
-          "evidence": [
-            "detail_fetch:https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-pozemku-k-bydleni-v-novem-meste-nad-metuji-8578121.html:ok",
-            "detail_fetch:https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html:outside-municipality",
-            "search_fetch:fetch_error:https://reality.aktualne.cz/prodej/nove-mesto-nad-metuji/",
-            "search_fetch:fetch_error:https://reality.aktualne.cz/hledej/prodej-nove-mesto-nad-metuji/"
-          ],
-          "http_status": 404
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
         }
       },
       "fetch_attempts": [
         {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/s/nove-mesto-nad-metuji-okres-nachod/",
-          "stage": "search_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/s/prodej/pozemky/",
-          "stage": "search_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/s/pozemky/nove-mesto-nad-metuji-okres-nachod/",
-          "stage": "search_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-rezek/69991032788d156d9209e3bf/",
+          "portal": "realitymix.cz",
+          "url": "https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-pozemku-k-bydleni-v-novem-meste-nad-metuji-8578121.html",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
           "http_status": 200
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/69aedd09645e9176190b54b8/",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji-na-straznici/690865177bf2c8f307067f19/",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "inactive",
-          "http_status": 200,
-          "message": "Detail page says Nabídka již není aktivní; inactive since 2026-02-27."
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/68eb7613f4e8379a6207acaa/",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "fetch_error",
-          "error": "ConnectionResetError [Errno 54] Connection reset by peer",
-          "message": "Retained from current search snapshot because required fields and detail URL were visible."
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/69f1c8aaf37e6ea21a0e4aec/",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "fetch_error",
-          "error": "ConnectionResetError [Errno 54] Connection reset by peer",
-          "message": "Retained from current search snapshot because required fields and detail URL were visible."
         },
         {
           "portal": "realitymix.cz",
@@ -421,8 +319,7 @@
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
-          "http_status": 200,
-          "message": "Excluded after parse: land-below-threshold."
+          "http_status": 200
         },
         {
           "portal": "realitymix.cz",
@@ -430,8 +327,7 @@
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
-          "http_status": 200,
-          "message": "Excluded after parse: land-below-threshold."
+          "http_status": 200
         },
         {
           "portal": "realitymix.cz",
@@ -440,98 +336,106 @@
           "attempt": 1,
           "status": "ok",
           "http_status": 200
-        },
-        {
-          "portal": "realitymix.cz",
-          "url": "https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-pozemku-k-bydleni-v-novem-meste-nad-metuji-8578121.html",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "mmreality.cz",
-          "url": "https://www.mmreality.cz/prodej/pozemky/nove-mesto-nad-metuji/",
-          "stage": "search_fetch",
-          "attempt": 1,
-          "status": "fetch_error",
-          "http_status": 404,
-          "error": "HTTP Error 404: Not Found",
-          "message": "Direct guessed municipality path was not valid; detail discovery continued from indexed supported-portal result."
-        },
-        {
-          "portal": "mmreality.cz",
-          "url": "https://www.mmreality.cz/prodej/domy/nove-mesto-nad-metuji/",
-          "stage": "search_fetch",
-          "attempt": 1,
-          "status": "fetch_error",
-          "http_status": 404,
-          "error": "HTTP Error 404: Not Found",
-          "message": "Direct guessed municipality path was not valid; detail discovery continued from indexed supported-portal result."
-        },
-        {
-          "portal": "mmreality.cz",
-          "url": "https://www.mmreality.cz/nemovitosti/939531/",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok"
-        },
-        {
-          "portal": "mmreality.cz",
-          "url": "https://www.mmreality.cz/nemovitosti/931748/",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "message": "Excluded after parse: land-below-threshold."
-        },
-        {
-          "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/prodej/nove-mesto-nad-metuji/",
-          "stage": "search_fetch",
-          "attempt": 1,
-          "status": "fetch_error",
-          "http_status": 404,
-          "error": "HTTP Error 404: Not Found",
-          "message": "Direct guessed municipality path was not valid; detail discovery continued from indexed supported-portal result."
-        },
-        {
-          "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/hledej/prodej-nove-mesto-nad-metuji/",
-          "stage": "search_fetch",
-          "attempt": 1,
-          "status": "fetch_error",
-          "http_status": 404,
-          "error": "HTTP Error 404: Not Found",
-          "message": "Direct guessed municipality path was not valid; detail discovery continued from indexed supported-portal result."
-        },
-        {
-          "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-pozemku-k-bydleni-v-novem-meste-nad-metuji-8578121.html",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok"
-        },
-        {
-          "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "message": "Excluded after parse: outside-municipality."
         }
       ],
       "assumptions": [
-        "No sub-agents were spawned; supported portals were checked in a single-agent portal-by-portal fallback.",
-        "For Reality.iDNES, two rows were retained from current search snapshots because the snapshot exposed title/location/price/area/detail URL and later detail fetch attempts reset; these rows are marked in notes and portal_status.retained_from_snapshot.",
-        "The previous cached RealityMix/Na Strážnici 3 112 m2 listing was omitted because the current RealityMix municipality search did not expose it and the matching iDNES detail page reported the ad inactive."
+        "local-first cached detail verification was used; RealityMix result-page discovery was used when available, while other local portals remain cached-detail only.",
+        "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Nové Město nad Metují."
       ],
       "gaps": [
-        "Reality.iDNES detail fetches for two current search-snapshot land rows reset, so those two rows are less strongly verified than the detail-opened iDNES rows.",
-        "M&M Reality and Reality Aktuálně direct guessed municipality search paths returned 404; retained rows on those portals came from explicit detail verification discovered via indexed supported-portal results.",
-        "The current RealityMix municipality search did not expose the previous cached 3 112 m2 Na Strážnici row; iDNES detail for that same Na Strážnici ad reported it inactive since 2026-02-27, so it was omitted.",
-        "Listings below the 1000 m2 land threshold, chata rows, gardens, fields, forests, meadows, commercial land, and unpriced rows were excluded even when present in municipality search snapshots."
+        "land-below-threshold:https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-rodinneho-domu-140-m-nove-mesto-nad-metuji-8537981.html",
+        "land-below-threshold:https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-rodinneho-domu-635-m-nove-mesto-nmet-ul-1-maje-8540683.html"
       ],
       "ads": [
+        {
+          "portal": [
+            "mmreality.cz"
+          ],
+          "title": "Prodej, Pozemek k bydlení, 1956 m², Nové Město nad Metují",
+          "location": "Nové Město nad Metují, okres Náchod",
+          "property_type": "land",
+          "price": "3 999 999 Kč",
+          "price_czk": 3999999,
+          "house_area_m2": null,
+          "land_area_m2": 1956,
+          "urls": [
+            "https://www.mmreality.cz/nemovitosti/939531/"
+          ],
+          "notes": [
+            "detail-url-verified:mmreality.cz",
+            "buildable-land"
+          ],
+          "status": "active",
+          "first_seen_at": "2026-06-05T19:13:31+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
+          "price_history": [
+            {
+              "seen_at": "2026-06-05T19:13:31+0200",
+              "price": "3 999 999 Kč",
+              "price_czk": 3999999
+            }
+          ]
+        },
+        {
+          "portal": [
+            "reality.aktualne.cz"
+          ],
+          "title": "Prodej pozemku k bydlení v Novém Městě nad Metují",
+          "location": "Nové Město nad Metují, Náchod",
+          "property_type": "land",
+          "price": "3 999 999 Kč",
+          "price_czk": 3999999,
+          "house_area_m2": null,
+          "land_area_m2": 1956,
+          "urls": [
+            "https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-pozemku-k-bydleni-v-novem-meste-nad-metuji-8578121.html"
+          ],
+          "notes": [
+            "detail-url-verified:reality.aktualne.cz",
+            "buildable-land",
+            "aggregator-source:m&m-reality-holding-a.s."
+          ],
+          "status": "active",
+          "first_seen_at": "2026-06-05T19:13:31+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
+          "price_history": [
+            {
+              "seen_at": "2026-06-05T19:13:31+0200",
+              "price": "3 999 999 Kč",
+              "price_czk": 3999999
+            }
+          ]
+        },
+        {
+          "portal": [
+            "realitymix.cz"
+          ],
+          "title": "Prodej pozemku k bydlení v Novém Městě nad Metují",
+          "location": "Nové Město nad Metují, okr. Náchod",
+          "property_type": "land",
+          "price": "3 999 999 Kč",
+          "price_czk": 3999999,
+          "house_area_m2": null,
+          "land_area_m2": 1956,
+          "urls": [
+            "https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-pozemku-k-bydleni-v-novem-meste-nad-metuji-8578121.html"
+          ],
+          "notes": [
+            "detail-url-verified:realitymix.cz"
+          ],
+          "status": "active",
+          "first_seen_at": "2026-06-05T19:13:31+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
+          "price_history": [
+            {
+              "seen_at": "2026-06-05T19:13:31+0200",
+              "price": "3 999 999 Kč",
+              "price_czk": 3999999
+            }
+          ]
+        }
+      ],
+      "hidden_ads": [
         {
           "portal": [
             "reality.idnes.cz"
@@ -549,7 +453,7 @@
           "notes": [
             "detail-url-verified:reality.idnes.cz"
           ],
-          "status": "active",
+          "status": "hidden",
           "first_seen_at": "2026-06-05T18:53:34+0200",
           "last_seen_at": "2026-06-06T08:25:34+0200",
           "price_history": [
@@ -558,49 +462,8 @@
               "price": "12 750 000 Kč",
               "price_czk": 12750000
             }
-          ]
-        },
-        {
-          "portal": [
-            "mmreality.cz",
-            "reality.aktualne.cz",
-            "reality.idnes.cz",
-            "realitymix.cz"
           ],
-          "title": "Prodej pozemku k bydlení v Novém Městě nad Metují",
-          "location": "Nové Město nad Metují, okres Náchod",
-          "property_type": "land",
-          "price": "3 999 999 Kč",
-          "price_czk": 3999999,
-          "house_area_m2": null,
-          "land_area_m2": 1956,
-          "urls": [
-            "https://www.mmreality.cz/nemovitosti/939531/",
-            "https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-pozemku-k-bydleni-v-novem-meste-nad-metuji-8578121.html",
-            "https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-pozemku-k-bydleni-v-novem-meste-nad-metuji-8578121.html",
-            "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/69f1c8aaf37e6ea21a0e4aec/"
-          ],
-          "notes": [
-            "detail-url-verified:mmreality.cz",
-            "detail-url-verified:reality.aktualne.cz",
-            "detail-url-verified:realitymix.cz",
-            "snapshot-sufficient:reality.idnes.cz",
-            "duplicate-merged-from:reality.aktualne.cz",
-            "duplicate-merged-from:reality.idnes.cz",
-            "duplicate-merged-from:realitymix.cz",
-            "buildable-land",
-            "aggregator-source:m&m-reality-holding-a.s."
-          ],
-          "status": "active",
-          "first_seen_at": "2026-06-05T19:13:31+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
-          "price_history": [
-            {
-              "seen_at": "2026-06-05T19:13:31+0200",
-              "price": "3 999 999 Kč",
-              "price_czk": 3999999
-            }
-          ]
+          "hidden_at": "2026-06-06T08:41:35+0200"
         },
         {
           "portal": [
@@ -620,7 +483,7 @@
             "detail-url-verified:reality.idnes.cz",
             "buildable-land"
           ],
-          "status": "active",
+          "status": "hidden",
           "first_seen_at": "2026-06-05T19:13:31+0200",
           "last_seen_at": "2026-06-06T08:25:34+0200",
           "price_history": [
@@ -629,7 +492,8 @@
               "price": "3 250 000 Kč",
               "price_czk": 3250000
             }
-          ]
+          ],
+          "hidden_at": "2026-06-06T08:41:35+0200"
         },
         {
           "portal": [
@@ -650,7 +514,7 @@
             "detail-fetch-error:connection-reset",
             "buildable-land"
           ],
-          "status": "active",
+          "status": "hidden",
           "first_seen_at": "2026-06-05T19:13:31+0200",
           "last_seen_at": "2026-06-06T08:25:34+0200",
           "price_history": [
@@ -659,10 +523,9 @@
               "price": "2 950 000 Kč",
               "price_czk": 2950000
             }
-          ]
-        }
-      ],
-      "hidden_ads": [
+          ],
+          "hidden_at": "2026-06-06T08:41:35+0200"
+        },
         {
           "portal": [
             "realitymix.cz"
@@ -1063,7 +926,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -1096,7 +959,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -1126,7 +989,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -1168,7 +1031,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -1210,7 +1073,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -1252,7 +1115,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -1534,7 +1397,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T19:50:52+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T19:50:52+0200",
@@ -1567,7 +1430,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T19:50:52+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T19:50:52+0200",
@@ -1872,7 +1735,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T19:50:52+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T19:50:52+0200",
@@ -2185,7 +2048,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2222,7 +2085,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2252,7 +2115,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2282,7 +2145,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2366,7 +2229,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2399,7 +2262,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2429,7 +2292,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2458,7 +2321,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2539,7 +2402,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2632,7 +2495,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2666,7 +2529,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2695,7 +2558,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2730,7 +2593,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2819,7 +2682,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2859,7 +2722,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2889,7 +2752,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2919,7 +2782,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2949,7 +2812,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2979,7 +2842,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -3009,7 +2872,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -3090,7 +2953,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -3183,7 +3046,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -3214,7 +3077,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -3390,7 +3253,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -3421,7 +3284,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -3507,7 +3370,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -3651,7 +3514,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T08:25:34+0200",
+          "last_seen_at": "2026-06-06T08:41:35+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",

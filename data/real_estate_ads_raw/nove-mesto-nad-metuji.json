@@ -1,1 +1,146 @@
-{"city":"Nové Město nad Metují","query":{"municipality":"Nové Město nad Metují","location_scope":"municipality_only","country":"Czech Republic","property_types":["house","chalupa","land"],"price_min":null,"price_max":null,"house_size_min_m2":null,"house_size_max_m2":null,"land_size_min_m2":1000,"land_size_max_m2":null,"must_have":["sale listings","buildable or residential land only"],"exclude":["chata"]},"assumptions":["No sub-agents were spawned; supported portals were checked in a single-agent portal-by-portal fallback.","For Reality.iDNES, two rows were retained from current search snapshots because the snapshot exposed title/location/price/area/detail URL and later detail fetch attempts reset; these rows are marked in notes and portal_status.retained_from_snapshot.","The previous cached RealityMix/Na Strážnici 3 112 m2 listing was omitted because the current RealityMix municipality search did not expose it and the matching iDNES detail page reported the ad inactive."],"coverage":{"workers_launched":0,"workers_with_results":0,"candidates_gathered":12,"rows_retained":4,"zero_result_portals":[],"blocked_portals":[]},"portal_status":{"reality.idnes.cz":{"status":"partial","http_status":null,"stage":"detail_fetch","retained_from_snapshot":true,"message":"Municipality searches and two detail pages succeeded, but detail fetches for the 1 128 m2 and 1 956 m2 land ads reset; both were retained from current search snapshots that exposed required fields and detail URLs.","evidence":["search_fetch:https://reality.idnes.cz/s/nove-mesto-nad-metuji-okres-nachod/:200","detail_fetch:https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-rezek/69991032788d156d9209e3bf/:200","detail_fetch:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/69aedd09645e9176190b54b8/:200","detail_fetch:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji-na-straznici/690865177bf2c8f307067f19/:inactive"]},"mmreality.cz":{"status":"ok","http_status":null,"stage":"detail_fetch","retained_from_snapshot":false,"message":"Explicit MM detail verification retained the 1 956 m2 building-land listing and excluded a 546 m2 garden below threshold.","evidence":["detail_fetch:https://www.mmreality.cz/nemovitosti/939531/:ok","detail_fetch:https://www.mmreality.cz/nemovitosti/931748/:land-below-threshold"]},"realitymix.cz":{"status":"ok","http_status":200,"stage":"detail_fetch","retained_from_snapshot":false,"message":"RealityMix helper retained one detail-verified 1 956 m2 residential-land row; house candidates were below the land-size threshold.","evidence":["house_result_fetch:https://realitymix.cz/reality/domy/prodej/kralovehradecky/nachod/nove-mesto-nad-metuji:200","land_result_fetch:https://realitymix.cz/reality/pozemky/pro-bydleni/kralovehradecky/nachod/nove-mesto-nad-metuji:200","detail_fetch:https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-pozemku-k-bydleni-v-novem-meste-nad-metuji-8578121.html:200"]},"reality.aktualne.cz":{"status":"ok","http_status":null,"stage":"detail_fetch","retained_from_snapshot":false,"message":"Reality Aktuálně detail verification retained the 1 956 m2 residential-land row; a nearby Nový Hrádek row was excluded as outside municipality.","evidence":["detail_fetch:https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-pozemku-k-bydleni-v-novem-meste-nad-metuji-8578121.html:ok","detail_fetch:https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html:outside-municipality"]}},"fetch_attempts":[{"portal":"reality.idnes.cz","url":"https://reality.idnes.cz/s/nove-mesto-nad-metuji-okres-nachod/","stage":"search_fetch","attempt":1,"status":"ok","http_status":200,"error":null,"message":null},{"portal":"reality.idnes.cz","url":"https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-410420&s-rd=3","stage":"search_fetch","attempt":1,"status":"ok","http_status":200,"error":null,"message":null},{"portal":"reality.idnes.cz","url":"https://reality.idnes.cz/s/pozemky/nove-mesto-nad-metuji-okres-nachod/?s-rd=3","stage":"search_fetch","attempt":1,"status":"ok","http_status":200,"error":null,"message":null},{"portal":"reality.idnes.cz","url":"https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-rezek/69991032788d156d9209e3bf/","stage":"detail_fetch","attempt":1,"status":"ok","http_status":200,"error":null,"message":null},{"portal":"reality.idnes.cz","url":"https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/69aedd09645e9176190b54b8/","stage":"detail_fetch","attempt":1,"status":"ok","http_status":200,"error":null,"message":null},{"portal":"reality.idnes.cz","url":"https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji-na-straznici/690865177bf2c8f307067f19/","stage":"detail_fetch","attempt":1,"status":"inactive","http_status":200,"error":null,"message":"Detail page says Nabídka již není aktivní; inactive since 2026-02-27."},{"portal":"reality.idnes.cz","url":"https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/68eb7613f4e8379a6207acaa/","stage":"detail_fetch","attempt":1,"status":"fetch_error","http_status":null,"error":"ConnectionResetError [Errno 54] Connection reset by peer","message":"Retained from current search snapshot because required fields and detail URL were visible."},{"portal":"reality.idnes.cz","url":"https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/69f1c8aaf37e6ea21a0e4aec/","stage":"detail_fetch","attempt":1,"status":"fetch_error","http_status":null,"error":"ConnectionResetError [Errno 54] Connection reset by peer","message":"Retained from current search snapshot because required fields and detail URL were visible."},{"portal":"realitymix.cz","url":"https://realitymix.cz/reality/domy/prodej/kralovehradecky/nachod/nove-mesto-nad-metuji","stage":"house_result_fetch","attempt":1,"status":"ok","http_status":200,"error":null,"message":null},{"portal":"realitymix.cz","url":"https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-rodinneho-domu-140-m-nove-mesto-nad-metuji-8537981.html","stage":"detail_fetch","attempt":1,"status":"ok","http_status":200,"error":null,"message":"Excluded after parse: land-below-threshold."},{"portal":"realitymix.cz","url":"https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-rodinneho-domu-635-m-nove-mesto-nmet-ul-1-maje-8540683.html","stage":"detail_fetch","attempt":1,"status":"ok","http_status":200,"error":null,"message":"Excluded after parse: land-below-threshold."},{"portal":"realitymix.cz","url":"https://realitymix.cz/reality/pozemky/pro-bydleni/kralovehradecky/nachod/nove-mesto-nad-metuji","stage":"land_result_fetch","attempt":1,"status":"ok","http_status":200,"error":null,"message":null},{"portal":"realitymix.cz","url":"https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-pozemku-k-bydleni-v-novem-meste-nad-metuji-8578121.html","stage":"detail_fetch","attempt":1,"status":"ok","http_status":200,"error":null,"message":null},{"portal":"mmreality.cz","url":"https://www.mmreality.cz/prodej/pozemky/nove-mesto-nad-metuji/","stage":"search_fetch","attempt":1,"status":"fetch_error","http_status":404,"error":"HTTP Error 404: Not Found","message":"Direct guessed municipality path was not valid; detail discovery continued from indexed supported-portal result."},{"portal":"mmreality.cz","url":"https://www.mmreality.cz/prodej/domy/nove-mesto-nad-metuji/","stage":"search_fetch","attempt":1,"status":"fetch_error","http_status":404,"error":"HTTP Error 404: Not Found","message":"Direct guessed municipality path was not valid; detail discovery continued from indexed supported-portal result."},{"portal":"mmreality.cz","url":"https://www.mmreality.cz/nemovitosti/939531/","stage":"detail_fetch","attempt":1,"status":"ok","http_status":null,"error":null,"message":null},{"portal":"mmreality.cz","url":"https://www.mmreality.cz/nemovitosti/931748/","stage":"detail_fetch","attempt":1,"status":"ok","http_status":null,"error":null,"message":"Excluded after parse: land-below-threshold."},{"portal":"reality.aktualne.cz","url":"https://reality.aktualne.cz/prodej/nove-mesto-nad-metuji/","stage":"search_fetch","attempt":1,"status":"fetch_error","http_status":404,"error":"HTTP Error 404: Not Found","message":"Direct guessed municipality path was not valid; detail discovery continued from indexed supported-portal result."},{"portal":"reality.aktualne.cz","url":"https://reality.aktualne.cz/hledej/prodej-nove-mesto-nad-metuji/","stage":"search_fetch","attempt":1,"status":"fetch_error","http_status":404,"error":"HTTP Error 404: Not Found","message":"Direct guessed municipality path was not valid; detail discovery continued from indexed supported-portal result."},{"portal":"reality.aktualne.cz","url":"https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-pozemku-k-bydleni-v-novem-meste-nad-metuji-8578121.html","stage":"detail_fetch","attempt":1,"status":"ok","http_status":null,"error":null,"message":null},{"portal":"reality.aktualne.cz","url":"https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html","stage":"detail_fetch","attempt":1,"status":"ok","http_status":null,"error":null,"message":"Excluded after parse: outside-municipality."}],"gaps":["Reality.iDNES detail fetches for two current search-snapshot land rows reset, so those two rows are less strongly verified than the detail-opened iDNES rows.","M&M Reality and Reality Aktuálně direct guessed municipality search paths returned 404; retained rows on those portals came from explicit detail verification discovered via indexed supported-portal results.","The current RealityMix municipality search did not expose the previous cached 3 112 m2 Na Strážnici row; iDNES detail for that same Na Strážnici ad reported it inactive since 2026-02-27, so it was omitted.","Listings below the 1000 m2 land threshold, chata rows, gardens, fields, forests, meadows, commercial land, and unpriced rows were excluded even when present in municipality search snapshots."],"listings":[{"portal":["reality.idnes.cz"],"title":"Ubytovací areál Rezek - Nové Město nad Metují","location":"Rezek, Nové Město nad Metují, okres Náchod","property_type":"house","price":"12 750 000 Kč","house_area_m2":"1720","land_area_m2":"9376","urls":["https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-rezek/69991032788d156d9209e3bf/"],"notes":["detail-url-verified:reality.idnes.cz"]},{"portal":["mmreality.cz","reality.aktualne.cz","reality.idnes.cz","realitymix.cz"],"title":"Prodej pozemku k bydlení v Novém Městě nad Metují","location":"Nové Město nad Metují, okres Náchod","property_type":"land","price":"3 999 999 Kč","house_area_m2":"unknown","land_area_m2":"1956","urls":["https://www.mmreality.cz/nemovitosti/939531/","https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-pozemku-k-bydleni-v-novem-meste-nad-metuji-8578121.html","https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-pozemku-k-bydleni-v-novem-meste-nad-metuji-8578121.html","https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/69f1c8aaf37e6ea21a0e4aec/"],"notes":["detail-url-verified:mmreality.cz","detail-url-verified:reality.aktualne.cz","detail-url-verified:realitymix.cz","snapshot-sufficient:reality.idnes.cz","duplicate-merged-from:reality.aktualne.cz","duplicate-merged-from:reality.idnes.cz","duplicate-merged-from:realitymix.cz","buildable-land","aggregator-source:m&m-reality-holding-a.s."]},{"portal":["reality.idnes.cz"],"title":"Pozemek u Nového Města nad Metují s panoramatickým výhledem","location":"Nové Město nad Metují - Spy, okres Náchod","property_type":"land","price":"3 250 000 Kč","house_area_m2":"unknown","land_area_m2":"3276","urls":["https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/69aedd09645e9176190b54b8/"],"notes":["detail-url-verified:reality.idnes.cz","buildable-land"]},{"portal":["reality.idnes.cz"],"title":"Prodej stavebního pozemku 1 128 m²","location":"Nové Město nad Metují","property_type":"land","price":"2 950 000 Kč","house_area_m2":"unknown","land_area_m2":"1128","urls":["https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/68eb7613f4e8379a6207acaa/"],"notes":["snapshot-sufficient:reality.idnes.cz","detail-fetch-error:connection-reset","buildable-land"]}]}
+{
+  "city": "Nové Město nad Metují",
+  "query": {
+    "municipality": "Nové Město nad Metují",
+    "location_scope": "municipality_only",
+    "country": "Czech Republic",
+    "property_types": [
+      "house",
+      "chalupa",
+      "land"
+    ],
+    "price_min": null,
+    "price_max": null,
+    "house_size_min_m2": null,
+    "house_size_max_m2": null,
+    "land_size_min_m2": 1000,
+    "land_size_max_m2": null,
+    "must_have": [
+      "sale listings",
+      "buildable or residential land only"
+    ],
+    "exclude": [
+      "chata"
+    ]
+  },
+  "assumptions": [
+    "local-first cached detail verification was used; RealityMix result-page discovery was used when available, while other local portals remain cached-detail only.",
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Nové Město nad Metují."
+  ],
+  "coverage": {
+    "workers_launched": 3,
+    "workers_with_results": 3,
+    "candidates_gathered": 6,
+    "rows_retained": 3,
+    "zero_result_portals": [],
+    "blocked_portals": []
+  },
+  "portal_status": {
+    "realitymix.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified RealityMix row."
+    }
+  },
+  "fetch_attempts": [
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-pozemku-k-bydleni-v-novem-meste-nad-metuji-8578121.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/reality/domy/prodej/kralovehradecky/nachod/nove-mesto-nad-metuji",
+      "stage": "house_result_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-rodinneho-domu-140-m-nove-mesto-nad-metuji-8537981.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-rodinneho-domu-635-m-nove-mesto-nmet-ul-1-maje-8540683.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/reality/pozemky/pro-bydleni/kralovehradecky/nachod/nove-mesto-nad-metuji",
+      "stage": "land_result_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    }
+  ],
+  "gaps": [
+    "land-below-threshold:https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-rodinneho-domu-140-m-nove-mesto-nad-metuji-8537981.html",
+    "land-below-threshold:https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-rodinneho-domu-635-m-nove-mesto-nmet-ul-1-maje-8540683.html"
+  ],
+  "listings": [
+    {
+      "portal": [
+        "mmreality.cz"
+      ],
+      "title": "Prodej, Pozemek k bydlení, 1956 m², Nové Město nad Metují",
+      "location": "Nové Město nad Metují, okres Náchod",
+      "property_type": "land",
+      "price": "3 999 999 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1956",
+      "urls": [
+        "https://www.mmreality.cz/nemovitosti/939531/"
+      ],
+      "notes": [
+        "detail-url-verified:mmreality.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej pozemku k bydlení v Novém Městě nad Metují",
+      "location": "Nové Město nad Metují, okr. Náchod",
+      "property_type": "land",
+      "price": "3 999 999 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1956",
+      "urls": [
+        "https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-pozemku-k-bydleni-v-novem-meste-nad-metuji-8578121.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej pozemku k bydlení v Novém Městě nad Metují",
+      "location": "Nové Město nad Metují, Náchod",
+      "property_type": "land",
+      "price": "3 999 999 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1956",
+      "urls": [
+        "https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-pozemku-k-bydleni-v-novem-meste-nad-metuji-8578121.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "buildable-land",
+        "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    }
+  ]
+}

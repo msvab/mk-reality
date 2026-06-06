@@ -10,7 +10,6 @@ from html import unescape
 from pathlib import Path
 from urllib.parse import urljoin, urlsplit, urlunsplit
 
-
 BASE_URL = "https://www.realitymix.cz"
 FETCH_BASE_URL = "https://www.realitymix.cz"
 USER_AGENT = "Mozilla/5.0"
@@ -19,8 +18,8 @@ DEFAULT_RETRIES = 2
 DEFAULT_BACKOFF_SECONDS = 2.0
 
 CATEGORY_ROOTS = {
-    "house": "/reality/domy/prodej/",
-    "land": "/reality/pozemky/pro-bydleni/prodej/",
+    "house": ["/reality/domy/prodej/"],
+    "land": ["/reality/pozemky/pro-bydleni/", "/reality/pozemky/pro-bydleni/prodej/"],
 }
 
 
@@ -275,26 +274,27 @@ def discover_result_page_url(
     retries: int,
     backoff_seconds: float,
 ) -> str | None:
-    root_url = urljoin(BASE_URL, CATEGORY_ROOTS[category])
-    root_html = run_fetch(
-        root_url,
-        attempts=attempts,
-        stage=f"{category}_root_fetch",
-        retries=retries,
-        backoff_seconds=backoff_seconds,
-    )
-    pattern = re.compile(r'href="(/reality/[^"]+/[^"/?#]+)"')
     target_slug = slug_normalize(municipality).replace(" ", "-")
-    candidates = []
-    for href in pattern.findall(root_html):
-        lowered = slug_normalize(href).replace(" ", "-")
-        if not lowered.startswith(CATEGORY_ROOTS[category]):
-            continue
-        if not lowered.endswith(f"/{target_slug}"):
-            continue
-        candidates.append(urljoin(BASE_URL, href))
-    if candidates:
-        return sorted(set(candidates))[0]
+    pattern = re.compile(r'href="(/reality/[^"]+/[^"/?#]+)"')
+    for category_root in CATEGORY_ROOTS[category]:
+        root_url = urljoin(BASE_URL, category_root)
+        root_html = run_fetch(
+            root_url,
+            attempts=attempts,
+            stage=f"{category}_root_fetch",
+            retries=retries,
+            backoff_seconds=backoff_seconds,
+        )
+        candidates = []
+        for href in pattern.findall(root_html):
+            lowered = slug_normalize(href).replace(" ", "-")
+            if not lowered.startswith(category_root):
+                continue
+            if not lowered.endswith(f"/{target_slug}"):
+                continue
+            candidates.append(urljoin(BASE_URL, href))
+        if candidates:
+            return sorted(set(candidates))[0]
     return None
 
 
@@ -419,14 +419,15 @@ def build_output(
     house_page_url: str | None,
     land_page_url: str | None,
     detail_urls: list[str] | None = None,
+    discover_results: bool = False,
     retries: int = DEFAULT_RETRIES,
     backoff_seconds: float = DEFAULT_BACKOFF_SECONDS,
 ) -> dict:
     has_explicit_detail_urls = bool(detail_urls)
     categories = []
-    if include_houses and (house_page_url or not has_explicit_detail_urls):
+    if include_houses and (house_page_url or discover_results or not has_explicit_detail_urls):
         categories.append("house")
-    if include_land and (land_page_url or not has_explicit_detail_urls):
+    if include_land and (land_page_url or discover_results or not has_explicit_detail_urls):
         categories.append("land")
 
     assumptions = []
@@ -539,6 +540,11 @@ def main() -> int:
     parser.add_argument("--house-page-url")
     parser.add_argument("--land-page-url")
     parser.add_argument("--detail-url", action="append", default=[])
+    parser.add_argument(
+        "--discover-results",
+        action="store_true",
+        help="Discover municipality result pages and verify their detail URLs even when explicit detail URLs are supplied.",
+    )
     parser.add_argument("--retries", type=int, default=DEFAULT_RETRIES, help="Retries per RealityMix fetch after the first attempt.")
     parser.add_argument("--backoff-seconds", type=float, default=DEFAULT_BACKOFF_SECONDS, help="Base retry backoff in seconds.")
     parser.add_argument("--output")
@@ -552,6 +558,7 @@ def main() -> int:
         house_page_url=args.house_page_url,
         land_page_url=args.land_page_url,
         detail_urls=args.detail_url,
+        discover_results=args.discover_results,
         retries=args.retries,
         backoff_seconds=args.backoff_seconds,
     )

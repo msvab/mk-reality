@@ -1,7 +1,12 @@
+import json
+import subprocess
+
 from run_real_estate_ads_by_city import (
     cached_detail_urls_by_portal,
+    cached_realitymix_result_page_urls,
     combine_local_fetcher_payloads,
     daily_refresh_city_completed_today,
+    run_local_fetchers,
 )
 
 
@@ -62,6 +67,42 @@ def test_cached_detail_urls_are_grouped_by_supported_local_fetcher_portal():
     assert "reality.idnes.cz" not in urls
 
 
+def test_cached_realitymix_result_page_urls_are_grouped_by_category():
+    previous_aggregate = {
+        "cities": {
+            "Opočno": {
+                "fetch_attempts": [
+                    {
+                        "portal": "realitymix.cz",
+                        "url": "https://realitymix.cz/reality/domy/prodej/kralovehradecky/rychnov-nad-kneznou/opocno",
+                        "stage": "house_result_fetch",
+                        "status": "ok",
+                    },
+                    {
+                        "portal": "realitymix.cz",
+                        "url": "https://realitymix.cz/reality/pozemky/pro-bydleni/kralovehradecky/rychnov-nad-kneznou/opocno",
+                        "stage": "land_result_fetch",
+                        "status": "ok",
+                    },
+                    {
+                        "portal": "realitymix.cz",
+                        "url": "https://realitymix.cz/reality/pozemky/pro-bydleni/kralovehradecky/rychnov-nad-kneznou/opocno",
+                        "stage": "land_result_fetch",
+                        "status": "fetch_error",
+                    },
+                ]
+            }
+        }
+    }
+
+    urls = cached_realitymix_result_page_urls(previous_aggregate, "Opočno")
+
+    assert urls == {
+        "house": "https://realitymix.cz/reality/domy/prodej/kralovehradecky/rychnov-nad-kneznou/opocno",
+        "land": "https://realitymix.cz/reality/pozemky/pro-bydleni/kralovehradecky/rychnov-nad-kneznou/opocno",
+    }
+
+
 def test_local_fetcher_payloads_are_combined_into_raw_city_payload():
     payload = combine_local_fetcher_payloads(
         "Opočno",
@@ -89,3 +130,144 @@ def test_local_fetcher_payloads_are_combined_into_raw_city_payload():
     assert payload["coverage"]["rows_retained"] == 1
     assert payload["portal_status"]["realitymix.cz"]["status"] == "ok"
     assert payload["listings"] == [{"title": "Listing"}]
+
+
+def test_local_fetchers_run_realitymix_discovery_without_cached_urls(tmp_path, monkeypatch):
+    commands = []
+
+    def fake_run(cmd, check, capture_output, text):
+        commands.append(cmd)
+        payload = {
+            "city": "Zero Cache",
+            "query": {
+                "municipality": "Zero Cache",
+                "location_scope": "municipality_only",
+                "country": "Czech Republic",
+                "property_types": ["house", "chalupa", "land"],
+                "land_size_min_m2": 1000,
+            },
+            "assumptions": [],
+            "coverage": {
+                "workers_launched": 1,
+                "workers_with_results": 0,
+                "candidates_gathered": 0,
+                "rows_retained": 0,
+                "zero_result_portals": ["realitymix.cz"],
+                "blocked_portals": [],
+            },
+            "portal_status": {"realitymix.cz": {"status": "no_results"}},
+            "fetch_attempts": [],
+            "gaps": [],
+            "listings": [],
+        }
+        return subprocess.CompletedProcess(cmd, 0, stdout=json.dumps(payload), stderr="")
+
+    monkeypatch.setattr("run_real_estate_ads_by_city.subprocess.run", fake_run)
+
+    output_path = tmp_path / "raw.json"
+    assert run_local_fetchers("Zero Cache", tmp_path, output_path, previous_aggregate=None)
+
+    assert len(commands) == 1
+    assert "--discover-results" in commands[0]
+    assert "--detail-url" not in commands[0]
+    assert output_path.exists()
+
+
+def test_local_fetchers_pass_cached_realitymix_result_page_urls(tmp_path, monkeypatch):
+    commands = []
+
+    def fake_run(cmd, check, capture_output, text):
+        commands.append(cmd)
+        payload = {
+            "city": "Opočno",
+            "query": {
+                "municipality": "Opočno",
+                "location_scope": "municipality_only",
+                "country": "Czech Republic",
+                "property_types": ["house", "chalupa", "land"],
+                "land_size_min_m2": 1000,
+            },
+            "assumptions": [],
+            "coverage": {
+                "workers_launched": 1,
+                "workers_with_results": 0,
+                "candidates_gathered": 0,
+                "rows_retained": 0,
+                "zero_result_portals": ["realitymix.cz"],
+                "blocked_portals": [],
+            },
+            "portal_status": {"realitymix.cz": {"status": "no_results"}},
+            "fetch_attempts": [],
+            "gaps": [],
+            "listings": [],
+        }
+        return subprocess.CompletedProcess(cmd, 0, stdout=json.dumps(payload), stderr="")
+
+    previous_aggregate = {
+        "cities": {
+            "Opočno": {
+                "fetch_attempts": [
+                    {
+                        "portal": "realitymix.cz",
+                        "url": "https://realitymix.cz/reality/domy/prodej/kralovehradecky/rychnov-nad-kneznou/opocno",
+                        "stage": "house_result_fetch",
+                        "status": "ok",
+                    },
+                    {
+                        "portal": "realitymix.cz",
+                        "url": "https://realitymix.cz/reality/pozemky/pro-bydleni/kralovehradecky/rychnov-nad-kneznou/opocno",
+                        "stage": "land_result_fetch",
+                        "status": "ok",
+                    },
+                ],
+            }
+        }
+    }
+    monkeypatch.setattr("run_real_estate_ads_by_city.subprocess.run", fake_run)
+
+    assert run_local_fetchers("Opočno", tmp_path, tmp_path / "raw.json", previous_aggregate)
+
+    assert "--house-page-url" in commands[0]
+    assert "--land-page-url" in commands[0]
+    assert "https://realitymix.cz/reality/domy/prodej/kralovehradecky/rychnov-nad-kneznou/opocno" in commands[0]
+    assert "https://realitymix.cz/reality/pozemky/pro-bydleni/kralovehradecky/rychnov-nad-kneznou/opocno" in commands[0]
+
+
+def test_local_fetchers_raise_when_helper_reports_blocked_requests(tmp_path, monkeypatch):
+    def fake_run(cmd, check, capture_output, text):
+        payload = {
+            "city": "Blocked",
+            "query": {
+                "municipality": "Blocked",
+                "location_scope": "municipality_only",
+                "country": "Czech Republic",
+                "property_types": ["house", "chalupa", "land"],
+                "land_size_min_m2": 1000,
+            },
+            "assumptions": [],
+            "coverage": {
+                "workers_launched": 1,
+                "workers_with_results": 0,
+                "candidates_gathered": 0,
+                "rows_retained": 0,
+                "zero_result_portals": ["realitymix.cz"],
+                "blocked_portals": ["realitymix.cz root fetch failed"],
+            },
+            "portal_status": {"realitymix.cz": {"status": "fetch_error"}},
+            "fetch_attempts": [],
+            "gaps": ["category-fetch-error:land"],
+            "listings": [],
+        }
+        return subprocess.CompletedProcess(cmd, 0, stdout=json.dumps(payload), stderr="")
+
+    monkeypatch.setattr("run_real_estate_ads_by_city.subprocess.run", fake_run)
+
+    output_path = tmp_path / "raw.json"
+    try:
+        run_local_fetchers("Blocked", tmp_path, output_path, previous_aggregate=None)
+    except RuntimeError as exc:
+        assert "blocked or failed requests" in str(exc)
+    else:
+        raise AssertionError("expected helper-reported blocked requests to fail local fetch")
+
+    assert not output_path.exists()

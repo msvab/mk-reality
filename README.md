@@ -165,9 +165,9 @@ The daily refresh still runs current municipality-level searches so it can detec
 
 Daily refreshes are guarded per municipality in `real_estate_ads_run_state.json`. If a municipality has already completed today, a later `--daily-refresh` skips it and continues with the next municipality, which keeps partial refreshes resumable without paying to re-check the same city. Use `--force-daily-refresh` only when you intentionally want to re-run already refreshed municipalities on the same day.
 
-Use `--local-first` to reduce Codex usage where cached detail URLs can be verified by deterministic portal helpers. This path currently covers cached URLs for `mmreality.cz`, `realitymix.cz`, and `reality.aktualne.cz`; it falls back to Codex when there are no usable cached helper-backed URLs or when local verification fails.
+Use `--local-first` to reduce Codex usage where deterministic portal helpers can cover the refresh. This path discovers current municipality result pages on `realitymix.cz` and verifies cached detail URLs for `mmreality.cz`, `realitymix.cz`, and `reality.aktualne.cz`; it falls back to Codex when local verification fails.
 
-Use `--local-only` for cost-controlled test runs where Codex must not be invoked. It uses the same cached-detail helper path as `--local-first`, but cities without usable cached helper-backed URLs are recorded as failures instead of falling back.
+Use `--local-only` for cost-controlled test runs where Codex must not be invoked. It uses the same local helper path as `--local-first`, but cities that local helpers cannot refresh are recorded as failures instead of falling back.
 
 ### [summarize_real_estate_fetch_errors.py](/Users/michal-mbp/dev/reality/summarize_real_estate_fetch_errors.py)
 
