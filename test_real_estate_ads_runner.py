@@ -4,6 +4,7 @@ import subprocess
 from run_real_estate_ads_by_city import (
     cached_detail_urls_by_portal,
     cached_mmreality_result_page_urls,
+    cached_reality_aktualne_result_page_urls,
     cached_realitymix_result_page_urls,
     combine_local_fetcher_payloads,
     daily_refresh_city_completed_today,
@@ -146,6 +147,41 @@ def test_cached_mmreality_result_page_urls_ignore_detail_pages():
     ]
 
 
+def test_cached_reality_aktualne_result_page_urls_ignore_detail_pages():
+    previous_aggregate = {
+        "cities": {
+            "České Meziříčí": {
+                "fetch_attempts": [
+                    {
+                        "portal": "reality.aktualne.cz",
+                        "url": "https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-domy_vily.html",
+                        "stage": "search_fetch",
+                        "status": "ok",
+                    },
+                    {
+                        "portal": "reality.aktualne.cz",
+                        "url": "https://reality.aktualne.cz/detail/ceske-mezirici/example.html",
+                        "stage": "detail_fetch",
+                        "status": "ok",
+                    },
+                    {
+                        "portal": "reality.aktualne.cz",
+                        "url": "https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-pozemky.html",
+                        "stage": "search_fetch",
+                        "status": "fetch_error",
+                    },
+                ]
+            }
+        }
+    }
+
+    urls = cached_reality_aktualne_result_page_urls(previous_aggregate, "České Meziříčí")
+
+    assert urls == [
+        "https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-domy_vily.html",
+    ]
+
+
 def test_local_fetcher_payloads_are_combined_into_raw_city_payload():
     payload = combine_local_fetcher_payloads(
         "Opočno",
@@ -210,9 +246,10 @@ def test_local_fetchers_run_realitymix_discovery_without_cached_urls(tmp_path, m
     output_path = tmp_path / "raw.json"
     assert run_local_fetchers("Zero Cache", tmp_path, output_path, previous_aggregate=None)
 
-    assert len(commands) == 1
-    assert "--discover-results" in commands[0]
-    assert "--detail-url" not in commands[0]
+    realitymix_commands = [cmd for cmd in commands if cmd[1].endswith("realitymix_fetch.py")]
+    assert len(realitymix_commands) == 1
+    assert "--discover-results" in realitymix_commands[0]
+    assert "--detail-url" not in realitymix_commands[0]
     assert output_path.exists()
 
 
@@ -328,6 +365,61 @@ def test_local_fetchers_pass_cached_mmreality_result_page_urls(tmp_path, monkeyp
     assert "--result-url" in commands[0]
     assert "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/kralovehradecky-kraj/" in commands[0]
     assert "--detail-url" not in commands[0]
+
+
+def test_local_fetchers_pass_cached_reality_aktualne_result_page_urls_and_discovery(tmp_path, monkeypatch):
+    commands = []
+
+    def fake_run(cmd, check, capture_output, text):
+        commands.append(cmd)
+        payload = {
+            "city": "České Meziříčí",
+            "query": {
+                "municipality": "České Meziříčí",
+                "location_scope": "municipality_only",
+                "country": "Czech Republic",
+                "property_types": ["house", "chalupa", "land"],
+                "land_size_min_m2": 1000,
+            },
+            "assumptions": [],
+            "coverage": {
+                "workers_launched": 1,
+                "workers_with_results": 0,
+                "candidates_gathered": 0,
+                "rows_retained": 0,
+                "zero_result_portals": ["reality.aktualne.cz"],
+                "blocked_portals": [],
+            },
+            "portal_status": {"reality.aktualne.cz": {"status": "no_results"}},
+            "fetch_attempts": [],
+            "gaps": [],
+            "listings": [],
+        }
+        return subprocess.CompletedProcess(cmd, 0, stdout=json.dumps(payload), stderr="")
+
+    previous_aggregate = {
+        "cities": {
+            "České Meziříčí": {
+                "fetch_attempts": [
+                    {
+                        "portal": "reality.aktualne.cz",
+                        "url": "https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-domy_vily.html",
+                        "stage": "search_fetch",
+                        "status": "ok",
+                    }
+                ],
+            }
+        }
+    }
+    monkeypatch.setattr("run_real_estate_ads_by_city.subprocess.run", fake_run)
+
+    assert run_local_fetchers("České Meziříčí", tmp_path, tmp_path / "raw.json", previous_aggregate)
+
+    matching_commands = [cmd for cmd in commands if cmd[1].endswith("reality_aktualne_fetch.py")]
+    assert len(matching_commands) == 1
+    assert "--discover-results" in matching_commands[0]
+    assert "--result-url" in matching_commands[0]
+    assert "https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-domy_vily.html" in matching_commands[0]
 
 
 def test_local_fetchers_raise_when_helper_reports_blocked_requests(tmp_path, monkeypatch):

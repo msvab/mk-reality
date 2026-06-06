@@ -9,9 +9,12 @@ from html import unescape
 from pathlib import Path
 from urllib.parse import urljoin, urlsplit, urlunsplit
 
-
 BASE_URL = "https://reality.aktualne.cz"
 USER_AGENT = "Mozilla/5.0"
+CATEGORY_URLS = {
+    "house": "https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",
+    "land": "https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html",
+}
 
 
 def slug_normalize(value: str) -> str:
@@ -39,14 +42,77 @@ def slug_normalize(value: str) -> str:
     return re.sub(r"\s+", " ", text)
 
 
-def run_fetch(url: str) -> str:
+def classify_fetch(http_status: int | None, returncode: int, body: str, stderr: str) -> tuple[str, str | None]:
+    if returncode != 0:
+        return "fetch_error", stderr.strip() or f"curl exited with {returncode}"
+    if http_status == 429:
+        return "rate_limited", "HTTP 429"
+    if http_status is not None and http_status >= 500:
+        return "fetch_error", f"HTTP {http_status}"
+    if http_status is not None and http_status >= 400:
+        return "blocked", f"HTTP {http_status}"
+    if not body.strip():
+        return "fetch_error", "empty response body"
+    return "ok", None
+
+
+def append_fetch_attempt(
+    attempts: list[dict],
+    *,
+    url: str,
+    stage: str,
+    attempt: int,
+    status: str,
+    http_status: int | None = None,
+    error: str | None = None,
+    message: str | None = None,
+) -> None:
+    row = {
+        "portal": "reality.aktualne.cz",
+        "url": canonicalize_detail_url(url) if "/detail/" in url else url,
+        "stage": stage,
+        "attempt": attempt,
+        "status": status,
+    }
+    if http_status is not None:
+        row["http_status"] = http_status
+    if error:
+        row["error"] = error
+    if message:
+        row["message"] = message
+    attempts.append(row)
+
+
+def run_fetch(url: str, *, attempts: list[dict] | None = None, stage: str = "fetch") -> str:
     completed = subprocess.run(
-        ["curl", "-sL", "-A", USER_AGENT, url],
-        check=True,
+        ["curl", "-sL", "-A", USER_AGENT, "-w", "\n__HTTP_STATUS__:%{http_code}", url],
+        check=False,
         capture_output=True,
         text=True,
     )
-    return completed.stdout
+    body, marker, raw_http_status = completed.stdout.rpartition("\n__HTTP_STATUS__:")
+    if not marker:
+        body = completed.stdout
+        http_status = None
+    else:
+        try:
+            http_status = int(raw_http_status.strip())
+        except ValueError:
+            http_status = None
+    status, error = classify_fetch(http_status, completed.returncode, body, completed.stderr)
+    if attempts is not None:
+        append_fetch_attempt(
+            attempts,
+            url=url,
+            stage=stage,
+            attempt=1,
+            status=status,
+            http_status=http_status,
+            error=error,
+        )
+    if status != "ok":
+        raise RuntimeError(error or status)
+    return body
 
 
 def canonicalize_detail_url(url: str) -> str:
@@ -54,12 +120,34 @@ def canonicalize_detail_url(url: str) -> str:
     return urlunsplit(("https", "reality.aktualne.cz", parts.path.rstrip("/"), "", ""))
 
 
-def extract_detail_urls(result_html: str) -> list[str]:
+def extract_detail_urls(result_html: str, municipality: str | None = None) -> list[str]:
     urls = set()
     for href in re.findall(r'href="(https://reality\.aktualne\.cz/detail/[^"#?]+\.html)"', result_html):
         urls.add(canonicalize_detail_url(href))
     for href in re.findall(r'href="(/detail/[^"#?]+\.html)"', result_html):
         urls.add(canonicalize_detail_url(urljoin(BASE_URL, href)))
+    ordered = sorted(urls)
+    if not municipality:
+        return ordered
+    target = f"/detail/{slug_normalize(municipality).replace(' ', '-')}/"
+    return [url for url in ordered if target in slug_normalize(url).replace(" ", "-")]
+
+
+def canonicalize_result_url(url: str) -> str:
+    parts = urlsplit(urljoin(BASE_URL, url))
+    return urlunsplit(("https", "reality.aktualne.cz", parts.path.rstrip("/"), "", ""))
+
+
+def extract_result_urls(html: str, include_houses: bool, include_land: bool) -> list[str]:
+    urls = set()
+    for href in re.findall(r'href="([^"]*/vyhledavani/[^"#?]+\.html)"', html):
+        url = canonicalize_result_url(href)
+        if "/vyhledavani/r-" not in url:
+            continue
+        if include_houses and "prodej-domy_vily.html" in url:
+            urls.add(url)
+        if include_land and "prodej-pozemky.html" in url:
+            urls.add(url)
     return sorted(urls)
 
 
@@ -225,6 +313,43 @@ def listing_from_detail(url: str, html: str, municipality: str) -> tuple[dict | 
     }, None
 
 
+def build_portal_status(fetch_attempts: list[dict], listings: list[dict]) -> dict:
+    status_order = {
+        "ok": 0,
+        "fallback_page": 3,
+        "blocked": 6,
+        "fetch_error": 7,
+        "rate_limited": 9,
+    }
+    status = "ok" if listings else "no_results"
+    chosen_attempt = None
+    for attempt in fetch_attempts:
+        attempt_status = str(attempt.get("status", "unknown"))
+        if attempt_status in {"ok", "no_results"}:
+            continue
+        if status_order.get(attempt_status, -1) > status_order.get(status, -1):
+            status = attempt_status
+            chosen_attempt = attempt
+
+    output = {"status": status}
+    if chosen_attempt:
+        if chosen_attempt.get("http_status") is not None:
+            output["http_status"] = chosen_attempt["http_status"]
+        if chosen_attempt.get("stage"):
+            output["stage"] = chosen_attempt["stage"]
+        message = chosen_attempt.get("error") or chosen_attempt.get("message")
+        if message:
+            output["message"] = message
+        output["evidence"] = [
+            ":".join(str(chosen_attempt.get(key, "")) for key in ("stage", "status", "url")).rstrip(":")
+        ]
+    elif listings:
+        output["message"] = "Retained at least one detail-verified Reality Aktuálně row."
+    else:
+        output["message"] = "No retained in-scope Reality Aktuálně rows."
+    return output
+
+
 def build_output(
     municipality: str,
     location_scope: str,
@@ -232,6 +357,7 @@ def build_output(
     include_land: bool,
     result_urls: list[str],
     detail_urls: list[str],
+    discover_results: bool = False,
 ) -> dict:
     assumptions = []
     coverage = {
@@ -244,14 +370,35 @@ def build_output(
     }
     gaps: list[str] = []
     candidate_urls: set[str] = set()
+    fetch_attempts: list[dict] = []
+    result_url_set = {canonicalize_result_url(url) for url in result_urls}
 
-    for url in result_urls:
+    if discover_results:
+        for detail_url in detail_urls:
+            if "/detail/" not in detail_url:
+                continue
+            try:
+                html = run_fetch(detail_url, attempts=fetch_attempts, stage="discovery_detail_fetch")
+            except RuntimeError as exc:
+                gaps.append(f"failed-discovery-detail-fetch:{detail_url}:{exc}")
+                coverage["blocked_portals"].append(f"reality.aktualne.cz discovery detail fetch failed: {detail_url}: {exc}")
+                continue
+            for result_url in extract_result_urls(html, include_houses, include_land):
+                result_url_set.add(result_url)
+        if not result_url_set:
+            if include_houses:
+                result_url_set.add(CATEGORY_URLS["house"])
+            if include_land:
+                result_url_set.add(CATEGORY_URLS["land"])
+
+    for url in sorted(result_url_set):
         try:
-            html = run_fetch(url)
-        except subprocess.CalledProcessError:
-            gaps.append(f"failed-result-fetch:{url}")
+            html = run_fetch(url, attempts=fetch_attempts, stage="search_fetch")
+        except RuntimeError as exc:
+            gaps.append(f"failed-result-fetch:{url}:{exc}")
+            coverage["blocked_portals"].append(f"reality.aktualne.cz result fetch failed: {url}: {exc}")
             continue
-        found = extract_detail_urls(html)
+        found = extract_detail_urls(html, municipality)
         if not found:
             gaps.append(f"no-detail-urls-found:{url}")
         candidate_urls.update(found)
@@ -267,9 +414,10 @@ def build_output(
     listings = []
     for detail_url in sorted(candidate_urls):
         try:
-            html = run_fetch(detail_url)
-        except subprocess.CalledProcessError:
-            gaps.append(f"failed-detail-fetch:{detail_url}")
+            html = run_fetch(detail_url, attempts=fetch_attempts, stage="detail_fetch")
+        except RuntimeError as exc:
+            gaps.append(f"failed-detail-fetch:{detail_url}:{exc}")
+            coverage["blocked_portals"].append(f"reality.aktualne.cz detail fetch failed: {detail_url}: {exc}")
             continue
         listing, reason = listing_from_detail(detail_url, html, municipality)
         if listing is not None:
@@ -279,6 +427,15 @@ def build_output(
                 continue
             listings.append(listing)
         elif reason:
+            if reason == "detail-fallback-page":
+                append_fetch_attempt(
+                    fetch_attempts,
+                    url=detail_url,
+                    stage="detail_parse",
+                    attempt=1,
+                    status="fallback_page",
+                    message="Detail URL returned fallback or non-detail content.",
+                )
             gaps.append(f"{reason}:{detail_url}")
 
     listings.sort(key=lambda item: re.sub(r"[^\d]", "", item["price"]), reverse=True)
@@ -298,6 +455,10 @@ def build_output(
         },
         "assumptions": assumptions,
         "coverage": coverage,
+        "portal_status": {
+            "reality.aktualne.cz": build_portal_status(fetch_attempts, listings),
+        },
+        "fetch_attempts": fetch_attempts,
         "gaps": gaps,
         "listings": listings,
     }
@@ -311,6 +472,11 @@ def main() -> int:
     parser.add_argument("--include-land", action="store_true", default=True)
     parser.add_argument("--result-url", action="append", default=[])
     parser.add_argument("--detail-url", action="append", default=[])
+    parser.add_argument(
+        "--discover-results",
+        action="store_true",
+        help="Discover current result pages from cached detail pages and broad sale categories.",
+    )
     parser.add_argument("--output")
     args = parser.parse_args()
 
@@ -321,6 +487,7 @@ def main() -> int:
         include_land=args.include_land,
         result_urls=args.result_url,
         detail_urls=args.detail_url,
+        discover_results=args.discover_results,
     )
 
     rendered = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"

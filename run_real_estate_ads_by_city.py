@@ -238,6 +238,21 @@ def cached_realitymix_result_page_urls(previous_aggregate: dict | None, city: st
     return urls
 
 
+def cached_reality_aktualne_result_page_urls(previous_aggregate: dict | None, city: str) -> list[str]:
+    urls = []
+    for attempt in cached_portal_fetch_attempts(previous_aggregate, city, "reality.aktualne.cz"):
+        if attempt.get("status") != "ok":
+            continue
+        url = str(attempt.get("url", ""))
+        if "reality.aktualne.cz" not in url:
+            continue
+        if "/vyhledavani/" not in url or "/detail/" in url:
+            continue
+        if url not in urls:
+            urls.append(url)
+    return urls
+
+
 def combine_local_fetcher_payloads(city: str, payloads: list[dict]) -> dict:
     coverage = {
         "workers_launched": len(payloads),
@@ -248,7 +263,7 @@ def combine_local_fetcher_payloads(city: str, payloads: list[dict]) -> dict:
         "blocked_portals": [],
     }
     assumptions = [
-        "local-first cached detail verification was used; cached MM Reality result pages and RealityMix result-page discovery were used when available, while other local portals remain cached-detail only."
+        "local-first cached detail verification was used; cached MM Reality and Reality Aktuálně result pages plus RealityMix result-page discovery were used when available."
     ]
     gaps = []
     listings = []
@@ -307,17 +322,25 @@ def run_local_fetchers(
     urls_by_portal = cached_detail_urls_by_portal(previous_aggregate, city)
     mmreality_result_urls = cached_mmreality_result_page_urls(previous_aggregate, city)
     realitymix_result_urls = cached_realitymix_result_page_urls(previous_aggregate, city)
+    reality_aktualne_result_urls = cached_reality_aktualne_result_page_urls(previous_aggregate, city)
     payloads = []
     for portal, urls in urls_by_portal.items():
         use_cached_mmreality_results = portal == "mmreality.cz" and bool(mmreality_result_urls)
         discover_realitymix = portal == "realitymix.cz"
-        if not urls and not discover_realitymix and not use_cached_mmreality_results:
+        use_reality_aktualne_results = portal == "reality.aktualne.cz" and bool(reality_aktualne_result_urls)
+        discover_reality_aktualne = portal == "reality.aktualne.cz"
+        if not urls and not discover_realitymix and not use_cached_mmreality_results and not use_reality_aktualne_results and not discover_reality_aktualne:
             continue
         script_path = repo_root / LOCAL_FETCHERS[portal]
         cmd = [sys.executable, str(script_path), "--municipality", city]
         if use_cached_mmreality_results:
             for result_url in mmreality_result_urls:
                 cmd.extend(["--result-url", result_url])
+        if use_reality_aktualne_results:
+            for result_url in reality_aktualne_result_urls:
+                cmd.extend(["--result-url", result_url])
+        if discover_reality_aktualne:
+            cmd.append("--discover-results")
         if discover_realitymix:
             cmd.append("--discover-results")
             if realitymix_result_urls.get("house"):

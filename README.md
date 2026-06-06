@@ -132,8 +132,8 @@ Useful flags:
 - `--overwrite` forces re-fetch even if a valid raw file already exists
 - `--daily-refresh` refreshes every city, passes previous active ads as prompt cache, and hides ads missing from the latest snapshot
 - `--force-daily-refresh` allows a daily refresh to re-run municipalities already refreshed today
-- `--local-first` tries deterministic cached-detail portal fetchers before falling back to Codex
-- `--local-only` uses only deterministic cached-detail portal fetchers and records a failure instead of falling back to Codex
+- `--local-first` tries deterministic portal fetchers before falling back to Codex
+- `--local-only` uses only deterministic portal fetchers and records a failure instead of falling back to Codex
 - `--aggregate-after-each` refreshes `real_estate_ads_by_city.json` after every successful city
 
 Typical usage:
@@ -165,7 +165,7 @@ The daily refresh still runs current municipality-level searches so it can detec
 
 Daily refreshes are guarded per municipality in `real_estate_ads_run_state.json`. If a municipality has already completed today, a later `--daily-refresh` skips it and continues with the next municipality, which keeps partial refreshes resumable without paying to re-check the same city. Use `--force-daily-refresh` only when you intentionally want to re-run already refreshed municipalities on the same day.
 
-Use `--local-first` to reduce Codex usage where deterministic portal helpers can cover the refresh. This path reuses cached result pages for `mmreality.cz`, discovers current municipality result pages on `realitymix.cz`, and verifies cached detail URLs for `mmreality.cz`, `realitymix.cz`, and `reality.aktualne.cz`; it falls back to Codex when local verification fails.
+Use `--local-first` to reduce Codex usage where deterministic portal helpers can cover the refresh. This path reuses cached result pages for `mmreality.cz` and `reality.aktualne.cz`, discovers current result pages on `realitymix.cz` and `reality.aktualne.cz` where possible, and verifies cached detail URLs for all local helper-backed portals; it falls back to Codex when local verification fails.
 
 Use `--local-only` for cost-controlled test runs where Codex must not be invoked. It uses the same local helper path as `--local-first`, but cities that local helpers cannot refresh are recorded as failures instead of falling back.
 
