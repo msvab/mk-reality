@@ -1,1 +1,211 @@
-{"city":"Opočno","query":{"municipality":"Opočno","location_scope":"municipality_only","country":"Czech Republic","property_types":["house","chalupa","land"],"price_min":null,"price_max":null,"house_size_min_m2":null,"house_size_max_m2":null,"land_size_min_m2":1000,"land_size_max_m2":null,"must_have":["sale listings only","municipality Opočno only","land at least 1000 m2","land must be buildable or residential"],"exclude":["chata","non-buildable land","non-residential land"]},"assumptions":["No sub-agents were spawned; the find-real-estate-ads single-agent fallback was used portal by portal.","municipality_only includes municipal parts explicitly shown by supported portals as part of Opočno, notably Dobříkovec.","Cached RealityMix detail URLs were retained only after live detail fetches returned HTTP 200 and the parsed fields still matched the required filters."],"coverage":{"workers_launched":0,"workers_with_results":0,"candidates_gathered":19,"rows_retained":6,"zero_result_portals":["mmreality.cz","reality.aktualne.cz"],"blocked_portals":[]},"portal_status":{"reality.idnes.cz":{"status":"ok","http_status":200,"stage":"search_fetch","retained_from_snapshot":false,"message":"Current iDNES search pages returned HTTP 200. The building-land search exposed six Opočno-Dobříkovec rows matching the retained RealityMix parcels; house rows visible in Opočno had parcel areas below 1000 m2 or were outside the municipality, so no unique iDNES row was retained.","evidence":["land_search:6 building-land rows in Opočno-Dobříkovec","house_search:Opočno house rows visible but parcel areas 405-713 m2; one Lípa nad Orlicí row outside municipality","chalupa_search:no detail links found"]},"mmreality.cz":{"status":"inactive","http_status":200,"stage":"detail_fetch","retained_from_snapshot":false,"message":"Checked known M&M Opočno candidates. Listing 895817 is inactive; listing 938970 is active but excluded because parcel area is 949 m2, below the 1000 m2 threshold.","evidence":["https://www.mmreality.cz/nemovitosti/895817/ returned inactive text","https://www.mmreality.cz/nemovitosti/938970/ shows Plocha parcely 949 m2"]},"realitymix.cz":{"status":"partial","http_status":200,"stage":"search_fetch","retained_from_snapshot":false,"message":"RealityMix root/category searches returned HTTP 200 but helper discovery did not expose a municipality result-page URL. Six cached RealityMix detail URLs were live-fetched directly and retained after HTTP 200 detail verification.","evidence":["house_root_fetch:HTTP 200 but missing-page-url:house","land_root_fetch:HTTP 200 but missing-page-url:land","six detail_fetch attempts returned HTTP 200 and parsed as buildable residential land"]},"reality.aktualne.cz":{"status":"fallback_page","http_status":404,"stage":"detail_fetch","retained_from_snapshot":false,"message":"Checked Reality Aktuálně candidates found for Opočno. The Ořechová house detail returned HTTP 404; the Opočno u Loun land detail returned HTTP 200 but is outside the target municipality and below 1000 m2.","evidence":["https://reality.aktualne.cz/detail/opocno/prodej-rodinneho-domu-155-m2-orechova-opocno-8374637.html returned HTTP 404","https://reality.aktualne.cz/detail/opocno/prodej-stavebniho-pozemku-o-vymere-666-m2-opocno-u-loun-8513369.html is Opočno u Loun and 666 m2"]}},"fetch_attempts":[{"portal":"realitymix.cz","url":"https://www.realitymix.cz/reality/domy/prodej/","stage":"house_root_fetch","attempt":1,"status":"ok","http_status":200,"error":null,"message":"Root fetched; no Opočno municipality result-page URL discovered by helper."},{"portal":"realitymix.cz","url":"https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/","stage":"land_root_fetch","attempt":1,"status":"ok","http_status":200,"error":null,"message":"Root fetched; no Opočno municipality result-page URL discovered by helper."},{"portal":"realitymix.cz","url":"https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-4-1-199-m2-dobrikovec-u-opocna-8463059.html","stage":"detail_fetch","attempt":1,"status":"ok","http_status":200,"error":null,"message":null},{"portal":"realitymix.cz","url":"https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-1-1-198-m2-dobrikovec-u-opocna-8463053.html","stage":"detail_fetch","attempt":1,"status":"ok","http_status":200,"error":null,"message":null},{"portal":"realitymix.cz","url":"https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-2-1-198-m2-dobrikovec-u-opocna-8463055.html","stage":"detail_fetch","attempt":1,"status":"ok","http_status":200,"error":null,"message":null},{"portal":"realitymix.cz","url":"https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-3-1-198-m2-dobrikovec-u-opocna-8463057.html","stage":"detail_fetch","attempt":1,"status":"ok","http_status":200,"error":null,"message":null},{"portal":"realitymix.cz","url":"https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-5-1-198-m2-dobrikovec-u-opocna-8463061.html","stage":"detail_fetch","attempt":1,"status":"ok","http_status":200,"error":null,"message":null},{"portal":"realitymix.cz","url":"https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-6-1-198-m2-dobrikovec-u-opocna-8463067.html","stage":"detail_fetch","attempt":1,"status":"ok","http_status":200,"error":null,"message":null},{"portal":"reality.idnes.cz","url":"https://reality.idnes.cz/s/prodej/pozemky/stavebni-pozemek/opocno-okres-rychnov-nad-kneznou/","stage":"search_fetch","attempt":1,"status":"ok","http_status":200,"error":null,"message":"Search snapshot exposed six Opočno-Dobříkovec building-land rows matching the retained RealityMix parcels."},{"portal":"reality.idnes.cz","url":"https://reality.idnes.cz/s/prodej/domy/opocno-okres-rychnov-nad-kneznou/","stage":"search_fetch","attempt":1,"status":"ok","http_status":200,"error":null,"message":"Search snapshot exposed Opočno house rows, all below the 1000 m2 parcel threshold; one larger row was outside the municipality."},{"portal":"reality.idnes.cz","url":"https://reality.idnes.cz/s/prodej/domy/chata-chalupa/opocno-okres-rychnov-nad-kneznou/","stage":"search_fetch","attempt":1,"status":"no_results","http_status":200,"error":null,"message":"No eligible chalupa detail links found; chata inventory is excluded."},{"portal":"mmreality.cz","url":"https://www.mmreality.cz/nemovitosti/938970/","stage":"detail_fetch","attempt":1,"status":"no_results","http_status":200,"error":null,"message":"Active detail page fetched, but excluded because parcel area is 949 m2."},{"portal":"mmreality.cz","url":"https://www.mmreality.cz/nemovitosti/895817/","stage":"detail_fetch","attempt":1,"status":"inactive","http_status":200,"error":null,"message":"Generic detail page indicates the listing is no longer in M&M Reality offer."},{"portal":"reality.aktualne.cz","url":"https://reality.aktualne.cz/vyhledavani/?q=Opo%C4%8Dno","stage":"search_fetch","attempt":1,"status":"fallback_page","http_status":404,"error":null,"message":"Portal search URL returned a fallback/404 page."},{"portal":"reality.aktualne.cz","url":"https://reality.aktualne.cz/detail/opocno/prodej-rodinneho-domu-155-m2-orechova-opocno-8374637.html","stage":"detail_fetch","attempt":1,"status":"fallback_page","http_status":404,"error":null,"message":"Detail URL returned HTTP 404 fallback page."},{"portal":"reality.aktualne.cz","url":"https://reality.aktualne.cz/detail/opocno/prodej-stavebniho-pozemku-o-vymere-666-m2-opocno-u-loun-8513369.html","stage":"detail_fetch","attempt":1,"status":"no_results","http_status":200,"error":null,"message":"Fetched successfully, but excluded as Opočno u Loun and 666 m2, outside municipality/threshold."}],"gaps":["RealityMix category-root discovery returned HTTP 200 but did not expose a municipality result-page URL for Opočno, so the current retained RealityMix rows were verified through direct live detail fetches of cached URLs.","Reality.iDNES.cz currently exposes six matching Opočno-Dobříkovec building-land rows in the search snapshot, but the search card data does not distinguish lots 1/2/3/5/6 beyond identical 1198 m2/price values; iDNES URLs were therefore not merged into per-parcel RealityMix rows.","M&M Reality had no retained row: one known active Opočno candidate has only 949 m2 of parcel area and one older Opočno house candidate is inactive.","Reality Aktuálně had no retained row: one Opočno house detail now returns 404 and one Opočno u Loun land result is outside the target municipality and below 1000 m2.","Agricultural/non-residential land and land with unknown or unverified price were excluded."],"listings":[{"portal":["realitymix.cz"],"title":"Prodej stavebního pozemku č.4 - 1.199 m2 – Dobříkovec u Opočna","location":"Dobříkovec, Opočno, okr. Rychnov nad Kněžnou","property_type":"land","price":"2 877 600 Kč","house_area_m2":"unknown","land_area_m2":"1199","urls":["https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-4-1-199-m2-dobrikovec-u-opocna-8463059.html"],"notes":["detail-url-verified:realitymix.cz","municipal-part:Dobříkovec","buildable-land"]},{"portal":["realitymix.cz"],"title":"Prodej stavebního pozemku č.1 - 1.198 m2 – Dobříkovec u Opočna","location":"Dobříkovec, Opočno, okr. Rychnov nad Kněžnou","property_type":"land","price":"2 875 200 Kč","house_area_m2":"unknown","land_area_m2":"1198","urls":["https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-1-1-198-m2-dobrikovec-u-opocna-8463053.html"],"notes":["detail-url-verified:realitymix.cz","municipal-part:Dobříkovec","buildable-land"]},{"portal":["realitymix.cz"],"title":"Prodej stavebního pozemku č.2 - 1.198 m2 – Dobříkovec u Opočna","location":"Dobříkovec, Opočno, okr. Rychnov nad Kněžnou","property_type":"land","price":"2 875 200 Kč","house_area_m2":"unknown","land_area_m2":"1198","urls":["https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-2-1-198-m2-dobrikovec-u-opocna-8463055.html"],"notes":["detail-url-verified:realitymix.cz","municipal-part:Dobříkovec","buildable-land"]},{"portal":["realitymix.cz"],"title":"Prodej stavebního pozemku č.3 - 1.198 m2 – Dobříkovec u Opočna","location":"Dobříkovec, Opočno, okr. Rychnov nad Kněžnou","property_type":"land","price":"2 875 200 Kč","house_area_m2":"unknown","land_area_m2":"1198","urls":["https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-3-1-198-m2-dobrikovec-u-opocna-8463057.html"],"notes":["detail-url-verified:realitymix.cz","municipal-part:Dobříkovec","buildable-land"]},{"portal":["realitymix.cz"],"title":"Prodej stavebního pozemku č.5 - 1.198 m2 – Dobříkovec u Opočna","location":"Dobříkovec, Opočno, okr. Rychnov nad Kněžnou","property_type":"land","price":"2 875 200 Kč","house_area_m2":"unknown","land_area_m2":"1198","urls":["https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-5-1-198-m2-dobrikovec-u-opocna-8463061.html"],"notes":["detail-url-verified:realitymix.cz","municipal-part:Dobříkovec","buildable-land"]},{"portal":["realitymix.cz"],"title":"Prodej stavebního pozemku č.6 - 1.198 m2 – Dobříkovec u Opočna","location":"Dobříkovec, Opočno, okr. Rychnov nad Kněžnou","property_type":"land","price":"2 875 200 Kč","house_area_m2":"unknown","land_area_m2":"1198","urls":["https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-6-1-198-m2-dobrikovec-u-opocna-8463067.html"],"notes":["detail-url-verified:realitymix.cz","municipal-part:Dobříkovec","buildable-land"]}]}
+{
+  "city": "Opočno",
+  "query": {
+    "municipality": "Opočno",
+    "location_scope": "municipality_only",
+    "country": "Czech Republic",
+    "property_types": [
+      "house",
+      "chalupa",
+      "land"
+    ],
+    "price_min": null,
+    "price_max": null,
+    "house_size_min_m2": null,
+    "house_size_max_m2": null,
+    "land_size_min_m2": 1000,
+    "land_size_max_m2": null,
+    "must_have": [
+      "sale listings",
+      "buildable or residential land only"
+    ],
+    "exclude": [
+      "chata"
+    ]
+  },
+  "assumptions": [
+    "local-first cached detail verification was used; new listing discovery requires the Codex fallback path.",
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Opočno."
+  ],
+  "coverage": {
+    "workers_launched": 1,
+    "workers_with_results": 1,
+    "candidates_gathered": 6,
+    "rows_retained": 6,
+    "zero_result_portals": [],
+    "blocked_portals": []
+  },
+  "portal_status": {
+    "realitymix.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified RealityMix row."
+    }
+  },
+  "fetch_attempts": [
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-4-1-199-m2-dobrikovec-u-opocna-8463059.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-1-1-198-m2-dobrikovec-u-opocna-8463053.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-2-1-198-m2-dobrikovec-u-opocna-8463055.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-3-1-198-m2-dobrikovec-u-opocna-8463057.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-5-1-198-m2-dobrikovec-u-opocna-8463061.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-6-1-198-m2-dobrikovec-u-opocna-8463067.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    }
+  ],
+  "gaps": [],
+  "listings": [
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej stavebního pozemku č.4 - 1.199 m2 – Dobříkovec u Opočna",
+      "location": "Dobříkovec, Opočno, okr. Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "2 877 600 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1199",
+      "urls": [
+        "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-4-1-199-m2-dobrikovec-u-opocna-8463059.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz",
+        "municipal-part:Dobříkovec",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej stavebního pozemku č.1 - 1.198 m2 – Dobříkovec u Opočna",
+      "location": "Dobříkovec, Opočno, okr. Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "2 875 200 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1198",
+      "urls": [
+        "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-1-1-198-m2-dobrikovec-u-opocna-8463053.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz",
+        "municipal-part:Dobříkovec",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej stavebního pozemku č.2 - 1.198 m2 – Dobříkovec u Opočna",
+      "location": "Dobříkovec, Opočno, okr. Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "2 875 200 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1198",
+      "urls": [
+        "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-2-1-198-m2-dobrikovec-u-opocna-8463055.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz",
+        "municipal-part:Dobříkovec",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej stavebního pozemku č.3 - 1.198 m2 – Dobříkovec u Opočna",
+      "location": "Dobříkovec, Opočno, okr. Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "2 875 200 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1198",
+      "urls": [
+        "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-3-1-198-m2-dobrikovec-u-opocna-8463057.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz",
+        "municipal-part:Dobříkovec",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej stavebního pozemku č.5 - 1.198 m2 – Dobříkovec u Opočna",
+      "location": "Dobříkovec, Opočno, okr. Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "2 875 200 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1198",
+      "urls": [
+        "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-5-1-198-m2-dobrikovec-u-opocna-8463061.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz",
+        "municipal-part:Dobříkovec",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej stavebního pozemku č.6 - 1.198 m2 – Dobříkovec u Opočna",
+      "location": "Dobříkovec, Opočno, okr. Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "2 875 200 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1198",
+      "urls": [
+        "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-6-1-198-m2-dobrikovec-u-opocna-8463067.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz",
+        "municipal-part:Dobříkovec",
+        "buildable-land"
+      ]
+    }
+  ]
+}

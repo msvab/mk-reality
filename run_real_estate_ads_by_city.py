@@ -15,6 +15,11 @@ DEFAULT_RAW_DIR = Path("data/real_estate_ads_raw")
 DEFAULT_STATE_PATH = Path("real_estate_ads_run_state.json")
 DEFAULT_AGGREGATE_PATH = Path("real_estate_ads_by_city.json")
 DEFAULT_SCHEMA_PATH = Path("real_estate_ads_exec_output.schema.json")
+LOCAL_FETCHERS = {
+    "mmreality.cz": Path(".codex/skills/find-real-estate-ads/scripts/mmreality_fetch.py"),
+    "realitymix.cz": Path(".codex/skills/find-real-estate-ads/scripts/realitymix_fetch.py"),
+    "reality.aktualne.cz": Path(".codex/skills/find-real-estate-ads/scripts/reality_aktualne_fetch.py"),
+}
 
 STOP_REQUESTED = False
 
@@ -161,6 +166,119 @@ def cached_ads_for_prompt(previous_aggregate: dict | None, city: str) -> list[di
             }
         )
     return out
+
+
+def cached_detail_urls_by_portal(previous_aggregate: dict | None, city: str) -> dict[str, list[str]]:
+    urls_by_portal = {portal: [] for portal in LOCAL_FETCHERS}
+    if not isinstance(previous_aggregate, dict):
+        return urls_by_portal
+    cities = previous_aggregate.get("cities", {})
+    if not isinstance(cities, dict):
+        return urls_by_portal
+    bundle = cities.get(city, {})
+    if not isinstance(bundle, dict):
+        return urls_by_portal
+    ads = bundle.get("ads", [])
+    if not isinstance(ads, list):
+        return urls_by_portal
+    for ad in ads:
+        if not isinstance(ad, dict):
+            continue
+        for url in ad.get("urls", []):
+            text = str(url)
+            for portal in urls_by_portal:
+                if portal in text and text not in urls_by_portal[portal]:
+                    urls_by_portal[portal].append(text)
+    return urls_by_portal
+
+
+def combine_local_fetcher_payloads(city: str, payloads: list[dict]) -> dict:
+    coverage = {
+        "workers_launched": len(payloads),
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
+        "zero_result_portals": [],
+        "blocked_portals": [],
+    }
+    assumptions = [
+        "local-first cached detail verification was used; new listing discovery requires the Codex fallback path."
+    ]
+    gaps = []
+    listings = []
+    portal_status = {}
+    fetch_attempts = []
+
+    for payload in payloads:
+        if not isinstance(payload, dict):
+            continue
+        raw_coverage = payload.get("coverage", {})
+        if isinstance(raw_coverage, dict):
+            coverage["workers_with_results"] += int(raw_coverage.get("workers_with_results", 0) or 0)
+            coverage["candidates_gathered"] += int(raw_coverage.get("candidates_gathered", 0) or 0)
+            coverage["rows_retained"] += int(raw_coverage.get("rows_retained", 0) or 0)
+            coverage["zero_result_portals"].extend(raw_coverage.get("zero_result_portals", []))
+            coverage["blocked_portals"].extend(raw_coverage.get("blocked_portals", []))
+        assumptions.extend(item for item in payload.get("assumptions", []) if isinstance(item, str))
+        gaps.extend(item for item in payload.get("gaps", []) if isinstance(item, str))
+        listings.extend(item for item in payload.get("listings", []) if isinstance(item, dict))
+        raw_status = payload.get("portal_status", {})
+        if isinstance(raw_status, dict):
+            portal_status.update(raw_status)
+        fetch_attempts.extend(item for item in payload.get("fetch_attempts", []) if isinstance(item, dict))
+
+    return {
+        "city": city,
+        "query": {
+            "municipality": city,
+            "location_scope": "municipality_only",
+            "country": "Czech Republic",
+            "property_types": ["house", "chalupa", "land"],
+            "price_min": None,
+            "price_max": None,
+            "house_size_min_m2": None,
+            "house_size_max_m2": None,
+            "land_size_min_m2": 1000,
+            "land_size_max_m2": None,
+            "must_have": ["sale listings", "buildable or residential land only"],
+            "exclude": ["chata"],
+        },
+        "assumptions": list(dict.fromkeys(assumptions)),
+        "coverage": coverage,
+        "portal_status": portal_status,
+        "fetch_attempts": fetch_attempts,
+        "gaps": list(dict.fromkeys(gaps)),
+        "listings": listings,
+    }
+
+
+def run_local_fetchers(
+    city: str,
+    repo_root: Path,
+    output_path: Path,
+    previous_aggregate: dict | None,
+) -> bool:
+    urls_by_portal = cached_detail_urls_by_portal(previous_aggregate, city)
+    payloads = []
+    for portal, urls in urls_by_portal.items():
+        if not urls:
+            continue
+        script_path = repo_root / LOCAL_FETCHERS[portal]
+        cmd = [sys.executable, str(script_path), "--municipality", city]
+        for url in urls:
+            cmd.extend(["--detail-url", url])
+        completed = subprocess.run(cmd, check=True, capture_output=True, text=True)
+        payload = json.loads(completed.stdout)
+        if isinstance(payload, dict):
+            payloads.append(payload)
+
+    if not payloads:
+        return False
+
+    combined = combine_local_fetcher_payloads(city, payloads)
+    validate_raw_output(combined, city)
+    atomic_write_json(output_path, combined)
+    return True
 
 
 def build_prompt(city: str, cached_ads: list[dict] | None = None) -> str:
@@ -333,6 +451,11 @@ def main() -> None:
         action="store_true",
         help="Allow --daily-refresh to run even when a daily refresh already completed today.",
     )
+    parser.add_argument(
+        "--local-first",
+        action="store_true",
+        help="Try deterministic local cached-detail fetchers before falling back to Codex.",
+    )
     args = parser.parse_args()
 
     repo_root = Path.cwd()
@@ -404,15 +527,24 @@ def main() -> None:
             output_path = raw_dir / f"{slugify_city(city)}.json"
             print(f"[{index + 1}/{len(pending_cities)}] {city}", flush=True)
             try:
-                run_city(
-                    city,
-                    repo_root,
-                    schema_path,
-                    output_path,
-                    args.codex_bin,
-                    args.model,
-                    cached_ads=cached_ads_for_prompt(previous_aggregate, city),
-                )
+                used_local_fetchers = False
+                if args.local_first:
+                    try:
+                        used_local_fetchers = run_local_fetchers(city, repo_root, output_path, previous_aggregate)
+                        if used_local_fetchers:
+                            print(f"  used local cached-detail fetchers for {city}", flush=True)
+                    except Exception as local_exc:
+                        print(f"  local fetchers failed for {city}: {local_exc}; falling back to Codex", flush=True)
+                if not used_local_fetchers:
+                    run_city(
+                        city,
+                        repo_root,
+                        schema_path,
+                        output_path,
+                        args.codex_bin,
+                        args.model,
+                        cached_ads=cached_ads_for_prompt(previous_aggregate, city),
+                    )
                 completed_cities.append(city)
                 failed_cities.pop(city, None)
                 if args.daily_refresh:

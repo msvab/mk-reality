@@ -418,13 +418,15 @@ def build_output(
     include_land: bool,
     house_page_url: str | None,
     land_page_url: str | None,
+    detail_urls: list[str] | None = None,
     retries: int = DEFAULT_RETRIES,
     backoff_seconds: float = DEFAULT_BACKOFF_SECONDS,
 ) -> dict:
+    has_explicit_detail_urls = bool(detail_urls)
     categories = []
-    if include_houses:
+    if include_houses and (house_page_url or not has_explicit_detail_urls):
         categories.append("house")
-    if include_land:
+    if include_land and (land_page_url or not has_explicit_detail_urls):
         categories.append("land")
 
     assumptions = []
@@ -446,6 +448,42 @@ def build_output(
     seen_urls = set()
     fetch_attempts = []
 
+    def verify_detail_url(detail_url: str) -> None:
+        if detail_url in seen_urls:
+            return
+        seen_urls.add(detail_url)
+        try:
+            html = run_fetch(
+                detail_url,
+                attempts=fetch_attempts,
+                stage="detail_fetch",
+                retries=retries,
+                backoff_seconds=backoff_seconds,
+            )
+        except RuntimeError as exc:
+            gaps.append(f"detail-fetch-error:{detail_url}")
+            coverage["blocked_portals"].append(f"realitymix.cz detail fetch failed: {detail_url}: {exc}")
+            return
+        listing, reason = listing_from_detail(detail_url, html, municipality)
+        if listing is not None:
+            listings.append(listing)
+        elif reason:
+            if reason == "removed-fallback-page":
+                append_fetch_attempt(
+                    fetch_attempts,
+                    url=detail_url,
+                    stage="detail_parse",
+                    attempt=1,
+                    status="fallback_page",
+                    message=REMOVED_MARKER,
+                )
+            gaps.append(f"{reason}:{detail_url}")
+
+    explicit_detail_urls = [canonicalize_detail_url(url) for url in detail_urls or [] if "/detail/" in url]
+    coverage["candidates_gathered"] += len(explicit_detail_urls)
+    for detail_url in explicit_detail_urls:
+        verify_detail_url(detail_url)
+
     for category in categories:
         page_url = house_page_url if category == "house" else land_page_url
         try:
@@ -464,35 +502,7 @@ def build_output(
             continue
         coverage["candidates_gathered"] += len(detail_urls)
         for detail_url in detail_urls:
-            if detail_url in seen_urls:
-                continue
-            seen_urls.add(detail_url)
-            try:
-                html = run_fetch(
-                    detail_url,
-                    attempts=fetch_attempts,
-                    stage="detail_fetch",
-                    retries=retries,
-                    backoff_seconds=backoff_seconds,
-                )
-            except RuntimeError as exc:
-                gaps.append(f"detail-fetch-error:{detail_url}")
-                coverage["blocked_portals"].append(f"realitymix.cz detail fetch failed: {detail_url}: {exc}")
-                continue
-            listing, reason = listing_from_detail(detail_url, html, municipality)
-            if listing is not None:
-                listings.append(listing)
-            elif reason:
-                if reason == "removed-fallback-page":
-                    append_fetch_attempt(
-                        fetch_attempts,
-                        url=detail_url,
-                        stage="detail_parse",
-                        attempt=1,
-                        status="fallback_page",
-                        message=REMOVED_MARKER,
-                    )
-                gaps.append(f"{reason}:{detail_url}")
+            verify_detail_url(detail_url)
 
     listings.sort(key=lambda item: re.sub(r"[^\d]", "", item["price"]), reverse=True)
     coverage["rows_retained"] = len(listings)
@@ -528,6 +538,7 @@ def main() -> int:
     parser.add_argument("--include-land", action="store_true", default=True)
     parser.add_argument("--house-page-url")
     parser.add_argument("--land-page-url")
+    parser.add_argument("--detail-url", action="append", default=[])
     parser.add_argument("--retries", type=int, default=DEFAULT_RETRIES, help="Retries per RealityMix fetch after the first attempt.")
     parser.add_argument("--backoff-seconds", type=float, default=DEFAULT_BACKOFF_SECONDS, help="Base retry backoff in seconds.")
     parser.add_argument("--output")
@@ -540,6 +551,7 @@ def main() -> int:
         include_land=args.include_land,
         house_page_url=args.house_page_url,
         land_page_url=args.land_page_url,
+        detail_urls=args.detail_url,
         retries=args.retries,
         backoff_seconds=args.backoff_seconds,
     )
