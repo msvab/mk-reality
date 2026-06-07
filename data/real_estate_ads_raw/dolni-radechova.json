@@ -1,1 +1,91 @@
-{"city":"Dolní Radechová","query":{"municipality":"Dolní Radechová","location_scope":"municipality_only","country":"Czech Republic","property_types":["house","chalupa","land"],"price_min":null,"price_max":null,"house_size_min_m2":null,"house_size_max_m2":null,"land_size_min_m2":1000,"land_size_max_m2":null,"must_have":[],"exclude":["chata"]},"assumptions":["No sub-agents were spawned; workers_launched counts the four single-agent portal passes required by the skill registry.","Sale listings only; municipality_only was treated as exact Dolní Radechová.","Chalupa is input-only and would be normalized to house if retained."],"coverage":{"workers_launched":4,"workers_with_results":1,"candidates_gathered":1,"rows_retained":1,"zero_result_portals":["mmreality.cz","realitymix.cz","reality.aktualne.cz"],"blocked_portals":[]},"gaps":["realitymix.cz had a Dolní Radechová house candidate, but it was excluded because the parcel area was 898 m2, below the required 1000 m2 minimum.","realitymix.cz land search could not be confirmed with a municipality-specific land result page; no retained land rows from that portal.","mmreality.cz and reality.aktualne.cz returned no retained in-scope rows in the single-agent portal passes.","iDNES also showed a Dolní Radechová house candidate on the district house page, but it was excluded because the parcel area was 898 m2, below the required 1000 m2 minimum."],"listings":[{"portal":["reality.idnes.cz"],"title":"Prodej stavebního pozemku 2 591 m²","location":"Dolní Radechová, okres Náchod","property_type":"land","price":"3 070 335 Kč","house_area_m2":"unknown","land_area_m2":"2591","urls":["https://reality.idnes.cz/detail/prodej/pozemek/dolni-radechova/67caff5dc18c261f9e0adeaa/"],"notes":["detail-verified","buildable-residential-land","price-per-m2:1185","listing-id:IDNES-02084","utilities-near-plot","access-road"]}]}
+{
+  "city": "Dolní Radechová",
+  "query": {
+    "municipality": "Dolní Radechová",
+    "location_scope": "municipality_only",
+    "country": "Czech Republic",
+    "property_types": [
+      "house",
+      "chalupa",
+      "land"
+    ],
+    "price_min": null,
+    "price_max": null,
+    "house_size_min_m2": null,
+    "house_size_max_m2": null,
+    "land_size_min_m2": 1000,
+    "land_size_max_m2": null,
+    "must_have": [
+      "sale listings",
+      "buildable or residential land only"
+    ],
+    "exclude": [
+      "chata"
+    ]
+  },
+  "assumptions": [
+    "local-first cached detail verification was used; cached MM Reality and Reality Aktuálně result pages plus RealityMix result-page discovery were used when available.",
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Dolní Radechová."
+  ],
+  "coverage": {
+    "workers_launched": 2,
+    "workers_with_results": 0,
+    "candidates_gathered": 0,
+    "rows_retained": 0,
+    "zero_result_portals": [
+      "realitymix.cz",
+      "reality.aktualne.cz"
+    ],
+    "blocked_portals": []
+  },
+  "portal_status": {
+    "realitymix.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope RealityMix rows."
+    },
+    "reality.aktualne.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope Reality Aktuálně rows."
+    }
+  },
+  "fetch_attempts": [
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/domy/prodej/",
+      "stage": "house_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Doln%C3%AD+Radechov%C3%A1&form%5Bcena_mena%5D=1",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    }
+  ],
+  "gaps": [
+    "missing-page-url:house",
+    "missing-page-url:land",
+    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Doln%C3%AD+Radechov%C3%A1&form%5Bcena_mena%5D=1"
+  ],
+  "listings": []
+}

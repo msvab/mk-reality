@@ -1,1 +1,165 @@
-{"city":"Častolovice","query":{"municipality":"Častolovice","location_scope":"municipality_only","country":"Czech Republic","property_types":["house","chalupa","land"],"price_min":null,"price_max":null,"house_size_min_m2":null,"house_size_max_m2":null,"land_size_min_m2":1000,"land_size_max_m2":null,"must_have":["sale","buildable-or-residential-land-only"],"exclude":["chata"]},"assumptions":["Used the skill's single-agent fallback, preserving portal-by-portal discipline and searching only supported portals: reality.idnes.cz, mmreality.cz, realitymix.cz, reality.aktualne.cz.","Treated chalupa as an input-only house-like type and normalized retained house-like rows to house.","Kept municipality scope to Častolovice, okres Rychnov nad Kněžnou; excluded Častolovice u České Lípy and nearby municipalities."],"coverage":{"workers_launched":0,"workers_with_results":2,"candidates_gathered":7,"rows_retained":2,"zero_result_portals":["mmreality.cz","reality.aktualne.cz"],"blocked_portals":[]},"gaps":["No sub-agents were spawned by request; coverage reflects single-agent portal passes rather than worker launches.","reality.idnes.cz detail navigation for the retained land listing returned HTTP 429 during verification, so the row is retained from a current iDNES result snapshot that exposed sale status, buildable land type, municipality, area, price, and detail URL.","realitymix.cz detail content for the retained house was available through indexed portal content and an HTTP 200 HEAD check, but full body refetch was inconsistent during the run; confidence is lower than a clean detail-page body verification.","mmreality.cz results found only sold, out-of-municipality, or nearby listings; none met municipality_only and land-size filters.","reality.aktualne.cz searches did not surface credible Častolovice municipality-only house/chalupa/buildable-land listings."],"listings":[{"portal":["realitymix.cz"],"title":"Prodej RD v Častolovicích 1513 m2","location":"Masarykova, Častolovice, okr. Rychnov nad Kněžnou","property_type":"house","price":"3 950 000 Kč","house_area_m2":"92","land_area_m2":"1513","urls":["https://realitymix.cz/detail/castolovice/prodej-rd-v-castolovicich-1513-m2-8396825.html"],"notes":["detail-http-200-head","content-from-indexed-portal-snapshot","listing-id:REALITYMIX-76020","parcel-includes-946m2-by-house-plus-567m2-additional-land","requires-reconstruction"]},{"portal":["reality.idnes.cz"],"title":"Prodej stavebního pozemku 1 053 m²","location":"Častolovice, okres Rychnov nad Kněžnou","property_type":"land","price":"1 490 000 Kč","house_area_m2":"unknown","land_area_m2":"1053","urls":["https://reality.idnes.cz/detail/prodej/pozemek/castolovice/68a076203c21fcd11e0b391e/"],"notes":["listing-snapshot-sufficient","detail-rate-limited:429","buildable:stavebni-pozemek","residential-use"]}]}
+{
+  "city": "Častolovice",
+  "query": {
+    "municipality": "Častolovice",
+    "location_scope": "municipality_only",
+    "country": "Czech Republic",
+    "property_types": [
+      "house",
+      "chalupa",
+      "land"
+    ],
+    "price_min": null,
+    "price_max": null,
+    "house_size_min_m2": null,
+    "house_size_max_m2": null,
+    "land_size_min_m2": 1000,
+    "land_size_max_m2": null,
+    "must_have": [
+      "sale listings",
+      "buildable or residential land only"
+    ],
+    "exclude": [
+      "chata"
+    ]
+  },
+  "assumptions": [
+    "local-first cached detail verification was used; cached MM Reality and Reality Aktuálně result pages plus RealityMix result-page discovery were used when available.",
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Častolovice."
+  ],
+  "coverage": {
+    "workers_launched": 2,
+    "workers_with_results": 0,
+    "candidates_gathered": 7,
+    "rows_retained": 0,
+    "zero_result_portals": [
+      "realitymix.cz",
+      "reality.aktualne.cz"
+    ],
+    "blocked_portals": []
+  },
+  "portal_status": {
+    "realitymix.cz": {
+      "status": "fallback_page",
+      "stage": "detail_parse",
+      "message": "Požadovaný inzerát již není v naší databázi",
+      "evidence": [
+        "detail_parse:fallback_page:https://realitymix.cz/detail/castolovice/prodej-rd-v-castolovicich-1513-m2-8396825.html"
+      ]
+    },
+    "reality.aktualne.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope Reality Aktuálně rows."
+    }
+  },
+  "fetch_attempts": [
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/castolovice/prodej-rd-v-castolovicich-1513-m2-8396825.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/castolovice/prodej-rd-v-castolovicich-1513-m2-8396825.html",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Požadovaný inzerát již není v naší databázi"
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/domy/prodej/",
+      "stage": "house_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=%C4%8Castolovice&form%5Bcena_mena%5D=1",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/castolovice/prodej-bytu-2-1-51-m-castolovice-ul-u-konopace-8382827.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/castolovice/prodej-kancelare-v-castolovicich-ul-komenskeho-8385733.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/castolovice/prodej-kancelari-v-castolovicich-8581347.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/castolovice/prodej-komercniho-objektu-v-castolovicich-8574637.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/castolovice/prodej-obchod-a-sluzby-v-castolovicich-ul-komenskeho-8568233.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/castolovice/prodej-radoveho-domu-8381423.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    }
+  ],
+  "gaps": [
+    "removed-fallback-page:https://realitymix.cz/detail/castolovice/prodej-rd-v-castolovicich-1513-m2-8396825.html",
+    "missing-page-url:house",
+    "missing-page-url:land",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/castolovice/prodej-bytu-2-1-51-m-castolovice-ul-u-konopace-8382827.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/castolovice/prodej-kancelare-v-castolovicich-ul-komenskeho-8385733.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/castolovice/prodej-kancelari-v-castolovicich-8581347.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/castolovice/prodej-komercniho-objektu-v-castolovicich-8574637.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/castolovice/prodej-obchod-a-sluzby-v-castolovicich-ul-komenskeho-8568233.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/castolovice/prodej-radoveho-domu-8381423.html"
+  ],
+  "listings": []
+}

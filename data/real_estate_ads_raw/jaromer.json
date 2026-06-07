@@ -1,1 +1,287 @@
-{"city":"Jaroměř","query":{"municipality":"Jaroměř","location_scope":"municipality_only","country":"Czech Republic","property_types":["house","chalupa","land"],"price_min":null,"price_max":null,"house_size_min_m2":null,"house_size_max_m2":null,"land_size_min_m2":1000,"land_size_max_m2":null,"must_have":["sale listings","municipality Jaroměř","house, chalupa, or buildable/residential land","land area at least 1000 m2"],"exclude":["chata","non-buildable land","non-residential land","rentals","listings outside municipality Jaroměř"]},"assumptions":["Unable to execute the live portal search in this response because no portal data was available in the current context."],"coverage":{"workers_launched":0,"workers_with_results":0,"candidates_gathered":0,"rows_retained":0,"zero_result_portals":["reality.idnes.cz","mmreality.cz","realitymix.cz","reality.aktualne.cz"],"blocked_portals":[]},"gaps":["No credible listings could be verified without a live portal-by-portal search. Returning an empty shortlist rather than fabricating current advertisements."],"listings":[]}
+{
+  "city": "Jaroměř",
+  "query": {
+    "municipality": "Jaroměř",
+    "location_scope": "municipality_only",
+    "country": "Czech Republic",
+    "property_types": [
+      "house",
+      "chalupa",
+      "land"
+    ],
+    "price_min": null,
+    "price_max": null,
+    "house_size_min_m2": null,
+    "house_size_max_m2": null,
+    "land_size_min_m2": 1000,
+    "land_size_max_m2": null,
+    "must_have": [
+      "sale listings",
+      "buildable or residential land only"
+    ],
+    "exclude": [
+      "chata"
+    ]
+  },
+  "assumptions": [
+    "local-first cached detail verification was used; cached MM Reality and Reality Aktuálně result pages plus RealityMix result-page discovery were used when available.",
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Jaroměř."
+  ],
+  "coverage": {
+    "workers_launched": 2,
+    "workers_with_results": 1,
+    "candidates_gathered": 20,
+    "rows_retained": 1,
+    "zero_result_portals": [
+      "realitymix.cz"
+    ],
+    "blocked_portals": []
+  },
+  "portal_status": {
+    "realitymix.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope RealityMix rows."
+    },
+    "reality.aktualne.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
+    }
+  },
+  "fetch_attempts": [
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/domy/prodej/",
+      "stage": "house_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Jarom%C4%9B%C5%99&form%5Bcena_mena%5D=1",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/jaromer/jaromer-pronajem-skladovacich-prostor-1-706-m2-8295447.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/jaromer/nabidka-podnajmu-16-zahrad-v-jaromeri-okres-nachod-8568079.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/jaromer/prodej-bytu-3-1-83-m-jaromer-ul-palackeho-8581451.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/jaromer/prodej-pozemku-17154-m2-8588949.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/jaromer/prodej-rodinneho-domu-46-m-jaromer-ul-sterbova-8599223.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/jaromer/prodej-rodinneho-domu-791-m-jaromer-ul-palackeho-8508307.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/jaromer/prodej-rodinneho-domu-s-restauraci-a-bydlenim-jaromer-864-m2-8301585.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/jaromer/prodej-rodinneho-domu-se-tremi-bytovymi-jednotkami-259-m-pozemek-812-m-jaromer-8551701.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/jaromer/prodej-stavebniho-pozemku-1-310-m-stary-ples-8587749.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/jaromer/pronajem-byt-2-kk-jaromer-cast-prazske-predmesti-8598529.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/jaromer/pronajem-byt-2-kk-jaromer-ul-nabrezi-17-listopadu-8598527.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/jaromer/pronajem-byt-3-kk-63-1-m2-jaromer-prazske-predmesti-8601387.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/jaromer/pronajem-kancelare-45-85-m2-jaromer-8538649.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/jaromer/pronajem-kancelare-45-93-m2-jaromer-8538669.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/jaromer/pronajem-kancelare-49-26-m2-jaromer-8538599.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/jaromer/pronajem-kancelare-49-m2-jaromer-8536297.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/jaromer/pronajem-kancelarskeho-prostoru-80-93-m2-jaromer-8536275.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/jaromer/pronajem-kancelarskych-prostor-142-34-m2-jaromer-8542993.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/jaromer/pronajem-komercni-prostotry-200-m2-jaromer-8563915.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/jaromer/pronajem-komercniho-prostoru-36-m2-jaromer-8561941.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    }
+  ],
+  "gaps": [
+    "missing-page-url:house",
+    "missing-page-url:land",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/jaromer-pronajem-skladovacich-prostor-1-706-m2-8295447.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/nabidka-podnajmu-16-zahrad-v-jaromeri-okres-nachod-8568079.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/prodej-bytu-3-1-83-m-jaromer-ul-palackeho-8581451.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/jaromer/prodej-pozemku-17154-m2-8588949.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/jaromer/prodej-rodinneho-domu-791-m-jaromer-ul-palackeho-8508307.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/jaromer/prodej-rodinneho-domu-s-restauraci-a-bydlenim-jaromer-864-m2-8301585.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/jaromer/prodej-rodinneho-domu-se-tremi-bytovymi-jednotkami-259-m-pozemek-812-m-jaromer-8551701.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/jaromer/prodej-stavebniho-pozemku-1-310-m-stary-ples-8587749.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-byt-2-kk-jaromer-cast-prazske-predmesti-8598529.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-byt-2-kk-jaromer-ul-nabrezi-17-listopadu-8598527.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-byt-3-kk-63-1-m2-jaromer-prazske-predmesti-8601387.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-kancelare-45-85-m2-jaromer-8538649.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-kancelare-45-93-m2-jaromer-8538669.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-kancelare-49-26-m2-jaromer-8538599.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-kancelare-49-m2-jaromer-8536297.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-kancelarskeho-prostoru-80-93-m2-jaromer-8536275.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-kancelarskych-prostor-142-34-m2-jaromer-8542993.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-komercni-prostotry-200-m2-jaromer-8563915.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-komercniho-prostoru-36-m2-jaromer-8561941.html"
+  ],
+  "listings": [
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej rodinného domu, 46 m², Jaroměř, ul. Štěrbova",
+      "location": "Štěrbova, Josefov, Náchod",
+      "property_type": "house",
+      "price": "5 500 000 Kč",
+      "house_area_m2": "46",
+      "land_area_m2": "1226",
+      "urls": [
+        "https://reality.aktualne.cz/detail/jaromer/prodej-rodinneho-domu-46-m-jaromer-ul-sterbova-8599223.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    }
+  ]
+}
