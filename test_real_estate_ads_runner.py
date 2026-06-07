@@ -9,6 +9,7 @@ from run_real_estate_ads_by_city import (
     combine_local_fetcher_payloads,
     daily_refresh_city_completed_today,
     run_local_fetchers,
+    select_cities,
 )
 
 
@@ -41,6 +42,27 @@ def test_daily_refresh_guard_expires_next_day():
     }
 
     assert not daily_refresh_city_completed_today(state, "Opočno", today="2026-06-06")
+
+
+def test_select_cities_returns_exact_city():
+    cities = ["Opočno", "Deštné v Orlických horách"]
+
+    assert select_cities(cities, "Deštné v Orlických horách") == ["Deštné v Orlických horách"]
+
+
+def test_select_cities_accepts_slug_equivalent_city():
+    cities = ["Opočno", "Deštné v Orlických horách"]
+
+    assert select_cities(cities, "Destne v Orlickych horach") == ["Deštné v Orlických horách"]
+
+
+def test_select_cities_raises_for_unknown_city():
+    try:
+        select_cities(["Opočno"], "Unknown")
+    except ValueError as exc:
+        assert "unknown city" in str(exc)
+    else:
+        raise AssertionError("expected unknown city to fail")
 
 
 def test_cached_detail_urls_are_grouped_by_supported_local_fetcher_portal():

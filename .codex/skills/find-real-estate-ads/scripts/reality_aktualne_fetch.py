@@ -7,7 +7,7 @@ import subprocess
 import sys
 from html import unescape
 from pathlib import Path
-from urllib.parse import urljoin, urlsplit, urlunsplit
+from urllib.parse import urlencode, urljoin, urlsplit, urlunsplit
 
 BASE_URL = "https://reality.aktualne.cz"
 USER_AGENT = "Mozilla/5.0"
@@ -56,6 +56,10 @@ def classify_fetch(http_status: int | None, returncode: int, body: str, stderr: 
     return "ok", None
 
 
+def is_removed_detail_fetch(url: str, stage: str, http_status: int | None) -> bool:
+    return http_status == 404 and "/detail/" in url and stage in {"detail_fetch", "discovery_detail_fetch"}
+
+
 def append_fetch_attempt(
     attempts: list[dict],
     *,
@@ -100,6 +104,9 @@ def run_fetch(url: str, *, attempts: list[dict] | None = None, stage: str = "fet
         except ValueError:
             http_status = None
     status, error = classify_fetch(http_status, completed.returncode, body, completed.stderr)
+    if status == "blocked" and is_removed_detail_fetch(url, stage, http_status):
+        status = "fallback_page"
+        error = "HTTP 404"
     if attempts is not None:
         append_fetch_attempt(
             attempts,
@@ -110,7 +117,7 @@ def run_fetch(url: str, *, attempts: list[dict] | None = None, stage: str = "fet
             http_status=http_status,
             error=error,
         )
-    if status != "ok":
+    if status not in {"ok", "fallback_page"}:
         raise RuntimeError(error or status)
     return body
 
@@ -136,6 +143,16 @@ def extract_detail_urls(result_html: str, municipality: str | None = None) -> li
 def canonicalize_result_url(url: str) -> str:
     parts = urlsplit(urljoin(BASE_URL, url))
     return urlunsplit(("https", "reality.aktualne.cz", parts.path.rstrip("/"), "", ""))
+
+
+def municipality_search_url(municipality: str) -> str:
+    query = urlencode(
+        {
+            "form[search_in_city]": municipality,
+            "form[cena_mena]": "1",
+        }
+    )
+    return f"{BASE_URL}/vypis-nabidek/?{query}"
 
 
 def extract_result_urls(html: str, include_houses: bool, include_land: bool) -> list[str]:
@@ -222,6 +239,16 @@ def extract_area_value(text: str | None) -> int | None:
     return int(digits) if digits else None
 
 
+def extract_area_after_keywords(text: str, keywords: list[str]) -> int | None:
+    normalized = re.sub(r"\s+", " ", text)
+    keyword_pattern = "|".join(re.escape(keyword) for keyword in keywords)
+    match = re.search(rf"(?:{keyword_pattern})\D{{0,40}}(\d[\d\s.]*)\s*m", normalized, re.IGNORECASE)
+    if not match:
+        return None
+    digits = re.sub(r"[^\d]", "", match.group(1))
+    return int(digits) if digits else None
+
+
 def infer_property_type(title: str, table: dict[str, str]) -> tuple[str | None, str | None]:
     lowered = slug_normalize(" ".join([title, table.get("Druh pozemku", "")]))
     if "chata" in lowered:
@@ -230,7 +257,7 @@ def infer_property_type(title: str, table: dict[str, str]) -> tuple[str | None, 
         return "house", "normalized-from:chalupa"
     if any(marker in lowered for marker in ["pozemek", "pro bydleni"]):
         return "land", None
-    if any(marker in lowered for marker in ["dum", "domu", "vila", "rodinny"]):
+    if any(marker in lowered for marker in ["dum", "domu", "vila", "rodinny"]) or re.search(r"(^|\W)rd($|\W)", lowered):
         return "house", None
     return None, "unsupported-property-type"
 
@@ -279,14 +306,16 @@ def listing_from_detail(url: str, html: str, municipality: str) -> tuple[dict | 
 
     house_area = extract_area_value(table.get("Užitná plocha"))
     parcel_area = extract_area_value(table.get("Plocha parcely") or table.get("Celková plocha"))
+    body_heading = extract_heading(html, "h3") or ""
+    body_match = re.search(rf"<h3>\s*{re.escape(body_heading)}\s*</h3>\s*(.*?)\s*<section", html, re.S) if body_heading else None
+    body_text = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", unescape(body_match.group(1)))) if body_match else description
+    if parcel_area is None:
+        parcel_area = extract_area_after_keywords(body_text, ["pozemek", "pozemku", "parcela", "parcely"])
     land_area = parcel_area
 
     if property_type in {"house", "land"} and (land_area is None or land_area < 1000):
         return None, "land-below-threshold"
 
-    body_heading = extract_heading(html, "h3") or ""
-    body_match = re.search(rf"<h3>\s*{re.escape(body_heading)}\s*</h3>\s*(.*?)\s*<section", html, re.S) if body_heading else None
-    body_text = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", unescape(body_match.group(1)))) if body_match else description
     if property_type == "land" and not land_is_buildable(title, table, body_text):
         return None, "non-buildable-land"
 
@@ -374,6 +403,7 @@ def build_output(
     result_url_set = {canonicalize_result_url(url) for url in result_urls}
 
     if discover_results:
+        result_url_set.add(municipality_search_url(municipality))
         for detail_url in detail_urls:
             if "/detail/" not in detail_url:
                 continue

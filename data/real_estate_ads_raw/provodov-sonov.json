@@ -1,1 +1,100 @@
-{"city":"Provodov-Šonov","query":{"municipality":"Provodov-Šonov","location_scope":"municipality_only","country":"Czech Republic","property_types":["house","chalupa","land"],"price_min":null,"price_max":null,"house_size_min_m2":null,"house_size_max_m2":null,"land_size_min_m2":1000,"land_size_max_m2":null,"must_have":["sale listings","municipality only","buildable or residential land only for land listings"],"exclude":["chata"]},"assumptions":["Unable to perform live portal search in this response path without risking non-JSON output; no listings were asserted from memory."],"coverage":{"workers_launched":0,"workers_with_results":0,"candidates_gathered":0,"rows_retained":0,"zero_result_portals":[],"blocked_portals":[]},"gaps":["Search was requested with the find-real-estate-ads skill and single-agent fallback, but live portal-by-portal verification was not completed before producing JSON.","Because no current credible listings were verified, listings is intentionally empty."],"listings":[]}
+{
+  "city": "Provodov-Šonov",
+  "query": {
+    "municipality": "Provodov-Šonov",
+    "location_scope": "municipality_only",
+    "country": "Czech Republic",
+    "property_types": [
+      "house",
+      "chalupa",
+      "land"
+    ],
+    "price_min": null,
+    "price_max": null,
+    "house_size_min_m2": null,
+    "house_size_max_m2": null,
+    "land_size_min_m2": 1000,
+    "land_size_max_m2": null,
+    "must_have": [
+      "sale listings",
+      "buildable or residential land only"
+    ],
+    "exclude": [
+      "chata"
+    ]
+  },
+  "assumptions": [
+    "local-first cached detail verification was used; cached MM Reality and Reality Aktuálně result pages plus RealityMix result-page discovery were used when available.",
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Provodov-Šonov."
+  ],
+  "coverage": {
+    "workers_launched": 2,
+    "workers_with_results": 0,
+    "candidates_gathered": 0,
+    "rows_retained": 0,
+    "zero_result_portals": [
+      "realitymix.cz",
+      "reality.aktualne.cz"
+    ],
+    "blocked_portals": []
+  },
+  "portal_status": {
+    "realitymix.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope RealityMix rows."
+    },
+    "reality.aktualne.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope Reality Aktuálně rows."
+    }
+  },
+  "fetch_attempts": [
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/domy/prodej/",
+      "stage": "house_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    }
+  ],
+  "gaps": [
+    "missing-page-url:house",
+    "missing-page-url:land",
+    "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",
+    "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html"
+  ],
+  "listings": []
+}

@@ -1,1 +1,100 @@
-{"city":"Voděrady","query":{"municipality":"Voděrady","location_scope":"municipality_only","country":"Czech Republic","property_types":["house","chalupa","land"],"price_min":null,"price_max":null,"house_size_min_m2":null,"house_size_max_m2":null,"land_size_min_m2":1000,"land_size_max_m2":null,"must_have":["sale listing","municipality Voděrady","house/chalupa parcel area at least 1000 m2","land area at least 1000 m2","land must be explicitly buildable or residential"],"exclude":["chata","rentals","locations outside municipality Voděrady","land below 1000 m2","houses with parcel below 1000 m2","agricultural, field, meadow, garden, recreational-only, or non-buildable land"]},"assumptions":["No sub-agents were spawned; the skill's single-agent fallback was used portal by portal.","The exact municipality constraint excludes Černé Voděrady and Polní Voděrady as separate municipalities, even when their names contain Voděrady.","For land, a pending or requested zoning-plan change was not treated as buildable/residential use unless current buildable/residential use was explicit."],"coverage":{"workers_launched":0,"workers_with_results":0,"candidates_gathered":9,"rows_retained":0,"zero_result_portals":["reality.idnes.cz","mmreality.cz","realitymix.cz","reality.aktualne.cz"],"blocked_portals":["realitymix.cz land result fetch failed with HTTP 404"]},"portal_status":{"reality.idnes.cz":{"status":"no_results","http_status":200,"stage":"detail_fetch","retained_from_snapshot":false,"message":"No retained listing in exact municipality Voděrady. Checked visible iDNES detail/search candidates for Voděrady terms; matching live candidates found were in Černé Voděrady, which is outside the requested municipality.","evidence":["detail_fetch ok: https://reality.idnes.cz/detail/prodej/dum/cerne-voderady-cernokostelecka/6960d226028df7d7bd0c7291/ showed Černé Voděrady, district Praha-východ","detail_fetch ok: https://reality.idnes.cz/detail/prodej/pozemek/cerne-voderady-cernokostelecka/6821d17ba5ecbfaec104b8e0/ showed Černé Voděrady, district Praha-východ","search results also showed a Černé Voděrady house with only 244 m2 parcel, below the 1000 m2 threshold"]},"mmreality.cz":{"status":"no_results","http_status":200,"stage":"helper_fetch","retained_from_snapshot":false,"message":"MM Reality helper inspected five candidate detail URLs and retained none: inactive duplicate land/meadow listings, one non-buildable/agricultural field listing, and one outside-municipality Polní Voděrady listing.","evidence":["inactive-generic-page:https://www.mmreality.cz/nemovitosti/917335/","inactive-generic-page:https://www.mmreality.cz/nemovitosti/917337/","inactive-generic-page:https://www.mmreality.cz/nemovitosti/917339/","non-buildable-land:https://www.mmreality.cz/nemovitosti/941860/","outside-municipality:https://www.mmreality.cz/nemovitosti/932561/"]},"realitymix.cz":{"status":"partial","http_status":404,"stage":"land_result_fetch","retained_from_snapshot":false,"message":"RealityMix helper verified one house candidate and excluded it for land below threshold; land result-page fetch returned repeated HTTP 404 responses.","evidence":["house detail checked: https://realitymix.cz/detail/voderady/prodej-rodinneho-domu-150-m-vyhnanice-u-voderad-8279109.html","land-below-threshold:https://realitymix.cz/detail/voderady/prodej-rodinneho-domu-150-m-vyhnanice-u-voderad-8279109.html","land_result_fetch blocked: https://realitymix.cz/prodej-pozemku/voderady/ returned HTTP 404 on three attempts"]},"reality.aktualne.cz":{"status":"no_results","http_status":null,"stage":"helper_fetch","retained_from_snapshot":false,"message":"Reality Aktuálně helper found no candidate detail URLs/listings for exact municipality Voděrady under the requested filters.","evidence":[]}},"fetch_attempts":[{"portal":"reality.idnes.cz","url":"https://reality.idnes.cz/detail/prodej/dum/cerne-voderady-cernokostelecka/6960d226028df7d7bd0c7291/","stage":"detail_fetch","attempt":1,"status":"ok","http_status":200,"error":null,"message":"Fetched but excluded: outside municipality Voděrady; listing is Černé Voděrady."},{"portal":"reality.idnes.cz","url":"https://reality.idnes.cz/detail/prodej/pozemek/cerne-voderady-cernokostelecka/6821d17ba5ecbfaec104b8e0/","stage":"detail_fetch","attempt":1,"status":"ok","http_status":200,"error":null,"message":"Fetched but excluded: outside municipality Voděrady; listing is Černé Voděrady."},{"portal":"mmreality.cz","url":"https://www.mmreality.cz/nemovitosti/941860/","stage":"helper_fetch","attempt":1,"status":"ok","http_status":200,"error":null,"message":"Fetched by helper and excluded as non-buildable/agricultural field land."},{"portal":"mmreality.cz","url":"https://www.mmreality.cz/nemovitosti/917335/","stage":"helper_fetch","attempt":1,"status":"inactive","http_status":200,"error":null,"message":"Fetched by helper and excluded as inactive generic page."},{"portal":"mmreality.cz","url":"https://www.mmreality.cz/nemovitosti/917337/","stage":"helper_fetch","attempt":1,"status":"inactive","http_status":200,"error":null,"message":"Fetched by helper and excluded as inactive generic page."},{"portal":"mmreality.cz","url":"https://www.mmreality.cz/nemovitosti/917339/","stage":"helper_fetch","attempt":1,"status":"inactive","http_status":200,"error":null,"message":"Fetched by helper and excluded as inactive generic page."},{"portal":"mmreality.cz","url":"https://www.mmreality.cz/nemovitosti/932561/","stage":"helper_fetch","attempt":1,"status":"ok","http_status":200,"error":null,"message":"Fetched by helper and excluded: Polní Voděrady is outside exact municipality Voděrady and land is below 1000 m2."},{"portal":"realitymix.cz","url":"https://realitymix.cz/detail/voderady/prodej-rodinneho-domu-150-m-vyhnanice-u-voderad-8279109.html","stage":"house_result_fetch","attempt":1,"status":"ok","http_status":200,"error":null,"message":null},{"portal":"realitymix.cz","url":"https://realitymix.cz/detail/voderady/prodej-rodinneho-domu-150-m-vyhnanice-u-voderad-8279109.html","stage":"detail_fetch","attempt":1,"status":"ok","http_status":200,"error":null,"message":"Fetched by helper and excluded: land below 1000 m2."},{"portal":"realitymix.cz","url":"https://realitymix.cz/prodej-pozemku/voderady/","stage":"land_result_fetch","attempt":1,"status":"blocked","http_status":404,"error":"HTTP 404","message":"RealityMix land result page was not available."},{"portal":"realitymix.cz","url":"https://realitymix.cz/prodej-pozemku/voderady/","stage":"land_result_fetch","attempt":2,"status":"blocked","http_status":404,"error":"HTTP 404","message":"Retry returned HTTP 404."},{"portal":"realitymix.cz","url":"https://realitymix.cz/prodej-pozemku/voderady/","stage":"land_result_fetch","attempt":3,"status":"blocked","http_status":404,"error":"HTTP 404","message":"Retry returned HTTP 404."},{"portal":"reality.aktualne.cz","url":"","stage":"helper_fetch","attempt":1,"status":"no_results","http_status":null,"error":null,"message":"Helper run found no detail URLs/listings for exact municipality Voděrady."}],"gaps":["No credible listing survived the exact municipality, sale, property type, land-size, and buildable/residential-land filters.","The most relevant MM Reality land candidates in Voděrady were excluded because they were field/meadow/garden style listings or inactive, not verified buildable/residential land.","The relevant RealityMix house candidate was excluded because its parcel area was below 1000 m2; RealityMix land category URL for Voděrady returned HTTP 404 on all three helper attempts.","Search hits for Černé Voděrady and Polní Voděrady were excluded as outside the exact municipality Voděrady."],"listings":[]}
+{
+  "city": "Voděrady",
+  "query": {
+    "municipality": "Voděrady",
+    "location_scope": "municipality_only",
+    "country": "Czech Republic",
+    "property_types": [
+      "house",
+      "chalupa",
+      "land"
+    ],
+    "price_min": null,
+    "price_max": null,
+    "house_size_min_m2": null,
+    "house_size_max_m2": null,
+    "land_size_min_m2": 1000,
+    "land_size_max_m2": null,
+    "must_have": [
+      "sale listings",
+      "buildable or residential land only"
+    ],
+    "exclude": [
+      "chata"
+    ]
+  },
+  "assumptions": [
+    "local-first cached detail verification was used; cached MM Reality and Reality Aktuálně result pages plus RealityMix result-page discovery were used when available.",
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Voděrady."
+  ],
+  "coverage": {
+    "workers_launched": 2,
+    "workers_with_results": 0,
+    "candidates_gathered": 0,
+    "rows_retained": 0,
+    "zero_result_portals": [
+      "realitymix.cz",
+      "reality.aktualne.cz"
+    ],
+    "blocked_portals": []
+  },
+  "portal_status": {
+    "realitymix.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope RealityMix rows."
+    },
+    "reality.aktualne.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope Reality Aktuálně rows."
+    }
+  },
+  "fetch_attempts": [
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/domy/prodej/",
+      "stage": "house_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    }
+  ],
+  "gaps": [
+    "missing-page-url:house",
+    "missing-page-url:land",
+    "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",
+    "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html"
+  ],
+  "listings": []
+}

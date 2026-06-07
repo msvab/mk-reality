@@ -117,6 +117,22 @@ def daily_refresh_city_completed_today(state: dict, city: str, today: str | None
     return city_state.get("last_completed_on") == today
 
 
+def select_cities(all_cities: list[str], city: str | None = None) -> list[str]:
+    if city is None:
+        return all_cities
+    requested = city.strip()
+    for known_city in all_cities:
+        if known_city == requested:
+            return [known_city]
+    requested_slug = slugify_city(requested)
+    matches = [known_city for known_city in all_cities if slugify_city(known_city) == requested_slug]
+    if not matches:
+        raise ValueError(f"unknown city: {city}")
+    if len(matches) > 1:
+        raise ValueError(f"city is ambiguous: {city}")
+    return matches
+
+
 def record_daily_refresh_city_completion(
     path: Path,
     state: dict,
@@ -524,6 +540,7 @@ def main() -> None:
     parser.add_argument("--codex-bin", default="codex", help="Codex CLI binary to invoke.")
     parser.add_argument("--model", default=None, help="Optional model override passed to codex exec.")
     parser.add_argument("--limit", type=int, default=None, help="Optional maximum number of cities to process this run.")
+    parser.add_argument("--city", help="Run only one municipality from the schools input.")
     parser.add_argument("--overwrite", action="store_true", help="Re-run even when a valid raw output file already exists.")
     parser.add_argument("--retry-failed", action="store_true", help="Retry cities recorded as failed in the state file.")
     parser.add_argument("--aggregate-after-each", action="store_true", help="Refresh the aggregate JSON after every successful city.")
@@ -565,7 +582,7 @@ def main() -> None:
     signal.signal(signal.SIGTERM, request_stop)
 
     state = load_state(state_path)
-    all_cities = load_school_cities(schools_input)
+    all_cities = select_cities(load_school_cities(schools_input), args.city)
     failed_cities = state.get("failed_cities", {}) if isinstance(state.get("failed_cities"), dict) else {}
     completed_cities = []
     pending_cities = []
