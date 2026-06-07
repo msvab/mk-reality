@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-06T09:04:40+0200",
+  "generated_at": "2026-06-07T20:22:30+0200",
   "schools_input": "dobruska_primary_schools.json",
   "raw_dir": "data/real_estate_ads_raw",
   "coverage": {
@@ -8,7 +8,7 @@
     "cities_with_ads": 15,
     "hidden_ads": 9,
     "cities_with_raw_output": 20,
-    "cities_with_portal_warnings": 12
+    "cities_with_portal_warnings": 10
   },
   "unmatched_raw_files": [
     {
@@ -20,17 +20,23 @@
     "Opočno": {
       "count": 6,
       "coverage": {
-        "workers_launched": 1,
+        "workers_launched": 2,
         "workers_with_results": 1,
         "candidates_gathered": 6,
         "rows_retained": 6,
-        "zero_result_portals": [],
+        "zero_result_portals": [
+          "reality.aktualne.cz"
+        ],
         "blocked_portals": []
       },
       "portal_status": {
         "realitymix.cz": {
           "status": "ok",
           "message": "Retained at least one detail-verified RealityMix row."
+        },
+        "reality.aktualne.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope Reality Aktuálně rows."
         }
       },
       "fetch_attempts": [
@@ -81,13 +87,58 @@
           "attempt": 1,
           "status": "ok",
           "http_status": 200
+        },
+        {
+          "portal": "realitymix.cz",
+          "url": "https://www.realitymix.cz/reality/domy/prodej/",
+          "stage": "house_root_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "realitymix.cz",
+          "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/",
+          "stage": "land_root_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "realitymix.cz",
+          "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/",
+          "stage": "land_root_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",
+          "stage": "search_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html",
+          "stage": "search_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
         }
       ],
       "assumptions": [
-        "local-first cached detail verification was used; new listing discovery requires the Codex fallback path.",
+        "local-first cached detail verification was used; cached MM Reality and Reality Aktuálně result pages plus RealityMix result-page discovery were used when available.",
         "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Opočno."
       ],
-      "gaps": [],
+      "gaps": [
+        "missing-page-url:house",
+        "missing-page-url:land",
+        "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",
+        "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html"
+      ],
       "ads": [
         {
           "portal": [
@@ -110,7 +161,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -140,7 +191,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -170,7 +221,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -200,7 +251,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -230,7 +281,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -260,7 +311,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -293,7 +344,7 @@
         },
         "reality.aktualne.cz": {
           "status": "ok",
-          "message": "Retained at least one in-scope row."
+          "message": "Retained at least one detail-verified Reality Aktuálně row."
         }
       },
       "fetch_attempts": [
@@ -336,15 +387,40 @@
           "attempt": 1,
           "status": "ok",
           "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-pozemku-k-bydleni-v-novem-meste-nad-metuji-8578121.html",
+          "stage": "discovery_detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-pozemky.html",
+          "stage": "search_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-pozemku-k-bydleni-v-novem-meste-nad-metuji-8578121.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
         }
       ],
       "assumptions": [
-        "local-first cached detail verification was used; RealityMix result-page discovery was used when available, while other local portals remain cached-detail only.",
+        "local-first cached detail verification was used; cached MM Reality and Reality Aktuálně result pages plus RealityMix result-page discovery were used when available.",
         "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Nové Město nad Metují."
       ],
       "gaps": [
         "land-below-threshold:https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-rodinneho-domu-140-m-nove-mesto-nad-metuji-8537981.html",
-        "land-below-threshold:https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-rodinneho-domu-635-m-nove-mesto-nmet-ul-1-maje-8540683.html"
+        "land-below-threshold:https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-rodinneho-domu-635-m-nove-mesto-nmet-ul-1-maje-8540683.html",
+        "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-pozemky.html"
       ],
       "ads": [
         {
@@ -367,7 +443,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T19:13:31+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T19:13:31+0200",
@@ -397,7 +473,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T19:13:31+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T19:13:31+0200",
@@ -425,7 +501,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T19:13:31+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T19:13:31+0200",
@@ -569,43 +645,15 @@
           "message": "Retained at least one in-scope row."
         },
         "realitymix.cz": {
-          "status": "fallback_page",
-          "stage": "detail_parse",
-          "message": "Požadovaný inzerát již není v naší databázi",
-          "evidence": [
-            "detail_parse:fallback_page:https://realitymix.cz/detail/novy-hradek/prodej-dum-rodinny-110-kralovehradecky-kraj-nachod-novy-hradek-rokolska-127-54922-8540171.html"
-          ]
+          "status": "ok",
+          "message": "Retained at least one detail-verified RealityMix row."
         },
         "reality.aktualne.cz": {
           "status": "ok",
-          "message": "Retained at least one in-scope row."
+          "message": "Retained at least one detail-verified Reality Aktuálně row."
         }
       },
       "fetch_attempts": [
-        {
-          "portal": "realitymix.cz",
-          "url": "https://realitymix.cz/detail/novy-hradek/prodej-rodinneho-domu-pozemek-4795-m-novy-hradek-rzy-8601263.html",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "realitymix.cz",
-          "url": "https://realitymix.cz/detail/novy-hradek/prodej-dum-rodinny-110-kralovehradecky-kraj-nachod-novy-hradek-rokolska-127-54922-8540171.html",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "realitymix.cz",
-          "url": "https://realitymix.cz/detail/novy-hradek/prodej-dum-rodinny-110-kralovehradecky-kraj-nachod-novy-hradek-rokolska-127-54922-8540171.html",
-          "stage": "detail_parse",
-          "attempt": 1,
-          "status": "fallback_page",
-          "message": "Požadovaný inzerát již není v naší databázi"
-        },
         {
           "portal": "realitymix.cz",
           "url": "https://realitymix.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1328-m-novy-hradek-rzy-8602899.html",
@@ -640,6 +688,14 @@
         },
         {
           "portal": "realitymix.cz",
+          "url": "https://realitymix.cz/detail/novy-hradek/prodej-rodinneho-domu-pozemek-4795-m-novy-hradek-rzy-8601263.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "realitymix.cz",
           "url": "https://realitymix.cz/detail/novy-hradek/rodinny-dum-novy-hradek-8395975.html",
           "stage": "detail_fetch",
           "attempt": 1,
@@ -653,15 +709,70 @@
           "attempt": 1,
           "status": "ok",
           "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1328-m-novy-hradek-rzy-8602899.html",
+          "stage": "discovery_detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1182-m-novy-hradek-rzy-8602891.html",
+          "stage": "discovery_detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html",
+          "stage": "discovery_detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-pozemky.html",
+          "stage": "search_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1182-m-novy-hradek-rzy-8602891.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1328-m-novy-hradek-rzy-8602899.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
         }
       ],
       "assumptions": [
-        "local-first cached detail verification was used; cached MM Reality result pages and RealityMix result-page discovery were used when available, while other local portals remain cached-detail only.",
+        "local-first cached detail verification was used; cached MM Reality and Reality Aktuálně result pages plus RealityMix result-page discovery were used when available.",
         "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Nový Hrádek."
       ],
       "gaps": [
         "land-below-threshold:https://realitymix.cz/detail/novy-hradek/prodej-rodinneho-domu-pozemek-4795-m-novy-hradek-rzy-8601263.html",
-        "removed-fallback-page:https://realitymix.cz/detail/novy-hradek/prodej-dum-rodinny-110-kralovehradecky-kraj-nachod-novy-hradek-rokolska-127-54922-8540171.html",
         "land-below-threshold:https://realitymix.cz/detail/novy-hradek/rodinny-dum-novy-hradek-8395975.html"
       ],
       "ads": [
@@ -685,7 +796,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -714,7 +825,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -744,7 +855,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -774,7 +885,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -803,7 +914,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -833,7 +944,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -863,7 +974,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -892,7 +1003,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -922,7 +1033,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -952,7 +1063,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -981,7 +1092,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -1080,21 +1191,16 @@
     "České Meziříčí": {
       "count": 1,
       "coverage": {
-        "workers_launched": 3,
+        "workers_launched": 2,
         "workers_with_results": 1,
         "candidates_gathered": 1,
         "rows_retained": 1,
         "zero_result_portals": [
-          "mmreality.cz",
           "realitymix.cz"
         ],
         "blocked_portals": []
       },
       "portal_status": {
-        "mmreality.cz": {
-          "status": "no_results",
-          "message": "No retained in-scope rows."
-        },
         "realitymix.cz": {
           "status": "no_results",
           "message": "No retained in-scope RealityMix rows."
@@ -1167,27 +1273,6 @@
         "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of České Meziříčí."
       ],
       "gaps": [
-        "outside-municipality-result:944652",
-        "outside-municipality-result:944560",
-        "outside-municipality-result:944239",
-        "outside-municipality-result:944075",
-        "outside-municipality-result:943952",
-        "outside-municipality-result:943889",
-        "outside-municipality-result:943728",
-        "outside-municipality-result:943640",
-        "outside-municipality-result:943334",
-        "outside-municipality-result:943194",
-        "outside-municipality-result:943173",
-        "outside-municipality-result:942992",
-        "outside-municipality-result:940883",
-        "outside-municipality-result:939990",
-        "outside-municipality-result:937581",
-        "outside-municipality-result:937099",
-        "outside-municipality-result:925977",
-        "outside-municipality-result:890969",
-        "outside-municipality-result:890968",
-        "outside-municipality-result:890967",
-        "outside-municipality-result:889366",
         "missing-page-url:house",
         "missing-page-url:land",
         "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-domy_vily.html",
@@ -1214,7 +1299,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T19:50:52+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T19:50:52+0200",
@@ -1294,8 +1379,8 @@
     "Velká Jesenice": {
       "count": 1,
       "coverage": {
-        "workers_launched": 0,
-        "workers_with_results": 0,
+        "workers_launched": 3,
+        "workers_with_results": 1,
         "candidates_gathered": 1,
         "rows_retained": 1,
         "zero_result_portals": [
@@ -1305,230 +1390,70 @@
         "blocked_portals": []
       },
       "portal_status": {
-        "reality.idnes.cz": {
-          "status": "dns_error",
-          "stage": "detail_fetch",
-          "message": "curl: (6) Could not resolve host: reality.idnes.cz",
-          "retained_from_snapshot": true,
-          "evidence": [
-            "Search snapshot: prodej domu 200 m² s pozemkem 1 149 m² Velká Jesenice 5 998 000 Kč.",
-            "Search snapshot: prodej stavebního pozemku 1 867 m² Velká Jesenice 2 290 000 Kč.",
-            "Search snapshot: prodej stavebního pozemku 3 296 m² Velká Jesenice 5 990 000 Kč.",
-            "Direct shell detail retry returned DNS resolution failure for reality.idnes.cz.",
-            "detail_fetch:dns_error:https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/69d654808aed7570eb00d757/",
-            "detail_fetch:dns_error:https://reality.idnes.cz/detail/prodej/dum/velka-jesenice/68b6a8fb469aa5d99d04b651/",
-            "reality.idnes.cz had potentially relevant search/index snapshots, but detail verification was incomplete and no iDNES row was retained to avoid returning weak or non-detail URLs."
-          ]
-        },
         "mmreality.cz": {
-          "status": "inactive",
-          "http_status": 200,
-          "stage": "helper_fetch",
-          "message": "Helper reported inactive generic page.",
-          "retained_from_snapshot": false,
-          "evidence": [
-            "Retained detail https://www.mmreality.cz/nemovitosti/910514/ with price 5 998 000 Kč, house area 200 m2, parcel 1149 m2.",
-            "Rejected https://www.mmreality.cz/nemovitosti/918734/ as inactive generic page.",
-            "Rejected https://www.mmreality.cz/nemovitosti/923874/ because land area 644 m2 is below the 1000 m2 minimum.",
-            "helper_fetch:inactive:https://www.mmreality.cz/nemovitosti/918734/",
-            "MM Reality search evidence for https://www.mmreality.cz/nemovitosti/918734/ showed a 1867 m2 residential land listing, but the portal helper classified the authoritative generic detail page as inactive, so it was excluded."
-          ]
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
         },
         "realitymix.cz": {
           "status": "no_results",
-          "http_status": 200,
-          "stage": "helper_fetch",
-          "message": "RealityMix helper fetched visible detail pages but retained no in-scope row after applying the 1000 m2 land/parcel threshold.",
-          "retained_from_snapshot": false,
-          "evidence": [
-            "Fetched RealityMix house detail 8317457; helper rejected it as land-below-threshold.",
-            "Fetched RealityMix land detail 8423571; helper rejected 644 m2 as below threshold.",
-            "Fetched RealityMix land detail 8516499; helper rejected 928 m2 as below threshold."
-          ]
+          "message": "No retained in-scope RealityMix rows."
         },
         "reality.aktualne.cz": {
           "status": "no_results",
-          "http_status": 200,
-          "stage": "helper_fetch",
-          "message": "Reality Aktuálně helper processed supplied result pages but retained no in-scope row for Velká Jesenice under the required filters.",
-          "retained_from_snapshot": false,
-          "evidence": [
-            "Result-page helper run gathered 50 candidates, all rejected as outside municipality, inactive, unpriced, or otherwise not retained.",
-            "Search snapshot exposed a Velká Jesenice house result, but helper did not retain a qualifying verified row."
-          ]
+          "message": "No retained in-scope Reality Aktuálně rows."
         }
       },
       "fetch_attempts": [
         {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/s/prodej/domy/velka-jesenice-okres-nachod/",
-          "stage": "search_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200,
-          "message": "Search snapshot exposed Velká Jesenice house listings including a 200 m2 house with 1149 m2 parcel."
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/s/pozemky/stavebni-pozemek/okres-nachod/",
-          "stage": "search_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200,
-          "message": "Search snapshot exposed Velká Jesenice building-land listings, including 1867 m2 and 644 m2 rows."
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/s/prodej/pozemky/",
-          "stage": "search_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200,
-          "message": "Nearby search snapshot exposed Velká Jesenice land rows including 3296 m2, 1867 m2, 1001 m2, 928 m2, and below-threshold or non-retained rows."
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/69d654808aed7570eb00d757/",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200,
-          "message": "HEAD request returned HTTP 200, but body/detail verification was not captured."
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/69d654808aed7570eb00d757/",
-          "stage": "detail_fetch",
-          "attempt": 2,
-          "status": "dns_error",
-          "error": "curl: (6) Could not resolve host: reality.idnes.cz",
-          "message": "Detail body retry failed in shell fetch path."
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/velka-jesenice/68b6a8fb469aa5d99d04b651/",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200,
-          "message": "HEAD request returned HTTP 200, but body/detail verification was not captured."
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/velka-jesenice/68b6a8fb469aa5d99d04b651/",
-          "stage": "detail_fetch",
-          "attempt": 2,
-          "status": "dns_error",
-          "error": "curl: (6) Could not resolve host: reality.idnes.cz",
-          "message": "Detail body retry failed in shell fetch path."
-        },
-        {
-          "portal": "mmreality.cz",
-          "url": "https://www.mmreality.cz/nemovitosti/910514/",
-          "stage": "helper_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200,
-          "message": "Helper retained active house listing."
-        },
-        {
-          "portal": "mmreality.cz",
-          "url": "https://www.mmreality.cz/nemovitosti/918734/",
-          "stage": "helper_fetch",
-          "attempt": 1,
-          "status": "inactive",
-          "http_status": 200,
-          "message": "Helper reported inactive generic page."
-        },
-        {
-          "portal": "mmreality.cz",
-          "url": "https://www.mmreality.cz/nemovitosti/923874/",
-          "stage": "helper_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200,
-          "message": "Helper fetched active listing but rejected it because land area 644 m2 is below threshold."
-        },
-        {
           "portal": "realitymix.cz",
-          "url": "https://realitymix.cz/detail/velka-jesenice/prodej-rodinneho-domu-200-m-velka-jesenice-8317457.html",
-          "stage": "house_result_fetch",
+          "url": "https://www.realitymix.cz/reality/domy/prodej/",
+          "stage": "house_root_fetch",
           "attempt": 1,
           "status": "ok",
           "http_status": 200
         },
         {
           "portal": "realitymix.cz",
-          "url": "https://realitymix.cz/detail/velka-jesenice/prodej-rodinneho-domu-200-m-velka-jesenice-8317457.html",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200,
-          "message": "Helper rejected as land-below-threshold."
-        },
-        {
-          "portal": "realitymix.cz",
-          "url": "https://realitymix.cz/detail/velka-jesenice/prodej-pozemku-k-bydleni-v-velke-jesenici-8423571.html",
-          "stage": "land_result_fetch",
+          "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/",
+          "stage": "land_root_fetch",
           "attempt": 1,
           "status": "ok",
           "http_status": 200
         },
         {
           "portal": "realitymix.cz",
-          "url": "https://realitymix.cz/detail/velka-jesenice/prodej-pozemku-k-bydleni-v-velke-jesenici-8423571.html",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200,
-          "message": "Helper rejected as land-below-threshold."
-        },
-        {
-          "portal": "realitymix.cz",
-          "url": "https://realitymix.cz/detail/velka-jesenice/prodej-pozemku-928-m-8516499.html",
-          "stage": "land_result_fetch",
+          "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/",
+          "stage": "land_root_fetch",
           "attempt": 1,
           "status": "ok",
           "http_status": 200
-        },
-        {
-          "portal": "realitymix.cz",
-          "url": "https://realitymix.cz/detail/velka-jesenice/prodej-pozemku-928-m-8516499.html",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200,
-          "message": "Helper rejected as land-below-threshold."
-        },
-        {
-          "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-domy_vily.html",
-          "stage": "helper_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200,
-          "message": "Helper parsed result page; no row retained."
         },
         {
           "portal": "reality.aktualne.cz",
           "url": "https://reality.aktualne.cz/vyhledavani/pronajem-domy_vily.html",
-          "stage": "helper_fetch",
+          "stage": "search_fetch",
           "attempt": 1,
           "status": "ok",
-          "http_status": 200,
-          "message": "Helper parsed result page; no row retained."
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-domy_vily.html",
+          "stage": "search_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
         }
       ],
       "assumptions": [
-        "No sub-agents were spawned; the skill was applied in single-agent fallback mode with portal-by-portal checks.",
-        "For houses, land_size_min_m2 was applied to parcel area, not interior area.",
-        "For land, only buildable or residential land was eligible."
+        "local-first cached detail verification was used; cached MM Reality and Reality Aktuálně result pages plus RealityMix result-page discovery were used when available.",
+        "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Velká Jesenice."
       ],
       "gaps": [
-        "reality.idnes.cz had potentially relevant search/index snapshots, but detail verification was incomplete and no iDNES row was retained to avoid returning weak or non-detail URLs.",
-        "MM Reality search evidence for https://www.mmreality.cz/nemovitosti/918734/ showed a 1867 m2 residential land listing, but the portal helper classified the authoritative generic detail page as inactive, so it was excluded.",
-        "RealityMix exposed several Velká Jesenice rows, but helper-retained candidates were below the 1000 m2 land threshold or duplicated an unretained lower-parcel row.",
-        "Reality Aktuálně result pages were broad/noisy; the helper found no verified in-scope retained listing."
+        "missing-page-url:house",
+        "missing-page-url:land",
+        "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/pronajem-domy_vily.html",
+        "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-domy_vily.html"
       ],
       "ads": [
         {
@@ -1550,7 +1475,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T19:50:52+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T19:50:52+0200",
@@ -1863,7 +1788,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -1900,7 +1825,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -1930,7 +1855,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -1960,7 +1885,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2044,7 +1969,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2077,7 +2002,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2107,7 +2032,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2136,7 +2061,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2217,7 +2142,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2310,7 +2235,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2344,7 +2269,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2373,7 +2298,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2408,7 +2333,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2497,7 +2422,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2537,7 +2462,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2567,7 +2492,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2597,7 +2522,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2627,7 +2552,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2657,7 +2582,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2687,7 +2612,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2768,7 +2693,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2861,7 +2786,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2892,7 +2817,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -3068,7 +2993,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -3099,7 +3024,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -3185,7 +3110,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -3329,7 +3254,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-06T09:04:40+0200",
+          "last_seen_at": "2026-06-07T20:22:30+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
