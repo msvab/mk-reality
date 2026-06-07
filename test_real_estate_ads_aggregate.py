@@ -180,3 +180,106 @@ def test_price_history_appends_only_when_price_changes(tmp_path):
 
     assert [item["price_czk"] for item in ad["price_history"]] == [5000000, 4750000]
     assert ad["price_history"][-1]["seen_at"] == output["generated_at"]
+
+
+def test_merged_current_row_marks_all_previous_duplicate_urls_as_seen(tmp_path):
+    schools_input = tmp_path / "schools.json"
+    raw_dir = tmp_path / "raw"
+    raw_dir.mkdir()
+    schools_input.write_text('[{"city": "Nový Hrádek"}]\n', encoding="utf-8")
+    raw_dir.joinpath("novy-hradek.json").write_text(
+        json.dumps(
+            {
+                "city": "Nový Hrádek",
+                "query": {
+                    "municipality": "Nový Hrádek",
+                    "location_scope": "municipality_only",
+                    "country": "Czech Republic",
+                    "property_types": ["house", "chalupa", "land"],
+                    "land_size_min_m2": 1000,
+                },
+                "coverage": {
+                    "workers_launched": 3,
+                    "workers_with_results": 3,
+                    "candidates_gathered": 3,
+                    "rows_retained": 3,
+                    "zero_result_portals": [],
+                    "blocked_portals": [],
+                },
+                "listings": [
+                    {
+                        "portal": ["mmreality.cz"],
+                        "title": "Prodej, Pozemek k bydlení, 1328 m², Nový Hrádek",
+                        "location": "Nový Hrádek - Rzy, okres Náchod",
+                        "property_type": "land",
+                        "price": "1 650 000 Kč",
+                        "house_area_m2": "unknown",
+                        "land_area_m2": "1328",
+                        "urls": ["https://www.mmreality.cz/nemovitosti/943316/"],
+                        "notes": [],
+                    },
+                    {
+                        "portal": ["realitymix.cz"],
+                        "title": "Prodej pozemku k bydlení, 1328 m², Nový Hrádek - Rzy",
+                        "location": "Rzy, Nový Hrádek, okr. Náchod",
+                        "property_type": "land",
+                        "price": "1 650 000 Kč",
+                        "house_area_m2": "unknown",
+                        "land_area_m2": "1328",
+                        "urls": ["https://realitymix.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1328-m-novy-hradek-rzy-8602899.html"],
+                        "notes": [],
+                    },
+                ],
+            },
+            ensure_ascii=False,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    previous_aggregate = {
+        "cities": {
+            "Nový Hrádek": {
+                "count": 2,
+                "ads": [
+                    {
+                        "portal": ["mmreality.cz"],
+                        "title": "Prodej, Pozemek k bydlení, 1328 m², Nový Hrádek",
+                        "location": "Nový Hrádek - Rzy, okres Náchod",
+                        "property_type": "land",
+                        "price": "1 650 000 Kč",
+                        "price_czk": 1650000,
+                        "house_area_m2": None,
+                        "land_area_m2": 1328,
+                        "urls": ["https://www.mmreality.cz/nemovitosti/943316/"],
+                        "notes": [],
+                        "status": "active",
+                        "first_seen_at": "2026-06-01T00:00:00+0200",
+                        "last_seen_at": "2026-06-01T00:00:00+0200",
+                    },
+                    {
+                        "portal": ["realitymix.cz"],
+                        "title": "Prodej pozemku k bydlení, 1328 m², Nový Hrádek - Rzy",
+                        "location": "Rzy, Nový Hrádek, okr. Náchod",
+                        "property_type": "land",
+                        "price": "1 650 000 Kč",
+                        "price_czk": 1650000,
+                        "house_area_m2": None,
+                        "land_area_m2": 1328,
+                        "urls": ["https://realitymix.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1328-m-novy-hradek-rzy-8602899.html"],
+                        "notes": [],
+                        "status": "active",
+                        "first_seen_at": "2026-06-01T00:00:00+0200",
+                        "last_seen_at": "2026-06-01T00:00:00+0200",
+                    },
+                ],
+                "hidden_ads": [],
+            }
+        }
+    }
+
+    output = build_aggregate_output(schools_input, raw_dir, previous_aggregate=previous_aggregate)
+    bundle = output["cities"]["Nový Hrádek"]
+
+    assert bundle["count"] == 1
+    assert bundle["ads"][0]["portal"] == ["mmreality.cz", "realitymix.cz"]
+    assert bundle["hidden_ads"] == []

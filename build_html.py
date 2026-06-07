@@ -826,6 +826,11 @@ def overpass_query(query: str) -> dict:
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build the Dobruška school and real-estate HTML report.")
     parser.add_argument(
+        "--ads-only",
+        action="store_true",
+        help="Reuse dobruska_primary_schools.json and rebuild only ad counts/drawer data in index.html.",
+    )
+    parser.add_argument(
         "--refresh-overpass",
         action="store_true",
         help="Fetch fresh municipality, school, and amenity data from Overpass instead of using cached raw responses.",
@@ -1251,8 +1256,117 @@ def registry_city_has_kindergarten(city: str, registry_cache: dict, cache_lock: 
     else:
         registry_cache[key] = "1" if out else "0"
     return out
+
+
+def load_cached_school_rows(path: Path = Path("dobruska_primary_schools.json")) -> list[dict]:
+    if not path.exists():
+        raise FileNotFoundError(f"{path} does not exist; run a full build_html.py first.")
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(payload, list):
+        raise ValueError(f"{path} must contain a JSON array.")
+    return [row for row in payload if isinstance(row, dict)]
+
+
+def render_html(rows: list[dict]) -> str:
+    ads_by_city = load_real_estate_ads_by_city()
+    html_rows = []
+    for r in rows:
+        pop = f"{r['population']:,}".replace(",", " ") if r["population"] is not None else "N/A"
+        city_text = escape(str(r["city"]))
+        pop_text = escape(pop)
+        drive_text = escape(str(r["drive_min"]))
+        amenities_text = escape(str(r["amenities"]))
+        school_type_text = escape(str(r["school_type"]))
+        school_name_text = escape(str(r["school_name"]))
+        ads_count_cell = render_ads_count_cell(r["city"], ads_by_city)
+        href = safe_href(r.get("school_url"))
+        if href:
+            school_cell = f'<a href="{escape(href, quote=True)}" target="_blank" rel="noopener noreferrer">{school_name_text}</a>'
+        else:
+            school_cell = school_name_text
+        html_rows.append(
+            f"<tr><td>{city_text}</td><td>{pop_text}</td><td>{drive_text}</td><td>{amenities_text}</td><td>{ads_count_cell}</td><td>{school_type_text}</td><td>{school_cell}</td></tr>"
+        )
+
+    ads_drawer_assets = render_ads_drawer_assets(ads_by_city)
+    generated_on = time.strftime("%Y-%m-%d")
+    return f"""<!doctype html>
+    <html lang=\"en\">
+    <head>
+      <meta charset=\"utf-8\" />
+      <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />
+      <title>Kde bydlet?</title>
+      <style>
+        body {{ font-family: Arial, sans-serif; margin: 24px; }}
+        h1 {{ margin-bottom: 8px; }}
+        p {{ color: #444; margin-top: 0; }}
+        table {{ border-collapse: collapse; width: 100%; }}
+        th, td {{ border: 1px solid #ddd; padding: 8px; text-align: left; }}
+        th {{ background: #f4f4f4; }}
+        tr:nth-child(even) {{ background: #fafafa; }}
+        .ads-count {{ display: inline-flex; align-items: center; justify-content: center; min-width: 36px; padding: 4px 10px; border-radius: 999px; font-size: 14px; }}
+        .ads-count-empty {{ background: #ececec; color: #666; }}
+        .ads-count-button {{ border: 0; background: #0f766e; color: #fff; cursor: pointer; }}
+        .ads-count-button:hover {{ background: #115e59; }}
+        .ads-drawer-backdrop {{ position: fixed; inset: 0; background: rgba(15, 23, 42, 0.45); }}
+        .ads-drawer {{ position: fixed; top: 0; right: 0; width: min(820px, 100vw); height: 100vh; background: #fff; box-shadow: -10px 0 30px rgba(0, 0, 0, 0.18); transform: translateX(100%); transition: transform 0.2s ease; z-index: 20; display: flex; flex-direction: column; }}
+        .ads-drawer-open {{ transform: translateX(0); }}
+        .ads-drawer-header {{ display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 20px 24px 8px; border-bottom: 1px solid #e5e7eb; }}
+        .ads-drawer-header h2 {{ margin: 0 0 6px; }}
+        .ads-drawer-close {{ border: 0; background: transparent; font-size: 32px; line-height: 1; cursor: pointer; color: #555; }}
+        .ads-drawer-meta {{ padding: 12px 24px 0; color: #555; font-size: 14px; }}
+        .ads-drawer-table-wrap {{ overflow: auto; padding: 16px 24px 24px; }}
+        .ad-listing-cell {{ min-width: 240px; }}
+        .ad-listing-title {{ font-weight: 700; }}
+        .ad-listing-location {{ margin-top: 4px; color: #6b7280; font-size: 13px; line-height: 1.35; }}
+        .ads-price-cell {{ white-space: nowrap; }}
+        @media (max-width: 720px) {{
+          body {{ margin: 12px; }}
+          th, td {{ padding: 6px; font-size: 14px; }}
+          .ads-drawer-header {{ padding: 16px 16px 8px; }}
+          .ads-drawer-meta {{ padding: 12px 16px 0; }}
+          .ads-drawer-table-wrap {{ padding: 16px; }}
+          .ad-listing-cell {{ min-width: 180px; }}
+        }}
+      </style>
+    </head>
+    <body>
+      <h1>Kde bydlet?</h1>
+      <p>Zdroj dat: OpenStreetMap (obce/školy/populace) + OSRM routing. Vygenerováno dne {generated_on}. Záznamů: {len(rows)}.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Město</th>
+            <th>Počet obyvatel</th>
+            <th>Dojezd z Dobrušky (min)</th>
+            <th>Vybavenost</th>
+            <th>Počet inzerátů</th>
+            <th>Typ školy</th>
+            <th>Základní škola</th>
+          </tr>
+        </thead>
+        <tbody>
+          {''.join(html_rows)}
+        </tbody>
+      </table>
+      {ads_drawer_assets}
+    </body>
+    </html>
+    """
+
+
+def write_html(rows: list[dict]) -> None:
+    Path("index.html").write_text(render_html(rows), encoding="utf-8")
+
+
 def main() -> None:
     args = parse_args()
+    if args.ads_only:
+        rows = load_cached_school_rows()
+        write_html(rows)
+        print(f"Wrote {len(rows)} rows")
+        return
+
     places, schools, amenities = load_overpass_inputs(args)
 
     municipalities = []
@@ -1540,93 +1654,7 @@ def main() -> None:
 
     rows.sort(key=lambda r: (r["drive_min"], r["city"]))
 
-    ads_by_city = load_real_estate_ads_by_city()
-    html_rows = []
-    for r in rows:
-        pop = f"{r['population']:,}".replace(",", " ") if r["population"] is not None else "N/A"
-        city_text = escape(str(r["city"]))
-        pop_text = escape(pop)
-        drive_text = escape(str(r["drive_min"]))
-        amenities_text = escape(str(r["amenities"]))
-        school_type_text = escape(str(r["school_type"]))
-        school_name_text = escape(str(r["school_name"]))
-        ads_count_cell = render_ads_count_cell(r["city"], ads_by_city)
-        href = safe_href(r.get("school_url"))
-        if href:
-            school_cell = f'<a href="{escape(href, quote=True)}" target="_blank" rel="noopener noreferrer">{school_name_text}</a>'
-        else:
-            school_cell = school_name_text
-        html_rows.append(
-            f"<tr><td>{city_text}</td><td>{pop_text}</td><td>{drive_text}</td><td>{amenities_text}</td><td>{ads_count_cell}</td><td>{school_type_text}</td><td>{school_cell}</td></tr>"
-        )
-
-    ads_drawer_assets = render_ads_drawer_assets(ads_by_city)
-    generated_on = time.strftime("%Y-%m-%d")
-    html = f"""<!doctype html>
-    <html lang=\"en\">
-    <head>
-      <meta charset=\"utf-8\" />
-      <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />
-      <title>Kde bydlet?</title>
-      <style>
-        body {{ font-family: Arial, sans-serif; margin: 24px; }}
-        h1 {{ margin-bottom: 8px; }}
-        p {{ color: #444; margin-top: 0; }}
-        table {{ border-collapse: collapse; width: 100%; }}
-        th, td {{ border: 1px solid #ddd; padding: 8px; text-align: left; }}
-        th {{ background: #f4f4f4; }}
-        tr:nth-child(even) {{ background: #fafafa; }}
-        .ads-count {{ display: inline-flex; align-items: center; justify-content: center; min-width: 36px; padding: 4px 10px; border-radius: 999px; font-size: 14px; }}
-        .ads-count-empty {{ background: #ececec; color: #666; }}
-        .ads-count-button {{ border: 0; background: #0f766e; color: #fff; cursor: pointer; }}
-        .ads-count-button:hover {{ background: #115e59; }}
-        .ads-drawer-backdrop {{ position: fixed; inset: 0; background: rgba(15, 23, 42, 0.45); }}
-        .ads-drawer {{ position: fixed; top: 0; right: 0; width: min(820px, 100vw); height: 100vh; background: #fff; box-shadow: -10px 0 30px rgba(0, 0, 0, 0.18); transform: translateX(100%); transition: transform 0.2s ease; z-index: 20; display: flex; flex-direction: column; }}
-        .ads-drawer-open {{ transform: translateX(0); }}
-        .ads-drawer-header {{ display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 20px 24px 8px; border-bottom: 1px solid #e5e7eb; }}
-        .ads-drawer-header h2 {{ margin: 0 0 6px; }}
-        .ads-drawer-close {{ border: 0; background: transparent; font-size: 32px; line-height: 1; cursor: pointer; color: #555; }}
-        .ads-drawer-meta {{ padding: 12px 24px 0; color: #555; font-size: 14px; }}
-        .ads-drawer-table-wrap {{ overflow: auto; padding: 16px 24px 24px; }}
-        .ad-listing-cell {{ min-width: 240px; }}
-        .ad-listing-title {{ font-weight: 700; }}
-        .ad-listing-location {{ margin-top: 4px; color: #6b7280; font-size: 13px; line-height: 1.35; }}
-        .ads-price-cell {{ white-space: nowrap; }}
-        @media (max-width: 720px) {{
-          body {{ margin: 12px; }}
-          th, td {{ padding: 6px; font-size: 14px; }}
-          .ads-drawer-header {{ padding: 16px 16px 8px; }}
-          .ads-drawer-meta {{ padding: 12px 16px 0; }}
-          .ads-drawer-table-wrap {{ padding: 16px; }}
-          .ad-listing-cell {{ min-width: 180px; }}
-        }}
-      </style>
-    </head>
-    <body>
-      <h1>Kde bydlet?</h1>
-      <p>Zdroj dat: OpenStreetMap (obce/školy/populace) + OSRM routing. Vygenerováno dne {generated_on}. Záznamů: {len(rows)}.</p>
-      <table>
-        <thead>
-          <tr>
-            <th>Město</th>
-            <th>Počet obyvatel</th>
-            <th>Dojezd z Dobrušky (min)</th>
-            <th>Vybavenost</th>
-            <th>Počet inzerátů</th>
-            <th>Typ školy</th>
-            <th>Základní škola</th>
-          </tr>
-        </thead>
-        <tbody>
-          {''.join(html_rows)}
-        </tbody>
-      </table>
-      {ads_drawer_assets}
-    </body>
-    </html>
-    """
-
-    Path("index.html").write_text(html, encoding="utf-8")
+    write_html(rows)
     Path("dobruska_primary_schools.json").write_text(json.dumps(rows, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote {len(rows)} rows")
 

@@ -60,6 +60,31 @@ def normalize_text(text: str) -> str:
     return re.sub(r"\s+", " ", text.strip().lower())
 
 
+def slugify_text(text: str) -> str:
+    value = normalize_text(text)
+    replacements = {
+        "á": "a",
+        "ä": "a",
+        "č": "c",
+        "ď": "d",
+        "é": "e",
+        "ě": "e",
+        "í": "i",
+        "ň": "n",
+        "ó": "o",
+        "ř": "r",
+        "š": "s",
+        "ť": "t",
+        "ú": "u",
+        "ů": "u",
+        "ý": "y",
+        "ž": "z",
+    }
+    for source, target in replacements.items():
+        value = value.replace(source, target)
+    return re.sub(r"[^a-z0-9]+", "-", value).strip("-")
+
+
 def detect_fetch_status(text: str) -> tuple[str | None, int | None]:
     normalized = normalize_text(text)
     if not normalized:
@@ -349,6 +374,55 @@ def listing_fingerprint(listing: dict) -> tuple:
     )
 
 
+def title_has_numbered_parcel(title: str) -> bool:
+    normalized = normalize_text(title)
+    return bool(re.search(r"\b(?:č|c|číslo|cislo)\.?\s*\d+\b", normalized))
+
+
+def listing_url_city_slugs(listing: dict) -> set[str]:
+    slugs = set()
+    for url in listing.get("urls", []):
+        parsed = urllib.parse.urlparse(url)
+        parts = [part for part in parsed.path.split("/") if part]
+        if "detail" not in parts:
+            continue
+        detail_index = parts.index("detail")
+        if detail_index + 1 < len(parts):
+            slugs.add(parts[detail_index + 1])
+    return slugs
+
+
+def listing_matches_municipality(listing: dict, municipality_slug: str | None) -> bool:
+    if not municipality_slug:
+        return False
+    haystack = " ".join(
+        [
+            slugify_text(listing.get("title", "")),
+            slugify_text(listing.get("location", "")),
+            " ".join(listing_url_city_slugs(listing)),
+        ]
+    )
+    return municipality_slug in haystack
+
+
+def listing_identity_keys(listing: dict, municipality_slug: str | None = None) -> list[tuple]:
+    keys = [("exact", *listing_fingerprint(listing))]
+    if title_has_numbered_parcel(listing["title"]):
+        return keys
+    if not listing_matches_municipality(listing, municipality_slug):
+        return keys
+    area_key = (
+        "area-price",
+        municipality_slug,
+        listing["property_type"],
+        listing["price_czk"],
+        listing["house_area_m2"] if listing["property_type"] == "house" else None,
+        listing["land_area_m2"],
+    )
+    keys.append(area_key)
+    return keys
+
+
 def merge_listing(base: dict, incoming: dict) -> dict:
     merged = dict(base)
     merged["portal"] = sorted(set(base["portal"]) | set(incoming["portal"]))
@@ -374,14 +448,22 @@ def merge_listing(base: dict, incoming: dict) -> dict:
     return merged
 
 
-def dedupe_and_sort(listings: list[dict]) -> list[dict]:
+def dedupe_and_sort(listings: list[dict], municipality: str | None = None) -> list[dict]:
     merged = {}
+    key_to_primary = {}
+    municipality_slug = slugify_text(municipality or "") or None
     for listing in listings:
-        key = listing_fingerprint(listing)
-        if key in merged:
-            merged[key] = merge_listing(merged[key], listing)
+        keys = listing_identity_keys(listing, municipality_slug)
+        matched_key = next((key_to_primary[key] for key in keys if key in key_to_primary), None)
+        if matched_key is not None:
+            merged[matched_key] = merge_listing(merged[matched_key], listing)
+            for key in keys:
+                key_to_primary[key] = matched_key
         else:
-            merged[key] = listing
+            primary_key = keys[0]
+            merged[primary_key] = listing
+            for key in keys:
+                key_to_primary[key] = primary_key
     return sorted(
         merged.values(),
         key=lambda row: (
@@ -416,7 +498,11 @@ def build_output(payload: dict) -> dict:
         if listing:
             normalized.append(listing)
 
-    deduped = dedupe_and_sort(normalized)
+    municipality = None
+    query = payload.get("query", {})
+    if isinstance(query, dict):
+        municipality = query.get("municipality")
+    deduped = dedupe_and_sort(normalized, municipality=municipality)
     fetch_attempts = normalize_fetch_attempts(payload)
 
     coverage = payload.get("coverage", {}) if isinstance(payload.get("coverage"), dict) else {}

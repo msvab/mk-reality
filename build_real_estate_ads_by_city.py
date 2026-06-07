@@ -109,7 +109,7 @@ def ad_identity_keys(ad: dict) -> set[tuple[str, str]]:
     return keys
 
 
-def index_previous_ads(previous_bundle: dict | None) -> dict[tuple[str, str], dict]:
+def index_previous_ads(previous_bundle: dict | None) -> dict[tuple[str, str], list[dict]]:
     if not isinstance(previous_bundle, dict):
         return {}
     indexed = {}
@@ -121,7 +121,7 @@ def index_previous_ads(previous_bundle: dict | None) -> dict[tuple[str, str], di
             if not isinstance(ad, dict):
                 continue
             for key in ad_identity_keys(ad):
-                indexed.setdefault(key, ad)
+                indexed.setdefault(key, []).append(ad)
     return indexed
 
 
@@ -183,9 +183,10 @@ def merge_previous_city_bundle(bundle: dict, previous_bundle: dict | None, gener
 
     for ad in bundle["ads"]:
         keys = ad_identity_keys(ad)
-        previous = next((indexed_previous[key] for key in keys if key in indexed_previous), None)
-        if previous:
-            matched_previous_ids.add(id(previous))
+        previous = next((indexed_previous[key][0] for key in keys if key in indexed_previous), None)
+        for key in keys:
+            if key in indexed_previous:
+                matched_previous_ids.update(id(item) for item in indexed_previous[key])
         enriched = dict(ad)
         enriched["status"] = "active"
         enriched["first_seen_at"] = previous.get("first_seen_at", previous.get("last_seen_at", generated_at)) if previous else generated_at

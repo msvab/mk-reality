@@ -51,6 +51,12 @@ Refresh those source files explicitly when the Overpass query changes or the cac
 rtk proxy python3 build_html.py --refresh-overpass
 ```
 
+When only `real_estate_ads_by_city.json` changed, use the faster ads-only rebuild. It reuses `dobruska_primary_schools.json` and updates only ad counts and drawer data in `index.html`:
+
+```bash
+rtk python3 build_html.py --ads-only
+```
+
 ### [build_real_estate_ads_json.py](/Users/michal-mbp/dev/reality/build_real_estate_ads_json.py)
 
 Single-city ads normalizer.
@@ -158,7 +164,7 @@ Daily refresh:
 
 ```bash
 rtk python3 run_real_estate_ads_by_city.py --daily-refresh --local-first --aggregate-after-each
-rtk python3 build_html.py
+rtk python3 build_html.py --ads-only
 ```
 
 The daily refresh still runs current municipality-level searches so it can detect new and removed ads. It reuses the previous aggregate as a prompt cache, so known active ads do not need full detail re-discovery when the current search result still exposes the same URL/title/location/price/areas. Ads that were present previously but are missing from the latest city snapshot move from `ads` into `hidden_ads`; only active `ads` are counted and rendered.
@@ -292,14 +298,14 @@ For a fresh or partial ads refresh:
 
 ```bash
 rtk python3 run_real_estate_ads_by_city.py --limit 5 --aggregate-after-each
-rtk python3 build_html.py
+rtk python3 build_html.py --ads-only
 ```
 
 After verifying the first few cities:
 
 ```bash
 rtk python3 run_real_estate_ads_by_city.py --aggregate-after-each
-rtk python3 build_html.py
+rtk python3 build_html.py --ads-only
 ```
 
 ## Notes
