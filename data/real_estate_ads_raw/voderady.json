@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 2,
     "workers_with_results": 0,
-    "candidates_gathered": 0,
+    "candidates_gathered": 2,
     "rows_retained": 0,
     "zero_result_portals": [
       "realitymix.cz",
@@ -88,13 +88,39 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Vod%C4%9Brady&form%5Bcena_mena%5D=1",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/voderady/prodej-rodinneho-domu-150-m-vyhnanice-u-voderad-8279109.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/voderady/prodej-rodinneho-domu-v-voderadech-8545253.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",
-    "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html"
+    "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/voderady/prodej-rodinneho-domu-150-m-vyhnanice-u-voderad-8279109.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/voderady/prodej-rodinneho-domu-v-voderadech-8545253.html"
   ],
   "listings": []
 }

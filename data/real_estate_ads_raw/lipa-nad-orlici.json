@@ -29,12 +29,10 @@
   ],
   "coverage": {
     "workers_launched": 2,
-    "workers_with_results": 1,
-    "candidates_gathered": 1,
-    "rows_retained": 1,
-    "zero_result_portals": [
-      "reality.aktualne.cz"
-    ],
+    "workers_with_results": 2,
+    "candidates_gathered": 3,
+    "rows_retained": 2,
+    "zero_result_portals": [],
     "blocked_portals": []
   },
   "portal_status": {
@@ -43,8 +41,8 @@
       "message": "Retained at least one detail-verified RealityMix row."
     },
     "reality.aktualne.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Reality Aktuálně rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
     }
   },
   "fetch_attempts": [
@@ -95,13 +93,38 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=L%C3%ADpa+nad+Orlic%C3%AD&form%5Bcena_mena%5D=1",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/lipa-nad-orlici/prodej-2-rodinnych-domu-s-bazenem-lipa-nad-orlici-8533969.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/lipa-nad-orlici/pronajem-dreveneho-srubu-2-ps-lipa-nad-orlici-8537033.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",
-    "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html"
+    "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/lipa-nad-orlici/pronajem-dreveneho-srubu-2-ps-lipa-nad-orlici-8537033.html"
   ],
   "listings": [
     {
@@ -119,6 +142,24 @@
       ],
       "notes": [
         "detail-url-verified:realitymix.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej 2 rodinných domů s bazénem Lípa nad Orlicí",
+      "location": "Lípa nad Orlicí, Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "11 950 000 Kč",
+      "house_area_m2": "340",
+      "land_area_m2": "1427",
+      "urls": [
+        "https://reality.aktualne.cz/detail/lipa-nad-orlici/prodej-2-rodinnych-domu-s-bazenem-lipa-nad-orlici-8533969.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "aggregator-source:remax-g8-reality"
       ]
     }
   ]

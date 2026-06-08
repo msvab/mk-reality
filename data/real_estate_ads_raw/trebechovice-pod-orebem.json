@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 2,
     "workers_with_results": 0,
-    "candidates_gathered": 2,
+    "candidates_gathered": 15,
     "rows_retained": 0,
     "zero_result_portals": [
       "realitymix.cz",
@@ -40,12 +40,8 @@
   },
   "portal_status": {
     "realitymix.cz": {
-      "status": "fallback_page",
-      "stage": "detail_parse",
-      "message": "Požadovaný inzerát již není v naší databázi",
-      "evidence": [
-        "detail_parse:fallback_page:https://realitymix.cz/detail/trebechovice-pod-orebem/prodej-rodinneho-domu-487-m-trebechovice-pod-orebem-8542373.html"
-      ]
+      "status": "no_results",
+      "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
       "status": "no_results",
@@ -53,30 +49,6 @@
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/trebechovice-pod-orebem/prodej-rodinneho-domu-487-m-trebechovice-pod-orebem-8542373.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/trebechovice-pod-orebem/prodej-rodinneho-domu-487-m-trebechovice-pod-orebem-8542373.html",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Požadovaný inzerát již není v naší databázi"
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/trebechovice-pod-orebem/prodej-rd-ve-stylu-venkovskeho-statku-pro-velkou-rodinu-po-rekonstrukci-427-m2-pozemek-3-101-m2-vnit-8257719.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -116,15 +88,156 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=T%C5%99ebechovice+pod+Orebem&form%5Bcena_mena%5D=1",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trebechovice-pod-orebem/nabidka-komercniho-ubyt-s-moznosti-vyuziti-pro-wellness-chov-koni-427-m-16-mistnosti-pozem-3-101-8592953.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-bytu-3-kk-73-m-trebechovice-pod-orebem-8519305.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-chaty-16-m-trebechovice-pod-orebem-8503559.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-chaty-19-m2-trebechovice-pod-orebem-8408431.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-chaty-35-m2-trebechovice-pod-orebem-8614579.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-na-klic-black-stone-xl-8369157.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-pozemku-907-m2-stenkov-8251871.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-pozemku-k-vystavbe-rodinneho-domu-526m2-8487181.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-rd-ve-stylu-venkovskeho-statku-pro-velkou-rodinu-po-rekonstrukci-427-m-pozemek-3-101-m-vnit-8257719.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-rodinneho-domu-113-m-trebechovice-pod-orebem-8601559.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-roubenky-5-kk-219-m-pozemek-1-456-m-vlastni-rybnik-polanky-nad-dedinou-cena-11-800-0-8561533.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trebechovice-pod-orebem/pronajem-bytu-1-kk-v-trebechovicich-p-o-masarykovo-nam-8595635.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trebechovice-pod-orebem/pronajem-komercniho-arealu-trebechovice-pod-orebem-8606977.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trebechovice-pod-orebem/pronajem-roubenky-5-kk-219-m-pozemek-1-456-m-vlastni-rybnik-polanky-nad-dedinou-cena-35-000-8592317.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trebechovice-pod-orebem/rodinny-dum-trebechovice-pod-orebem-8463547.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
-    "removed-fallback-page:https://realitymix.cz/detail/trebechovice-pod-orebem/prodej-rodinneho-domu-487-m-trebechovice-pod-orebem-8542373.html",
-    "non-buildable-land:https://realitymix.cz/detail/trebechovice-pod-orebem/prodej-rd-ve-stylu-venkovskeho-statku-pro-velkou-rodinu-po-rekonstrukci-427-m2-pozemek-3-101-m2-vnit-8257719.html",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",
-    "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html"
+    "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/nabidka-komercniho-ubyt-s-moznosti-vyuziti-pro-wellness-chov-koni-427-m-16-mistnosti-pozem-3-101-8592953.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-bytu-3-kk-73-m-trebechovice-pod-orebem-8519305.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-chaty-16-m-trebechovice-pod-orebem-8503559.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-chaty-19-m2-trebechovice-pod-orebem-8408431.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-chaty-35-m2-trebechovice-pod-orebem-8614579.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-na-klic-black-stone-xl-8369157.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-pozemku-907-m2-stenkov-8251871.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-pozemku-k-vystavbe-rodinneho-domu-526m2-8487181.html",
+    "non-buildable-land:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-rd-ve-stylu-venkovskeho-statku-pro-velkou-rodinu-po-rekonstrukci-427-m-pozemek-3-101-m-vnit-8257719.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-rodinneho-domu-113-m-trebechovice-pod-orebem-8601559.html",
+    "non-buildable-land:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-roubenky-5-kk-219-m-pozemek-1-456-m-vlastni-rybnik-polanky-nad-dedinou-cena-11-800-0-8561533.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/pronajem-bytu-1-kk-v-trebechovicich-p-o-masarykovo-nam-8595635.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/pronajem-komercniho-arealu-trebechovice-pod-orebem-8606977.html",
+    "non-buildable-land:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/pronajem-roubenky-5-kk-219-m-pozemek-1-456-m-vlastni-rybnik-polanky-nad-dedinou-cena-35-000-8592317.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/rodinny-dum-trebechovice-pod-orebem-8463547.html"
   ],
   "listings": []
 }
