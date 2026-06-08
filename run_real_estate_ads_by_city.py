@@ -21,6 +21,7 @@ DEFAULT_STATE_PATH = Path("real_estate_ads_run_state.json")
 DEFAULT_AGGREGATE_PATH = Path("real_estate_ads_by_city.json")
 DEFAULT_SCHEMA_PATH = Path("real_estate_ads_exec_output.schema.json")
 LOCAL_FETCHERS = {
+    "reality.idnes.cz": Path(".codex/skills/find-real-estate-ads/scripts/reality_idnes_fetch.py"),
     "mmreality.cz": Path(".codex/skills/find-real-estate-ads/scripts/mmreality_fetch.py"),
     "realitymix.cz": Path(".codex/skills/find-real-estate-ads/scripts/realitymix_fetch.py"),
     "reality.aktualne.cz": Path(".codex/skills/find-real-estate-ads/scripts/reality_aktualne_fetch.py"),
@@ -284,7 +285,7 @@ def combine_local_fetcher_payloads(city: str, payloads: list[dict]) -> dict:
         "blocked_portals": [],
     }
     assumptions = [
-        "local-first cached detail verification was used; cached MM Reality and Reality Aktuálně result pages plus RealityMix result-page discovery were used when available."
+        "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported."
     ]
     gaps = []
     listings = []

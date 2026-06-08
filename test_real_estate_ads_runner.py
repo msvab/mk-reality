@@ -172,7 +172,7 @@ def test_cached_detail_urls_are_grouped_by_supported_local_fetcher_portal():
     assert urls["mmreality.cz"] == ["https://www.mmreality.cz/nemovitosti/123/"]
     assert urls["realitymix.cz"] == ["https://realitymix.cz/detail/opocno/example-456.html"]
     assert urls["reality.aktualne.cz"] == ["https://reality.aktualne.cz/detail/opocno/example-789.html"]
-    assert "reality.idnes.cz" not in urls
+    assert urls["reality.idnes.cz"] == ["https://reality.idnes.cz/detail/prodej/dum/opocno/abc/"]
 
 
 def test_cached_realitymix_result_page_urls_are_grouped_by_category():
@@ -471,6 +471,57 @@ def test_local_fetchers_pass_cached_mmreality_result_page_urls(tmp_path, monkeyp
     assert "--result-url" in commands[0]
     assert "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/kralovehradecky-kraj/" in commands[0]
     assert "--detail-url" not in commands[0]
+
+
+def test_local_fetchers_pass_cached_reality_idnes_detail_urls(tmp_path, monkeypatch):
+    commands = []
+
+    def fake_run(cmd, check, capture_output, text):
+        commands.append(cmd)
+        payload = {
+            "city": "Librantice",
+            "query": {
+                "municipality": "Librantice",
+                "location_scope": "municipality_only",
+                "country": "Czech Republic",
+                "property_types": ["house", "chalupa", "land"],
+                "land_size_min_m2": 1000,
+            },
+            "assumptions": [],
+            "coverage": {
+                "workers_launched": 1,
+                "workers_with_results": 1,
+                "candidates_gathered": 1,
+                "rows_retained": 1,
+                "zero_result_portals": [],
+                "blocked_portals": [],
+            },
+            "portal_status": {"reality.idnes.cz": {"status": "ok"}},
+            "fetch_attempts": [],
+            "gaps": [],
+            "listings": [{"portal": ["reality.idnes.cz"], "title": "iDNES land"}],
+        }
+        return subprocess.CompletedProcess(cmd, 0, stdout=json.dumps(payload), stderr="")
+
+    previous_aggregate = {
+        "cities": {
+            "Librantice": {
+                "ads": [
+                    {
+                        "portal": ["reality.idnes.cz"],
+                        "urls": ["https://reality.idnes.cz/detail/prodej/pozemek/librantice/6915d21cf78ea8ee7a08c865/"],
+                    }
+                ]
+            }
+        }
+    }
+    monkeypatch.setattr("run_real_estate_ads_by_city.subprocess.run", fake_run)
+
+    assert run_local_fetchers("Librantice", tmp_path, tmp_path / "raw.json", previous_aggregate)
+
+    assert commands[0][1].endswith("reality_idnes_fetch.py")
+    assert "--detail-url" in commands[0]
+    assert "https://reality.idnes.cz/detail/prodej/pozemek/librantice/6915d21cf78ea8ee7a08c865/" in commands[0]
 
 
 def test_local_fetchers_pass_cached_reality_aktualne_result_page_urls_and_discovery(tmp_path, monkeypatch):
