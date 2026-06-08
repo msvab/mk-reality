@@ -5,6 +5,7 @@ from run_real_estate_ads_by_city import (
     cached_detail_urls_by_portal,
     cached_mmreality_result_page_urls,
     cached_reality_aktualne_result_page_urls,
+    cached_reality_idnes_result_page_urls,
     cached_realitymix_result_page_urls,
     city_refresh_summary,
     combine_local_fetcher_payloads,
@@ -288,6 +289,39 @@ def test_cached_reality_aktualne_result_page_urls_ignore_detail_pages():
     ]
 
 
+def test_cached_reality_idnes_result_page_urls_ignore_detail_pages():
+    previous_aggregate = {
+        "cities": {
+            "Librantice": {
+                "fetch_attempts": [
+                    {
+                        "portal": "reality.idnes.cz",
+                        "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-83488",
+                        "stage": "search_fetch",
+                        "status": "ok",
+                    },
+                    {
+                        "portal": "reality.idnes.cz",
+                        "url": "https://reality.idnes.cz/detail/prodej/dum/librantice/example/",
+                        "stage": "detail_fetch",
+                        "status": "ok",
+                    },
+                    {
+                        "portal": "reality.idnes.cz",
+                        "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-83488",
+                        "stage": "search_fetch",
+                        "status": "fetch_error",
+                    },
+                ]
+            }
+        }
+    }
+
+    urls = cached_reality_idnes_result_page_urls(previous_aggregate, "Librantice")
+
+    assert urls == ["https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-83488"]
+
+
 def test_local_fetcher_payloads_are_combined_into_raw_city_payload():
     payload = combine_local_fetcher_payloads(
         "Opočno",
@@ -520,8 +554,63 @@ def test_local_fetchers_pass_cached_reality_idnes_detail_urls(tmp_path, monkeypa
     assert run_local_fetchers("Librantice", tmp_path, tmp_path / "raw.json", previous_aggregate)
 
     assert commands[0][1].endswith("reality_idnes_fetch.py")
+    assert "--discover-results" in commands[0]
     assert "--detail-url" in commands[0]
     assert "https://reality.idnes.cz/detail/prodej/pozemek/librantice/6915d21cf78ea8ee7a08c865/" in commands[0]
+
+
+def test_local_fetchers_pass_cached_reality_idnes_result_page_urls_without_cached_details(tmp_path, monkeypatch):
+    commands = []
+
+    def fake_run(cmd, check, capture_output, text):
+        commands.append(cmd)
+        payload = {
+            "city": "Librantice",
+            "query": {
+                "municipality": "Librantice",
+                "location_scope": "municipality_only",
+                "country": "Czech Republic",
+                "property_types": ["house", "chalupa", "land"],
+                "land_size_min_m2": 1000,
+            },
+            "assumptions": [],
+            "coverage": {
+                "workers_launched": 1,
+                "workers_with_results": 0,
+                "candidates_gathered": 0,
+                "rows_retained": 0,
+                "zero_result_portals": ["reality.idnes.cz"],
+                "blocked_portals": [],
+            },
+            "portal_status": {"reality.idnes.cz": {"status": "no_results"}},
+            "fetch_attempts": [],
+            "gaps": [],
+            "listings": [],
+        }
+        return subprocess.CompletedProcess(cmd, 0, stdout=json.dumps(payload), stderr="")
+
+    previous_aggregate = {
+        "cities": {
+            "Librantice": {
+                "fetch_attempts": [
+                    {
+                        "portal": "reality.idnes.cz",
+                        "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-83488",
+                        "stage": "search_fetch",
+                        "status": "ok",
+                    }
+                ]
+            }
+        }
+    }
+    monkeypatch.setattr("run_real_estate_ads_by_city.subprocess.run", fake_run)
+
+    assert run_local_fetchers("Librantice", tmp_path, tmp_path / "raw.json", previous_aggregate)
+
+    assert commands[0][1].endswith("reality_idnes_fetch.py")
+    assert "--result-url" in commands[0]
+    assert "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-83488" in commands[0]
+    assert "--detail-url" not in commands[0]
 
 
 def test_local_fetchers_pass_cached_reality_aktualne_result_page_urls_and_discovery(tmp_path, monkeypatch):

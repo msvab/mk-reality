@@ -275,6 +275,21 @@ def cached_reality_aktualne_result_page_urls(previous_aggregate: dict | None, ci
     return urls
 
 
+def cached_reality_idnes_result_page_urls(previous_aggregate: dict | None, city: str) -> list[str]:
+    urls = []
+    for attempt in cached_portal_fetch_attempts(previous_aggregate, city, "reality.idnes.cz"):
+        if attempt.get("status") != "ok":
+            continue
+        url = str(attempt.get("url", ""))
+        if "reality.idnes.cz" not in url:
+            continue
+        if "/s/prodej/" not in url or "/detail/" in url:
+            continue
+        if url not in urls:
+            urls.append(url)
+    return urls
+
+
 def combine_local_fetcher_payloads(city: str, payloads: list[dict]) -> dict:
     coverage = {
         "workers_launched": len(payloads),
@@ -345,16 +360,32 @@ def run_local_fetchers(
     mmreality_result_urls = cached_mmreality_result_page_urls(previous_aggregate, city)
     realitymix_result_urls = cached_realitymix_result_page_urls(previous_aggregate, city)
     reality_aktualne_result_urls = cached_reality_aktualne_result_page_urls(previous_aggregate, city)
+    reality_idnes_result_urls = cached_reality_idnes_result_page_urls(previous_aggregate, city)
     payloads = []
     for portal, urls in urls_by_portal.items():
+        use_reality_idnes_results = portal == "reality.idnes.cz" and bool(reality_idnes_result_urls)
+        discover_reality_idnes = portal == "reality.idnes.cz" and bool(urls)
         use_cached_mmreality_results = portal == "mmreality.cz" and bool(mmreality_result_urls)
         discover_realitymix = portal == "realitymix.cz"
         use_reality_aktualne_results = portal == "reality.aktualne.cz" and bool(reality_aktualne_result_urls)
         discover_reality_aktualne = portal == "reality.aktualne.cz"
-        if not urls and not discover_realitymix and not use_cached_mmreality_results and not use_reality_aktualne_results and not discover_reality_aktualne:
+        if (
+            not urls
+            and not use_reality_idnes_results
+            and not discover_reality_idnes
+            and not discover_realitymix
+            and not use_cached_mmreality_results
+            and not use_reality_aktualne_results
+            and not discover_reality_aktualne
+        ):
             continue
         script_path = repo_root / LOCAL_FETCHERS[portal]
         cmd = [sys.executable, str(script_path), "--municipality", city]
+        if use_reality_idnes_results:
+            for result_url in reality_idnes_result_urls:
+                cmd.extend(["--result-url", result_url])
+        if discover_reality_idnes:
+            cmd.append("--discover-results")
         if use_cached_mmreality_results:
             for result_url in mmreality_result_urls:
                 cmd.extend(["--result-url", result_url])

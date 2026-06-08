@@ -7,7 +7,7 @@ import subprocess
 import sys
 from html import unescape
 from pathlib import Path
-from urllib.parse import urlsplit, urlunsplit
+from urllib.parse import parse_qs, urlencode, urlsplit, urlunsplit
 
 USER_AGENT = "Mozilla/5.0"
 
@@ -115,6 +115,41 @@ def canonicalize_detail_url(url: str) -> str:
     return urlunsplit(("https", "reality.idnes.cz", parts.path.rstrip("/") + "/", "", ""))
 
 
+def canonicalize_result_url(url: str) -> str:
+    parts = urlsplit(unescape(url))
+    return urlunsplit(("https", "reality.idnes.cz", parts.path.rstrip("/") + "/", urlencode(parse_qs(parts.query), doseq=True), ""))
+
+
+def result_urls_from_locality_ids(locality_ids: list[str]) -> list[str]:
+    urls = []
+    for locality_id in locality_ids:
+        if not re.fullmatch(r"CAST_OBCE-\d+", locality_id):
+            continue
+        for category in ("domy", "pozemky"):
+            url = f"https://reality.idnes.cz/s/prodej/{category}/?s-l={locality_id}"
+            if url not in urls:
+                urls.append(url)
+    return urls
+
+
+def extract_locality_ids(html: str) -> list[str]:
+    ids = []
+    for match in re.finditer(r"s-l=(CAST_OBCE-\d+)", unescape(html)):
+        locality_id = match.group(1)
+        if locality_id not in ids:
+            ids.append(locality_id)
+    return ids
+
+
+def extract_detail_urls(html: str) -> list[str]:
+    urls = []
+    for match in re.finditer(r'href=["\']([^"\']*/detail/prodej/[^"\']+)["\']', html, re.IGNORECASE):
+        url = canonicalize_detail_url(unescape(match.group(1)))
+        if url not in urls:
+            urls.append(url)
+    return urls
+
+
 def extract_meta_content(html: str, prop: str) -> str | None:
     match = re.search(
         rf'<meta\s+(?:property|name)="{re.escape(prop)}"\s+content="([^"]*)"',
@@ -158,6 +193,11 @@ def format_price(price_czk: int | None) -> str | None:
     if price_czk is None:
         return None
     return f"{price_czk:,}".replace(",", " ") + " Kč"
+
+
+def price_sort_value(listing: dict) -> int:
+    digits = re.sub(r"[^\d]", "", str(listing.get("price", "")))
+    return int(digits) if digits else 0
 
 
 def infer_property_type(url: str, title: str, category: str) -> tuple[str | None, str | None]:
@@ -268,7 +308,13 @@ def build_portal_status(fetch_attempts: list[dict], listings: list[dict]) -> dic
     return output
 
 
-def build_output(municipality: str, location_scope: str, detail_urls: list[str]) -> dict:
+def build_output(
+    municipality: str,
+    location_scope: str,
+    detail_urls: list[str],
+    result_urls: list[str] | None = None,
+    discover_results: bool = False,
+) -> dict:
     coverage = {
         "workers_launched": 1,
         "workers_with_results": 0,
@@ -280,16 +326,31 @@ def build_output(municipality: str, location_scope: str, detail_urls: list[str])
     fetch_attempts: list[dict] = []
     gaps: list[str] = []
     listings: list[dict] = []
+    locality_ids: list[str] = []
+    fetched_detail_html: dict[str, str] = {}
     candidate_urls = [canonicalize_detail_url(url) for url in detail_urls if "/detail/" in url]
-    coverage["candidates_gathered"] = len(candidate_urls)
 
-    for detail_url in candidate_urls:
+    def remember_detail_url(url: str) -> None:
+        canonical_url = canonicalize_detail_url(url)
+        if canonical_url not in candidate_urls:
+            candidate_urls.append(canonical_url)
+
+    def remember_locality_ids(html: str) -> None:
+        for locality_id in extract_locality_ids(html):
+            if locality_id not in locality_ids:
+                locality_ids.append(locality_id)
+
+    def verify_detail_url(detail_url: str) -> None:
         try:
-            html = run_fetch(detail_url, attempts=fetch_attempts, stage="detail_fetch")
+            html = fetched_detail_html.get(detail_url)
+            if html is None:
+                html = run_fetch(detail_url, attempts=fetch_attempts, stage="detail_fetch")
+                fetched_detail_html[detail_url] = html
         except RuntimeError as exc:
             gaps.append(f"failed-detail-fetch:{detail_url}:{exc}")
             coverage["blocked_portals"].append(f"reality.idnes.cz detail fetch failed: {detail_url}: {exc}")
-            continue
+            return
+        remember_locality_ids(html)
         listing, reason = listing_from_detail(detail_url, html, municipality)
         if listing is not None:
             listings.append(listing)
@@ -305,7 +366,43 @@ def build_output(municipality: str, location_scope: str, detail_urls: list[str])
                 )
             gaps.append(f"{reason}:{detail_url}")
 
-    listings.sort(key=lambda item: re.sub(r"[^\d]", "", item["price"]), reverse=True)
+    verified_detail_urls = set()
+    for detail_url in list(candidate_urls):
+        verify_detail_url(detail_url)
+        verified_detail_urls.add(detail_url)
+
+    normalized_result_urls = []
+    for result_url in result_urls or []:
+        if "/s/prodej/" in result_url and result_url not in normalized_result_urls:
+            normalized_result_urls.append(canonicalize_result_url(result_url))
+    if discover_results:
+        for result_url in result_urls_from_locality_ids(locality_ids):
+            if result_url not in normalized_result_urls:
+                normalized_result_urls.append(result_url)
+        if not normalized_result_urls:
+            gaps.append("idnes-discovery-missing-locality-id")
+
+    for result_url in normalized_result_urls:
+        try:
+            html = run_fetch(result_url, attempts=fetch_attempts, stage="search_fetch")
+        except RuntimeError as exc:
+            gaps.append(f"result-fetch-error:{result_url}:{exc}")
+            coverage["blocked_portals"].append(f"reality.idnes.cz result fetch failed: {result_url}: {exc}")
+            continue
+        discovered_urls = extract_detail_urls(html)
+        if not discovered_urls:
+            gaps.append(f"result-no-detail-links:{result_url}")
+        for detail_url in discovered_urls:
+            remember_detail_url(detail_url)
+
+    for detail_url in list(candidate_urls):
+        if detail_url in verified_detail_urls:
+            continue
+        verify_detail_url(detail_url)
+        verified_detail_urls.add(detail_url)
+
+    coverage["candidates_gathered"] = len(candidate_urls)
+    listings.sort(key=price_sort_value, reverse=True)
     coverage["rows_retained"] = len(listings)
     coverage["workers_with_results"] = 1 if listings else 0
     if not listings:
@@ -332,10 +429,16 @@ def build_output(municipality: str, location_scope: str, detail_urls: list[str])
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Fetch and normalize cached reality.idnes.cz detail listings for one municipality.")
+    parser = argparse.ArgumentParser(description="Fetch and normalize reality.idnes.cz listings for one municipality.")
     parser.add_argument("--municipality", required=True)
     parser.add_argument("--location-scope", default="municipality_only")
     parser.add_argument("--detail-url", action="append", default=[])
+    parser.add_argument("--result-url", action="append", default=[])
+    parser.add_argument(
+        "--discover-results",
+        action="store_true",
+        help="Use cached iDNES detail pages to discover municipality result pages and verify their detail URLs.",
+    )
     parser.add_argument("--output")
     args = parser.parse_args()
 
@@ -343,6 +446,8 @@ def main() -> int:
         municipality=args.municipality,
         location_scope=args.location_scope,
         detail_urls=args.detail_url,
+        result_urls=args.result_url,
+        discover_results=args.discover_results,
     )
     rendered = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
     if args.output:
