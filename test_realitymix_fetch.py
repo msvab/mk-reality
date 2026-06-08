@@ -68,3 +68,15 @@ def test_realitymix_discovery_fetches_result_page_details(monkeypatch):
     assert payload["listings"][0]["urls"] == [detail_url]
     assert ("land_root_fetch", root_url) in fetches
     assert ("land_result_fetch", result_url) in fetches
+
+
+def test_statek_with_pozemek_in_title_is_house_not_land():
+    module = load_realitymix_fetch()
+
+    assert (
+        module.infer_property_type(
+            "Statek s velkým pozemkem cca 2182 m2, Librantice",
+            "https://realitymix.cz/detail/librantice/statek-s-velkym-pozemkem-cca-2182-m2-librantice-8565045.html",
+        )
+        == "house"
+    )

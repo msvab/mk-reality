@@ -251,6 +251,8 @@ def extract_area_value(text: str | None) -> int | None:
 
 def infer_property_type(title: str, canonical_url: str) -> str:
     lowered = f"{title} {canonical_url}".casefold()
+    if any(marker in lowered for marker in ["statek", "usedlost", "dům", "dum", "domu", "vila", "rd"]):
+        return "house"
     if "pozem" in lowered:
         return "land"
     return "house"

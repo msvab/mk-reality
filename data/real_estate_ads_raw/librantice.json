@@ -1,1 +1,124 @@
-{"city":"Librantice","query":{"municipality":"Librantice","location_scope":"municipality_only","country":"Czech Republic","property_types":["house","chalupa","land"],"price_min":null,"price_max":null,"house_size_min_m2":null,"house_size_max_m2":null,"land_size_min_m2":1000,"land_size_max_m2":null,"must_have":["sale listings","buildable or residential land only"],"exclude":["chata"]},"assumptions":["No sub-agents were launched; the skill's single-agent fallback was used with separate portal-by-portal checks.","`chalupa` is input-only and matching house-like rows are normalized to `house`.","`municipality_only` was treated as listings whose visible location is Librantice."],"coverage":{"workers_launched":0,"workers_with_results":0,"candidates_gathered":5,"rows_retained":2,"zero_result_portals":["mmreality.cz","reality.aktualne.cz"],"blocked_portals":[]},"gaps":["reality.idnes.cz: found and retained one qualifying buildable land listing; no qualifying house listing found in the supported-portal search pass.","realitymix.cz: found one qualifying house listing and filtered out two visible Librantice house listings because parcel areas were below 1000 m2 (578 m2 and 666 m2).","realitymix.cz: older duplicate/superseded farm listing with the same 2182 m2 property was not retained; newer visible listing at 11,990,000 Kč was used.","mmreality.cz: no exact-municipality qualifying listings found; script/search pass returned only outside-municipality results.","reality.aktualne.cz: no exact-municipality qualifying listings found."],"listings":[{"portal":["realitymix.cz"],"title":"Statek s velkým pozemkem cca 2182 m2, Librantice","location":"Librantice, okr. Hradec Králové","property_type":"house","price":"11 990 000 Kč","house_area_m2":"785","land_area_m2":"2182","urls":["https://realitymix.cz/detail/librantice/statek-s-velkym-pozemkem-cca-2182-m2-librantice-8565045.html"],"notes":["detail-verified","aggregator-source:bidli.cz","normalized-house-like-listing","residential-use:former-trvale-bydleni"]},{"portal":["reality.idnes.cz"],"title":"Prodej zasíťovaného stavebního pozemku, 1150 m2, Librantice, okr. Hradec Králové","location":"Librantice, okres Hradec Králové","property_type":"land","price":"5 980 000 Kč","house_area_m2":"unknown","land_area_m2":"1150","urls":["https://reality.idnes.cz/detail/prodej/pozemek/librantice/6915d21cf78ea8ee7a08c865/"],"notes":["detail-verified","buildable-residential","utilities:electricity-gas-water-sewer","one-of-three-plots"]}]}
+{
+  "city": "Librantice",
+  "query": {
+    "municipality": "Librantice",
+    "location_scope": "municipality_only",
+    "country": "Czech Republic",
+    "property_types": [
+      "house",
+      "chalupa",
+      "land"
+    ],
+    "price_min": null,
+    "price_max": null,
+    "house_size_min_m2": null,
+    "house_size_max_m2": null,
+    "land_size_min_m2": 1000,
+    "land_size_max_m2": null,
+    "must_have": [
+      "sale listings",
+      "buildable or residential land only"
+    ],
+    "exclude": [
+      "chata"
+    ]
+  },
+  "assumptions": [
+    "local-first cached detail verification was used; cached MM Reality and Reality Aktuálně result pages plus RealityMix result-page discovery were used when available.",
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Librantice."
+  ],
+  "coverage": {
+    "workers_launched": 2,
+    "workers_with_results": 1,
+    "candidates_gathered": 2,
+    "rows_retained": 1,
+    "zero_result_portals": [
+      "reality.aktualne.cz"
+    ],
+    "blocked_portals": []
+  },
+  "portal_status": {
+    "realitymix.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified RealityMix row."
+    },
+    "reality.aktualne.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope Reality Aktuálně rows."
+    }
+  },
+  "fetch_attempts": [
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/librantice/statek-s-velkym-pozemkem-cca-2182-m2-librantice-8565045.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/domy/prodej/",
+      "stage": "house_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Librantice&form%5Bcena_mena%5D=1",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/librantice/statek-s-velkym-pozemkem-cca-2182-m2-librantice-8565045.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    }
+  ],
+  "gaps": [
+    "missing-page-url:house",
+    "missing-page-url:land",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/librantice/statek-s-velkym-pozemkem-cca-2182-m2-librantice-8565045.html"
+  ],
+  "listings": [
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Statek s velkým pozemkem cca 2182 m2, Librantice",
+      "location": "Librantice, okr. Hradec Králové",
+      "property_type": "house",
+      "price": "11 690 000 Kč",
+      "house_area_m2": "785",
+      "land_area_m2": "2182",
+      "urls": [
+        "https://realitymix.cz/detail/librantice/statek-s-velkym-pozemkem-cca-2182-m2-librantice-8565045.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz"
+      ]
+    }
+  ]
+}

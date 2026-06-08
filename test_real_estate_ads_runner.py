@@ -6,8 +6,10 @@ from run_real_estate_ads_by_city import (
     cached_mmreality_result_page_urls,
     cached_reality_aktualne_result_page_urls,
     cached_realitymix_result_page_urls,
+    city_refresh_summary,
     combine_local_fetcher_payloads,
     daily_refresh_city_completed_today,
+    format_delta,
     run_local_fetchers,
     select_cities,
 )
@@ -63,6 +65,88 @@ def test_select_cities_raises_for_unknown_city():
         assert "unknown city" in str(exc)
     else:
         raise AssertionError("expected unknown city to fail")
+
+
+def test_city_refresh_summary_reports_deltas_new_ads_and_price_changes():
+    previous_aggregate = {
+        "cities": {
+            "Opočno": {
+                "ads": [
+                    {
+                        "title": "Existing house",
+                        "location": "Opočno",
+                        "property_type": "house",
+                        "price_czk": 5000000,
+                        "house_area_m2": 120,
+                        "land_area_m2": 1200,
+                        "urls": ["https://example.test/existing"],
+                    },
+                    {
+                        "title": "Removed house",
+                        "location": "Opočno",
+                        "property_type": "house",
+                        "price_czk": 4000000,
+                        "house_area_m2": 90,
+                        "land_area_m2": 1100,
+                        "urls": ["https://example.test/removed"],
+                    },
+                ],
+                "hidden_ads": [],
+            }
+        }
+    }
+    current_aggregate = {
+        "cities": {
+            "Opočno": {
+                "ads": [
+                    {
+                        "title": "Existing house",
+                        "location": "Opočno",
+                        "property_type": "house",
+                        "price_czk": 4750000,
+                        "house_area_m2": 120,
+                        "land_area_m2": 1200,
+                        "urls": ["https://example.test/existing"],
+                    },
+                    {
+                        "title": "New house",
+                        "location": "Opočno",
+                        "property_type": "house",
+                        "price_czk": 6000000,
+                        "house_area_m2": 130,
+                        "land_area_m2": 1300,
+                        "urls": ["https://example.test/new"],
+                    },
+                ],
+                "hidden_ads": [
+                    {
+                        "title": "Removed house",
+                        "location": "Opočno",
+                        "property_type": "house",
+                        "price_czk": 4000000,
+                        "house_area_m2": 90,
+                        "land_area_m2": 1100,
+                        "urls": ["https://example.test/removed"],
+                    }
+                ],
+            }
+        }
+    }
+
+    assert city_refresh_summary(current_aggregate, previous_aggregate, "Opočno") == {
+        "active": 2,
+        "active_delta": 0,
+        "hidden": 1,
+        "hidden_delta": 1,
+        "new": 1,
+        "price_changed": 1,
+    }
+
+
+def test_format_delta_shows_explicit_plus_for_positive_values():
+    assert format_delta(2) == "+2"
+    assert format_delta(0) == "0"
+    assert format_delta(-1) == "-1"
 
 
 def test_cached_detail_urls_are_grouped_by_supported_local_fetcher_portal():

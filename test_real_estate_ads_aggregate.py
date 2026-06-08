@@ -97,6 +97,75 @@ def test_previous_ads_missing_from_latest_snapshot_are_hidden(tmp_path):
     assert output["coverage"]["hidden_ads"] == 1
 
 
+def test_previous_ads_from_uncovered_portals_stay_active(tmp_path):
+    schools_input = tmp_path / "schools.json"
+    raw_dir = tmp_path / "raw"
+    raw_dir.mkdir()
+    schools_input.write_text('[{"city": "Librantice"}]\n', encoding="utf-8")
+    raw_dir.joinpath("librantice.json").write_text(
+        json.dumps(
+            {
+                "city": "Librantice",
+                "query": {
+                    "municipality": "Librantice",
+                    "location_scope": "municipality_only",
+                    "country": "Czech Republic",
+                    "property_types": ["house", "chalupa", "land"],
+                    "land_size_min_m2": 1000,
+                },
+                "coverage": {
+                    "workers_launched": 2,
+                    "workers_with_results": 0,
+                    "candidates_gathered": 0,
+                    "rows_retained": 0,
+                    "zero_result_portals": ["realitymix.cz", "reality.aktualne.cz"],
+                    "blocked_portals": [],
+                },
+                "portal_status": {
+                    "realitymix.cz": {"status": "no_results"},
+                    "reality.aktualne.cz": {"status": "no_results"},
+                },
+                "listings": [],
+            },
+            ensure_ascii=False,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    previous_aggregate = {
+        "cities": {
+            "Librantice": {
+                "count": 1,
+                "ads": [
+                    {
+                        "portal": ["reality.idnes.cz"],
+                        "title": "iDNES land",
+                        "location": "Librantice",
+                        "property_type": "land",
+                        "price": "5 980 000 Kč",
+                        "price_czk": 5980000,
+                        "house_area_m2": None,
+                        "land_area_m2": 1150,
+                        "urls": ["https://reality.idnes.cz/detail/prodej/pozemek/librantice/6915d21cf78ea8ee7a08c865/"],
+                        "notes": [],
+                        "status": "active",
+                        "first_seen_at": "2026-06-01T00:00:00+0200",
+                        "last_seen_at": "2026-06-01T00:00:00+0200",
+                    }
+                ],
+                "hidden_ads": [],
+            }
+        }
+    }
+
+    output = build_aggregate_output(schools_input, raw_dir, previous_aggregate=previous_aggregate)
+    bundle = output["cities"]["Librantice"]
+
+    assert bundle["count"] == 1
+    assert bundle["ads"][0]["portal"] == ["reality.idnes.cz"]
+    assert bundle["hidden_ads"] == []
+
+
 def test_price_history_is_preserved_when_price_is_unchanged(tmp_path):
     schools_input, raw_dir = write_school_and_raw(tmp_path, price="5 000 000 Kč")
     previous_aggregate = {

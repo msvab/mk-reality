@@ -1,1 +1,137 @@
-{"city":"Rasošky","query":{"municipality":"Rasošky","location_scope":"municipality_only","country":"Czech Republic","property_types":["house","chalupa","land"],"price_min":null,"price_max":null,"house_size_min_m2":null,"house_size_max_m2":null,"land_size_min_m2":1000,"land_size_max_m2":null,"must_have":["sale listings","municipality only","land area at least 1000 m2","buildable or residential land only"],"exclude":["chata"]},"assumptions":["No sub-agents were spawned; used the skill's single-agent fallback with separate portal checks for reality.idnes.cz, mmreality.cz, realitymix.cz, and reality.aktualne.cz.","The duplicate RealityMix house and land advertisements appear to describe the same underlying TRIGA Reality property, so they were merged into one retained row."],"coverage":{"workers_launched":0,"workers_with_results":0,"candidates_gathered":2,"rows_retained":1,"zero_result_portals":["reality.idnes.cz","mmreality.cz","reality.aktualne.cz"],"blocked_portals":[]},"gaps":["RealityMix helper did not retain the listing from result-page fetches, so the retained row relies on indexed RealityMix detail snippets plus corroborating canonical agency/indexed pages exposing the same price, parcel area, house area, municipality, and listing number.","Direct RealityMix curl verification was intermittent during the run; confidence is good but not as strong as a freshly opened live detail page.","Unsupported corroborating portals showed smaller residential land below 1000 m2 and forest/field listings; those were excluded by the skill filters and are not returned."],"listings":[{"portal":["realitymix.cz"],"title":"Rasošky - Prodej domu s projektem novostavby a rozlehlými pozemky 3 593 m2","location":"Rasošky, okr. Náchod","property_type":"house","price":"6 250 000 Kč","house_area_m2":"75","land_area_m2":"3593","urls":["https://realitymix.cz/detail/rasosky/rasosky-prodej-domu-s-projektem-novostavby-a-rozlehlymi-pozemky-3-593-m2-8411309.html","https://realitymix.cz/detail/rasosky/rasosky-soubor-stavebnich-pozemku-3-953-m2-se-schvalenym-projektem-k-vystavbe-8411255.html"],"notes":["sale","detail-snippet-sufficient","duplicate-merged-from:realitymix.cz-land-ad","listing-id:REALITYMIX-N02287","alternate-listing-id:REALITYMIX-N02285","agency:TRIGA reality s.r.o.","buildable-residential-use:approved-project-and-residential-zoning-described","price-verified-from-indexed-detail"]}]}
+{
+  "city": "Rasošky",
+  "query": {
+    "municipality": "Rasošky",
+    "location_scope": "municipality_only",
+    "country": "Czech Republic",
+    "property_types": [
+      "house",
+      "chalupa",
+      "land"
+    ],
+    "price_min": null,
+    "price_max": null,
+    "house_size_min_m2": null,
+    "house_size_max_m2": null,
+    "land_size_min_m2": 1000,
+    "land_size_max_m2": null,
+    "must_have": [
+      "sale listings",
+      "buildable or residential land only"
+    ],
+    "exclude": [
+      "chata"
+    ]
+  },
+  "assumptions": [
+    "local-first cached detail verification was used; cached MM Reality and Reality Aktuálně result pages plus RealityMix result-page discovery were used when available.",
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Rasošky."
+  ],
+  "coverage": {
+    "workers_launched": 2,
+    "workers_with_results": 0,
+    "candidates_gathered": 3,
+    "rows_retained": 0,
+    "zero_result_portals": [
+      "realitymix.cz",
+      "reality.aktualne.cz"
+    ],
+    "blocked_portals": []
+  },
+  "portal_status": {
+    "realitymix.cz": {
+      "status": "fallback_page",
+      "stage": "detail_parse",
+      "message": "Požadovaný inzerát již není v naší databázi",
+      "evidence": [
+        "detail_parse:fallback_page:https://realitymix.cz/detail/rasosky/rasosky-prodej-domu-s-projektem-novostavby-a-rozlehlymi-pozemky-3-593-m2-8411309.html"
+      ]
+    },
+    "reality.aktualne.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope Reality Aktuálně rows."
+    }
+  },
+  "fetch_attempts": [
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/rasosky/rasosky-prodej-domu-s-projektem-novostavby-a-rozlehlymi-pozemky-3-593-m2-8411309.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/rasosky/rasosky-prodej-domu-s-projektem-novostavby-a-rozlehlymi-pozemky-3-593-m2-8411309.html",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Požadovaný inzerát již není v naší databázi"
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/rasosky/rasosky-soubor-stavebnich-pozemku-3-953-m2-se-schvalenym-projektem-k-vystavbe-8411255.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/rasosky/rasosky-soubor-stavebnich-pozemku-3-953-m2-se-schvalenym-projektem-k-vystavbe-8411255.html",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Požadovaný inzerát již není v naší databázi"
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/domy/prodej/",
+      "stage": "house_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Raso%C5%A1ky&form%5Bcena_mena%5D=1",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/rasosky/pronajem-noveho-bytu-1-1-30-m2-dolni-ples-8603505.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    }
+  ],
+  "gaps": [
+    "removed-fallback-page:https://realitymix.cz/detail/rasosky/rasosky-prodej-domu-s-projektem-novostavby-a-rozlehlymi-pozemky-3-593-m2-8411309.html",
+    "removed-fallback-page:https://realitymix.cz/detail/rasosky/rasosky-soubor-stavebnich-pozemku-3-953-m2-se-schvalenym-projektem-k-vystavbe-8411255.html",
+    "missing-page-url:house",
+    "missing-page-url:land",
+    "outside-municipality:https://reality.aktualne.cz/detail/rasosky/pronajem-noveho-bytu-1-1-30-m2-dolni-ples-8603505.html"
+  ],
+  "listings": []
+}

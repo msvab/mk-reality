@@ -202,8 +202,13 @@ def merge_previous_city_bundle(bundle: dict, previous_bundle: dict | None, gener
             previous_active = []
         if not isinstance(previous_hidden, list):
             previous_hidden = []
+        covered_portals = set(bundle.get("portal_status", {})) | set(bundle.get("coverage", {}).get("zero_result_portals", []))
         for previous in previous_active + previous_hidden:
             if not isinstance(previous, dict) or id(previous) in matched_previous_ids:
+                continue
+            previous_portals = {str(portal) for portal in previous.get("portal", [])}
+            if previous in previous_active and previous_portals and not previous_portals.issubset(covered_portals):
+                active_ads.append(previous)
                 continue
             hidden = dict(previous)
             hidden["status"] = "hidden"
