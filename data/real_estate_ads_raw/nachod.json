@@ -24,55 +24,28 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached MM Reality and Reality Aktuálně result pages plus RealityMix result-page discovery were used when available.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Náchod."
   ],
   "coverage": {
-    "workers_launched": 3,
+    "workers_launched": 2,
     "workers_with_results": 2,
-    "candidates_gathered": 32,
+    "candidates_gathered": 28,
     "rows_retained": 4,
-    "zero_result_portals": [
-      "mmreality.cz"
-    ],
+    "zero_result_portals": [],
     "blocked_portals": []
   },
   "portal_status": {
     "realitymix.cz": {
-      "status": "fallback_page",
-      "stage": "detail_parse",
-      "message": "Požadovaný inzerát již není v naší databázi",
-      "evidence": [
-        "detail_parse:fallback_page:https://realitymix.cz/detail/nachod/prodej-rodinneho-domu-1130-m-nachod-8446033.html"
-      ]
+      "status": "ok",
+      "message": "Retained at least one detail-verified RealityMix row."
     },
     "reality.aktualne.cz": {
-      "status": "fallback_page",
-      "http_status": 404,
-      "stage": "discovery_detail_fetch",
-      "message": "HTTP 404",
-      "evidence": [
-        "discovery_detail_fetch:fallback_page:https://reality.aktualne.cz/detail/nachod/prodej-rodinneho-domu-1130-m-nachod-8446033.html"
-      ]
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/nachod/prodej-rodinneho-domu-1130-m-nachod-8446033.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/nachod/prodej-rodinneho-domu-1130-m-nachod-8446033.html",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Požadovaný inzerát již není v naší databázi"
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://realitymix.cz/detail/nachod/prodej-rodinneho-domu-165-m-nachod-brazec-8573911.html",
@@ -83,32 +56,8 @@
     },
     {
       "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/nachod/nachod-prodej-rodinneho-domu-s-garazi-a-pozemkem-1271-m2-7781068.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/nachod/nachod-prodej-rodinneho-domu-s-garazi-a-pozemkem-1271-m2-7781068.html",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Požadovaný inzerát již není v naší databázi"
-    },
-    {
-      "portal": "realitymix.cz",
       "url": "https://realitymix.cz/detail/nachod/prodej-pozemku-k-bydleni-1382-m-nachod-male-porici-8519679.html",
       "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://www.realitymix.cz/reality/domy/prodej/",
-      "stage": "house_root_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -155,14 +104,6 @@
     },
     {
       "portal": "realitymix.cz",
-      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/",
-      "stage": "land_root_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/kralovehradecky/nachod",
       "stage": "land_result_fetch",
       "attempt": 1,
@@ -184,15 +125,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/nachod/prodej-rodinneho-domu-1130-m-nachod-8446033.html",
-      "stage": "discovery_detail_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 404,
-      "error": "HTTP 404"
     },
     {
       "portal": "reality.aktualne.cz",
@@ -316,23 +248,6 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/nachod/prodej-rodinneho-domu-1130-m-nachod-8446033.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/nachod/prodej-rodinneho-domu-1130-m-nachod-8446033.html",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Detail URL returned fallback or non-detail content."
-    },
-    {
-      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/nachod/prodej-rodinneho-domu-140-m-nachod-ul-1-maje-8419617.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -397,9 +312,6 @@
     }
   ],
   "gaps": [
-    "inactive-generic-page:https://www.mmreality.cz/nemovitosti/918301/",
-    "removed-fallback-page:https://realitymix.cz/detail/nachod/prodej-rodinneho-domu-1130-m-nachod-8446033.html",
-    "removed-fallback-page:https://realitymix.cz/detail/nachod/nachod-prodej-rodinneho-domu-s-garazi-a-pozemkem-1271-m2-7781068.html",
     "land-below-threshold:https://realitymix.cz/detail/nachod/prodej-domu-166-m-pozemek-376-m-8615975.html",
     "land-below-threshold:https://realitymix.cz/detail/nachod/prodej-rodinneho-domu-140-m-nachod-ul-1-maje-8419617.html",
     "land-below-threshold:https://realitymix.cz/detail/nachod/prodej-rodinneho-domu-143-m-pozemek-530-m-pavlisov-8538081.html",
@@ -416,7 +328,6 @@
     "land-below-threshold:https://reality.aktualne.cz/detail/nachod/prodej-domu-166-m-pozemek-376-m-8615975.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/nachod/prodej-malometrazniho-bytu-2-kk-45m-k-rekonstrukci-8614809.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/nachod/prodej-mezonetoveho-bytu-3-1-v-nachode-ul-vodarenska-8610121.html",
-    "detail-fallback-page:https://reality.aktualne.cz/detail/nachod/prodej-rodinneho-domu-1130-m-nachod-8446033.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/nachod/prodej-rodinneho-domu-140-m-nachod-ul-1-maje-8419617.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/nachod/pronajem-bytu-1-1-v-nachode-ul-bila-8609483.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/nachod/pronajem-bytu-1-kk-v-nachode-nachodu-ul-prazska-8465573.html",

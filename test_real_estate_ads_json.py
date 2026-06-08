@@ -1,4 +1,4 @@
-from build_real_estate_ads_json import build_output
+from build_real_estate_ads_json import build_output, detect_fetch_status
 
 
 def base_payload(listings):
@@ -101,3 +101,13 @@ def test_numbered_same_price_same_area_plots_do_not_merge():
     output = build_output(payload)
 
     assert len(output["listings"]) == 2
+
+
+def test_fetch_status_does_not_treat_listing_id_digits_as_http_429():
+    assert detect_fetch_status(
+        "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-kancelarskych-prostor-142-34-m2-jaromer-8542993.html"
+    ) == (None, None)
+
+
+def test_fetch_status_detects_real_http_429():
+    assert detect_fetch_status("detail_fetch failed: HTTP 429") == ("rate_limited", 429)

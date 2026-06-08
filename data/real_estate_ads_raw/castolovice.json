@@ -24,13 +24,13 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached MM Reality and Reality Aktuálně result pages plus RealityMix result-page discovery were used when available.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Častolovice."
   ],
   "coverage": {
     "workers_launched": 2,
     "workers_with_results": 0,
-    "candidates_gathered": 7,
+    "candidates_gathered": 6,
     "rows_retained": 0,
     "zero_result_portals": [
       "realitymix.cz",
@@ -40,12 +40,8 @@
   },
   "portal_status": {
     "realitymix.cz": {
-      "status": "fallback_page",
-      "stage": "detail_parse",
-      "message": "Požadovaný inzerát již není v naší databázi",
-      "evidence": [
-        "detail_parse:fallback_page:https://realitymix.cz/detail/castolovice/prodej-rd-v-castolovicich-1513-m2-8396825.html"
-      ]
+      "status": "no_results",
+      "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
       "status": "no_results",
@@ -53,22 +49,6 @@
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/castolovice/prodej-rd-v-castolovicich-1513-m2-8396825.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/castolovice/prodej-rd-v-castolovicich-1513-m2-8396825.html",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Požadovaný inzerát již není v naší databázi"
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -151,7 +131,6 @@
     }
   ],
   "gaps": [
-    "removed-fallback-page:https://realitymix.cz/detail/castolovice/prodej-rd-v-castolovicich-1513-m2-8396825.html",
     "missing-page-url:house",
     "missing-page-url:land",
     "unsupported-property-type:https://reality.aktualne.cz/detail/castolovice/prodej-bytu-2-1-51-m-castolovice-ul-u-konopace-8382827.html",

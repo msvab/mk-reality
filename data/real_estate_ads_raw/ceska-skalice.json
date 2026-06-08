@@ -24,13 +24,13 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached MM Reality and Reality Aktuálně result pages plus RealityMix result-page discovery were used when available.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Česká Skalice."
   ],
   "coverage": {
     "workers_launched": 3,
     "workers_with_results": 2,
-    "candidates_gathered": 13,
+    "candidates_gathered": 11,
     "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz"
@@ -48,22 +48,6 @@
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/ceska-skalice/prodej-vicegeneracniho-domu-ceska-skalice-zlic-8030259.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/ceska-skalice/prodej-arealu-dve-stavby-k-bydleni-3-byty-ceska-skalice-8149103.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -84,6 +68,38 @@
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/",
       "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/ceska-skalice/prodej-apartmanu-a-rodinneho-domu-ceska-skalice-zlic-8030538.html",
+      "stage": "discovery_detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/ceska-skalice/prodej-rodinneho-domu-247-m-ceska-skalice-8149103.html",
+      "stage": "discovery_detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/ceska-skalice/prodej-vicegeneracniho-domu-ceska-skalice-zlic-8030259.html",
+      "stage": "discovery_detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-domy_vily.html",
+      "stage": "search_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -170,8 +186,6 @@
     }
   ],
   "gaps": [
-    "land-below-threshold:https://realitymix.cz/detail/ceska-skalice/prodej-vicegeneracniho-domu-ceska-skalice-zlic-8030259.html",
-    "land-below-threshold:https://realitymix.cz/detail/ceska-skalice/prodej-arealu-dve-stavby-k-bydleni-3-byty-ceska-skalice-8149103.html",
     "missing-page-url:house",
     "missing-page-url:land",
     "unsupported-property-type:https://reality.aktualne.cz/detail/ceska-skalice/druzstevni-byt-2-1-s-balkonem-ceska-skalice-8445135.html",
