@@ -24,20 +24,24 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached MM Reality and Reality Aktuálně result pages plus RealityMix result-page discovery were used when available.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Librantice."
   ],
   "coverage": {
-    "workers_launched": 2,
-    "workers_with_results": 1,
-    "candidates_gathered": 2,
-    "rows_retained": 1,
+    "workers_launched": 3,
+    "workers_with_results": 2,
+    "candidates_gathered": 3,
+    "rows_retained": 2,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
+    },
     "realitymix.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified RealityMix row."
@@ -48,6 +52,14 @@
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/librantice/6915d21cf78ea8ee7a08c865/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "realitymix.cz",
       "url": "https://realitymix.cz/detail/librantice/statek-s-velkym-pozemkem-cca-2182-m2-librantice-8565045.html",
@@ -103,6 +115,24 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/librantice/statek-s-velkym-pozemkem-cca-2182-m2-librantice-8565045.html"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej zasíťovaného stavebního pozemku, 1150 m2, Librantice, okr. Hradec Králové",
+      "location": "Librantice, okres Hradec Králové",
+      "property_type": "land",
+      "price": "5 980 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1150",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/librantice/6915d21cf78ea8ee7a08c865/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
     {
       "portal": [
         "realitymix.cz"
