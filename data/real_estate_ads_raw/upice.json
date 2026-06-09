@@ -1,0 +1,295 @@
+{
+  "city": "Úpice",
+  "query": {
+    "municipality": "Úpice",
+    "location_scope": "municipality_only",
+    "country": "Czech Republic",
+    "property_types": [
+      "house",
+      "chalupa",
+      "land"
+    ],
+    "price_min": null,
+    "price_max": null,
+    "house_size_min_m2": null,
+    "house_size_max_m2": null,
+    "land_size_min_m2": 1000,
+    "land_size_max_m2": null,
+    "must_have": [
+      "sale listings",
+      "buildable or residential land only"
+    ],
+    "exclude": [
+      "chata"
+    ]
+  },
+  "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Úpice."
+  ],
+  "coverage": {
+    "workers_launched": 2,
+    "workers_with_results": 1,
+    "candidates_gathered": 15,
+    "rows_retained": 4,
+    "zero_result_portals": [
+      "realitymix.cz"
+    ],
+    "blocked_portals": []
+  },
+  "portal_status": {
+    "realitymix.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope RealityMix rows."
+    },
+    "reality.aktualne.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
+    }
+  },
+  "fetch_attempts": [
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/domy/prodej/",
+      "stage": "house_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=%C3%9Apice&form%5Bcena_mena%5D=1",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/upice/chata-po-castecne-rekonstrukci-u-potoka-radec-upice-8-9-podil-8406815.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/upice/nove-zrekonstruovany-byt-8618769.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/upice/prodej-chaty-30-m-upice-8524197.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/upice/prodej-komercnich-prostory-1705m2-v-upici-8561841.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/upice/prodej-obchodniho-prostoru-1212-m2-bezrucova-upice-8398967.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/upice/prodej-pozemek-bydleni-497-8570871.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/upice/prodej-pozemku-5361-m2-upice-okr-trutnov-8191943.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/upice/prodej-rodinneho-domu-110-m-upice-ul-chelcickeho-8432469.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/upice/prodej-rodinneho-domu-136-m-upice-8544701.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/upice/prodej-rodinneho-domu-4-1-210-m2-sukova-upice-8413527.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/upice/prodej-rodinneho-domu-v-upici-ul-palackeho-8575065.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/upice/prodej-stavebniho-pozemku-upice-8590755.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/upice/prodej-zahrady-radec-739-m2-8562145.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/upice/pronajem-byt-2-kk-44-8592639.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/upice/pronajem-bytu-2-kk-46-m2-narodni-upice-8581731.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    }
+  ],
+  "gaps": [
+    "missing-page-url:house",
+    "missing-page-url:land",
+    "excluded-chata:https://reality.aktualne.cz/detail/upice/chata-po-castecne-rekonstrukci-u-potoka-radec-upice-8-9-podil-8406815.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/upice/nove-zrekonstruovany-byt-8618769.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/upice/prodej-chaty-30-m-upice-8524197.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/upice/prodej-komercnich-prostory-1705m2-v-upici-8561841.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/upice/prodej-obchodniho-prostoru-1212-m2-bezrucova-upice-8398967.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/upice/prodej-pozemek-bydleni-497-8570871.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/upice/prodej-rodinneho-domu-4-1-210-m2-sukova-upice-8413527.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/upice/prodej-rodinneho-domu-v-upici-ul-palackeho-8575065.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/upice/prodej-zahrady-radec-739-m2-8562145.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/upice/pronajem-byt-2-kk-44-8592639.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/upice/pronajem-bytu-2-kk-46-m2-narodni-upice-8581731.html"
+  ],
+  "listings": [
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej rodinného domu, 110 m², Úpice, ul. Chelčického",
+      "location": "Chelčického, Úpice, Trutnov",
+      "property_type": "house",
+      "price": "3 790 000 Kč",
+      "house_area_m2": "110",
+      "land_area_m2": "1592",
+      "urls": [
+        "https://reality.aktualne.cz/detail/upice/prodej-rodinneho-domu-110-m-upice-ul-chelcickeho-8432469.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "aggregator-source:nema-reality"
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej pozemku 5361 m2, Úpice okr. Trutnov",
+      "location": "Máchova, Úpice, Trutnov",
+      "property_type": "land",
+      "price": "3 070 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "5361",
+      "urls": [
+        "https://reality.aktualne.cz/detail/upice/prodej-pozemku-5361-m2-upice-okr-trutnov-8191943.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "buildable-land",
+        "aggregator-source:mgr.-jindrich-svoboda"
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej stavebního pozemku, Úpice",
+      "location": "Puškinova, Úpice, Trutnov",
+      "property_type": "land",
+      "price": "1 899 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1649",
+      "urls": [
+        "https://reality.aktualne.cz/detail/upice/prodej-stavebniho-pozemku-upice-8590755.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "buildable-land",
+        "aggregator-source:qara-s.r.o."
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej rodinného domu, 136 m², Úpice",
+      "location": "Macharova, Úpice, Trutnov",
+      "property_type": "house",
+      "price": "1 690 000 Kč",
+      "house_area_m2": "133",
+      "land_area_m2": "1770",
+      "urls": [
+        "https://reality.aktualne.cz/detail/upice/prodej-rodinneho-domu-136-m-upice-8544701.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "aggregator-source:reality-zavadil-a-partneri-s.r.o."
+      ]
+    }
+  ]
+}

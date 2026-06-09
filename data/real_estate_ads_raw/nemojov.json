@@ -1,0 +1,197 @@
+{
+  "city": "Nemojov",
+  "query": {
+    "municipality": "Nemojov",
+    "location_scope": "municipality_only",
+    "country": "Czech Republic",
+    "property_types": [
+      "house",
+      "chalupa",
+      "land"
+    ],
+    "price_min": null,
+    "price_max": null,
+    "house_size_min_m2": null,
+    "house_size_max_m2": null,
+    "land_size_min_m2": 1000,
+    "land_size_max_m2": null,
+    "must_have": [
+      "sale listings",
+      "buildable or residential land only"
+    ],
+    "exclude": [
+      "chata"
+    ]
+  },
+  "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Nemojov."
+  ],
+  "coverage": {
+    "workers_launched": 2,
+    "workers_with_results": 1,
+    "candidates_gathered": 4,
+    "rows_retained": 4,
+    "zero_result_portals": [
+      "realitymix.cz"
+    ],
+    "blocked_portals": []
+  },
+  "portal_status": {
+    "realitymix.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope RealityMix rows."
+    },
+    "reality.aktualne.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
+    }
+  },
+  "fetch_attempts": [
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/domy/prodej/",
+      "stage": "house_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Nemojov&form%5Bcena_mena%5D=1",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/nemojov/nemojov-pekny-stavebni-pozemek-8241167.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/nemojov/prodej-9-stavebnich-pozemku-dolni-nemojov-8397997.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/nemojov/prodej-novostavby-rodinneho-domu-5-kk-projekt-vystavby-na-vyber-z-9-pozemku-8397973.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/nemojov/roubenka-dolni-nemojov-chalupa-s-kouzlem-i-vynosem-8468943.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    }
+  ],
+  "gaps": [
+    "missing-page-url:house",
+    "missing-page-url:land"
+  ],
+  "listings": [
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej novostavby rodinného domu 5+kk - projekt výstavby na výběr z 9 pozemků",
+      "location": "Dolní Nemojov, Trutnov",
+      "property_type": "house",
+      "price": "8 400 000 Kč",
+      "house_area_m2": "122",
+      "land_area_m2": "1366",
+      "urls": [
+        "https://reality.aktualne.cz/detail/nemojov/prodej-novostavby-rodinneho-domu-5-kk-projekt-vystavby-na-vyber-z-9-pozemku-8397973.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "aggregator-source:bidli-reality,-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Roubenka Dolní Nemojov - chalupa s kouzlem i výnosem",
+      "location": "Dolní Nemojov, Trutnov",
+      "property_type": "house",
+      "price": "7 290 000 Kč",
+      "house_area_m2": "50",
+      "land_area_m2": "3738",
+      "urls": [
+        "https://reality.aktualne.cz/detail/nemojov/roubenka-dolni-nemojov-chalupa-s-kouzlem-i-vynosem-8468943.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "normalized-from:chalupa",
+        "aggregator-source:bidli-reality,-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej 9 stavebních pozemků, Dolní Nemojov",
+      "location": "Dolní Nemojov, Nemojov, okr.Trutnov",
+      "property_type": "land",
+      "price": "1 990 Kč (za m 2 )",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1366",
+      "urls": [
+        "https://reality.aktualne.cz/detail/nemojov/prodej-9-stavebnich-pozemku-dolni-nemojov-8397997.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "buildable-land",
+        "aggregator-source:bidli-reality,-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Nemojov - Pěkný stavební pozemek",
+      "location": "Dolní Nemojov, Trutnov",
+      "property_type": "land",
+      "price": "1 990 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1611",
+      "urls": [
+        "https://reality.aktualne.cz/detail/nemojov/nemojov-pekny-stavebni-pozemek-8241167.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "buildable-land",
+        "aggregator-source:triga-reality-s.r.o."
+      ]
+    }
+  ]
+}

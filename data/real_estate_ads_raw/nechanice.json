@@ -1,0 +1,231 @@
+{
+  "city": "Nechanice",
+  "query": {
+    "municipality": "Nechanice",
+    "location_scope": "municipality_only",
+    "country": "Czech Republic",
+    "property_types": [
+      "house",
+      "chalupa",
+      "land"
+    ],
+    "price_min": null,
+    "price_max": null,
+    "house_size_min_m2": null,
+    "house_size_max_m2": null,
+    "land_size_min_m2": 1000,
+    "land_size_max_m2": null,
+    "must_have": [
+      "sale listings",
+      "buildable or residential land only"
+    ],
+    "exclude": [
+      "chata"
+    ]
+  },
+  "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Nechanice."
+  ],
+  "coverage": {
+    "workers_launched": 2,
+    "workers_with_results": 1,
+    "candidates_gathered": 10,
+    "rows_retained": 3,
+    "zero_result_portals": [
+      "realitymix.cz"
+    ],
+    "blocked_portals": []
+  },
+  "portal_status": {
+    "realitymix.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope RealityMix rows."
+    },
+    "reality.aktualne.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
+    }
+  },
+  "fetch_attempts": [
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/domy/prodej/",
+      "stage": "house_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Nechanice&form%5Bcena_mena%5D=1",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/nechanice/novostavba-rodinneho-domu-s-velkorysym-pozemkem-8531641.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/nechanice/prodej-domy-rodinny-180-m2-stare-nechanice-92-50315-nechanice-hradec-kralove-id-83180-8536931.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/nechanice/prodej-garaze-19-m2-nechanice-8607865.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/nechanice/prodej-pozemek-bydleni-474-8521135.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/nechanice/prodej-pozemek-bydleni-949-8446007.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/nechanice/prodej-rodinneho-domu-135-m2-s-pozemkem-1127-m2-v-nechanicich-8356451.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/nechanice/prodej-rodinneho-domu-po-rekonstrukci-pozemek-1-715-m2-nechanice-lubno-8613807.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/nechanice/prodej-rodinny-dum-160-8467935.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/nechanice/prodej-rozlehle-komercni-nemovitosti-v-obci-nechanice-idealni-pro-podnikani-i-prestavbu-na-bd-8502035.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/nechanice/rodinny-dum-5-kk-s-pozemkem-1031m-8529281.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    }
+  ],
+  "gaps": [
+    "missing-page-url:house",
+    "missing-page-url:land",
+    "outside-municipality:https://reality.aktualne.cz/detail/nechanice/novostavba-rodinneho-domu-s-velkorysym-pozemkem-8531641.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/nechanice/prodej-domy-rodinny-180-m2-stare-nechanice-92-50315-nechanice-hradec-kralove-id-83180-8536931.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/nechanice/prodej-garaze-19-m2-nechanice-8607865.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/nechanice/prodej-pozemek-bydleni-474-8521135.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/nechanice/prodej-pozemek-bydleni-949-8446007.html",
+    "non-buildable-land:https://reality.aktualne.cz/detail/nechanice/prodej-rodinneho-domu-po-rekonstrukci-pozemek-1-715-m2-nechanice-lubno-8613807.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/nechanice/prodej-rozlehle-komercni-nemovitosti-v-obci-nechanice-idealni-pro-podnikani-i-prestavbu-na-bd-8502035.html"
+  ],
+  "listings": [
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej Rodinný dům, 160㎡",
+      "location": "Staré Nechanice, Hradec Králové",
+      "property_type": "house",
+      "price": "4 999 999 Kč",
+      "house_area_m2": "160",
+      "land_area_m2": "1012",
+      "urls": [
+        "https://reality.aktualne.cz/detail/nechanice/prodej-rodinny-dum-160-8467935.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "aggregator-source:next-reality-horizont"
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej rodinného domu 135 m2 s pozemkem 1127 m2 v Nechanicích",
+      "location": "Palackého, Nechanice, Hradec Králové",
+      "property_type": "house",
+      "price": "4 600 000 Kč",
+      "house_area_m2": "135",
+      "land_area_m2": "1127",
+      "urls": [
+        "https://reality.aktualne.cz/detail/nechanice/prodej-rodinneho-domu-135-m2-s-pozemkem-1127-m2-v-nechanicich-8356451.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "aggregator-source:remax-infinity"
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Rodinný dům 5+kk, s pozemkem 1031m²",
+      "location": "Havlíčkova, Nechanice, Hradec Králové",
+      "property_type": "house",
+      "price": "11 500 000 Kč",
+      "house_area_m2": "132",
+      "land_area_m2": "1031",
+      "urls": [
+        "https://reality.aktualne.cz/detail/nechanice/rodinny-dum-5-kk-s-pozemkem-1031m-8529281.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "aggregator-source:remax-infinity"
+      ]
+    }
+  ]
+}
