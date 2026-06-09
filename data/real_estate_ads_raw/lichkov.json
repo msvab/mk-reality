@@ -1,0 +1,261 @@
+{
+  "city": "Lichkov",
+  "query": {
+    "municipality": "Lichkov",
+    "location_scope": "municipality_only",
+    "country": "Czech Republic",
+    "property_types": [
+      "house",
+      "chalupa",
+      "land"
+    ],
+    "price_min": null,
+    "price_max": null,
+    "house_size_min_m2": null,
+    "house_size_max_m2": null,
+    "land_size_min_m2": 1000,
+    "land_size_max_m2": null,
+    "must_have": [
+      "sale listings",
+      "buildable or residential land only"
+    ],
+    "exclude": [
+      "chata"
+    ]
+  },
+  "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Lichkov."
+  ],
+  "coverage": {
+    "workers_launched": 2,
+    "workers_with_results": 1,
+    "candidates_gathered": 7,
+    "rows_retained": 6,
+    "zero_result_portals": [
+      "realitymix.cz"
+    ],
+    "blocked_portals": []
+  },
+  "portal_status": {
+    "realitymix.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope RealityMix rows."
+    },
+    "reality.aktualne.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
+    }
+  },
+  "fetch_attempts": [
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/domy/prodej/",
+      "stage": "house_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Lichkov&form%5Bcena_mena%5D=1",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/lichkov/prodej-chalupy-310-m-lichkov-8401587.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/lichkov/prodej-louky-7222-m-lichkov-8489903.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/lichkov/prodej-pozemek-bydleni-1010-8490041.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/lichkov/prodej-stavebniho-pozemku-1206-m2-lichkov-okres-usti-nad-orlici-8488259.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/lichkov/prodej-stavebniho-pozemku-1855-m2-lichkov-okres-usti-nad-orlici-8488257.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/lichkov/prodej-stavebniho-pozemku-1920-m2-lichkov-okres-usti-nad-orlici-8488255.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/lichkov/prodej-stavebniho-pozemku-5800-m2-lichkov-okres-usti-nad-orlici-8488261.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    }
+  ],
+  "gaps": [
+    "missing-page-url:house",
+    "missing-page-url:land",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/lichkov/prodej-louky-7222-m-lichkov-8489903.html"
+  ],
+  "listings": [
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej stavebního pozemku - 1206 m2, Lichkov, okres Ústí nad Orlicí",
+      "location": "Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "850 Kč (za m 2 )",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1206",
+      "urls": [
+        "https://reality.aktualne.cz/detail/lichkov/prodej-stavebniho-pozemku-1206-m2-lichkov-okres-usti-nad-orlici-8488259.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "buildable-land",
+        "aggregator-source:reality-spirka-s.r.o."
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej stavebního pozemku - 1855 m2 , Lichkov, okres Ústí nad Orlicí",
+      "location": "Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "850 Kč (za m 2 )",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1855",
+      "urls": [
+        "https://reality.aktualne.cz/detail/lichkov/prodej-stavebniho-pozemku-1855-m2-lichkov-okres-usti-nad-orlici-8488257.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "buildable-land",
+        "aggregator-source:reality-spirka-s.r.o."
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej stavebního pozemku - 1920 m2 , Lichkov, okres Ústí nad Orlicí",
+      "location": "Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "850 Kč (za m 2 )",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1920",
+      "urls": [
+        "https://reality.aktualne.cz/detail/lichkov/prodej-stavebniho-pozemku-1920-m2-lichkov-okres-usti-nad-orlici-8488255.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "buildable-land",
+        "aggregator-source:reality-spirka-s.r.o."
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej stavebního pozemku 5800 m2, Lichkov, okres Ústí nad Orlicí",
+      "location": "Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "700 Kč (za m 2 )",
+      "house_area_m2": "unknown",
+      "land_area_m2": "5800",
+      "urls": [
+        "https://reality.aktualne.cz/detail/lichkov/prodej-stavebniho-pozemku-5800-m2-lichkov-okres-usti-nad-orlici-8488261.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "buildable-land",
+        "aggregator-source:reality-spirka-s.r.o."
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej chalupy, 310 m², Lichkov",
+      "location": "Lichkov, Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "2 960 000 Kč",
+      "house_area_m2": "310",
+      "land_area_m2": "1735",
+      "urls": [
+        "https://reality.aktualne.cz/detail/lichkov/prodej-chalupy-310-m-lichkov-8401587.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "normalized-from:chalupa",
+        "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej pozemek Bydlení, 1010㎡",
+      "location": "Lichkov, okr.Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "2 290 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1010",
+      "urls": [
+        "https://reality.aktualne.cz/detail/lichkov/prodej-pozemek-bydleni-1010-8490041.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "buildable-land",
+        "aggregator-source:next-reality-property"
+      ]
+    }
+  ]
+}

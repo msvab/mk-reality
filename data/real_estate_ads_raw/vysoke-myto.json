@@ -1,0 +1,225 @@
+{
+  "city": "Vysoké Mýto",
+  "query": {
+    "municipality": "Vysoké Mýto",
+    "location_scope": "municipality_only",
+    "country": "Czech Republic",
+    "property_types": [
+      "house",
+      "chalupa",
+      "land"
+    ],
+    "price_min": null,
+    "price_max": null,
+    "house_size_min_m2": null,
+    "house_size_max_m2": null,
+    "land_size_min_m2": 1000,
+    "land_size_max_m2": null,
+    "must_have": [
+      "sale listings",
+      "buildable or residential land only"
+    ],
+    "exclude": [
+      "chata"
+    ]
+  },
+  "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Vysoké Mýto."
+  ],
+  "coverage": {
+    "workers_launched": 2,
+    "workers_with_results": 1,
+    "candidates_gathered": 13,
+    "rows_retained": 1,
+    "zero_result_portals": [
+      "realitymix.cz"
+    ],
+    "blocked_portals": []
+  },
+  "portal_status": {
+    "realitymix.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope RealityMix rows."
+    },
+    "reality.aktualne.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
+    }
+  },
+  "fetch_attempts": [
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/domy/prodej/",
+      "stage": "house_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Vysok%C3%A9+M%C3%BDto&form%5Bcena_mena%5D=1",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vysoke-myto/industrial-park-vysoke-myto-pronajem-skladovych-prostor-8175075.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vysoke-myto/industrial-park-vysoke-myto-pronajem-skladovych-prostor-8175083.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vysoke-myto/louka-prodej-vysoke-myto-mesto-vysoke-myto-usti-nad-orlici-8585779.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vysoke-myto/prodej-pole-18365-m2-vysoke-myto-8583955.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vysoke-myto/prodej-pozemku-k-bydleni-4725-m-vysoke-myto-8326571.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vysoke-myto/prodej-rodinne-domy-190-m2-vysoke-myto-prazske-predmesti-8169005.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vysoke-myto/prodej-rodinneho-domu-139-m-vysoke-myto-8486801.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vysoke-myto/prodej-rodinneho-domu-ve-vysokem-myte-8594111.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-2-1-rokycanova-vysoke-myto-12-000-kc-mes-53-m2-8570021.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-2-kk-49-m-vysoke-myto-ul-tumova-8597077.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-2-kk-53-m-vysoke-myto-ul-litomyslska-8599057.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-3-1-67-m-vysoke-myto-ul-odbojarska-8599603.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vysoke-myto/pronajem-byty-1-1-38-m2-u-potoka-749-56601-vysoke-myto-usti-nad-orlici-id-85930-8602803.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    }
+  ],
+  "gaps": [
+    "missing-page-url:house",
+    "missing-page-url:land",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/industrial-park-vysoke-myto-pronajem-skladovych-prostor-8175075.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/industrial-park-vysoke-myto-pronajem-skladovych-prostor-8175083.html",
+    "inactive-or-unpriced:https://reality.aktualne.cz/detail/vysoke-myto/louka-prodej-vysoke-myto-mesto-vysoke-myto-usti-nad-orlici-8585779.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/prodej-pole-18365-m2-vysoke-myto-8583955.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/prodej-rodinne-domy-190-m2-vysoke-myto-prazske-predmesti-8169005.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/vysoke-myto/prodej-rodinneho-domu-139-m-vysoke-myto-8486801.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/vysoke-myto/prodej-rodinneho-domu-ve-vysokem-myte-8594111.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-2-1-rokycanova-vysoke-myto-12-000-kc-mes-53-m2-8570021.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-2-kk-49-m-vysoke-myto-ul-tumova-8597077.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-2-kk-53-m-vysoke-myto-ul-litomyslska-8599057.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-3-1-67-m-vysoke-myto-ul-odbojarska-8599603.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-byty-1-1-38-m2-u-potoka-749-56601-vysoke-myto-usti-nad-orlici-id-85930-8602803.html"
+  ],
+  "listings": [
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej pozemku k bydlení, 4725 m², Vysoké Mýto",
+      "location": "Vysoké Mýto-Město, Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "cena na vyžádání",
+      "house_area_m2": "unknown",
+      "land_area_m2": "4725",
+      "urls": [
+        "https://reality.aktualne.cz/detail/vysoke-myto/prodej-pozemku-k-bydleni-4725-m-vysoke-myto-8326571.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "buildable-land",
+        "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    }
+  ]
+}

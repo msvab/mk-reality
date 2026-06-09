@@ -1,0 +1,303 @@
+{
+  "city": "Mikulovice",
+  "query": {
+    "municipality": "Mikulovice",
+    "location_scope": "municipality_only",
+    "country": "Czech Republic",
+    "property_types": [
+      "house",
+      "chalupa",
+      "land"
+    ],
+    "price_min": null,
+    "price_max": null,
+    "house_size_min_m2": null,
+    "house_size_max_m2": null,
+    "land_size_min_m2": 1000,
+    "land_size_max_m2": null,
+    "must_have": [
+      "sale listings",
+      "buildable or residential land only"
+    ],
+    "exclude": [
+      "chata"
+    ]
+  },
+  "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Mikulovice."
+  ],
+  "coverage": {
+    "workers_launched": 2,
+    "workers_with_results": 1,
+    "candidates_gathered": 16,
+    "rows_retained": 4,
+    "zero_result_portals": [
+      "realitymix.cz"
+    ],
+    "blocked_portals": []
+  },
+  "portal_status": {
+    "realitymix.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope RealityMix rows."
+    },
+    "reality.aktualne.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
+    }
+  },
+  "fetch_attempts": [
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/domy/prodej/",
+      "stage": "house_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Mikulovice&form%5Bcena_mena%5D=1",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/mikulovice/prodej-bytove-jednotky-2-kk-v-obci-mikulovice-okres-jesenik-8580259.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/mikulovice/prodej-bytoveho-domu-mikulovice-okres-jesenik-8428927.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/mikulovice/prodej-chalupy-s-dvema-apartmany-2-kk-mikulovice-8315529.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/mikulovice/prodej-domu-190-m-pozemek-2-800-m-8564883.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/mikulovice/prodej-domu-4-kk-131-m2-ulice-dlouha-mikulovice-u-pardubic-8586211.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/mikulovice/prodej-louky-4228-m-mikulovice-8256699.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/mikulovice/prodej-pole-842-m-mikulovice-8291561.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/mikulovice/prodej-pozemek-bydleni-13598-8501871.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/mikulovice/prodej-pozemku-v-obci-terezin-u-mikulovic-8258035.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/mikulovice/prodej-rodinneho-domu-200-m-mikulovice-8428355.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/mikulovice/prodej-rodinneho-domu-5-kk-231-3-m2-mikulovice-8542295.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/mikulovice/prodej-skladoveho-a-vyrobniho-arealu-v-mikulovicich-u-znojma-8040956.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/mikulovice/prodej-stavebniho-pozemku-934-m2-mikulovice-okres-jesenik-8562603.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/mikulovice/prodej-stavebniho-pozemku-v-obci-mikulovice-8085973.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/mikulovice/pronajem-bytu-1-1-v-mikulovicich-u-jeseniku-8587985.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/mikulovice/rodinny-dum-v-mikulovicich-klidne-bydleni-se-zahradou-a-velkym-potencialem-8604629.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    }
+  ],
+  "gaps": [
+    "missing-page-url:house",
+    "missing-page-url:land",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/mikulovice/prodej-bytove-jednotky-2-kk-v-obci-mikulovice-okres-jesenik-8580259.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/mikulovice/prodej-chalupy-s-dvema-apartmany-2-kk-mikulovice-8315529.html",
+    "non-buildable-land:https://reality.aktualne.cz/detail/mikulovice/prodej-domu-190-m-pozemek-2-800-m-8564883.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/mikulovice/prodej-domu-4-kk-131-m2-ulice-dlouha-mikulovice-u-pardubic-8586211.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/mikulovice/prodej-louky-4228-m-mikulovice-8256699.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/mikulovice/prodej-pole-842-m-mikulovice-8291561.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/mikulovice/prodej-pozemku-v-obci-terezin-u-mikulovic-8258035.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/mikulovice/prodej-rodinneho-domu-200-m-mikulovice-8428355.html",
+    "inactive-or-unpriced:https://reality.aktualne.cz/detail/mikulovice/prodej-skladoveho-a-vyrobniho-arealu-v-mikulovicich-u-znojma-8040956.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/mikulovice/prodej-stavebniho-pozemku-934-m2-mikulovice-okres-jesenik-8562603.html",
+    "non-buildable-land:https://reality.aktualne.cz/detail/mikulovice/prodej-stavebniho-pozemku-v-obci-mikulovice-8085973.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/mikulovice/pronajem-bytu-1-1-v-mikulovicich-u-jeseniku-8587985.html"
+  ],
+  "listings": [
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej pozemek Bydlení, 13598㎡",
+      "location": "Mikulovice, okr.Jeseník",
+      "property_type": "land",
+      "price": "5 400 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "13598",
+      "urls": [
+        "https://reality.aktualne.cz/detail/mikulovice/prodej-pozemek-bydleni-13598-8501871.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "buildable-land",
+        "aggregator-source:next-reality-fenix"
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej bytového domu Mikulovice, okres Jeseník",
+      "location": "Hlucholazská, Mikulovice, Jeseník",
+      "property_type": "house",
+      "price": "4 499 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2259",
+      "urls": [
+        "https://reality.aktualne.cz/detail/mikulovice/prodej-bytoveho-domu-mikulovice-okres-jesenik-8428927.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "aggregator-source:regionalni-kancelar-jesenik"
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Rodinný dům v Mikulovicích - klidné bydlení se zahradou a velkým potenciálem",
+      "location": "V Zátiší, Mikulovice, Jeseník",
+      "property_type": "house",
+      "price": "3 120 000 Kč",
+      "house_area_m2": "143",
+      "land_area_m2": "2083",
+      "urls": [
+        "https://reality.aktualne.cz/detail/mikulovice/rodinny-dum-v-mikulovicich-klidne-bydleni-se-zahradou-a-velkym-potencialem-8604629.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "aggregator-source:bidli-reality,-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej rodinného domu 5+kk, 231,3 m2, Mikulovice",
+      "location": "V Loučkách, Pardubice",
+      "property_type": "house",
+      "price": "13 490 000 Kč",
+      "house_area_m2": "231",
+      "land_area_m2": "1010",
+      "urls": [
+        "https://reality.aktualne.cz/detail/mikulovice/prodej-rodinneho-domu-5-kk-231-3-m2-mikulovice-8542295.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "aggregator-source:remax-g8-reality"
+      ]
+    }
+  ]
+}

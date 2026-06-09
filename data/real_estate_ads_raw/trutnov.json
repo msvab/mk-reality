@@ -1,0 +1,846 @@
+{
+  "city": "Trutnov",
+  "query": {
+    "municipality": "Trutnov",
+    "location_scope": "municipality_only",
+    "country": "Czech Republic",
+    "property_types": [
+      "house",
+      "chalupa",
+      "land"
+    ],
+    "price_min": null,
+    "price_max": null,
+    "house_size_min_m2": null,
+    "house_size_max_m2": null,
+    "land_size_min_m2": 1000,
+    "land_size_max_m2": null,
+    "must_have": [
+      "sale listings",
+      "buildable or residential land only"
+    ],
+    "exclude": [
+      "chata"
+    ]
+  },
+  "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Trutnov."
+  ],
+  "coverage": {
+    "workers_launched": 2,
+    "workers_with_results": 2,
+    "candidates_gathered": 45,
+    "rows_retained": 21,
+    "zero_result_portals": [],
+    "blocked_portals": []
+  },
+  "portal_status": {
+    "realitymix.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified RealityMix row."
+    },
+    "reality.aktualne.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
+    }
+  },
+  "fetch_attempts": [
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/domy/prodej/",
+      "stage": "house_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/domy/prodej/kralovehradecky/trutnov",
+      "stage": "house_result_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/prodej-domu-732-m-pozemek-1-494-m-8551751.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/prodej-domy-rodinny-213-5-m2-oblanov-e111-54101-trutnov-trutnov-id-77054-8591185.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/prodej-domy-rodinny-216-m2-stary-rokytnik-228-54101-trutnov-trutnov-id-83473-8534935.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/prodej-rd-trutnov-kryblice-8345371.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/prodej-rodinneho-domu-131-m2-petrikovicka-trutnov-8574401.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/prodej-rodinneho-domu-350-m2-horska-trutnov-8558097.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/prodej-rodinny-dum-142-8573719.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/prodej-rodinny-dum-205-8602331.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/trutnov-rodinna-vila-v-centru-se-zahradou-a-garazi-8339691.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/kralovehradecky/trutnov",
+      "stage": "land_result_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/prodej-pozemku-1-894m-178-v-krkonosich-pro-vystavbu-rodinneho-domu-8619065.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/prodej-pozemku-2437m-178-v-krkonosich-pro-vystavbu-rodinneho-domu-8564855.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/prodej-pozemku-2507-m-trutnov-8127887.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/prodej-pozemku-k-bydleni-1122-m-trutnov-8026790.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/prodej-pozemku-k-bydleni-1793-m-bohuslavice-nad-upou-8336755.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/prodej-pozemku-k-bydleni-1831-m-trutnov-8359609.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/prodej-pozemku-k-bydleni-2372-m-trutnov-8336751.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/prodej-pozemku-k-bydleni-2383-m-trutnov-porici-8344683.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/prodej-pozemku-k-bydleni-2394-m-trutnov-8351291.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/prodej-pozemku-k-bydleni-2394-m-trutnov-8528343.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/prodej-pozemku-k-bydleni-2437-m-trutnov-8309109.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/prodej-pozemku-urceneho-k-vystavbe-1927-m-babi-okres-trutnov-8212021.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/prodej-pozemky-bydleni-11433-m2-horni-stare-mesto-54102-trutnov-trutnov-id-84693-8579555.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/prodej-stavebniho-pozemku-1469-m2-nad-poricskou-trutnov-8238383.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/stavebni-pozemek-20139m-libec-trutnov-8349179.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/stavebni-pozemek-2384-m-8351091.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Trutnov&form%5Bcena_mena%5D=1",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trutnov/3-kk-65-5m2-8-6m2-lodzie-svedska-trutnov-8612419.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trutnov/cinzovni-dum-s-vynosem-a-developerskym-potencialem-trutnov-porici-8614929.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trutnov/dolce-u-trutnova-prodej-chaty-25-m2-v-rekreacnim-arealu-8546597.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trutnov/moderni-byt-4-kk-102-m-novostavba-c-p-602-v-rezidenci-kasarna-8521441.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trutnov/prodej-bytu-3kk-67m2-v-rezidenci-kasarna-v-trutnove-8550835.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trutnov/prodej-bytu-4-kk-100-m2-horska-trutnov-8614637.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trutnov/prodej-byty-1-kk-28-m2-trutnov-horni-stare-mesto-8067591.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trutnov/prodej-byty-1-kk-29-m2-brectejnska-340-horni-predmesti-54101-trutnov-trutnov-id-84590-8600869.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trutnov/prodej-pozemku-1-894m-178-v-krkonosich-pro-vystavbu-rodinneho-domu-8619065.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trutnov/prodej-pozemku-urceneho-k-vystavbe-1927-m-babi-okres-trutnov-8212021.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trutnov/prodej-rodinny-dum-205-8602331.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trutnov/prodej-zdeneho-bytu-2-kk-v-osobnim-vlastnictvi-trutnov-stredni-predmesti-ul-blanicka-8544335.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-1-1-30-m2-upske-nabrezi-trutnov-8615299.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-1-1-43-m2-horska-trutnov-8605135.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-1-1-48-m-trutnov-ul-voletinska-8613779.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-2-1-po-kompletni-rekonstrukci-trutnov-8595357.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-2-kk-43-m2-kiesewettrova-trutnov-8615855.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-2-kk-52-m2-komenskeho-trutnov-8616023.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-3-kk-63-m2-prokopa-holeho-trutnov-8610571.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trutnov/pronajem-zdeneho-bytu-2-kk-v-centru-trutnova-pesi-zona-8539271.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    }
+  ],
+  "gaps": [
+    "land-below-threshold:https://realitymix.cz/detail/trutnov/prodej-domy-rodinny-213-5-m2-oblanov-e111-54101-trutnov-trutnov-id-77054-8591185.html",
+    "land-below-threshold:https://realitymix.cz/detail/trutnov/prodej-rd-trutnov-kryblice-8345371.html",
+    "land-below-threshold:https://realitymix.cz/detail/trutnov/prodej-rodinneho-domu-350-m2-horska-trutnov-8558097.html",
+    "land-below-threshold:https://realitymix.cz/detail/trutnov/prodej-rodinny-dum-142-8573719.html",
+    "land-below-threshold:https://realitymix.cz/detail/trutnov/prodej-rodinny-dum-205-8602331.html",
+    "land-below-threshold:https://realitymix.cz/detail/trutnov/trutnov-rodinna-vila-v-centru-se-zahradou-a-garazi-8339691.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/3-kk-65-5m2-8-6m2-lodzie-svedska-trutnov-8612419.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/trutnov/cinzovni-dum-s-vynosem-a-developerskym-potencialem-trutnov-porici-8614929.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/dolce-u-trutnova-prodej-chaty-25-m2-v-rekreacnim-arealu-8546597.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/moderni-byt-4-kk-102-m-novostavba-c-p-602-v-rezidenci-kasarna-8521441.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/prodej-bytu-3kk-67m2-v-rezidenci-kasarna-v-trutnove-8550835.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/prodej-bytu-4-kk-100-m2-horska-trutnov-8614637.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/prodej-byty-1-kk-28-m2-trutnov-horni-stare-mesto-8067591.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/prodej-byty-1-kk-29-m2-brectejnska-340-horni-predmesti-54101-trutnov-trutnov-id-84590-8600869.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/trutnov/prodej-rodinny-dum-205-8602331.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/prodej-zdeneho-bytu-2-kk-v-osobnim-vlastnictvi-trutnov-stredni-predmesti-ul-blanicka-8544335.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-1-1-30-m2-upske-nabrezi-trutnov-8615299.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-1-1-43-m2-horska-trutnov-8605135.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-1-1-48-m-trutnov-ul-voletinska-8613779.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-2-1-po-kompletni-rekonstrukci-trutnov-8595357.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-2-kk-43-m2-kiesewettrova-trutnov-8615855.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-2-kk-52-m2-komenskeho-trutnov-8616023.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-3-kk-63-m2-prokopa-holeho-trutnov-8610571.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/pronajem-zdeneho-bytu-2-kk-v-centru-trutnova-pesi-zona-8539271.html"
+  ],
+  "listings": [
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej, domy/rodinný, 216 m2, Starý Rokytník 228, 54101 Trutnov, Trutnov [ID 83473]",
+      "location": "Starý Rokytník, Trutnov",
+      "property_type": "house",
+      "price": "9 470 000 Kč",
+      "house_area_m2": "216",
+      "land_area_m2": "1129",
+      "urls": [
+        "https://realitymix.cz/detail/trutnov/prodej-domy-rodinny-216-m2-stary-rokytnik-228-54101-trutnov-trutnov-id-83473-8534935.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz",
+        "municipal-part:Starý Rokytník"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej pozemku 1 894m&#178; v Krkonoších pro výstavbu rodinného domu",
+      "location": "Volanov, Trutnov",
+      "property_type": "house",
+      "price": "6 250 200 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1894",
+      "urls": [
+        "https://realitymix.cz/detail/trutnov/prodej-pozemku-1-894m-178-v-krkonosich-pro-vystavbu-rodinneho-domu-8619065.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz",
+        "municipal-part:Volanov"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej pozemku k bydlení, 2437 m², Trutnov",
+      "location": "Voletiny, Trutnov",
+      "property_type": "land",
+      "price": "6 114 170 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2437",
+      "urls": [
+        "https://realitymix.cz/detail/trutnov/prodej-pozemku-k-bydleni-2437-m-trutnov-8309109.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz",
+        "municipal-part:Voletiny"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej pozemku 2437m&#178; v Krkonoších pro výstavbu rodinného domu",
+      "location": "Za Zbrojnicí, Voletiny, Trutnov",
+      "property_type": "house",
+      "price": "5 900 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2437",
+      "urls": [
+        "https://realitymix.cz/detail/trutnov/prodej-pozemku-2437m-178-v-krkonosich-pro-vystavbu-rodinneho-domu-8564855.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej pozemku k bydlení, 1831 m², Trutnov",
+      "location": "Pod Antoníčkem, Horní Staré Město, Trutnov",
+      "property_type": "land",
+      "price": "5 242 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1831",
+      "urls": [
+        "https://realitymix.cz/detail/trutnov/prodej-pozemku-k-bydleni-1831-m-trutnov-8359609.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej pozemku k bydlení, 1122 m², Trutnov",
+      "location": "Justova, Horní Staré Město, Trutnov",
+      "property_type": "land",
+      "price": "4 600 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1122",
+      "urls": [
+        "https://realitymix.cz/detail/trutnov/prodej-pozemku-k-bydleni-1122-m-trutnov-8026790.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej domu 732 m², pozemek 1.494 m²",
+      "location": "Polská, Poříčí, Trutnov",
+      "property_type": "house",
+      "price": "44 990 000 Kč",
+      "house_area_m2": "732",
+      "land_area_m2": "1494",
+      "urls": [
+        "https://realitymix.cz/detail/trutnov/prodej-domu-732-m-pozemek-1-494-m-8551751.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej pozemku určeného k výstavbě, 1927 m², Babí, okres Trutnov",
+      "location": "Trutnov",
+      "property_type": "land",
+      "price": "4 490 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1927",
+      "urls": [
+        "https://realitymix.cz/detail/trutnov/prodej-pozemku-urceneho-k-vystavbe-1927-m-babi-okres-trutnov-8212021.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1469 m2 Nad Poříčskou, Trutnov",
+      "location": "Nad Poříčskou, Dolní Předměstí, Trutnov",
+      "property_type": "land",
+      "price": "3 701 880 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1469",
+      "urls": [
+        "https://realitymix.cz/detail/trutnov/prodej-stavebniho-pozemku-1469-m2-nad-poricskou-trutnov-8238383.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej pozemku k bydlení, 2394 m², Trutnov",
+      "location": "Trutnov",
+      "property_type": "land",
+      "price": "3 591 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2394",
+      "urls": [
+        "https://realitymix.cz/detail/trutnov/prodej-pozemku-k-bydleni-2394-m-trutnov-8351291.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej pozemku k bydlení, 2383 m², Trutnov - Poříčí",
+      "location": "Trutnov",
+      "property_type": "land",
+      "price": "3 574 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2383",
+      "urls": [
+        "https://realitymix.cz/detail/trutnov/prodej-pozemku-k-bydleni-2383-m-trutnov-porici-8344683.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej pozemku k bydlení, 1793 m², Bohuslavice nad Úpou",
+      "location": "Trutnov",
+      "property_type": "land",
+      "price": "3 227 400 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1793",
+      "urls": [
+        "https://realitymix.cz/detail/trutnov/prodej-pozemku-k-bydleni-1793-m-bohuslavice-nad-upou-8336755.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Stavební pozemek 20139m², Libeč - Trutnov",
+      "location": "Trutnov",
+      "property_type": "land",
+      "price": "30 007 110 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "20139",
+      "urls": [
+        "https://realitymix.cz/detail/trutnov/stavebni-pozemek-20139m-libec-trutnov-8349179.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej pozemku k bydlení, 2394 m², Trutnov,",
+      "location": "Trutnov",
+      "property_type": "land",
+      "price": "2 982 500 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2394",
+      "urls": [
+        "https://realitymix.cz/detail/trutnov/prodej-pozemku-k-bydleni-2394-m-trutnov-8528343.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Stavební pozemek 2384 m²",
+      "location": "Vysoký Most, Bojiště, Trutnov",
+      "property_type": "land",
+      "price": "2 384 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2384",
+      "urls": [
+        "https://realitymix.cz/detail/trutnov/stavebni-pozemek-2384-m-8351091.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej pozemku k bydlení, 2372 m², Trutnov",
+      "location": "Trutnov",
+      "property_type": "land",
+      "price": "2 372 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2372",
+      "urls": [
+        "https://realitymix.cz/detail/trutnov/prodej-pozemku-k-bydleni-2372-m-trutnov-8336751.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej pozemku 2507 m², Trutnov",
+      "location": "Starý Rokytník, Trutnov",
+      "property_type": "land",
+      "price": "1 591 945 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2507",
+      "urls": [
+        "https://realitymix.cz/detail/trutnov/prodej-pozemku-2507-m-trutnov-8127887.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz",
+        "municipal-part:Starý Rokytník"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej rodinného domu 131 m2 Petříkovická, Trutnov",
+      "location": "Petříkovická, Poříčí, Trutnov",
+      "property_type": "house",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "131",
+      "land_area_m2": "1118",
+      "urls": [
+        "https://realitymix.cz/detail/trutnov/prodej-rodinneho-domu-131-m2-petrikovicka-trutnov-8574401.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej, pozemky/bydlení, 11433 m2, Horní Staré Město, 54102 Trutnov, Trutnov [ID 84693]",
+      "location": "K Pěti bukům, Horní Staré Město, Trutnov",
+      "property_type": "land",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "unknown",
+      "land_area_m2": "11433",
+      "urls": [
+        "https://realitymix.cz/detail/trutnov/prodej-pozemky-bydleni-11433-m2-horni-stare-mesto-54102-trutnov-trutnov-id-84693-8579555.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej pozemku 1 894m&#178; v Krkonoších pro výstavbu rodinného domu",
+      "location": "Volanov, Trutnov, okr.Trutnov",
+      "property_type": "land",
+      "price": "6 250 200 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1894",
+      "urls": [
+        "https://reality.aktualne.cz/detail/trutnov/prodej-pozemku-1-894m-178-v-krkonosich-pro-vystavbu-rodinneho-domu-8619065.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "buildable-land",
+        "aggregator-source:bidli-reality,-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej pozemku určeného k výstavbě, 1927 m², Babí, okres Trutnov",
+      "location": "Trutnov",
+      "property_type": "land",
+      "price": "4 490 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1927",
+      "urls": [
+        "https://reality.aktualne.cz/detail/trutnov/prodej-pozemku-urceneho-k-vystavbe-1927-m-babi-okres-trutnov-8212021.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "buildable-land",
+        "aggregator-source:bo!-reality-a-finance-s.r.o."
+      ]
+    }
+  ]
+}

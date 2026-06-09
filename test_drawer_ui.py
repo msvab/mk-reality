@@ -9,7 +9,7 @@ def test_hk_drawer_scrolls_without_gaps_text() -> None:
         browser = playwright.chromium.launch()
         page = browser.new_page(viewport={"width": 1280, "height": 720})
         page.goto(page_path.as_uri())
-        page.get_by_role("button", name="8").click()
+        page.locator('[data-city="Hradec Králové"]').click()
 
         drawer = page.locator("#ads-drawer")
         drawer.wait_for(state="visible")

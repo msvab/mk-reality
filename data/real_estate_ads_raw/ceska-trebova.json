@@ -1,0 +1,288 @@
+{
+  "city": "Česká Třebová",
+  "query": {
+    "municipality": "Česká Třebová",
+    "location_scope": "municipality_only",
+    "country": "Czech Republic",
+    "property_types": [
+      "house",
+      "chalupa",
+      "land"
+    ],
+    "price_min": null,
+    "price_max": null,
+    "house_size_min_m2": null,
+    "house_size_max_m2": null,
+    "land_size_min_m2": 1000,
+    "land_size_max_m2": null,
+    "must_have": [
+      "sale listings",
+      "buildable or residential land only"
+    ],
+    "exclude": [
+      "chata"
+    ]
+  },
+  "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Česká Třebová."
+  ],
+  "coverage": {
+    "workers_launched": 2,
+    "workers_with_results": 1,
+    "candidates_gathered": 20,
+    "rows_retained": 1,
+    "zero_result_portals": [
+      "realitymix.cz"
+    ],
+    "blocked_portals": []
+  },
+  "portal_status": {
+    "realitymix.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope RealityMix rows."
+    },
+    "reality.aktualne.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
+    }
+  },
+  "fetch_attempts": [
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/domy/prodej/",
+      "stage": "house_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=%C4%8Cesk%C3%A1+T%C5%99ebov%C3%A1&form%5Bcena_mena%5D=1",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/ceska-trebova/byt-3-1-78-m2-na-travniku-v-ceske-trebove-5723860.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/ceska-trebova/byt-v-ov-2-1-s-balkonem-57-m2-v-centru-c-trebove-5769895.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/ceska-trebova/pozemek-urceny-pro-vystavbu-v-ceske-trebove-7801660.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/ceska-trebova/prodej-bytu-2-1-50-m-ceska-trebova-8587663.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/ceska-trebova/prodej-bytu-2-1-62-m-ceska-trebova-ul-krib-8520725.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/ceska-trebova/prodej-bytu-3-1-66-m-ceska-trebova-ul-krib-8510657.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/ceska-trebova/prodej-chalupy-26-m-ceska-trebova-8601331.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/ceska-trebova/prodej-chaty-25-m-ceska-trebova-parnik-8376281.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/ceska-trebova/prodej-chaty-chalupy-38-m-pozemek-940-m-8576531.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/ceska-trebova/prodej-komercni-ostatni-544-8614357.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/ceska-trebova/prodej-pozemku-o-vymere-3-468-m2-v-obci-ceska-trebova-8432759.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/ceska-trebova/prodej-prostorny-byt-3-1-v-ceske-trebove-8591213.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/ceska-trebova/prodej-rodinneho-domu-43-m-skuhrov-ceska-trebova-8427245.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/ceska-trebova/prodej-rodinneho-domu-76-m-ceska-trebova-8586529.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/ceska-trebova/prodej-rodinny-dum-po-castecne-rekonstrukci-8547479.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/ceska-trebova/prodej-stavebni-parcely-1097-m2-vcetne-zakladove-desky-a-schvaleneho-projektu-vystavby-rd-skuhrov-8596115.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/ceska-trebova/pronajem-bytu-1-1-36-m-ceska-trebova-ul-krib-8614683.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/ceska-trebova/pronajem-bytu-2-kk-40-m-ceska-trebova-ul-riegrova-8499595.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/ceska-trebova/pronajem-komercni-ostatni-544-8614405.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/ceska-trebova/pronajem-skladu-vyrobnich-prostor-900-m-ceska-trebova-d35-8536851.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    }
+  ],
+  "gaps": [
+    "missing-page-url:house",
+    "missing-page-url:land",
+    "inactive-or-unpriced:https://reality.aktualne.cz/detail/ceska-trebova/byt-3-1-78-m2-na-travniku-v-ceske-trebove-5723860.html",
+    "inactive-or-unpriced:https://reality.aktualne.cz/detail/ceska-trebova/byt-v-ov-2-1-s-balkonem-57-m2-v-centru-c-trebove-5769895.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/ceska-trebova/pozemek-urceny-pro-vystavbu-v-ceske-trebove-7801660.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/ceska-trebova/prodej-bytu-2-1-50-m-ceska-trebova-8587663.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/ceska-trebova/prodej-bytu-2-1-62-m-ceska-trebova-ul-krib-8520725.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/ceska-trebova/prodej-bytu-3-1-66-m-ceska-trebova-ul-krib-8510657.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/ceska-trebova/prodej-chalupy-26-m-ceska-trebova-8601331.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/ceska-trebova/prodej-chaty-25-m-ceska-trebova-parnik-8376281.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/ceska-trebova/prodej-chaty-chalupy-38-m-pozemek-940-m-8576531.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/ceska-trebova/prodej-komercni-ostatni-544-8614357.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/ceska-trebova/prodej-prostorny-byt-3-1-v-ceske-trebove-8591213.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/ceska-trebova/prodej-rodinneho-domu-43-m-skuhrov-ceska-trebova-8427245.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/ceska-trebova/prodej-rodinneho-domu-76-m-ceska-trebova-8586529.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/ceska-trebova/prodej-rodinny-dum-po-castecne-rekonstrukci-8547479.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/ceska-trebova/prodej-stavebni-parcely-1097-m2-vcetne-zakladove-desky-a-schvaleneho-projektu-vystavby-rd-skuhrov-8596115.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/ceska-trebova/pronajem-bytu-1-1-36-m-ceska-trebova-ul-krib-8614683.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/ceska-trebova/pronajem-bytu-2-kk-40-m-ceska-trebova-ul-riegrova-8499595.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/ceska-trebova/pronajem-komercni-ostatni-544-8614405.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/ceska-trebova/pronajem-skladu-vyrobnich-prostor-900-m-ceska-trebova-d35-8536851.html"
+  ],
+  "listings": [
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej pozemku o výměře 3 468 m2 v obci Česká Třebová",
+      "location": "Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "335 Kč (za m 2 )",
+      "house_area_m2": "unknown",
+      "land_area_m2": "3468",
+      "urls": [
+        "https://reality.aktualne.cz/detail/ceska-trebova/prodej-pozemku-o-vymere-3-468-m2-v-obci-ceska-trebova-8432759.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "buildable-land",
+        "aggregator-source:vcrf-reality"
+      ]
+    }
+  ]
+}
