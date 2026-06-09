@@ -1,0 +1,278 @@
+{
+  "city": "Vamberk",
+  "query": {
+    "municipality": "Vamberk",
+    "location_scope": "municipality_only",
+    "country": "Czech Republic",
+    "property_types": [
+      "house",
+      "chalupa",
+      "land"
+    ],
+    "price_min": null,
+    "price_max": null,
+    "house_size_min_m2": null,
+    "house_size_max_m2": null,
+    "land_size_min_m2": 1000,
+    "land_size_max_m2": null,
+    "must_have": [
+      "sale listings",
+      "buildable or residential land only"
+    ],
+    "exclude": [
+      "chata"
+    ]
+  },
+  "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Vamberk."
+  ],
+  "coverage": {
+    "workers_launched": 2,
+    "workers_with_results": 1,
+    "candidates_gathered": 17,
+    "rows_retained": 2,
+    "zero_result_portals": [
+      "realitymix.cz"
+    ],
+    "blocked_portals": []
+  },
+  "portal_status": {
+    "realitymix.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope RealityMix rows."
+    },
+    "reality.aktualne.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
+    }
+  },
+  "fetch_attempts": [
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/domy/prodej/",
+      "stage": "house_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Vamberk&form%5Bcena_mena%5D=1",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vamberk/chalupa-peklo-nad-zdobnici-8590181.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vamberk/prodej-bytu-2-1-s-balkonem-69-m2-v-obci-vamberk-ov-8533493.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vamberk/prodej-pozemku-k-bydleni-1133-m-merklovice-8442391.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vamberk/prodej-rodinneho-domu-6-kk-225-m-pozemek-727-m-vamberk-8016325.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vamberk/prodej-rodinneho-domu-vamberk-8579085.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vamberk/prodej-rodinneho-domu-ve-vamberku-ul-koukolova-8507879.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vamberk/prodej-rozestaveneho-bytoveho-domu-s-peti-bytovymi-jednotkami-vamberk-dvorec-31-8550973.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vamberk/prodej-souboru-pozemku-20-667m2-v-obci-vamberk-jugoslavska-ulice-8478051.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vamberk/prodej-stavebniho-pozemku-819-m2-8160045.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vamberk/prodej-stavebniho-pozemku-846-m2-8141123.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vamberk/prodej-stavebniho-pozemku-8554297.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vamberk/prodej-zahrady-ve-vamberku-8575541.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vamberk/pronajem-bytu-2-kk-45-m2-vamberk-zahrada-parkovani-klidna-lokalita-8599921.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vamberk/pronajem-bytu-3kk-64m-178-8540791.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vamberk/pronajem-komercni-obchodni-prostory-200-m2-zamberecka-27-51754-vamberk-rychnov-nad-kneznou-id-8592655.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vamberk/pronajem-ubytovaciho-zarizeni-70-m2-vamberk-8496787.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vamberk/pronajem-ubytovaciho-zarizeni-80-m2-vamberk-8496781.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    }
+  ],
+  "gaps": [
+    "missing-page-url:house",
+    "missing-page-url:land",
+    "outside-municipality:https://reality.aktualne.cz/detail/vamberk/chalupa-peklo-nad-zdobnici-8590181.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vamberk/prodej-bytu-2-1-s-balkonem-69-m2-v-obci-vamberk-ov-8533493.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/vamberk/prodej-pozemku-k-bydleni-1133-m-merklovice-8442391.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/vamberk/prodej-rodinneho-domu-6-kk-225-m-pozemek-727-m-vamberk-8016325.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/vamberk/prodej-rodinneho-domu-ve-vamberku-ul-koukolova-8507879.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/vamberk/prodej-rozestaveneho-bytoveho-domu-s-peti-bytovymi-jednotkami-vamberk-dvorec-31-8550973.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/vamberk/prodej-stavebniho-pozemku-819-m2-8160045.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/vamberk/prodej-stavebniho-pozemku-846-m2-8141123.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/vamberk/prodej-stavebniho-pozemku-8554297.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vamberk/prodej-zahrady-ve-vamberku-8575541.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vamberk/pronajem-bytu-2-kk-45-m2-vamberk-zahrada-parkovani-klidna-lokalita-8599921.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vamberk/pronajem-bytu-3kk-64m-178-8540791.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vamberk/pronajem-komercni-obchodni-prostory-200-m2-zamberecka-27-51754-vamberk-rychnov-nad-kneznou-id-8592655.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vamberk/pronajem-ubytovaciho-zarizeni-70-m2-vamberk-8496787.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vamberk/pronajem-ubytovaciho-zarizeni-80-m2-vamberk-8496781.html"
+  ],
+  "listings": [
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej rodinného domu Vamberk",
+      "location": "Janáčkova, Vamberk, Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "5 790 000 Kč",
+      "house_area_m2": "180",
+      "land_area_m2": "2143",
+      "urls": [
+        "https://reality.aktualne.cz/detail/vamberk/prodej-rodinneho-domu-vamberk-8579085.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "aggregator-source:edo-reality,-s.r.o."
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej souboru pozemků 20.667m2 v obci Vamberk, Jugoslávská ulice",
+      "location": "Jugoslávská, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "11 366 850 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "20667",
+      "urls": [
+        "https://reality.aktualne.cz/detail/vamberk/prodej-souboru-pozemku-20-667m2-v-obci-vamberk-jugoslavska-ulice-8478051.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "buildable-land",
+        "aggregator-source:vcrf-reality"
+      ]
+    }
+  ]
+}

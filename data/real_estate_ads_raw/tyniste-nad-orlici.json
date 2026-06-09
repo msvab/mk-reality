@@ -24,7 +24,7 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached MM Reality and Reality Aktuálně result pages plus RealityMix result-page discovery were used when available.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Týniště nad Orlicí."
   ],
   "coverage": {
@@ -68,6 +68,22 @@
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/",
       "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/tyniste-nad-orlici/prodej-domy-rodinny-115-m2-petrovicky-50-51721-tyniste-nad-orlici-rychnov-nad-kneznou-id-81914-8503421.html",
+      "stage": "discovery_detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-domy_vily.html",
+      "stage": "search_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200

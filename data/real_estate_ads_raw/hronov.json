@@ -1,0 +1,288 @@
+{
+  "city": "Hronov",
+  "query": {
+    "municipality": "Hronov",
+    "location_scope": "municipality_only",
+    "country": "Czech Republic",
+    "property_types": [
+      "house",
+      "chalupa",
+      "land"
+    ],
+    "price_min": null,
+    "price_max": null,
+    "house_size_min_m2": null,
+    "house_size_max_m2": null,
+    "land_size_min_m2": 1000,
+    "land_size_max_m2": null,
+    "must_have": [
+      "sale listings",
+      "buildable or residential land only"
+    ],
+    "exclude": [
+      "chata"
+    ]
+  },
+  "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Hronov."
+  ],
+  "coverage": {
+    "workers_launched": 2,
+    "workers_with_results": 1,
+    "candidates_gathered": 18,
+    "rows_retained": 2,
+    "zero_result_portals": [
+      "realitymix.cz"
+    ],
+    "blocked_portals": []
+  },
+  "portal_status": {
+    "realitymix.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope RealityMix rows."
+    },
+    "reality.aktualne.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
+    }
+  },
+  "fetch_attempts": [
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/domy/prodej/",
+      "stage": "house_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Hronov&form%5Bcena_mena%5D=1",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hronov/prenechani-prostoru-pronajmu-stravovani-v-hronove-8578249.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hronov/prodej-bytu-3-1-v-hronove-8598237.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hronov/prodej-bytu-3-1-v-hronove-ul-jiraskova-8568827.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hronov/prodej-byty-3-kk-70-m2-husova-1034-54931-hronov-nachod-id-81863-8535011.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hronov/prodej-chaty-zahrady-8554791.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hronov/prodej-louky-8492-m-hronov-8165449.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hronov/prodej-pole-12054-m-hronov-rokytnik-8194835.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hronov/prodej-pole-12054-m-hronov-rokytnik-8609293.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hronov/prodej-pozemku-k-bydleni-1029-m-hronov-8416181.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hronov/prodej-pozemku-k-bydleni-1090-m-hronov-cast-rokytnik-8586891.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hronov/prodej-rodinneho-domu-140-m2-husova-hronov-8524497.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hronov/prodej-rodinneho-domu-250-m-hronov-v-liskach-8616223.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hronov/prodej-stavebniho-pozemku-973-m-hronov-8554645.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hronov/prodej-zahrady-391-m-hronov-rokytnik-8265733.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hronov/pronajem-bytu-1-1-63-m-hronov-ul-husova-8512853.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hronov/pronajem-luxusnich-nebytovych-prostor-120-m2-s-bytem-2-kk-45-m2-v-hronove-1-patro-8453191.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hronov/pronajem-obchod-a-sluzby-66000-m-hronov-ul-kostelecka-8556155.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hronov/pronajem-rodinneho-domu-80-m-dvorska-hronov-549-31-8552613.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    }
+  ],
+  "gaps": [
+    "missing-page-url:house",
+    "missing-page-url:land",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hronov/prenechani-prostoru-pronajmu-stravovani-v-hronove-8578249.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hronov/prodej-bytu-3-1-v-hronove-8598237.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hronov/prodej-bytu-3-1-v-hronove-ul-jiraskova-8568827.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hronov/prodej-byty-3-kk-70-m2-husova-1034-54931-hronov-nachod-id-81863-8535011.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hronov/prodej-chaty-zahrady-8554791.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hronov/prodej-louky-8492-m-hronov-8165449.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hronov/prodej-pole-12054-m-hronov-rokytnik-8194835.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hronov/prodej-pole-12054-m-hronov-rokytnik-8609293.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/hronov/prodej-rodinneho-domu-140-m2-husova-hronov-8524497.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/hronov/prodej-rodinneho-domu-250-m-hronov-v-liskach-8616223.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/hronov/prodej-stavebniho-pozemku-973-m-hronov-8554645.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hronov/prodej-zahrady-391-m-hronov-rokytnik-8265733.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hronov/pronajem-bytu-1-1-63-m-hronov-ul-husova-8512853.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hronov/pronajem-luxusnich-nebytovych-prostor-120-m2-s-bytem-2-kk-45-m2-v-hronove-1-patro-8453191.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hronov/pronajem-obchod-a-sluzby-66000-m-hronov-ul-kostelecka-8556155.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/hronov/pronajem-rodinneho-domu-80-m-dvorska-hronov-549-31-8552613.html"
+  ],
+  "listings": [
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej pozemku k bydlení, 1090 m², Hronov, část Rokytník",
+      "location": "Rokytník, Náchod",
+      "property_type": "land",
+      "price": "2 320 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1090",
+      "urls": [
+        "https://reality.aktualne.cz/detail/hronov/prodej-pozemku-k-bydleni-1090-m-hronov-cast-rokytnik-8586891.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "buildable-land",
+        "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej pozemku k bydlení, 1029 m², Hronov",
+      "location": "Rokytník, Náchod",
+      "property_type": "land",
+      "price": "2 230 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1029",
+      "urls": [
+        "https://reality.aktualne.cz/detail/hronov/prodej-pozemku-k-bydleni-1029-m-hronov-8416181.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "buildable-land",
+        "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    }
+  ]
+}

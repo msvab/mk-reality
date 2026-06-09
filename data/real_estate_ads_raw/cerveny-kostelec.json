@@ -1,0 +1,305 @@
+{
+  "city": "Červený Kostelec",
+  "query": {
+    "municipality": "Červený Kostelec",
+    "location_scope": "municipality_only",
+    "country": "Czech Republic",
+    "property_types": [
+      "house",
+      "chalupa",
+      "land"
+    ],
+    "price_min": null,
+    "price_max": null,
+    "house_size_min_m2": null,
+    "house_size_max_m2": null,
+    "land_size_min_m2": 1000,
+    "land_size_max_m2": null,
+    "must_have": [
+      "sale listings",
+      "buildable or residential land only"
+    ],
+    "exclude": [
+      "chata"
+    ]
+  },
+  "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Červený Kostelec."
+  ],
+  "coverage": {
+    "workers_launched": 2,
+    "workers_with_results": 1,
+    "candidates_gathered": 20,
+    "rows_retained": 2,
+    "zero_result_portals": [
+      "realitymix.cz"
+    ],
+    "blocked_portals": []
+  },
+  "portal_status": {
+    "realitymix.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope RealityMix rows."
+    },
+    "reality.aktualne.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
+    }
+  },
+  "fetch_attempts": [
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/domy/prodej/",
+      "stage": "house_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=%C4%8Cerven%C3%BD+Kostelec&form%5Bcena_mena%5D=1",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-1-1-48-m-cerveny-kostelec-u-namesti-obce-8532079.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-1-1-53-m-cerveny-kostelec-ul-bozeny-nemcove-8528481.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-1-1-54-m-cerveny-kostelec-ul-bozeny-nemcove-8532819.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-1-1-56-m-cerveny-kostelec-ul-bozeny-nemcove-8540579.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-1-1-85-m-cerveny-kostelec-centrum-obce-8533709.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-2-1-59-m-cerveny-kostelec-ul-bozeny-nemcove-8534343.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-3-1-91-m-cerveny-kostelec-centrum-mesta-8528335.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-3-1-s-balkonem-8588645.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-chaty-34-m-cerveny-kostelec-8446945.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-domu-270-m-s-pozemkem-439-m-8187335.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-domu-270-m-s-pozemkem-439-m-v-cervenem-kostelci-8246779.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-louky-5804-m-cerveny-kostelec-8609309.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-obch-objektu-239-m-cerveny-kostelec-ul-b-nemcove-8534313.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-pozemku-k-bydleni-2842-m-cerveny-kostelec-8603371.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-pozemku-k-bydleni-3338-m-cerveny-kostelec-8604749.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-pozemku-k-bydleni-496-m-cerveny-kostelec-8603375.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-rodinneho-domu-v-cervenem-kostelci-olesnice-8449813.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-obchod-a-sluzby-90-m-cerveny-kostelec-8561275.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-rodinneho-domu-80-m2-cerveny-kostelec-8568477.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-skladu-4000-m-cerveny-kostelec-ul-jiraskova-8559107.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    }
+  ],
+  "gaps": [
+    "missing-page-url:house",
+    "missing-page-url:land",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-1-1-48-m-cerveny-kostelec-u-namesti-obce-8532079.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-1-1-53-m-cerveny-kostelec-ul-bozeny-nemcove-8528481.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-1-1-54-m-cerveny-kostelec-ul-bozeny-nemcove-8532819.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-1-1-56-m-cerveny-kostelec-ul-bozeny-nemcove-8540579.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-1-1-85-m-cerveny-kostelec-centrum-obce-8533709.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-2-1-59-m-cerveny-kostelec-ul-bozeny-nemcove-8534343.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-3-1-91-m-cerveny-kostelec-centrum-mesta-8528335.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-3-1-s-balkonem-8588645.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-chaty-34-m-cerveny-kostelec-8446945.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-domu-270-m-s-pozemkem-439-m-8187335.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-domu-270-m-s-pozemkem-439-m-v-cervenem-kostelci-8246779.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-louky-5804-m-cerveny-kostelec-8609309.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-obch-objektu-239-m-cerveny-kostelec-ul-b-nemcove-8534313.html",
+    "non-buildable-land:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-pozemku-k-bydleni-2842-m-cerveny-kostelec-8603371.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-pozemku-k-bydleni-496-m-cerveny-kostelec-8603375.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-rodinneho-domu-v-cervenem-kostelci-olesnice-8449813.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-obchod-a-sluzby-90-m-cerveny-kostelec-8561275.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-skladu-4000-m-cerveny-kostelec-ul-jiraskova-8559107.html"
+  ],
+  "listings": [
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej pozemku k bydlení, 3338 m², Červený Kostelec",
+      "location": "Červený Kostelec, Náchod",
+      "property_type": "land",
+      "price": "5 600 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "3338",
+      "urls": [
+        "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-pozemku-k-bydleni-3338-m-cerveny-kostelec-8604749.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "buildable-land",
+        "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Pronájem rodinného domu 80 m2 Červený Kostelec",
+      "location": "Podlesná, Horní Kostelec, Náchod",
+      "property_type": "house",
+      "price": "18 000 Kč (za měsíc )",
+      "house_area_m2": "80",
+      "land_area_m2": "1000",
+      "urls": [
+        "https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-rodinneho-domu-80-m2-cerveny-kostelec-8568477.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "aggregator-source:swiss-life-select-reality"
+      ]
+    }
+  ]
+}

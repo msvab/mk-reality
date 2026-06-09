@@ -1,7 +1,7 @@
 {
-  "city": "Rasošky",
+  "city": "Červená Hora",
   "query": {
-    "municipality": "Rasošky",
+    "municipality": "Červená Hora",
     "location_scope": "municipality_only",
     "country": "Czech Republic",
     "property_types": [
@@ -25,12 +25,12 @@
   },
   "assumptions": [
     "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
-    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Rasošky."
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Červená Hora."
   ],
   "coverage": {
     "workers_launched": 2,
     "workers_with_results": 0,
-    "candidates_gathered": 1,
+    "candidates_gathered": 0,
     "rows_retained": 0,
     "zero_result_portals": [
       "realitymix.cz",
@@ -75,16 +75,8 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Raso%C5%A1ky&form%5Bcena_mena%5D=1",
+      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=%C4%8Cerven%C3%A1+Hora&form%5Bcena_mena%5D=1",
       "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/rasosky/pronajem-noveho-bytu-1-1-30-m2-dolni-ples-8603505.html",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -93,7 +85,7 @@
   "gaps": [
     "missing-page-url:house",
     "missing-page-url:land",
-    "outside-municipality:https://reality.aktualne.cz/detail/rasosky/pronajem-noveho-bytu-1-1-30-m2-dolni-ples-8603505.html"
+    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=%C4%8Cerven%C3%A1+Hora&form%5Bcena_mena%5D=1"
   ],
   "listings": []
 }

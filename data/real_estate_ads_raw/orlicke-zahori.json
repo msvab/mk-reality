@@ -1,7 +1,7 @@
 {
-  "city": "Velká Jesenice",
+  "city": "Orlické Záhoří",
   "query": {
-    "municipality": "Velká Jesenice",
+    "municipality": "Orlické Záhoří",
     "location_scope": "municipality_only",
     "country": "Czech Republic",
     "property_types": [
@@ -25,11 +25,11 @@
   },
   "assumptions": [
     "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
-    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Velká Jesenice."
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Orlické Záhoří."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 2,
+    "workers_launched": 2,
+    "workers_with_results": 1,
     "candidates_gathered": 4,
     "rows_retained": 2,
     "zero_result_portals": [
@@ -74,15 +74,7 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/velka-jesenice/prodej-rodinneho-domu-200-m-velka-jesenice-8317457.html",
-      "stage": "discovery_detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/vyhledavani/pronajem-domy_vily.html",
+      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Orlick%C3%A9+Z%C3%A1ho%C5%99%C3%AD&form%5Bcena_mena%5D=1",
       "stage": "search_fetch",
       "attempt": 1,
       "status": "ok",
@@ -90,23 +82,7 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-domy_vily.html",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Velk%C3%A1+Jesenice&form%5Bcena_mena%5D=1",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/velka-jesenice/prodej-pozemku-928-m-8516499.html",
+      "url": "https://reality.aktualne.cz/detail/orlicke-zahori/prodej-domu-na-klic-nicea-8503003.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -114,7 +90,7 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/velka-jesenice/prodej-pozemku-k-bydleni-v-velke-jesenici-8423571.html",
+      "url": "https://reality.aktualne.cz/detail/orlicke-zahori/prodej-na-klic-riviera-8366755.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -122,7 +98,15 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/velka-jesenice/prodej-rodinneho-domu-200-m-velka-jesenice-8317457.html",
+      "url": "https://reality.aktualne.cz/detail/orlicke-zahori/prodej-pozemku-orlicke-zahori-8546895.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/orlicke-zahori/prodej-rodinneho-domu-orlicke-zahori-kunstat-u-orlickeho-zahori-okres-rychnov-nad-kneznou-8541339.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -132,45 +116,45 @@
   "gaps": [
     "missing-page-url:house",
     "missing-page-url:land",
-    "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/pronajem-domy_vily.html",
-    "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-domy_vily.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/velka-jesenice/prodej-pozemku-928-m-8516499.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/velka-jesenice/prodej-pozemku-k-bydleni-v-velke-jesenici-8423571.html"
+    "outside-municipality:https://reality.aktualne.cz/detail/orlicke-zahori/prodej-domu-na-klic-nicea-8503003.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/orlicke-zahori/prodej-na-klic-riviera-8366755.html"
   ],
   "listings": [
     {
       "portal": [
-        "mmreality.cz"
+        "reality.aktualne.cz"
       ],
-      "title": "Prodej, Rodinný dům, 200 m², Velká Jesenice",
-      "location": "Velká Jesenice, okres Náchod",
-      "property_type": "house",
-      "price": "5 998 000 Kč",
-      "house_area_m2": "200",
-      "land_area_m2": "1149",
+      "title": "Prodej pozemku Orlické Záhoří",
+      "location": "Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "5 699 999 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1517",
       "urls": [
-        "https://www.mmreality.cz/nemovitosti/910514/"
+        "https://reality.aktualne.cz/detail/orlicke-zahori/prodej-pozemku-orlicke-zahori-8546895.html"
       ],
       "notes": [
-        "detail-url-verified:mmreality.cz"
+        "detail-url-verified:reality.aktualne.cz",
+        "buildable-land",
+        "aggregator-source:m&m-reality-holding-a.s."
       ]
     },
     {
       "portal": [
         "reality.aktualne.cz"
       ],
-      "title": "Prodej rodinného domu, 200 m², Velká Jesenice",
-      "location": "Velká Jesenice, Náchod",
+      "title": "Prodej rodinného domu - Orlické Záhoří – Kunštát u Orlického Záhoří – okres Rychnov nad Kněžnou",
+      "location": "Orlické Záhoří, Rychnov nad Kněžnou",
       "property_type": "house",
-      "price": "5 998 000 Kč",
-      "house_area_m2": "200",
-      "land_area_m2": "1149",
+      "price": "16 980 000 Kč",
+      "house_area_m2": "184",
+      "land_area_m2": "2410",
       "urls": [
-        "https://reality.aktualne.cz/detail/velka-jesenice/prodej-rodinneho-domu-200-m-velka-jesenice-8317457.html"
+        "https://reality.aktualne.cz/detail/orlicke-zahori/prodej-rodinneho-domu-orlicke-zahori-kunstat-u-orlickeho-zahori-okres-rychnov-nad-kneznou-8541339.html"
       ],
       "notes": [
         "detail-url-verified:reality.aktualne.cz",
-        "aggregator-source:m&m-reality-holding-a.s."
+        "aggregator-source:fortunae-s.r.o."
       ]
     }
   ]

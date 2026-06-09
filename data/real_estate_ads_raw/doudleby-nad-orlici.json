@@ -24,13 +24,13 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached MM Reality and Reality Aktuálně result pages plus RealityMix result-page discovery were used when available.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Doudleby nad Orlicí."
   ],
   "coverage": {
     "workers_launched": 2,
     "workers_with_results": 1,
-    "candidates_gathered": 8,
+    "candidates_gathered": 7,
     "rows_retained": 1,
     "zero_result_portals": [
       "realitymix.cz"
@@ -39,12 +39,8 @@
   },
   "portal_status": {
     "realitymix.cz": {
-      "status": "fallback_page",
-      "stage": "detail_parse",
-      "message": "Požadovaný inzerát již není v naší databázi",
-      "evidence": [
-        "detail_parse:fallback_page:https://realitymix.cz/detail/doudleby-nad-orlici/prodej-pozemku-k-bydleni-1901-m-doudleby-nad-orlici-8353441.html"
-      ]
+      "status": "no_results",
+      "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
       "status": "ok",
@@ -52,22 +48,6 @@
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/doudleby-nad-orlici/prodej-pozemku-k-bydleni-1901-m-doudleby-nad-orlici-8353441.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/doudleby-nad-orlici/prodej-pozemku-k-bydleni-1901-m-doudleby-nad-orlici-8353441.html",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Požadovaný inzerát již není v naší databázi"
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -88,6 +68,22 @@
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/",
       "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/doudleby-nad-orlici/prodej-rodinneho-domu-po-castecne-rekonstrukci-s-velkou-zahradou-v-doudlebech-nad-orlici-8576605.html",
+      "stage": "discovery_detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-domy_vily.html",
+      "stage": "search_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -158,7 +154,6 @@
     }
   ],
   "gaps": [
-    "removed-fallback-page:https://realitymix.cz/detail/doudleby-nad-orlici/prodej-pozemku-k-bydleni-1901-m-doudleby-nad-orlici-8353441.html",
     "missing-page-url:house",
     "missing-page-url:land",
     "land-below-threshold:https://reality.aktualne.cz/detail/doudleby-nad-orlici/pozemek-urceny-k-vystavbe-doudleby-nad-orlici-okres-rychnov-nad-kneznou-8577507.html",

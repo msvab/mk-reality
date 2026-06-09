@@ -1,0 +1,279 @@
+{
+  "city": "Rokytnice v Orlických horách",
+  "query": {
+    "municipality": "Rokytnice v Orlických horách",
+    "location_scope": "municipality_only",
+    "country": "Czech Republic",
+    "property_types": [
+      "house",
+      "chalupa",
+      "land"
+    ],
+    "price_min": null,
+    "price_max": null,
+    "house_size_min_m2": null,
+    "house_size_max_m2": null,
+    "land_size_min_m2": 1000,
+    "land_size_max_m2": null,
+    "must_have": [
+      "sale listings",
+      "buildable or residential land only"
+    ],
+    "exclude": [
+      "chata"
+    ]
+  },
+  "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Rokytnice v Orlických horách."
+  ],
+  "coverage": {
+    "workers_launched": 2,
+    "workers_with_results": 1,
+    "candidates_gathered": 19,
+    "rows_retained": 1,
+    "zero_result_portals": [
+      "realitymix.cz"
+    ],
+    "blocked_portals": []
+  },
+  "portal_status": {
+    "realitymix.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope RealityMix rows."
+    },
+    "reality.aktualne.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
+    }
+  },
+  "fetch_attempts": [
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/domy/prodej/",
+      "stage": "house_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Rokytnice+v+Orlick%C3%BDch+hor%C3%A1ch&form%5Bcena_mena%5D=1",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/apartman-4-kk-rokytnice-v-orlickych-horach-8006131.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/id-1-20-pozemku-v-k-u-rokytnice-v-orlickych-horach-8612143.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prevod-dr-podilu-byty-2-1-54-m2-sidliste-1-maje-559-51761-rokytnice-v-orlickych-horach-rychno-8605947.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-byt-atypicky-39-kralovehradecky-kraj-rychnov-nad-kneznou-rokytnice-v-orlickych-horach-si-8616115.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-bytu-2-1-rokytnice-v-orl-h-okres-rychnov-nad-kneznou-8575511.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-bytu-2-1-v-rokytnici-v-orlickych-horach-u-nadrazi-8594153.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-chalupy-386-m-rokytnice-v-orlickych-horach-8548401.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-domu-rokytnice-v-orlickych-horach-ul-j-v-sladka-8575967.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-dum-rodinny-45-kralovehradecky-kraj-rychnov-nad-kneznou-rokytnice-v-orlickych-horach-j-8593587.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-dvou-rodinnych-domu-1152m-rokytnice-v-orlickych-h-8562513.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-louky-v-rokytnici-v-orlickych-horach-8564329.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-penzion-386-m-rokytnice-v-orlickych-horach-8551017.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-pozemku-o-vymere-2-779-m2-v-nebeske-rybne-8606221.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-rodinneho-domu-253-m2-pozemek-1-339-m2-rokytnice-v-orlickych-horach-8386485.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-rodinneho-domu-v-porto-8592251.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-rodinneho-domu-v-rokytnici-v-orlickych-horach-8551025.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/pronajem-bytu-1-1-64-m2-nebeska-rybna-klidne-bydleni-v-prirode-8566571.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/pronajem-bytu-2-kk-v-rokytnici-v-o-h-ul-sidliste-1-maje-8616385.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/pronajem-byty-2-1-50m-rokytnice-v-orlickych-horach-8563919.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    }
+  ],
+  "gaps": [
+    "missing-page-url:house",
+    "missing-page-url:land",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/apartman-4-kk-rokytnice-v-orlickych-horach-8006131.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/id-1-20-pozemku-v-k-u-rokytnice-v-orlickych-horach-8612143.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prevod-dr-podilu-byty-2-1-54-m2-sidliste-1-maje-559-51761-rokytnice-v-orlickych-horach-rychno-8605947.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-byt-atypicky-39-kralovehradecky-kraj-rychnov-nad-kneznou-rokytnice-v-orlickych-horach-si-8616115.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-bytu-2-1-rokytnice-v-orl-h-okres-rychnov-nad-kneznou-8575511.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-bytu-2-1-v-rokytnici-v-orlickych-horach-u-nadrazi-8594153.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-domu-rokytnice-v-orlickych-horach-ul-j-v-sladka-8575967.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-dum-rodinny-45-kralovehradecky-kraj-rychnov-nad-kneznou-rokytnice-v-orlickych-horach-j-8593587.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-dvou-rodinnych-domu-1152m-rokytnice-v-orlickych-h-8562513.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-louky-v-rokytnici-v-orlickych-horach-8564329.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-penzion-386-m-rokytnice-v-orlickych-horach-8551017.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-pozemku-o-vymere-2-779-m2-v-nebeske-rybne-8606221.html",
+    "non-buildable-land:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-rodinneho-domu-253-m2-pozemek-1-339-m2-rokytnice-v-orlickych-horach-8386485.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-rodinneho-domu-v-porto-8592251.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-rodinneho-domu-v-rokytnici-v-orlickych-horach-8551025.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/pronajem-bytu-1-1-64-m2-nebeska-rybna-klidne-bydleni-v-prirode-8566571.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/pronajem-bytu-2-kk-v-rokytnici-v-o-h-ul-sidliste-1-maje-8616385.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/pronajem-byty-2-1-50m-rokytnice-v-orlickych-horach-8563919.html"
+  ],
+  "listings": [
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej chalupy, 386 m², Rokytnice v Orlických horách",
+      "location": "Rokytnice v Orlických horách, Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "cena na vyžádání",
+      "house_area_m2": "386",
+      "land_area_m2": "1335",
+      "urls": [
+        "https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-chalupy-386-m-rokytnice-v-orlickych-horach-8548401.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "normalized-from:chalupa",
+        "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    }
+  ]
+}

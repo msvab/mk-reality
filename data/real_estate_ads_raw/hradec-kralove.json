@@ -1,0 +1,921 @@
+{
+  "city": "Hradec Králové",
+  "query": {
+    "municipality": "Hradec Králové",
+    "location_scope": "municipality_only",
+    "country": "Czech Republic",
+    "property_types": [
+      "house",
+      "chalupa",
+      "land"
+    ],
+    "price_min": null,
+    "price_max": null,
+    "house_size_min_m2": null,
+    "house_size_max_m2": null,
+    "land_size_min_m2": 1000,
+    "land_size_max_m2": null,
+    "must_have": [
+      "sale listings",
+      "buildable or residential land only"
+    ],
+    "exclude": [
+      "chata"
+    ]
+  },
+  "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Hradec Králové."
+  ],
+  "coverage": {
+    "workers_launched": 2,
+    "workers_with_results": 1,
+    "candidates_gathered": 66,
+    "rows_retained": 14,
+    "zero_result_portals": [
+      "reality.aktualne.cz"
+    ],
+    "blocked_portals": []
+  },
+  "portal_status": {
+    "realitymix.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified RealityMix row."
+    },
+    "reality.aktualne.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope Reality Aktuálně rows."
+    }
+  },
+  "fetch_attempts": [
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/domy/prodej/",
+      "stage": "house_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/domy/prodej/kralovehradecky/hradec-kralove",
+      "stage": "house_result_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/atraktivni-rodinny-dum-v-prijemne-lokalite-8557669.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/novostavba-rodinneho-domu-5-kk-se-zahradou-terasa-parkovani-hradec-kralove-rusek-8480801.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-domu-115-m-pozemek-2-603-m-8503695.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-domu-212-m-pozemek-911-m-8560455.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-domu-4-1-se-zahradou-trebes-8593221.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-domy-rodinny-210-m2-horni-253-30-50002-hradec-kralove-hradec-kralove-id-85276-8591989.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-krasneho-a-velkeho-domu-4-1-se-zahradou-a-garazi-v-hradci-kralove-8305263.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-novostavby-5-kk-se-zahradou-hradec-kralove-8591783.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-novostavby-rd-malsovice-hradec-kralove-8532263.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-podilu-1-3-rodinneho-domu-v-hradci-kralove-placky-8546057.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-podilu-1-4-rodinneho-domu-213-m-hradec-kralove-plotiste-nad-labem-8583841.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-rd-2-1-slezske-predmesti-hradec-kralove-8471689.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-rd-5-kk-travni-ulice-slezske-predmesti-hradec-kralove-8349617.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-110-m-hradec-kralove-8330739.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-122-m2-hradec-kralove-8459701.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-130-m2-fucikova-hradec-kralove-8609957.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-131-m-hradec-kralove-pouchov-8559793.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-145-m2-na-hrazce-hradec-kralove-8485983.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-159-m-hradec-kralove-ul-u-cihelny-8543613.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-159-m-hradec-kralove-ul-u-cihelny-8545485.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-232-m-hradec-kralove-ul-na-hrazce-8507063.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-bohuslava-martinu-v-hradci-kralove-8507773.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-celkova-plocha-196-m-pozemek-456-m-slezske-predmesti-hradec-kralove-8579497.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-hradec-kralove-ul-novy-brezhrad-8462725.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-kuncice-okres-hradec-kralove-8559899.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-pozemek-738-m2-velka-garaz-a-dilna-hradec-kralove-trebes-8126841.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-v-atraktivni-lokalite-ve-svobodnych-dvorech-v-hradci-kralove-8589917.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-v-zadane-lokalite-novy-hradec-kralove-8595225.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-rodinny-dum-168-8616559.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-rodinny-dum-50-8617057.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/rd-hradec-kralove-svobodne-dvory-8607845.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/kralovehradecky/hradec-kralove",
+      "stage": "land_result_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/klidne-misto-pro-bydleni-8555185.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/pozemek-k-vystavbe-rodinneho-domu-u-reky-orlice-8588567.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/pozemek-pro-bydleni-v-dosahu-mesta-i-prirody-8555189.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-pozemek-694-m2-divecka-hradec-kralove-8537551.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-pozemek-bydleni-1328-8591349.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-pozemek-bydleni-3460-8159205.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-pozemkove-parcely-1385-m2-katastralni-uzemi-malsovice-hradec-kralove-8392127.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-pozemku-k-bydleni-520-m-hradec-kralove-8542573.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-pozemku-k-vystavbe-rodinneho-domu-plotiste-nad-labem-hradec-kralove-8442759.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-stavebniho-pozemku-1-235-m-novy-hradec-kralove-8501887.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-stavebniho-pozemku-4560-m-8597059.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-stavebniho-pozemku-v-ruseku-8545629.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prodej-vyjimecny-pozemek-pro-bydleni-6-111-m2-hradec-kralove-kopec-sv-jana-7907941.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/prostorny-pozemek-pro-bydleni-i-podnikani-8555221.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/hradec-kralove/stavebni-pozemek-pro-bydleni-na-dosah-mesta-i-prirody-8613363.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Hradec+Kr%C3%A1lov%C3%A9&form%5Bcena_mena%5D=1",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hradec-kralove/novostavba-rodinneho-domu-5-kk-se-zahradou-terasa-parkovani-hradec-kralove-rusek-8480801.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hradec-kralove/podnajem-byty-pokoj-50-m2-habrmanova-295-16-50002-hradec-kralove-hradec-kralove-id-77482-8410207.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hradec-kralove/pozemek-33-989m2-hradec-kralove-malsova-lhota-7706119.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hradec-kralove/prodej-bytu-3-1-hradec-kralove-8528913.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hradec-kralove/prodej-bytu-3-kk-68-m2-hradec-kralove-8609677.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hradec-kralove/prodej-bytu-4-kk-s-lodzii-90-m2-hradec-kralove-ul-jungmannova-8446133.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hradec-kralove/prodej-byty-3-kk-85-m2-klumparova-605-2-50002-hradec-kralove-hradec-kralove-id-84202-8587235.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hradec-kralove/prodej-komercni-kancelare-41-8617003.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-2-kk-34-m-hradec-kralove-ul-brozikova-8600449.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-3-1-s-balkonem-68-m2-hradec-kralove-u-oc-futurum-8619199.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hradec-kralove/pronajem-byty-1-kk-31-m2-kejzlarova-2123-12-50012-hradec-kralove-hradec-kralove-id-85223-8579261.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hradec-kralove/pronajem-pekneho-svetleho-bytu-1-kk-50m2-ve-svobodnych-dvorech-8616697.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hradec-kralove/pronajem-prostorneho-bytu-1-kk-terasa-garazove-stani-kollarova-hk-8617637.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hradec-kralove/pronajem-skladovaci-a-vyrobni-prostory-hradec-kralove-8616727.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hradec-kralove/pronajem-svetleho-bytu-s-lodzii-8616785.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hradec-kralove/pronajem-utulneho-bytu-v-klidne-lokalite-8617469.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hradec-kralove/pronajem-zdeneho-stanku-v-centru-hradce-kralove-8618305.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hradec-kralove/prostorny-byt-s-lodzii-8618467.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hradec-kralove/prostorny-svetly-druzstevni-byt-93-m2-vcetne-balkonu-a-sklepni-koje-zdene-jadro-po-rekonstrukci-8618225.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hradec-kralove/sportovni-areal-tj-lokomotiva-hradec-kralove-v-prodeji-investicni-prilezitost-sportovni-areal-11-8617729.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    }
+  ],
+  "gaps": [
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/atraktivni-rodinny-dum-v-prijemne-lokalite-8557669.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/novostavba-rodinneho-domu-5-kk-se-zahradou-terasa-parkovani-hradec-kralove-rusek-8480801.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-domu-212-m-pozemek-911-m-8560455.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-domu-4-1-se-zahradou-trebes-8593221.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-krasneho-a-velkeho-domu-4-1-se-zahradou-a-garazi-v-hradci-kralove-8305263.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-novostavby-5-kk-se-zahradou-hradec-kralove-8591783.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-novostavby-rd-malsovice-hradec-kralove-8532263.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-podilu-1-3-rodinneho-domu-v-hradci-kralove-placky-8546057.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-rd-2-1-slezske-predmesti-hradec-kralove-8471689.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-rd-5-kk-travni-ulice-slezske-predmesti-hradec-kralove-8349617.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-110-m-hradec-kralove-8330739.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-122-m2-hradec-kralove-8459701.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-130-m2-fucikova-hradec-kralove-8609957.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-131-m-hradec-kralove-pouchov-8559793.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-145-m2-na-hrazce-hradec-kralove-8485983.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-159-m-hradec-kralove-ul-u-cihelny-8543613.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-159-m-hradec-kralove-ul-u-cihelny-8545485.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-232-m-hradec-kralove-ul-na-hrazce-8507063.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-bohuslava-martinu-v-hradci-kralove-8507773.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-celkova-plocha-196-m-pozemek-456-m-slezske-predmesti-hradec-kralove-8579497.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-hradec-kralove-ul-novy-brezhrad-8462725.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-pozemek-738-m2-velka-garaz-a-dilna-hradec-kralove-trebes-8126841.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-v-atraktivni-lokalite-ve-svobodnych-dvorech-v-hradci-kralove-8589917.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-v-zadane-lokalite-novy-hradec-kralove-8595225.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-rodinny-dum-168-8616559.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-rodinny-dum-50-8617057.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/rd-hradec-kralove-svobodne-dvory-8607845.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/pozemek-k-vystavbe-rodinneho-domu-u-reky-orlice-8588567.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/pozemek-pro-bydleni-v-dosahu-mesta-i-prirody-8555189.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-pozemek-694-m2-divecka-hradec-kralove-8537551.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-pozemku-k-bydleni-520-m-hradec-kralove-8542573.html",
+    "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/stavebni-pozemek-pro-bydleni-na-dosah-mesta-i-prirody-8613363.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/hradec-kralove/novostavba-rodinneho-domu-5-kk-se-zahradou-terasa-parkovani-hradec-kralove-rusek-8480801.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/podnajem-byty-pokoj-50-m2-habrmanova-295-16-50002-hradec-kralove-hradec-kralove-id-77482-8410207.html",
+    "non-buildable-land:https://reality.aktualne.cz/detail/hradec-kralove/pozemek-33-989m2-hradec-kralove-malsova-lhota-7706119.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-bytu-3-1-hradec-kralove-8528913.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-bytu-3-kk-68-m2-hradec-kralove-8609677.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-bytu-4-kk-s-lodzii-90-m2-hradec-kralove-ul-jungmannova-8446133.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-byty-3-kk-85-m2-klumparova-605-2-50002-hradec-kralove-hradec-kralove-id-84202-8587235.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-komercni-kancelare-41-8617003.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-2-kk-34-m-hradec-kralove-ul-brozikova-8600449.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-3-1-s-balkonem-68-m2-hradec-kralove-u-oc-futurum-8619199.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-byty-1-kk-31-m2-kejzlarova-2123-12-50012-hradec-kralove-hradec-kralove-id-85223-8579261.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-pekneho-svetleho-bytu-1-kk-50m2-ve-svobodnych-dvorech-8616697.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-prostorneho-bytu-1-kk-terasa-garazove-stani-kollarova-hk-8617637.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-skladovaci-a-vyrobni-prostory-hradec-kralove-8616727.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-svetleho-bytu-s-lodzii-8616785.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-utulneho-bytu-v-klidne-lokalite-8617469.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-zdeneho-stanku-v-centru-hradce-kralove-8618305.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prostorny-byt-s-lodzii-8618467.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prostorny-svetly-druzstevni-byt-93-m2-vcetne-balkonu-a-sklepni-koje-zdene-jadro-po-rekonstrukci-8618225.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/sportovni-areal-tj-lokomotiva-hradec-kralove-v-prodeji-investicni-prilezitost-sportovni-areal-11-8617729.html"
+  ],
+  "listings": [
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej pozemku k výstavbě rodinného domu, Plotiště nad Labem, Hradec Králové",
+      "location": "Hradec Králové",
+      "property_type": "house",
+      "price": "8 304 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1384",
+      "urls": [
+        "https://realitymix.cz/detail/hradec-kralove/prodej-pozemku-k-vystavbe-rodinneho-domu-plotiste-nad-labem-hradec-kralove-8442759.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej pozemek Bydlení, 1328㎡",
+      "location": "Rusek, Hradec Králové",
+      "property_type": "land",
+      "price": "6 890 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1328",
+      "urls": [
+        "https://realitymix.cz/detail/hradec-kralove/prodej-pozemek-bydleni-1328-8591349.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz",
+        "municipal-part:Rusek"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej podílu 1/4 rodinného domu 213 m², Hradec Králové - Plotiště nad Labem",
+      "location": "U Náhona, Plotiště nad Labem, Hradec Králové",
+      "property_type": "house",
+      "price": "2 500 000 Kč",
+      "house_area_m2": "213",
+      "land_area_m2": "3180",
+      "urls": [
+        "https://realitymix.cz/detail/hradec-kralove/prodej-podilu-1-4-rodinneho-domu-213-m-hradec-kralove-plotiste-nad-labem-8583841.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej, domy/rodinný, 210 m2, Horní 253/30, 50002 Hradec Králové, Hradec Králové [ID 85276]",
+      "location": "Horní, Roudnička, Hradec Králové",
+      "property_type": "house",
+      "price": "19 990 031 Kč",
+      "house_area_m2": "210",
+      "land_area_m2": "1003",
+      "urls": [
+        "https://realitymix.cz/detail/hradec-kralove/prodej-domy-rodinny-210-m2-horni-253-30-50002-hradec-kralove-hradec-kralove-id-85276-8591989.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej domu 115 m², pozemek 2.603 m²",
+      "location": "Zelená, Kukleny, Hradec Králové",
+      "property_type": "house",
+      "price": "15 000 000 Kč",
+      "house_area_m2": "115",
+      "land_area_m2": "2603",
+      "urls": [
+        "https://realitymix.cz/detail/hradec-kralove/prodej-domu-115-m-pozemek-2-603-m-8503695.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1 235 m² – Nový Hradec Králové",
+      "location": "Nový Hradec Králové, Hradec Králové",
+      "property_type": "land",
+      "price": "14 999 999 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1235",
+      "urls": [
+        "https://realitymix.cz/detail/hradec-kralove/prodej-stavebniho-pozemku-1-235-m-novy-hradec-kralove-8501887.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz",
+        "municipal-part:Nový Hradec Králové",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej rodinného domu Kunčice okres Hradec Králové",
+      "location": "Hradec Králové",
+      "property_type": "house",
+      "price": "13 490 000 Kč",
+      "house_area_m2": "101",
+      "land_area_m2": "1321",
+      "urls": [
+        "https://realitymix.cz/detail/hradec-kralove/prodej-rodinneho-domu-kuncice-okres-hradec-kralove-8559899.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej pozemek Bydlení, 3460㎡",
+      "location": "Mariánská, Česká Lípa, Hradec Králové",
+      "property_type": "land",
+      "price": "11 999 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "3460",
+      "urls": [
+        "https://realitymix.cz/detail/hradec-kralove/prodej-pozemek-bydleni-3460-8159205.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Klidné místo pro bydlení",
+      "location": "Malšova Lhota, Hradec Králové",
+      "property_type": "house",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1095",
+      "urls": [
+        "https://realitymix.cz/detail/hradec-kralove/klidne-misto-pro-bydleni-8555185.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz",
+        "municipal-part:Malšova Lhota"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej pozemkové parcely, 1385 m2, katastrální území Malšovice, Hradec Králové",
+      "location": "Hradec Králové",
+      "property_type": "land",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1385",
+      "urls": [
+        "https://realitymix.cz/detail/hradec-kralove/prodej-pozemkove-parcely-1385-m2-katastralni-uzemi-malsovice-hradec-kralove-8392127.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej stavebního pozemku 4560 m²",
+      "location": "Hradec Králové",
+      "property_type": "land",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "unknown",
+      "land_area_m2": "4560",
+      "urls": [
+        "https://realitymix.cz/detail/hradec-kralove/prodej-stavebniho-pozemku-4560-m-8597059.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej stavebního pozemku v Ruseku",
+      "location": "Hradec Králové",
+      "property_type": "land",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1476",
+      "urls": [
+        "https://realitymix.cz/detail/hradec-kralove/prodej-stavebniho-pozemku-v-ruseku-8545629.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej, výjimečný pozemek, pro bydlení, 6.111 m2, Hradec Králové, Kopec Sv. Jana.",
+      "location": "Hradec Králové",
+      "property_type": "land",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "unknown",
+      "land_area_m2": "6111",
+      "urls": [
+        "https://realitymix.cz/detail/hradec-kralove/prodej-vyjimecny-pozemek-pro-bydleni-6-111-m2-hradec-kralove-kopec-sv-jana-7907941.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prostorný pozemek pro bydlení i podnikaní",
+      "location": "Malšova Lhota, Hradec Králové",
+      "property_type": "land",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1870",
+      "urls": [
+        "https://realitymix.cz/detail/hradec-kralove/prostorny-pozemek-pro-bydleni-i-podnikani-8555221.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz",
+        "municipal-part:Malšova Lhota"
+      ]
+    }
+  ]
+}

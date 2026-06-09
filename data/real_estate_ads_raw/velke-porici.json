@@ -1,7 +1,7 @@
 {
-  "city": "Černilov",
+  "city": "Velké Poříčí",
   "query": {
-    "municipality": "Černilov",
+    "municipality": "Velké Poříčí",
     "location_scope": "municipality_only",
     "country": "Czech Republic",
     "property_types": [
@@ -25,16 +25,15 @@
   },
   "assumptions": [
     "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
-    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Černilov."
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Velké Poříčí."
   ],
   "coverage": {
     "workers_launched": 2,
-    "workers_with_results": 0,
-    "candidates_gathered": 5,
-    "rows_retained": 0,
+    "workers_with_results": 1,
+    "candidates_gathered": 3,
+    "rows_retained": 1,
     "zero_result_portals": [
-      "realitymix.cz",
-      "reality.aktualne.cz"
+      "realitymix.cz"
     ],
     "blocked_portals": []
   },
@@ -44,8 +43,8 @@
       "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Reality Aktuálně rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
     }
   },
   "fetch_attempts": [
@@ -75,7 +74,7 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=%C4%8Cernilov&form%5Bcena_mena%5D=1",
+      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Velk%C3%A9+Po%C5%99%C3%AD%C4%8D%C3%AD&form%5Bcena_mena%5D=1",
       "stage": "search_fetch",
       "attempt": 1,
       "status": "ok",
@@ -83,7 +82,7 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/cernilov/cernilov-leva-vetsi-8617397.html",
+      "url": "https://reality.aktualne.cz/detail/velke-porici/prodej-chalupy-155-m2-pozemek-1468-m2-brne-velke-porici-okr-nachod-8333333.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -91,7 +90,7 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/cernilov/nadstandardne-vybaveny-novy-rodinny-dum-4-kk-8610985.html",
+      "url": "https://reality.aktualne.cz/detail/velke-porici/prodej-pole-14799-m-velke-porici-8609299.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -99,23 +98,7 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/cernilov/prodej-domy-rodinny-178-m2-cernilov-hradec-kralove-id-83655-8615505.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/cernilov/prodej-rodinneho-domu-130-m2-8533727.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/cernilov/prodej-vicegeneracniho-rodinneho-domu-v-cernilove-8522533.html",
+      "url": "https://reality.aktualne.cz/detail/velke-porici/prodej-zahrady-s-moznosti-stavby-18-m2-velke-pocici-nachod-8562653.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -125,11 +108,28 @@
   "gaps": [
     "missing-page-url:house",
     "missing-page-url:land",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/cernilov/cernilov-leva-vetsi-8617397.html",
-    "outside-municipality:https://reality.aktualne.cz/detail/cernilov/nadstandardne-vybaveny-novy-rodinny-dum-4-kk-8610985.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/cernilov/prodej-domy-rodinny-178-m2-cernilov-hradec-kralove-id-83655-8615505.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/cernilov/prodej-rodinneho-domu-130-m2-8533727.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/cernilov/prodej-vicegeneracniho-rodinneho-domu-v-cernilove-8522533.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/velke-porici/prodej-pole-14799-m-velke-porici-8609299.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/velke-porici/prodej-zahrady-s-moznosti-stavby-18-m2-velke-pocici-nachod-8562653.html"
   ],
-  "listings": []
+  "listings": [
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej chalupy 155 m2, pozemek 1468 m2, Brné – Velké Poříčí, okr. Náchod",
+      "location": "Brné, Velké Poříčí, Náchod",
+      "property_type": "house",
+      "price": "3 750 000 Kč",
+      "house_area_m2": "90",
+      "land_area_m2": "1468",
+      "urls": [
+        "https://reality.aktualne.cz/detail/velke-porici/prodej-chalupy-155-m2-pozemek-1468-m2-brne-velke-porici-okr-nachod-8333333.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "normalized-from:chalupa",
+        "aggregator-source:bydleni-na-doporuceni-s.r.o."
+      ]
+    }
+  ]
 }

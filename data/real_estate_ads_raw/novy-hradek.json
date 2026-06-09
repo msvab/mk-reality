@@ -24,7 +24,7 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached MM Reality and Reality Aktuálně result pages plus RealityMix result-page discovery were used when available.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Nový Hrádek."
   ],
   "coverage": {
@@ -98,6 +98,14 @@
       "portal": "realitymix.cz",
       "url": "https://realitymix.cz/reality/pozemky/pro-bydleni/prodej/kralovehradecky/nachod/novy-hradek",
       "stage": "land_result_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/novy-hradek/prodej-chalupa-162-m2-pozemek-1846-m-novy-hradek-8486767.html",
+      "stage": "discovery_detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -210,6 +218,7 @@
   "gaps": [
     "land-below-threshold:https://realitymix.cz/detail/novy-hradek/prodej-rodinneho-domu-pozemek-4795-m-novy-hradek-rzy-8601263.html",
     "land-below-threshold:https://realitymix.cz/detail/novy-hradek/rodinny-dum-novy-hradek-8395975.html",
+    "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-pozemky.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/novy-hradek/prodej-bytu-3-kk-72-m2-sokolska-novy-hradek-8589615.html",
     "non-buildable-land:https://reality.aktualne.cz/detail/novy-hradek/prodej-chaty-43-m-pozemek-3-640-m-novy-hradek-rzy-8543607.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/novy-hradek/prodej-rodinneho-domu-pozemek-4795-m-novy-hradek-rzy-8601263.html",
