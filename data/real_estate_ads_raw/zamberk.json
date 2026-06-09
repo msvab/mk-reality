@@ -1,0 +1,305 @@
+{
+  "city": "Žamberk",
+  "query": {
+    "municipality": "Žamberk",
+    "location_scope": "municipality_only",
+    "country": "Czech Republic",
+    "property_types": [
+      "house",
+      "chalupa",
+      "land"
+    ],
+    "price_min": null,
+    "price_max": null,
+    "house_size_min_m2": null,
+    "house_size_max_m2": null,
+    "land_size_min_m2": 1000,
+    "land_size_max_m2": null,
+    "must_have": [
+      "sale listings",
+      "buildable or residential land only"
+    ],
+    "exclude": [
+      "chata"
+    ]
+  },
+  "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Žamberk."
+  ],
+  "coverage": {
+    "workers_launched": 2,
+    "workers_with_results": 1,
+    "candidates_gathered": 16,
+    "rows_retained": 4,
+    "zero_result_portals": [
+      "realitymix.cz"
+    ],
+    "blocked_portals": []
+  },
+  "portal_status": {
+    "realitymix.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope RealityMix rows."
+    },
+    "reality.aktualne.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
+    }
+  },
+  "fetch_attempts": [
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/domy/prodej/",
+      "stage": "house_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/",
+      "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=%C5%BDamberk&form%5Bcena_mena%5D=1",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/zamberk/pozemek-urceny-k-vystavbe-rodinneho-domu-v-centru-zamberka-7998663.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/zamberk/prodej-chaloupky-ve-meste-zamberk-8487615.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/zamberk/prodej-domy-rodinny-146-m2-sadova-1449-56401-zamberk-usti-nad-orlici-id-83669-8543823.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/zamberk/prodej-pozemek-bydleni-1871-7918448.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/zamberk/prodej-pozemku-k-bydleni-1893-m-zamberk-8532115.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/zamberk/prodej-pozemku-k-bydleni-1894-m-zamberk-8532053.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/zamberk/prodej-pozemku-k-bydleni-3787-m-zamberk-8540691.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/zamberk/prodej-pozemku-k-bydleni-600-m-zamberk-8305853.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/zamberk/prodej-pozemku-k-bydleni-605-m-zamberk-8305855.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/zamberk/prodej-rodinny-dum-200-8511921.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/zamberk/prodej-stavebniho-pozemku-904-m2-8311675.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/zamberk/pronajem-byt-1-1-40-m2-zamberk-8487239.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/zamberk/pronajem-bytu-1-1-35-m-zamberk-ul-pionyru-8500853.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/zamberk/pronajem-bytu-2-kk-35-m-zamberk-ul-skolska-8603213.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/zamberk/pronajem-rodinneho-domu-v-zamberku-ul-jiraskovo-namesti-8571001.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/zamberk/prvorepublikova-vila-se-zahradou-v-centru-zamberka-8127539.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    }
+  ],
+  "gaps": [
+    "missing-page-url:house",
+    "missing-page-url:land",
+    "land-below-threshold:https://reality.aktualne.cz/detail/zamberk/pozemek-urceny-k-vystavbe-rodinneho-domu-v-centru-zamberka-7998663.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/zamberk/prodej-chaloupky-ve-meste-zamberk-8487615.html",
+    "non-buildable-land:https://reality.aktualne.cz/detail/zamberk/prodej-pozemek-bydleni-1871-7918448.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/zamberk/prodej-pozemku-k-bydleni-600-m-zamberk-8305853.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/zamberk/prodej-pozemku-k-bydleni-605-m-zamberk-8305855.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/zamberk/prodej-rodinny-dum-200-8511921.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/zamberk/prodej-stavebniho-pozemku-904-m2-8311675.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/zamberk/pronajem-byt-1-1-40-m2-zamberk-8487239.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/zamberk/pronajem-bytu-1-1-35-m-zamberk-ul-pionyru-8500853.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/zamberk/pronajem-bytu-2-kk-35-m-zamberk-ul-skolska-8603213.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/zamberk/pronajem-rodinneho-domu-v-zamberku-ul-jiraskovo-namesti-8571001.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/zamberk/prvorepublikova-vila-se-zahradou-v-centru-zamberka-8127539.html"
+  ],
+  "listings": [
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej, domy/rodinný, 146 m2, Sadová 1449, 56401 Žamberk, Ústí nad Orlicí [ID 83669]",
+      "location": "Sadová, Žamberk, Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "9 390 000 Kč",
+      "house_area_m2": "146",
+      "land_area_m2": "1013",
+      "urls": [
+        "https://reality.aktualne.cz/detail/zamberk/prodej-domy-rodinny-146-m2-sadova-1449-56401-zamberk-usti-nad-orlici-id-83669-8543823.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "aggregator-source:broker-consulting,-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej pozemku k bydlení, 3787 m², Žamberk",
+      "location": "Žamberk, Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "4 771 620 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "3787",
+      "urls": [
+        "https://reality.aktualne.cz/detail/zamberk/prodej-pozemku-k-bydleni-3787-m-zamberk-8540691.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "buildable-land",
+        "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej pozemku k bydlení, 1894 m², Žamberk",
+      "location": "Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "2 386 440 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1894",
+      "urls": [
+        "https://reality.aktualne.cz/detail/zamberk/prodej-pozemku-k-bydleni-1894-m-zamberk-8532053.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "buildable-land",
+        "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej pozemku k bydlení, 1893 m², Žamberk",
+      "location": "Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "2 385 180 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1893",
+      "urls": [
+        "https://reality.aktualne.cz/detail/zamberk/prodej-pozemku-k-bydleni-1893-m-zamberk-8532115.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "buildable-land",
+        "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    }
+  ]
+}
