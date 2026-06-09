@@ -17,13 +17,13 @@
         .ads-count-button { border: 0; background: #0f766e; color: #fff; cursor: pointer; }
         .ads-count-button:hover { background: #115e59; }
         .ads-drawer-backdrop { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.45); }
-        .ads-drawer { position: fixed; top: 0; right: 0; width: min(820px, 100vw); height: 100vh; background: #fff; box-shadow: -10px 0 30px rgba(0, 0, 0, 0.18); transform: translateX(100%); transition: transform 0.2s ease; z-index: 20; display: flex; flex-direction: column; }
+        .ads-drawer { position: fixed; top: 0; right: 0; width: min(820px, 100vw); height: 100vh; background: #fff; box-shadow: -10px 0 30px rgba(0, 0, 0, 0.18); transform: translateX(100%); transition: transform 0.2s ease; z-index: 20; display: flex; flex-direction: column; min-height: 0; }
         .ads-drawer-open { transform: translateX(0); }
         .ads-drawer-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 20px 24px 8px; border-bottom: 1px solid #e5e7eb; }
         .ads-drawer-header h2 { margin: 0 0 6px; }
         .ads-drawer-close { border: 0; background: transparent; font-size: 32px; line-height: 1; cursor: pointer; color: #555; }
         .ads-drawer-meta { padding: 12px 24px 0; color: #555; font-size: 14px; }
-        .ads-drawer-table-wrap { overflow: auto; padding: 16px 24px 24px; }
+        .ads-drawer-table-wrap { flex: 1 1 auto; min-height: 0; overflow: auto; padding: 16px 24px 24px; }
         .ad-listing-cell { min-width: 240px; }
         .ad-listing-title { font-weight: 700; }
         .ad-listing-location { margin-top: 4px; color: #6b7280; font-size: 13px; line-height: 1.35; }
@@ -152,9 +152,6 @@
             const metaParts = [];
             if (workers.workers_with_results !== undefined && workers.workers_launched !== undefined) {
               metaParts.push(`Portály s výsledky: ${workers.workers_with_results}/${workers.workers_launched}`);
-            }
-            if (Array.isArray(bundle.gaps) && bundle.gaps.length > 0) {
-              metaParts.push(`Mezery: ${bundle.gaps.join(", ")}`);
             }
             meta.textContent = metaParts.join(" | ");
             body.innerHTML = "";
