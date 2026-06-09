@@ -205,6 +205,7 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
         if not isinstance(bundle, dict):
             continue
         payload[city] = city_ads_bundle(feed, city)
+        payload[city]["generated_at"] = feed.get("generated_at")
     return f"""
       <div class="ads-drawer-backdrop" id="ads-drawer-backdrop" hidden></div>
       <aside class="ads-drawer" id="ads-drawer" aria-hidden="true">
@@ -216,6 +217,17 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
           <button type="button" class="ads-drawer-close" id="ads-drawer-close" aria-label="Zavřít">×</button>
         </div>
         <div class="ads-drawer-meta" id="ads-drawer-meta"></div>
+        <div class="ads-drawer-controls">
+          <label for="ads-drawer-sort">Řazení</label>
+          <select id="ads-drawer-sort">
+            <option value="default">Výchozí</option>
+            <option value="price-desc">Cena sestupně</option>
+            <option value="price-asc">Cena vzestupně</option>
+            <option value="land-desc">Pozemek sestupně</option>
+            <option value="land-asc">Pozemek vzestupně</option>
+            <option value="newest">Nejnovější</option>
+          </select>
+        </div>
         <div class="ads-drawer-table-wrap">
           <table>
             <thead>
@@ -245,6 +257,8 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
           const summary = document.getElementById("ads-drawer-summary");
           const meta = document.getElementById("ads-drawer-meta");
           const body = document.getElementById("ads-drawer-body");
+          const sortSelect = document.getElementById("ads-drawer-sort");
+          let currentBundle = null;
 
           const escapeHtml = (value) => String(value ?? "—")
             .replace(/&/g, "&amp;")
@@ -274,15 +288,86 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
             }}).filter(Boolean).join("<br>");
           }};
 
-          const renderListingCell = (ad) => {{
+          const datePart = (value) => String(value || "").slice(0, 10);
+          const formatTimestamp = (value) => {{
+            const match = String(value || "").match(/^(\\d{{4}})-(\\d{{2}})-(\\d{{2}})T(\\d{{2}}):(\\d{{2}})/);
+            if (!match) return displayValue(value);
+            return `${{Number(match[3])}}. ${{Number(match[2])}}. ${{match[1]}} ${{match[4]}}:${{match[5]}}`;
+          }};
+          const numericValue = (value) => Number.isFinite(Number(value)) ? Number(value) : null;
+          const priceValues = (ad) => (Array.isArray(ad.price_history) ? ad.price_history : [])
+            .map((entry) => numericValue(entry?.price_czk))
+            .filter((value) => value !== null);
+          const hasPriceChanged = (ad) => new Set(priceValues(ad)).size > 1;
+          const isNewListing = (ad, bundle) => {{
+            const generatedDate = datePart(bundle?.generated_at);
+            return generatedDate && datePart(ad.first_seen_at) === generatedDate;
+          }};
+
+          const renderBadges = (ad, bundle) => {{
+            const badges = [];
+            if (isNewListing(ad, bundle)) {{
+              badges.push('<span class="ad-badge ad-badge-new">Nové</span>');
+            }}
+            if (hasPriceChanged(ad)) {{
+              badges.push('<span class="ad-badge ad-badge-price">Změna ceny</span>');
+            }}
+            return badges.length ? `<div class="ad-badges">${{badges.join("")}}</div>` : "";
+          }};
+
+          const renderListingCell = (ad, bundle) => {{
             const title = escapeHtml(displayValue(ad.title));
             const location = escapeHtml(displayValue(ad.location));
             return `
               <div class="ad-listing-cell">
-                <div class="ad-listing-title">${{title}}</div>
+                <div class="ad-listing-title">${{title}}${{renderBadges(ad, bundle)}}</div>
                 <div class="ad-listing-location">${{location}}</div>
               </div>
             `;
+          }};
+
+          const compareNumbers = (left, right, direction) => {{
+            const leftValue = numericValue(left);
+            const rightValue = numericValue(right);
+            if (leftValue === null && rightValue === null) return 0;
+            if (leftValue === null) return 1;
+            if (rightValue === null) return -1;
+            return direction === "asc" ? leftValue - rightValue : rightValue - leftValue;
+          }};
+
+          const sortedAds = (bundle) => {{
+            const ads = [...(bundle?.ads || [])];
+            switch (sortSelect?.value) {{
+              case "price-desc":
+                return ads.sort((a, b) => compareNumbers(a.price_czk, b.price_czk, "desc"));
+              case "price-asc":
+                return ads.sort((a, b) => compareNumbers(a.price_czk, b.price_czk, "asc"));
+              case "land-desc":
+                return ads.sort((a, b) => compareNumbers(a.land_area_m2, b.land_area_m2, "desc"));
+              case "land-asc":
+                return ads.sort((a, b) => compareNumbers(a.land_area_m2, b.land_area_m2, "asc"));
+              case "newest":
+                return ads.sort((a, b) => String(b.first_seen_at || "").localeCompare(String(a.first_seen_at || "")));
+              default:
+                return ads;
+            }}
+          }};
+
+          const renderRows = (bundle) => {{
+            body.innerHTML = "";
+            for (const ad of sortedAds(bundle)) {{
+              const row = document.createElement("tr");
+              const cells = [
+                {{ html: renderListingCell(ad, bundle) }},
+                {{ html: escapeHtml(displayValue(ad.property_type)) }},
+                {{ html: `<span class="ads-price-cell">${{escapeHtml(displayValue(ad.price))}}</span>` }},
+                {{ html: escapeHtml(displayValue(ad.house_area_m2)) }},
+                {{ html: escapeHtml(displayValue(ad.land_area_m2)) }},
+                {{ html: renderLinks(ad.urls) }},
+              ];
+              row.innerHTML = cells.map((cell) => `<td>${{cell.html}}</td>`).join("");
+              body.appendChild(row);
+            }}
           }};
 
           const closeDrawer = () => {{
@@ -294,6 +379,8 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
           const openDrawer = (city) => {{
             const bundle = adsByCity[city];
             if (!bundle) return;
+            currentBundle = bundle;
+            if (sortSelect) sortSelect.value = "default";
             title.textContent = `Inzeráty: ${{city}}`;
             summary.textContent = `Počet inzerátů: ${{bundle.count ?? 0}}`;
             const workers = bundle.coverage || {{}};
@@ -301,22 +388,11 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
             if (workers.workers_with_results !== undefined && workers.workers_launched !== undefined) {{
               metaParts.push(`Portály s výsledky: ${{workers.workers_with_results}}/${{workers.workers_launched}}`);
             }}
-            meta.textContent = metaParts.join(" | ");
-            body.innerHTML = "";
-
-            for (const ad of bundle.ads || []) {{
-              const row = document.createElement("tr");
-              const cells = [
-                {{ html: renderListingCell(ad) }},
-                {{ html: escapeHtml(displayValue(ad.property_type)) }},
-                {{ html: `<span class="ads-price-cell">${{escapeHtml(displayValue(ad.price))}}</span>` }},
-                {{ html: escapeHtml(displayValue(ad.house_area_m2)) }},
-                {{ html: escapeHtml(displayValue(ad.land_area_m2)) }},
-                {{ html: renderLinks(ad.urls) }},
-              ];
-              row.innerHTML = cells.map((cell) => `<td>${{cell.html}}</td>`).join("");
-              body.appendChild(row);
+            if (bundle.generated_at) {{
+              metaParts.push(`Aktualizováno: ${{formatTimestamp(bundle.generated_at)}}`);
             }}
+            meta.textContent = metaParts.join(" | ");
+            renderRows(bundle);
 
             drawer.setAttribute("aria-hidden", "false");
             drawer.classList.add("ads-drawer-open");
@@ -325,6 +401,9 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
 
           document.querySelectorAll(".ads-count-button").forEach((button) => {{
             button.addEventListener("click", () => openDrawer(button.dataset.city));
+          }});
+          sortSelect?.addEventListener("change", () => {{
+            if (currentBundle) renderRows(currentBundle);
           }});
           closeButton?.addEventListener("click", closeDrawer);
           backdrop?.addEventListener("click", closeDrawer);
@@ -1312,16 +1391,23 @@ def render_html(rows: list[dict]) -> str:
         .ads-drawer-header h2 {{ margin: 0 0 6px; }}
         .ads-drawer-close {{ border: 0; background: transparent; font-size: 32px; line-height: 1; cursor: pointer; color: #555; }}
         .ads-drawer-meta {{ padding: 12px 24px 0; color: #555; font-size: 14px; }}
+        .ads-drawer-controls {{ display: flex; align-items: center; gap: 8px; padding: 12px 24px 0; color: #374151; font-size: 14px; }}
+        .ads-drawer-controls select {{ border: 1px solid #d1d5db; border-radius: 6px; background: #fff; color: #111827; padding: 5px 28px 5px 8px; font: inherit; }}
         .ads-drawer-table-wrap {{ flex: 1 1 auto; min-height: 0; overflow: auto; padding: 16px 24px 24px; }}
         .ad-listing-cell {{ min-width: 240px; }}
         .ad-listing-title {{ font-weight: 700; }}
         .ad-listing-location {{ margin-top: 4px; color: #6b7280; font-size: 13px; line-height: 1.35; }}
+        .ad-badges {{ display: inline-flex; flex-wrap: wrap; gap: 4px; margin-left: 8px; vertical-align: 1px; }}
+        .ad-badge {{ display: inline-flex; align-items: center; border-radius: 999px; padding: 2px 7px; font-size: 11px; font-weight: 700; line-height: 1.3; white-space: nowrap; }}
+        .ad-badge-new {{ background: #dcfce7; color: #166534; }}
+        .ad-badge-price {{ background: #fef3c7; color: #92400e; }}
         .ads-price-cell {{ white-space: nowrap; }}
         @media (max-width: 720px) {{
           body {{ margin: 12px; }}
           th, td {{ padding: 6px; font-size: 14px; }}
           .ads-drawer-header {{ padding: 16px 16px 8px; }}
           .ads-drawer-meta {{ padding: 12px 16px 0; }}
+          .ads-drawer-controls {{ padding: 12px 16px 0; }}
           .ads-drawer-table-wrap {{ padding: 16px; }}
           .ad-listing-cell {{ min-width: 180px; }}
         }}
