@@ -167,6 +167,17 @@ rtk python3 run_real_estate_ads_by_city.py --daily-refresh --local-first --aggre
 rtk python3 build_html.py --ads-only
 ```
 
+One-command daily workflow:
+
+```bash
+rtk .venv/bin/python refresh_real_estate_ads.py
+```
+
+This runs the daily local-first refresh, rebuilds `index.html`, validates the aggregate and embedded drawer payload,
+prints the portal-warning summary, runs pytest, Ruff, the Playwright drawer smoke test, and `git diff --check`.
+Use `--limit N` for a smaller batch. Use `--push --commit-message "Refresh real estate ads"` after validation when
+you want the script to commit generated refresh artifacts and push them.
+
 The daily refresh still runs current municipality-level searches so it can detect new and removed ads. It reuses the previous aggregate as a prompt cache, so known active ads do not need full detail re-discovery when the current search result still exposes the same URL/title/location/price/areas. Ads that were present previously but are missing from the latest city snapshot move from `ads` into `hidden_ads`; only active `ads` are counted and rendered.
 
 Daily refreshes are guarded per municipality in `real_estate_ads_run_state.json`. If a municipality has already completed today, a later `--daily-refresh` skips it and continues with the next municipality, which keeps partial refreshes resumable without paying to re-check the same city. Use `--force-daily-refresh` only when you intentionally want to re-run already refreshed municipalities on the same day.
