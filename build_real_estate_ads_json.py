@@ -89,7 +89,12 @@ def detect_fetch_status(text: str) -> tuple[str | None, int | None]:
     normalized = normalize_text(text)
     if not normalized:
         return None, None
-    if re.search(r"\b(?:http\s*)?429\b", normalized) or "too many requests" in normalized or "rate-limit" in normalized or "rate limit" in normalized:
+    has_http_429 = (
+        re.search(r"\bhttp\s*(?:status\s*)?429\b", normalized)
+        or re.search(r"\bstatus(?:\s+code)?\s*429\b", normalized)
+        or re.search(r"\b429\b.*\btoo many requests\b", normalized)
+    )
+    if has_http_429 or "too many requests" in normalized or "rate-limit" in normalized or "rate limit" in normalized:
         return "rate_limited", 429
     if "dns" in normalized:
         return "dns_error", None

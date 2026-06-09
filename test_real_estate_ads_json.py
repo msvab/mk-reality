@@ -109,5 +109,15 @@ def test_fetch_status_does_not_treat_listing_id_digits_as_http_429():
     ) == (None, None)
 
 
+def test_fetch_status_does_not_treat_area_429_as_http_429():
+    assert detect_fetch_status(
+        "land-below-threshold:https://reality.aktualne.cz/detail/broumov/prodej-domu-429-m-pozemek-218-m-8566669.html"
+    ) == (None, None)
+
+
 def test_fetch_status_detects_real_http_429():
     assert detect_fetch_status("detail_fetch failed: HTTP 429") == ("rate_limited", 429)
+
+
+def test_fetch_status_detects_429_too_many_requests():
+    assert detect_fetch_status("detail_fetch failed: 429 Too Many Requests") == ("rate_limited", 429)
