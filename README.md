@@ -174,7 +174,8 @@ rtk .venv/bin/python refresh_real_estate_ads.py
 ```
 
 This runs the daily local-first refresh, rebuilds `index.html`, validates the aggregate and embedded drawer payload,
-prints the portal-warning summary, runs pytest, Ruff, the Playwright drawer smoke test, and `git diff --check`.
+prints refreshed per-city summaries and the portal-warning summary, runs pytest, Ruff, the Playwright drawer smoke test,
+and `git diff --check`.
 Use `--limit N` for a smaller batch. Use `--push --commit-message "Refresh real estate ads"` after validation when
 you want the script to commit generated refresh artifacts and push them.
 

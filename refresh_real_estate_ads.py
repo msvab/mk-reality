@@ -7,6 +7,7 @@ import sys
 from collections import Counter
 from pathlib import Path
 
+from run_real_estate_ads_by_city import city_refresh_summary, format_delta
 from summarize_real_estate_fetch_errors import iter_warnings
 
 ROOT = Path(__file__).resolve().parent
@@ -33,6 +34,68 @@ def load_json(path: Path) -> dict:
     if not isinstance(payload, dict):
         raise ValueError(f"{path} must contain a JSON object.")
     return payload
+
+
+def load_json_if_exists(path: Path) -> dict | None:
+    if not path.exists():
+        return None
+    return load_json(path)
+
+
+def load_city_order() -> list[str]:
+    rows = json.loads((ROOT / "dobruska_primary_schools.json").read_text(encoding="utf-8"))
+    if not isinstance(rows, list):
+        raise ValueError("dobruska_primary_schools.json must contain a JSON array.")
+    cities = []
+    seen = set()
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        city = str(row.get("city", "")).strip()
+        if city and city not in seen:
+            cities.append(city)
+            seen.add(city)
+    return cities
+
+
+def daily_refresh_stamps(state: dict | None) -> dict[str, str]:
+    if not isinstance(state, dict):
+        return {}
+    daily_refresh = state.get("daily_refresh", {})
+    if not isinstance(daily_refresh, dict):
+        return {}
+    cities = daily_refresh.get("cities", {})
+    if not isinstance(cities, dict):
+        return {}
+    stamps = {}
+    for city, city_state in cities.items():
+        if isinstance(city_state, dict):
+            stamps[str(city)] = str(city_state.get("last_completed_at", ""))
+    return stamps
+
+
+def refreshed_city_names(previous_state: dict | None, current_state: dict) -> list[str]:
+    before = daily_refresh_stamps(previous_state)
+    after = daily_refresh_stamps(current_state)
+    refreshed = [city for city, stamp in after.items() if stamp and before.get(city) != stamp]
+    order = {city: index for index, city in enumerate(load_city_order())}
+    return sorted(refreshed, key=lambda city: order.get(city, len(order)))
+
+
+def print_city_summaries(previous_aggregate: dict | None, current_aggregate: dict, cities: list[str]) -> None:
+    if not cities:
+        print("city summaries: no cities refreshed in this run")
+        return
+    print(f"city summaries: {len(cities)} refreshed")
+    for city in cities:
+        summary = city_refresh_summary(current_aggregate, previous_aggregate, city)
+        print(
+            f"  {city}: "
+            f"active={summary['active']} ({format_delta(summary['active_delta'])}) "
+            f"hidden={summary['hidden']} ({format_delta(summary['hidden_delta'])}) "
+            f"new={summary['new']} "
+            f"price_changed={summary['price_changed']}"
+        )
 
 
 def validate_state() -> None:
@@ -137,6 +200,9 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
     python = sys.executable
+    previous_aggregate = load_json_if_exists(AGGREGATE_PATH)
+    previous_state = load_json_if_exists(STATE_PATH)
+    did_refresh = False
 
     if not args.skip_refresh:
         refresh_cmd = [
@@ -151,8 +217,13 @@ def main() -> None:
         if args.force_daily_refresh:
             refresh_cmd.append("--force-daily-refresh")
         run_command(refresh_cmd)
+        did_refresh = True
 
     run_command([python, "build_html.py", "--ads-only"])
+    current_state = load_json(STATE_PATH)
+    current_aggregate = load_json(AGGREGATE_PATH)
+    if did_refresh:
+        print_city_summaries(previous_aggregate, current_aggregate, refreshed_city_names(previous_state, current_state))
     validate_state()
     validate_embedded_counts()
     summarize_warnings(args.max_warnings)
