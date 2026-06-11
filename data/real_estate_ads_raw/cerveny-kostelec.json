@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 2,
     "workers_with_results": 1,
-    "candidates_gathered": 20,
-    "rows_retained": 2,
+    "candidates_gathered": 21,
+    "rows_retained": 1,
     "zero_result_portals": [
       "realitymix.cz"
     ],
@@ -43,8 +43,13 @@
       "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Reality Aktuálně row."
+      "status": "fallback_page",
+      "http_status": 404,
+      "stage": "discovery_detail_fetch",
+      "message": "HTTP 404",
+      "evidence": [
+        "discovery_detail_fetch:fallback_page:https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-rodinneho-domu-80-m2-cerveny-kostelec-8568477.html"
+      ]
     }
   },
   "fetch_attempts": [
@@ -68,6 +73,31 @@
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/",
       "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-pozemku-k-bydleni-3338-m-cerveny-kostelec-8604749.html",
+      "stage": "discovery_detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-rodinneho-domu-80-m2-cerveny-kostelec-8568477.html",
+      "stage": "discovery_detail_fetch",
+      "attempt": 1,
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-pozemky.html",
+      "stage": "search_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -218,6 +248,14 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-obchod-a-sluzby-726-m-cerveny-kostelec-8504587.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-obchod-a-sluzby-90-m-cerveny-kostelec-8561275.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -229,8 +267,17 @@
       "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-rodinneho-domu-80-m2-cerveny-kostelec-8568477.html",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-rodinneho-domu-80-m2-cerveny-kostelec-8568477.html",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.aktualne.cz",
@@ -260,7 +307,9 @@
     "non-buildable-land:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-pozemku-k-bydleni-2842-m-cerveny-kostelec-8603371.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-pozemku-k-bydleni-496-m-cerveny-kostelec-8603375.html",
     "outside-municipality:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-rodinneho-domu-v-cervenem-kostelci-olesnice-8449813.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-obchod-a-sluzby-726-m-cerveny-kostelec-8504587.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-obchod-a-sluzby-90-m-cerveny-kostelec-8561275.html",
+    "detail-fallback-page:https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-rodinneho-domu-80-m2-cerveny-kostelec-8568477.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-skladu-4000-m-cerveny-kostelec-ul-jiraskova-8559107.html"
   ],
   "listings": [
@@ -281,24 +330,6 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:m&m-reality-holding-a.s."
-      ]
-    },
-    {
-      "portal": [
-        "reality.aktualne.cz"
-      ],
-      "title": "Pronájem rodinného domu 80 m2 Červený Kostelec",
-      "location": "Podlesná, Horní Kostelec, Náchod",
-      "property_type": "house",
-      "price": "18 000 Kč (za měsíc )",
-      "house_area_m2": "80",
-      "land_area_m2": "1000",
-      "urls": [
-        "https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-rodinneho-domu-80-m2-cerveny-kostelec-8568477.html"
-      ],
-      "notes": [
-        "detail-url-verified:reality.aktualne.cz",
-        "aggregator-source:swiss-life-select-reality"
       ]
     }
   ]

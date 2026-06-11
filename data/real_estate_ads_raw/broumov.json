@@ -31,7 +31,7 @@
     "workers_launched": 2,
     "workers_with_results": 1,
     "candidates_gathered": 20,
-    "rows_retained": 2,
+    "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz"
     ],
@@ -74,7 +74,23 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Broumov&form%5Bcena_mena%5D=1",
+      "url": "https://reality.aktualne.cz/detail/broumov/prodej-chalupy-260-m-broumov-ul-kladska-8366647.html",
+      "stage": "discovery_detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/broumov/prodej-pozemek-bydleni-1915-8608861.html",
+      "stage": "discovery_detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-pozemky.html",
       "stage": "search_fetch",
       "attempt": 1,
       "status": "ok",
@@ -82,24 +98,8 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/broumov/e-verejna-soutez-bytu-3-kk-o-vymere-100-m2-kat-uzemi-velka-ves-u-broumova-8594827.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/broumov/e-verejna-soutez-bytu-4-kk-o-vymere-100m2-kat-uzemi-velka-ves-u-broumova-8594669.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/broumov/e-verejna-soutez-bytu-4-kk-o-vymere-98-m2-kat-uzemi-velka-ves-u-broumova-8594811.html",
-      "stage": "detail_fetch",
+      "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Broumov&form%5Bcena_mena%5D=1",
+      "stage": "search_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -147,6 +147,14 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/broumov/prodej-cinzovniho-domu-broumov-8604475.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/broumov/prodej-domu-128-m-s-pozemkem-1-552-m-v-broumove-8263337.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -234,6 +242,22 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/broumov/pronajem-podkrovniho-bytu-3-1-broumov-8503771.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/broumov/pronajem-zahrady-206-m-broumov-ul-dukelska-8498575.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/broumov/pronajem-zahrady-206-m-broumov-ul-dukelska-8591745.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -244,9 +268,6 @@
   "gaps": [
     "missing-page-url:house",
     "missing-page-url:land",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/broumov/e-verejna-soutez-bytu-3-kk-o-vymere-100-m2-kat-uzemi-velka-ves-u-broumova-8594827.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/broumov/e-verejna-soutez-bytu-4-kk-o-vymere-100m2-kat-uzemi-velka-ves-u-broumova-8594669.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/broumov/e-verejna-soutez-bytu-4-kk-o-vymere-98-m2-kat-uzemi-velka-ves-u-broumova-8594811.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/broumov/prodej-bytoveho-domu-broumov-8549681.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/broumov/prodej-bytoveho-domu-broumov-8553343.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/broumov/prodej-bytu-3-1-53-m-broumov-ul-dukelska-8507155.html",
@@ -261,6 +282,8 @@
     "land-below-threshold:https://reality.aktualne.cz/detail/broumov/prodej-rodinneho-domu-v-malibu-8589983.html",
     "outside-municipality:https://reality.aktualne.cz/detail/broumov/prodej-stavebniho-pozemku-3-146-m2-8618669.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/broumov/pronajem-bytu-3-1-v-broumove-ul-dukelska-8585661.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/broumov/pronajem-podkrovniho-bytu-3-1-broumov-8503771.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/broumov/pronajem-zahrady-206-m-broumov-ul-dukelska-8498575.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/broumov/pronajem-zahrady-206-m-broumov-ul-dukelska-8591745.html"
   ],
   "listings": [
@@ -281,6 +304,24 @@
         "detail-url-verified:reality.aktualne.cz",
         "normalized-from:chalupa",
         "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej domu 128 m² s pozemkem 1 552 m² v Broumově",
+      "location": "Bratří Čapků, Broumov, Náchod",
+      "property_type": "house",
+      "price": "4 999 000 Kč",
+      "house_area_m2": "128",
+      "land_area_m2": "1552",
+      "urls": [
+        "https://reality.aktualne.cz/detail/broumov/prodej-domu-128-m-s-pozemkem-1-552-m-v-broumove-8263337.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "aggregator-source:realitni-pomoc-s.r.o."
       ]
     },
     {

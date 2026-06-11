@@ -29,20 +29,31 @@
   ],
   "coverage": {
     "workers_launched": 3,
-    "workers_with_results": 3,
-    "candidates_gathered": 21,
-    "rows_retained": 12,
-    "zero_result_portals": [],
+    "workers_with_results": 2,
+    "candidates_gathered": 20,
+    "rows_retained": 5,
+    "zero_result_portals": [
+      "mmreality.cz"
+    ],
     "blocked_portals": []
   },
   "portal_status": {
     "realitymix.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified RealityMix row."
+      "status": "fallback_page",
+      "stage": "detail_parse",
+      "message": "Požadovaný inzerát již není v naší databázi",
+      "evidence": [
+        "detail_parse:fallback_page:https://realitymix.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html"
+      ]
     },
     "reality.aktualne.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Reality Aktuálně row."
+      "status": "fallback_page",
+      "http_status": 404,
+      "stage": "discovery_detail_fetch",
+      "message": "HTTP 404",
+      "evidence": [
+        "discovery_detail_fetch:fallback_page:https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html"
+      ]
     }
   },
   "fetch_attempts": [
@@ -69,6 +80,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Požadovaný inzerát již není v naší databázi"
     },
     {
       "portal": "realitymix.cz",
@@ -131,8 +150,9 @@
       "url": "https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html",
       "stage": "discovery_detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "reality.aktualne.cz",
@@ -187,8 +207,17 @@
       "url": "https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.aktualne.cz",
@@ -216,108 +245,22 @@
     }
   ],
   "gaps": [
+    "missing-detail-payload:https://www.mmreality.cz/nemovitosti/930853/",
+    "missing-detail-payload:https://www.mmreality.cz/nemovitosti/943257/",
+    "missing-detail-payload:https://www.mmreality.cz/nemovitosti/943314/",
+    "missing-detail-payload:https://www.mmreality.cz/nemovitosti/943316/",
+    "missing-detail-payload:https://www.mmreality.cz/nemovitosti/943334/",
+    "removed-fallback-page:https://realitymix.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html",
     "land-below-threshold:https://realitymix.cz/detail/novy-hradek/prodej-rodinneho-domu-pozemek-4795-m-novy-hradek-rzy-8601263.html",
     "land-below-threshold:https://realitymix.cz/detail/novy-hradek/rodinny-dum-novy-hradek-8395975.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-pozemky.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/novy-hradek/prodej-bytu-3-kk-72-m2-sokolska-novy-hradek-8589615.html",
     "non-buildable-land:https://reality.aktualne.cz/detail/novy-hradek/prodej-chaty-43-m-pozemek-3-640-m-novy-hradek-rzy-8543607.html",
+    "detail-fallback-page:https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/novy-hradek/prodej-rodinneho-domu-pozemek-4795-m-novy-hradek-rzy-8601263.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/novy-hradek/rodinny-dum-novy-hradek-8395975.html"
   ],
   "listings": [
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Rodinný dům, 150 m², Nový Hrádek",
-      "location": "Nový Hrádek - Rzy, okres Náchod",
-      "property_type": "house",
-      "price": "8 490 000 Kč",
-      "house_area_m2": "150",
-      "land_area_m2": "4795",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/943334/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "municipality-subarea:Rzy"
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Chalupa, 52 m², Nový Hrádek",
-      "location": "Nový Hrádek, okres Náchod",
-      "property_type": "house",
-      "price": "4 490 000 Kč",
-      "house_area_m2": "52",
-      "land_area_m2": "2008",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/930853/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "normalized-from:chalupa"
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Pozemek k bydlení, 1328 m², Nový Hrádek",
-      "location": "Nový Hrádek - Rzy, okres Náchod",
-      "property_type": "land",
-      "price": "1 650 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1328",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/943316/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "municipality-subarea:Rzy",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Pozemek k bydlení, 1182 m², Nový Hrádek",
-      "location": "Nový Hrádek - Rzy, okres Náchod",
-      "property_type": "land",
-      "price": "1 590 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1182",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/943314/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "municipality-subarea:Rzy",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Pozemek k bydlení, 1267 m², Nový Hrádek",
-      "location": "Nový Hrádek - Rzy, okres Náchod",
-      "property_type": "land",
-      "price": "1 290 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1267",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/943257/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "municipality-subarea:Rzy",
-        "buildable-land"
-      ]
-    },
     {
       "portal": [
         "realitymix.cz"
@@ -348,24 +291,6 @@
       "land_area_m2": "1182",
       "urls": [
         "https://realitymix.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1182-m-novy-hradek-rzy-8602891.html"
-      ],
-      "notes": [
-        "detail-url-verified:realitymix.cz",
-        "municipal-part:Rzy"
-      ]
-    },
-    {
-      "portal": [
-        "realitymix.cz"
-      ],
-      "title": "Prodej pozemku k bydlení, 1267 m², Nový Hrádek - Rzy",
-      "location": "Rzy, Nový Hrádek, okr. Náchod",
-      "property_type": "land",
-      "price": "1 290 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1267",
-      "urls": [
-        "https://realitymix.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html"
       ],
       "notes": [
         "detail-url-verified:realitymix.cz",
@@ -422,25 +347,6 @@
       "land_area_m2": "1182",
       "urls": [
         "https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1182-m-novy-hradek-rzy-8602891.html"
-      ],
-      "notes": [
-        "detail-url-verified:reality.aktualne.cz",
-        "buildable-land",
-        "aggregator-source:m&m-reality-holding-a.s."
-      ]
-    },
-    {
-      "portal": [
-        "reality.aktualne.cz"
-      ],
-      "title": "Prodej pozemku k bydlení, 1267 m², Nový Hrádek - Rzy",
-      "location": "Rzy, Náchod",
-      "property_type": "land",
-      "price": "1 290 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1267",
-      "urls": [
-        "https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html"
       ],
       "notes": [
         "detail-url-verified:reality.aktualne.cz",

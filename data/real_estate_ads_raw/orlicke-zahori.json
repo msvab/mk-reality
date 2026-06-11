@@ -31,7 +31,7 @@
     "workers_launched": 2,
     "workers_with_results": 1,
     "candidates_gathered": 4,
-    "rows_retained": 2,
+    "rows_retained": 1,
     "zero_result_portals": [
       "realitymix.cz"
     ],
@@ -43,8 +43,13 @@
       "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Reality Aktuálně row."
+      "status": "fallback_page",
+      "http_status": 404,
+      "stage": "discovery_detail_fetch",
+      "message": "HTTP 404",
+      "evidence": [
+        "discovery_detail_fetch:fallback_page:https://reality.aktualne.cz/detail/orlicke-zahori/prodej-rodinneho-domu-orlicke-zahori-kunstat-u-orlickeho-zahori-okres-rychnov-nad-kneznou-8541339.html"
+      ]
     }
   },
   "fetch_attempts": [
@@ -68,6 +73,31 @@
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/",
       "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/orlicke-zahori/prodej-rodinneho-domu-orlicke-zahori-kunstat-u-orlickeho-zahori-okres-rychnov-nad-kneznou-8541339.html",
+      "stage": "discovery_detail_fetch",
+      "attempt": 1,
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/orlicke-zahori/prodej-pozemku-orlicke-zahori-8546895.html",
+      "stage": "discovery_detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-pozemky.html",
+      "stage": "search_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -109,15 +139,26 @@
       "url": "https://reality.aktualne.cz/detail/orlicke-zahori/prodej-rodinneho-domu-orlicke-zahori-kunstat-u-orlickeho-zahori-okres-rychnov-nad-kneznou-8541339.html",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/orlicke-zahori/prodej-rodinneho-domu-orlicke-zahori-kunstat-u-orlickeho-zahori-okres-rychnov-nad-kneznou-8541339.html",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     }
   ],
   "gaps": [
     "missing-page-url:house",
     "missing-page-url:land",
+    "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-pozemky.html",
     "outside-municipality:https://reality.aktualne.cz/detail/orlicke-zahori/prodej-domu-na-klic-nicea-8503003.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/orlicke-zahori/prodej-na-klic-riviera-8366755.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/orlicke-zahori/prodej-na-klic-riviera-8366755.html",
+    "detail-fallback-page:https://reality.aktualne.cz/detail/orlicke-zahori/prodej-rodinneho-domu-orlicke-zahori-kunstat-u-orlickeho-zahori-okres-rychnov-nad-kneznou-8541339.html"
   ],
   "listings": [
     {
@@ -137,24 +178,6 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:m&m-reality-holding-a.s."
-      ]
-    },
-    {
-      "portal": [
-        "reality.aktualne.cz"
-      ],
-      "title": "Prodej rodinného domu - Orlické Záhoří – Kunštát u Orlického Záhoří – okres Rychnov nad Kněžnou",
-      "location": "Orlické Záhoří, Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "16 980 000 Kč",
-      "house_area_m2": "184",
-      "land_area_m2": "2410",
-      "urls": [
-        "https://reality.aktualne.cz/detail/orlicke-zahori/prodej-rodinneho-domu-orlicke-zahori-kunstat-u-orlickeho-zahori-okres-rychnov-nad-kneznou-8541339.html"
-      ],
-      "notes": [
-        "detail-url-verified:reality.aktualne.cz",
-        "aggregator-source:fortunae-s.r.o."
       ]
     }
   ]

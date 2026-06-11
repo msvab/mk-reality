@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 2,
     "workers_with_results": 1,
-    "candidates_gathered": 40,
+    "candidates_gathered": 42,
     "rows_retained": 2,
     "zero_result_portals": [
       "reality.aktualne.cz"
@@ -50,8 +50,16 @@
   "fetch_attempts": [
     {
       "portal": "realitymix.cz",
-      "url": "https://www.realitymix.cz/reality/domy/prodej/",
-      "stage": "house_root_fetch",
+      "url": "https://realitymix.cz/detail/usti-nad-orlici/rodinny-dum-s-velkou-zahradou-u-lesa-v-dolnim-houzovci-u-usti-nad-orlici-8437067.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/usti-nad-orlici/prodej-pozemku-k-bydleni-1714-m-usti-nad-orlici-7741717.html",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -106,32 +114,8 @@
     },
     {
       "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/usti-nad-orlici/rodinny-dum-s-velkou-zahradou-u-lesa-v-dolnim-houzovci-u-usti-nad-orlici-8437067.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/",
-      "stage": "land_root_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/pardubicky/usti-nad-orlici",
       "stage": "land_result_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/usti-nad-orlici/prodej-pozemku-k-bydleni-1714-m-usti-nad-orlici-7741717.html",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -370,6 +354,14 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-bytu-2-1-59-m-usti-nad-orlici-ul-trebovska-8620389.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-bytu-3-kk-62-m-ul-v-lukach-usti-nad-orlici-8604947.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -395,14 +387,6 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-prostor-207-m-usti-nad-orlici-ul-mirove-nam-8591515.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/usti-nad-orlici/usti-nad-orlici-trebovska-ul-prodej-bytu-3-1-c-p-cca-70-m-8573555.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -434,7 +418,7 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-bytu-s-balkonem-a-garazi-primo-v-dome-2-kk-65-m-zadane-sidliste-stepnice-usti-nad-orlici-8600663.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-chaty-25-m2-usti-nad-orlici-stare-oldrichovice-okres-usti-nad-orlici-8578773.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-chaty-chatova-osada-na-americe-usti-nad-orlici-8611707.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-druzstevni-byt-1-1-v-usti-nad-orlici-8600561.html",
+    "inactive-or-unpriced:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-druzstevni-byt-1-1-v-usti-nad-orlici-8600561.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-druzstevni-byt-4-1-v-usti-nad-orlici-8579321.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-druzstevniho-bytu-3-1-67-m-zadane-sidliste-stepnice-v-usti-nad-orlici-8600699.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-garaze-19-m-8584829.html",
@@ -443,11 +427,11 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-bytu-1-1-35-m-usti-nad-orlici-ul-trebovska-8606703.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-bytu-1-1-37-m-usti-nad-orlici-sidliste-stepnice-8611799.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-bytu-1-1-v-usti-nad-orlici-ul-jilemnickeho-8461895.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-bytu-2-1-59-m-usti-nad-orlici-ul-trebovska-8620389.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-bytu-3-kk-62-m-ul-v-lukach-usti-nad-orlici-8604947.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-bytu-3-kk-66-m-usti-nad-orlici-ul-dukelska-8603863.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-moderniho-bytu-2-1-v-usti-nad-orlici-s-garazi-8569343.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-prostor-207-m-usti-nad-orlici-ul-mirove-nam-8591515.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/usti-nad-orlici-trebovska-ul-prodej-bytu-3-1-c-p-cca-70-m-8573555.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-prostor-207-m-usti-nad-orlici-ul-mirove-nam-8591515.html"
   ],
   "listings": [
     {

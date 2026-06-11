@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 2,
     "workers_with_results": 1,
-    "candidates_gathered": 20,
-    "rows_retained": 3,
+    "candidates_gathered": 21,
+    "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz"
     ],
@@ -43,8 +43,13 @@
       "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Reality Aktuálně row."
+      "status": "fallback_page",
+      "http_status": 404,
+      "stage": "discovery_detail_fetch",
+      "message": "HTTP 404",
+      "evidence": [
+        "discovery_detail_fetch:fallback_page:https://reality.aktualne.cz/detail/sezemice/stavebni-pozemek-cca-1-150-m-klidna-lokalita-veska-u-sezemice-8519569.html"
+      ]
     }
   },
   "fetch_attempts": [
@@ -68,6 +73,31 @@
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/",
       "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/sezemice/stavebni-pozemek-cca-1-150-m-klidna-lokalita-veska-u-sezemice-8519569.html",
+      "stage": "discovery_detail_fetch",
+      "attempt": 1,
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/sezemice/stavebni-pozemek-cca-1-150-m-klidna-lokalita-veska-u-sezemice-8610955.html",
+      "stage": "discovery_detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vyhledavani/r-3606-pardubice/pardubicky/prodej-pozemky.html",
+      "stage": "search_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -202,6 +232,14 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-7820454.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-7820461.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -229,8 +267,17 @@
       "url": "https://reality.aktualne.cz/detail/sezemice/stavebni-pozemek-cca-1-150-m-klidna-lokalita-veska-u-sezemice-8519569.html",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/sezemice/stavebni-pozemek-cca-1-150-m-klidna-lokalita-veska-u-sezemice-8519569.html",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.aktualne.cz",
@@ -244,6 +291,7 @@
   "gaps": [
     "missing-page-url:house",
     "missing-page-url:land",
+    "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3606-pardubice/pardubicky/prodej-pozemky.html",
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/bungalov-4kk-v-en-tride-a-za-bezkonkurencni-cenu-3-minuty-od-pardubic-8292189.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/sezemice/bytovy-dum-v-centru-mesta-s-potencialem-pudniho-prostoru-8419491.html",
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/dum-5kk-v-en-tride-a-za-bezkonkurencni-cenu-3-minuty-od-pardubic-8290007.html",
@@ -258,30 +306,13 @@
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/prodej-rodinneho-domu-4-kk-121-m-se-zahradou-197m-sezemice-u-pardubic-8078255.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/sezemice/prodej-rodinneho-domu-v-pocaplech-nad-loucnou-sezemice-okr-pardubice-8574969.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/sezemice/pronajem-zahrady-sezemice-8574009.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-7820454.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-7820461.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-8014042.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-8014266.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-8014266.html",
+    "detail-fallback-page:https://reality.aktualne.cz/detail/sezemice/stavebni-pozemek-cca-1-150-m-klidna-lokalita-veska-u-sezemice-8519569.html"
   ],
   "listings": [
-    {
-      "portal": [
-        "reality.aktualne.cz"
-      ],
-      "title": "Stavební pozemek cca 1 150 m² – klidná lokalita Veská u Sezemice",
-      "location": "Veská, Pardubice",
-      "property_type": "land",
-      "price": "3 490 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1150",
-      "urls": [
-        "https://reality.aktualne.cz/detail/sezemice/stavebni-pozemek-cca-1-150-m-klidna-lokalita-veska-u-sezemice-8519569.html"
-      ],
-      "notes": [
-        "detail-url-verified:reality.aktualne.cz",
-        "buildable-land",
-        "aggregator-source:edo-reality,-s.r.o."
-      ]
-    },
     {
       "portal": [
         "reality.aktualne.cz"

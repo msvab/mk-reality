@@ -29,11 +29,12 @@
   ],
   "coverage": {
     "workers_launched": 2,
-    "workers_with_results": 1,
+    "workers_with_results": 0,
     "candidates_gathered": 1,
-    "rows_retained": 1,
+    "rows_retained": 0,
     "zero_result_portals": [
-      "realitymix.cz"
+      "realitymix.cz",
+      "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
@@ -43,8 +44,13 @@
       "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Reality Aktuálně row."
+      "status": "fallback_page",
+      "http_status": 404,
+      "stage": "discovery_detail_fetch",
+      "message": "HTTP 404",
+      "evidence": [
+        "discovery_detail_fetch:fallback_page:https://reality.aktualne.cz/detail/podhorni-ujezd-a-vojice/prodej-pozemku-k-bydleni-1375-m-podhorni-ujezd-a-vojice-8085222.html"
+      ]
     }
   },
   "fetch_attempts": [
@@ -74,6 +80,15 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/podhorni-ujezd-a-vojice/prodej-pozemku-k-bydleni-1375-m-podhorni-ujezd-a-vojice-8085222.html",
+      "stage": "discovery_detail_fetch",
+      "attempt": 1,
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Podhorn%C3%AD+%C3%9Ajezd+a+Vojice&form%5Bcena_mena%5D=1",
       "stage": "search_fetch",
       "attempt": 1,
@@ -85,33 +100,24 @@
       "url": "https://reality.aktualne.cz/detail/podhorni-ujezd-a-vojice/prodej-pozemku-k-bydleni-1375-m-podhorni-ujezd-a-vojice-8085222.html",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/podhorni-ujezd-a-vojice/prodej-pozemku-k-bydleni-1375-m-podhorni-ujezd-a-vojice-8085222.html",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     }
   ],
   "gaps": [
     "missing-page-url:house",
-    "missing-page-url:land"
+    "missing-page-url:land",
+    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Podhorn%C3%AD+%C3%9Ajezd+a+Vojice&form%5Bcena_mena%5D=1",
+    "detail-fallback-page:https://reality.aktualne.cz/detail/podhorni-ujezd-a-vojice/prodej-pozemku-k-bydleni-1375-m-podhorni-ujezd-a-vojice-8085222.html"
   ],
-  "listings": [
-    {
-      "portal": [
-        "reality.aktualne.cz"
-      ],
-      "title": "Prodej pozemku k bydlení, 1375 m², Podhorní Újezd a Vojice",
-      "location": "Podhorní Újezd, Jičín",
-      "property_type": "land",
-      "price": "1 470 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1375",
-      "urls": [
-        "https://reality.aktualne.cz/detail/podhorni-ujezd-a-vojice/prodej-pozemku-k-bydleni-1375-m-podhorni-ujezd-a-vojice-8085222.html"
-      ],
-      "notes": [
-        "detail-url-verified:reality.aktualne.cz",
-        "buildable-land",
-        "aggregator-source:m&m-reality-holding-a.s."
-      ]
-    }
-  ]
+  "listings": []
 }
