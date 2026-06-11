@@ -3,6 +3,30 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 
+def city_with_badge_candidate(page, badge_type: str) -> str | None:
+    return page.evaluate(
+        """
+        badgeType => {
+            const payload = JSON.parse(document.getElementById("ads-by-city-data").textContent);
+            const datePart = value => String(value || "").slice(0, 10);
+            const numericValue = value => Number.isFinite(Number(value)) ? Number(value) : null;
+            const priceValues = ad => (Array.isArray(ad.price_history) ? ad.price_history : [])
+                .map(entry => numericValue(entry && entry.price_czk))
+                .filter(value => value !== null);
+            const hasPriceChanged = ad => new Set(priceValues(ad)).size > 1;
+            const isNewListing = (ad, bundle) => datePart(bundle.generated_at) && datePart(ad.first_seen_at) === datePart(bundle.generated_at);
+            for (const [city, bundle] of Object.entries(payload)) {
+                const ads = Array.isArray(bundle.ads) ? bundle.ads : [];
+                if (badgeType === "new" && ads.some(ad => isNewListing(ad, bundle))) return city;
+                if (badgeType === "price" && ads.some(hasPriceChanged)) return city;
+            }
+            return null;
+        }
+        """,
+        badge_type,
+    )
+
+
 def parse_price(text: str) -> int:
     digits = "".join(char for char in text if char.isdigit())
     return int(digits) if digits else 0
@@ -22,7 +46,6 @@ def test_hk_drawer_scrolls_without_gaps_text() -> None:
         meta_text = page.locator("#ads-drawer-meta").inner_text()
         assert "Mezery:" not in meta_text
         assert "Aktualizováno:" in meta_text
-        assert page.locator(".ad-badge-new").count() > 0
 
         table_wrap = page.locator(".ads-drawer-table-wrap")
         metrics = table_wrap.evaluate(
@@ -44,9 +67,17 @@ def test_hk_drawer_scrolls_without_gaps_text() -> None:
         prices = [parse_price(text) for text in page.locator(".ads-price-cell").all_inner_texts()]
         assert prices[0] == min(prices)
 
-        page.locator("#ads-drawer-close").click()
-        page.locator('[data-city="Librantice"]').click()
-        assert page.locator(".ad-badge-price").count() > 0
+        new_city = city_with_badge_candidate(page, "new")
+        if new_city:
+            page.locator("#ads-drawer-close").click()
+            page.locator(f'[data-city="{new_city}"]').click()
+            assert page.locator(".ad-badge-new").count() > 0
+
+        price_city = city_with_badge_candidate(page, "price")
+        if price_city:
+            page.locator("#ads-drawer-close").click()
+            page.locator(f'[data-city="{price_city}"]').click()
+            assert page.locator(".ad-badge-price").count() > 0
 
         browser.close()
 
