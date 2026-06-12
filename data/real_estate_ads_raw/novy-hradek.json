@@ -28,32 +28,21 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Nový Hrádek."
   ],
   "coverage": {
-    "workers_launched": 3,
+    "workers_launched": 2,
     "workers_with_results": 2,
-    "candidates_gathered": 20,
+    "candidates_gathered": 13,
     "rows_retained": 5,
-    "zero_result_portals": [
-      "mmreality.cz"
-    ],
+    "zero_result_portals": [],
     "blocked_portals": []
   },
   "portal_status": {
     "realitymix.cz": {
-      "status": "fallback_page",
-      "stage": "detail_parse",
-      "message": "Požadovaný inzerát již není v naší databázi",
-      "evidence": [
-        "detail_parse:fallback_page:https://realitymix.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html"
-      ]
+      "status": "ok",
+      "message": "Retained at least one detail-verified RealityMix row."
     },
     "reality.aktualne.cz": {
-      "status": "fallback_page",
-      "http_status": 404,
-      "stage": "discovery_detail_fetch",
-      "message": "HTTP 404",
-      "evidence": [
-        "discovery_detail_fetch:fallback_page:https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html"
-      ]
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
     }
   },
   "fetch_attempts": [
@@ -72,22 +61,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Požadovaný inzerát již není v naší databázi"
     },
     {
       "portal": "realitymix.cz",
@@ -147,15 +120,6 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html",
-      "stage": "discovery_detail_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-pozemky.html",
       "stage": "search_fetch",
       "attempt": 1,
@@ -204,23 +168,6 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Detail URL returned fallback or non-detail content."
-    },
-    {
-      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1328-m-novy-hradek-rzy-8602899.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -245,18 +192,11 @@
     }
   ],
   "gaps": [
-    "missing-detail-payload:https://www.mmreality.cz/nemovitosti/930853/",
-    "missing-detail-payload:https://www.mmreality.cz/nemovitosti/943257/",
-    "missing-detail-payload:https://www.mmreality.cz/nemovitosti/943314/",
-    "missing-detail-payload:https://www.mmreality.cz/nemovitosti/943316/",
-    "missing-detail-payload:https://www.mmreality.cz/nemovitosti/943334/",
-    "removed-fallback-page:https://realitymix.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html",
     "land-below-threshold:https://realitymix.cz/detail/novy-hradek/prodej-rodinneho-domu-pozemek-4795-m-novy-hradek-rzy-8601263.html",
     "land-below-threshold:https://realitymix.cz/detail/novy-hradek/rodinny-dum-novy-hradek-8395975.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-pozemky.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/novy-hradek/prodej-bytu-3-kk-72-m2-sokolska-novy-hradek-8589615.html",
     "non-buildable-land:https://reality.aktualne.cz/detail/novy-hradek/prodej-chaty-43-m-pozemek-3-640-m-novy-hradek-rzy-8543607.html",
-    "detail-fallback-page:https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/novy-hradek/prodej-rodinneho-domu-pozemek-4795-m-novy-hradek-rzy-8601263.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/novy-hradek/rodinny-dum-novy-hradek-8395975.html"
   ],

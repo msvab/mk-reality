@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 2,
     "workers_with_results": 1,
-    "candidates_gathered": 21,
+    "candidates_gathered": 20,
     "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz"
@@ -43,13 +43,8 @@
       "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
-      "status": "fallback_page",
-      "http_status": 404,
-      "stage": "discovery_detail_fetch",
-      "message": "HTTP 404",
-      "evidence": [
-        "discovery_detail_fetch:fallback_page:https://reality.aktualne.cz/detail/sezemice/stavebni-pozemek-cca-1-150-m-klidna-lokalita-veska-u-sezemice-8519569.html"
-      ]
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
     }
   },
   "fetch_attempts": [
@@ -76,15 +71,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/sezemice/stavebni-pozemek-cca-1-150-m-klidna-lokalita-veska-u-sezemice-8519569.html",
-      "stage": "discovery_detail_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 404,
-      "error": "HTTP 404"
     },
     {
       "portal": "reality.aktualne.cz",
@@ -264,23 +250,6 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/sezemice/stavebni-pozemek-cca-1-150-m-klidna-lokalita-veska-u-sezemice-8519569.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/sezemice/stavebni-pozemek-cca-1-150-m-klidna-lokalita-veska-u-sezemice-8519569.html",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Detail URL returned fallback or non-detail content."
-    },
-    {
-      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/sezemice/stavebni-pozemek-cca-1-150-m-klidna-lokalita-veska-u-sezemice-8610955.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -309,8 +278,7 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-7820454.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-7820461.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-8014042.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-8014266.html",
-    "detail-fallback-page:https://reality.aktualne.cz/detail/sezemice/stavebni-pozemek-cca-1-150-m-klidna-lokalita-veska-u-sezemice-8519569.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-8014266.html"
   ],
   "listings": [
     {

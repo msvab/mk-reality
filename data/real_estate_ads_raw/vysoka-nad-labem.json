@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 2,
     "workers_with_results": 0,
-    "candidates_gathered": 1,
+    "candidates_gathered": 0,
     "rows_retained": 0,
     "zero_result_portals": [
       "realitymix.cz",
@@ -44,13 +44,8 @@
       "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
-      "status": "fallback_page",
-      "http_status": 404,
-      "stage": "discovery_detail_fetch",
-      "message": "HTTP 404",
-      "evidence": [
-        "discovery_detail_fetch:fallback_page:https://reality.aktualne.cz/detail/vysoka-nad-labem/rodinny-dum-se-dvema-byty-v-puvodni-zastavbe-8558883.html"
-      ]
+      "status": "no_results",
+      "message": "No retained in-scope Reality Aktuálně rows."
     }
   },
   "fetch_attempts": [
@@ -80,44 +75,17 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/vysoka-nad-labem/rodinny-dum-se-dvema-byty-v-puvodni-zastavbe-8558883.html",
-      "stage": "discovery_detail_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Vysok%C3%A1+nad+Labem&form%5Bcena_mena%5D=1",
       "stage": "search_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/vysoka-nad-labem/rodinny-dum-se-dvema-byty-v-puvodni-zastavbe-8558883.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/vysoka-nad-labem/rodinny-dum-se-dvema-byty-v-puvodni-zastavbe-8558883.html",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Detail URL returned fallback or non-detail content."
     }
   ],
   "gaps": [
     "missing-page-url:house",
     "missing-page-url:land",
-    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Vysok%C3%A1+nad+Labem&form%5Bcena_mena%5D=1",
-    "detail-fallback-page:https://reality.aktualne.cz/detail/vysoka-nad-labem/rodinny-dum-se-dvema-byty-v-puvodni-zastavbe-8558883.html"
+    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Vysok%C3%A1+nad+Labem&form%5Bcena_mena%5D=1"
   ],
   "listings": []
 }

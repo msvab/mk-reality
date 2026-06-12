@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 2,
     "workers_with_results": 1,
-    "candidates_gathered": 8,
+    "candidates_gathered": 7,
     "rows_retained": 1,
     "zero_result_portals": [
       "realitymix.cz"
@@ -43,13 +43,8 @@
       "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
-      "status": "fallback_page",
-      "http_status": 404,
-      "stage": "discovery_detail_fetch",
-      "message": "HTTP 404",
-      "evidence": [
-        "discovery_detail_fetch:fallback_page:https://reality.aktualne.cz/detail/rtyne-v-podkrkonosi/prodej-chaty-chalupy-200-m-pozemek-6-348-m-8203389.html"
-      ]
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
     }
   },
   "fetch_attempts": [
@@ -79,15 +74,6 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/rtyne-v-podkrkonosi/prodej-chaty-chalupy-200-m-pozemek-6-348-m-8203389.html",
-      "stage": "discovery_detail_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/rtyne-v-podkrkonosi/prodej-pozemku-k-bydleni-3195-m-rtyne-v-podkrkonosi-8614231.html",
       "stage": "discovery_detail_fetch",
       "attempt": 1,
@@ -109,23 +95,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/rtyne-v-podkrkonosi/prodej-chaty-chalupy-200-m-pozemek-6-348-m-8203389.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/rtyne-v-podkrkonosi/prodej-chaty-chalupy-200-m-pozemek-6-348-m-8203389.html",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.aktualne.cz",
@@ -187,7 +156,6 @@
   "gaps": [
     "missing-page-url:house",
     "missing-page-url:land",
-    "detail-fallback-page:https://reality.aktualne.cz/detail/rtyne-v-podkrkonosi/prodej-chaty-chalupy-200-m-pozemek-6-348-m-8203389.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/rtyne-v-podkrkonosi/prodej-obchodniho-prostoru-354-m-rtyne-v-podkrkonosi-8390631.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/rtyne-v-podkrkonosi/prodej-restaurace-354-m-rtyne-v-podkrkonosi-8368909.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/rtyne-v-podkrkonosi/prodej-stavebniho-pozemku-rtyne-v-podkrkonossi-8585947.html",
