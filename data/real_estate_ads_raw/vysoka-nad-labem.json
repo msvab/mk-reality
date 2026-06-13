@@ -29,12 +29,11 @@
   ],
   "coverage": {
     "workers_launched": 2,
-    "workers_with_results": 0,
-    "candidates_gathered": 0,
-    "rows_retained": 0,
+    "workers_with_results": 1,
+    "candidates_gathered": 1,
+    "rows_retained": 1,
     "zero_result_portals": [
-      "realitymix.cz",
-      "reality.aktualne.cz"
+      "realitymix.cz"
     ],
     "blocked_portals": []
   },
@@ -44,8 +43,8 @@
       "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Reality Aktuálně rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
     }
   },
   "fetch_attempts": [
@@ -80,12 +79,38 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vysoka-nad-labem/rodinny-dum-se-dvema-byty-v-puvodni-zastavbe-8621857.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
     "missing-page-url:house",
-    "missing-page-url:land",
-    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Vysok%C3%A1+nad+Labem&form%5Bcena_mena%5D=1"
+    "missing-page-url:land"
   ],
-  "listings": []
+  "listings": [
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Rodinný dům se dvěma byty v původní zástavbě",
+      "location": "Vysoká nad Labem, Hradec Králové",
+      "property_type": "house",
+      "price": "13 700 000 Kč",
+      "house_area_m2": "280",
+      "land_area_m2": "1222",
+      "urls": [
+        "https://reality.aktualne.cz/detail/vysoka-nad-labem/rodinny-dum-se-dvema-byty-v-puvodni-zastavbe-8621857.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "aggregator-source:reality-vasatova-s.r.o."
+      ]
+    }
+  ]
 }
