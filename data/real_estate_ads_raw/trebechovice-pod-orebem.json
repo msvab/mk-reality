@@ -29,12 +29,11 @@
   ],
   "coverage": {
     "workers_launched": 2,
-    "workers_with_results": 0,
+    "workers_with_results": 1,
     "candidates_gathered": 16,
-    "rows_retained": 0,
+    "rows_retained": 1,
     "zero_result_portals": [
-      "realitymix.cz",
-      "reality.aktualne.cz"
+      "realitymix.cz"
     ],
     "blocked_portals": []
   },
@@ -44,13 +43,8 @@
       "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
-      "status": "fallback_page",
-      "http_status": 404,
-      "stage": "discovery_detail_fetch",
-      "message": "HTTP 404",
-      "evidence": [
-        "discovery_detail_fetch:fallback_page:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-domy-rodinny-150-m2-nepasice-71-50346-trebechovice-pod-orebem-hradec-kralove-id-86155-8618465.html"
-      ]
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
     }
   },
   "fetch_attempts": [
@@ -77,15 +71,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-domy-rodinny-150-m2-nepasice-71-50346-trebechovice-pod-orebem-hradec-kralove-id-86155-8618465.html",
-      "stage": "discovery_detail_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 404,
-      "error": "HTTP 404"
     },
     {
       "portal": "reality.aktualne.cz",
@@ -164,17 +149,8 @@
       "url": "https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-domy-rodinny-150-m2-nepasice-71-50346-trebechovice-pod-orebem-hradec-kralove-id-86155-8618465.html",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-domy-rodinny-150-m2-nepasice-71-50346-trebechovice-pod-orebem-hradec-kralove-id-86155-8618465.html",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Detail URL returned fallback or non-detail content."
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "reality.aktualne.cz",
@@ -262,13 +238,11 @@
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html",
-    "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3602-hradec-kralove/kralovehradecky/prodej-domy_vily.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/nabidka-komercniho-ubyt-s-moznosti-vyuziti-pro-wellness-chov-koni-427-m-16-mistnosti-pozem-3-101-8592953.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-bytu-3-kk-73-m-trebechovice-pod-orebem-8519305.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-chaty-16-m-trebechovice-pod-orebem-8503559.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-chaty-19-m2-trebechovice-pod-orebem-8408431.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-chaty-35-m2-trebechovice-pod-orebem-8614579.html",
-    "detail-fallback-page:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-domy-rodinny-150-m2-nepasice-71-50346-trebechovice-pod-orebem-hradec-kralove-id-86155-8618465.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-na-klic-black-stone-xl-8369157.html",
     "outside-municipality:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-pozemku-907-m2-stenkov-8251871.html",
     "outside-municipality:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-pozemku-k-vystavbe-rodinneho-domu-526m2-8487181.html",
@@ -280,5 +254,24 @@
     "non-buildable-land:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/pronajem-roubenky-5-kk-219-m-pozemek-1-456-m-vlastni-rybnik-polanky-nad-dedinou-cena-35-000-8592317.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/rodinny-dum-trebechovice-pod-orebem-8463547.html"
   ],
-  "listings": []
+  "listings": [
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej, domy/rodinný, 150 m2, Nepasice 71, 50346 Třebechovice pod Orebem, Hradec Králové [ID 86155]",
+      "location": "Nepasice, Hradec Králové",
+      "property_type": "house",
+      "price": "9 500 000 Kč",
+      "house_area_m2": "150",
+      "land_area_m2": "2700",
+      "urls": [
+        "https://reality.aktualne.cz/detail/trebechovice-pod-orebem/prodej-domy-rodinny-150-m2-nepasice-71-50346-trebechovice-pod-orebem-hradec-kralove-id-86155-8618465.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "aggregator-source:broker-consulting,-a.s."
+      ]
+    }
+  ]
 }
