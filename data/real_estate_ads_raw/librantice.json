@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 3,
     "workers_with_results": 1,
-    "candidates_gathered": 58,
+    "candidates_gathered": 56,
     "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz",
@@ -40,20 +40,12 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "fallback_page",
-      "stage": "detail_parse",
-      "message": "Detail URL returned fallback or non-detail content.",
-      "evidence": [
-        "detail_parse:fallback_page:https://reality.idnes.cz/detail/prodej/dum/librantice/69e08e27cfc35365110bbba2/"
-      ]
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     },
     "realitymix.cz": {
-      "status": "fallback_page",
-      "stage": "detail_parse",
-      "message": "Požadovaný inzerát již není v naší databázi",
-      "evidence": [
-        "detail_parse:fallback_page:https://realitymix.cz/detail/librantice/statek-s-velkym-pozemkem-cca-2182-m2-librantice-8565045.html"
-      ]
+      "status": "no_results",
+      "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
       "status": "no_results",
@@ -63,19 +55,11 @@
   "fetch_attempts": [
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/librantice/69e08e27cfc35365110bbba2/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/librantice/6a2ea0757ef96568330c1c6d/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/librantice/69e08e27cfc35365110bbba2/",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -127,7 +111,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoky-ujezd/69a467c1a68be24a75084f7b/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/druzec/6a01a5892092eb44c206c7f4/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -135,7 +119,111 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoky-ujezd/69a46da1d8a5ec739302708b/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/kladno/6a01a6937a7c11b6140091cd/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/krivsoudov/6a2ae9d1a8a81707400b0947/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/jinacovice/69eefa893afc0951490ab698/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/klimkovice-komenskeho/695e8f56516bb54eac0943d3/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/komorni-lhotka/69f46c2b622ad7391306d7da/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/havirov-pekna/6a2860e8989ec064c20723a9/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/jaromerice-nad-rokytnou/6a31004a0baee600ef004205/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/jesenice-na-spojce/6a30fc723a3db348420ab786/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/jaromerice-nad-rokytnou/6a3100391a3c7167910bc8d0/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/praha-4-vzdusna/6a14179979187977bf01d633/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/herspice/69e82af125264265c805b189/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/radesinska-svratka/6a022c5d31ac5e795007ef60/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/troubsko-stromovka/6a230d0924453899f3092415/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/teplice-prurezna/6a2fe29ee8b229456305d686/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -151,55 +239,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/mala-hrastice/6a2fad9f08b07a500804b88c/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/louka/68583ad0330b1c1a530059c6/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/louka/6a0c1dfcd4047a13af0a8a58/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/karlovy-vary/6a2fad6daca77cc13403d15a/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/sobotovice/6a1e747a0dc875d84e01cbde/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vrbice/6a035b064e1d1609450714c8/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/praha-8-bezinkova/69bbeaec9c0c3ce86005e79a/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/novy-bor-na-vysluni/6a02f39c74e05ee4e10ddce7/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -215,7 +255,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/kutna-hora-husova/68c429999c0f1c5b8703491c/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nezdice-na-sumave/6a30fe46d987fc8f34045c08/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -223,7 +263,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/brodce-k-uvozu/6a14bb79bb43525d73079404/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/uhersky-ostroh-spodni/6a30fdf9b1f5963eaf0b92ae/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -231,7 +271,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/mechenice-v-luhu/69c4760cfea8c14b0b0c83a4/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chocerady/6a0f0a69f0dc7bb2d000c97a/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -239,7 +279,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/nebovidy/69e66e5207013759bd0858f7/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chrastany/6a22a42ca8178fdd770e8916/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -247,7 +287,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/nebovidy/6a1ad714dab6968faa017e2d/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/zlin-stakovy-paseky/69eb46e46a2380f19902fc16/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -255,7 +295,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vlasatice/6a2613666950c33cd00489d3/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/kamenny-malikov/6a30fd1dfef2e28633099c4a/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -263,7 +303,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/kryry-5-kvetna/69659357f2009fa94309242a/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/predhradi-kap-svatone/69e0b19126c18c6f130139d9/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -271,7 +311,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/praha-11-zimakova/69f861ce52cc7a42de0bdb07/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/brno-scheinerova/69f053590000a423dc025ab9/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -279,7 +319,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vroutek-podboranska/6981f5075a23e686e50c0d27/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/bitozeves/69ff2020342751ac1302682b/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -287,7 +327,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/uhreticka-lhota/6a0c14e360b95e527906563b/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/lubna/69ff2187b1410e63230c1811/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -295,7 +335,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/predni-vyton-frydava/6a27c5b7acb36205e806e7fb/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/druzec/6a02e59baace93cfe701cc24/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -303,7 +343,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/prilepy/6983cea6d9c64b3d350b219c/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trojanovice/69f5a88546fc31549a0a6714/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -311,23 +351,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/moravany/69e5fec3f317a93aed09ce32/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/stara-cervena-voda/6a2fabfbba8f96b76503fc88/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/polna-na-sumave/695cc555c61a9062c002073e/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vsetaty-melnicka/69a69bf206843a6e8c003f67/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -343,7 +367,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velke-losiny/6a2fad86af93baa870099f76/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/smolne-pece/5de4c58437ba4d479162baf6/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -351,7 +375,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/detrichov-u-moravske-trebove/69a00a03f534de63ad0155c6/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vyzice/63b441b4c08acc2ed902e8eb/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -359,31 +383,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chynava/699f5bcefe18839aac01cde4/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chodov/6a2b8a4c88d1e2d61401e259/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hodejice/69a7246ef3fed82ae8089a3b/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/krmelin/6a1d56add690339a1906659e/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vejprnice-sokolska/6a2fd571ec7b48bb2f0e20db/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -399,62 +399,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trmice/6a0c18116811ab32f8076167/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vyprachtice/69ea042ee22a32db090cb1e7/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/strazna/69df8f99b2c31f9896074374/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/linhartice/69dcfd0c4e448c6e7905de16/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vyprachtice/69ea24ff2bec4dcc7b0cc76a/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/horni-hermanice/69bd4195889cef042a06fa60/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/lanskroun/6931a5c86db40c289802ada5/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/benecko/677a8ba4163f56d67a069ad7/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -463,7 +407,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cermna-nad-orlici/69ca9493440caec2860b17dc/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/kraluv-dvur/69ef6e3f716f2d959b0f38ae/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -471,7 +415,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pohled-roustany/6a2faaf43c1edc638b095f9c/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chotilsko/69e4f0a6d317fc8ce30197e4/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -479,7 +423,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/gruna/6a2faa0337de4cf3b108eea4/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hlasna-treban-k-cerne-skale/699aede2acdece7bee02ea87/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -487,7 +431,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hlinsko/69ca96605aab9ce8370dc135/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nepomuk/6a30f797730ba674dc03b54a/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -495,7 +439,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/struharov/67f91447865b80bb7205b697/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/dritec/69e8a54e93190e3daa07bf4c/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -503,7 +447,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/strancice/6a2fa96cc20be287ed086269/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/69175c1af70908870c007b7e/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -511,7 +455,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/oleska/69bbac26d657c17fc8055e37/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/kunvald/684a8f22bf3b8b3e870a72de/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -519,7 +463,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/69ca978ea8023a68200a2118/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/osek/6a17433d273c50574a000448/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -527,7 +471,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/bilovice-nad-svitavou/6a2fa72d2a6ccc84bf02c679/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/zdar/69be7824aec2008bc4079b46/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -535,7 +479,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nespeky-potociny/69c117e391d1d552670927e4/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/stehlovice/689b68b47f3642522e068d90/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -543,27 +487,43 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/librantice/6a2ea0757ef96568330c1c6d/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/jezkovice/69b96a1ee655e97b2f08b1db/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
     },
     {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/librantice/statek-s-velkym-pozemkem-cca-2182-m2-librantice-8565045.html",
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradiste/69d4b3ab0e2428f57d053465/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
     },
     {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/librantice/statek-s-velkym-pozemkem-cca-2182-m2-librantice-8565045.html",
-      "stage": "detail_parse",
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/bast-hlavni/69fcc618ffc27a2c3206529a/",
+      "stage": "detail_fetch",
       "attempt": 1,
-      "status": "fallback_page",
-      "message": "Požadovaný inzerát již není v naší databázi"
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/neveklov/69c3e45a48c5a931b60e44a6/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/svoboda-nad-upou/69c50b9dec3e8eb94809e2dc/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "realitymix.cz",
@@ -607,60 +567,58 @@
     }
   ],
   "gaps": [
-    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/librantice/69e08e27cfc35365110bbba2/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vysoky-ujezd/69a467c1a68be24a75084f7b/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vysoky-ujezd/69a46da1d8a5ec739302708b/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/druzec/6a01a5892092eb44c206c7f4/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/kladno/6a01a6937a7c11b6140091cd/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/krivsoudov/6a2ae9d1a8a81707400b0947/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/jinacovice/69eefa893afc0951490ab698/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/klimkovice-komenskeho/695e8f56516bb54eac0943d3/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/komorni-lhotka/69f46c2b622ad7391306d7da/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/havirov-pekna/6a2860e8989ec064c20723a9/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/jaromerice-nad-rokytnou/6a31004a0baee600ef004205/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/jesenice-na-spojce/6a30fc723a3db348420ab786/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/jaromerice-nad-rokytnou/6a3100391a3c7167910bc8d0/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/praha-4-vzdusna/6a14179979187977bf01d633/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/herspice/69e82af125264265c805b189/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/radesinska-svratka/6a022c5d31ac5e795007ef60/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/troubsko-stromovka/6a230d0924453899f3092415/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/teplice-prurezna/6a2fe29ee8b229456305d686/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/ustin/69e630bc0cd4d954f20c94b5/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/mala-hrastice/6a2fad9f08b07a500804b88c/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/louka/68583ad0330b1c1a530059c6/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/louka/6a0c1dfcd4047a13af0a8a58/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/karlovy-vary/6a2fad6daca77cc13403d15a/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/sobotovice/6a1e747a0dc875d84e01cbde/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vrbice/6a035b064e1d1609450714c8/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/praha-8-bezinkova/69bbeaec9c0c3ce86005e79a/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/novy-bor-na-vysluni/6a02f39c74e05ee4e10ddce7/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/harrachov/69d3e17b8aa53e2ec90bc6e5/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/kutna-hora-husova/68c429999c0f1c5b8703491c/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/brodce-k-uvozu/6a14bb79bb43525d73079404/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/mechenice-v-luhu/69c4760cfea8c14b0b0c83a4/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/nebovidy/69e66e5207013759bd0858f7/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/nebovidy/6a1ad714dab6968faa017e2d/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vlasatice/6a2613666950c33cd00489d3/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/kryry-5-kvetna/69659357f2009fa94309242a/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/praha-11-zimakova/69f861ce52cc7a42de0bdb07/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vroutek-podboranska/6981f5075a23e686e50c0d27/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/uhreticka-lhota/6a0c14e360b95e527906563b/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/predni-vyton-frydava/6a27c5b7acb36205e806e7fb/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/prilepy/6983cea6d9c64b3d350b219c/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/moravany/69e5fec3f317a93aed09ce32/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/stara-cervena-voda/6a2fabfbba8f96b76503fc88/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/polna-na-sumave/695cc555c61a9062c002073e/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/nezdice-na-sumave/6a30fe46d987fc8f34045c08/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/uhersky-ostroh-spodni/6a30fdf9b1f5963eaf0b92ae/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/chocerady/6a0f0a69f0dc7bb2d000c97a/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/chrastany/6a22a42ca8178fdd770e8916/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/zlin-stakovy-paseky/69eb46e46a2380f19902fc16/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/kamenny-malikov/6a30fd1dfef2e28633099c4a/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/predhradi-kap-svatone/69e0b19126c18c6f130139d9/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/brno-scheinerova/69f053590000a423dc025ab9/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/bitozeves/69ff2020342751ac1302682b/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/lubna/69ff2187b1410e63230c1811/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/druzec/6a02e59baace93cfe701cc24/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/trojanovice/69f5a88546fc31549a0a6714/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/vsetaty-melnicka/69a69bf206843a6e8c003f67/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/olomouc/69e7dd9223afc98e83071ae0/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/velke-losiny/6a2fad86af93baa870099f76/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/detrichov-u-moravske-trebove/69a00a03f534de63ad0155c6/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/chynava/699f5bcefe18839aac01cde4/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/chodov/6a2b8a4c88d1e2d61401e259/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/hodejice/69a7246ef3fed82ae8089a3b/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/krmelin/6a1d56add690339a1906659e/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/smolne-pece/5de4c58437ba4d479162baf6/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/vyzice/63b441b4c08acc2ed902e8eb/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/vejprnice-sokolska/6a2fd571ec7b48bb2f0e20db/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/benecko/67ab1edd70138d1b1a04f734/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/trmice/6a0c18116811ab32f8076167/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/vyprachtice/69ea042ee22a32db090cb1e7/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/strazna/69df8f99b2c31f9896074374/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/linhartice/69dcfd0c4e448c6e7905de16/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/vyprachtice/69ea24ff2bec4dcc7b0cc76a/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/horni-hermanice/69bd4195889cef042a06fa60/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/lanskroun/6931a5c86db40c289802ada5/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/benecko/677a8ba4163f56d67a069ad7/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/cermna-nad-orlici/69ca9493440caec2860b17dc/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/pohled-roustany/6a2faaf43c1edc638b095f9c/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/gruna/6a2faa0337de4cf3b108eea4/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/hlinsko/69ca96605aab9ce8370dc135/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/struharov/67f91447865b80bb7205b697/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/strancice/6a2fa96cc20be287ed086269/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/oleska/69bbac26d657c17fc8055e37/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/69ca978ea8023a68200a2118/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/bilovice-nad-svitavou/6a2fa72d2a6ccc84bf02c679/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/nespeky-potociny/69c117e391d1d552670927e4/",
-    "removed-fallback-page:https://realitymix.cz/detail/librantice/statek-s-velkym-pozemkem-cca-2182-m2-librantice-8565045.html",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/kraluv-dvur/69ef6e3f716f2d959b0f38ae/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/chotilsko/69e4f0a6d317fc8ce30197e4/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/hlasna-treban-k-cerne-skale/699aede2acdece7bee02ea87/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/nepomuk/6a30f797730ba674dc03b54a/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/dritec/69e8a54e93190e3daa07bf4c/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/69175c1af70908870c007b7e/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/kunvald/684a8f22bf3b8b3e870a72de/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/osek/6a17433d273c50574a000448/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/zdar/69be7824aec2008bc4079b46/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/stehlovice/689b68b47f3642522e068d90/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/jezkovice/69b96a1ee655e97b2f08b1db/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/hradiste/69d4b3ab0e2428f57d053465/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/bast-hlavni/69fcc618ffc27a2c3206529a/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/neveklov/69c3e45a48c5a931b60e44a6/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/svoboda-nad-upou/69c50b9dec3e8eb94809e2dc/",
     "missing-page-url:house",
     "missing-page-url:land",
     "unsupported-property-type:https://reality.aktualne.cz/detail/librantice/stylovy-statek-s-velkym-pozemkem-cca-2182-m2-librantice-8622991.html"

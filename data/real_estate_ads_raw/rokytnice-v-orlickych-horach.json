@@ -29,11 +29,12 @@
   ],
   "coverage": {
     "workers_launched": 2,
-    "workers_with_results": 1,
+    "workers_with_results": 0,
     "candidates_gathered": 19,
-    "rows_retained": 1,
+    "rows_retained": 0,
     "zero_result_portals": [
-      "realitymix.cz"
+      "realitymix.cz",
+      "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
@@ -43,8 +44,8 @@
       "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Reality Aktuálně row."
+      "status": "no_results",
+      "message": "No retained in-scope Reality Aktuálně rows."
     }
   },
   "fetch_attempts": [
@@ -138,14 +139,6 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-chalupy-386-m-rokytnice-v-orlickych-horach-8548401.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-domu-rokytnice-v-orlickych-horach-ul-j-v-sladka-8575967.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -155,6 +148,14 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-dum-rodinny-45-kralovehradecky-kraj-rychnov-nad-kneznou-rokytnice-v-orlickych-horach-j-8593587.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-dum-rodinny-458-kralovehradecky-kraj-rychnov-nad-kneznou-rokytnice-v-orlickych-horach-j-8623665.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -245,6 +246,7 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-bytu-2-1-v-rokytnici-v-orlickych-horach-u-nadrazi-8594153.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-domu-rokytnice-v-orlickych-horach-ul-j-v-sladka-8575967.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-dum-rodinny-45-kralovehradecky-kraj-rychnov-nad-kneznou-rokytnice-v-orlickych-horach-j-8593587.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-dum-rodinny-458-kralovehradecky-kraj-rychnov-nad-kneznou-rokytnice-v-orlickych-horach-j-8623665.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-dvou-rodinnych-domu-1152m-rokytnice-v-orlickych-h-8562513.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-louky-v-rokytnici-v-orlickych-horach-8564329.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-penzion-386-m-rokytnice-v-orlickych-horach-8551017.html",
@@ -255,25 +257,5 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/pronajem-bytu-2-kk-v-rokytnici-v-o-h-ul-sidliste-1-maje-8616385.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/pronajem-byty-2-1-50m-rokytnice-v-orlickych-horach-8563919.html"
   ],
-  "listings": [
-    {
-      "portal": [
-        "reality.aktualne.cz"
-      ],
-      "title": "Prodej chalupy, 386 m², Rokytnice v Orlických horách",
-      "location": "Rokytnice v Orlických horách, Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "cena na vyžádání",
-      "house_area_m2": "386",
-      "land_area_m2": "1335",
-      "urls": [
-        "https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-chalupy-386-m-rokytnice-v-orlickych-horach-8548401.html"
-      ],
-      "notes": [
-        "detail-url-verified:reality.aktualne.cz",
-        "normalized-from:chalupa",
-        "aggregator-source:m&m-reality-holding-a.s."
-      ]
-    }
-  ]
+  "listings": []
 }

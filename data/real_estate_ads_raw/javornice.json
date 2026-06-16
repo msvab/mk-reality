@@ -29,12 +29,11 @@
   ],
   "coverage": {
     "workers_launched": 2,
-    "workers_with_results": 0,
-    "candidates_gathered": 2,
-    "rows_retained": 0,
+    "workers_with_results": 1,
+    "candidates_gathered": 3,
+    "rows_retained": 1,
     "zero_result_portals": [
-      "realitymix.cz",
-      "reality.aktualne.cz"
+      "realitymix.cz"
     ],
     "blocked_portals": []
   },
@@ -44,8 +43,8 @@
       "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Reality Aktuálně rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
     }
   },
   "fetch_attempts": [
@@ -83,6 +82,14 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/javornice/prodej-domy-rodinny-150-m2-id-86099-8623691.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/javornice/prodej-pole-1432-m-javornice-8138679.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -104,5 +111,24 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/javornice/prodej-pole-1432-m-javornice-8138679.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/javornice/prodej-pole-1661-m-javornice-8138677.html"
   ],
-  "listings": []
+  "listings": [
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej, domy/rodinný, 150 m2, [ID 86099]",
+      "location": "Javornice, Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "3 900 000 Kč",
+      "house_area_m2": "150",
+      "land_area_m2": "1734",
+      "urls": [
+        "https://reality.aktualne.cz/detail/javornice/prodej-domy-rodinny-150-m2-id-86099-8623691.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "aggregator-source:broker-consulting,-a.s."
+      ]
+    }
+  ]
 }
