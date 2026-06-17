@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 2,
     "workers_with_results": 1,
-    "candidates_gathered": 4,
+    "candidates_gathered": 3,
     "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz"
@@ -43,13 +43,8 @@
       "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
-      "status": "fallback_page",
-      "http_status": 404,
-      "stage": "discovery_detail_fetch",
-      "message": "HTTP 404",
-      "evidence": [
-        "discovery_detail_fetch:fallback_page:https://reality.aktualne.cz/detail/nemojov/roubenka-dolni-nemojov-chalupa-s-kouzlem-i-vynosem-8468943.html"
-      ]
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
     }
   },
   "fetch_attempts": [
@@ -84,15 +79,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/nemojov/roubenka-dolni-nemojov-chalupa-s-kouzlem-i-vynosem-8468943.html",
-      "stage": "discovery_detail_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 404,
-      "error": "HTTP 404"
     },
     {
       "portal": "reality.aktualne.cz",
@@ -157,31 +143,13 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/nemojov/roubenka-dolni-nemojov-chalupa-s-kouzlem-i-vynosem-8468943.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/nemojov/roubenka-dolni-nemojov-chalupa-s-kouzlem-i-vynosem-8468943.html",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Detail URL returned fallback or non-detail content."
     }
   ],
   "gaps": [
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3610-trutnov/kralovehradecky/prodej-domy_vily.html",
-    "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3610-trutnov/kralovehradecky/prodej-pozemky.html",
-    "detail-fallback-page:https://reality.aktualne.cz/detail/nemojov/roubenka-dolni-nemojov-chalupa-s-kouzlem-i-vynosem-8468943.html"
+    "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3610-trutnov/kralovehradecky/prodej-pozemky.html"
   ],
   "listings": [
     {

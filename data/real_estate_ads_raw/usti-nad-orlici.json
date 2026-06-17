@@ -29,12 +29,10 @@
   ],
   "coverage": {
     "workers_launched": 2,
-    "workers_with_results": 1,
-    "candidates_gathered": 42,
-    "rows_retained": 2,
-    "zero_result_portals": [
-      "reality.aktualne.cz"
-    ],
+    "workers_with_results": 2,
+    "candidates_gathered": 43,
+    "rows_retained": 4,
+    "zero_result_portals": [],
     "blocked_portals": []
   },
   "portal_status": {
@@ -43,8 +41,8 @@
       "message": "Retained at least one detail-verified RealityMix row."
     },
     "reality.aktualne.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Reality Aktuálně rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
     }
   },
   "fetch_attempts": [
@@ -116,6 +114,14 @@
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/pardubicky/usti-nad-orlici",
       "stage": "land_result_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/usti-nad-orlici/prodej-pozemek-bydleni-3332-8625613.html",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -274,14 +280,6 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-chaty-25-m2-usti-nad-orlici-stare-oldrichovice-okres-usti-nad-orlici-8578773.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-chaty-chatova-osada-na-americe-usti-nad-orlici-8611707.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -323,6 +321,14 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-garaze-v-centru-usti-nad-orlici-5788436.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-pozemek-bydleni-3332-8625613.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -417,7 +423,6 @@
     "outside-municipality:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-byt-3-1-v-usti-nad-orlici-8510407.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-bytu-2-1-po-rekonstrukci-dukelska-322-usti-nad-orlici-8584525.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-bytu-s-balkonem-a-garazi-primo-v-dome-2-kk-65-m-zadane-sidliste-stepnice-usti-nad-orlici-8600663.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-chaty-25-m2-usti-nad-orlici-stare-oldrichovice-okres-usti-nad-orlici-8578773.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-chaty-chatova-osada-na-americe-usti-nad-orlici-8611707.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-druzstevni-byt-1-1-v-usti-nad-orlici-8600561.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-druzstevni-byt-4-1-v-usti-nad-orlici-8579321.html",
@@ -468,6 +473,42 @@
       "notes": [
         "detail-url-verified:realitymix.cz",
         "municipal-part:Černovír"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej pozemek Bydlení, 3332㎡",
+      "location": "Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "unknown",
+      "land_area_m2": "3332",
+      "urls": [
+        "https://realitymix.cz/detail/usti-nad-orlici/prodej-pozemek-bydleni-3332-8625613.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej pozemek Bydlení, 3332㎡",
+      "location": "Ústí nad Orlicí, okr.Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "cena na vyžádání",
+      "house_area_m2": "unknown",
+      "land_area_m2": "3332",
+      "urls": [
+        "https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-pozemek-bydleni-3332-8625613.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "buildable-land",
+        "aggregator-source:next-reality-vision"
       ]
     }
   ]
