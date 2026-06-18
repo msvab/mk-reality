@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-06-17T08:19:51+0000",
+  "generated_at": "2026-06-18T08:00:54+0000",
   "schools_input": "dobruska_primary_schools.json",
   "raw_dir": "data/real_estate_ads_raw",
   "coverage": {
     "school_cities": 109,
     "raw_files_found": 110,
-    "cities_with_ads": 59,
-    "hidden_ads": 40,
+    "cities_with_ads": 58,
+    "hidden_ads": 47,
     "cities_with_raw_output": 109,
-    "cities_with_portal_warnings": 10
+    "cities_with_portal_warnings": 11
   },
   "unmatched_raw_files": [
     {
@@ -18,21 +18,30 @@
   ],
   "cities": {
     "Opočno": {
-      "count": 6,
+      "count": 2,
       "coverage": {
         "workers_launched": 2,
         "workers_with_results": 1,
         "candidates_gathered": 6,
-        "rows_retained": 6,
+        "rows_retained": 2,
         "zero_result_portals": [
-          "reality.aktualne.cz"
+          "realitymix.cz"
         ],
         "blocked_portals": []
       },
       "portal_status": {
         "realitymix.cz": {
-          "status": "ok",
-          "message": "Retained at least one detail-verified RealityMix row."
+          "status": "fallback_page",
+          "stage": "detail_parse",
+          "message": "Požadovaný inzerát již není v naší databázi",
+          "evidence": [
+            "detail_parse:fallback_page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-4-1-199-m2-dobrikovec-u-opocna-8463059.html",
+            "detail_parse:fallback_page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-1-1-198-m2-dobrikovec-u-opocna-8463053.html",
+            "detail_parse:fallback_page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-2-1-198-m2-dobrikovec-u-opocna-8463055.html",
+            "detail_parse:fallback_page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-3-1-198-m2-dobrikovec-u-opocna-8463057.html",
+            "detail_parse:fallback_page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-5-1-198-m2-dobrikovec-u-opocna-8463061.html",
+            "detail_parse:fallback_page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-6-1-198-m2-dobrikovec-u-opocna-8463067.html"
+          ]
         },
         "reality.aktualne.cz": {
           "status": "inactive",
@@ -53,11 +62,27 @@
         },
         {
           "portal": "realitymix.cz",
+          "url": "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-4-1-199-m2-dobrikovec-u-opocna-8463059.html",
+          "stage": "detail_parse",
+          "attempt": 1,
+          "status": "fallback_page",
+          "message": "Požadovaný inzerát již není v naší databázi"
+        },
+        {
+          "portal": "realitymix.cz",
           "url": "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-1-1-198-m2-dobrikovec-u-opocna-8463053.html",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
           "http_status": 200
+        },
+        {
+          "portal": "realitymix.cz",
+          "url": "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-1-1-198-m2-dobrikovec-u-opocna-8463053.html",
+          "stage": "detail_parse",
+          "attempt": 1,
+          "status": "fallback_page",
+          "message": "Požadovaný inzerát již není v naší databázi"
         },
         {
           "portal": "realitymix.cz",
@@ -69,11 +94,27 @@
         },
         {
           "portal": "realitymix.cz",
+          "url": "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-2-1-198-m2-dobrikovec-u-opocna-8463055.html",
+          "stage": "detail_parse",
+          "attempt": 1,
+          "status": "fallback_page",
+          "message": "Požadovaný inzerát již není v naší databázi"
+        },
+        {
+          "portal": "realitymix.cz",
           "url": "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-3-1-198-m2-dobrikovec-u-opocna-8463057.html",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
           "http_status": 200
+        },
+        {
+          "portal": "realitymix.cz",
+          "url": "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-3-1-198-m2-dobrikovec-u-opocna-8463057.html",
+          "stage": "detail_parse",
+          "attempt": 1,
+          "status": "fallback_page",
+          "message": "Požadovaný inzerát již není v naší databázi"
         },
         {
           "portal": "realitymix.cz",
@@ -85,11 +126,27 @@
         },
         {
           "portal": "realitymix.cz",
+          "url": "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-5-1-198-m2-dobrikovec-u-opocna-8463061.html",
+          "stage": "detail_parse",
+          "attempt": 1,
+          "status": "fallback_page",
+          "message": "Požadovaný inzerát již není v naší databázi"
+        },
+        {
+          "portal": "realitymix.cz",
           "url": "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-6-1-198-m2-dobrikovec-u-opocna-8463067.html",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
           "http_status": 200
+        },
+        {
+          "portal": "realitymix.cz",
+          "url": "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-6-1-198-m2-dobrikovec-u-opocna-8463067.html",
+          "stage": "detail_parse",
+          "attempt": 1,
+          "status": "fallback_page",
+          "message": "Požadovaný inzerát již není v naší databázi"
         },
         {
           "portal": "realitymix.cz",
@@ -189,6 +246,54 @@
         },
         {
           "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/opocno/prodej-pozemek-bydleni-kralovehradecky-kraj-rychnov-nad-kneznou-opocno-dobrikovec-20-51773-8625989.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/opocno/prodej-pozemek-bydleni-kralovehradecky-kraj-rychnov-nad-kneznou-opocno-dobrikovec-20-51773-8625991.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/opocno/prodej-pozemek-bydleni-kralovehradecky-kraj-rychnov-nad-kneznou-opocno-dobrikovec-20-51773-8625995.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/opocno/prodej-pozemek-bydleni-kralovehradecky-kraj-rychnov-nad-kneznou-opocno-dobrikovec-20-51773-8625999.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/opocno/prodej-pozemek-bydleni-kralovehradecky-kraj-rychnov-nad-kneznou-opocno-dobrikovec-20-51773-8626003.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/opocno/prodej-pozemek-bydleni-kralovehradecky-kraj-rychnov-nad-kneznou-opocno-dobrikovec-20-51773-8626009.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
           "url": "https://reality.aktualne.cz/detail/opocno/prodej-rodinneho-domu-palackeho-562-opocno-8488479.html",
           "stage": "detail_fetch",
           "attempt": 1,
@@ -233,6 +338,12 @@
         "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Opočno."
       ],
       "gaps": [
+        "removed-fallback-page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-4-1-199-m2-dobrikovec-u-opocna-8463059.html",
+        "removed-fallback-page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-1-1-198-m2-dobrikovec-u-opocna-8463053.html",
+        "removed-fallback-page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-2-1-198-m2-dobrikovec-u-opocna-8463055.html",
+        "removed-fallback-page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-3-1-198-m2-dobrikovec-u-opocna-8463057.html",
+        "removed-fallback-page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-5-1-198-m2-dobrikovec-u-opocna-8463061.html",
+        "removed-fallback-page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-6-1-198-m2-dobrikovec-u-opocna-8463067.html",
         "missing-page-url:house",
         "missing-page-url:land",
         "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",
@@ -252,6 +363,73 @@
       "ads": [
         {
           "portal": [
+            "reality.aktualne.cz"
+          ],
+          "title": "Prodej pozemek Bydlení|Královéhradecký kraj, Rychnov nad Kněžnou, Opočno, Dobříkovec, 20, 51773",
+          "location": "Dobříkovec, Opočno, okr.Rychnov nad Kněžnou",
+          "property_type": "land",
+          "price": "2 400 Kč (za m 2 )",
+          "price_czk": 24002,
+          "house_area_m2": null,
+          "land_area_m2": 1198,
+          "urls": [
+            "https://reality.aktualne.cz/detail/opocno/prodej-pozemek-bydleni-kralovehradecky-kraj-rychnov-nad-kneznou-opocno-dobrikovec-20-51773-8625989.html",
+            "https://reality.aktualne.cz/detail/opocno/prodej-pozemek-bydleni-kralovehradecky-kraj-rychnov-nad-kneznou-opocno-dobrikovec-20-51773-8625991.html",
+            "https://reality.aktualne.cz/detail/opocno/prodej-pozemek-bydleni-kralovehradecky-kraj-rychnov-nad-kneznou-opocno-dobrikovec-20-51773-8625995.html",
+            "https://reality.aktualne.cz/detail/opocno/prodej-pozemek-bydleni-kralovehradecky-kraj-rychnov-nad-kneznou-opocno-dobrikovec-20-51773-8626003.html",
+            "https://reality.aktualne.cz/detail/opocno/prodej-pozemek-bydleni-kralovehradecky-kraj-rychnov-nad-kneznou-opocno-dobrikovec-20-51773-8626009.html"
+          ],
+          "notes": [
+            "detail-url-verified:reality.aktualne.cz",
+            "buildable-land",
+            "aggregator-source:prime-living-s.r.o.",
+            "duplicate-merged-from:reality.aktualne.cz"
+          ],
+          "status": "active",
+          "first_seen_at": "2026-06-18T08:00:54+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
+          "price_history": [
+            {
+              "seen_at": "2026-06-18T08:00:54+0000",
+              "price": "2 400 Kč (za m 2 )",
+              "price_czk": 24002
+            }
+          ]
+        },
+        {
+          "portal": [
+            "reality.aktualne.cz"
+          ],
+          "title": "Prodej pozemek Bydlení|Královéhradecký kraj, Rychnov nad Kněžnou, Opočno, Dobříkovec, 20, 51773",
+          "location": "Dobříkovec, Opočno, okr.Rychnov nad Kněžnou",
+          "property_type": "land",
+          "price": "2 400 Kč (za m 2 )",
+          "price_czk": 24002,
+          "house_area_m2": null,
+          "land_area_m2": 1199,
+          "urls": [
+            "https://reality.aktualne.cz/detail/opocno/prodej-pozemek-bydleni-kralovehradecky-kraj-rychnov-nad-kneznou-opocno-dobrikovec-20-51773-8625999.html"
+          ],
+          "notes": [
+            "detail-url-verified:reality.aktualne.cz",
+            "buildable-land",
+            "aggregator-source:prime-living-s.r.o."
+          ],
+          "status": "active",
+          "first_seen_at": "2026-06-18T08:00:54+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
+          "price_history": [
+            {
+              "seen_at": "2026-06-18T08:00:54+0000",
+              "price": "2 400 Kč (za m 2 )",
+              "price_czk": 24002
+            }
+          ]
+        }
+      ],
+      "hidden_ads": [
+        {
+          "portal": [
             "realitymix.cz"
           ],
           "title": "Prodej stavebního pozemku č.4 - 1.199 m2 – Dobříkovec u Opočna",
@@ -269,7 +447,7 @@
             "municipal-part:Dobříkovec",
             "buildable-land"
           ],
-          "status": "active",
+          "status": "hidden",
           "first_seen_at": "2026-06-05T18:53:34+0200",
           "last_seen_at": "2026-06-17T08:19:51+0000",
           "price_history": [
@@ -278,7 +456,8 @@
               "price": "2 877 600 Kč",
               "price_czk": 2877600
             }
-          ]
+          ],
+          "hidden_at": "2026-06-18T08:00:54+0000"
         },
         {
           "portal": [
@@ -299,7 +478,7 @@
             "municipal-part:Dobříkovec",
             "buildable-land"
           ],
-          "status": "active",
+          "status": "hidden",
           "first_seen_at": "2026-06-05T18:53:34+0200",
           "last_seen_at": "2026-06-17T08:19:51+0000",
           "price_history": [
@@ -308,7 +487,8 @@
               "price": "2 875 200 Kč",
               "price_czk": 2875200
             }
-          ]
+          ],
+          "hidden_at": "2026-06-18T08:00:54+0000"
         },
         {
           "portal": [
@@ -329,7 +509,7 @@
             "municipal-part:Dobříkovec",
             "buildable-land"
           ],
-          "status": "active",
+          "status": "hidden",
           "first_seen_at": "2026-06-05T18:53:34+0200",
           "last_seen_at": "2026-06-17T08:19:51+0000",
           "price_history": [
@@ -338,7 +518,8 @@
               "price": "2 875 200 Kč",
               "price_czk": 2875200
             }
-          ]
+          ],
+          "hidden_at": "2026-06-18T08:00:54+0000"
         },
         {
           "portal": [
@@ -359,7 +540,7 @@
             "municipal-part:Dobříkovec",
             "buildable-land"
           ],
-          "status": "active",
+          "status": "hidden",
           "first_seen_at": "2026-06-05T18:53:34+0200",
           "last_seen_at": "2026-06-17T08:19:51+0000",
           "price_history": [
@@ -368,7 +549,8 @@
               "price": "2 875 200 Kč",
               "price_czk": 2875200
             }
-          ]
+          ],
+          "hidden_at": "2026-06-18T08:00:54+0000"
         },
         {
           "portal": [
@@ -389,7 +571,7 @@
             "municipal-part:Dobříkovec",
             "buildable-land"
           ],
-          "status": "active",
+          "status": "hidden",
           "first_seen_at": "2026-06-05T18:53:34+0200",
           "last_seen_at": "2026-06-17T08:19:51+0000",
           "price_history": [
@@ -398,7 +580,8 @@
               "price": "2 875 200 Kč",
               "price_czk": 2875200
             }
-          ]
+          ],
+          "hidden_at": "2026-06-18T08:00:54+0000"
         },
         {
           "portal": [
@@ -419,7 +602,7 @@
             "municipal-part:Dobříkovec",
             "buildable-land"
           ],
-          "status": "active",
+          "status": "hidden",
           "first_seen_at": "2026-06-05T18:53:34+0200",
           "last_seen_at": "2026-06-17T08:19:51+0000",
           "price_history": [
@@ -428,10 +611,10 @@
               "price": "2 875 200 Kč",
               "price_czk": 2875200
             }
-          ]
+          ],
+          "hidden_at": "2026-06-18T08:00:54+0000"
         }
-      ],
-      "hidden_ads": []
+      ]
     },
     "Nové Město nad Metují": {
       "count": 1,
@@ -520,7 +703,23 @@
         },
         {
           "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-byt-2-kk-67-kralovehradecky-kraj-nachod-nove-mesto-nad-metuji-brezinky-1523-54901-8625979.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
           "url": "https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-chaty-30-m-nove-mesto-nad-metuji-ul-k-sirkarne-8491147.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-komercni-restaurace-1-319-kralovehradecky-kraj-nachod-nove-mesto-nad-metuji-spy-vlastim-8626019.html",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -591,7 +790,9 @@
         "land-below-threshold:https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-rodinneho-domu-140-m-nove-mesto-nad-metuji-8537981.html",
         "land-below-threshold:https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-rodinneho-domu-635-m-nove-mesto-nmet-ul-1-maje-8540683.html",
         "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-pozemky.html",
+        "unsupported-property-type:https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-byt-2-kk-67-kralovehradecky-kraj-nachod-nove-mesto-nad-metuji-brezinky-1523-54901-8625979.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-chaty-30-m-nove-mesto-nad-metuji-ul-k-sirkarne-8491147.html",
+        "unsupported-property-type:https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-komercni-restaurace-1-319-kralovehradecky-kraj-nachod-nove-mesto-nad-metuji-spy-vlastim-8626019.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-pozemku-35-125-m-8486869.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-rodinneho-domu-140-m-nove-mesto-nad-metuji-8537981.html",
         "outside-municipality:https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-rodinneho-domu-635-m-nove-mesto-nmet-ul-1-maje-8540683.html",
@@ -625,7 +826,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T19:13:31+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-05T19:13:31+0200",
@@ -954,7 +1155,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-08T08:24:29+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-08T08:24:29+0200",
@@ -989,7 +1190,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -1024,7 +1225,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -1222,14 +1423,15 @@
       ]
     },
     "České Meziříčí": {
-      "count": 1,
+      "count": 0,
       "coverage": {
         "workers_launched": 2,
-        "workers_with_results": 1,
-        "candidates_gathered": 1,
-        "rows_retained": 1,
+        "workers_with_results": 0,
+        "candidates_gathered": 0,
+        "rows_retained": 0,
         "zero_result_portals": [
-          "realitymix.cz"
+          "realitymix.cz",
+          "reality.aktualne.cz"
         ],
         "blocked_portals": []
       },
@@ -1239,8 +1441,16 @@
           "message": "No retained in-scope RealityMix rows."
         },
         "reality.aktualne.cz": {
-          "status": "ok",
-          "message": "Retained at least one detail-verified Reality Aktuálně row."
+          "status": "fallback_page",
+          "http_status": 404,
+          "stage": "discovery_detail_fetch",
+          "message": "HTTP 404",
+          "evidence": [
+            "discovery_detail_fetch:fallback_page:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinneho-domu-zemedelske-usedlosti-ceske-mezirici-8594143.html",
+            "detail_fetch:fallback_page:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinneho-domu-zemedelske-usedlosti-ceske-mezirici-8594143.html",
+            "detail_parse:fallback_page:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinneho-domu-zemedelske-usedlosti-ceske-mezirici-8594143.html",
+            "detail-fallback-page:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinneho-domu-zemedelske-usedlosti-ceske-mezirici-8594143.html"
+          ]
         }
       },
       "fetch_attempts": [
@@ -1273,8 +1483,9 @@
           "url": "https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinneho-domu-zemedelske-usedlosti-ceske-mezirici-8594143.html",
           "stage": "discovery_detail_fetch",
           "attempt": 1,
-          "status": "ok",
-          "http_status": 200
+          "status": "fallback_page",
+          "http_status": 404,
+          "error": "HTTP 404"
         },
         {
           "portal": "reality.aktualne.cz",
@@ -1313,8 +1524,17 @@
           "url": "https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinneho-domu-zemedelske-usedlosti-ceske-mezirici-8594143.html",
           "stage": "detail_fetch",
           "attempt": 1,
-          "status": "ok",
-          "http_status": 200
+          "status": "fallback_page",
+          "http_status": 404,
+          "error": "HTTP 404"
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinneho-domu-zemedelske-usedlosti-ceske-mezirici-8594143.html",
+          "stage": "detail_parse",
+          "attempt": 1,
+          "status": "fallback_page",
+          "message": "Detail URL returned fallback or non-detail content."
         },
         {
           "portal": "reality.aktualne.cz",
@@ -1343,10 +1563,12 @@
         "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-domy_vily.html",
         "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-pozemky.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinneho-domu-6-kk-pozemek-892-m2-ceske-mezirici-8487969.html",
+        "detail-fallback-page:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinneho-domu-zemedelske-usedlosti-ceske-mezirici-8594143.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinny-dum-124-8554997.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-zahrady-1215-m-ceske-mezirici-8477899.html"
       ],
-      "ads": [
+      "ads": [],
+      "hidden_ads": [
         {
           "portal": [
             "reality.aktualne.cz"
@@ -1365,7 +1587,7 @@
             "detail-url-verified:reality.aktualne.cz",
             "aggregator-source:donetta-s.r.o.,-realitni-kancelar"
           ],
-          "status": "active",
+          "status": "hidden",
           "first_seen_at": "2026-06-05T19:50:52+0200",
           "last_seen_at": "2026-06-17T08:19:51+0000",
           "price_history": [
@@ -1374,10 +1596,9 @@
               "price": "4 500 000 Kč",
               "price_czk": 4500000
             }
-          ]
-        }
-      ],
-      "hidden_ads": [
+          ],
+          "hidden_at": "2026-06-18T08:00:54+0000"
+        },
         {
           "portal": [
             "reality.idnes.cz"
@@ -1581,7 +1802,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T19:50:52+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-05T19:50:52+0200",
@@ -2052,6 +2273,7 @@
         "missing-page-url:land",
         "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",
         "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html",
+        "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-domy_vily.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/destne-v-orlickych-horach/3-kk-83-m2-destne-v-orlickych-horach-338-517-91-8567823.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/destne-v-orlickych-horach/novostavba-vybaveneho-poloroubeneho-rodinneho-domu-se-zahradou-v-destnem-v-orlickych-horach-8612659.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/destne-v-orlickych-horach/prodej-apartmanoveho-bytu-1-kk-32-m2-v-centru-obce-destne-v-orlickych-horach-8170681.html",
@@ -2087,7 +2309,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-07T20:52:54+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-07T20:52:54+0200",
@@ -2445,6 +2667,22 @@
           "attempt": 1,
           "status": "ok",
           "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/trebechovice-pod-orebem/utulny-byt-1-1-s-parkovacim-stanim-v-trebechovicich-pod-orebem-8626249.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/trebechovice-pod-orebem/zemedelska-puda-prodej-nepasice-trebechovice-pod-orebem-hradec-kralove-8626185.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
         }
       ],
       "assumptions": [
@@ -2470,7 +2708,9 @@
         "unsupported-property-type:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/pronajem-bytu-1-kk-v-trebechovicich-p-o-masarykovo-nam-8595635.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/pronajem-komercniho-arealu-trebechovice-pod-orebem-8606977.html",
         "non-buildable-land:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/pronajem-roubenky-5-kk-219-m-pozemek-1-456-m-vlastni-rybnik-polanky-nad-dedinou-cena-35-000-8592317.html",
-        "land-below-threshold:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/rodinny-dum-trebechovice-pod-orebem-8463547.html"
+        "land-below-threshold:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/rodinny-dum-trebechovice-pod-orebem-8463547.html",
+        "unsupported-property-type:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/utulny-byt-1-1-s-parkovacim-stanim-v-trebechovicich-pod-orebem-8626249.html",
+        "unsupported-property-type:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/zemedelska-puda-prodej-nepasice-trebechovice-pod-orebem-hradec-kralove-8626185.html"
       ],
       "ads": [
         {
@@ -2493,7 +2733,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:22:08+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:22:08+0200",
@@ -2782,7 +3022,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2810,11 +3050,8 @@
           "message": "Retained at least one detail-verified RealityMix row."
         },
         "reality.aktualne.cz": {
-          "status": "inactive",
-          "message": "inactive-or-unpriced:https://reality.aktualne.cz/detail/nachod/prodej-chaty-chalupy-23-m-pozemek-740-m-8570963.html",
-          "evidence": [
-            "inactive-or-unpriced:https://reality.aktualne.cz/detail/nachod/prodej-chaty-chalupy-23-m-pozemek-740-m-8570963.html"
-          ]
+          "status": "ok",
+          "message": "Retained at least one detail-verified Reality Aktuálně row."
         }
       },
       "fetch_attempts": [
@@ -2988,7 +3225,7 @@
         },
         {
           "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/detail/nachod/prodej-chaty-chalupy-23-m-pozemek-740-m-8570963.html",
+          "url": "https://reality.aktualne.cz/detail/nachod/prodej-bytu-3-1-58-m-nachod-ul-prazska-8549575.html",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -3044,7 +3281,7 @@
         },
         {
           "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/detail/nachod/pronajem-bytu-1-1-v-nachode-ul-bila-8609483.html",
+          "url": "https://reality.aktualne.cz/detail/nachod/prodej-rodinneho-domu-v-nachode-ul-krapkova-8520877.html",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -3100,12 +3337,12 @@
         "unsupported-property-type:https://reality.aktualne.cz/detail/nachod/prodej-3-4-chaty-nachod-ul-vodarenska-8368087.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/nachod/prodej-bytu-1-1-32-m-nachod-8608245.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/nachod/prodej-bytu-2-1-50-m-nachod-ul-prazska-8622435.html",
-        "inactive-or-unpriced:https://reality.aktualne.cz/detail/nachod/prodej-chaty-chalupy-23-m-pozemek-740-m-8570963.html",
+        "unsupported-property-type:https://reality.aktualne.cz/detail/nachod/prodej-bytu-3-1-58-m-nachod-ul-prazska-8549575.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/nachod/prodej-domu-166-m-pozemek-376-m-8615975.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/nachod/prodej-malometrazniho-bytu-2-kk-45m-k-rekonstrukci-8614809.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/nachod/prodej-mezonetoveho-bytu-3-1-v-nachode-ul-vodarenska-8610121.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/nachod/prodej-rodinneho-domu-140-m-nachod-ul-1-maje-8419617.html",
-        "unsupported-property-type:https://reality.aktualne.cz/detail/nachod/pronajem-bytu-1-1-v-nachode-ul-bila-8609483.html",
+        "land-below-threshold:https://reality.aktualne.cz/detail/nachod/prodej-rodinneho-domu-v-nachode-ul-krapkova-8520877.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/nachod/pronajem-bytu-1-kk-v-nachode-nachodu-ul-prazska-8465573.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/nachod/pronajem-byty-3-kk-71-6-m2-na-hamrech-1484-54701-nachod-nachod-id-86039-8604621.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/nachod/pronajem-komercniho-prostoru-a-restaurace-232-m2-masarykovo-namesti-nachod-8560769.html",
@@ -3136,7 +3373,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -3171,7 +3408,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -3451,7 +3688,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -3991,8 +4228,11 @@
           "message": "No retained in-scope RealityMix rows."
         },
         "reality.aktualne.cz": {
-          "status": "ok",
-          "message": "Retained at least one detail-verified Reality Aktuálně row."
+          "status": "inactive",
+          "message": "inactive-or-unpriced:https://reality.aktualne.cz/detail/jaromer/pronajem-byt-2-kk-jaromer-ul-nabrezi-17-listopadu-8598527.html",
+          "evidence": [
+            "inactive-or-unpriced:https://reality.aktualne.cz/detail/jaromer/pronajem-byt-2-kk-jaromer-ul-nabrezi-17-listopadu-8598527.html"
+          ]
         }
       },
       "fetch_attempts": [
@@ -4078,6 +4318,14 @@
         },
         {
           "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/jaromer/prodej-rodinneho-domu-110-m-s-pozemkem-664-m-balkon-8-m-8626543.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
           "url": "https://reality.aktualne.cz/detail/jaromer/prodej-rodinneho-domu-46-m-jaromer-ul-sterbova-8599223.html",
           "stage": "detail_fetch",
           "attempt": 1,
@@ -4150,14 +4398,6 @@
         },
         {
           "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/detail/jaromer/pronajem-kancelare-45-93-m2-jaromer-8538669.html",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.aktualne.cz",
           "url": "https://reality.aktualne.cz/detail/jaromer/pronajem-kancelarskych-prostor-142-34-m2-jaromer-8542993.html",
           "stage": "detail_fetch",
           "attempt": 1,
@@ -4190,6 +4430,14 @@
         },
         {
           "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/jaromer/pronajem-obchodniho-prostoru-josefov-masarykovo-namesti-8626265.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
           "url": "https://reality.aktualne.cz/detail/jaromer/pronajem-skladovy-prostor-135-m2-jaromer-8621427.html",
           "stage": "detail_fetch",
           "attempt": 1,
@@ -4208,19 +4456,20 @@
         "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/nabidka-podnajmu-16-zahrad-v-jaromeri-okres-nachod-8568079.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/prodej-bytu-3-1-83-m-jaromer-ul-palackeho-8581451.html",
         "outside-municipality:https://reality.aktualne.cz/detail/jaromer/prodej-pozemku-17154-m2-8588949.html",
+        "outside-municipality:https://reality.aktualne.cz/detail/jaromer/prodej-rodinneho-domu-110-m-s-pozemkem-664-m-balkon-8-m-8626543.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/jaromer/prodej-rodinneho-domu-791-m-jaromer-ul-palackeho-8508307.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/jaromer/prodej-rodinneho-domu-se-tremi-bytovymi-jednotkami-259-m-pozemek-812-m-jaromer-8551701.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-byt-2-kk-jaromer-cast-prazske-predmesti-8598529.html",
-        "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-byt-2-kk-jaromer-ul-nabrezi-17-listopadu-8598527.html",
+        "inactive-or-unpriced:https://reality.aktualne.cz/detail/jaromer/pronajem-byt-2-kk-jaromer-ul-nabrezi-17-listopadu-8598527.html",
         "outside-municipality:https://reality.aktualne.cz/detail/jaromer/pronajem-bytu-1-1-josefov-rekonstrukce-centrum-8625797.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-bytu-1-kk-36-5-m2-jaromer-8625565.html",
         "outside-municipality:https://reality.aktualne.cz/detail/jaromer/pronajem-bytu-1kk-34m2-8624881.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-kancelar-28-5-m2-jaromer-8617119.html",
-        "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-kancelare-45-93-m2-jaromer-8538669.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-kancelarskych-prostor-142-34-m2-jaromer-8542993.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-komercni-prostory-82-m2-jaromer-josefov-8625579.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-komercni-prostotry-200-m2-jaromer-8563915.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-komercniho-prostoru-36-m2-jaromer-8561941.html",
+        "outside-municipality:https://reality.aktualne.cz/detail/jaromer/pronajem-obchodniho-prostoru-josefov-masarykovo-namesti-8626265.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-skladovy-prostor-135-m2-jaromer-8621427.html"
       ],
       "ads": [
@@ -4244,7 +4493,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-07T20:58:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-07T20:58:49+0200",
@@ -4448,7 +4697,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/letohrad-tauslova/67b301edd89756257d0954a2/",
+          "url": "https://reality.idnes.cz/detail/prodej/dum/chomutov-trebizskeho/6a3399dd3158e2286a0c43f6/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4456,7 +4705,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/kladno/6a216d264176cd11e8066945/",
+          "url": "https://reality.idnes.cz/detail/prodej/dum/truskovice/6a3399e00deb2452e808ec2f/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4464,7 +4713,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/kladno-havirska/69e0fc47af35a977670dc471/",
+          "url": "https://reality.idnes.cz/detail/prodej/dum/kosmonosy-trebizskeho/69d42945e6993f924403173c/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4472,7 +4721,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/nova-rise-namesti/6a316fed3f84c183b2093967/",
+          "url": "https://reality.idnes.cz/detail/prodej/dum/sobetuchy/69f883090c3d1faca704fe83/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4480,7 +4729,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/hlusovice-u-potoka/69b6ac4f45f655ba8d027e08/",
+          "url": "https://reality.idnes.cz/detail/prodej/dum/breznice-9-kvetna/6980a33c0c6d5a666a0353e2/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4488,7 +4737,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/praha-5-pod-habrovou/69ee6b7e9e1dceb5a30d137e/",
+          "url": "https://reality.idnes.cz/detail/prodej/dum/sykorice/693b00a03cb21a2ae00ef8fe/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4496,7 +4745,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/praha-6-delostrelecka/69fd039425a93f29ad0db98a/",
+          "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-chvojno/686d04c7044e305e7c0b6cfb/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4504,7 +4753,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/praha-6-delostrelecka/69fd08324b6c7d8fba089774/",
+          "url": "https://reality.idnes.cz/detail/prodej/dum/rapotin-jesenicka/69b8fcec92307ca174088988/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4512,7 +4761,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/brandys-nad-labem-stara-boleslav-marianske-namesti/6a189ac97a2444405205147a/",
+          "url": "https://reality.idnes.cz/detail/prodej/dum/zvole/6992f53b0001e6de1b0bb2d9/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4520,7 +4769,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/praha-13-ke-konstruktive/6a216f67e32bbae94e050ccd/",
+          "url": "https://reality.idnes.cz/detail/prodej/dum/libechov/685e4b41c2bcede628001c08/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4528,7 +4777,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/zitkova/6841dbfc90045a98370e5c13/",
+          "url": "https://reality.idnes.cz/detail/prodej/dum/cim/67d18a5a99cacda44a0698ca/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4536,7 +4785,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/praha-4-bocni-ii/6a293f6ab2ffa0b9f303ce82/",
+          "url": "https://reality.idnes.cz/detail/prodej/dum/podebrady-rosslerova/673200dc6d190fb4aa0ad9ea/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4544,7 +4793,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/praha-6-na-pucalce/6a144338ec093a61f003bed4/",
+          "url": "https://reality.idnes.cz/detail/prodej/dum/vejprty-udolni/68530eab9f9baa1ca30fd653/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4552,7 +4801,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/klabava/69c439ead6d0972a8c0746c9/",
+          "url": "https://reality.idnes.cz/detail/prodej/dum/jablonne-v-podjestedi-karoliny-svetle/6a338f56be997f4de4055c3a/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4560,7 +4809,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/dobriv/69cbc97ee54b72816c0ecc5b/",
+          "url": "https://reality.idnes.cz/detail/prodej/dum/usti-nad-labem-zelena/6a3391b1768545bb1e001565/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4568,7 +4817,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/lhota-pod-radcem/69bd7f5a601e11ee8c0ba900/",
+          "url": "https://reality.idnes.cz/detail/prodej/dum/bordovice/65ce0d30fe811b7c670f6444/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4576,7 +4825,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/praha-5-k-homolce/69b05969ffa1ff19930ab765/",
+          "url": "https://reality.idnes.cz/detail/prodej/dum/cernovice/6a339966233a30c3b10a53b0/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4584,7 +4833,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/valec/69f226b48709cd8376093658/",
+          "url": "https://reality.idnes.cz/detail/prodej/dum/breclav-lidicka/68f929463bbf1b8cf00ad625/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4592,7 +4841,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/praha-6-trojanuv-mlyn/69fb7780f3ec2e5d4006842e/",
+          "url": "https://reality.idnes.cz/detail/prodej/dum/veverska-bityska/66d42f724ba536cef5024972/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4600,7 +4849,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/privlaka/6a324d4a0b9be659c80dc615/",
+          "url": "https://reality.idnes.cz/detail/prodej/dum/babice/68ac5ff2db15877e99008534/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4608,7 +4857,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/praha-6-bazantni/699cc30d75bede15920911e5/",
+          "url": "https://reality.idnes.cz/detail/prodej/dum/plzen/69b00dd35b67ee230504227d/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4616,7 +4865,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/slany/6759933a8d0e414dfa0c826b/",
+          "url": "https://reality.idnes.cz/detail/prodej/dum/klasterec-nad-ohri/69ab5a01f4d8bef70101c65f/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4624,7 +4873,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/slany/68c4a9fca81201beda03f794/",
+          "url": "https://reality.idnes.cz/detail/prodej/dum/cebiv/6966129a12a41ef35608e90c/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4632,7 +4881,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/drahelcice-k-bitini/68c4aa0595c944109b09d3a7/",
+          "url": "https://reality.idnes.cz/detail/prodej/dum/myto/696620a45267d9db070b23a5/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4640,7 +4889,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/jachymov-klinovec/6989a0c90a0946209b080888/",
+          "url": "https://reality.idnes.cz/detail/prodej/dum/teplice/69dcba359edb8daa5601d016/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4648,7 +4897,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/dum/pchery-5-kvetna/69baa5c5615ff0ec9f0a3a54/",
+          "url": "https://reality.idnes.cz/detail/prodej/dum/usti-nad-labem/69dcba24188841de2d069176/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4656,7 +4905,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/vyprachtice/69ea042ee22a32db090cb1e7/",
+          "url": "https://reality.idnes.cz/detail/prodej/pozemek/kresice/6a339b0f431540f7ba07eb88/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4664,151 +4913,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/strazna/69df8f99b2c31f9896074374/",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/linhartice/69dcfd0c4e448c6e7905de16/",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/vyprachtice/69ea24ff2bec4dcc7b0cc76a/",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/horni-hermanice/69bd4195889cef042a06fa60/",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/lanskroun/6931a5c86db40c289802ada5/",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/benecko/677a8ba4163f56d67a069ad7/",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/linhartice/6a324e6531a479b4f5048394/",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/lysa-nad-labem/6a0ac51cf0ee782c4008e0c5/",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/tlumacov-skaly/69a6ccfed186f3bc810df757/",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/krenovice/6a324c0d23695af2ea0870e4/",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/stozec/69df83db9da467854508179c/",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/dysina/69e0aae61b9bfd60ee0e3bf8/",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/sobesice/6a0099d232ae9bb4a40a2de3/",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/korycany/698eda116ee47093ca06d28c/",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/mukarov-kutnohorska/689de21af09429b14f0b74b9/",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/malec/69aa19a4fb91423ce80f2647/",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/klobouky-u-brna/6a2957f10ff05785d9082755/",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/chotilsko/69e4f0a6d317fc8ce30197e4/",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/uhonice-dusnicka/69edd156dd5b1e8a9f0894f7/",
+          "url": "https://reality.idnes.cz/detail/prodej/pozemek/lisnice/69ca46def3c0a0997d0cfb7b/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4824,7 +4929,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/kojice/6a017516bb2cb6031a01dedc/",
+          "url": "https://reality.idnes.cz/detail/prodej/pozemek/zlin/69aeca8d850c31ee7c0411c2/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4832,7 +4937,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/velopoli/69aeca75073d10315b021711/",
+          "url": "https://reality.idnes.cz/detail/prodej/pozemek/sojovice/69eb093de46d49a4f4068b17/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4840,7 +4945,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/bast-hlavni/69fb61e53871f0b026055aaf/",
+          "url": "https://reality.idnes.cz/detail/prodej/pozemek/strmilov/693929009b1b9e6ef30614f4/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4848,7 +4953,7 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/senicka/697263118f55452d0404cd19/",
+          "url": "https://reality.idnes.cz/detail/prodej/pozemek/jezov/659dc0b6c4fd4b3d2e01968a/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4856,7 +4961,151 @@
         },
         {
           "portal": "reality.idnes.cz",
-          "url": "https://reality.idnes.cz/detail/prodej/pozemek/dubi-javorova/698e1cbcbec4ef79a80c4be4/",
+          "url": "https://reality.idnes.cz/detail/prodej/pozemek/prechovice/63e732877313ed29d7052f05/",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.idnes.cz",
+          "url": "https://reality.idnes.cz/detail/prodej/pozemek/mladotice/654c85d0464614b64b05dd3b/",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.idnes.cz",
+          "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-lipa/60f3728635275557ff58d5ab/",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.idnes.cz",
+          "url": "https://reality.idnes.cz/detail/prodej/pozemek/brloh/68484a7947905db1890dc529/",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.idnes.cz",
+          "url": "https://reality.idnes.cz/detail/prodej/pozemek/povrly/65dee5ba0c8834c96503286b/",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.idnes.cz",
+          "url": "https://reality.idnes.cz/detail/prodej/pozemek/dritec/6a3391be86206a7bf80ed0d3/",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.idnes.cz",
+          "url": "https://reality.idnes.cz/detail/prodej/pozemek/morasice/6a3390fdc2cf334a170d8fd4/",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.idnes.cz",
+          "url": "https://reality.idnes.cz/detail/prodej/pozemek/morasice/6a3392c65949f5c1f40b096c/",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.idnes.cz",
+          "url": "https://reality.idnes.cz/detail/prodej/pozemek/morasice/6a3391c513d5870da70fe07c/",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.idnes.cz",
+          "url": "https://reality.idnes.cz/detail/prodej/pozemek/korycany/6a339073e3cd0d77ae00f575/",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.idnes.cz",
+          "url": "https://reality.idnes.cz/detail/prodej/pozemek/morasice/6a338ff97e3b5a88bc02484b/",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.idnes.cz",
+          "url": "https://reality.idnes.cz/detail/prodej/pozemek/morasice/6a3393c20e6e412119035331/",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.idnes.cz",
+          "url": "https://reality.idnes.cz/detail/prodej/pozemek/vejprty-jiraskova/6821ed2881e80581e0063d0a/",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.idnes.cz",
+          "url": "https://reality.idnes.cz/detail/prodej/pozemek/klasterec-nad-ohri/69ab52525f165a5d8601cca5/",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.idnes.cz",
+          "url": "https://reality.idnes.cz/detail/prodej/pozemek/rakovnik/686ec070669e622c2a02cb12/",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.idnes.cz",
+          "url": "https://reality.idnes.cz/detail/prodej/pozemek/sulice/6a1ebca5eeb70e72540cdd69/",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.idnes.cz",
+          "url": "https://reality.idnes.cz/detail/prodej/pozemek/novy-poddvorov/6a1edcf75ae33a892604655e/",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.idnes.cz",
+          "url": "https://reality.idnes.cz/detail/prodej/pozemek/zeleznice/6a1ed9385aa5e0b4fa0449bc/",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.idnes.cz",
+          "url": "https://reality.idnes.cz/detail/prodej/pozemek/holice/6a1ed71b4fcb2937450fb79d/",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -4908,58 +5157,58 @@
         "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Librantice."
       ],
       "gaps": [
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/letohrad-tauslova/67b301edd89756257d0954a2/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/kladno/6a216d264176cd11e8066945/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/kladno-havirska/69e0fc47af35a977670dc471/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/nova-rise-namesti/6a316fed3f84c183b2093967/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/hlusovice-u-potoka/69b6ac4f45f655ba8d027e08/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/praha-5-pod-habrovou/69ee6b7e9e1dceb5a30d137e/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/praha-6-delostrelecka/69fd039425a93f29ad0db98a/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/praha-6-delostrelecka/69fd08324b6c7d8fba089774/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/brandys-nad-labem-stara-boleslav-marianske-namesti/6a189ac97a2444405205147a/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/praha-13-ke-konstruktive/6a216f67e32bbae94e050ccd/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/zitkova/6841dbfc90045a98370e5c13/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/praha-4-bocni-ii/6a293f6ab2ffa0b9f303ce82/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/praha-6-na-pucalce/6a144338ec093a61f003bed4/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/klabava/69c439ead6d0972a8c0746c9/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/dobriv/69cbc97ee54b72816c0ecc5b/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/lhota-pod-radcem/69bd7f5a601e11ee8c0ba900/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/praha-5-k-homolce/69b05969ffa1ff19930ab765/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/valec/69f226b48709cd8376093658/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/praha-6-trojanuv-mlyn/69fb7780f3ec2e5d4006842e/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/privlaka/6a324d4a0b9be659c80dc615/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/praha-6-bazantni/699cc30d75bede15920911e5/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/slany/6759933a8d0e414dfa0c826b/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/slany/68c4a9fca81201beda03f794/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/drahelcice-k-bitini/68c4aa0595c944109b09d3a7/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/jachymov-klinovec/6989a0c90a0946209b080888/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pchery-5-kvetna/69baa5c5615ff0ec9f0a3a54/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/vyprachtice/69ea042ee22a32db090cb1e7/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/strazna/69df8f99b2c31f9896074374/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/linhartice/69dcfd0c4e448c6e7905de16/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/vyprachtice/69ea24ff2bec4dcc7b0cc76a/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/horni-hermanice/69bd4195889cef042a06fa60/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/lanskroun/6931a5c86db40c289802ada5/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/benecko/677a8ba4163f56d67a069ad7/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/linhartice/6a324e6531a479b4f5048394/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/lysa-nad-labem/6a0ac51cf0ee782c4008e0c5/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/tlumacov-skaly/69a6ccfed186f3bc810df757/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/krenovice/6a324c0d23695af2ea0870e4/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/stozec/69df83db9da467854508179c/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/dysina/69e0aae61b9bfd60ee0e3bf8/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/sobesice/6a0099d232ae9bb4a40a2de3/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/korycany/698eda116ee47093ca06d28c/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/mukarov-kutnohorska/689de21af09429b14f0b74b9/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/malec/69aa19a4fb91423ce80f2647/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/klobouky-u-brna/6a2957f10ff05785d9082755/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/chotilsko/69e4f0a6d317fc8ce30197e4/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/uhonice-dusnicka/69edd156dd5b1e8a9f0894f7/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/chomutov-trebizskeho/6a3399dd3158e2286a0c43f6/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/truskovice/6a3399e00deb2452e808ec2f/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/kosmonosy-trebizskeho/69d42945e6993f924403173c/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/sobetuchy/69f883090c3d1faca704fe83/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/breznice-9-kvetna/6980a33c0c6d5a666a0353e2/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/sykorice/693b00a03cb21a2ae00ef8fe/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vysoke-chvojno/686d04c7044e305e7c0b6cfb/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/rapotin-jesenicka/69b8fcec92307ca174088988/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/zvole/6992f53b0001e6de1b0bb2d9/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/libechov/685e4b41c2bcede628001c08/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/cim/67d18a5a99cacda44a0698ca/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/podebrady-rosslerova/673200dc6d190fb4aa0ad9ea/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vejprty-udolni/68530eab9f9baa1ca30fd653/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/jablonne-v-podjestedi-karoliny-svetle/6a338f56be997f4de4055c3a/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/usti-nad-labem-zelena/6a3391b1768545bb1e001565/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/bordovice/65ce0d30fe811b7c670f6444/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/cernovice/6a339966233a30c3b10a53b0/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/breclav-lidicka/68f929463bbf1b8cf00ad625/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/veverska-bityska/66d42f724ba536cef5024972/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/babice/68ac5ff2db15877e99008534/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/plzen/69b00dd35b67ee230504227d/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/klasterec-nad-ohri/69ab5a01f4d8bef70101c65f/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/cebiv/6966129a12a41ef35608e90c/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/myto/696620a45267d9db070b23a5/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/teplice/69dcba359edb8daa5601d016/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/usti-nad-labem/69dcba24188841de2d069176/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/kresice/6a339b0f431540f7ba07eb88/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/lisnice/69ca46def3c0a0997d0cfb7b/",
         "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/zdar/69be7824aec2008bc4079b46/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/kojice/6a017516bb2cb6031a01dedc/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/velopoli/69aeca75073d10315b021711/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/bast-hlavni/69fb61e53871f0b026055aaf/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/senicka/697263118f55452d0404cd19/",
-        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/dubi-javorova/698e1cbcbec4ef79a80c4be4/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/zlin/69aeca8d850c31ee7c0411c2/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/sojovice/69eb093de46d49a4f4068b17/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/strmilov/693929009b1b9e6ef30614f4/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/jezov/659dc0b6c4fd4b3d2e01968a/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/prechovice/63e732877313ed29d7052f05/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/mladotice/654c85d0464614b64b05dd3b/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/ceska-lipa/60f3728635275557ff58d5ab/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/brloh/68484a7947905db1890dc529/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/povrly/65dee5ba0c8834c96503286b/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/dritec/6a3391be86206a7bf80ed0d3/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/morasice/6a3390fdc2cf334a170d8fd4/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/morasice/6a3392c65949f5c1f40b096c/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/morasice/6a3391c513d5870da70fe07c/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/korycany/6a339073e3cd0d77ae00f575/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/morasice/6a338ff97e3b5a88bc02484b/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/morasice/6a3393c20e6e412119035331/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/vejprty-jiraskova/6821ed2881e80581e0063d0a/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/klasterec-nad-ohri/69ab52525f165a5d8601cca5/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/rakovnik/686ec070669e622c2a02cb12/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/sulice/6a1ebca5eeb70e72540cdd69/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/novy-poddvorov/6a1edcf75ae33a892604655e/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/zeleznice/6a1ed9385aa5e0b4fa0449bc/",
+        "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/holice/6a1ed71b4fcb2937450fb79d/",
         "missing-page-url:house",
         "missing-page-url:land",
         "unsupported-property-type:https://reality.aktualne.cz/detail/librantice/stylovy-statek-s-velkym-pozemkem-cca-2182-m2-librantice-8622991.html"
@@ -4984,7 +5233,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-15T08:34:31+0000",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-15T08:34:31+0000",
@@ -5012,7 +5261,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:22:08+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:22:08+0200",
@@ -5041,7 +5290,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -5452,7 +5701,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-07T21:08:05+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-07T21:08:05+0200",
@@ -5545,6 +5794,14 @@
         },
         {
           "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/doudleby-nad-orlici/prodej-atypicke-nemovitosti-8625981.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
           "url": "https://reality.aktualne.cz/detail/doudleby-nad-orlici/prodej-chaty-35-m-pozemek-944-m-doudleby-nad-orlici-8134329.html",
           "stage": "detail_fetch",
           "attempt": 1,
@@ -5600,6 +5857,7 @@
         "missing-page-url:house",
         "missing-page-url:land",
         "land-below-threshold:https://reality.aktualne.cz/detail/doudleby-nad-orlici/pozemek-urceny-k-vystavbe-doudleby-nad-orlici-okres-rychnov-nad-kneznou-8577507.html",
+        "unsupported-property-type:https://reality.aktualne.cz/detail/doudleby-nad-orlici/prodej-atypicke-nemovitosti-8625981.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/doudleby-nad-orlici/prodej-chaty-35-m-pozemek-944-m-doudleby-nad-orlici-8134329.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/doudleby-nad-orlici/prodej-rodinneho-domu-3-1-se-zahradou-doudleby-nad-orlici-8591519.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/doudleby-nad-orlici/prodej-rodinneho-domu-doudleby-nad-orlici-8614797.html",
@@ -5627,7 +5885,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-07T21:08:05+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-07T21:08:05+0200",
@@ -5723,6 +5981,14 @@
         },
         {
           "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/javornice/prodej-domy-rodinny-150-m2-51711-javornice-89-rychnov-nad-kneznou-id-86099-8623691.html",
+          "stage": "discovery_detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
           "url": "https://reality.aktualne.cz/detail/javornice/prodej-domy-rodinny-150-m2-id-86099-8623691.html",
           "stage": "discovery_detail_fetch",
           "attempt": 1,
@@ -5811,7 +6077,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-16T08:47:03+0000",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-16T08:47:03+0000",
@@ -6272,14 +6538,6 @@
         },
         {
           "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/detail/vamberk/pronajem-bytu-3kk-64m-178-8540791.html",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.aktualne.cz",
           "url": "https://reality.aktualne.cz/detail/vamberk/pronajem-komercni-obchodni-prostory-200-m2-zamberecka-27-51754-vamberk-rychnov-nad-kneznou-id-8592655.html",
           "stage": "detail_fetch",
           "attempt": 1,
@@ -6322,7 +6580,6 @@
         "land-below-threshold:https://reality.aktualne.cz/detail/vamberk/prodej-stavebniho-pozemku-8554297.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/vamberk/prodej-zahrady-ve-vamberku-8575541.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/vamberk/pronajem-bytu-2-kk-45-m2-vamberk-zahrada-parkovani-klidna-lokalita-8599921.html",
-        "unsupported-property-type:https://reality.aktualne.cz/detail/vamberk/pronajem-bytu-3kk-64m-178-8540791.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/vamberk/pronajem-komercni-obchodni-prostory-200-m2-zamberecka-27-51754-vamberk-rychnov-nad-kneznou-id-8592655.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/vamberk/pronajem-ubytovaciho-zarizeni-70-m2-vamberk-8496787.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/vamberk/pronajem-ubytovaciho-zarizeni-80-m2-vamberk-8496781.html"
@@ -6349,7 +6606,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -6378,7 +6635,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -6615,7 +6872,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -7000,7 +7257,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -7202,6 +7459,14 @@
         },
         {
           "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/hronov/prodej-dum-rodinny-150-kralovehradecky-kraj-nachod-hronov-velky-drevic-77-54934-8625977.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
           "url": "https://reality.aktualne.cz/detail/hronov/prodej-louky-8492-m-hronov-8165449.html",
           "stage": "detail_fetch",
           "attempt": 1,
@@ -7317,6 +7582,7 @@
         "unsupported-property-type:https://reality.aktualne.cz/detail/hronov/prodej-bytu-3-1-v-hronove-ul-jiraskova-8568827.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/hronov/prodej-byty-3-kk-70-m2-husova-1034-54931-hronov-nachod-id-81863-8535011.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/hronov/prodej-chaty-zahrady-8554791.html",
+        "land-below-threshold:https://reality.aktualne.cz/detail/hronov/prodej-dum-rodinny-150-kralovehradecky-kraj-nachod-hronov-velky-drevic-77-54934-8625977.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/hronov/prodej-louky-8492-m-hronov-8165449.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/hronov/prodej-pole-12054-m-hronov-rokytnik-8194835.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/hronov/prodej-pole-12054-m-hronov-rokytnik-8609293.html",
@@ -7351,7 +7617,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -7381,7 +7647,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -7522,7 +7788,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -7591,6 +7857,14 @@
         {
           "portal": "realitymix.cz",
           "url": "https://realitymix.cz/detail/hradec-kralove/prodej-domy-rodinny-210-m2-horni-253-30-50002-hradec-kralove-hradec-kralove-id-85276-8591989.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "realitymix.cz",
+          "url": "https://realitymix.cz/detail/hradec-kralove/sportovni-areal-tj-lokomotiva-hradec-kralove-v-prodeji-investicni-prilezitost-sportovni-areal-11-8617729.html",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -7687,6 +7961,14 @@
         {
           "portal": "realitymix.cz",
           "url": "https://realitymix.cz/detail/hradec-kralove/prodej-domu-4-1-se-zahradou-trebes-8593221.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "realitymix.cz",
+          "url": "https://realitymix.cz/detail/hradec-kralove/prodej-domu-u-parku-hajecek-8626137.html",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -7966,14 +8248,6 @@
         },
         {
           "portal": "realitymix.cz",
-          "url": "https://realitymix.cz/detail/hradec-kralove/sportovni-areal-tj-lokomotiva-hradec-kralove-v-prodeji-investicni-prilezitost-sportovni-areal-11-8617729.html",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "realitymix.cz",
           "url": "https://realitymix.cz/detail/hradec-kralove/stavebni-pozemek-pro-bydleni-na-dosah-mesta-i-prirody-8613363.html",
           "stage": "detail_fetch",
           "attempt": 1,
@@ -7990,6 +8264,14 @@
         },
         {
           "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/hradec-kralove/novostavba-bytu-4-kk-obytna-plocha-96-m2-terasy-hradec-kralove-8625983.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
           "url": "https://reality.aktualne.cz/detail/hradec-kralove/podnajem-byty-pokoj-50-m2-habrmanova-295-16-50002-hradec-kralove-hradec-kralove-id-77482-8410207.html",
           "stage": "detail_fetch",
           "attempt": 1,
@@ -7998,7 +8280,7 @@
         },
         {
           "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/detail/hradec-kralove/podnajem-komercni-vyroba-1059-m2-vyrobni-952-slezske-predmesti-50003-hradec-kralove-hradec-kra-8259375.html",
+          "url": "https://reality.aktualne.cz/detail/hradec-kralove/pozemek-33-989m2-hradec-kralove-malsova-lhota-7706119.html",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -8054,6 +8336,30 @@
         },
         {
           "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/hradec-kralove/prodej-domu-u-parku-hajecek-8626137.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/hradec-kralove/prodej-garazoveho-stani-15-m-ul-pod-svahem-765-8549155.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/hradec-kralove/prodej-komercniho-pozemku-6364-m-hradec-kralove-8626399.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
           "url": "https://reality.aktualne.cz/detail/hradec-kralove/prodej-rodinneho-domu-v-zadane-lokalite-novy-hradec-kralove-8595225.html",
           "stage": "detail_fetch",
           "attempt": 1,
@@ -8062,7 +8368,23 @@
         },
         {
           "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/detail/hradec-kralove/pronajem-atraktivnach-obchodnich-prostor-v-centru-mesta-8625561.html",
+          "url": "https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-1-1-32-m2-ve-vile-v-hradci-kralove-zarizeny-po-kompletni-rekonstrukci-8626273.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-2-1-77-m2-centrum-hradec-kralove-8626277.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-2-1-s-balkonem-55-m-hradec-kralove-ul-na-strezine-8626393.html",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -8078,23 +8400,7 @@
         },
         {
           "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-3-1-hradec-kralove-malsovice-8624917.html",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.aktualne.cz",
           "url": "https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-3-1-severni-slezske-predmesti-15000-kc-mes-64-m2-8614341.html",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-3-kk-76-m-v-centru-hradce-kralove-prumyslova-ulice-8551123.html",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -8115,38 +8421,6 @@
           "attempt": 1,
           "status": "ok",
           "http_status": 200
-        },
-        {
-          "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/detail/hradec-kralove/pronajem-skladovaci-a-vyrobni-prostory-hradec-kralove-8616727.html",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/detail/hradec-kralove/pronajem-utulneho-bytu-2-1-54-m-hradec-kralove-ul-milady-horakove-8624967.html",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/detail/hradec-kralove/prostorny-byt-2-1-se-zahradkou-8625357.html",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/detail/hradec-kralove/sportovni-areal-tj-lokomotiva-hradec-kralove-v-prodeji-investicni-prilezitost-sportovni-areal-11-8624863.html",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
         }
       ],
       "assumptions": [
@@ -8157,6 +8431,7 @@
         "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/atraktivni-rodinny-dum-v-prijemne-lokalite-8557669.html",
         "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-domu-212-m-pozemek-911-m-8560455.html",
         "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-domu-4-1-se-zahradou-trebes-8593221.html",
+        "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-domu-u-parku-hajecek-8626137.html",
         "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-krasneho-a-velkeho-domu-4-1-se-zahradou-a-garazi-v-hradci-kralove-8305263.html",
         "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-novostavby-5-kk-se-zahradou-hradec-kralove-8591783.html",
         "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-novostavby-rd-malsovice-hradec-kralove-8532263.html",
@@ -8186,26 +8461,26 @@
         "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-pozemek-694-m2-divecka-hradec-kralove-8537551.html",
         "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/prodej-pozemku-k-bydleni-520-m-hradec-kralove-8542573.html",
         "land-below-threshold:https://realitymix.cz/detail/hradec-kralove/stavebni-pozemek-pro-bydleni-na-dosah-mesta-i-prirody-8613363.html",
+        "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/novostavba-bytu-4-kk-obytna-plocha-96-m2-terasy-hradec-kralove-8625983.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/podnajem-byty-pokoj-50-m2-habrmanova-295-16-50002-hradec-kralove-hradec-kralove-id-77482-8410207.html",
-        "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/podnajem-komercni-vyroba-1059-m2-vyrobni-952-slezske-predmesti-50003-hradec-kralove-hradec-kra-8259375.html",
+        "non-buildable-land:https://reality.aktualne.cz/detail/hradec-kralove/pozemek-33-989m2-hradec-kralove-malsova-lhota-7706119.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-byt-3-1-74-8624545.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-bytu-1-1-59m2-v-centru-hradce-kralove-strelecka-ulice-8593715.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-bytu-3-1-76-m-8625813.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-bytu-3-1-hradec-kralove-8528913.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-bytu-3-kk-68-m2-hradec-kralove-8609677.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-chaty-osada-cerveny-dvur-hradec-kralove-8625811.html",
+        "land-below-threshold:https://reality.aktualne.cz/detail/hradec-kralove/prodej-domu-u-parku-hajecek-8626137.html",
+        "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-garazoveho-stani-15-m-ul-pod-svahem-765-8549155.html",
+        "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-komercniho-pozemku-6364-m-hradec-kralove-8626399.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/hradec-kralove/prodej-rodinneho-domu-v-zadane-lokalite-novy-hradec-kralove-8595225.html",
-        "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-atraktivnach-obchodnich-prostor-v-centru-mesta-8625561.html",
+        "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-1-1-32-m2-ve-vile-v-hradci-kralove-zarizeny-po-kompletni-rekonstrukci-8626273.html",
+        "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-2-1-77-m2-centrum-hradec-kralove-8626277.html",
+        "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-2-1-s-balkonem-55-m-hradec-kralove-ul-na-strezine-8626393.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-2-kk-strelecka-hradec-kralove-16-000-kc-mes-58m2-8478521.html",
-        "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-3-1-hradec-kralove-malsovice-8624917.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-3-1-severni-slezske-predmesti-15000-kc-mes-64-m2-8614341.html",
-        "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-3-kk-76-m-v-centru-hradce-kralove-prumyslova-ulice-8551123.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-rekonstruovaneho-bytu-1-kk-25-m2-hradec-kralove-kluky-8625057.html",
-        "land-below-threshold:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-rodinneho-domu-v-hradci-kralove-ul-sadovska-8519699.html",
-        "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-skladovaci-a-vyrobni-prostory-hradec-kralove-8616727.html",
-        "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-utulneho-bytu-2-1-54-m-hradec-kralove-ul-milady-horakove-8624967.html",
-        "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prostorny-byt-2-1-se-zahradkou-8625357.html",
-        "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/sportovni-areal-tj-lokomotiva-hradec-kralove-v-prodeji-investicni-prilezitost-sportovni-areal-11-8624863.html"
+        "land-below-threshold:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-rodinneho-domu-v-hradci-kralove-ul-sadovska-8519699.html"
       ],
       "ads": [
         {
@@ -8227,7 +8502,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -8256,7 +8531,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-17T08:19:51+0000",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-17T08:19:51+0000",
@@ -8284,7 +8559,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -8314,7 +8589,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -8342,7 +8617,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -8370,7 +8645,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -8398,7 +8673,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-14T07:43:57+0000",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-14T07:43:57+0000",
@@ -8426,7 +8701,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -8455,7 +8730,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -8483,7 +8758,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -8694,7 +8969,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -8724,7 +8999,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -9017,7 +9292,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -9207,7 +9482,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -9376,6 +9651,14 @@
         },
         {
           "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/predmerice-nad-labem/prodej-komercni-nemovitost-objekt-obcanske-vybavenosti-1-100-m2-predmerice-nad-labem-8309013.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
           "url": "https://reality.aktualne.cz/detail/predmerice-nad-labem/prodej-pozemku-k-bydleni-943-m-predmerice-nad-labem-7740963.html",
           "stage": "detail_fetch",
           "attempt": 1,
@@ -9422,6 +9705,7 @@
       "gaps": [
         "missing-page-url:house",
         "missing-page-url:land",
+        "unsupported-property-type:https://reality.aktualne.cz/detail/predmerice-nad-labem/prodej-komercni-nemovitost-objekt-obcanske-vybavenosti-1-100-m2-predmerice-nad-labem-8309013.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/predmerice-nad-labem/prodej-pozemku-k-bydleni-943-m-predmerice-nad-labem-7740963.html",
         "non-buildable-land:https://reality.aktualne.cz/detail/predmerice-nad-labem/prodej-pozemky-bydleni-1017-m2-pod-nadrazim-505-50302-predmerice-nad-labem-hradec-kralove-id-8-8506583.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/predmerice-nad-labem/prodej-rd-predmerice-nad-labem-8532051.html",
@@ -9998,7 +10282,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -10028,7 +10312,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -10145,6 +10429,14 @@
         },
         {
           "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-bytu-3-1-ve-dvore-kralove-nad-labem-8521123.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
           "url": "https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-byty-2-kk-59-m2-stefanikova-2958-54401-dvur-kralove-nad-labem-trutnov-id-85576-8619353.html",
           "stage": "detail_fetch",
           "attempt": 1,
@@ -10186,14 +10478,6 @@
         {
           "portal": "reality.aktualne.cz",
           "url": "https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-prostorneho-bytu-1-1-s-pudni-koji-a-sklepem-8602673.html",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-rodinna-usedlost-dvur-kralove-nad-labem-8566175.html",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -10283,12 +10567,12 @@
         "unsupported-property-type:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/obchodni-prostory-dvur-kralove-nad-labem-7720695.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-bytu-3-1-71-m2-dvur-kralove-nad-labem-8598507.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-bytu-3-1-dvur-kralove-nad-labem-8584807.html",
+        "unsupported-property-type:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-bytu-3-1-ve-dvore-kralove-nad-labem-8521123.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-byty-2-kk-59-m2-stefanikova-2958-54401-dvur-kralove-nad-labem-trutnov-id-85576-8619353.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-domu-na-klic-golden-sky-8509971.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-komercniho-objektu-dvur-kralove-nad-labem-8601277.html",
         "non-buildable-land:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-pozemky-bydleni-1821-m2-zirec-118-54404-dvur-kralove-nad-labem-trutnov-id-84061-8596875.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-prostorneho-bytu-1-1-s-pudni-koji-a-sklepem-8602673.html",
-        "unsupported-property-type:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-rodinna-usedlost-dvur-kralove-nad-labem-8566175.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-rodinneho-domu-113-m-dvur-kralove-nad-labem-8584203.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-rodinneho-domu-200-m-dvur-kralove-nad-labem-8601177.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-stavebniho-pozemku-406-m2-legionarska-dvur-kralove-nad-labem-8614541.html",
@@ -10320,7 +10604,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -10421,23 +10705,7 @@
         },
         {
           "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/detail/holice/byvaly-zemedelsky-areal-o-vymere-11-704-m2-v-holicich-8589559.html",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.aktualne.cz",
           "url": "https://reality.aktualne.cz/detail/holice/louka-prodej-rovensko-holice-pardubice-8612109.html",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/detail/holice/pozemky-o-vymere-11-704-m2-v-holicich-byvaly-zemedelsky-areal-8589557.html",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -10485,9 +10753,7 @@
         "missing-page-url:land",
         "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3606-pardubice/pardubicky/prodej-domy_vily.html",
         "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3606-pardubice/pardubicky/prodej-pozemky.html",
-        "unsupported-property-type:https://reality.aktualne.cz/detail/holice/byvaly-zemedelsky-areal-o-vymere-11-704-m2-v-holicich-8589559.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/holice/louka-prodej-rovensko-holice-pardubice-8612109.html",
-        "unsupported-property-type:https://reality.aktualne.cz/detail/holice/pozemky-o-vymere-11-704-m2-v-holicich-byvaly-zemedelsky-areal-8589557.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/holice/prodej-rodinneho-domu-autoservisu-a-lakovny-holice-8619705.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/holice/pronajem-bytu-2-1-62-m-holice-ul-ottmarova-8610675.html"
       ],
@@ -10512,7 +10778,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -10542,7 +10808,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -10727,7 +10993,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -11078,7 +11344,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-16T08:47:03+0000",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-16T08:47:03+0000",
@@ -11107,7 +11373,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -11137,7 +11403,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -11167,7 +11433,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -11197,7 +11463,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -11421,7 +11687,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -11450,7 +11716,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -11681,7 +11947,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -11710,7 +11976,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -11897,6 +12163,22 @@
         },
         {
           "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/stezery/pronajem-komercni-sklad-300-m2-stezery-id-86617-8626201.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/stezery/pronajem-komercni-sklad-350-m2-stezery-id-86619-8626199.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
           "url": "https://reality.aktualne.cz/detail/stezery/pronajem-komercni-sklad-56-m2-stezery-id-84496-8608335.html",
           "stage": "detail_fetch",
           "attempt": 1,
@@ -11925,6 +12207,8 @@
         "land-below-threshold:https://reality.aktualne.cz/detail/stezery/prodej-domu-577-m2-lipova-stezery-8566421.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/stezery/prodej-rodinneho-domu-158-m2-stezery-8362883.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/stezery/pronajem-komercni-sklad-222-m2-stezery-id-86211-8607413.html",
+        "unsupported-property-type:https://reality.aktualne.cz/detail/stezery/pronajem-komercni-sklad-300-m2-stezery-id-86617-8626201.html",
+        "unsupported-property-type:https://reality.aktualne.cz/detail/stezery/pronajem-komercni-sklad-350-m2-stezery-id-86619-8626199.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/stezery/pronajem-komercni-sklad-56-m2-stezery-id-84496-8608335.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/stezery/pronajem-komercni-sklad-75-m2-stezery-id-85770-8605621.html"
       ],
@@ -12173,7 +12457,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -12350,7 +12634,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -12544,7 +12828,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -12798,7 +13082,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -13186,7 +13470,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -13662,7 +13946,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -13692,7 +13976,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -13722,7 +14006,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -13751,7 +14035,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -14241,7 +14525,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -14595,7 +14879,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -14758,7 +15042,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -14788,7 +15072,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -14818,7 +15102,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -15299,7 +15583,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -15328,7 +15612,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -15357,7 +15641,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -15386,7 +15670,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -15416,7 +15700,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -15682,7 +15966,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -15711,7 +15995,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -15741,7 +16025,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -15771,7 +16055,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -15801,7 +16085,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -15831,7 +16115,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -16139,7 +16423,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -16173,7 +16457,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -16475,7 +16759,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -16504,7 +16788,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -16533,7 +16817,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -16703,7 +16987,7 @@
         },
         {
           "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/detail/stare-hradiste/prodej-rodinny-dum-121-8531557.html",
+          "url": "https://reality.aktualne.cz/detail/stare-hradiste/prodej-rodinny-dum-ve-starem-hradisti-8626815.html",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -16735,7 +17019,7 @@
         "missing-page-url:land",
         "unsupported-property-type:https://reality.aktualne.cz/detail/stare-hradiste/prodej-pole-1891-m-stare-hradiste-8540285.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/stare-hradiste/prodej-pole-8036-m-stare-hradiste-8468459.html",
-        "outside-municipality:https://reality.aktualne.cz/detail/stare-hradiste/prodej-rodinny-dum-121-8531557.html",
+        "land-below-threshold:https://reality.aktualne.cz/detail/stare-hradiste/prodej-rodinny-dum-ve-starem-hradisti-8626815.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/stare-hradiste/pronajem-zdeneho-bytu-1-kk-8599231.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/stare-hradiste/pronajem-zdeneho-bytu-2-kk-8610237.html"
       ],
@@ -17024,6 +17308,14 @@
         },
         {
           "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/stare-zdanice/prodej-rd-s-vedlejsim-objektem-a-stodolou-stare-zdanice-8344645.html",
+          "stage": "discovery_detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
           "url": "https://reality.aktualne.cz/detail/stare-zdanice/prodej-rd-stare-zdanice-8344645.html",
           "stage": "discovery_detail_fetch",
           "attempt": 1,
@@ -17095,7 +17387,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -17315,7 +17607,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -17345,7 +17637,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -17658,14 +17950,6 @@
         },
         {
           "portal": "realitymix.cz",
-          "url": "https://realitymix.cz/detail/pardubice/prodej-rodinneho-domu-240-m-pardubice-bile-predmesti-8517725.html",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "realitymix.cz",
           "url": "https://realitymix.cz/detail/pardubice/prodej-rodinneho-domu-4-1-v-pardubicich-ul-radiomechaniku-8585203.html",
           "stage": "detail_fetch",
           "attempt": 1,
@@ -17874,14 +18158,6 @@
         },
         {
           "portal": "realitymix.cz",
-          "url": "https://realitymix.cz/detail/pardubice/prodej-stavebniho-pozemku-pro-rodinny-dum-pardubice-rosice-8623395.html",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "realitymix.cz",
           "url": "https://realitymix.cz/detail/pardubice/prodej-stavebniho-pozemku-v-pardubicich-ul-marie-pujmanove-8591273.html",
           "stage": "detail_fetch",
           "attempt": 1,
@@ -17914,14 +18190,6 @@
         },
         {
           "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/detail/pardubice/krasny-rodinny-dum-na-skvele-adrese-8618811.html",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.aktualne.cz",
           "url": "https://reality.aktualne.cz/detail/pardubice/pardubice-ul-druzby-pronajem-bytu-1-1-c-p-cca-31-m-8617459.html",
           "stage": "detail_fetch",
           "attempt": 1,
@@ -17930,7 +18198,7 @@
         },
         {
           "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/detail/pardubice/prodej-bytu-1-cihelna-8624169.html",
+          "url": "https://reality.aktualne.cz/detail/pardubice/prodej-bytu-3-1-70-m2-belehradska-pardubice-8625639.html",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -17938,7 +18206,7 @@
         },
         {
           "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/detail/pardubice/prodej-bytu-3-1-70-m2-belehradska-pardubice-8625639.html",
+          "url": "https://reality.aktualne.cz/detail/pardubice/prodej-bytu-3-1-74-m-8626129.html",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -18050,7 +18318,7 @@
         },
         {
           "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/detail/pardubice/pronajem-bytu-1-1-lodzie-komora-sklep-8620563.html",
+          "url": "https://reality.aktualne.cz/detail/pardubice/pronajem-bytu-2-kk-pardubice-ul-labsky-palouk-8505149.html",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -18058,7 +18326,7 @@
         },
         {
           "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/detail/pardubice/pronajem-bytu-2-kk-pardubice-ul-labsky-palouk-8505149.html",
+          "url": "https://reality.aktualne.cz/detail/pardubice/pronajem-bytu-4-1-prodlouzena-pardubice-19000-kc-mes-73-m2-8626361.html",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -18074,7 +18342,7 @@
         },
         {
           "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/detail/pardubice/pronajem-parkovaciho-stani-pardubice-centrum-8624701.html",
+          "url": "https://reality.aktualne.cz/detail/pardubice/pronajem-kancelare-103m2-ohrazenice-8626519.html",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -18082,7 +18350,7 @@
         },
         {
           "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/detail/pardubice/pronajem-restaurace-8624329.html",
+          "url": "https://reality.aktualne.cz/detail/pardubice/pronajem-parkovaciho-stani-pardubice-centrum-8624701.html",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -18108,7 +18376,6 @@
         "land-below-threshold:https://realitymix.cz/detail/pardubice/prodej-rodinneho-domu-129-m2-kokesova-pardubice-8570885.html",
         "land-below-threshold:https://realitymix.cz/detail/pardubice/prodej-rodinneho-domu-142-m-pozemek-424-m-pardubice-drozdice-8321857.html",
         "land-below-threshold:https://realitymix.cz/detail/pardubice/prodej-rodinneho-domu-200m2-s-pozemkem-o-velikosti-736m2-v-pardubicich-pardubickach-ul-kyjevska-8426233.html",
-        "land-below-threshold:https://realitymix.cz/detail/pardubice/prodej-rodinneho-domu-240-m-pardubice-bile-predmesti-8517725.html",
         "land-below-threshold:https://realitymix.cz/detail/pardubice/prodej-rodinneho-domu-4-1-v-pardubicich-ul-radiomechaniku-8585203.html",
         "land-below-threshold:https://realitymix.cz/detail/pardubice/prodej-rodinneho-domu-5-kk-1062-m-pardubice-8573401.html",
         "land-below-threshold:https://realitymix.cz/detail/pardubice/prodej-rodinneho-domu-5-kk-o-velikosti-140-m2-s-celkovym-pozemkem-309-m2-v-ulici-erno-kostala-v-pard-8543059.html",
@@ -18134,12 +18401,10 @@
         "land-below-threshold:https://realitymix.cz/detail/pardubice/prodej-stavebniho-pozemku-404-m2-v-drozdicich-mestsky-obvod-pardubice-iv-7996334.html",
         "land-below-threshold:https://realitymix.cz/detail/pardubice/prodej-stavebniho-pozemku-404-m2-v-drozdicich-mestsky-obvod-pardubice-iv-8467215.html",
         "land-below-threshold:https://realitymix.cz/detail/pardubice/prodej-stavebniho-pozemku-924-m-svitkov-8446715.html",
-        "land-below-threshold:https://realitymix.cz/detail/pardubice/prodej-stavebniho-pozemku-pro-rodinny-dum-pardubice-rosice-8623395.html",
         "land-below-threshold:https://realitymix.cz/detail/pardubice/prodej-stavebniho-pozemku-v-pardubicich-ul-marie-pujmanove-8591273.html",
-        "land-below-threshold:https://reality.aktualne.cz/detail/pardubice/krasny-rodinny-dum-na-skvele-adrese-8618811.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pardubice-ul-druzby-pronajem-bytu-1-1-c-p-cca-31-m-8617459.html",
-        "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/prodej-bytu-1-cihelna-8624169.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/prodej-bytu-3-1-70-m2-belehradska-pardubice-8625639.html",
+        "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/prodej-bytu-3-1-74-m-8626129.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/prodej-byty-1-kk-27-m-terasa-pardubice-ohrazenice-8625581.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/prodej-byty-2-kk-54-m-s-parkovacim-stanim-pardubice-ohrazenice-8625567.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/prodej-byty-3-1-74-m2-drazkovice-33-53333-pardubice-pardubice-id-85307-8610277.html",
@@ -18152,11 +18417,11 @@
         "land-below-threshold:https://reality.aktualne.cz/detail/pardubice/prodej-stavebniho-pozemku-404-m2-v-drozdicich-mestsky-obvod-pardubice-iv-7996334.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pronajem-byt-1-1-28-8514509.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pronajem-bytu-1-1-49-m-pardubice-ul-erno-kostala-8560543.html",
-        "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pronajem-bytu-1-1-lodzie-komora-sklep-8620563.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pronajem-bytu-2-kk-pardubice-ul-labsky-palouk-8505149.html",
+        "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pronajem-bytu-4-1-prodlouzena-pardubice-19000-kc-mes-73-m2-8626361.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pronajem-byty-3-1-74m-pardubice-studanka-8625587.html",
-        "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pronajem-parkovaciho-stani-pardubice-centrum-8624701.html",
-        "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pronajem-restaurace-8624329.html"
+        "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pronajem-kancelare-103m2-ohrazenice-8626519.html",
+        "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pronajem-parkovaciho-stani-pardubice-centrum-8624701.html"
       ],
       "ads": [
         {
@@ -18179,7 +18444,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-11T19:23:58+0000",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-11T19:23:58+0000",
@@ -18207,7 +18472,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -18235,7 +18500,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -18263,7 +18528,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -18291,7 +18556,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -18320,7 +18585,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -18348,7 +18613,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -18377,7 +18642,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -18406,7 +18671,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -18435,7 +18700,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -18681,7 +18946,7 @@
         },
         {
           "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-byt-3-1-v-usti-nad-orlici-8510407.html",
+          "url": "https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-byt-3-1-na-dukle-v-usti-nad-orlici-8626773.html",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -18714,14 +18979,6 @@
         {
           "portal": "reality.aktualne.cz",
           "url": "https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-druzstevni-byt-1-1-v-usti-nad-orlici-8600561.html",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-druzstevni-byt-4-1-v-usti-nad-orlici-8579321.html",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -18822,6 +19079,14 @@
           "attempt": 1,
           "status": "ok",
           "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-prostorneho-bytu-3-1-s-balkonem-usti-nad-orlici-trebovska-68-m2-8626041.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
         }
       ],
       "assumptions": [
@@ -18849,12 +19114,11 @@
         "land-below-threshold:https://realitymix.cz/detail/usti-nad-orlici/prodej-stavebni-pozemek-985-m-v-hylvatech-v-usti-nad-orlici-8518899.html",
         "inactive-or-unpriced:https://reality.aktualne.cz/detail/usti-nad-orlici/byt-4-1-usti-nad-orlici-heranova-5723333.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/garaz-v-usti-nad-orlici-s-elektrinou-5805796.html",
-        "outside-municipality:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-byt-3-1-v-usti-nad-orlici-8510407.html",
+        "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-byt-3-1-na-dukle-v-usti-nad-orlici-8626773.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-bytu-2-1-po-rekonstrukci-dukelska-322-usti-nad-orlici-8584525.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-bytu-s-balkonem-a-garazi-primo-v-dome-2-kk-65-m-zadane-sidliste-stepnice-usti-nad-orlici-8600663.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-chaty-chatova-osada-na-americe-usti-nad-orlici-8611707.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-druzstevni-byt-1-1-v-usti-nad-orlici-8600561.html",
-        "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-druzstevni-byt-4-1-v-usti-nad-orlici-8579321.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-druzstevniho-bytu-3-1-67-m-zadane-sidliste-stepnice-v-usti-nad-orlici-8600699.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-garaze-19-m-8584829.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-garaze-v-centru-usti-nad-orlici-5788436.html",
@@ -18865,7 +19129,8 @@
         "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-bytu-2-1-59-m-usti-nad-orlici-ul-trebovska-8620389.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-bytu-3-kk-62-m-ul-v-lukach-usti-nad-orlici-8604947.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-moderniho-bytu-2-1-v-usti-nad-orlici-s-garazi-8569343.html",
-        "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-prostor-207-m-usti-nad-orlici-ul-mirove-nam-8591515.html"
+        "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-prostor-207-m-usti-nad-orlici-ul-mirove-nam-8591515.html",
+        "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-prostorneho-bytu-3-1-s-balkonem-usti-nad-orlici-trebovska-68-m2-8626041.html"
       ],
       "ads": [
         {
@@ -18888,7 +19153,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -18917,7 +19182,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -19137,7 +19402,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -19414,12 +19679,12 @@
       "hidden_ads": []
     },
     "Trutnov": {
-      "count": 19,
+      "count": 20,
       "coverage": {
         "workers_launched": 2,
         "workers_with_results": 2,
-        "candidates_gathered": 20,
-        "rows_retained": 19,
+        "candidates_gathered": 21,
+        "rows_retained": 20,
         "zero_result_portals": [],
         "blocked_portals": []
       },
@@ -19453,6 +19718,14 @@
         {
           "portal": "realitymix.cz",
           "url": "https://realitymix.cz/detail/trutnov/prodej-domy-rodinny-216-m2-stary-rokytnik-228-54101-trutnov-trutnov-id-83473-8534935.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "realitymix.cz",
+          "url": "https://realitymix.cz/detail/trutnov/prodej-rodinneho-domu-131-m2-petrikovicka-trutnov-8574401.html",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -19589,14 +19862,6 @@
         {
           "portal": "realitymix.cz",
           "url": "https://realitymix.cz/detail/trutnov/prodej-rd-trutnov-kryblice-8345371.html",
-          "stage": "detail_fetch",
-          "attempt": 1,
-          "status": "ok",
-          "http_status": 200
-        },
-        {
-          "portal": "realitymix.cz",
-          "url": "https://realitymix.cz/detail/trutnov/prodej-rodinneho-domu-131-m2-petrikovicka-trutnov-8574401.html",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -19884,7 +20149,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -19913,12 +20178,40 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
               "price": "30 007 110 Kč",
               "price_czk": 30007110
+            }
+          ]
+        },
+        {
+          "portal": [
+            "realitymix.cz"
+          ],
+          "title": "Prodej, pozemky/bydlení, 11433 m2, Horní Staré Město, 54102 Trutnov, Trutnov [ID 84693]",
+          "location": "K Pěti bukům, Horní Staré Město, Trutnov",
+          "property_type": "land",
+          "price": "18 000 000 Kč",
+          "price_czk": 18000000,
+          "house_area_m2": null,
+          "land_area_m2": 11433,
+          "urls": [
+            "https://realitymix.cz/detail/trutnov/prodej-pozemky-bydleni-11433-m2-horni-stare-mesto-54102-trutnov-trutnov-id-84693-8579555.html"
+          ],
+          "notes": [
+            "detail-url-verified:realitymix.cz"
+          ],
+          "status": "active",
+          "first_seen_at": "2026-06-18T08:00:54+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
+          "price_history": [
+            {
+              "seen_at": "2026-06-18T08:00:54+0000",
+              "price": "18 000 000 Kč",
+              "price_czk": 18000000
             }
           ]
         },
@@ -19942,7 +20235,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -19970,7 +20263,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-17T08:19:51+0000",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-17T08:19:51+0000",
@@ -20000,7 +20293,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -20029,7 +20322,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -20058,7 +20351,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -20086,7 +20379,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -20114,7 +20407,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -20142,7 +20435,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -20176,7 +20469,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -20205,7 +20498,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -20238,7 +20531,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -20266,7 +20559,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -20294,7 +20587,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -20322,7 +20615,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -20351,7 +20644,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -20379,7 +20672,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -20408,7 +20701,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -20530,7 +20823,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -20648,6 +20941,14 @@
         },
         {
           "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/lazne-bohdanec/prodej-rodinneho-domu-154-m2-kosinova-lazne-bohdanec-8539381.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
           "url": "https://reality.aktualne.cz/detail/lazne-bohdanec/prodej-rodinneho-domu-167-m-lazne-bohdanec-ul-dr-tyrse-8580707.html",
           "stage": "detail_fetch",
           "attempt": 1,
@@ -20676,6 +20977,7 @@
         "unsupported-property-type:https://reality.aktualne.cz/detail/lazne-bohdanec/prodej-obchod-a-sluzby-202-m-lazne-bohdanec-ul-skroupova-8621257.html",
         "non-buildable-land:https://reality.aktualne.cz/detail/lazne-bohdanec/prodej-pozemek-pole-pardubice-pardubicky-kraj-lazne-bohdanec-533-41-8618883.html",
         "outside-municipality:https://reality.aktualne.cz/detail/lazne-bohdanec/prodej-pozemku-v-obci-lazne-bohdanec-u-cerpaci-stanice-o-celkove-plose-3376-m2-8449789.html",
+        "land-below-threshold:https://reality.aktualne.cz/detail/lazne-bohdanec/prodej-rodinneho-domu-154-m2-kosinova-lazne-bohdanec-8539381.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/lazne-bohdanec/prodej-rodinneho-domu-167-m-lazne-bohdanec-ul-dr-tyrse-8580707.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/lazne-bohdanec/pronajem-bytu-2-kk-za-skolkou-lazne-bohdanec-15-000-kc-mes-43-m2-8419909.html"
       ],
@@ -20808,7 +21110,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -20837,7 +21139,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -21143,7 +21445,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -21355,7 +21657,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -21385,7 +21687,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -21415,7 +21717,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -21445,7 +21747,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -21475,7 +21777,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -21505,7 +21807,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -21570,6 +21872,14 @@
         {
           "portal": "reality.aktualne.cz",
           "url": "https://reality.aktualne.cz/detail/mikulovice/prodej-rodinneho-domu-5-kk-231-3-m2-mikulovice-8542295.html",
+          "stage": "discovery_detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/mikulovice/prodej-rodinneho-domu-s-rozsahlymi-stavebnimi-pozemky-v-obci-mikulovice-8625511.html",
           "stage": "discovery_detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -21650,6 +21960,14 @@
         {
           "portal": "reality.aktualne.cz",
           "url": "https://reality.aktualne.cz/detail/mikulovice/prodej-chalupy-s-dvema-apartmany-2-kk-mikulovice-8315529.html",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "reality.aktualne.cz",
+          "url": "https://reality.aktualne.cz/detail/mikulovice/prodej-domu-190-m-pozemek-2-800-m-8564883.html",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -21778,6 +22096,7 @@
         "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3606-pardubice/pardubicky/prodej-domy_vily.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/mikulovice/prodej-bytove-jednotky-2-kk-v-obci-mikulovice-okres-jesenik-8580259.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/mikulovice/prodej-chalupy-s-dvema-apartmany-2-kk-mikulovice-8315529.html",
+        "non-buildable-land:https://reality.aktualne.cz/detail/mikulovice/prodej-domu-190-m-pozemek-2-800-m-8564883.html",
         "outside-municipality:https://reality.aktualne.cz/detail/mikulovice/prodej-domu-4-kk-131-m2-ulice-dlouha-mikulovice-u-pardubic-8586211.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/mikulovice/prodej-louky-4228-m-mikulovice-8256699.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/mikulovice/prodej-pole-842-m-mikulovice-8291561.html",
@@ -21810,7 +22129,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -21839,7 +22158,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-17T08:19:51+0000",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-17T08:19:51+0000",
@@ -21869,7 +22188,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -21898,7 +22217,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -21927,7 +22246,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -22266,7 +22585,7 @@
         },
         {
           "portal": "reality.aktualne.cz",
-          "url": "https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/prodej-byty-4-kk-170-m2-zamostecka-26-50351-chlumec-nad-cidlinou-hradec-kralove-id-87260-8625773.html",
+          "url": "https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/prodej-byty-4-kk-130-m2-zamostecka-26-50351-chlumec-nad-cidlinou-hradec-kralove-id-87260-8625773.html",
           "stage": "detail_fetch",
           "attempt": 1,
           "status": "ok",
@@ -22405,7 +22724,7 @@
         "land-below-threshold:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/pozemek-612-m-pro-vystavbu-rodinneho-domu-projekt-skalka-8601605.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/pozemek-pro-vystavbu-rodinneho-domu-541-m-projekt-skalka-8601611.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/prodej-bytu-5-1-a-vetsi-139-m-chlumec-nad-cidlinou-8615541.html",
-        "unsupported-property-type:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/prodej-byty-4-kk-170-m2-zamostecka-26-50351-chlumec-nad-cidlinou-hradec-kralove-id-87260-8625773.html",
+        "unsupported-property-type:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/prodej-byty-4-kk-130-m2-zamostecka-26-50351-chlumec-nad-cidlinou-hradec-kralove-id-87260-8625773.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/prodej-rodinneho-domu-5-kk-150-m2-pozemek-422-m2-chlumec-nad-cidlinou-8576421.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/prodej-rodinneho-domu-s-komercnimi-prostory-palackeho-71-chlumec-nad-cidlinou-8616345.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/pronajem-bytu-2-1-60-m-v-chlumci-nad-cidlinou-8617961.html",
@@ -22442,7 +22761,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -22472,7 +22791,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -22620,7 +22939,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -22650,7 +22969,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -22767,7 +23086,8 @@
           "status": "inactive",
           "message": "inactive-or-unpriced:https://reality.aktualne.cz/detail/chrudim/novostavba-rd-4-kk-113-m2-pozemek-300-m2-chrudim-medlesice-8610027.html",
           "evidence": [
-            "inactive-or-unpriced:https://reality.aktualne.cz/detail/chrudim/novostavba-rd-4-kk-113-m2-pozemek-300-m2-chrudim-medlesice-8610027.html"
+            "inactive-or-unpriced:https://reality.aktualne.cz/detail/chrudim/novostavba-rd-4-kk-113-m2-pozemek-300-m2-chrudim-medlesice-8610027.html",
+            "inactive-or-unpriced:https://reality.aktualne.cz/detail/chrudim/pronajem-bytu-2-kk-52-8-m-chrudim-8616469.html"
           ]
         }
       },
@@ -23118,7 +23438,7 @@
         "land-below-threshold:https://reality.aktualne.cz/detail/chrudim/prodej-rodinny-dum-150-8619999.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/pronajem-bytu-1-kk-23-m2-stepankova-chrudim-8625643.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/pronajem-bytu-1-kk-34-m2-stepankova-chrudim-8625677.html",
-        "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/pronajem-bytu-2-kk-52-8-m-chrudim-8616469.html",
+        "inactive-or-unpriced:https://reality.aktualne.cz/detail/chrudim/pronajem-bytu-2-kk-52-8-m-chrudim-8616469.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/pronajem-bytu-2-kk-53-m-chrudim-iii-8621029.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/pronajem-bytu-2-kk-v-chrudimi-8582553.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/pronajem-bytu-2-kk-v-hlinikach-chrudim-13000-kc-mes-50-m2-8224137.html",
@@ -23148,7 +23468,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -23177,7 +23497,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -23193,8 +23513,8 @@
           "title": "Prodej stavebního pozemku 1.345 m², Chrudim",
           "location": "Chrudim",
           "property_type": "land",
-          "price": "3 990 000 Kč",
-          "price_czk": 3990000,
+          "price": "3 490 000 Kč",
+          "price_czk": 3490000,
           "house_area_m2": null,
           "land_area_m2": 1345,
           "urls": [
@@ -23206,12 +23526,17 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
               "price": "3 990 000 Kč",
               "price_czk": 3990000
+            },
+            {
+              "seen_at": "2026-06-18T08:00:54+0000",
+              "price": "3 490 000 Kč",
+              "price_czk": 3490000
             }
           ]
         },
@@ -23240,7 +23565,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-11T19:23:58+0000",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-11T19:23:58+0000",
@@ -23556,7 +23881,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -23585,7 +23910,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-11T19:23:58+0000",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-11T19:23:58+0000",
@@ -23615,7 +23940,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-17T08:19:51+0000",
+          "last_seen_at": "2026-06-18T08:00:54+0000",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",

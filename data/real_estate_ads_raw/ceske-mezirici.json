@@ -29,11 +29,12 @@
   ],
   "coverage": {
     "workers_launched": 2,
-    "workers_with_results": 1,
+    "workers_with_results": 0,
     "candidates_gathered": 4,
-    "rows_retained": 1,
+    "rows_retained": 0,
     "zero_result_portals": [
-      "realitymix.cz"
+      "realitymix.cz",
+      "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
@@ -43,8 +44,13 @@
       "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Reality Aktuálně row."
+      "status": "fallback_page",
+      "http_status": 404,
+      "stage": "discovery_detail_fetch",
+      "message": "HTTP 404",
+      "evidence": [
+        "discovery_detail_fetch:fallback_page:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinneho-domu-zemedelske-usedlosti-ceske-mezirici-8594143.html"
+      ]
     }
   },
   "fetch_attempts": [
@@ -77,8 +83,9 @@
       "url": "https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinneho-domu-zemedelske-usedlosti-ceske-mezirici-8594143.html",
       "stage": "discovery_detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "reality.aktualne.cz",
@@ -117,8 +124,17 @@
       "url": "https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinneho-domu-zemedelske-usedlosti-ceske-mezirici-8594143.html",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinneho-domu-zemedelske-usedlosti-ceske-mezirici-8594143.html",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.aktualne.cz",
@@ -143,27 +159,9 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-pozemky.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinneho-domu-6-kk-pozemek-892-m2-ceske-mezirici-8487969.html",
+    "detail-fallback-page:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinneho-domu-zemedelske-usedlosti-ceske-mezirici-8594143.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinny-dum-124-8554997.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-zahrady-1215-m-ceske-mezirici-8477899.html"
   ],
-  "listings": [
-    {
-      "portal": [
-        "reality.aktualne.cz"
-      ],
-      "title": "Prodej rodinného domu (zemědělské usedlosti) – České Meziříčí",
-      "location": "Záhumenská, České Meziříčí, Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "4 500 000 Kč",
-      "house_area_m2": "100",
-      "land_area_m2": "1311",
-      "urls": [
-        "https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinneho-domu-zemedelske-usedlosti-ceske-mezirici-8594143.html"
-      ],
-      "notes": [
-        "detail-url-verified:reality.aktualne.cz",
-        "aggregator-source:donetta-s.r.o.,-realitni-kancelar"
-      ]
-    }
-  ]
+  "listings": []
 }
