@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 2,
     "workers_with_results": 1,
-    "candidates_gathered": 23,
+    "candidates_gathered": 18,
     "rows_retained": 6,
     "zero_result_portals": [
       "realitymix.cz"
@@ -39,12 +39,8 @@
   },
   "portal_status": {
     "realitymix.cz": {
-      "status": "fallback_page",
-      "stage": "detail_parse",
-      "message": "Požadovaný inzerát již není v naší databázi",
-      "evidence": [
-        "detail_parse:fallback_page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-4-1-199-m2-dobrikovec-u-opocna-8463059.html"
-      ]
+      "status": "no_results",
+      "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
       "status": "ok",
@@ -52,102 +48,6 @@
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-4-1-199-m2-dobrikovec-u-opocna-8463059.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-4-1-199-m2-dobrikovec-u-opocna-8463059.html",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Požadovaný inzerát již není v naší databázi"
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-1-1-198-m2-dobrikovec-u-opocna-8463053.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-1-1-198-m2-dobrikovec-u-opocna-8463053.html",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Požadovaný inzerát již není v naší databázi"
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-2-1-198-m2-dobrikovec-u-opocna-8463055.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-2-1-198-m2-dobrikovec-u-opocna-8463055.html",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Požadovaný inzerát již není v naší databázi"
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-3-1-198-m2-dobrikovec-u-opocna-8463057.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-3-1-198-m2-dobrikovec-u-opocna-8463057.html",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Požadovaný inzerát již není v naší databázi"
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-5-1-198-m2-dobrikovec-u-opocna-8463061.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-5-1-198-m2-dobrikovec-u-opocna-8463061.html",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Požadovaný inzerát již není v naší databázi"
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-6-1-198-m2-dobrikovec-u-opocna-8463067.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-6-1-198-m2-dobrikovec-u-opocna-8463067.html",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Požadovaný inzerát již není v naší databázi"
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -174,6 +74,54 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/opocno/prodej-pozemek-bydleni-kralovehradecky-kraj-rychnov-nad-kneznou-opocno-dobrikovec-20-51773-8625989.html",
+      "stage": "discovery_detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/opocno/prodej-pozemek-bydleni-kralovehradecky-kraj-rychnov-nad-kneznou-opocno-dobrikovec-20-51773-8625991.html",
+      "stage": "discovery_detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/opocno/prodej-pozemek-bydleni-kralovehradecky-kraj-rychnov-nad-kneznou-opocno-dobrikovec-20-51773-8625995.html",
+      "stage": "discovery_detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/opocno/prodej-pozemek-bydleni-kralovehradecky-kraj-rychnov-nad-kneznou-opocno-dobrikovec-20-51773-8626003.html",
+      "stage": "discovery_detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/opocno/prodej-pozemek-bydleni-kralovehradecky-kraj-rychnov-nad-kneznou-opocno-dobrikovec-20-51773-8626009.html",
+      "stage": "discovery_detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/opocno/prodej-pozemek-bydleni-kralovehradecky-kraj-rychnov-nad-kneznou-opocno-dobrikovec-20-51773-8625999.html",
+      "stage": "discovery_detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",
       "stage": "search_fetch",
       "attempt": 1,
@@ -183,6 +131,14 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-pozemky.html",
       "stage": "search_fetch",
       "attempt": 1,
       "status": "ok",
@@ -331,15 +287,17 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/opocno/pronajem-zrekonstruovaneho-bytu-3-kk-s-lodzii-62-m2-opocno-ul-kratka-8627023.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
-    "removed-fallback-page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-4-1-199-m2-dobrikovec-u-opocna-8463059.html",
-    "removed-fallback-page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-1-1-198-m2-dobrikovec-u-opocna-8463053.html",
-    "removed-fallback-page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-2-1-198-m2-dobrikovec-u-opocna-8463055.html",
-    "removed-fallback-page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-3-1-198-m2-dobrikovec-u-opocna-8463057.html",
-    "removed-fallback-page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-5-1-198-m2-dobrikovec-u-opocna-8463061.html",
-    "removed-fallback-page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-6-1-198-m2-dobrikovec-u-opocna-8463067.html",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",
@@ -354,7 +312,8 @@
     "inactive-or-unpriced:https://reality.aktualne.cz/detail/opocno/prodej-stavebniho-pozemku-o-vymere-666-m2-opocno-u-loun-8513369.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/opocno/pronajem-bytu-1-1-32-m-opocno-ul-kratka-8612925.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/opocno/pronajem-bytu-2-kk-57-m-opocno-ul-kupkovo-nam-8598121.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/opocno/pronajem-bytu-3-kk-v-opocne-ul-kratka-8605181.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/opocno/pronajem-bytu-3-kk-v-opocne-ul-kratka-8605181.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/opocno/pronajem-zrekonstruovaneho-bytu-3-kk-s-lodzii-62-m2-opocno-ul-kratka-8627023.html"
   ],
   "listings": [
     {

@@ -29,12 +29,11 @@
   ],
   "coverage": {
     "workers_launched": 2,
-    "workers_with_results": 0,
-    "candidates_gathered": 10,
-    "rows_retained": 0,
+    "workers_with_results": 1,
+    "candidates_gathered": 12,
+    "rows_retained": 1,
     "zero_result_portals": [
-      "realitymix.cz",
-      "reality.aktualne.cz"
+      "realitymix.cz"
     ],
     "blocked_portals": []
   },
@@ -44,8 +43,8 @@
       "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Reality Aktuálně rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
     }
   },
   "fetch_attempts": [
@@ -92,6 +91,22 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/stezery/pozemek-bydleni-prodej-hribsko-stezery-hradec-kralove-8621897.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/stezery/pozemek-bydleni-prodej-hribsko-stezery-hradec-kralove-8627107.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/stezery/pozemek-komercni-prodej-hribsko-stezery-hradec-kralove-8626953.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -167,6 +182,7 @@
     "missing-page-url:land",
     "outside-municipality:https://reality.aktualne.cz/detail/stezery/dum-o-trech-bytovych-jednotkach-8604471.html",
     "non-buildable-land:https://reality.aktualne.cz/detail/stezery/pozemek-bydleni-prodej-hribsko-stezery-hradec-kralove-8621897.html",
+    "non-buildable-land:https://reality.aktualne.cz/detail/stezery/pozemek-komercni-prodej-hribsko-stezery-hradec-kralove-8626953.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/stezery/prodej-byty-3-kk-73-m2-stezery-hradec-kralove-id-83131-8548875.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/stezery/prodej-domu-577-m2-lipova-stezery-8566421.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/stezery/prodej-rodinneho-domu-158-m2-stezery-8362883.html",
@@ -176,5 +192,25 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/stezery/pronajem-komercni-sklad-56-m2-stezery-id-84496-8608335.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/stezery/pronajem-komercni-sklad-75-m2-stezery-id-85770-8605621.html"
   ],
-  "listings": []
+  "listings": [
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Pozemek, bydlení, prodej, Hřibsko, Stěžery, Hradec Králové",
+      "location": "Hřibsko, Hradec Králové",
+      "property_type": "land",
+      "price": "689 458 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1628",
+      "urls": [
+        "https://reality.aktualne.cz/detail/stezery/pozemek-bydleni-prodej-hribsko-stezery-hradec-kralove-8627107.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "buildable-land",
+        "aggregator-source:mojepole"
+      ]
+    }
+  ]
 }
