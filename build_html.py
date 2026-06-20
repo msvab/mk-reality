@@ -161,17 +161,20 @@ def _json_script_payload(value) -> str:
 
 def city_ads_bundle(feed: dict | None, city: str) -> dict:
     if not feed:
-        return {"count": 0, "ads": [], "coverage": {}, "assumptions": [], "gaps": []}
+        return {"count": 0, "ads": [], "coverage": {}, "portal_status": {}, "assumptions": [], "gaps": []}
     cities = feed.get("cities", {})
     bundle = cities.get(city, {})
     if not isinstance(bundle, dict):
-        return {"count": 0, "ads": [], "coverage": {}, "assumptions": [], "gaps": []}
+        return {"count": 0, "ads": [], "coverage": {}, "portal_status": {}, "assumptions": [], "gaps": []}
     ads = bundle.get("ads", [])
     if not isinstance(ads, list):
         ads = []
     coverage = bundle.get("coverage", {})
     if not isinstance(coverage, dict):
         coverage = {}
+    portal_status = bundle.get("portal_status", {})
+    if not isinstance(portal_status, dict):
+        portal_status = {}
     assumptions = bundle.get("assumptions", [])
     if not isinstance(assumptions, list):
         assumptions = []
@@ -185,6 +188,7 @@ def city_ads_bundle(feed: dict | None, city: str) -> dict:
         "count": count,
         "ads": ads,
         "coverage": coverage,
+        "portal_status": portal_status,
         "assumptions": assumptions,
         "gaps": gaps,
     }
@@ -193,10 +197,11 @@ def city_ads_bundle(feed: dict | None, city: str) -> dict:
 def render_ads_count_cell(city: str, feed: dict | None) -> str:
     bundle = city_ads_bundle(feed, city)
     count = bundle["count"]
-    if count <= 0:
+    if not feed:
         return '<span class="ads-count ads-count-empty">0</span>'
     city_attr = escape(city, quote=True)
-    return f'<button type="button" class="ads-count ads-count-button" data-city="{city_attr}">{count}</button>'
+    empty_class = " ads-count-empty" if count <= 0 else ""
+    return f'<button type="button" class="ads-count ads-count-button{empty_class}" data-city="{city_attr}">{count}</button>'
 
 
 def render_ads_drawer_assets(feed: dict | None) -> str:
@@ -219,6 +224,7 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
           <button type="button" class="ads-drawer-close" id="ads-drawer-close" aria-label="Zavřít">×</button>
         </div>
         <div class="ads-drawer-meta" id="ads-drawer-meta"></div>
+        <div class="ads-provider-coverage" id="ads-provider-coverage"></div>
         <div class="ads-drawer-controls">
           <label for="ads-drawer-sort">Řazení</label>
           <select id="ads-drawer-sort">
@@ -258,6 +264,7 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
           const title = document.getElementById("ads-drawer-title");
           const summary = document.getElementById("ads-drawer-summary");
           const meta = document.getElementById("ads-drawer-meta");
+          const providerCoverage = document.getElementById("ads-provider-coverage");
           const body = document.getElementById("ads-drawer-body");
           const sortSelect = document.getElementById("ads-drawer-sort");
           let currentBundle = null;
@@ -317,6 +324,41 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
             return badges.length ? `<div class="ad-badges">${{badges.join("")}}</div>` : "";
           }};
 
+          const portalLabels = {{
+            "reality.idnes.cz": "iDNES",
+            "mmreality.cz": "MM Reality",
+            "realitymix.cz": "RealityMix",
+            "reality.aktualne.cz": "Aktuálně",
+          }};
+
+          const statusLabels = {{
+            ok: "OK",
+            no_results: "bez výsledků",
+            rate_limited: "limit",
+            blocked: "blokováno",
+            fetch_error: "chyba",
+            fallback_page: "fallback",
+          }};
+
+          const statusClass = (status) => {{
+            if (status === "ok") return "ads-provider-ok";
+            if (status === "no_results") return "ads-provider-empty";
+            return "ads-provider-warning";
+          }};
+
+          const renderProviderCoverage = (bundle) => {{
+            const statuses = bundle?.portal_status || {{}};
+            const portals = Object.keys(portalLabels);
+            const chips = portals.map((portal) => {{
+              const status = statuses[portal]?.status || "unknown";
+              const label = portalLabels[portal];
+              const text = statusLabels[status] || status;
+              const title = statuses[portal]?.message || "";
+              return `<span class="ads-provider-chip ${{statusClass(status)}}" title="${{escapeHtml(title)}}">${{escapeHtml(label)}}: ${{escapeHtml(text)}}</span>`;
+            }});
+            providerCoverage.innerHTML = chips.join("");
+          }};
+
           const renderListingCell = (ad, bundle) => {{
             const title = escapeHtml(displayValue(ad.title));
             const location = escapeHtml(displayValue(ad.location));
@@ -357,7 +399,12 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
 
           const renderRows = (bundle) => {{
             body.innerHTML = "";
-            for (const ad of sortedAds(bundle)) {{
+            const ads = sortedAds(bundle);
+            if (ads.length === 0) {{
+              body.innerHTML = '<tr><td colspan="6" class="ads-empty-row">Žádné inzeráty po ověření portálů.</td></tr>';
+              return;
+            }}
+            for (const ad of ads) {{
               const row = document.createElement("tr");
               const cells = [
                 {{ html: renderListingCell(ad, bundle) }},
@@ -394,6 +441,7 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
               metaParts.push(`Aktualizováno: ${{formatTimestamp(bundle.generated_at)}}`);
             }}
             meta.textContent = metaParts.join(" | ");
+            renderProviderCoverage(bundle);
             renderRows(bundle);
 
             drawer.setAttribute("aria-hidden", "false");
@@ -1386,6 +1434,8 @@ def render_html(rows: list[dict]) -> str:
         .ads-count-empty {{ background: #ececec; color: #666; }}
         .ads-count-button {{ border: 0; background: #0f766e; color: #fff; cursor: pointer; }}
         .ads-count-button:hover {{ background: #115e59; }}
+        .ads-count-button.ads-count-empty {{ background: #ececec; color: #666; }}
+        .ads-count-button.ads-count-empty:hover {{ background: #d7d7d7; }}
         .ads-drawer-backdrop {{ position: fixed; inset: 0; background: rgba(15, 23, 42, 0.45); }}
         .ads-drawer {{ position: fixed; top: 0; right: 0; width: min(820px, 100vw); height: 100vh; background: #fff; box-shadow: -10px 0 30px rgba(0, 0, 0, 0.18); transform: translateX(100%); transition: transform 0.2s ease; z-index: 20; display: flex; flex-direction: column; min-height: 0; }}
         .ads-drawer-open {{ transform: translateX(0); }}
@@ -1393,6 +1443,11 @@ def render_html(rows: list[dict]) -> str:
         .ads-drawer-header h2 {{ margin: 0 0 6px; }}
         .ads-drawer-close {{ border: 0; background: transparent; font-size: 32px; line-height: 1; cursor: pointer; color: #555; }}
         .ads-drawer-meta {{ padding: 12px 24px 0; color: #555; font-size: 14px; }}
+        .ads-provider-coverage {{ display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 24px 0; }}
+        .ads-provider-chip {{ display: inline-flex; align-items: center; border-radius: 999px; padding: 3px 8px; font-size: 12px; font-weight: 700; line-height: 1.35; }}
+        .ads-provider-ok {{ background: #dcfce7; color: #166534; }}
+        .ads-provider-empty {{ background: #f3f4f6; color: #4b5563; }}
+        .ads-provider-warning {{ background: #fee2e2; color: #991b1b; }}
         .ads-drawer-controls {{ display: flex; align-items: center; gap: 8px; padding: 12px 24px 0; color: #374151; font-size: 14px; }}
         .ads-drawer-controls select {{ border: 1px solid #d1d5db; border-radius: 6px; background: #fff; color: #111827; padding: 5px 28px 5px 8px; font: inherit; }}
         .ads-drawer-table-wrap {{ flex: 1 1 auto; min-height: 0; overflow: auto; padding: 16px 24px 24px; }}
@@ -1404,11 +1459,13 @@ def render_html(rows: list[dict]) -> str:
         .ad-badge-new {{ background: #dcfce7; color: #166534; }}
         .ad-badge-price {{ background: #fef3c7; color: #92400e; }}
         .ads-price-cell {{ white-space: nowrap; }}
+        .ads-empty-row {{ color: #6b7280; text-align: center; }}
         @media (max-width: 720px) {{
           body {{ margin: 12px; }}
           th, td {{ padding: 6px; font-size: 14px; }}
           .ads-drawer-header {{ padding: 16px 16px 8px; }}
           .ads-drawer-meta {{ padding: 12px 16px 0; }}
+          .ads-provider-coverage {{ padding: 10px 16px 0; }}
           .ads-drawer-controls {{ padding: 12px 16px 0; }}
           .ads-drawer-table-wrap {{ padding: 16px; }}
           .ad-listing-cell {{ min-width: 180px; }}

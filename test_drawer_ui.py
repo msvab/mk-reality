@@ -46,6 +46,11 @@ def test_hk_drawer_scrolls_without_gaps_text() -> None:
         meta_text = page.locator("#ads-drawer-meta").inner_text()
         assert "Mezery:" not in meta_text
         assert "Aktualizováno:" in meta_text
+        provider_text = page.locator("#ads-provider-coverage").inner_text()
+        assert "iDNES:" in provider_text
+        assert "MM Reality:" in provider_text
+        assert "RealityMix:" in provider_text
+        assert "Aktuálně:" in provider_text
 
         table_wrap = page.locator(".ads-drawer-table-wrap")
         metrics = table_wrap.evaluate(
@@ -78,6 +83,23 @@ def test_hk_drawer_scrolls_without_gaps_text() -> None:
             page.locator("#ads-drawer-close").click()
             page.locator(f'[data-city="{price_city}"]').click()
             assert page.locator(".ad-badge-price").count() > 0
+
+        zero_city = page.evaluate(
+            """
+            () => {
+                const payload = JSON.parse(document.getElementById("ads-by-city-data").textContent);
+                for (const [city, bundle] of Object.entries(payload)) {
+                    if ((bundle.count || 0) === 0 && bundle.portal_status) return city;
+                }
+                return null;
+            }
+            """
+        )
+        if zero_city:
+            page.locator("#ads-drawer-close").click()
+            page.locator(f'[data-city="{zero_city}"]').click()
+            assert "Počet inzerátů: 0" in page.locator("#ads-drawer-summary").inner_text()
+            assert page.locator(".ads-empty-row").count() == 1
 
         browser.close()
 
