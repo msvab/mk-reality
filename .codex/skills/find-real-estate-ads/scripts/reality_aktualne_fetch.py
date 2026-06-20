@@ -15,6 +15,7 @@ CATEGORY_URLS = {
     "house": "https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",
     "land": "https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html",
 }
+OVERPASS_MUNICIPALITIES_PATH = Path("data/overpass/municipalities.json")
 
 
 def slug_normalize(value: str) -> str:
@@ -200,6 +201,47 @@ def clean_location(value: str) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
+def expected_district_for_municipality(municipality: str) -> str | None:
+    if not OVERPASS_MUNICIPALITIES_PATH.exists():
+        return None
+    try:
+        payload = json.loads(OVERPASS_MUNICIPALITIES_PATH.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return None
+    elements = []
+    if isinstance(payload, dict):
+        if isinstance(payload.get("elements"), list):
+            elements = payload["elements"]
+        elif isinstance(payload.get("response"), dict) and isinstance(payload["response"].get("elements"), list):
+            elements = payload["response"]["elements"]
+    target = slug_normalize(municipality)
+    for element in elements:
+        if not isinstance(element, dict):
+            continue
+        tags = element.get("tags", {})
+        if not isinstance(tags, dict):
+            continue
+        if slug_normalize(str(tags.get("name") or tags.get("name:cs") or "")) != target:
+            continue
+        wikipedia = str(tags.get("wikipedia") or "")
+        match = re.search(r"\(okres\s+([^)]+)\)", wikipedia, re.IGNORECASE)
+        if match:
+            return match.group(1).strip()
+    return None
+
+
+def address_conflicts_with_expected_district(address: str, expected_district: str | None) -> bool:
+    if not expected_district:
+        return False
+    parts = [part.strip() for part in re.split(r"\s*,\s*", address) if part.strip()]
+    if len(parts) < 3:
+        return False
+    district_part = re.sub(r"^(?:okr\.?|okres)\s+", "", parts[-1], flags=re.IGNORECASE).strip()
+    normalized_district = slug_normalize(district_part)
+    normalized_expected = slug_normalize(expected_district)
+    return bool(normalized_district and normalized_district != normalized_expected)
+
+
 def extract_office_brand(html: str) -> str | None:
     match = re.search(r'<section id="office-info".*?<h3>\s*(.*?)\s*</h3>', html, re.S)
     if not match:
@@ -269,18 +311,32 @@ def land_is_buildable(title: str, table: dict[str, str], body_text: str) -> bool
     return any(marker in lowered for marker in ["staveb", "pro bydleni", "bydleni vesnicke", "bv"])
 
 
-def municipality_matches(municipality: str, url: str, title: str, description: str, address: str) -> bool:
+def municipality_matches(
+    municipality: str,
+    url: str,
+    title: str,
+    description: str,
+    address: str,
+    expected_district: str | None = None,
+) -> bool:
     target = slug_normalize(municipality)
     haystack = slug_normalize(" ".join([title, description, address]))
     if target not in haystack:
         return False
     if f"{target} u " in haystack and f"{target} u " not in target:
         return False
+    if address_conflicts_with_expected_district(address, expected_district):
+        return False
     slug_city = slug_normalize(urlsplit(url).path.split("/")[2]) if len(urlsplit(url).path.split("/")) > 2 else ""
     return slug_city == target or target in haystack
 
 
-def listing_from_detail(url: str, html: str, municipality: str) -> tuple[dict | None, str | None]:
+def listing_from_detail(
+    url: str,
+    html: str,
+    municipality: str,
+    expected_district: str | None = None,
+) -> tuple[dict | None, str | None]:
     inactive, reason = is_inactive_or_unusable(html)
     if inactive:
         return None, reason
@@ -289,7 +345,7 @@ def listing_from_detail(url: str, html: str, municipality: str) -> tuple[dict | 
     description = extract_meta_content(html, "og:description") or extract_meta_content(html, "description") or ""
     table = extract_table_pairs(html)
     address = table.get("Adresa", "")
-    if not municipality_matches(municipality, url, title, description, address):
+    if not municipality_matches(municipality, url, title, description, address, expected_district):
         return None, "outside-municipality"
 
     property_type, property_note = infer_property_type(title, table)
@@ -401,6 +457,7 @@ def build_output(
     candidate_urls: set[str] = set()
     fetch_attempts: list[dict] = []
     result_url_set = {canonicalize_result_url(url) for url in result_urls}
+    expected_district = expected_district_for_municipality(municipality)
 
     if discover_results:
         result_url_set.add(municipality_search_url(municipality))
@@ -449,7 +506,7 @@ def build_output(
             gaps.append(f"failed-detail-fetch:{detail_url}:{exc}")
             coverage["blocked_portals"].append(f"reality.aktualne.cz detail fetch failed: {detail_url}: {exc}")
             continue
-        listing, reason = listing_from_detail(detail_url, html, municipality)
+        listing, reason = listing_from_detail(detail_url, html, municipality, expected_district)
         if listing is not None:
             if listing["property_type"] == "house" and not include_houses:
                 continue

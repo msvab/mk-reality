@@ -61,3 +61,35 @@ def test_parcel_area_can_be_extracted_from_description_text():
         "užitná plocha 590 m2, pozemek 3 195 m2. Smíšená konstrukce.",
         ["pozemek", "pozemku", "parcela", "parcely"],
     ) == 3195
+
+
+def test_homonymous_municipality_with_wrong_district_is_excluded():
+    module = load_reality_aktualne_fetch()
+
+    assert not module.municipality_matches(
+        "Všestary",
+        "https://reality.aktualne.cz/detail/vsestary/prodej-rodinneho-domu-280-m2-obloukova-vsestary-8616311.html",
+        "Prodej rodinného domu 280 m2 Oblouková, Všestary",
+        "",
+        "Oblouková, Všestary, Praha-východ",
+        "Hradec Králové",
+    )
+
+
+def test_homonymous_municipality_with_expected_district_is_retained():
+    module = load_reality_aktualne_fetch()
+
+    assert module.municipality_matches(
+        "Všestary",
+        "https://reality.aktualne.cz/detail/vsestary/prodej-pozemku-vsestary-123.html",
+        "Prodej pozemku Všestary",
+        "",
+        "Rosnice, Všestary, Hradec Králové",
+        "Hradec Králové",
+    )
+
+
+def test_expected_district_is_loaded_from_overpass_metadata():
+    module = load_reality_aktualne_fetch()
+
+    assert module.expected_district_for_municipality("Všestary") == "Hradec Králové"
