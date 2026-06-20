@@ -46,12 +46,45 @@ def slug_normalize(value: str) -> str:
 
 def run_fetch(url: str) -> str:
     completed = subprocess.run(
-        ["curl", "-sL", "-A", USER_AGENT, url],
-        check=True,
+        ["curl", "-sL", "-A", USER_AGENT, "-w", "\n__HTTP_STATUS__:%{http_code}", url],
+        check=False,
         capture_output=True,
         text=True,
     )
-    return completed.stdout
+    body, marker, raw_http_status = completed.stdout.rpartition("\n__HTTP_STATUS__:")
+    if not marker:
+        body = completed.stdout
+        http_status = None
+    else:
+        try:
+            http_status = int(raw_http_status.strip())
+        except ValueError:
+            http_status = None
+    status, error = classify_fetch(http_status, completed.returncode, body, completed.stderr)
+    if status != "ok":
+        raise FetchError(status, error or status, http_status)
+    return body
+
+
+class FetchError(RuntimeError):
+    def __init__(self, status: str, message: str, http_status: int | None = None):
+        super().__init__(message)
+        self.status = status
+        self.http_status = http_status
+
+
+def classify_fetch(http_status: int | None, returncode: int, body: str, stderr: str) -> tuple[str, str | None]:
+    if returncode != 0:
+        return "fetch_error", stderr.strip() or f"curl exited with {returncode}"
+    if http_status == 429:
+        return "rate_limited", "HTTP 429"
+    if http_status is not None and http_status >= 500:
+        return "fetch_error", f"HTTP {http_status}"
+    if http_status is not None and http_status >= 400:
+        return "fallback_page", f"HTTP {http_status}"
+    if not body.strip():
+        return "fetch_error", "empty response body"
+    return "ok", None
 
 
 def append_fetch_attempt(
@@ -60,6 +93,7 @@ def append_fetch_attempt(
     url: str,
     stage: str,
     status: str,
+    http_status: int | None = None,
     error: str | None = None,
 ) -> None:
     row = {
@@ -69,6 +103,8 @@ def append_fetch_attempt(
         "attempt": 1,
         "status": status,
     }
+    if http_status is not None:
+        row["http_status"] = http_status
     if error:
         row["error"] = error
     attempts.append(row)
@@ -77,8 +113,15 @@ def append_fetch_attempt(
 def fetch_with_attempt(url: str, attempts: list[dict], stage: str) -> str:
     try:
         html = run_fetch(url)
-    except subprocess.CalledProcessError as exc:
-        append_fetch_attempt(attempts, url=url, stage=stage, status="fetch_error", error=str(exc))
+    except FetchError as exc:
+        append_fetch_attempt(
+            attempts,
+            url=url,
+            stage=stage,
+            status=exc.status,
+            http_status=exc.http_status,
+            error=str(exc),
+        )
         raise
     append_fetch_attempt(attempts, url=url, stage=stage, status="ok")
     return html
@@ -268,14 +311,32 @@ def listing_from_detail(url: str, html: str, municipality: str) -> tuple[dict | 
 
 
 def build_portal_status(fetch_attempts: list[dict], listings: list[dict]) -> dict:
-    failed_attempt = next((attempt for attempt in fetch_attempts if attempt.get("status") == "fetch_error"), None)
+    status_order = {
+        "ok": 0,
+        "fallback_page": 3,
+        "blocked": 6,
+        "fetch_error": 7,
+        "rate_limited": 9,
+    }
+    failed_attempt = None
+    for attempt in fetch_attempts:
+        attempt_status = str(attempt.get("status", "unknown"))
+        if attempt_status in {"ok", "no_results"}:
+            continue
+        if failed_attempt is None or status_order.get(attempt_status, -1) > status_order.get(
+            str(failed_attempt.get("status", "unknown")),
+            -1,
+        ):
+            failed_attempt = attempt
     if failed_attempt:
         output = {
-            "status": "fetch_error",
+            "status": failed_attempt.get("status", "fetch_error"),
             "stage": failed_attempt.get("stage"),
             "message": failed_attempt.get("error", "M&M Reality fetch failed."),
             "evidence": [f"{failed_attempt.get('stage')}:{failed_attempt.get('status')}:{failed_attempt.get('url')}"],
         }
+        if failed_attempt.get("http_status") is not None:
+            output["http_status"] = failed_attempt["http_status"]
     elif listings:
         output = {
             "status": "ok",
@@ -323,7 +384,7 @@ def build_output(
     for url in effective_result_urls:
         try:
             html = fetch_with_attempt(url, fetch_attempts, "search_fetch")
-        except subprocess.CalledProcessError:
+        except FetchError:
             gaps.append(f"failed-result-fetch:{url}")
             continue
         offers = extract_result_offers(html)
@@ -350,7 +411,7 @@ def build_output(
         detail_url = generic_detail_url(listing_id)
         try:
             html = fetch_with_attempt(detail_url, fetch_attempts, "detail_fetch")
-        except subprocess.CalledProcessError:
+        except FetchError:
             gaps.append(f"failed-detail-fetch:{detail_url}")
             continue
         listing, reason = listing_from_detail(detail_url, html, municipality)

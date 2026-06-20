@@ -1,5 +1,6 @@
 import importlib.util
 import json
+import subprocess
 from html import escape
 from pathlib import Path
 
@@ -76,3 +77,51 @@ def test_mmreality_discovery_fetches_default_categories_and_filters_by_municipal
         (attempt["stage"], attempt["url"]) for attempt in payload["fetch_attempts"]
     ]
     assert not any(gap.startswith("outside-municipality-result:") for gap in payload["gaps"])
+
+
+def test_mmreality_fetch_records_http_fallback_status(monkeypatch):
+    module = load_mmreality_fetch()
+
+    def fake_run(cmd, check, capture_output, text):
+        assert check is False
+        return subprocess.CompletedProcess(cmd, 0, stdout="<html>not found</html>\n__HTTP_STATUS__:404", stderr="")
+
+    monkeypatch.setattr(module.subprocess, "run", fake_run)
+
+    payload = module.build_output(
+        "Třebechovice pod Orebem",
+        "municipality_only",
+        include_houses=True,
+        include_land=True,
+        result_urls=["https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/"],
+        detail_urls=[],
+    )
+
+    status = payload["portal_status"]["mmreality.cz"]
+    assert status["status"] == "fallback_page"
+    assert status["http_status"] == 404
+    assert status["stage"] == "search_fetch"
+    assert payload["fetch_attempts"][0]["status"] == "fallback_page"
+    assert payload["fetch_attempts"][0]["http_status"] == 404
+
+
+def test_mmreality_fetch_records_rate_limit_status(monkeypatch):
+    module = load_mmreality_fetch()
+
+    def fake_run(cmd, check, capture_output, text):
+        return subprocess.CompletedProcess(cmd, 0, stdout="Too many requests\n__HTTP_STATUS__:429", stderr="")
+
+    monkeypatch.setattr(module.subprocess, "run", fake_run)
+
+    payload = module.build_output(
+        "Třebechovice pod Orebem",
+        "municipality_only",
+        include_houses=True,
+        include_land=True,
+        result_urls=["https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/"],
+        detail_urls=[],
+    )
+
+    status = payload["portal_status"]["mmreality.cz"]
+    assert status["status"] == "rate_limited"
+    assert status["http_status"] == 429
