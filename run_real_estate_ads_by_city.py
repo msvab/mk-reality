@@ -202,8 +202,11 @@ def cached_detail_urls_by_portal(previous_aggregate: dict | None, city: str) -> 
         return urls_by_portal
     ads = bundle.get("ads", [])
     if not isinstance(ads, list):
-        return urls_by_portal
-    for ad in ads:
+        ads = []
+    hidden_ads = bundle.get("hidden_ads", [])
+    if not isinstance(hidden_ads, list):
+        hidden_ads = []
+    for ad in [*ads, *hidden_ads]:
         if not isinstance(ad, dict):
             continue
         for url in ad.get("urls", []):

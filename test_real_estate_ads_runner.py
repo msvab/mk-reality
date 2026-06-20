@@ -176,6 +176,39 @@ def test_cached_detail_urls_are_grouped_by_supported_local_fetcher_portal():
     assert urls["reality.idnes.cz"] == ["https://reality.idnes.cz/detail/prodej/dum/opocno/abc/"]
 
 
+def test_cached_detail_urls_include_hidden_historical_ads():
+    previous_aggregate = {
+        "cities": {
+            "Třebechovice pod Orebem": {
+                "ads": [
+                    {
+                        "urls": [
+                            "https://reality.aktualne.cz/detail/trebechovice-pod-orebem/current.html",
+                            "https://realitymix.cz/detail/trebechovice-pod-orebem/old-mix.html",
+                        ]
+                    }
+                ],
+                "hidden_ads": [
+                    {
+                        "urls": [
+                            "https://realitymix.cz/detail/trebechovice-pod-orebem/old-mix.html",
+                            "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/old-idnes/",
+                            "https://www.mmreality.cz/nemovitosti/123456/",
+                        ]
+                    }
+                ],
+            }
+        }
+    }
+
+    urls = cached_detail_urls_by_portal(previous_aggregate, "Třebechovice pod Orebem")
+
+    assert urls["reality.aktualne.cz"] == ["https://reality.aktualne.cz/detail/trebechovice-pod-orebem/current.html"]
+    assert urls["realitymix.cz"] == ["https://realitymix.cz/detail/trebechovice-pod-orebem/old-mix.html"]
+    assert urls["reality.idnes.cz"] == ["https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/old-idnes/"]
+    assert urls["mmreality.cz"] == ["https://www.mmreality.cz/nemovitosti/123456/"]
+
+
 def test_cached_realitymix_result_page_urls_are_grouped_by_category():
     previous_aggregate = {
         "cities": {
