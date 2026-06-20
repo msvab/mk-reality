@@ -30,19 +30,15 @@
   "coverage": {
     "workers_launched": 2,
     "workers_with_results": 2,
-    "candidates_gathered": 80,
-    "rows_retained": 9,
+    "candidates_gathered": 79,
+    "rows_retained": 10,
     "zero_result_portals": [],
     "blocked_portals": []
   },
   "portal_status": {
     "realitymix.cz": {
-      "status": "fallback_page",
-      "stage": "detail_parse",
-      "message": "Požadovaný inzerát již není v naší databázi",
-      "evidence": [
-        "detail_parse:fallback_page:https://realitymix.cz/detail/pardubice/prodej-pozemku-v-obci-hostovice-u-pardubic-p-c-76-3-o-velikosti-1740-m2-8090811.html"
-      ]
+      "status": "ok",
+      "message": "Retained at least one detail-verified RealityMix row."
     },
     "reality.aktualne.cz": {
       "status": "ok",
@@ -113,22 +109,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/pardubice/prodej-pozemku-v-obci-hostovice-u-pardubic-p-c-76-3-o-velikosti-1740-m2-8090811.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/pardubice/prodej-pozemku-v-obci-hostovice-u-pardubic-p-c-76-3-o-velikosti-1740-m2-8090811.html",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Požadovaný inzerát již není v naší databázi"
     },
     {
       "portal": "realitymix.cz",
@@ -524,15 +504,7 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/pardubice/prodej-byty-1-kk-27-m-terasa-pardubice-ohrazenice-8625581.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/pardubice/prodej-byty-2-kk-54-m-s-parkovacim-stanim-pardubice-ohrazenice-8625567.html",
+      "url": "https://reality.aktualne.cz/detail/pardubice/prodej-bytu-3-kk-63-m-pardubice-polabiny-8535975.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -564,6 +536,14 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/pardubice/prodej-pozemku-3361-m-pardubice-8627953.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/pardubice/prodej-pozemky-zahrada-224-m2-zelene-predmesti-pardubice-i-id-85397-8611767.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -572,7 +552,7 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/pardubice/prodej-rodinneho-domu-142-m-pozemek-424-m-pardubice-drozdice-8321857.html",
+      "url": "https://reality.aktualne.cz/detail/pardubice/prodej-rodinneho-domu-89-m-pardubice-nemosice-8400275.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -580,7 +560,15 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/pardubice/prodej-rodinneho-domu-s-garazi-180m-pardubice-zelene-predmesti-8623091.html",
+      "url": "https://reality.aktualne.cz/detail/pardubice/prodej-rodinneho-domu-89-m-pardubice-nemosice-8403721.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/pardubice/prodej-rodinneho-domu-89-m-pardubice-nemosice-8403723.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -604,15 +592,7 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/pardubice/prodej-stavebniho-pozemku-398-m2-v-drozdicich-mestsky-obvod-pardubice-iv-7996324.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/pardubice/prodej-stavebniho-pozemku-404-m2-v-drozdicich-mestsky-obvod-pardubice-iv-7996334.html",
+      "url": "https://reality.aktualne.cz/detail/pardubice/prodej-specifickeho-pozemku-772-m-pardubice-starocernsko-8451463.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -628,7 +608,7 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/pardubice/pronajem-bytu-1-1-49-m-pardubice-ul-erno-kostala-8560543.html",
+      "url": "https://reality.aktualne.cz/detail/pardubice/pronajem-byt-1-kk-37-m2-s-parkovacim-stanim-pardubice-ulice-bratrancu-veverkovych-8628371.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -660,7 +640,7 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/pardubice/pronajem-byty-3-1-74m-pardubice-studanka-8625587.html",
+      "url": "https://reality.aktualne.cz/detail/pardubice/pronajem-kancelare-103m2-ohrazenice-8626519.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -668,7 +648,7 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/pardubice/pronajem-kancelare-103m2-ohrazenice-8626519.html",
+      "url": "https://reality.aktualne.cz/detail/pardubice/pronajem-obchodniho-prostoru-390-m-pardubice-zelene-predmesti-8525187.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -676,7 +656,6 @@
     }
   ],
   "gaps": [
-    "removed-fallback-page:https://realitymix.cz/detail/pardubice/prodej-pozemku-v-obci-hostovice-u-pardubic-p-c-76-3-o-velikosti-1740-m2-8090811.html",
     "land-below-threshold:https://realitymix.cz/detail/pardubice/krasny-rodinny-dum-na-skvele-adrese-8618811.html",
     "land-below-threshold:https://realitymix.cz/detail/pardubice/prodej-bytoveho-domu-v-centru-pardubic-8389363.html",
     "land-below-threshold:https://realitymix.cz/detail/pardubice/prodej-chata-10-8067893.html",
@@ -721,24 +700,23 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pardubice-ul-druzby-pronajem-bytu-1-1-c-p-cca-31-m-8617459.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/prodej-bytu-3-1-70-m2-belehradska-pardubice-8625639.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/prodej-bytu-3-1-74-m-8626129.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/prodej-byty-1-kk-27-m-terasa-pardubice-ohrazenice-8625581.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/prodej-byty-2-kk-54-m-s-parkovacim-stanim-pardubice-ohrazenice-8625567.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/prodej-bytu-3-kk-63-m-pardubice-polabiny-8535975.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/prodej-byty-3-1-74-m2-drazkovice-33-53333-pardubice-pardubice-id-85307-8610277.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/prodej-byty-3-1-79-m2-palackeho-trida-2417-zelene-predmesti-53002-pardubice-i-id-82955-8610023.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/prodej-byty-3-kk-84-m2-ke-kamenci-349-bile-predmesti-53003-pardubice-i-id-85012-8588037.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/prodej-pozemku-3361-m-pardubice-8627953.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/prodej-pozemky-zahrada-224-m2-zelene-predmesti-pardubice-i-id-85397-8611767.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/pardubice/prodej-rodinneho-domu-142-m-pozemek-424-m-pardubice-drozdice-8321857.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/pardubice/prodej-rodinneho-domu-s-garazi-180m-pardubice-zelene-predmesti-8623091.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/pardubice/prodej-rodinneho-domu-89-m-pardubice-nemosice-8403721.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/pardubice/prodej-rodinneho-domu-89-m-pardubice-nemosice-8403723.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/pardubice/prodej-rodinny-dum-105-8625303.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/pardubice/prodej-stavebniho-pozemku-398-m2-v-drozdicich-mestsky-obvod-pardubice-iv-7996324.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/pardubice/prodej-stavebniho-pozemku-404-m2-v-drozdicich-mestsky-obvod-pardubice-iv-7996334.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/prodej-specifickeho-pozemku-772-m-pardubice-starocernsko-8451463.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pronajem-byt-1-1-28-8514509.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pronajem-bytu-1-1-49-m-pardubice-ul-erno-kostala-8560543.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pronajem-byt-1-kk-37-m2-s-parkovacim-stanim-pardubice-ulice-bratrancu-veverkovych-8628371.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pronajem-bytu-2-kk-68-m-pardubice-ul-na-hradku-8522327.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pronajem-bytu-3-kk-sezemicka-pardubice-18500-kc-mes-56-m2-8627365.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pronajem-bytu-4-1-prodlouzena-pardubice-19000-kc-mes-73-m2-8626361.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pronajem-byty-3-1-74m-pardubice-studanka-8625587.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pronajem-kancelare-103m2-ohrazenice-8626519.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pronajem-kancelare-103m2-ohrazenice-8626519.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pronajem-obchodniho-prostoru-390-m-pardubice-zelene-predmesti-8525187.html"
   ],
   "listings": [
     {
@@ -832,14 +810,14 @@
       "portal": [
         "realitymix.cz"
       ],
-      "title": "Prodej rodinného domu 3+1 s garáží, 175 m2, velká zahrada, celkem 1408 m2, Pardubice - Kréta",
-      "location": "Duškova, Pardubice VII, Pardubice",
+      "title": "Prodej RD Pardubice",
+      "location": "Heyrovského, Pardubice VII, Pardubice",
       "property_type": "house",
-      "price": "12 500 000 Kč",
-      "house_area_m2": "175",
-      "land_area_m2": "1408",
+      "price": "12 490 000 Kč",
+      "house_area_m2": "240",
+      "land_area_m2": "1046",
       "urls": [
-        "https://realitymix.cz/detail/pardubice/prodej-rodinneho-domu-3-1-s-garazi-175-m2-velka-zahrada-celkem-1408-m2-pardubice-kreta-8576149.html"
+        "https://realitymix.cz/detail/pardubice/prodej-rd-pardubice-8518015.html"
       ],
       "notes": [
         "detail-url-verified:realitymix.cz"
@@ -849,14 +827,14 @@
       "portal": [
         "realitymix.cz"
       ],
-      "title": "Prodej RD Pardubice",
-      "location": "Heyrovského, Pardubice VII, Pardubice",
+      "title": "Prodej rodinného domu 3+1 s garáží, 175 m2, velká zahrada, celkem 1408 m2, Pardubice - Kréta",
+      "location": "Duškova, Pardubice VII, Pardubice",
       "property_type": "house",
-      "price": "12 490 000 Kč",
-      "house_area_m2": "240",
-      "land_area_m2": "1046",
+      "price": "11 900 000 Kč",
+      "house_area_m2": "175",
+      "land_area_m2": "1408",
       "urls": [
-        "https://realitymix.cz/detail/pardubice/prodej-rd-pardubice-8518015.html"
+        "https://realitymix.cz/detail/pardubice/prodej-rodinneho-domu-3-1-s-garazi-175-m2-velka-zahrada-celkem-1408-m2-pardubice-kreta-8576149.html"
       ],
       "notes": [
         "detail-url-verified:realitymix.cz"
@@ -878,6 +856,24 @@
       "notes": [
         "detail-url-verified:realitymix.cz",
         "municipal-part:Východní"
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej rodinného domu 89 m², Pardubice - Nemošice",
+      "location": "28. října, Pardubice IV, Pardubice",
+      "property_type": "house",
+      "price": "9 180 000 Kč",
+      "house_area_m2": "89",
+      "land_area_m2": "1036",
+      "urls": [
+        "https://reality.aktualne.cz/detail/pardubice/prodej-rodinneho-domu-89-m-pardubice-nemosice-8400275.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "aggregator-source:martin-dolezel-s.r.o."
       ]
     },
     {
