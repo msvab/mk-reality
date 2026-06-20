@@ -139,3 +139,49 @@ def test_idnes_discovery_uses_locality_id_from_cached_detail(monkeypatch):
     assert ("search_fetch", "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-83488") in fetched_urls
     assert ("search_fetch", "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-83488") in fetched_urls
     assert payload["coverage"]["candidates_gathered"] == 2
+
+
+def test_idnes_discovery_uses_autocomplete_without_cached_details(monkeypatch):
+    module = load_reality_idnes_fetch()
+    fetched_urls = []
+    new_detail_url = "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/new/"
+    autocomplete_html = """
+        [{"label":"Třebechovice pod Orebem","value":"CAST_OBCE-12345"}]
+    """
+    result_html = f'<a href="{new_detail_url}">New detail</a>'
+    detail_html = """
+        <meta name="cXenseParse:qiw-reaCategory" content="Dům/Rodinný dům">
+        <meta name="cXenseParse:qiw-reaCity" content="Třebechovice pod Orebem">
+        <meta name="cXenseParse:qiw-reaDistrict" content="Hradec Králové">
+        <meta property="og:title" content="Prodej rodinného domu, Třebechovice pod Orebem">
+        <meta property="og:description" content="Rodinný dům s pozemkem 1 250 m².">
+        <script>
+          dataLayer.push({
+            "listing_price":8990000,
+            "listing_localityCity":"Třebechovice pod Orebem",
+            "listing_area":180,
+            "listing_landArea":1250
+          });
+        </script>
+    """
+
+    def fake_fetch(url, *, attempts=None, stage="fetch"):
+        fetched_urls.append((stage, url))
+        if stage == "locality_autocomplete_fetch":
+            return autocomplete_html
+        if url in {
+            "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-12345",
+            "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-12345",
+        }:
+            return result_html
+        if url == new_detail_url:
+            return detail_html
+        raise AssertionError(f"unexpected fetch: {stage} {url}")
+
+    monkeypatch.setattr(module, "run_fetch", fake_fetch)
+
+    payload = module.build_output("Třebechovice pod Orebem", "municipality_only", [], discover_results=True)
+
+    assert [item["title"] for item in payload["listings"]] == ["Prodej rodinného domu, Třebechovice pod Orebem"]
+    assert ("locality_autocomplete_fetch", module.AUTOCOMPLETE_LOCALITY_URL.format(query="T%C5%99ebechovice+pod+Orebem")) in fetched_urls
+    assert ("search_fetch", "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-12345") in fetched_urls

@@ -364,8 +364,9 @@ def run_local_fetchers(
     payloads = []
     for portal, urls in urls_by_portal.items():
         use_reality_idnes_results = portal == "reality.idnes.cz" and bool(reality_idnes_result_urls)
-        discover_reality_idnes = portal == "reality.idnes.cz" and bool(urls)
+        discover_reality_idnes = portal == "reality.idnes.cz"
         use_cached_mmreality_results = portal == "mmreality.cz" and bool(mmreality_result_urls)
+        discover_mmreality = portal == "mmreality.cz"
         discover_realitymix = portal == "realitymix.cz"
         use_reality_aktualne_results = portal == "reality.aktualne.cz" and bool(reality_aktualne_result_urls)
         discover_reality_aktualne = portal == "reality.aktualne.cz"
@@ -375,6 +376,7 @@ def run_local_fetchers(
             and not discover_reality_idnes
             and not discover_realitymix
             and not use_cached_mmreality_results
+            and not discover_mmreality
             and not use_reality_aktualne_results
             and not discover_reality_aktualne
         ):
@@ -389,6 +391,8 @@ def run_local_fetchers(
         if use_cached_mmreality_results:
             for result_url in mmreality_result_urls:
                 cmd.extend(["--result-url", result_url])
+        if discover_mmreality:
+            cmd.append("--discover-results")
         if use_reality_aktualne_results:
             for result_url in reality_aktualne_result_urls:
                 cmd.extend(["--result-url", result_url])

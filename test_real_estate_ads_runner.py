@@ -447,10 +447,12 @@ def test_local_fetchers_pass_cached_realitymix_result_page_urls(tmp_path, monkey
 
     assert run_local_fetchers("Opočno", tmp_path, tmp_path / "raw.json", previous_aggregate)
 
-    assert "--house-page-url" in commands[0]
-    assert "--land-page-url" in commands[0]
-    assert "https://realitymix.cz/reality/domy/prodej/kralovehradecky/rychnov-nad-kneznou/opocno" in commands[0]
-    assert "https://realitymix.cz/reality/pozemky/pro-bydleni/kralovehradecky/rychnov-nad-kneznou/opocno" in commands[0]
+    realitymix_commands = [cmd for cmd in commands if cmd[1].endswith("realitymix_fetch.py")]
+    assert len(realitymix_commands) == 1
+    assert "--house-page-url" in realitymix_commands[0]
+    assert "--land-page-url" in realitymix_commands[0]
+    assert "https://realitymix.cz/reality/domy/prodej/kralovehradecky/rychnov-nad-kneznou/opocno" in realitymix_commands[0]
+    assert "https://realitymix.cz/reality/pozemky/pro-bydleni/kralovehradecky/rychnov-nad-kneznou/opocno" in realitymix_commands[0]
 
 
 def test_local_fetchers_pass_cached_mmreality_result_page_urls(tmp_path, monkeypatch):
@@ -501,10 +503,12 @@ def test_local_fetchers_pass_cached_mmreality_result_page_urls(tmp_path, monkeyp
 
     assert run_local_fetchers("Opočno", tmp_path, tmp_path / "raw.json", previous_aggregate)
 
-    assert commands[0][1].endswith("mmreality_fetch.py")
-    assert "--result-url" in commands[0]
-    assert "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/kralovehradecky-kraj/" in commands[0]
-    assert "--detail-url" not in commands[0]
+    mmreality_commands = [cmd for cmd in commands if cmd[1].endswith("mmreality_fetch.py")]
+    assert len(mmreality_commands) == 1
+    assert "--discover-results" in mmreality_commands[0]
+    assert "--result-url" in mmreality_commands[0]
+    assert "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/kralovehradecky-kraj/" in mmreality_commands[0]
+    assert "--detail-url" not in mmreality_commands[0]
 
 
 def test_local_fetchers_pass_cached_reality_idnes_detail_urls(tmp_path, monkeypatch):
@@ -609,6 +613,7 @@ def test_local_fetchers_pass_cached_reality_idnes_result_page_urls_without_cache
 
     assert commands[0][1].endswith("reality_idnes_fetch.py")
     assert "--result-url" in commands[0]
+    assert "--discover-results" in commands[0]
     assert "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-83488" in commands[0]
     assert "--detail-url" not in commands[0]
 

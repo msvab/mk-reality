@@ -13,6 +13,10 @@ from urllib.parse import urlsplit
 BASE_URL = "https://www.mmreality.cz"
 USER_AGENT = "Mozilla/5.0"
 INACTIVE_MARKER = "je nam lito, ale tato nemovitost jiz neni v nabidce m&m reality"
+DISCOVERY_RESULT_URLS = {
+    "house": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+    "land": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+}
 
 
 def slug_normalize(value: str) -> str:
@@ -48,6 +52,36 @@ def run_fetch(url: str) -> str:
         text=True,
     )
     return completed.stdout
+
+
+def append_fetch_attempt(
+    attempts: list[dict],
+    *,
+    url: str,
+    stage: str,
+    status: str,
+    error: str | None = None,
+) -> None:
+    row = {
+        "portal": "mmreality.cz",
+        "url": url,
+        "stage": stage,
+        "attempt": 1,
+        "status": status,
+    }
+    if error:
+        row["error"] = error
+    attempts.append(row)
+
+
+def fetch_with_attempt(url: str, attempts: list[dict], stage: str) -> str:
+    try:
+        html = run_fetch(url)
+    except subprocess.CalledProcessError as exc:
+        append_fetch_attempt(attempts, url=url, stage=stage, status="fetch_error", error=str(exc))
+        raise
+    append_fetch_attempt(attempts, url=url, stage=stage, status="ok")
+    return html
 
 
 def inactive_marker_present(html: str) -> bool:
@@ -233,6 +267,28 @@ def listing_from_detail(url: str, html: str, municipality: str) -> tuple[dict | 
     }, None
 
 
+def build_portal_status(fetch_attempts: list[dict], listings: list[dict]) -> dict:
+    failed_attempt = next((attempt for attempt in fetch_attempts if attempt.get("status") == "fetch_error"), None)
+    if failed_attempt:
+        output = {
+            "status": "fetch_error",
+            "stage": failed_attempt.get("stage"),
+            "message": failed_attempt.get("error", "M&M Reality fetch failed."),
+            "evidence": [f"{failed_attempt.get('stage')}:{failed_attempt.get('status')}:{failed_attempt.get('url')}"],
+        }
+    elif listings:
+        output = {
+            "status": "ok",
+            "message": "Retained at least one detail-verified M&M Reality row.",
+        }
+    else:
+        output = {
+            "status": "no_results",
+            "message": "No retained in-scope M&M Reality rows.",
+        }
+    return output
+
+
 def build_output(
     municipality: str,
     location_scope: str,
@@ -240,6 +296,7 @@ def build_output(
     include_land: bool,
     result_urls: list[str],
     detail_urls: list[str],
+    discover_results: bool = False,
 ) -> dict:
     assumptions = []
     coverage = {
@@ -251,11 +308,21 @@ def build_output(
         "blocked_portals": [],
     }
     gaps: list[str] = []
+    fetch_attempts: list[dict] = []
     listing_ids: set[str] = set()
+    effective_result_urls = list(result_urls)
+    if discover_results:
+        for property_type, url in DISCOVERY_RESULT_URLS.items():
+            if property_type == "house" and not include_houses:
+                continue
+            if property_type == "land" and not include_land:
+                continue
+            if url not in effective_result_urls:
+                effective_result_urls.append(url)
 
-    for url in result_urls:
+    for url in effective_result_urls:
         try:
-            html = run_fetch(url)
+            html = fetch_with_attempt(url, fetch_attempts, "search_fetch")
         except subprocess.CalledProcessError:
             gaps.append(f"failed-result-fetch:{url}")
             continue
@@ -266,7 +333,7 @@ def build_output(
             listing_id, reason = parse_result_offer(offer, municipality)
             if listing_id:
                 listing_ids.add(listing_id)
-            elif reason:
+            elif reason and not (discover_results and reason.startswith("outside-municipality-result:")):
                 gaps.append(reason)
 
     for url in detail_urls:
@@ -282,7 +349,7 @@ def build_output(
     for listing_id in sorted(listing_ids):
         detail_url = generic_detail_url(listing_id)
         try:
-            html = run_fetch(detail_url)
+            html = fetch_with_attempt(detail_url, fetch_attempts, "detail_fetch")
         except subprocess.CalledProcessError:
             gaps.append(f"failed-detail-fetch:{detail_url}")
             continue
@@ -313,6 +380,10 @@ def build_output(
         },
         "assumptions": assumptions,
         "coverage": coverage,
+        "portal_status": {
+            "mmreality.cz": build_portal_status(fetch_attempts, listings),
+        },
+        "fetch_attempts": fetch_attempts,
         "gaps": gaps,
         "listings": listings,
     }
@@ -326,6 +397,11 @@ def main() -> int:
     parser.add_argument("--include-land", action="store_true", default=True)
     parser.add_argument("--result-url", action="append", default=[])
     parser.add_argument("--detail-url", action="append", default=[])
+    parser.add_argument(
+        "--discover-results",
+        action="store_true",
+        help="Fetch default M&M Reality sale category pages and filter result offers by municipality.",
+    )
     parser.add_argument("--output")
     args = parser.parse_args()
 
@@ -336,6 +412,7 @@ def main() -> int:
         include_land=args.include_land,
         result_urls=args.result_url,
         detail_urls=args.detail_url,
+        discover_results=args.discover_results,
     )
 
     rendered = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"

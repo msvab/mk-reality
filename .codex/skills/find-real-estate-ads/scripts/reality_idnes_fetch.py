@@ -7,9 +7,14 @@ import subprocess
 import sys
 from html import unescape
 from pathlib import Path
-from urllib.parse import parse_qs, urlencode, urlsplit, urlunsplit
+from urllib.parse import parse_qs, quote_plus, urlencode, urlsplit, urlunsplit
 
 USER_AGENT = "Mozilla/5.0"
+AUTOCOMPLETE_LOCALITY_URL = (
+    "https://reality.idnes.cz/admin.api/autocomplete-locality"
+    "?fe=1&st={query}"
+    "&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE"
+)
 
 
 def slug_normalize(value: str) -> str:
@@ -134,11 +139,19 @@ def result_urls_from_locality_ids(locality_ids: list[str]) -> list[str]:
 
 def extract_locality_ids(html: str) -> list[str]:
     ids = []
-    for match in re.finditer(r"s-l=(CAST_OBCE-\d+)", unescape(html)):
+    for match in re.finditer(r"(?:s-l=|\"|'|\b)(CAST_OBCE-\d+)", unescape(html)):
         locality_id = match.group(1)
         if locality_id not in ids:
             ids.append(locality_id)
     return ids
+
+
+def autocomplete_locality_ids(municipality: str, *, attempts: list[dict] | None = None) -> list[str]:
+    url = AUTOCOMPLETE_LOCALITY_URL.format(query=quote_plus(municipality))
+    html = run_fetch(url, attempts=attempts, stage="locality_autocomplete_fetch")
+    if slug_normalize(municipality) not in slug_normalize(html):
+        return []
+    return extract_locality_ids(html)
 
 
 def extract_detail_urls(html: str) -> list[str]:
@@ -376,6 +389,13 @@ def build_output(
         if "/s/prodej/" in result_url and result_url not in normalized_result_urls:
             normalized_result_urls.append(canonicalize_result_url(result_url))
     if discover_results:
+        if not locality_ids and not normalized_result_urls:
+            try:
+                for locality_id in autocomplete_locality_ids(municipality, attempts=fetch_attempts):
+                    if locality_id not in locality_ids:
+                        locality_ids.append(locality_id)
+            except RuntimeError as exc:
+                gaps.append(f"idnes-locality-autocomplete-error:{exc}")
         for result_url in result_urls_from_locality_ids(locality_ids):
             if result_url not in normalized_result_urls:
                 normalized_result_urls.append(result_url)
