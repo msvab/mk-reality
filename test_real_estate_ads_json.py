@@ -1,4 +1,4 @@
-from build_real_estate_ads_json import build_output, detect_fetch_status
+from build_real_estate_ads_json import build_output, detect_fetch_status, parse_price_czk
 
 
 def base_payload(listings):
@@ -101,6 +101,17 @@ def test_numbered_same_price_same_area_plots_do_not_merge():
     output = build_output(payload)
 
     assert len(output["listings"]) == 2
+
+
+def test_price_parser_ignores_per_square_meter_unit_digits():
+    assert parse_price_czk("2 400 Kč (za m 2 )") == 2400
+    assert parse_price_czk("4 500 Kč / (za m 2 )") == 4500
+    assert parse_price_czk("1 Kč (za m 2 )") == 1
+
+
+def test_price_parser_keeps_total_and_million_prices():
+    assert parse_price_czk("1 650 000 Kč") == 1650000
+    assert parse_price_czk("2,4 mil. Kč") == 2400000
 
 
 def test_fetch_status_does_not_treat_listing_id_digits_as_http_429():

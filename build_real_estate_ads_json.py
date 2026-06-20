@@ -313,7 +313,9 @@ def parse_price_czk(value) -> int | None:
     million_match = re.search(r"(\d+(?:[.,]\d+)?)\s*mil", compact)
     if million_match:
         return int(round(float(million_match.group(1).replace(",", ".")) * 1_000_000))
-    digits = re.sub(r"[^\d]", "", compact)
+    currency_match = re.search(r"(\d[\d\s.,]*)\s*(?:kč|czk)\b", compact)
+    price_text = currency_match.group(1) if currency_match else compact
+    digits = re.sub(r"[^\d]", "", price_text)
     if not digits:
         return None
     return int(digits)
