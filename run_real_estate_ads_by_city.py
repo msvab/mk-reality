@@ -171,13 +171,17 @@ def cached_ads_for_prompt(previous_aggregate: dict | None, city: str) -> list[di
         return []
     ads = bundle.get("ads", [])
     if not isinstance(ads, list):
-        return []
+        ads = []
+    hidden_ads = bundle.get("hidden_ads", [])
+    if not isinstance(hidden_ads, list):
+        hidden_ads = []
     out = []
-    for ad in ads:
+    for status, ad in [*[("active", ad) for ad in ads], *[("hidden", ad) for ad in hidden_ads]]:
         if not isinstance(ad, dict):
             continue
         out.append(
             {
+                "status": ad.get("status") or status,
                 "title": ad.get("title"),
                 "location": ad.get("location"),
                 "property_type": ad.get("property_type"),
@@ -432,11 +436,11 @@ def build_prompt(city: str, cached_ads: list[dict] | None = None) -> str:
     cache_block = ""
     if cached_ads:
         cache_block = f"""
-Known active ads from the previous local aggregate are provided below. Treat them as a cache, not as proof that the ad is still active.
+Known ads from the previous local aggregate are provided below. Treat them as a cache, not as proof that the ad is still active. Rows with `status: hidden` were previously seen but missing from the latest successful refresh.
 
 Use this cache to avoid unnecessary detail lookups for ads whose current search result still exposes the same URL/title/location/price/areas. Still run current municipality-level searches so new ads can be discovered and missing cached ads can be omitted from the latest `listings` array.
 
-Previous active ads:
+Previous ads:
 {json.dumps(cached_ads, ensure_ascii=False, indent=2)}
 """
 

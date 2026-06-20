@@ -2,6 +2,8 @@ import json
 import subprocess
 
 from run_real_estate_ads_by_city import (
+    build_prompt,
+    cached_ads_for_prompt,
     cached_detail_urls_by_portal,
     cached_mmreality_result_page_urls,
     cached_reality_aktualne_result_page_urls,
@@ -207,6 +209,82 @@ def test_cached_detail_urls_include_hidden_historical_ads():
     assert urls["realitymix.cz"] == ["https://realitymix.cz/detail/trebechovice-pod-orebem/old-mix.html"]
     assert urls["reality.idnes.cz"] == ["https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/old-idnes/"]
     assert urls["mmreality.cz"] == ["https://www.mmreality.cz/nemovitosti/123456/"]
+
+
+def test_cached_ads_for_prompt_include_hidden_historical_ads():
+    previous_aggregate = {
+        "cities": {
+            "Třebechovice pod Orebem": {
+                "ads": [
+                    {
+                        "title": "Current house",
+                        "location": "Nepasice",
+                        "property_type": "house",
+                        "price": "9 500 000 Kč",
+                        "house_area_m2": "150",
+                        "land_area_m2": "2700",
+                        "urls": ["https://reality.aktualne.cz/detail/current.html"],
+                    }
+                ],
+                "hidden_ads": [
+                    {
+                        "title": "Old iDNES house",
+                        "location": "Třebechovice pod Orebem",
+                        "property_type": "house",
+                        "price": "8 900 000 Kč",
+                        "house_area_m2": "180",
+                        "land_area_m2": "1250",
+                        "urls": ["https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/old-idnes/"],
+                    }
+                ],
+            }
+        }
+    }
+
+    cached_ads = cached_ads_for_prompt(previous_aggregate, "Třebechovice pod Orebem")
+
+    assert [ad["status"] for ad in cached_ads] == ["active", "hidden"]
+    assert cached_ads[1]["title"] == "Old iDNES house"
+    assert cached_ads[1]["urls"] == ["https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/old-idnes/"]
+
+
+def test_cached_ads_for_prompt_handles_hidden_only_city():
+    previous_aggregate = {
+        "cities": {
+            "Třebechovice pod Orebem": {
+                "hidden_ads": [
+                    {
+                        "title": "Old MM listing",
+                        "urls": ["https://www.mmreality.cz/nemovitosti/123456/"],
+                    }
+                ],
+            }
+        }
+    }
+
+    cached_ads = cached_ads_for_prompt(previous_aggregate, "Třebechovice pod Orebem")
+
+    assert cached_ads == [
+        {
+            "status": "hidden",
+            "title": "Old MM listing",
+            "location": None,
+            "property_type": None,
+            "price": None,
+            "house_area_m2": None,
+            "land_area_m2": None,
+            "urls": ["https://www.mmreality.cz/nemovitosti/123456/"],
+        }
+    ]
+
+
+def test_build_prompt_labels_cached_hidden_ads_as_historical():
+    prompt = build_prompt("Třebechovice pod Orebem", cached_ads=[{"status": "hidden", "title": "Old listing"}])
+
+    assert "Known ads from the previous local aggregate" in prompt
+    assert "status: hidden" in prompt
+    assert "Previous ads:" in prompt
+    assert "Previous active ads:" not in prompt
 
 
 def test_cached_realitymix_result_page_urls_are_grouped_by_category():
