@@ -19,10 +19,11 @@ from pathlib import Path
 DOBRUSKA = (50.2921062, 16.1605457)  # lat, lon
 RADIUS_M = 55000
 MAX_DRIVE_SEC = 3900
-CACHE_PATH = Path("school_url_cache.json")
-TYPE_CACHE_PATH = Path("school_type_cache.json")
-REGISTRY_CACHE_PATH = Path("school_registry_cache.json")
-MALOTRIDKY_CACHE_PATH = Path("mapotic_malotridky_cache.json")
+DATA_CACHE_DIR = Path("data/cache")
+CACHE_PATH = DATA_CACHE_DIR / "school_url_cache.json"
+TYPE_CACHE_PATH = DATA_CACHE_DIR / "school_type_cache.json"
+REGISTRY_CACHE_PATH = DATA_CACHE_DIR / "school_registry_cache.json"
+MALOTRIDKY_CACHE_PATH = DATA_CACHE_DIR / "mapotic_malotridky_cache.json"
 REAL_ESTATE_ADS_BY_CITY_PATH = Path("real_estate_ads_by_city.json")
 OVERPASS_CACHE_DIR = Path("data/overpass")
 MANUAL_CITY_SCHOOL_URLS = {

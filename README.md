@@ -30,10 +30,10 @@ Important inputs:
 - `data/overpass/municipalities.json`
 - `data/overpass/schools.json`
 - `data/overpass/amenities.json`
-- `school_url_cache.json`
-- `school_type_cache.json`
-- `school_registry_cache.json`
-- `mapotic_malotridky_cache.json`
+- `data/cache/school_url_cache.json`
+- `data/cache/school_type_cache.json`
+- `data/cache/school_registry_cache.json`
+- `data/cache/mapotic_malotridky_cache.json`
 - optionally `real_estate_ads_by_city.json`
 
 Important outputs:
