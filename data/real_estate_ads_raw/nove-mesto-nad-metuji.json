@@ -28,17 +28,36 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Nové Město nad Metují."
   ],
   "coverage": {
-    "workers_launched": 2,
-    "workers_with_results": 2,
-    "candidates_gathered": 14,
-    "rows_retained": 2,
-    "zero_result_portals": [],
+    "workers_launched": 4,
+    "workers_with_results": 3,
+    "candidates_gathered": 26,
+    "rows_retained": 7,
+    "zero_result_portals": [
+      "mmreality.cz"
+    ],
     "blocked_portals": []
   },
   "portal_status": {
-    "realitymix.cz": {
+    "reality.idnes.cz": {
       "status": "ok",
-      "message": "Retained at least one detail-verified RealityMix row."
+      "message": "Retained at least one detail-verified iDNES row."
+    },
+    "mmreality.cz": {
+      "status": "fallback_page",
+      "stage": "search_fetch",
+      "message": "HTTP 403",
+      "evidence": [
+        "search_fetch:fallback_page:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/"
+      ],
+      "http_status": 403
+    },
+    "realitymix.cz": {
+      "status": "fallback_page",
+      "stage": "detail_parse",
+      "message": "Požadovaný inzerát již není v naší databázi",
+      "evidence": [
+        "detail_parse:fallback_page:https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-stavebniho-pozemku-3-112-m2-8430099.html"
+      ]
     },
     "reality.aktualne.cz": {
       "status": "ok",
@@ -47,12 +66,166 @@
   },
   "fetch_attempts": [
     {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-rezek/69991032788d156d9209e3bf/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/69aedd09645e9176190b54b8/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/68eb7613f4e8379a6207acaa/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-410420",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-410420",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-106488",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-106488",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-v-aleji/6a12018aaa94769731030968/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-pod-hradbami/6a1edc84e71266651e025a47/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-ceskych-legii/69bc04ee84f64412bc0f66e5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-celakovskeho/69962b960ab7e7dff1086cf2/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-zborovska/68b47086e902ce84e8040200/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/69c7a91890681dcfc0032410/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/69f1c8aaf37e6ea21a0e4aec/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "fallback_page",
+      "http_status": 403,
+      "error": "HTTP 403"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "fallback_page",
+      "http_status": 403,
+      "error": "HTTP 403"
+    },
+    {
       "portal": "realitymix.cz",
       "url": "https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-pozemku-k-bydleni-v-novem-meste-nad-metuji-8578121.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-stavebniho-pozemku-3-112-m2-8430099.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-stavebniho-pozemku-3-112-m2-8430099.html",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Požadovaný inzerát již není v naší databázi"
     },
     {
       "portal": "realitymix.cz",
@@ -192,6 +365,16 @@
     }
   ],
   "gaps": [
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-106488",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-v-aleji/6a12018aaa94769731030968/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-ceskych-legii/69bc04ee84f64412bc0f66e5/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-celakovskeho/69962b960ab7e7dff1086cf2/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-zborovska/68b47086e902ce84e8040200/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/69c7a91890681dcfc0032410/",
+    "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+    "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+    "removed-fallback-page:https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-stavebniho-pozemku-3-112-m2-8430099.html",
     "land-below-threshold:https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-rodinneho-domu-140-m-nove-mesto-nad-metuji-8537981.html",
     "land-below-threshold:https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-rodinneho-domu-635-m-nove-mesto-nmet-ul-1-maje-8540683.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-pozemky.html",
@@ -206,6 +389,94 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/pronajem-bytu-2-kk-ulice-druzebni-nove-mesto-nad-metuji-8577347.html"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Ubytovací areál Rezek - Nové Město nad Metují",
+      "location": "Nové Město nad Metují, okres Náchod",
+      "property_type": "house",
+      "price": "12 750 000 Kč",
+      "house_area_m2": "1720",
+      "land_area_m2": "9376",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-rezek/69991032788d156d9209e3bf/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Pozemek u Nového Města nad Metují s panoramatickým výhledem",
+      "location": "Nové Město nad Metují, okres Náchod",
+      "property_type": "land",
+      "price": "3 250 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "3276",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/69aedd09645e9176190b54b8/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1 128 m2, Nové Město nad Metují",
+      "location": "Nové Město nad Metují, okres Náchod",
+      "property_type": "land",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1128",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/68eb7613f4e8379a6207acaa/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej projektu rodinného domu 220 m2, Nové Město nad Metují",
+      "location": "Nové Město nad Metují, okres Náchod",
+      "property_type": "house",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "220",
+      "land_area_m2": "1128",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-pod-hradbami/6a1edc84e71266651e025a47/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemku k bydlení v Novém Městě nad Metují",
+      "location": "Nové Město nad Metují, okres Náchod",
+      "property_type": "land",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1956",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/69f1c8aaf37e6ea21a0e4aec/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
     {
       "portal": [
         "realitymix.cz"

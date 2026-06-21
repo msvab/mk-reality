@@ -29,28 +29,39 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
-    "candidates_gathered": 18,
-    "rows_retained": 1,
+    "workers_with_results": 3,
+    "candidates_gathered": 35,
+    "rows_retained": 4,
     "zero_result_portals": [
-      "reality.idnes.cz",
-      "mmreality.cz",
-      "realitymix.cz"
+      "mmreality.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
+      "status": "fallback_page",
+      "stage": "detail_parse",
+      "message": "Detail URL returned fallback or non-detail content.",
+      "evidence": [
+        "detail_parse:fallback_page:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-havlickova/69ea0c387faac1f065000996/"
+      ]
     },
     "mmreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope M&M Reality rows."
+      "status": "fallback_page",
+      "stage": "search_fetch",
+      "message": "HTTP 403",
+      "evidence": [
+        "search_fetch:fallback_page:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/"
+      ],
+      "http_status": 403
     },
     "realitymix.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope RealityMix rows."
+      "status": "fallback_page",
+      "stage": "detail_parse",
+      "message": "Požadovaný inzerát již není v naší databázi",
+      "evidence": [
+        "detail_parse:fallback_page:https://realitymix.cz/detail/trebechovice-pod-orebem/prodej-rodinneho-domu-487-m-trebechovice-pod-orebem-8542373.html"
+      ]
     },
     "reality.aktualne.cz": {
       "status": "ok",
@@ -60,8 +71,176 @@
   "fetch_attempts": [
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=T%C5%99ebechovice+pod+Orebem&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-havlickova/69ea0c387faac1f065000996/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-havlickova/69ea0c387faac1f065000996/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/6996e1a87270f3f442021823/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/69dcd8a3475b6022fe0b2e8e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/69ce1340801b8004c90c5db5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-169455",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-169455",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-169439",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-169439",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-169412",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-169412",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/lovcice/644a753991067e2ae60a4009/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-havlickova/6a298c08a9556ec61b0c7b57/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-olbrachtova/69dcfd63a7dd81c56e0d2707/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/6a1013b8e7ba32f232087559/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-ambrozova/68e502f98b6628a6790daa45/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trebechovice-pod-orebem-nerudova/6a32561efd2d359c5f0cc020/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trebechovice-pod-orebem-olbrachtova/69417c48e80baa00fe006b9c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trebechovice-pod-orebem-druzstevni-prace/69de0088a525a196d400ca87/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trebechovice-pod-orebem/683eb2aee3ade64e0d0196b1/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trebechovice-pod-orebem/68f6286fd75fda7a9a095eb2/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trebechovice-pod-orebem/68f62802b36bf4002e09b5e8/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -71,14 +250,42 @@
       "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
       "stage": "search_fetch",
       "attempt": 1,
-      "status": "ok"
+      "status": "fallback_page",
+      "http_status": 403,
+      "error": "HTTP 403"
     },
     {
       "portal": "mmreality.cz",
       "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
       "stage": "search_fetch",
       "attempt": 1,
-      "status": "ok"
+      "status": "fallback_page",
+      "http_status": 403,
+      "error": "HTTP 403"
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trebechovice-pod-orebem/prodej-rodinneho-domu-487-m-trebechovice-pod-orebem-8542373.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trebechovice-pod-orebem/prodej-rodinneho-domu-487-m-trebechovice-pod-orebem-8542373.html",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Požadovaný inzerát již není v naší databázi"
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trebechovice-pod-orebem/prodej-rd-ve-stylu-venkovskeho-statku-pro-velkou-rodinu-po-rekonstrukci-427-m2-pozemek-3-101-m2-vnit-8257719.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "realitymix.cz",
@@ -290,7 +497,23 @@
     }
   ],
   "gaps": [
-    "idnes-discovery-missing-locality-id",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-havlickova/69ea0c387faac1f065000996/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/6996e1a87270f3f442021823/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/69dcd8a3475b6022fe0b2e8e/",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-169439",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/lovcice/644a753991067e2ae60a4009/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-olbrachtova/69dcfd63a7dd81c56e0d2707/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/6a1013b8e7ba32f232087559/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-ambrozova/68e502f98b6628a6790daa45/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/trebechovice-pod-orebem-nerudova/6a32561efd2d359c5f0cc020/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/trebechovice-pod-orebem-olbrachtova/69417c48e80baa00fe006b9c/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/trebechovice-pod-orebem-druzstevni-prace/69de0088a525a196d400ca87/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/trebechovice-pod-orebem/683eb2aee3ade64e0d0196b1/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/trebechovice-pod-orebem/68f6286fd75fda7a9a095eb2/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/trebechovice-pod-orebem/68f62802b36bf4002e09b5e8/",
+    "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+    "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+    "removed-fallback-page:https://realitymix.cz/detail/trebechovice-pod-orebem/prodej-rodinneho-domu-487-m-trebechovice-pod-orebem-8542373.html",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",
@@ -314,6 +537,58 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/zemedelska-puda-prodej-nepasice-trebechovice-pod-orebem-hradec-kralove-8626185.html"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu 487 m2, Třebechovice pod Orebem",
+      "location": "Třebechovice pod Orebem, okres Hradec Králové",
+      "property_type": "house",
+      "price": "14 895 000 Kč",
+      "house_area_m2": "436",
+      "land_area_m2": "2452",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-havlickova/6a298c08a9556ec61b0c7b57/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu 206 m2, OV,1132 m2, Krňovice- Třebechovice pod Orebem",
+      "location": "Třebechovice pod Orebem, okres Hradec Králové",
+      "property_type": "house",
+      "price": "6 490 000 Kč",
+      "house_area_m2": "206",
+      "land_area_m2": "1132",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/69ce1340801b8004c90c5db5/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej RD ve stylu venkovského statku pro velkou rodinu,po rekonstrukci,427 m²,pozemek 3 101 m²,vnit",
+      "location": "Polánky nad Dědinou, Třebechovice pod Orebem, okr. Hradec Králové",
+      "property_type": "house",
+      "price": "11 990 000 Kč",
+      "house_area_m2": "427",
+      "land_area_m2": "3101",
+      "urls": [
+        "https://realitymix.cz/detail/trebechovice-pod-orebem/prodej-rd-ve-stylu-venkovskeho-statku-pro-velkou-rodinu-po-rekonstrukci-427-m-pozemek-3-101-m-vnit-8257719.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz",
+        "municipal-part:Polánky nad Dědinou"
+      ]
+    },
     {
       "portal": [
         "reality.aktualne.cz"

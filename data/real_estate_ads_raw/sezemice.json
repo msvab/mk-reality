@@ -28,16 +28,31 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Sezemice."
   ],
   "coverage": {
-    "workers_launched": 2,
+    "workers_launched": 4,
     "workers_with_results": 1,
     "candidates_gathered": 19,
     "rows_retained": 2,
     "zero_result_portals": [
+      "reality.idnes.cz",
+      "mmreality.cz",
       "realitymix.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
+    "reality.idnes.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope iDNES rows."
+    },
+    "mmreality.cz": {
+      "status": "fallback_page",
+      "stage": "search_fetch",
+      "message": "HTTP 403",
+      "evidence": [
+        "search_fetch:fallback_page:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/"
+      ],
+      "http_status": 403
+    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -48,6 +63,32 @@
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Sezemice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "fallback_page",
+      "http_status": 403,
+      "error": "HTTP 403"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "fallback_page",
+      "http_status": 403,
+      "error": "HTTP 403"
+    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -250,24 +291,27 @@
     }
   ],
   "gaps": [
+    "idnes-discovery-missing-locality-id",
+    "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+    "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3606-pardubice/pardubicky/prodej-pozemky.html",
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/bungalov-4kk-v-en-tride-a-za-bezkonkurencni-cenu-3-minuty-od-pardubic-8292189.html",
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/byt-5-1-a-stavebni-pozemek-ve-vesce-u-sezemic-8623485.html",
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/byt-5-1-se-zahradou-a-balkonem-za-cenu-garsonky-v-pardubicich-ano-i-takove-nabidky-jeste-existuji-8611993.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/sezemice/bytovy-dum-v-centru-mesta-s-potencialem-pudniho-prostoru-8419491.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/sezemice/bytovy-dum-v-centru-mesta-s-potencialem-pudniho-prostoru-8419491.html",
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/dum-5kk-v-en-tride-a-za-bezkonkurencni-cenu-3-minuty-od-pardubic-8290007.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/sezemice/dum-v-centru-mesta-pro-soukrome-i-komercni-ucely-8419621.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/sezemice/dum-v-centru-mesta-pro-soukrome-i-komercni-ucely-8419621.html",
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/moderni-bungalov-v-en-tride-3-minuty-od-pardubic-8366813.html",
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/moderni-prostorny-bungalov-v-en-tride-a-3-minuty-od-pardubic-8366801.html",
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/novostavba-v-en-tride-a-za-bezkonkurencni-cenu-8365815.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/sezemice/prodej-domu-na-klic-silvermoon-8510117.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/sezemice/prodej-domu-na-klic-silvermoon-8510117.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/sezemice/prodej-rodinneho-domu-121-m-sezemice-8546415.html",
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/prodej-rodinneho-domu-4-kk-121-m-se-zahradou-197m-sezemice-u-pardubic-8078255.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/sezemice/pronajem-zahrady-sezemice-8574009.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-7820454.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-7820461.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-7820454.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-7820461.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-8014042.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-8014266.html"
   ],
