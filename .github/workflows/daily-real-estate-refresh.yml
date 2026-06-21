@@ -47,3 +47,11 @@ jobs:
           --local-only
           --push
           --commit-message "Refresh real estate ads"
+
+      - name: Upload refresh summary
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: real-estate-refresh-summary
+          path: real_estate_refresh_summary.md
+          if-no-files-found: ignore

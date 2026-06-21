@@ -178,9 +178,11 @@ rtk .venv/bin/python refresh_real_estate_ads.py
 
 This runs the daily local-first refresh, rebuilds `index.html`, validates the aggregate and embedded drawer payload,
 fails if stale raw files no longer match a municipality, prints refreshed per-city summaries and the portal-warning summary,
-runs pytest, Ruff, the Playwright drawer smoke test, and `git diff --check`.
+runs pytest, Ruff, the Playwright drawer smoke test, writes `real_estate_refresh_summary.md`, and runs `git diff --check`.
 Use `--limit N` for a smaller batch. Use `--push --commit-message "Refresh real estate ads"` after validation when
 you want the script to commit generated refresh artifacts and push them.
+Use `--summary-output PATH` to write the compact Markdown summary somewhere else. The scheduled GitHub Actions workflow
+uploads this summary as the `real-estate-refresh-summary` artifact.
 
 The daily refresh still runs current municipality-level searches so it can detect new and removed ads. It reuses the previous aggregate as a prompt cache, so known active ads do not need full detail re-discovery when the current search result still exposes the same URL/title/location/price/areas. Ads that were present previously but are missing from the latest city snapshot move from `ads` into `hidden_ads`; only active `ads` are counted and rendered.
 

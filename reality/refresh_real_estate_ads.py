@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parent.parent
 AGGREGATE_PATH = ROOT / "real_estate_ads_by_city.json"
 STATE_PATH = ROOT / "real_estate_ads_run_state.json"
 HTML_PATH = ROOT / "index.html"
+DEFAULT_SUMMARY_PATH = ROOT / "real_estate_refresh_summary.md"
 
 
 def run_command(args: list[str], *, check: bool = True) -> subprocess.CompletedProcess:
@@ -96,6 +97,13 @@ def print_city_summaries(previous_aggregate: dict | None, current_aggregate: dic
             f"new={summary['new']} "
             f"price_changed={summary['price_changed']}"
         )
+
+
+def city_summaries(previous_aggregate: dict | None, current_aggregate: dict, cities: list[str]) -> list[dict]:
+    return [
+        {"city": city, **city_refresh_summary(current_aggregate, previous_aggregate, city)}
+        for city in cities
+    ]
 
 
 def validate_state() -> None:
@@ -195,6 +203,135 @@ def summarize_warnings(max_warnings: int) -> None:
         print(f"  ... {len(candidate_exclusions) - max_warnings} more")
 
 
+def aggregate_totals(aggregate: dict) -> dict:
+    cities = aggregate.get("cities", {})
+    if not isinstance(cities, dict):
+        cities = {}
+    return {
+        "cities": len(cities),
+        "active": sum(len(bundle.get("ads", [])) for bundle in cities.values() if isinstance(bundle, dict)),
+        "hidden": sum(len(bundle.get("hidden_ads", [])) for bundle in cities.values() if isinstance(bundle, dict)),
+        "cities_with_ads": sum(1 for bundle in cities.values() if isinstance(bundle, dict) and bundle.get("ads")),
+    }
+
+
+def count_by_key(rows: list[dict], key: str) -> dict[str, int]:
+    return dict(sorted(Counter(str(row.get(key) or "unknown") for row in rows).items()))
+
+
+def format_counts(counts: dict[str, int]) -> str:
+    if not counts:
+        return "none"
+    return ", ".join(f"{key}={value}" for key, value in counts.items())
+
+
+def build_refresh_summary(
+    previous_aggregate: dict | None,
+    current_aggregate: dict,
+    previous_state: dict | None,
+    current_state: dict,
+    *,
+    did_refresh: bool,
+) -> dict:
+    refreshed_cities = refreshed_city_names(previous_state, current_state) if did_refresh else []
+    warnings = list(iter_warnings(current_aggregate))
+    candidate_exclusions = list(iter_candidate_exclusions(current_aggregate))
+    failed_cities = current_state.get("failed_cities", {})
+    if not isinstance(failed_cities, dict):
+        failed_cities = {}
+    unmatched_raw_files = current_aggregate.get("unmatched_raw_files", [])
+    if not isinstance(unmatched_raw_files, list):
+        unmatched_raw_files = []
+
+    return {
+        "generated_at": current_aggregate.get("generated_at"),
+        "did_refresh": did_refresh,
+        "totals": aggregate_totals(current_aggregate),
+        "coverage": current_aggregate.get("coverage", {}),
+        "refreshed_cities": city_summaries(previous_aggregate, current_aggregate, refreshed_cities),
+        "failed_cities": failed_cities,
+        "unmatched_raw_files": unmatched_raw_files,
+        "portal_warnings": {
+            "count": len(warnings),
+            "by_status": count_by_key(warnings, "status"),
+            "by_portal": count_by_key(warnings, "portal"),
+        },
+        "candidate_exclusions": {
+            "count": len(candidate_exclusions),
+            "by_status": count_by_key(candidate_exclusions, "status"),
+            "by_portal": count_by_key(candidate_exclusions, "portal"),
+        },
+    }
+
+
+def render_refresh_summary(summary: dict) -> str:
+    totals = summary["totals"]
+    coverage = summary.get("coverage", {})
+    lines = [
+        "# Real Estate Refresh Summary",
+        "",
+        f"- Generated at: {summary.get('generated_at') or 'unknown'}",
+        f"- Refresh executed: {'yes' if summary.get('did_refresh') else 'no'}",
+        f"- Cities: {totals['cities']}",
+        f"- Active ads: {totals['active']}",
+        f"- Hidden ads: {totals['hidden']}",
+        f"- Cities with ads: {totals['cities_with_ads']}",
+        f"- Raw files: {coverage.get('raw_files_found', 'unknown')}",
+        f"- Failed cities: {len(summary.get('failed_cities', {}))}",
+        f"- Unmatched raw files: {len(summary.get('unmatched_raw_files', []))}",
+        f"- Portal warnings: {summary['portal_warnings']['count']}",
+        f"- Candidate exclusions: {summary['candidate_exclusions']['count']}",
+        "",
+    ]
+
+    refreshed = summary.get("refreshed_cities", [])
+    lines.append("## Refreshed Cities")
+    if refreshed:
+        lines.append("")
+        lines.append("| City | Active | Hidden | New | Price changes |")
+        lines.append("| --- | ---: | ---: | ---: | ---: |")
+        for row in refreshed:
+            lines.append(
+                f"| {row['city']} | "
+                f"{row['active']} ({format_delta(row['active_delta'])}) | "
+                f"{row['hidden']} ({format_delta(row['hidden_delta'])}) | "
+                f"{row['new']} | "
+                f"{row['price_changed']} |"
+            )
+    else:
+        lines.append("")
+        lines.append("No cities were refreshed in this run.")
+
+    lines.append("")
+    lines.append("## Portal Warnings")
+    if summary["portal_warnings"]["count"]:
+        lines.append("")
+        lines.append(f"- By status: {format_counts(summary['portal_warnings']['by_status'])}")
+        lines.append(f"- By portal: {format_counts(summary['portal_warnings']['by_portal'])}")
+    else:
+        lines.append("")
+        lines.append("None.")
+
+    lines.append("")
+    lines.append("## Candidate Exclusions")
+    if summary["candidate_exclusions"]["count"]:
+        lines.append("")
+        lines.append(f"- By status: {format_counts(summary['candidate_exclusions']['by_status'])}")
+        lines.append(f"- By portal: {format_counts(summary['candidate_exclusions']['by_portal'])}")
+    else:
+        lines.append("")
+        lines.append("None.")
+
+    lines.append("")
+    return "\n".join(lines)
+
+
+def write_refresh_summary(path: Path, summary: dict) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(render_refresh_summary(summary), encoding="utf-8")
+    print(f"summary: wrote {path}")
+
+
 def git_has_changes() -> bool:
     return bool(capture_command(["git", "status", "--porcelain"]).strip())
 
@@ -233,6 +370,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--push", action="store_true", help="Commit and push generated refresh artifacts after validation.")
     parser.add_argument("--commit-message", default="Refresh real estate ads", help="Commit message for --commit/--push.")
     parser.add_argument("--max-warnings", type=int, default=20, help="Maximum portal warnings to print.")
+    parser.add_argument("--summary-output", default=str(DEFAULT_SUMMARY_PATH), help="Path to write the compact refresh summary Markdown artifact.")
     return parser.parse_args()
 
 
@@ -267,6 +405,14 @@ def main() -> None:
     validate_state()
     validate_embedded_counts()
     summarize_warnings(args.max_warnings)
+    summary = build_refresh_summary(
+        previous_aggregate,
+        current_aggregate,
+        previous_state,
+        current_state,
+        did_refresh=did_refresh,
+    )
+    write_refresh_summary(Path(args.summary_output), summary)
 
     if not args.skip_tests:
         run_command([python, "-m", "pytest", "-q"])
