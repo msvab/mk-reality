@@ -48,6 +48,9 @@ jobs:
           --push
           --commit-message "Refresh real estate ads"
 
+      - name: Validate real estate data
+        run: python validate_real_estate_data.py --summary-output real_estate_refresh_summary.md
+
       - name: Upload refresh summary
         if: always()
         uses: actions/upload-artifact@v4

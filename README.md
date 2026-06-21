@@ -192,6 +192,26 @@ Use `--local-first` to reduce Codex usage where deterministic portal helpers can
 
 Use `--local-only` for cost-controlled test runs where Codex must not be invoked. It uses the same local helper path as `--local-first`, but cities that local helpers cannot refresh are recorded as failures instead of falling back.
 
+### [validate_real_estate_data.py](/Users/michal-mbp/dev/reality/validate_real_estate_data.py)
+
+Lightweight data-health validator for checked-in real-estate artifacts.
+
+What it checks:
+
+- aggregate shape and totals
+- raw file count and unmatched raw-file metadata
+- failed cities in `real_estate_ads_run_state.json`
+- embedded ad counts in `index.html`
+- portal-warning and candidate-exclusion counts
+
+Typical usage:
+
+```bash
+rtk .venv/bin/python validate_real_estate_data.py
+```
+
+Use `--json` for machine-readable output and `--summary-output PATH` to write the same compact Markdown summary format used by the refresh workflow.
+
 ### [summarize_real_estate_fetch_errors.py](/Users/michal-mbp/dev/reality/summarize_real_estate_fetch_errors.py)
 
 Portal health and candidate-exclusion reporter for the ads aggregate.
