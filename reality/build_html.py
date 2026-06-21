@@ -170,6 +170,9 @@ def city_ads_bundle(feed: dict | None, city: str) -> dict:
     ads = bundle.get("ads", [])
     if not isinstance(ads, list):
         ads = []
+    hidden_ads = bundle.get("hidden_ads", [])
+    if not isinstance(hidden_ads, list):
+        hidden_ads = []
     coverage = bundle.get("coverage", {})
     if not isinstance(coverage, dict):
         coverage = {}
@@ -188,6 +191,7 @@ def city_ads_bundle(feed: dict | None, city: str) -> dict:
     return {
         "count": count,
         "ads": ads,
+        "hidden_ads": hidden_ads,
         "coverage": coverage,
         "portal_status": portal_status,
         "assumptions": assumptions,
@@ -268,7 +272,12 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
           const providerCoverage = document.getElementById("ads-provider-coverage");
           const body = document.getElementById("ads-drawer-body");
           const sortSelect = document.getElementById("ads-drawer-sort");
+          const changesPanel = document.getElementById("ads-changes");
+          const changesSummary = document.getElementById("ads-changes-summary");
+          const changesBody = document.getElementById("ads-changes-body");
+          const changeTabs = Array.from(document.querySelectorAll(".ads-changes-tab"));
           let currentBundle = null;
+          let currentChangeFilter = "new";
 
           const escapeHtml = (value) => String(value ?? "—")
             .replace(/&/g, "&amp;")
@@ -313,6 +322,30 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
             const generatedDate = datePart(bundle?.generated_at);
             return generatedDate && datePart(ad.first_seen_at) === generatedDate;
           }};
+          const isHiddenListing = (ad, bundle) => {{
+            const generatedDate = datePart(bundle?.generated_at);
+            return generatedDate && datePart(ad.hidden_at) === generatedDate;
+          }};
+          const latestPriceHistory = (ad) => {{
+            const history = Array.isArray(ad.price_history) ? ad.price_history : [];
+            if (history.length < 2) return null;
+            const previous = history[history.length - 2];
+            const current = history[history.length - 1];
+            if (numericValue(previous?.price_czk) === numericValue(current?.price_czk)) return null;
+            return {{ previous, current }};
+          }};
+          const formatCzk = (value) => {{
+            const number = numericValue(value);
+            if (number === null) return "—";
+            return `${{number.toLocaleString("cs-CZ")}} Kč`;
+          }};
+          const formatPriceChange = (priceChange) => {{
+            if (!priceChange) return null;
+            const previousText = displayValue(priceChange.previous?.price);
+            const currentText = displayValue(priceChange.current?.price);
+            if (previousText !== currentText) return `${{previousText}} → ${{currentText}}`;
+            return `${{formatCzk(priceChange.previous?.price_czk)}} → ${{formatCzk(priceChange.current?.price_czk)}}`;
+          }};
 
           const renderBadges = (ad, bundle) => {{
             const badges = [];
@@ -323,6 +356,76 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
               badges.push('<span class="ad-badge ad-badge-price">Změna ceny</span>');
             }}
             return badges.length ? `<div class="ad-badges">${{badges.join("")}}</div>` : "";
+          }};
+
+          const changeRows = () => {{
+            const rows = {{ new: [], price: [], hidden: [] }};
+            for (const [city, bundle] of Object.entries(adsByCity)) {{
+              for (const ad of (bundle.ads || [])) {{
+                if (isNewListing(ad, bundle)) rows.new.push({{ city, ad, bundle }});
+                if (hasPriceChanged(ad)) rows.price.push({{ city, ad, bundle, priceChange: latestPriceHistory(ad) }});
+              }}
+              for (const ad of (bundle.hidden_ads || [])) {{
+                if (isHiddenListing(ad, bundle)) rows.hidden.push({{ city, ad, bundle }});
+              }}
+            }}
+            rows.new.sort((a, b) => String(b.ad.first_seen_at || "").localeCompare(String(a.ad.first_seen_at || "")));
+            rows.price.sort((a, b) => String(b.priceChange?.current?.seen_at || "").localeCompare(String(a.priceChange?.current?.seen_at || "")));
+            rows.hidden.sort((a, b) => String(b.ad.hidden_at || "").localeCompare(String(a.ad.hidden_at || "")));
+            return rows;
+          }};
+
+          const renderChangeRows = (rows, filter) => {{
+            if (!changesBody) return;
+            const labels = {{ new: "nových", price: "se změnou ceny", hidden: "skrytých" }};
+            changesSummary.textContent = `${{rows[filter].length}} ${{labels[filter]}} inzerátů.`;
+            if (rows[filter].length === 0) {{
+              changesBody.innerHTML = '<p class="ads-changes-empty">Žádné změny v této kategorii.</p>';
+              return;
+            }}
+            changesBody.innerHTML = `
+              <ul class="ads-changes-list">
+                ${{rows[filter].slice(0, 20).map((item) => {{
+                  const priceChange = item.priceChange;
+                  const priceText = formatPriceChange(priceChange) || displayValue(item.ad.price);
+                  const timestamp = filter === "hidden" ? item.ad.hidden_at : (priceChange?.current?.seen_at || item.ad.first_seen_at || item.bundle.generated_at);
+                  return `
+                    <li class="ads-changes-item">
+                      <div>
+                        <button type="button" class="ads-changes-city ads-link-button" data-change-city="${{escapeHtml(item.city)}}">${{escapeHtml(item.city)}}</button>
+                        <div class="ads-changes-name">${{escapeHtml(displayValue(item.ad.title))}}</div>
+                        <div class="ads-changes-meta">${{escapeHtml(formatTimestamp(timestamp))}} · ${{escapeHtml(displayValue(item.ad.location))}}</div>
+                      </div>
+                      <div class="ads-changes-price">${{escapeHtml(priceText)}}</div>
+                    </li>
+                  `;
+                }}).join("")}}
+              </ul>
+            `;
+          }};
+
+          const renderChangesPanel = () => {{
+            if (!changesPanel || !changesBody) return;
+            const rows = changeRows();
+            const total = rows.new.length + rows.price.length + rows.hidden.length;
+            document.getElementById("ads-changes-count-new").textContent = rows.new.length;
+            document.getElementById("ads-changes-count-price").textContent = rows.price.length;
+            document.getElementById("ads-changes-count-hidden").textContent = rows.hidden.length;
+            changesPanel.hidden = false;
+            if (total === 0) currentChangeFilter = "price";
+            renderChangeRows(rows, currentChangeFilter);
+            changeTabs.forEach((tab) => {{
+              tab.classList.toggle("ads-changes-tab-active", tab.dataset.changeFilter === currentChangeFilter);
+              tab.onclick = () => {{
+                currentChangeFilter = tab.dataset.changeFilter || "new";
+                changeTabs.forEach((item) => item.classList.toggle("ads-changes-tab-active", item === tab));
+                renderChangeRows(rows, currentChangeFilter);
+              }};
+            }});
+            changesBody.addEventListener("click", (event) => {{
+              const button = event.target.closest("[data-change-city]");
+              if (button) openDrawer(button.dataset.changeCity);
+            }});
           }};
 
           const portalLabels = {{
@@ -463,6 +566,7 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
               closeDrawer();
             }}
           }});
+          renderChangesPanel();
         }})();
       </script>
     """
@@ -1437,6 +1541,23 @@ def render_html(rows: list[dict]) -> str:
         .ads-count-button:hover {{ background: #115e59; }}
         .ads-count-button.ads-count-empty {{ background: #ececec; color: #666; }}
         .ads-count-button.ads-count-empty:hover {{ background: #d7d7d7; }}
+        .ads-changes {{ margin: 20px 0; border: 1px solid #d1d5db; border-radius: 8px; overflow: hidden; }}
+        .ads-changes-header {{ display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; background: #f9fafb; border-bottom: 1px solid #e5e7eb; }}
+        .ads-changes-title {{ font-weight: 700; color: #111827; }}
+        .ads-changes-tabs {{ display: flex; flex-wrap: wrap; gap: 6px; }}
+        .ads-changes-tab {{ border: 1px solid #d1d5db; border-radius: 999px; background: #fff; color: #374151; padding: 5px 10px; font: inherit; font-size: 13px; cursor: pointer; }}
+        .ads-changes-tab-active {{ background: #0f766e; border-color: #0f766e; color: #fff; }}
+        .ads-changes-body {{ padding: 8px 16px 12px; }}
+        .ads-changes-list {{ display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }}
+        .ads-changes-item {{ display: grid; grid-template-columns: minmax(160px, 1fr) auto; gap: 8px 16px; align-items: start; padding: 8px 0; border-bottom: 1px solid #f3f4f6; }}
+        .ads-changes-item:last-child {{ border-bottom: 0; }}
+        .ads-changes-city {{ color: #0f766e; font-weight: 700; }}
+        .ads-changes-name {{ color: #111827; font-weight: 700; }}
+        .ads-changes-meta {{ color: #6b7280; font-size: 13px; margin-top: 2px; }}
+        .ads-changes-price {{ color: #111827; font-weight: 700; white-space: nowrap; }}
+        .ads-changes-empty {{ color: #6b7280; margin: 0; }}
+        .ads-link-button {{ border: 0; background: transparent; padding: 0; font: inherit; cursor: pointer; text-align: left; }}
+        .ads-link-button:hover {{ text-decoration: underline; }}
         .ads-drawer-backdrop {{ position: fixed; inset: 0; background: rgba(15, 23, 42, 0.45); }}
         .ads-drawer {{ position: fixed; top: 0; right: 0; width: min(820px, 100vw); height: 100vh; background: #fff; box-shadow: -10px 0 30px rgba(0, 0, 0, 0.18); transform: translateX(100%); transition: transform 0.2s ease; z-index: 20; display: flex; flex-direction: column; min-height: 0; }}
         .ads-drawer-open {{ transform: translateX(0); }}
@@ -1469,6 +1590,9 @@ def render_html(rows: list[dict]) -> str:
           .ads-provider-coverage {{ padding: 10px 16px 0; }}
           .ads-drawer-controls {{ padding: 12px 16px 0; }}
           .ads-drawer-table-wrap {{ padding: 16px; }}
+          .ads-changes-header {{ align-items: flex-start; flex-direction: column; }}
+          .ads-changes-item {{ grid-template-columns: 1fr; }}
+          .ads-changes-price {{ white-space: normal; }}
           .ad-listing-cell {{ min-width: 180px; }}
         }}
       </style>
@@ -1476,6 +1600,20 @@ def render_html(rows: list[dict]) -> str:
     <body>
       <h1>Kde bydlet?</h1>
       <p>Zdroj dat: OpenStreetMap (obce/školy/populace) + OSRM routing. Vygenerováno dne {generated_on}. Záznamů: {len(rows)}.</p>
+      <section class="ads-changes" id="ads-changes" hidden>
+        <div class="ads-changes-header">
+          <div>
+            <div class="ads-changes-title">Změny v inzerátech</div>
+            <p id="ads-changes-summary">Přehled změn od poslední aktualizace.</p>
+          </div>
+          <div class="ads-changes-tabs" role="tablist" aria-label="Změny v inzerátech">
+            <button type="button" class="ads-changes-tab ads-changes-tab-active" data-change-filter="new">Nové <span id="ads-changes-count-new">0</span></button>
+            <button type="button" class="ads-changes-tab" data-change-filter="price">Změny cen <span id="ads-changes-count-price">0</span></button>
+            <button type="button" class="ads-changes-tab" data-change-filter="hidden">Skryté <span id="ads-changes-count-hidden">0</span></button>
+          </div>
+        </div>
+        <div class="ads-changes-body" id="ads-changes-body"></div>
+      </section>
       <table>
         <thead>
           <tr>

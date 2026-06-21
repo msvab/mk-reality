@@ -38,6 +38,22 @@ def test_hk_drawer_scrolls_without_gaps_text() -> None:
         browser = playwright.chromium.launch()
         page = browser.new_page(viewport={"width": 1280, "height": 720})
         page.goto(page_path.as_uri())
+        changes = page.locator("#ads-changes")
+        changes.wait_for(state="visible")
+        assert "Změny v inzerátech" in changes.inner_text()
+
+        page.locator('[data-change-filter="price"]').click()
+        price_change_count = int(page.locator("#ads-changes-count-price").inner_text())
+        assert price_change_count > 0
+        assert page.locator(".ads-changes-item").count() > 0
+
+        first_changed_button = page.locator(".ads-changes-city").first
+        first_changed_city = first_changed_button.inner_text()
+        first_changed_button.click()
+        page.locator("#ads-drawer").wait_for(state="visible")
+        assert first_changed_city in page.locator("#ads-drawer-title").inner_text()
+        page.locator("#ads-drawer-close").click()
+
         page.locator('[data-city="Hradec Králové"]').click()
 
         drawer = page.locator("#ads-drawer")
