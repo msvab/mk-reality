@@ -106,6 +106,25 @@ def validate_state() -> None:
     print(f"state: {state.get('status')} failed=0")
 
 
+def validate_no_unmatched_raw_files(aggregate: dict) -> None:
+    unmatched = aggregate.get("unmatched_raw_files", [])
+    if not isinstance(unmatched, list):
+        raise RuntimeError("real_estate_ads_by_city.json has invalid unmatched_raw_files metadata.")
+    if not unmatched:
+        print("raw files: no unmatched files")
+        return
+
+    formatted = []
+    for item in unmatched[:20]:
+        if isinstance(item, dict):
+            formatted.append(f"{item.get('file', 'unknown')}: {item.get('city', 'unknown')}")
+        else:
+            formatted.append(str(item))
+    if len(unmatched) > 20:
+        formatted.append(f"... {len(unmatched) - 20} more")
+    raise RuntimeError("real estate aggregate has unmatched raw files:\n" + "\n".join(formatted))
+
+
 def validate_embedded_counts() -> None:
     aggregate = load_json(AGGREGATE_PATH)
     page = HTML_PATH.read_text(encoding="utf-8")
@@ -244,6 +263,7 @@ def main() -> None:
     current_aggregate = load_json(AGGREGATE_PATH)
     if did_refresh:
         print_city_summaries(previous_aggregate, current_aggregate, refreshed_city_names(previous_state, current_state))
+    validate_no_unmatched_raw_files(current_aggregate)
     validate_state()
     validate_embedded_counts()
     summarize_warnings(args.max_warnings)
