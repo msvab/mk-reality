@@ -2,7 +2,8 @@ import argparse
 import json
 from pathlib import Path
 
-NON_WARNING_STATUSES = {"ok", "no_results"}
+NON_WARNING_STATUSES = {"ok", "no_results", "inactive"}
+CANDIDATE_EXCLUSION_STATUSES = {"inactive"}
 
 
 def load_json(path: Path) -> dict:
@@ -12,7 +13,7 @@ def load_json(path: Path) -> dict:
     return payload
 
 
-def iter_warnings(payload: dict):
+def iter_status_rows(payload: dict):
     cities = payload.get("cities", {})
     if not isinstance(cities, dict):
         return
@@ -26,8 +27,6 @@ def iter_warnings(payload: dict):
             if not isinstance(status, dict):
                 continue
             status_name = str(status.get("status", "unknown"))
-            if status_name in NON_WARNING_STATUSES:
-                continue
             yield {
                 "city": city,
                 "portal": portal,
@@ -40,32 +39,61 @@ def iter_warnings(payload: dict):
             }
 
 
+def iter_warnings(payload: dict):
+    for row in iter_status_rows(payload):
+        if row["status"] in NON_WARNING_STATUSES:
+            continue
+        yield row
+
+
+def iter_candidate_exclusions(payload: dict):
+    for row in iter_status_rows(payload):
+        if row["status"] in CANDIDATE_EXCLUSION_STATUSES:
+            yield row
+
+
+def print_rows(title: str, rows: list[dict]) -> None:
+    if not rows:
+        print(f"{title}: 0")
+        return
+    print(f"{title}: {len(rows)}")
+    for row in rows:
+        parts = [row["city"], row["portal"], row["status"]]
+        if row["http_status"] is not None:
+            parts.append(f"HTTP {row['http_status']}")
+        if row["stage"]:
+            parts.append(str(row["stage"]))
+        if row["retained_from_snapshot"]:
+            parts.append("retained_from_snapshot")
+        print("  " + " | ".join(parts))
+        if row["message"]:
+            print(f"    {row['message']}")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Summarize portal fetch warnings from the real estate aggregate JSON.")
     parser.add_argument("--input", default="real_estate_ads_by_city.json", help="Path to aggregate JSON.")
-    parser.add_argument("--json", action="store_true", help="Emit machine-readable JSON instead of text.")
+    parser.add_argument("--json", action="store_true", help="Emit machine-readable JSON grouped by health warnings and candidate exclusions.")
     args = parser.parse_args()
 
-    warnings = list(iter_warnings(load_json(Path(args.input))))
+    payload = load_json(Path(args.input))
+    warnings = list(iter_warnings(payload))
+    candidate_exclusions = list(iter_candidate_exclusions(payload))
     if args.json:
-        print(json.dumps(warnings, ensure_ascii=False, indent=2))
+        print(
+            json.dumps(
+                {
+                    "portal_warnings": warnings,
+                    "candidate_exclusions": candidate_exclusions,
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
         return
 
-    if not warnings:
-        print("No portal fetch warnings found.")
-        return
-
-    for warning in warnings:
-        parts = [warning["city"], warning["portal"], warning["status"]]
-        if warning["http_status"] is not None:
-            parts.append(f"HTTP {warning['http_status']}")
-        if warning["stage"]:
-            parts.append(str(warning["stage"]))
-        if warning["retained_from_snapshot"]:
-            parts.append("retained_from_snapshot")
-        print(" | ".join(parts))
-        if warning["message"]:
-            print(f"  {warning['message']}")
+    print_rows("portal warnings", warnings)
+    print_rows("candidate exclusions", candidate_exclusions)
 
 
 if __name__ == "__main__":

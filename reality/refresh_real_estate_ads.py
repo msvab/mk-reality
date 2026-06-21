@@ -8,7 +8,7 @@ from collections import Counter
 from pathlib import Path
 
 from .run_real_estate_ads_by_city import city_refresh_summary, format_delta
-from .summarize_real_estate_fetch_errors import iter_warnings
+from .summarize_real_estate_fetch_errors import iter_candidate_exclusions, iter_warnings
 
 ROOT = Path(__file__).resolve().parent.parent
 AGGREGATE_PATH = ROOT / "real_estate_ads_by_city.json"
@@ -135,25 +135,45 @@ def validate_embedded_counts() -> None:
 
 
 def summarize_warnings(max_warnings: int) -> None:
-    warnings = list(iter_warnings(load_json(AGGREGATE_PATH)))
+    aggregate = load_json(AGGREGATE_PATH)
+    warnings = list(iter_warnings(aggregate))
+    candidate_exclusions = list(iter_candidate_exclusions(aggregate))
     if not warnings:
         print("portal warnings: 0")
+    else:
+        by_status = Counter(str(warning["status"]) for warning in warnings)
+        by_portal = Counter(str(warning["portal"]) for warning in warnings)
+        print(f"portal warnings: {len(warnings)}")
+        print("  by status:", ", ".join(f"{status}={count}" for status, count in sorted(by_status.items())))
+        print("  by portal:", ", ".join(f"{portal}={count}" for portal, count in sorted(by_portal.items())))
+        for warning in warnings[:max_warnings]:
+            parts = [warning["city"], warning["portal"], warning["status"]]
+            if warning.get("http_status") is not None:
+                parts.append(f"HTTP {warning['http_status']}")
+            print("  " + " | ".join(str(part) for part in parts))
+            if warning.get("message"):
+                print(f"    {warning['message']}")
+        if len(warnings) > max_warnings:
+            print(f"  ... {len(warnings) - max_warnings} more")
+
+    if not candidate_exclusions:
+        print("candidate exclusions: 0")
         return
 
-    by_status = Counter(str(warning["status"]) for warning in warnings)
-    by_portal = Counter(str(warning["portal"]) for warning in warnings)
-    print(f"portal warnings: {len(warnings)}")
+    by_status = Counter(str(exclusion["status"]) for exclusion in candidate_exclusions)
+    by_portal = Counter(str(exclusion["portal"]) for exclusion in candidate_exclusions)
+    print(f"candidate exclusions: {len(candidate_exclusions)}")
     print("  by status:", ", ".join(f"{status}={count}" for status, count in sorted(by_status.items())))
     print("  by portal:", ", ".join(f"{portal}={count}" for portal, count in sorted(by_portal.items())))
-    for warning in warnings[:max_warnings]:
-        parts = [warning["city"], warning["portal"], warning["status"]]
-        if warning.get("http_status") is not None:
-            parts.append(f"HTTP {warning['http_status']}")
+    for exclusion in candidate_exclusions[:max_warnings]:
+        parts = [exclusion["city"], exclusion["portal"], exclusion["status"]]
+        if exclusion.get("http_status") is not None:
+            parts.append(f"HTTP {exclusion['http_status']}")
         print("  " + " | ".join(str(part) for part in parts))
-        if warning.get("message"):
-            print(f"    {warning['message']}")
-    if len(warnings) > max_warnings:
-        print(f"  ... {len(warnings) - max_warnings} more")
+        if exclusion.get("message"):
+            print(f"    {exclusion['message']}")
+    if len(candidate_exclusions) > max_warnings:
+        print(f"  ... {len(candidate_exclusions) - max_warnings} more")
 
 
 def git_has_changes() -> bool:

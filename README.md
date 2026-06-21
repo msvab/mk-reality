@@ -192,9 +192,9 @@ Use `--local-only` for cost-controlled test runs where Codex must not be invoked
 
 ### [summarize_real_estate_fetch_errors.py](/Users/michal-mbp/dev/reality/summarize_real_estate_fetch_errors.py)
 
-Portal warning reporter for the ads aggregate.
+Portal health and candidate-exclusion reporter for the ads aggregate.
 
-Use it to identify portal errors after a batch fetch, including rate limits, DNS failures, cache misses, inactive pages, fallback pages, and partial snapshot-based results.
+Use it to identify portal health errors after a batch fetch, including rate limits, DNS failures, cache misses, fallback pages, and partial snapshot-based results. Expected candidate exclusions such as inactive or unpriced detail rows are reported in a separate bucket so they do not look like refresh failures.
 
 Typical usage:
 
@@ -207,6 +207,8 @@ Machine-readable usage:
 ```bash
 rtk python3 summarize_real_estate_fetch_errors.py --json
 ```
+
+The JSON output is grouped into `portal_warnings` and `candidate_exclusions`.
 
 ### [real_estate_ads_exec_output.schema.json](/Users/michal-mbp/dev/reality/real_estate_ads_exec_output.schema.json)
 
