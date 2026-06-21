@@ -1,6 +1,6 @@
 import json
 
-from build_real_estate_ads_by_city import build_aggregate_output
+from reality.build_real_estate_ads_by_city import build_aggregate_output
 
 
 def write_school_and_raw(tmp_path, *, price: str = "5 000 000 Kč"):

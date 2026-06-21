@@ -7,6 +7,9 @@ The repo currently has two connected pipelines:
 - a school and municipality pipeline that generates the base site
 - a real estate ads pipeline that fetches, normalizes, aggregates, and renders ad data into that site
 
+The root `*.py` files are command wrappers kept for compatibility with the documented commands. The implementation lives
+under `reality/`, and tests live under `tests/`.
+
 ## Main Files
 
 ### [build_html.py](/Users/michal-mbp/dev/reality/build_html.py)

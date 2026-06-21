@@ -1,4 +1,4 @@
-from build_real_estate_ads_json import build_output, detect_fetch_status, parse_price_czk
+from reality.build_real_estate_ads_json import build_output, detect_fetch_status, parse_price_czk
 
 
 def base_payload(listings):
