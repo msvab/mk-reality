@@ -132,3 +132,40 @@ def test_fetch_status_detects_real_http_429():
 
 def test_fetch_status_detects_429_too_many_requests():
     assert detect_fetch_status("detail_fetch failed: 429 Too Many Requests") == ("rate_limited", 429)
+
+
+def test_reality_aktualne_inactive_gap_is_candidate_exclusion_not_portal_status():
+    payload = base_payload([])
+    payload["coverage"]["zero_result_portals"] = ["reality.aktualne.cz"]
+    payload["gaps"] = [
+        "inactive-or-unpriced:https://reality.aktualne.cz/detail/opocno/prodej-stavebniho-pozemku-123.html",
+    ]
+
+    output = build_output(payload)
+
+    assert output["portal_status"]["reality.aktualne.cz"]["status"] == "no_results"
+    assert output["candidate_exclusions"] == [
+        {
+            "portal": "reality.aktualne.cz",
+            "status": "inactive",
+            "reason": "inactive-or-unpriced",
+            "url": "https://reality.aktualne.cz/detail/opocno/prodej-stavebniho-pozemku-123.html",
+            "message": "inactive-or-unpriced:https://reality.aktualne.cz/detail/opocno/prodej-stavebniho-pozemku-123.html",
+            "evidence": [
+                "inactive-or-unpriced:https://reality.aktualne.cz/detail/opocno/prodej-stavebniho-pozemku-123.html",
+            ],
+        }
+    ]
+
+
+def test_reality_aktualne_fetch_error_gap_still_sets_portal_status():
+    payload = base_payload([])
+    payload["coverage"]["zero_result_portals"] = ["reality.aktualne.cz"]
+    payload["gaps"] = [
+        "reality.aktualne.cz detail fetch failed: https://reality.aktualne.cz/detail/opocno/example.html: HTTP 500",
+    ]
+
+    output = build_output(payload)
+
+    assert output["portal_status"]["reality.aktualne.cz"]["status"] == "fetch_error"
+    assert output["candidate_exclusions"] == []

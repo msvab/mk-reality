@@ -54,6 +54,7 @@ def empty_city_bundle() -> dict:
         },
         "portal_status": {},
         "fetch_attempts": [],
+        "candidate_exclusions": [],
         "assumptions": [],
         "gaps": ["missing-raw-skill-output"],
         "ads": [],
@@ -68,6 +69,7 @@ def build_city_bundle(raw_payload: dict) -> dict:
         "coverage": normalized["coverage"],
         "portal_status": normalized.get("portal_status", {}),
         "fetch_attempts": normalized.get("fetch_attempts", []),
+        "candidate_exclusions": normalized.get("candidate_exclusions", []),
         "assumptions": normalized.get("assumptions", []),
         "gaps": normalized.get("gaps", []),
         "ads": normalized["listings"],
@@ -262,7 +264,7 @@ def build_aggregate_output(schools_input: Path, raw_dir: Path, previous_aggregat
             "cities_with_portal_warnings": sum(
                 1
                 for bundle in cities.values()
-                if any(status.get("status") not in {"ok", "no_results"} for status in bundle.get("portal_status", {}).values())
+                if any(status.get("status") not in {"ok", "no_results", "inactive"} for status in bundle.get("portal_status", {}).values())
             ),
         },
         "unmatched_raw_files": unmatched_files,

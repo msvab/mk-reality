@@ -47,8 +47,37 @@ def iter_warnings(payload: dict):
 
 
 def iter_candidate_exclusions(payload: dict):
+    seen = set()
+    cities = payload.get("cities", {})
+    if isinstance(cities, dict):
+        for city, bundle in cities.items():
+            if not isinstance(bundle, dict):
+                continue
+            exclusions = bundle.get("candidate_exclusions", [])
+            if not isinstance(exclusions, list):
+                continue
+            for exclusion in exclusions:
+                if not isinstance(exclusion, dict):
+                    continue
+                row = {
+                    "city": city,
+                    "portal": exclusion.get("portal"),
+                    "status": str(exclusion.get("status", "unknown")),
+                    "http_status": exclusion.get("http_status"),
+                    "stage": exclusion.get("stage"),
+                    "retained_from_snapshot": exclusion.get("retained_from_snapshot"),
+                    "message": exclusion.get("message"),
+                    "evidence": exclusion.get("evidence", []),
+                }
+                key = (row["city"], row["portal"], row["status"], row["message"])
+                seen.add(key)
+                yield row
+
     for row in iter_status_rows(payload):
         if row["status"] in CANDIDATE_EXCLUSION_STATUSES:
+            key = (row["city"], row["portal"], row["status"], row["message"])
+            if key in seen:
+                continue
             yield row
 
 

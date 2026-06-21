@@ -27,6 +27,35 @@ def test_inactive_status_is_candidate_exclusion_not_portal_warning():
     assert exclusions[0]["status"] == "inactive"
 
 
+def test_explicit_candidate_exclusions_are_reported():
+    payload = {
+        "cities": {
+            "Opočno": {
+                "portal_status": {
+                    "reality.aktualne.cz": {
+                        "status": "no_results",
+                    },
+                },
+                "candidate_exclusions": [
+                    {
+                        "portal": "reality.aktualne.cz",
+                        "status": "inactive",
+                        "message": "inactive-or-unpriced:https://reality.aktualne.cz/detail/opocno/example.html",
+                    },
+                ],
+            },
+        },
+    }
+
+    assert list(iter_warnings(payload)) == []
+    exclusions = list(iter_candidate_exclusions(payload))
+
+    assert len(exclusions) == 1
+    assert exclusions[0]["city"] == "Opočno"
+    assert exclusions[0]["portal"] == "reality.aktualne.cz"
+    assert exclusions[0]["status"] == "inactive"
+
+
 def test_fetch_failure_status_remains_portal_warning():
     payload = {
         "cities": {

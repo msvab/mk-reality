@@ -11,6 +11,9 @@ DEFAULT_WORKERS = [
     "realitymix.cz",
     "reality.aktualne.cz",
 ]
+REALITY_AKTUALNE_CANDIDATE_EXCLUSION_REASONS = {
+    "inactive-or-unpriced",
+}
 
 PORTAL_STATUS_PRECEDENCE = {
     "ok": 0,
@@ -118,6 +121,56 @@ def detect_fetch_status(text: str) -> tuple[str | None, int | None]:
     if "snapshot" in normalized or "indexed" in normalized or "partial" in normalized or "intermittent" in normalized:
         return "partial", None
     return None, None
+
+
+def parse_candidate_exclusion(text: str) -> dict | None:
+    raw_text = str(text).strip()
+    if not raw_text:
+        return None
+    reason, separator, raw_url = raw_text.partition(":")
+    if not separator:
+        return None
+    reason = reason.strip()
+    url = normalize_url(raw_url)
+    if reason not in REALITY_AKTUALNE_CANDIDATE_EXCLUSION_REASONS or not url:
+        return None
+    if "reality.aktualne.cz" not in url:
+        return None
+    return {
+        "portal": "reality.aktualne.cz",
+        "status": "inactive",
+        "reason": reason,
+        "url": url,
+        "message": raw_text,
+        "evidence": [raw_text],
+    }
+
+
+def candidate_exclusion_key(exclusion: dict) -> tuple:
+    return (
+        exclusion.get("portal"),
+        exclusion.get("status"),
+        exclusion.get("reason"),
+        exclusion.get("url"),
+    )
+
+
+def extract_candidate_exclusions(payload: dict) -> list[dict]:
+    exclusions = []
+    seen = set()
+    gaps = payload.get("gaps", [])
+    if not isinstance(gaps, list):
+        return exclusions
+    for item in gaps:
+        exclusion = parse_candidate_exclusion(str(item))
+        if not exclusion:
+            continue
+        key = candidate_exclusion_key(exclusion)
+        if key in seen:
+            continue
+        seen.add(key)
+        exclusions.append(exclusion)
+    return exclusions
 
 
 def merge_portal_status(
@@ -282,6 +335,8 @@ def infer_portal_status(
                     )
 
     for text in evidence_sources:
+        if parse_candidate_exclusion(text):
+            continue
         status, http_status = detect_fetch_status(text)
         if not status:
             continue
@@ -511,6 +566,7 @@ def build_output(payload: dict) -> dict:
         municipality = query.get("municipality")
     deduped = dedupe_and_sort(normalized, municipality=municipality)
     fetch_attempts = normalize_fetch_attempts(payload)
+    candidate_exclusions = extract_candidate_exclusions(payload)
 
     coverage = payload.get("coverage", {}) if isinstance(payload.get("coverage"), dict) else {}
     workers_launched = coverage.get("workers_launched", len(DEFAULT_WORKERS))
@@ -538,6 +594,7 @@ def build_output(payload: dict) -> dict:
         "coverage": normalized_coverage,
         "portal_status": infer_portal_status(payload, deduped, normalized_coverage, fetch_attempts),
         "fetch_attempts": fetch_attempts,
+        "candidate_exclusions": candidate_exclusions,
         "gaps": payload.get("gaps", []),
         "listings": deduped,
     }

@@ -166,6 +166,49 @@ def test_previous_ads_from_uncovered_portals_stay_active(tmp_path):
     assert bundle["hidden_ads"] == []
 
 
+def test_candidate_exclusions_are_preserved_in_city_bundle(tmp_path):
+    schools_input = tmp_path / "schools.json"
+    raw_dir = tmp_path / "raw"
+    raw_dir.mkdir()
+    schools_input.write_text('[{"city": "Opočno"}]\n', encoding="utf-8")
+    raw_dir.joinpath("opocno.json").write_text(
+        json.dumps(
+            {
+                "city": "Opočno",
+                "query": {
+                    "municipality": "Opočno",
+                    "location_scope": "municipality_only",
+                    "country": "Czech Republic",
+                    "property_types": ["house", "chalupa", "land"],
+                    "land_size_min_m2": 1000,
+                },
+                "coverage": {
+                    "workers_launched": 1,
+                    "workers_with_results": 0,
+                    "candidates_gathered": 1,
+                    "rows_retained": 0,
+                    "zero_result_portals": ["reality.aktualne.cz"],
+                    "blocked_portals": [],
+                },
+                "gaps": [
+                    "inactive-or-unpriced:https://reality.aktualne.cz/detail/opocno/prodej-stavebniho-pozemku-123.html",
+                ],
+                "listings": [],
+            },
+            ensure_ascii=False,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    output = build_aggregate_output(schools_input, raw_dir)
+    bundle = output["cities"]["Opočno"]
+
+    assert bundle["portal_status"]["reality.aktualne.cz"]["status"] == "no_results"
+    assert bundle["candidate_exclusions"][0]["status"] == "inactive"
+    assert output["coverage"]["cities_with_portal_warnings"] == 0
+
+
 def test_price_history_is_preserved_when_price_is_unchanged(tmp_path):
     schools_input, raw_dir = write_school_and_raw(tmp_path, price="5 000 000 Kč")
     previous_aggregate = {
