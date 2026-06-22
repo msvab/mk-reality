@@ -105,6 +105,30 @@ def test_mmreality_fetch_records_http_fallback_status(monkeypatch):
     assert payload["fetch_attempts"][0]["http_status"] == 404
 
 
+def test_mmreality_fetch_records_http_403_as_blocked(monkeypatch):
+    module = load_mmreality_fetch()
+
+    def fake_run(cmd, check, capture_output, text):
+        assert check is False
+        return subprocess.CompletedProcess(cmd, 0, stdout="Forbidden\n__HTTP_STATUS__:403", stderr="")
+
+    monkeypatch.setattr(module.subprocess, "run", fake_run)
+
+    payload = module.build_output(
+        "Třebechovice pod Orebem",
+        "municipality_only",
+        include_houses=True,
+        include_land=True,
+        result_urls=["https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/"],
+        detail_urls=[],
+    )
+
+    status = payload["portal_status"]["mmreality.cz"]
+    assert status["status"] == "blocked"
+    assert status["http_status"] == 403
+    assert status["stage"] == "search_fetch"
+
+
 def test_mmreality_fetch_records_rate_limit_status(monkeypatch):
     module = load_mmreality_fetch()
 

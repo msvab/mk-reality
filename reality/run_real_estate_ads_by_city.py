@@ -28,6 +28,7 @@ LOCAL_FETCHERS = {
 }
 
 STOP_REQUESTED = False
+MMREALITY_BLOCKED_FOR_RUN = False
 
 
 def request_stop(_signum, _frame) -> None:
@@ -363,6 +364,7 @@ def run_local_fetchers(
     output_path: Path,
     previous_aggregate: dict | None,
 ) -> bool:
+    global MMREALITY_BLOCKED_FOR_RUN
     urls_by_portal = cached_detail_urls_by_portal(previous_aggregate, city)
     mmreality_result_urls = cached_mmreality_result_page_urls(previous_aggregate, city)
     realitymix_result_urls = cached_realitymix_result_page_urls(previous_aggregate, city)
@@ -370,6 +372,8 @@ def run_local_fetchers(
     reality_idnes_result_urls = cached_reality_idnes_result_page_urls(previous_aggregate, city)
     payloads = []
     for portal, urls in urls_by_portal.items():
+        if portal == "mmreality.cz" and MMREALITY_BLOCKED_FOR_RUN:
+            continue
         use_reality_idnes_results = portal == "reality.idnes.cz" and bool(reality_idnes_result_urls)
         discover_reality_idnes = portal == "reality.idnes.cz"
         use_cached_mmreality_results = portal == "mmreality.cz" and bool(mmreality_result_urls)
@@ -416,6 +420,8 @@ def run_local_fetchers(
         completed = subprocess.run(cmd, check=True, capture_output=True, text=True)
         payload = json.loads(completed.stdout)
         if isinstance(payload, dict):
+            if portal == "mmreality.cz" and mmreality_is_run_blocked(payload):
+                MMREALITY_BLOCKED_FOR_RUN = True
             coverage = payload.get("coverage", {})
             blocked_portals = coverage.get("blocked_portals", []) if isinstance(coverage, dict) else []
             if blocked_portals:
@@ -429,6 +435,27 @@ def run_local_fetchers(
     validate_raw_output(combined, city)
     atomic_write_json(output_path, combined)
     return True
+
+
+def mmreality_is_run_blocked(payload: dict) -> bool:
+    status = payload.get("portal_status", {}).get("mmreality.cz", {})
+    if not isinstance(status, dict):
+        return False
+    if status.get("status") == "blocked" and status.get("http_status") == 403:
+        return True
+    attempts = payload.get("fetch_attempts", [])
+    if not isinstance(attempts, list):
+        return False
+    search_attempts = [
+        attempt
+        for attempt in attempts
+        if isinstance(attempt, dict)
+        and attempt.get("portal") == "mmreality.cz"
+        and attempt.get("stage") == "search_fetch"
+    ]
+    return bool(search_attempts) and all(
+        attempt.get("status") == "blocked" and attempt.get("http_status") == 403 for attempt in search_attempts
+    )
 
 
 def build_prompt(city: str, cached_ads: list[dict] | None = None) -> str:

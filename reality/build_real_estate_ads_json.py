@@ -146,6 +146,44 @@ def parse_candidate_exclusion(text: str) -> dict | None:
     }
 
 
+def is_stale_detail_attempt(attempt: dict) -> bool:
+    if attempt.get("status") != "fallback_page":
+        return False
+    stage = str(attempt.get("stage") or "")
+    url = str(attempt.get("url") or "")
+    return stage in {"detail_fetch", "detail_parse", "discovery_detail_fetch"} and "/detail/" in url
+
+
+def is_stale_detail_evidence(text: str) -> bool:
+    normalized = normalize_text(text)
+    if "detail" not in normalized or "fallback" not in normalized:
+        return False
+    return any(portal in text for portal in DEFAULT_WORKERS)
+
+
+def normalize_legacy_portal_status(portal: str, status: dict) -> dict | None:
+    normalized = normalize_portal_status_entry(status)
+    status_name = normalized.get("status")
+    stage = str(normalized.get("stage") or "")
+    evidence = [str(item) for item in normalized.get("evidence", []) if isinstance(item, str)]
+    if (
+        status_name == "fallback_page"
+        and stage in {"detail_fetch", "detail_parse", "discovery_detail_fetch"}
+        and evidence
+        and all(is_stale_detail_evidence(item) for item in evidence)
+    ):
+        return None
+    if (
+        portal == "mmreality.cz"
+        and status_name == "fallback_page"
+        and normalized.get("http_status") == 403
+        and stage == "search_fetch"
+    ):
+        normalized["status"] = "blocked"
+        normalized["message"] = normalized.get("message") or "HTTP 403"
+    return normalized
+
+
 def candidate_exclusion_key(exclusion: dict) -> tuple:
     return (
         exclusion.get("portal"),
@@ -277,7 +315,9 @@ def infer_portal_status(
         for portal, raw_status in raw_statuses.items():
             portal_name = str(portal).strip()
             if portal_name in DEFAULT_WORKERS and isinstance(raw_status, dict):
-                statuses[portal_name] = normalize_portal_status_entry(raw_status)
+                normalized_status = normalize_legacy_portal_status(portal_name, raw_status)
+                if normalized_status is not None:
+                    statuses[portal_name] = normalized_status
 
     for portal in coverage.get("zero_result_portals", []):
         merge_portal_status(statuses, str(portal).strip(), "no_results", message="No retained in-scope rows.")
@@ -290,6 +330,8 @@ def infer_portal_status(
         portal = attempt.get("portal")
         status = attempt.get("status")
         if status in {None, "ok", "no_results"}:
+            continue
+        if is_stale_detail_attempt(attempt):
             continue
         merge_portal_status(
             statuses,
@@ -336,6 +378,8 @@ def infer_portal_status(
 
     for text in evidence_sources:
         if parse_candidate_exclusion(text):
+            continue
+        if is_stale_detail_evidence(text):
             continue
         status, http_status = detect_fetch_status(text)
         if not status:

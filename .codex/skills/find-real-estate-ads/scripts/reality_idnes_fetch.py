@@ -298,6 +298,10 @@ def build_portal_status(fetch_attempts: list[dict], listings: list[dict]) -> dic
         attempt_status = str(attempt.get("status", "unknown"))
         if attempt_status in {"ok", "no_results"}:
             continue
+        # Cached iDNES detail URLs can later resolve to generic/non-detail
+        # pages. Treat that as stale listing evidence, not portal failure.
+        if attempt_status == "fallback_page" and attempt.get("stage") in {"detail_fetch", "detail_parse"}:
+            continue
         if status_order.get(attempt_status, -1) > status_order.get(status, -1):
             status = attempt_status
             chosen_attempt = attempt

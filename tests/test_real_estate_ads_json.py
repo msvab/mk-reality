@@ -169,3 +169,44 @@ def test_reality_aktualne_fetch_error_gap_still_sets_portal_status():
 
     assert output["portal_status"]["reality.aktualne.cz"]["status"] == "fetch_error"
     assert output["candidate_exclusions"] == []
+
+
+def test_stale_detail_attempt_does_not_override_portal_status():
+    payload = base_payload([])
+    payload["coverage"]["zero_result_portals"] = ["realitymix.cz"]
+    payload["fetch_attempts"] = [
+        {
+            "portal": "realitymix.cz",
+            "url": "https://realitymix.cz/detail/opocno/old-123.html",
+            "stage": "detail_parse",
+            "attempt": 1,
+            "status": "fallback_page",
+            "message": "Požadovaný inzerát již není v naší databázi",
+        },
+    ]
+    payload["gaps"] = ["removed-fallback-page:https://realitymix.cz/detail/opocno/old-123.html"]
+
+    output = build_output(payload)
+
+    assert output["portal_status"]["realitymix.cz"]["status"] == "no_results"
+
+
+def test_search_fallback_attempt_still_sets_portal_status():
+    payload = base_payload([])
+    payload["coverage"]["zero_result_portals"] = ["mmreality.cz"]
+    payload["fetch_attempts"] = [
+        {
+            "portal": "mmreality.cz",
+            "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+            "stage": "search_fetch",
+            "attempt": 1,
+            "status": "blocked",
+            "http_status": 403,
+            "error": "HTTP 403",
+        },
+    ]
+
+    output = build_output(payload)
+
+    assert output["portal_status"]["mmreality.cz"]["status"] == "blocked"
+    assert output["portal_status"]["mmreality.cz"]["http_status"] == 403

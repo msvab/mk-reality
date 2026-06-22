@@ -32,7 +32,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -42,17 +42,8 @@
           ]
         },
         "realitymix.cz": {
-          "status": "fallback_page",
-          "stage": "detail_parse",
-          "message": "Požadovaný inzerát již není v naší databázi",
-          "evidence": [
-            "detail_parse:fallback_page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-4-1-199-m2-dobrikovec-u-opocna-8463059.html",
-            "detail_parse:fallback_page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-1-1-198-m2-dobrikovec-u-opocna-8463053.html",
-            "detail_parse:fallback_page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-2-1-198-m2-dobrikovec-u-opocna-8463055.html",
-            "detail_parse:fallback_page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-3-1-198-m2-dobrikovec-u-opocna-8463057.html",
-            "detail_parse:fallback_page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-5-1-198-m2-dobrikovec-u-opocna-8463061.html",
-            "detail_parse:fallback_page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-6-1-198-m2-dobrikovec-u-opocna-8463067.html"
-          ]
+          "status": "no_results",
+          "message": "No retained in-scope rows."
         },
         "reality.aktualne.cz": {
           "status": "ok",
@@ -749,7 +740,7 @@
           "message": "Retained at least one detail-verified iDNES row."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -759,12 +750,8 @@
           ]
         },
         "realitymix.cz": {
-          "status": "fallback_page",
-          "stage": "detail_parse",
-          "message": "Požadovaný inzerát již není v naší databázi",
-          "evidence": [
-            "detail_parse:fallback_page:https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-stavebniho-pozemku-3-112-m2-8430099.html"
-          ]
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
         },
         "reality.aktualne.cz": {
           "status": "ok",
@@ -1719,16 +1706,11 @@
       },
       "portal_status": {
         "reality.idnes.cz": {
-          "status": "fallback_page",
-          "stage": "detail_parse",
-          "message": "Detail URL returned fallback or non-detail content.",
-          "evidence": [
-            "detail_parse:fallback_page:https://reality.idnes.cz/detail/prodej/dum/novy-hradek-konciny/67e3dead943bbbb1da000bd2/",
-            "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/novy-hradek-konciny/67e3dead943bbbb1da000bd2/"
-          ]
+          "status": "no_results",
+          "message": "No retained in-scope rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -1742,26 +1724,12 @@
           ]
         },
         "realitymix.cz": {
-          "status": "fallback_page",
-          "stage": "detail_parse",
-          "message": "Požadovaný inzerát již není v naší databázi",
-          "evidence": [
-            "detail_parse:fallback_page:https://realitymix.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html",
-            "detail_parse:fallback_page:https://realitymix.cz/detail/novy-hradek/prodej-dum-rodinny-110-kralovehradecky-kraj-nachod-novy-hradek-rokolska-127-54922-8540171.html",
-            "detail_parse:fallback_page:https://realitymix.cz/detail/novy-hradek/prodej-rodinneho-domu-pozemek-8649-m-novy-hradek-rzy-8569313.html"
-          ]
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
         },
         "reality.aktualne.cz": {
-          "status": "fallback_page",
-          "http_status": 404,
-          "stage": "discovery_detail_fetch",
-          "message": "HTTP 404",
-          "evidence": [
-            "discovery_detail_fetch:fallback_page:https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html",
-            "detail_fetch:fallback_page:https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html",
-            "detail_parse:fallback_page:https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html",
-            "detail-fallback-page:https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html"
-          ]
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
         }
       },
       "fetch_attempts": [
@@ -2944,7 +2912,7 @@
           "message": "Retained at least one detail-verified iDNES row."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -2958,16 +2926,8 @@
           "message": "No retained in-scope RealityMix rows."
         },
         "reality.aktualne.cz": {
-          "status": "fallback_page",
-          "http_status": 404,
-          "stage": "discovery_detail_fetch",
-          "message": "HTTP 404",
-          "evidence": [
-            "discovery_detail_fetch:fallback_page:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinneho-domu-zemedelske-usedlosti-ceske-mezirici-8594143.html",
-            "detail_fetch:fallback_page:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinneho-domu-zemedelske-usedlosti-ceske-mezirici-8594143.html",
-            "detail_parse:fallback_page:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinneho-domu-zemedelske-usedlosti-ceske-mezirici-8594143.html",
-            "detail-fallback-page:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinneho-domu-zemedelske-usedlosti-ceske-mezirici-8594143.html"
-          ]
+          "status": "no_results",
+          "message": "No retained in-scope rows."
         }
       },
       "fetch_attempts": [
@@ -3767,7 +3727,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -3963,7 +3923,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -4113,7 +4073,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -4304,16 +4264,11 @@
       },
       "portal_status": {
         "reality.idnes.cz": {
-          "status": "fallback_page",
-          "stage": "detail_parse",
-          "message": "Detail URL returned fallback or non-detail content.",
-          "evidence": [
-            "detail_parse:fallback_page:https://reality.idnes.cz/detail/prodej/dum/destne-v-orlickych-horach/69b7f484e55e4f764b0dc832/",
-            "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/destne-v-orlickych-horach/69b7f484e55e4f764b0dc832/"
-          ]
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -4324,24 +4279,12 @@
           ]
         },
         "realitymix.cz": {
-          "status": "fallback_page",
-          "stage": "detail_parse",
-          "message": "Požadovaný inzerát již není v naší databázi",
-          "evidence": [
-            "detail_parse:fallback_page:https://realitymix.cz/detail/destne-v-orlickych-horach/prodej-rodinneho-domu-400-m-destne-v-orlickych-horach-8454415.html"
-          ]
+          "status": "no_results",
+          "message": "No retained in-scope rows."
         },
         "reality.aktualne.cz": {
-          "status": "fallback_page",
-          "http_status": 404,
-          "stage": "discovery_detail_fetch",
-          "message": "HTTP 404",
-          "evidence": [
-            "discovery_detail_fetch:fallback_page:https://reality.aktualne.cz/detail/destne-v-orlickych-horach/prodej-rodinneho-domu-400-m-destne-v-orlickych-horach-8454415.html",
-            "detail_fetch:fallback_page:https://reality.aktualne.cz/detail/destne-v-orlickych-horach/prodej-rodinneho-domu-400-m-destne-v-orlickych-horach-8454415.html",
-            "detail_parse:fallback_page:https://reality.aktualne.cz/detail/destne-v-orlickych-horach/prodej-rodinneho-domu-400-m-destne-v-orlickych-horach-8454415.html",
-            "detail-fallback-page:https://reality.aktualne.cz/detail/destne-v-orlickych-horach/prodej-rodinneho-domu-400-m-destne-v-orlickych-horach-8454415.html"
-          ]
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
         }
       },
       "fetch_attempts": [
@@ -5377,16 +5320,11 @@
       },
       "portal_status": {
         "reality.idnes.cz": {
-          "status": "fallback_page",
-          "stage": "detail_parse",
-          "message": "Detail URL returned fallback or non-detail content.",
-          "evidence": [
-            "detail_parse:fallback_page:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-havlickova/69ea0c387faac1f065000996/",
-            "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-havlickova/69ea0c387faac1f065000996/"
-          ]
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -5396,12 +5334,8 @@
           ]
         },
         "realitymix.cz": {
-          "status": "fallback_page",
-          "stage": "detail_parse",
-          "message": "Požadovaný inzerát již není v naší databázi",
-          "evidence": [
-            "detail_parse:fallback_page:https://realitymix.cz/detail/trebechovice-pod-orebem/prodej-rodinneho-domu-487-m-trebechovice-pod-orebem-8542373.html"
-          ]
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
         },
         "reality.aktualne.cz": {
           "status": "ok",
@@ -6560,7 +6494,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -6766,7 +6700,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -6777,25 +6711,12 @@
           ]
         },
         "realitymix.cz": {
-          "status": "fallback_page",
-          "stage": "detail_parse",
-          "message": "Požadovaný inzerát již není v naší databázi",
-          "evidence": [
-            "detail_parse:fallback_page:https://realitymix.cz/detail/nachod/prodej-rodinneho-domu-1130-m-nachod-8446033.html",
-            "detail_parse:fallback_page:https://realitymix.cz/detail/nachod/nachod-prodej-rodinneho-domu-s-garazi-a-pozemkem-1271-m2-7781068.html"
-          ]
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
         },
         "reality.aktualne.cz": {
-          "status": "fallback_page",
-          "http_status": 404,
-          "stage": "discovery_detail_fetch",
-          "message": "HTTP 404",
-          "evidence": [
-            "discovery_detail_fetch:fallback_page:https://reality.aktualne.cz/detail/nachod/prodej-rodinneho-domu-1130-m-nachod-8446033.html",
-            "detail_fetch:fallback_page:https://reality.aktualne.cz/detail/nachod/prodej-rodinneho-domu-1130-m-nachod-8446033.html",
-            "detail_parse:fallback_page:https://reality.aktualne.cz/detail/nachod/prodej-rodinneho-domu-1130-m-nachod-8446033.html",
-            "detail-fallback-page:https://reality.aktualne.cz/detail/nachod/prodej-rodinneho-domu-1130-m-nachod-8446033.html"
-          ]
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
         }
       },
       "fetch_attempts": [
@@ -7350,16 +7271,11 @@
       },
       "portal_status": {
         "reality.idnes.cz": {
-          "status": "fallback_page",
-          "stage": "detail_parse",
-          "message": "Detail URL returned fallback or non-detail content.",
-          "evidence": [
-            "detail_parse:fallback_page:https://reality.idnes.cz/detail/prodej/dum/ceska-skalice/6980bdcd428390448b009084/",
-            "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/ceska-skalice/6980bdcd428390448b009084/"
-          ]
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -8523,16 +8439,11 @@
       },
       "portal_status": {
         "reality.idnes.cz": {
-          "status": "fallback_page",
-          "stage": "detail_parse",
-          "message": "Detail URL returned fallback or non-detail content.",
-          "evidence": [
-            "detail_parse:fallback_page:https://reality.idnes.cz/detail/prodej/pozemek/dolni-radechova/67caff5dc18c261f9e0adeaa/",
-            "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/dolni-radechova/67caff5dc18c261f9e0adeaa/"
-          ]
+          "status": "no_results",
+          "message": "No retained in-scope rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -9175,7 +9086,7 @@
           "message": "Retained at least one detail-verified iDNES row."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -9185,12 +9096,8 @@
           ]
         },
         "realitymix.cz": {
-          "status": "fallback_page",
-          "stage": "detail_parse",
-          "message": "Požadovaný inzerát již není v naší databázi",
-          "evidence": [
-            "detail_parse:fallback_page:https://realitymix.cz/detail/castolovice/prodej-rd-v-castolovicich-1513-m2-8396825.html"
-          ]
+          "status": "no_results",
+          "message": "No retained in-scope rows."
         },
         "reality.aktualne.cz": {
           "status": "no_results",
@@ -9920,7 +9827,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -10259,7 +10166,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -10422,16 +10329,11 @@
       },
       "portal_status": {
         "reality.idnes.cz": {
-          "status": "fallback_page",
-          "stage": "detail_parse",
-          "message": "Detail URL returned fallback or non-detail content.",
-          "evidence": [
-            "detail_parse:fallback_page:https://reality.idnes.cz/detail/prodej/dum/librantice/69e08e27cfc35365110bbba2/",
-            "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/librantice/69e08e27cfc35365110bbba2/"
-          ]
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -10441,12 +10343,8 @@
           ]
         },
         "realitymix.cz": {
-          "status": "fallback_page",
-          "stage": "detail_parse",
-          "message": "Požadovaný inzerát již není v naší databázi",
-          "evidence": [
-            "detail_parse:fallback_page:https://realitymix.cz/detail/librantice/statek-s-velkym-pozemkem-cca-2182-m2-librantice-8565045.html"
-          ]
+          "status": "no_results",
+          "message": "No retained in-scope rows."
         },
         "reality.aktualne.cz": {
           "status": "no_results",
@@ -11216,7 +11114,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -11226,13 +11124,8 @@
           ]
         },
         "realitymix.cz": {
-          "status": "fallback_page",
-          "stage": "detail_parse",
-          "message": "Požadovaný inzerát již není v naší databázi",
-          "evidence": [
-            "detail_parse:fallback_page:https://realitymix.cz/detail/rasosky/rasosky-prodej-domu-s-projektem-novostavby-a-rozlehlymi-pozemky-3-593-m2-8411309.html",
-            "detail_parse:fallback_page:https://realitymix.cz/detail/rasosky/rasosky-soubor-stavebnich-pozemku-3-953-m2-se-schvalenym-projektem-k-vystavbe-8411255.html"
-          ]
+          "status": "no_results",
+          "message": "No retained in-scope rows."
         },
         "reality.aktualne.cz": {
           "status": "no_results",
@@ -11407,7 +11300,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -11718,7 +11611,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -11728,12 +11621,8 @@
           ]
         },
         "realitymix.cz": {
-          "status": "fallback_page",
-          "stage": "detail_parse",
-          "message": "Požadovaný inzerát již není v naší databázi",
-          "evidence": [
-            "detail_parse:fallback_page:https://realitymix.cz/detail/doudleby-nad-orlici/prodej-pozemku-k-bydleni-1901-m-doudleby-nad-orlici-8353441.html"
-          ]
+          "status": "no_results",
+          "message": "No retained in-scope rows."
         },
         "reality.aktualne.cz": {
           "status": "ok",
@@ -11995,7 +11884,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -12199,7 +12088,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -12492,7 +12381,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -12860,7 +12749,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -12974,7 +12863,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -13189,7 +13078,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -13402,7 +13291,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -13524,7 +13413,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -13712,7 +13601,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -13826,7 +13715,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -14193,7 +14082,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -14207,16 +14096,8 @@
           "message": "No retained in-scope RealityMix rows."
         },
         "reality.aktualne.cz": {
-          "status": "fallback_page",
-          "http_status": 404,
-          "stage": "discovery_detail_fetch",
-          "message": "HTTP 404",
-          "evidence": [
-            "discovery_detail_fetch:fallback_page:https://reality.aktualne.cz/detail/orlicke-zahori/prodej-rodinneho-domu-orlicke-zahori-kunstat-u-orlickeho-zahori-okres-rychnov-nad-kneznou-8541339.html",
-            "detail_fetch:fallback_page:https://reality.aktualne.cz/detail/orlicke-zahori/prodej-rodinneho-domu-orlicke-zahori-kunstat-u-orlickeho-zahori-okres-rychnov-nad-kneznou-8541339.html",
-            "detail_parse:fallback_page:https://reality.aktualne.cz/detail/orlicke-zahori/prodej-rodinneho-domu-orlicke-zahori-kunstat-u-orlickeho-zahori-okres-rychnov-nad-kneznou-8541339.html",
-            "detail-fallback-page:https://reality.aktualne.cz/detail/orlicke-zahori/prodej-rodinneho-domu-orlicke-zahori-kunstat-u-orlickeho-zahori-okres-rychnov-nad-kneznou-8541339.html"
-          ]
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
         }
       },
       "fetch_attempts": [
@@ -14445,7 +14326,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -15543,7 +15424,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -15830,7 +15711,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -15844,16 +15725,8 @@
           "message": "No retained in-scope RealityMix rows."
         },
         "reality.aktualne.cz": {
-          "status": "fallback_page",
-          "http_status": 404,
-          "stage": "discovery_detail_fetch",
-          "message": "HTTP 404",
-          "evidence": [
-            "discovery_detail_fetch:fallback_page:https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-rodinneho-domu-80-m2-cerveny-kostelec-8568477.html",
-            "detail_fetch:fallback_page:https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-rodinneho-domu-80-m2-cerveny-kostelec-8568477.html",
-            "detail_parse:fallback_page:https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-rodinneho-domu-80-m2-cerveny-kostelec-8568477.html",
-            "detail-fallback-page:https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-rodinneho-domu-80-m2-cerveny-kostelec-8568477.html"
-          ]
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
         }
       },
       "fetch_attempts": [
@@ -16235,7 +16108,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -16441,7 +16314,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -16603,7 +16476,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -16771,7 +16644,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -16894,7 +16767,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -17179,7 +17052,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -17514,7 +17387,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -17852,7 +17725,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -18111,7 +17984,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -18125,16 +17998,8 @@
           "message": "No retained in-scope RealityMix rows."
         },
         "reality.aktualne.cz": {
-          "status": "fallback_page",
-          "http_status": 404,
-          "stage": "discovery_detail_fetch",
-          "message": "HTTP 404",
-          "evidence": [
-            "discovery_detail_fetch:fallback_page:https://reality.aktualne.cz/detail/rtyne-v-podkrkonosi/prodej-chaty-chalupy-200-m-pozemek-6-348-m-8203389.html",
-            "detail_fetch:fallback_page:https://reality.aktualne.cz/detail/rtyne-v-podkrkonosi/prodej-chaty-chalupy-200-m-pozemek-6-348-m-8203389.html",
-            "detail_parse:fallback_page:https://reality.aktualne.cz/detail/rtyne-v-podkrkonosi/prodej-chaty-chalupy-200-m-pozemek-6-348-m-8203389.html",
-            "detail-fallback-page:https://reality.aktualne.cz/detail/rtyne-v-podkrkonosi/prodej-chaty-chalupy-200-m-pozemek-6-348-m-8203389.html"
-          ]
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
         }
       },
       "fetch_attempts": [
@@ -18408,7 +18273,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -18894,7 +18759,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -19008,7 +18873,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -19240,7 +19105,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -19362,7 +19227,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -19593,7 +19458,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -19707,7 +19572,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -19975,7 +19840,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -20097,7 +19962,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -20320,7 +20185,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -20543,7 +20408,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -20784,7 +20649,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -20951,7 +20816,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -21130,7 +20995,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -21279,7 +21144,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -21610,7 +21475,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -21742,7 +21607,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -21900,7 +21765,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -22313,7 +22178,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -22428,7 +22293,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -22560,7 +22425,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -22683,7 +22548,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -22798,7 +22663,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -22920,7 +22785,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -23093,7 +22958,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -23216,7 +23081,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -23356,7 +23221,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -23570,7 +23435,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -23584,16 +23449,8 @@
           "message": "No retained in-scope RealityMix rows."
         },
         "reality.aktualne.cz": {
-          "status": "fallback_page",
-          "http_status": 404,
-          "stage": "discovery_detail_fetch",
-          "message": "HTTP 404",
-          "evidence": [
-            "discovery_detail_fetch:fallback_page:https://reality.aktualne.cz/detail/nemojov/roubenka-dolni-nemojov-chalupa-s-kouzlem-i-vynosem-8468943.html",
-            "detail_fetch:fallback_page:https://reality.aktualne.cz/detail/nemojov/roubenka-dolni-nemojov-chalupa-s-kouzlem-i-vynosem-8468943.html",
-            "detail_parse:fallback_page:https://reality.aktualne.cz/detail/nemojov/roubenka-dolni-nemojov-chalupa-s-kouzlem-i-vynosem-8468943.html",
-            "detail-fallback-page:https://reality.aktualne.cz/detail/nemojov/roubenka-dolni-nemojov-chalupa-s-kouzlem-i-vynosem-8468943.html"
-          ]
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
         }
       },
       "fetch_attempts": [
@@ -23912,7 +23769,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -24062,7 +23919,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -24176,7 +24033,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -24615,7 +24472,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -25074,7 +24931,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -25463,7 +25320,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -25612,7 +25469,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -25923,7 +25780,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -26054,7 +25911,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -26194,7 +26051,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -26397,7 +26254,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -26519,7 +26376,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -26714,7 +26571,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -27011,7 +26868,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -27141,7 +26998,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -27151,12 +27008,8 @@
           ]
         },
         "realitymix.cz": {
-          "status": "fallback_page",
-          "stage": "detail_parse",
-          "message": "Požadovaný inzerát již není v naší databázi",
-          "evidence": [
-            "detail_parse:fallback_page:https://realitymix.cz/detail/pardubice/prodej-pozemku-v-obci-hostovice-u-pardubic-p-c-76-3-o-velikosti-1740-m2-8090811.html"
-          ]
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
         },
         "reality.aktualne.cz": {
           "status": "ok",
@@ -28212,7 +28065,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -28751,7 +28604,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -28882,7 +28735,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -29061,7 +28914,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -29184,7 +29037,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -29299,7 +29152,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -29456,7 +29309,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -29466,12 +29319,8 @@
           ]
         },
         "realitymix.cz": {
-          "status": "fallback_page",
-          "stage": "detail_parse",
-          "message": "Požadovaný inzerát již není v naší databázi",
-          "evidence": [
-            "detail_parse:fallback_page:https://realitymix.cz/detail/trutnov/prodej-domy-rodinny-216-m2-stary-rokytnik-228-54101-trutnov-trutnov-id-83473-8534935.html"
-          ]
+          "status": "ok",
+          "message": "Retained at least one in-scope row."
         },
         "reality.aktualne.cz": {
           "status": "ok",
@@ -30559,7 +30408,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -30728,7 +30577,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -30922,7 +30771,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -31135,7 +30984,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -31509,7 +31358,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -31937,7 +31786,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -32427,7 +32276,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -32441,16 +32290,8 @@
           "message": "No retained in-scope RealityMix rows."
         },
         "reality.aktualne.cz": {
-          "status": "fallback_page",
-          "http_status": 404,
-          "stage": "discovery_detail_fetch",
-          "message": "HTTP 404",
-          "evidence": [
-            "discovery_detail_fetch:fallback_page:https://reality.aktualne.cz/detail/podhorni-ujezd-a-vojice/prodej-pozemku-k-bydleni-1375-m-podhorni-ujezd-a-vojice-8085222.html",
-            "detail_fetch:fallback_page:https://reality.aktualne.cz/detail/podhorni-ujezd-a-vojice/prodej-pozemku-k-bydleni-1375-m-podhorni-ujezd-a-vojice-8085222.html",
-            "detail_parse:fallback_page:https://reality.aktualne.cz/detail/podhorni-ujezd-a-vojice/prodej-pozemku-k-bydleni-1375-m-podhorni-ujezd-a-vojice-8085222.html",
-            "detail-fallback-page:https://reality.aktualne.cz/detail/podhorni-ujezd-a-vojice/prodej-pozemku-k-bydleni-1375-m-podhorni-ujezd-a-vojice-8085222.html"
-          ]
+          "status": "no_results",
+          "message": "No retained in-scope rows."
         }
       },
       "fetch_attempts": [
@@ -32609,7 +32450,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -32767,7 +32608,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -33180,7 +33021,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -33405,7 +33246,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -33535,7 +33376,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -34112,7 +33953,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -34534,7 +34375,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -34666,7 +34507,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",
@@ -34789,7 +34630,7 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "fallback_page",
+          "status": "blocked",
           "http_status": 403,
           "stage": "search_fetch",
           "message": "HTTP 403",

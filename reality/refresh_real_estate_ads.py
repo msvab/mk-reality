@@ -8,7 +8,7 @@ from collections import Counter
 from pathlib import Path
 
 from .run_real_estate_ads_by_city import city_refresh_summary, format_delta
-from .summarize_real_estate_fetch_errors import iter_candidate_exclusions, iter_warnings
+from .summarize_real_estate_fetch_errors import grouped_rows, iter_candidate_exclusions, iter_warnings
 
 ROOT = Path(__file__).resolve().parent.parent
 AGGREGATE_PATH = ROOT / "real_estate_ads_by_city.json"
@@ -173,15 +173,19 @@ def summarize_warnings(max_warnings: int) -> None:
         print(f"portal warnings: {len(warnings)}")
         print("  by status:", ", ".join(f"{status}={count}" for status, count in sorted(by_status.items())))
         print("  by portal:", ", ".join(f"{portal}={count}" for portal, count in sorted(by_portal.items())))
-        for warning in warnings[:max_warnings]:
-            parts = [warning["city"], warning["portal"], warning["status"]]
-            if warning.get("http_status") is not None:
-                parts.append(f"HTTP {warning['http_status']}")
-            print("  " + " | ".join(str(part) for part in parts))
-            if warning.get("message"):
-                print(f"    {warning['message']}")
-        if len(warnings) > max_warnings:
-            print(f"  ... {len(warnings) - max_warnings} more")
+        for group in grouped_rows(warnings)[:max_warnings]:
+            parts = [group["portal"], group["status"]]
+            if group.get("http_status") is not None:
+                parts.append(f"HTTP {group['http_status']}")
+            if group.get("stage"):
+                parts.append(str(group["stage"]))
+            print(f"  {group['count']} cities | " + " | ".join(str(part) for part in parts))
+            if group.get("message"):
+                print(f"    {group['message']}")
+            print(f"    sample cities: {', '.join(group['cities'][:8])}")
+        grouped_warning_count = len(grouped_rows(warnings))
+        if grouped_warning_count > max_warnings:
+            print(f"  ... {grouped_warning_count - max_warnings} more groups")
 
     if not candidate_exclusions:
         print("candidate exclusions: 0")
@@ -192,15 +196,19 @@ def summarize_warnings(max_warnings: int) -> None:
     print(f"candidate exclusions: {len(candidate_exclusions)}")
     print("  by status:", ", ".join(f"{status}={count}" for status, count in sorted(by_status.items())))
     print("  by portal:", ", ".join(f"{portal}={count}" for portal, count in sorted(by_portal.items())))
-    for exclusion in candidate_exclusions[:max_warnings]:
-        parts = [exclusion["city"], exclusion["portal"], exclusion["status"]]
-        if exclusion.get("http_status") is not None:
-            parts.append(f"HTTP {exclusion['http_status']}")
-        print("  " + " | ".join(str(part) for part in parts))
-        if exclusion.get("message"):
-            print(f"    {exclusion['message']}")
-    if len(candidate_exclusions) > max_warnings:
-        print(f"  ... {len(candidate_exclusions) - max_warnings} more")
+    for group in grouped_rows(candidate_exclusions)[:max_warnings]:
+        parts = [group["portal"], group["status"]]
+        if group.get("http_status") is not None:
+            parts.append(f"HTTP {group['http_status']}")
+        if group.get("stage"):
+            parts.append(str(group["stage"]))
+        print(f"  {group['count']} cities | " + " | ".join(str(part) for part in parts))
+        if group.get("message"):
+            print(f"    {group['message']}")
+        print(f"    sample cities: {', '.join(group['cities'][:8])}")
+    grouped_exclusion_count = len(grouped_rows(candidate_exclusions))
+    if grouped_exclusion_count > max_warnings:
+        print(f"  ... {grouped_exclusion_count - max_warnings} more groups")
 
 
 def aggregate_totals(aggregate: dict) -> dict:

@@ -80,6 +80,8 @@ def classify_fetch(http_status: int | None, returncode: int, body: str, stderr: 
         return "rate_limited", "HTTP 429"
     if http_status is not None and http_status >= 500:
         return "fetch_error", f"HTTP {http_status}"
+    if http_status == 403:
+        return "blocked", "HTTP 403"
     if http_status is not None and http_status >= 400:
         return "fallback_page", f"HTTP {http_status}"
     if not body.strip():
@@ -322,6 +324,10 @@ def build_portal_status(fetch_attempts: list[dict], listings: list[dict]) -> dic
     for attempt in fetch_attempts:
         attempt_status = str(attempt.get("status", "unknown"))
         if attempt_status in {"ok", "no_results"}:
+            continue
+        # A stale cached detail page means one known listing disappeared. It is
+        # useful evidence, but it should not make the whole portal look broken.
+        if attempt_status == "fallback_page" and attempt.get("stage") in {"detail_fetch", "detail_parse"}:
             continue
         if failed_attempt is None or status_order.get(attempt_status, -1) > status_order.get(
             str(failed_attempt.get("status", "unknown")),

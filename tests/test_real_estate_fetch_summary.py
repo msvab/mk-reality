@@ -1,4 +1,4 @@
-from reality.summarize_real_estate_fetch_errors import iter_candidate_exclusions, iter_warnings
+from reality.summarize_real_estate_fetch_errors import grouped_rows, iter_candidate_exclusions, iter_warnings
 
 
 def test_inactive_status_is_candidate_exclusion_not_portal_warning():
@@ -80,3 +80,32 @@ def test_fetch_failure_status_remains_portal_warning():
     assert warnings[0]["status"] == "rate_limited"
     assert warnings[0]["http_status"] == 429
     assert list(iter_candidate_exclusions(payload)) == []
+
+
+def test_grouped_rows_collapses_repeated_warning_shape():
+    rows = [
+        {
+            "city": "Opočno",
+            "portal": "mmreality.cz",
+            "status": "blocked",
+            "http_status": 403,
+            "stage": "search_fetch",
+            "retained_from_snapshot": None,
+            "message": "HTTP 403",
+        },
+        {
+            "city": "Dobruška",
+            "portal": "mmreality.cz",
+            "status": "blocked",
+            "http_status": 403,
+            "stage": "search_fetch",
+            "retained_from_snapshot": None,
+            "message": "HTTP 403",
+        },
+    ]
+
+    groups = grouped_rows(rows)
+
+    assert len(groups) == 1
+    assert groups[0]["count"] == 2
+    assert groups[0]["cities"] == ["Opočno", "Dobruška"]

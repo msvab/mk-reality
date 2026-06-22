@@ -1,5 +1,6 @@
 import argparse
 import json
+from collections import defaultdict
 from pathlib import Path
 
 NON_WARNING_STATUSES = {"ok", "no_results", "inactive"}
@@ -86,17 +87,55 @@ def print_rows(title: str, rows: list[dict]) -> None:
         print(f"{title}: 0")
         return
     print(f"{title}: {len(rows)}")
-    for row in rows:
-        parts = [row["city"], row["portal"], row["status"]]
-        if row["http_status"] is not None:
-            parts.append(f"HTTP {row['http_status']}")
-        if row["stage"]:
-            parts.append(str(row["stage"]))
-        if row["retained_from_snapshot"]:
+    for group in grouped_rows(rows):
+        parts = [group["portal"], group["status"]]
+        if group["http_status"] is not None:
+            parts.append(f"HTTP {group['http_status']}")
+        if group["stage"]:
+            parts.append(str(group["stage"]))
+        if group["retained_from_snapshot"]:
             parts.append("retained_from_snapshot")
-        print("  " + " | ".join(parts))
-        if row["message"]:
-            print(f"    {row['message']}")
+        print(f"  {group['count']} cities | " + " | ".join(str(part) for part in parts))
+        if group["message"]:
+            print(f"    {group['message']}")
+        print(f"    sample cities: {', '.join(group['cities'][:8])}")
+
+
+def grouped_rows(rows: list[dict]) -> list[dict]:
+    groups = defaultdict(list)
+    for row in rows:
+        key = (
+            row.get("portal"),
+            row.get("status"),
+            row.get("http_status"),
+            row.get("stage"),
+            row.get("retained_from_snapshot"),
+            row.get("message"),
+        )
+        groups[key].append(row)
+
+    out = []
+    for (
+        portal,
+        status,
+        http_status,
+        stage,
+        retained_from_snapshot,
+        message,
+    ), grouped in groups.items():
+        out.append(
+            {
+                "portal": portal,
+                "status": status,
+                "http_status": http_status,
+                "stage": stage,
+                "retained_from_snapshot": retained_from_snapshot,
+                "message": message,
+                "count": len(grouped),
+                "cities": [str(row["city"]) for row in grouped],
+            }
+        )
+    return sorted(out, key=lambda item: (-item["count"], str(item["portal"]), str(item["status"])))
 
 
 def main() -> None:

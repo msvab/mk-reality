@@ -1,6 +1,7 @@
 import json
 import subprocess
 
+import reality.run_real_estate_ads_by_city as runner
 from reality.run_real_estate_ads_by_city import (
     build_prompt,
     cached_ads_for_prompt,
@@ -822,3 +823,64 @@ def test_local_fetchers_raise_when_helper_reports_blocked_requests(tmp_path, mon
         raise AssertionError("expected helper-reported blocked requests to fail local fetch")
 
     assert not output_path.exists()
+
+
+def test_mmreality_block_circuit_breaker_skips_later_cities(tmp_path, monkeypatch):
+    commands = []
+
+    def fake_run(cmd, check, capture_output, text):
+        commands.append(cmd)
+        script_name = cmd[1].split("/")[-1]
+        portal = {
+            "mmreality_fetch.py": "mmreality.cz",
+            "realitymix_fetch.py": "realitymix.cz",
+            "reality_aktualne_fetch.py": "reality.aktualne.cz",
+            "reality_idnes_fetch.py": "reality.idnes.cz",
+        }[script_name]
+        portal_status = {"status": "no_results"}
+        fetch_attempts = []
+        if portal == "mmreality.cz":
+            portal_status = {"status": "blocked", "http_status": 403, "stage": "search_fetch"}
+            fetch_attempts = [
+                {
+                    "portal": "mmreality.cz",
+                    "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+                    "stage": "search_fetch",
+                    "attempt": 1,
+                    "status": "blocked",
+                    "http_status": 403,
+                }
+            ]
+        payload = {
+            "city": cmd[cmd.index("--municipality") + 1],
+            "query": {
+                "municipality": cmd[cmd.index("--municipality") + 1],
+                "location_scope": "municipality_only",
+                "country": "Czech Republic",
+                "property_types": ["house", "chalupa", "land"],
+                "land_size_min_m2": 1000,
+            },
+            "assumptions": [],
+            "coverage": {
+                "workers_launched": 1,
+                "workers_with_results": 0,
+                "candidates_gathered": 0,
+                "rows_retained": 0,
+                "zero_result_portals": [portal],
+                "blocked_portals": [],
+            },
+            "portal_status": {portal: portal_status},
+            "fetch_attempts": fetch_attempts,
+            "gaps": [],
+            "listings": [],
+        }
+        return subprocess.CompletedProcess(cmd, 0, stdout=json.dumps(payload), stderr="")
+
+    monkeypatch.setattr(runner, "MMREALITY_BLOCKED_FOR_RUN", False)
+    monkeypatch.setattr("reality.run_real_estate_ads_by_city.subprocess.run", fake_run)
+
+    assert run_local_fetchers("First", tmp_path, tmp_path / "first.json", previous_aggregate=None)
+    assert run_local_fetchers("Second", tmp_path, tmp_path / "second.json", previous_aggregate=None)
+
+    mmreality_commands = [cmd for cmd in commands if cmd[1].endswith("mmreality_fetch.py")]
+    assert len(mmreality_commands) == 1

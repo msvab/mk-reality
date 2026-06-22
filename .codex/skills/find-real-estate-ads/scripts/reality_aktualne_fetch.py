@@ -412,6 +412,14 @@ def build_portal_status(fetch_attempts: list[dict], listings: list[dict]) -> dic
         attempt_status = str(attempt.get("status", "unknown"))
         if attempt_status in {"ok", "no_results"}:
             continue
+        # 404/fallback on a cached detail URL usually means the listing was
+        # removed. That is listing churn, not a portal outage.
+        if attempt_status == "fallback_page" and attempt.get("stage") in {
+            "detail_fetch",
+            "detail_parse",
+            "discovery_detail_fetch",
+        }:
+            continue
         if status_order.get(attempt_status, -1) > status_order.get(status, -1):
             status = attempt_status
             chosen_attempt = attempt
