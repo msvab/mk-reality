@@ -28,13 +28,12 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Trutnov."
   ],
   "coverage": {
-    "workers_launched": 4,
+    "workers_launched": 3,
     "workers_with_results": 2,
     "candidates_gathered": 62,
     "rows_retained": 20,
     "zero_result_portals": [
-      "reality.idnes.cz",
-      "mmreality.cz"
+      "reality.idnes.cz"
     ],
     "blocked_portals": []
   },
@@ -43,22 +42,9 @@
       "status": "no_results",
       "message": "No retained in-scope iDNES rows."
     },
-    "mmreality.cz": {
-      "status": "fallback_page",
-      "stage": "search_fetch",
-      "message": "HTTP 403",
-      "evidence": [
-        "search_fetch:fallback_page:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/"
-      ],
-      "http_status": 403
-    },
     "realitymix.cz": {
-      "status": "fallback_page",
-      "stage": "detail_parse",
-      "message": "Požadovaný inzerát již není v naší databázi",
-      "evidence": [
-        "detail_parse:fallback_page:https://realitymix.cz/detail/trutnov/prodej-domy-rodinny-216-m2-stary-rokytnik-228-54101-trutnov-trutnov-id-83473-8534935.html"
-      ]
+      "status": "ok",
+      "message": "Retained at least one detail-verified RealityMix row."
     },
     "reality.aktualne.cz": {
       "status": "ok",
@@ -73,24 +59,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 403,
-      "error": "HTTP 403"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 403,
-      "error": "HTTP 403"
     },
     {
       "portal": "realitymix.cz",
@@ -374,6 +342,14 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trutnov/prodej-bytu-3-1-v-trutnove-ul-za-kominem-8630183.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/trutnov/prodej-bytu-3kk-64m2-v-rezidenci-kasarna-v-trutnove-8550835.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -454,14 +430,6 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-1-1-43-m2-horska-trutnov-8605135.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-1-1-48-m-trutnov-ul-voletinska-8613779.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -503,8 +471,6 @@
   ],
   "gaps": [
     "idnes-discovery-missing-locality-id",
-    "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-    "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
     "removed-fallback-page:https://realitymix.cz/detail/trutnov/prodej-domy-rodinny-216-m2-stary-rokytnik-228-54101-trutnov-trutnov-id-83473-8534935.html",
     "land-below-threshold:https://realitymix.cz/detail/trutnov/prodej-domy-rodinny-213-5-m2-oblanov-e111-54101-trutnov-trutnov-id-77054-8591185.html",
     "land-below-threshold:https://realitymix.cz/detail/trutnov/prodej-rd-trutnov-kryblice-8345371.html",
@@ -515,6 +481,7 @@
     "land-below-threshold:https://reality.aktualne.cz/detail/trutnov/cinzovni-dum-s-vynosem-a-developerskym-potencialem-trutnov-porici-8614929.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/dlouhodoby-pronajem-bytu-2-kk-trutnov-porici-8629403.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/moderni-byt-4-kk-102-m-novostavba-c-p-602-v-rezidenci-kasarna-8521441.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/prodej-bytu-3-1-v-trutnove-ul-za-kominem-8630183.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/prodej-bytu-3kk-64m2-v-rezidenci-kasarna-v-trutnove-8550835.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/prodej-bytu-4-kk-100-m2-horska-trutnov-8614637.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/prodej-chaty-v-trutnove-8523797.html",
@@ -523,7 +490,6 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/prodej-zdeneho-bytu-2-kk-v-osobnim-vlastnictvi-trutnov-stredni-predmesti-ul-blanicka-8544335.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/pronajem-byt-2-kk-39-8549053.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-1-1-30-m2-upske-nabrezi-trutnov-8615299.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-1-1-43-m2-horska-trutnov-8605135.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-1-1-48-m-trutnov-ul-voletinska-8613779.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-2-1-64-m-trutnov-ul-polska-8528835.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-2-kk-52-m2-komenskeho-trutnov-8616023.html",

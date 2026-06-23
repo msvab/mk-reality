@@ -28,13 +28,12 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Podhorní Újezd a Vojice."
   ],
   "coverage": {
-    "workers_launched": 4,
+    "workers_launched": 3,
     "workers_with_results": 0,
     "candidates_gathered": 1,
     "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "mmreality.cz",
       "realitymix.cz",
       "reality.aktualne.cz"
     ],
@@ -45,27 +44,13 @@
       "status": "no_results",
       "message": "No retained in-scope iDNES rows."
     },
-    "mmreality.cz": {
-      "status": "fallback_page",
-      "stage": "search_fetch",
-      "message": "HTTP 403",
-      "evidence": [
-        "search_fetch:fallback_page:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/"
-      ],
-      "http_status": 403
-    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
-      "status": "fallback_page",
-      "http_status": 404,
-      "stage": "discovery_detail_fetch",
-      "message": "HTTP 404",
-      "evidence": [
-        "discovery_detail_fetch:fallback_page:https://reality.aktualne.cz/detail/podhorni-ujezd-a-vojice/prodej-pozemku-k-bydleni-1375-m-podhorni-ujezd-a-vojice-8085222.html"
-      ]
+      "status": "no_results",
+      "message": "No retained in-scope Reality Aktuálně rows."
     }
   },
   "fetch_attempts": [
@@ -76,24 +61,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 403,
-      "error": "HTTP 403"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 403,
-      "error": "HTTP 403"
     },
     {
       "portal": "realitymix.cz",
@@ -156,8 +123,6 @@
   ],
   "gaps": [
     "idnes-discovery-missing-locality-id",
-    "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-    "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Podhorn%C3%AD+%C3%9Ajezd+a+Vojice&form%5Bcena_mena%5D=1",

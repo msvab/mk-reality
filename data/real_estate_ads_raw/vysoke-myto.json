@@ -28,13 +28,12 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Vysoké Mýto."
   ],
   "coverage": {
-    "workers_launched": 4,
+    "workers_launched": 3,
     "workers_with_results": 1,
-    "candidates_gathered": 10,
+    "candidates_gathered": 12,
     "rows_retained": 1,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "mmreality.cz",
       "realitymix.cz"
     ],
     "blocked_portals": []
@@ -43,15 +42,6 @@
     "reality.idnes.cz": {
       "status": "no_results",
       "message": "No retained in-scope iDNES rows."
-    },
-    "mmreality.cz": {
-      "status": "fallback_page",
-      "stage": "search_fetch",
-      "message": "HTTP 403",
-      "evidence": [
-        "search_fetch:fallback_page:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/"
-      ],
-      "http_status": 403
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -70,24 +60,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 403,
-      "error": "HTTP 403"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 403,
-      "error": "HTTP 403"
     },
     {
       "portal": "realitymix.cz",
@@ -117,6 +89,14 @@
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Vysok%C3%A9+M%C3%BDto&form%5Bcena_mena%5D=1",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vysoke-myto/byt-3-1-75m2-s-lodzii-75-m2-chmelova-vysoke-myto-8289189.html",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -171,6 +151,14 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vysoke-myto/prodej-rodinneho-domu-86-m2-vysoke-myto-b-korabove-prazske-predmesti-8289201.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-2-1-rokycanova-vysoke-myto-12-000-kc-mes-53-m2-8570021.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -204,15 +192,15 @@
   ],
   "gaps": [
     "idnes-discovery-missing-locality-id",
-    "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-    "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
     "missing-page-url:house",
     "missing-page-url:land",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/byt-3-1-75m2-s-lodzii-75-m2-chmelova-vysoke-myto-8289189.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/industrial-park-vysoke-myto-pronajem-skladovych-prostor-8175075.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/industrial-park-vysoke-myto-pronajem-skladovych-prostor-8175083.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/prodej-pole-18365-m2-vysoke-myto-8583955.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/prodej-rodinne-domy-190-m2-vysoke-myto-prazske-predmesti-8169005.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/vysoke-myto/prodej-rodinneho-domu-139-m-vysoke-myto-8486801.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/vysoke-myto/prodej-rodinneho-domu-86-m2-vysoke-myto-b-korabove-prazske-predmesti-8289201.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-2-1-rokycanova-vysoke-myto-12-000-kc-mes-53-m2-8570021.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-2-kk-49-m-vysoke-myto-ul-tumova-8597077.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-2-kk-53-m-vysoke-myto-ul-litomyslska-8599057.html",

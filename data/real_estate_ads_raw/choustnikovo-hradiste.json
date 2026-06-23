@@ -28,13 +28,12 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Choustníkovo Hradiště."
   ],
   "coverage": {
-    "workers_launched": 4,
+    "workers_launched": 3,
     "workers_with_results": 0,
     "candidates_gathered": 3,
     "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "mmreality.cz",
       "realitymix.cz",
       "reality.aktualne.cz"
     ],
@@ -44,15 +43,6 @@
     "reality.idnes.cz": {
       "status": "no_results",
       "message": "No retained in-scope iDNES rows."
-    },
-    "mmreality.cz": {
-      "status": "fallback_page",
-      "stage": "search_fetch",
-      "message": "HTTP 403",
-      "evidence": [
-        "search_fetch:fallback_page:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/"
-      ],
-      "http_status": 403
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -71,24 +61,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 403,
-      "error": "HTTP 403"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 403,
-      "error": "HTTP 403"
     },
     {
       "portal": "realitymix.cz",
@@ -149,8 +121,6 @@
   ],
   "gaps": [
     "idnes-discovery-missing-locality-id",
-    "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-    "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
     "missing-page-url:house",
     "missing-page-url:land",
     "unsupported-property-type:https://reality.aktualne.cz/detail/choustnikovo-hradiste/nabizime-vam-k-prodeji-byt-3-kk-v-osobnim-vlastnictvi-v-choustnikove-hradisti-okr-trutnov-8345789.html",

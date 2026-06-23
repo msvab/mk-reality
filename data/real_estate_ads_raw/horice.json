@@ -28,13 +28,12 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Hořice."
   ],
   "coverage": {
-    "workers_launched": 4,
+    "workers_launched": 3,
     "workers_with_results": 1,
-    "candidates_gathered": 21,
+    "candidates_gathered": 22,
     "rows_retained": 2,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "mmreality.cz",
       "realitymix.cz"
     ],
     "blocked_portals": []
@@ -43,15 +42,6 @@
     "reality.idnes.cz": {
       "status": "no_results",
       "message": "No retained in-scope iDNES rows."
-    },
-    "mmreality.cz": {
-      "status": "fallback_page",
-      "stage": "search_fetch",
-      "message": "HTTP 403",
-      "evidence": [
-        "search_fetch:fallback_page:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/"
-      ],
-      "http_status": 403
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -70,24 +60,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 403,
-      "error": "HTTP 403"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 403,
-      "error": "HTTP 403"
     },
     {
       "portal": "realitymix.cz",
@@ -156,6 +128,30 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/horice/investicni-prilezitost-v-centru-horic-cinzovni-dum-s-peti-byty-a-povolenim-k-pudni-vestavbe-8540061.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/horice/novostavba-bytu-3-kk-75-32-m2-2-balkon-8-63-m2-vytah-podlahove-vytapeni-uzavreny-areal-8629807.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/horice/novostavba-bytu-3-kk-82-2-m2-balkon-2-6-m2-vytah-podlahove-vytapeni-uzavreny-areal-8629819.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/horice/novostavba-bytu-3-kk-85-34-m2-3-balkon-13-85-m2-vytah-podlahove-vytapeni-uzavreny-areal-8629997.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -267,14 +263,6 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/horice/prodej-bytu-3-1-horice-8558287.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/horice/prodej-chata-62-8616485.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -304,23 +292,16 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/horice/pronajem-vyrobniho-objektu-1000-m-horice-ul-maixnerova-8558085.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
     "idnes-discovery-missing-locality-id",
-    "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-    "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
     "missing-page-url:house",
     "missing-page-url:land",
     "outside-municipality:https://reality.aktualne.cz/detail/horice/dum-s-orientaci-na-jih-8556385.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/horice/novostavba-bytu-3-kk-75-32-m2-2-balkon-8-63-m2-vytah-podlahove-vytapeni-uzavreny-areal-8629807.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/horice/novostavba-bytu-3-kk-82-2-m2-balkon-2-6-m2-vytah-podlahove-vytapeni-uzavreny-areal-8629819.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/horice/novostavba-bytu-3-kk-85-34-m2-3-balkon-13-85-m2-vytah-podlahove-vytapeni-uzavreny-areal-8629997.html",
     "non-buildable-land:https://reality.aktualne.cz/detail/horice/pozemek-bydleni-prodej-horice-pelhrimov-8593755.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/horice/prodej-bytu-2-1-62-m-horice-ul-pod-lipou-8462871.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/horice/prodej-bytu-2-kk-44-m2-horice-8625007.html",
@@ -334,11 +315,9 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/horice/prodej-bytu-2-kk-63-m2-horice-8625061.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/horice/prodej-bytu-2-kk-63-m2-horice-8625073.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/horice/prodej-bytu-2-kk-63-m2-horice-8625083.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/horice/prodej-bytu-3-1-horice-8558287.html",
     "outside-municipality:https://reality.aktualne.cz/detail/horice/prodej-chata-62-8616485.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/horice/prodej-komercni-nemovitosti-horice-v-podkrkonosi-8495613.html",
-    "outside-municipality:https://reality.aktualne.cz/detail/horice/prodej-rodinny-dum-62-8617261.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/horice/pronajem-vyrobniho-objektu-1000-m-horice-ul-maixnerova-8558085.html"
+    "outside-municipality:https://reality.aktualne.cz/detail/horice/prodej-rodinny-dum-62-8617261.html"
   ],
   "listings": [
     {

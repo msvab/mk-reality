@@ -28,13 +28,12 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Lázně Bohdaneč."
   ],
   "coverage": {
-    "workers_launched": 4,
+    "workers_launched": 3,
     "workers_with_results": 0,
-    "candidates_gathered": 9,
+    "candidates_gathered": 8,
     "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "mmreality.cz",
       "realitymix.cz",
       "reality.aktualne.cz"
     ],
@@ -44,15 +43,6 @@
     "reality.idnes.cz": {
       "status": "no_results",
       "message": "No retained in-scope iDNES rows."
-    },
-    "mmreality.cz": {
-      "status": "fallback_page",
-      "stage": "search_fetch",
-      "message": "HTTP 403",
-      "evidence": [
-        "search_fetch:fallback_page:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/"
-      ],
-      "http_status": 403
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -71,24 +61,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 403,
-      "error": "HTTP 403"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 403,
-      "error": "HTTP 403"
     },
     {
       "portal": "realitymix.cz",
@@ -118,14 +90,6 @@
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=L%C3%A1zn%C4%9B+Bohdane%C4%8D&form%5Bcena_mena%5D=1",
       "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/lazne-bohdanec/louka-prodej-lazne-bohdanec-pardubice-8572365.html",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -197,11 +161,8 @@
   ],
   "gaps": [
     "idnes-discovery-missing-locality-id",
-    "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-    "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
     "missing-page-url:house",
     "missing-page-url:land",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/lazne-bohdanec/louka-prodej-lazne-bohdanec-pardubice-8572365.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/lazne-bohdanec/nadstandardni-radovy-dum-5-kk-v-laznich-bohdanec-8623449.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/lazne-bohdanec/prodej-bytu-3-kk-65-m2-druzstevni-lazne-bohdanec-8604223.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/lazne-bohdanec/prodej-obchod-a-sluzby-202-m-lazne-bohdanec-ul-skroupova-8621257.html",

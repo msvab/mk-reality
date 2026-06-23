@@ -28,13 +28,12 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Dvůr Králové nad Labem."
   ],
   "coverage": {
-    "workers_launched": 4,
+    "workers_launched": 3,
     "workers_with_results": 1,
     "candidates_gathered": 20,
     "rows_retained": 1,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "mmreality.cz",
       "realitymix.cz"
     ],
     "blocked_portals": []
@@ -43,15 +42,6 @@
     "reality.idnes.cz": {
       "status": "no_results",
       "message": "No retained in-scope iDNES rows."
-    },
-    "mmreality.cz": {
-      "status": "fallback_page",
-      "stage": "search_fetch",
-      "message": "HTTP 403",
-      "evidence": [
-        "search_fetch:fallback_page:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/"
-      ],
-      "http_status": 403
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -70,24 +60,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 403,
-      "error": "HTTP 403"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 403,
-      "error": "HTTP 403"
     },
     {
       "portal": "realitymix.cz",
@@ -156,6 +128,14 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-bytu-3-1-71-m2-dvur-kralove-nad-labem-8598507.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-bytu-3-1-dvur-kralove-nad-labem-8584807.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -235,14 +215,6 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-stavebniho-pozemku-406-m2-legionarska-dvur-kralove-nad-labem-8614541.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-styloveho-domu-4-kk-ve-dvore-kralove-nad-labem-8554777.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -300,13 +272,12 @@
   ],
   "gaps": [
     "idnes-discovery-missing-locality-id",
-    "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-    "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
     "missing-page-url:house",
     "missing-page-url:land",
     "unsupported-property-type:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/louka-prodej-dvur-kralove-nad-labem-trutnov-8624693.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/obchodni-prostory-dvur-kralove-nad-labem-7720695.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-bytu-3-1-71-m2-dvur-kralove-nad-labem-8598507.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-bytu-3-1-dvur-kralove-nad-labem-8584807.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-bytu-3-1-ve-dvore-kralove-nad-labem-8521123.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-byty-2-kk-59-m2-stefanikova-2958-54401-dvur-kralove-nad-labem-trutnov-id-85576-8619353.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-domu-na-klic-golden-sky-8509971.html",
@@ -315,7 +286,6 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-prostorneho-bytu-1-1-s-pudni-koji-a-sklepem-8602673.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-rodinneho-domu-113-m-dvur-kralove-nad-labem-8584203.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-rodinneho-domu-200-m-dvur-kralove-nad-labem-8601177.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-stavebniho-pozemku-406-m2-legionarska-dvur-kralove-nad-labem-8614541.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-styloveho-domu-4-kk-ve-dvore-kralove-nad-labem-8554777.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-zahrady-676-m-dvur-kralove-nad-labem-8284273.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/pronajem-bytu-1-1-dvur-kralove-8615359.html",

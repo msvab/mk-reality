@@ -28,13 +28,12 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Předměřice nad Labem."
   ],
   "coverage": {
-    "workers_launched": 4,
+    "workers_launched": 3,
     "workers_with_results": 0,
-    "candidates_gathered": 6,
+    "candidates_gathered": 7,
     "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "mmreality.cz",
       "realitymix.cz",
       "reality.aktualne.cz"
     ],
@@ -44,15 +43,6 @@
     "reality.idnes.cz": {
       "status": "no_results",
       "message": "No retained in-scope iDNES rows."
-    },
-    "mmreality.cz": {
-      "status": "fallback_page",
-      "stage": "search_fetch",
-      "message": "HTTP 403",
-      "evidence": [
-        "search_fetch:fallback_page:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/"
-      ],
-      "http_status": 403
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -71,24 +61,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 403,
-      "error": "HTTP 403"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 403,
-      "error": "HTTP 403"
     },
     {
       "portal": "realitymix.cz",
@@ -164,6 +136,14 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/predmerice-nad-labem/pronajem-rodinneho-domu-150-m-predmerice-n-l-ul-na-obci-8629625.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/predmerice-nad-labem/pronajem-skladu-175-m-predmerice-nad-labem-ul-v-aleji-8521311.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -173,8 +153,6 @@
   ],
   "gaps": [
     "idnes-discovery-missing-locality-id",
-    "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-    "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
     "missing-page-url:house",
     "missing-page-url:land",
     "unsupported-property-type:https://reality.aktualne.cz/detail/predmerice-nad-labem/prodej-komercni-nemovitost-objekt-obcanske-vybavenosti-1-100-m2-predmerice-nad-labem-8309013.html",
@@ -182,6 +160,7 @@
     "non-buildable-land:https://reality.aktualne.cz/detail/predmerice-nad-labem/prodej-pozemky-bydleni-1037-m2-pod-nadrazim-505-50302-predmerice-nad-labem-hradec-kralove-id-8-8506583.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/predmerice-nad-labem/prodej-rd-predmerice-nad-labem-8532051.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/predmerice-nad-labem/prodej-vily-379-m2-obrancu-miru-predmerice-nad-labem-8563771.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/predmerice-nad-labem/pronajem-rodinneho-domu-150-m-predmerice-n-l-ul-na-obci-8629625.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/predmerice-nad-labem/pronajem-skladu-175-m-predmerice-nad-labem-ul-v-aleji-8521311.html"
   ],
   "listings": []

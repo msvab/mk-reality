@@ -28,13 +28,12 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Náchod."
   ],
   "coverage": {
-    "workers_launched": 4,
+    "workers_launched": 3,
     "workers_with_results": 2,
-    "candidates_gathered": 32,
+    "candidates_gathered": 31,
     "rows_retained": 4,
     "zero_result_portals": [
-      "reality.idnes.cz",
-      "mmreality.cz"
+      "reality.idnes.cz"
     ],
     "blocked_portals": []
   },
@@ -43,31 +42,13 @@
       "status": "no_results",
       "message": "No retained in-scope iDNES rows."
     },
-    "mmreality.cz": {
-      "status": "fallback_page",
-      "stage": "search_fetch",
-      "message": "HTTP 403",
-      "evidence": [
-        "search_fetch:fallback_page:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/"
-      ],
-      "http_status": 403
-    },
     "realitymix.cz": {
-      "status": "fallback_page",
-      "stage": "detail_parse",
-      "message": "Požadovaný inzerát již není v naší databázi",
-      "evidence": [
-        "detail_parse:fallback_page:https://realitymix.cz/detail/nachod/prodej-rodinneho-domu-1130-m-nachod-8446033.html"
-      ]
+      "status": "ok",
+      "message": "Retained at least one detail-verified RealityMix row."
     },
     "reality.aktualne.cz": {
-      "status": "fallback_page",
-      "http_status": 404,
-      "stage": "discovery_detail_fetch",
-      "message": "HTTP 404",
-      "evidence": [
-        "discovery_detail_fetch:fallback_page:https://reality.aktualne.cz/detail/nachod/prodej-rodinneho-domu-1130-m-nachod-8446033.html"
-      ]
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
     }
   },
   "fetch_attempts": [
@@ -78,33 +59,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 403,
-      "error": "HTTP 403"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 403,
-      "error": "HTTP 403"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/918301/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 403,
-      "error": "HTTP 403"
     },
     {
       "portal": "realitymix.cz",
@@ -269,6 +223,14 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/nachod/nabizime-k-prodeji-prostorny-byt-o-dispozici-2-1-o-celkove-plose-71-m-8451917.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/nachod/podnajem-kancelarskych-prostor-40-m2-8605303.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -419,21 +381,10 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/nachod/pronajem-prodej-pozemku-k-bydleni-933m2-nachod-8202179.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
     "idnes-discovery-missing-locality-id",
-    "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-    "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-    "failed-detail-fetch:https://www.mmreality.cz/nemovitosti/918301/",
     "removed-fallback-page:https://realitymix.cz/detail/nachod/prodej-rodinneho-domu-1130-m-nachod-8446033.html",
     "removed-fallback-page:https://realitymix.cz/detail/nachod/nachod-prodej-rodinneho-domu-s-garazi-a-pozemkem-1271-m2-7781068.html",
     "land-below-threshold:https://realitymix.cz/detail/nachod/prodej-domu-166-m-pozemek-376-m-8615975.html",
@@ -441,7 +392,9 @@
     "land-below-threshold:https://realitymix.cz/detail/nachod/prodej-rodinneho-domu-143-m-pozemek-530-m-pavlisov-8538081.html",
     "land-below-threshold:https://realitymix.cz/detail/nachod/prodej-rodinneho-domu-v-nachode-ul-krapkova-8520877.html",
     "land-below-threshold:https://realitymix.cz/detail/nachod/pozemek-789-m-lipi-u-nachoda-8602311.html",
+    "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-pozemky.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/nachod/jina-stavba-38m2-pozemek-789m2-lipi-u-nachoda-8602313.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/nachod/nabizime-k-prodeji-prostorny-byt-o-dispozici-2-1-o-celkove-plose-71-m-8451917.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/nachod/podnajem-kancelarskych-prostor-40-m2-8605303.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/nachod/podnajem-prostoru-maserny-o-velikosti-20-m2-8605301.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/nachod/pozemek-789-m-lipi-u-nachoda-8602311.html",
@@ -457,8 +410,7 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/nachod/pronajem-bytu-1-kk-v-nachode-nachodu-ul-prazska-8465573.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/nachod/pronajem-bytu-48-m-and-sup2-zizkova-nachod-8629295.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/nachod/pronajem-byty-3-kk-71-6-m2-na-hamrech-1484-54701-nachod-nachod-id-86039-8604621.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/nachod/pronajem-komercniho-prostoru-a-restaurace-232-m2-masarykovo-namesti-nachod-8560769.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/nachod/pronajem-prodej-pozemku-k-bydleni-933m2-nachod-8202179.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/nachod/pronajem-komercniho-prostoru-a-restaurace-232-m2-masarykovo-namesti-nachod-8560769.html"
   ],
   "listings": [
     {

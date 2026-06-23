@@ -28,13 +28,12 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Kostelec nad Orlicí."
   ],
   "coverage": {
-    "workers_launched": 4,
+    "workers_launched": 3,
     "workers_with_results": 0,
     "candidates_gathered": 20,
     "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "mmreality.cz",
       "realitymix.cz",
       "reality.aktualne.cz"
     ],
@@ -44,15 +43,6 @@
     "reality.idnes.cz": {
       "status": "no_results",
       "message": "No retained in-scope iDNES rows."
-    },
-    "mmreality.cz": {
-      "status": "fallback_page",
-      "stage": "search_fetch",
-      "message": "HTTP 403",
-      "evidence": [
-        "search_fetch:fallback_page:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/"
-      ],
-      "http_status": 403
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -71,24 +61,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 403,
-      "error": "HTTP 403"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 403,
-      "error": "HTTP 403"
     },
     {
       "portal": "realitymix.cz",
@@ -118,6 +90,14 @@
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Kostelec+nad+Orlic%C3%AD&form%5Bcena_mena%5D=1",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/kostelec-nad-orlici/prodej-domy-rodinny-125-m2-husova-692-51741-kostelec-nad-orlici-rychnov-nad-kneznou-id-86010-8629991.html",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -181,14 +161,6 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/kostelec-nad-orlici/prodej-rodinneho-domu-v-kostelci-nad-orlici-ul-sadova-8504389.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/kostelec-nad-orlici/prodej-skladu-1100-m-kostelec-nad-orlici-ul-manesova-8357687.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -285,10 +257,9 @@
   ],
   "gaps": [
     "idnes-discovery-missing-locality-id",
-    "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-    "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
     "missing-page-url:house",
     "missing-page-url:land",
+    "land-below-threshold:https://reality.aktualne.cz/detail/kostelec-nad-orlici/prodej-domy-rodinny-125-m2-husova-692-51741-kostelec-nad-orlici-rychnov-nad-kneznou-id-86010-8629991.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/kostelec-nad-orlici/prodej-druzstevniho-bytu-3-1-59m2-8596307.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/kostelec-nad-orlici/prodej-komercni-budovy-kostelec-nad-orlici-8482617.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/kostelec-nad-orlici/prodej-obchodniho-objektu-kostelec-nad-orlici-ul-manesova-8401121.html",
@@ -297,7 +268,6 @@
     "land-below-threshold:https://reality.aktualne.cz/detail/kostelec-nad-orlici/prodej-rodinneho-domu-4-1-na-vrbine-kostelec-nad-orlici-8564603.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/kostelec-nad-orlici/prodej-rodinneho-domu-s-garazi-a-zahradou-kostelec-nad-orlici-8604339.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/kostelec-nad-orlici/prodej-rodinneho-domu-v-kostelci-nad-orlici-ul-sadova-8504389.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/kostelec-nad-orlici/prodej-skladu-1100-m-kostelec-nad-orlici-ul-manesova-8357687.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/kostelec-nad-orlici/pronajem-bytu-1-kk-v-kostelci-nad-orlici-ul-manesova-8590427.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/kostelec-nad-orlici/pronajem-bytu-2-kk-63-m-kostelec-nad-orlici-8605165.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/kostelec-nad-orlici/pronajem-bytu-2-kk-kostelec-nad-orlici-ul-rude-armady-8614799.html",
