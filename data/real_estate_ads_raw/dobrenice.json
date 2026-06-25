@@ -29,13 +29,12 @@
   ],
   "coverage": {
     "workers_launched": 3,
-    "workers_with_results": 0,
-    "candidates_gathered": 1,
-    "rows_retained": 0,
+    "workers_with_results": 1,
+    "candidates_gathered": 2,
+    "rows_retained": 1,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "realitymix.cz",
-      "reality.aktualne.cz"
+      "realitymix.cz"
     ],
     "blocked_portals": []
   },
@@ -49,8 +48,8 @@
       "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Reality Aktuálně rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
     }
   },
   "fetch_attempts": [
@@ -96,6 +95,14 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/dobrenice/prodej-pozemku-1-277-m-8632015.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/dobrenice/prodej-rodinny-dum-351-8390151.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -109,5 +116,24 @@
     "missing-page-url:land",
     "land-below-threshold:https://reality.aktualne.cz/detail/dobrenice/prodej-rodinny-dum-351-8390151.html"
   ],
-  "listings": []
+  "listings": [
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej pozemku 1.277 m²",
+      "location": "Dobřenice, Hradec Králové",
+      "property_type": "land",
+      "price": "8 160 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1277",
+      "urls": [
+        "https://reality.aktualne.cz/detail/dobrenice/prodej-pozemku-1-277-m-8632015.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "buildable-land"
+      ]
+    }
+  ]
 }
