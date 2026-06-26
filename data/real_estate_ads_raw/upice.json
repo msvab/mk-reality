@@ -31,7 +31,7 @@
     "workers_launched": 3,
     "workers_with_results": 1,
     "candidates_gathered": 14,
-    "rows_retained": 4,
+    "rows_retained": 3,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -114,8 +114,9 @@
       "url": "https://reality.aktualne.cz/detail/upice/prodej-rodinneho-domu-136-m-upice-8544701.html",
       "stage": "discovery_detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "reality.aktualne.cz",
@@ -202,8 +203,17 @@
       "url": "https://reality.aktualne.cz/detail/upice/prodej-rodinneho-domu-136-m-upice-8544701.html",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/upice/prodej-rodinneho-domu-136-m-upice-8544701.html",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.aktualne.cz",
@@ -264,6 +274,7 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/upice/prodej-komercnich-prostory-1705m2-v-upici-8561841.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/upice/prodej-obchodniho-prostoru-1212-m2-bezrucova-upice-8398967.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/upice/prodej-pozemek-bydleni-497-8570871.html",
+    "detail-fallback-page:https://reality.aktualne.cz/detail/upice/prodej-rodinneho-domu-136-m-upice-8544701.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/upice/prodej-rodinneho-domu-4-1-210-m2-sukova-upice-8413527.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/upice/prodej-rodinneho-domu-v-upici-ul-palackeho-8575065.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/upice/prodej-zrekonstruovaneho-rodinneho-domu-o-trech-bytovych-jednotkach-na-namesti-mesta-upice-8624205.html",
@@ -325,24 +336,6 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:qara-s.r.o."
-      ]
-    },
-    {
-      "portal": [
-        "reality.aktualne.cz"
-      ],
-      "title": "Prodej rodinného domu, 136 m², Úpice",
-      "location": "Macharova, Úpice, Trutnov",
-      "property_type": "house",
-      "price": "1 690 000 Kč",
-      "house_area_m2": "133",
-      "land_area_m2": "1770",
-      "urls": [
-        "https://reality.aktualne.cz/detail/upice/prodej-rodinneho-domu-136-m-upice-8544701.html"
-      ],
-      "notes": [
-        "detail-url-verified:reality.aktualne.cz",
-        "aggregator-source:reality-zavadil-a-partneri-s.r.o."
       ]
     }
   ]

@@ -31,7 +31,7 @@
     "workers_launched": 3,
     "workers_with_results": 1,
     "candidates_gathered": 7,
-    "rows_retained": 3,
+    "rows_retained": 2,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -98,8 +98,9 @@
       "url": "https://reality.aktualne.cz/detail/holice/prodej-domy-rodinny-194-m2-dudychova-524-53401-holice-pardubice-id-83784-8595827.html",
       "stage": "discovery_detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "reality.aktualne.cz",
@@ -146,8 +147,17 @@
       "url": "https://reality.aktualne.cz/detail/holice/prodej-domy-rodinny-194-m2-dudychova-524-53401-holice-pardubice-id-83784-8595827.html",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/holice/prodej-domy-rodinny-194-m2-dudychova-524-53401-holice-pardubice-id-83784-8595827.html",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.aktualne.cz",
@@ -196,29 +206,12 @@
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3606-pardubice/pardubicky/prodej-pozemky.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/holice/louka-prodej-rovensko-holice-pardubice-8612109.html",
+    "detail-fallback-page:https://reality.aktualne.cz/detail/holice/prodej-domy-rodinny-194-m2-dudychova-524-53401-holice-pardubice-id-83784-8595827.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/holice/prodej-garaze-18-m-holice-8483473.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/holice/prodej-rodinneho-domu-autoservisu-a-lakovny-holice-8619705.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/holice/pronajem-bytu-2-1-62-m-holice-ul-ottmarova-8610675.html"
   ],
   "listings": [
-    {
-      "portal": [
-        "reality.aktualne.cz"
-      ],
-      "title": "Prodej, domy/rodinný, 194 m2, Dudychova 524, 53401 Holice, Pardubice [ID 83784]",
-      "location": "Dudychova, Holice, Pardubice",
-      "property_type": "house",
-      "price": "6 990 000 Kč",
-      "house_area_m2": "194",
-      "land_area_m2": "1150",
-      "urls": [
-        "https://reality.aktualne.cz/detail/holice/prodej-domy-rodinny-194-m2-dudychova-524-53401-holice-pardubice-id-83784-8595827.html"
-      ],
-      "notes": [
-        "detail-url-verified:reality.aktualne.cz",
-        "aggregator-source:broker-consulting,-a.s."
-      ]
-    },
     {
       "portal": [
         "reality.aktualne.cz"
