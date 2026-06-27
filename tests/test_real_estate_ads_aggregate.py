@@ -294,6 +294,60 @@ def test_price_history_appends_only_when_price_changes(tmp_path):
     assert ad["price_history"][-1]["seen_at"] == output["generated_at"]
 
 
+def test_per_square_meter_price_history_is_normalized_to_total_price(tmp_path):
+    schools_input, raw_dir = write_school_and_raw(tmp_path, price="335 Kč (za m 2 )")
+    previous_aggregate = {
+        "cities": {
+            "Dobruška": {
+                "count": 1,
+                "ads": [
+                    {
+                        "portal": ["reality.idnes.cz"],
+                        "title": "New house",
+                        "location": "Dobruška",
+                        "property_type": "house",
+                        "price": "335 Kč (za m 2 )",
+                        "price_czk": 335,
+                        "house_area_m2": 120,
+                        "land_area_m2": 1200,
+                        "urls": ["https://reality.idnes.cz/detail/new"],
+                        "notes": [],
+                        "status": "active",
+                        "first_seen_at": "2026-06-01T00:00:00+0200",
+                        "last_seen_at": "2026-06-01T00:00:00+0200",
+                        "price_history": [
+                            {
+                                "seen_at": "2026-06-01T00:00:00+0200",
+                                "price": "335 Kč (za m 2 )",
+                                "price_czk": 335,
+                            },
+                            {
+                                "seen_at": "2026-06-02T00:00:00+0200",
+                                "price": "335 Kč (za m 2 )",
+                                "price_czk": 335,
+                            },
+                        ],
+                    }
+                ],
+                "hidden_ads": [],
+            }
+        }
+    }
+
+    output = build_aggregate_output(schools_input, raw_dir, previous_aggregate=previous_aggregate)
+    ad = output["cities"]["Dobruška"]["ads"][0]
+
+    assert ad["price"] == "402 000 Kč"
+    assert ad["price_czk"] == 402000
+    assert ad["price_history"] == [
+        {
+            "seen_at": "2026-06-01T00:00:00+0200",
+            "price": "402 000 Kč",
+            "price_czk": 402000,
+        }
+    ]
+
+
 def test_merged_current_row_marks_all_previous_duplicate_urls_as_seen(tmp_path):
     schools_input = tmp_path / "schools.json"
     raw_dir = tmp_path / "raw"

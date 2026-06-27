@@ -422,6 +422,19 @@ def parse_price_czk(value) -> int | None:
     return int(digits)
 
 
+def format_czk(value: int) -> str:
+    return f"{value:,}".replace(",", " ") + " Kč"
+
+
+def is_per_square_meter_price(value) -> bool:
+    text = normalize_text(str(value or "")).replace("\xa0", " ")
+    return bool(
+        re.search(r"\bza\s*m\s*(?:2|²)\b", text)
+        or re.search(r"/\s*(?:\(?\s*)?m\s*(?:2|²)\b", text)
+        or re.search(r"\bkč\s*/\s*m\s*(?:2|²)\b", text)
+    )
+
+
 def parse_area_m2(value) -> int | None:
     if value is None:
         return None
@@ -457,6 +470,12 @@ def normalize_listing(raw: dict) -> dict | None:
         return None
     if property_type in {"house", "land"} and (land_area_m2 is None or land_area_m2 < 1000):
         return None
+    if is_per_square_meter_price(price) and land_area_m2 is not None:
+        unit_price = price_czk
+        price_czk = unit_price * land_area_m2
+        if f"unit-price:{price}" not in notes:
+            notes.append(f"unit-price:{price}")
+        price = format_czk(price_czk)
 
     return {
         "portal": portals,

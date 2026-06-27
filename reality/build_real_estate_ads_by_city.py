@@ -4,7 +4,7 @@ import re
 import urllib.parse
 from pathlib import Path
 
-from .build_real_estate_ads_json import build_output
+from .build_real_estate_ads_json import build_output, format_czk, is_per_square_meter_price, parse_price_czk
 
 
 def load_json(path: Path) -> dict:
@@ -135,7 +135,7 @@ def price_history_entry(ad: dict, seen_at: str) -> dict:
     }
 
 
-def normalize_price_history(value) -> list[dict]:
+def normalize_price_history(value, land_area_m2: int | None = None) -> list[dict]:
     if not isinstance(value, list):
         return []
     history = []
@@ -145,13 +145,20 @@ def normalize_price_history(value) -> list[dict]:
         seen_at = str(item.get("seen_at") or "").strip()
         if not seen_at:
             continue
-        history.append(
-            {
-                "seen_at": seen_at,
-                "price": item.get("price"),
-                "price_czk": item.get("price_czk"),
-            }
-        )
+        price = item.get("price")
+        price_czk = item.get("price_czk")
+        if land_area_m2 is not None and is_per_square_meter_price(price):
+            unit_price = parse_price_czk(price)
+            if unit_price is not None:
+                price_czk = unit_price * land_area_m2
+                price = format_czk(price_czk)
+        entry = {
+            "seen_at": seen_at,
+            "price": price,
+            "price_czk": price_czk,
+        }
+        if not history or history[-1].get("price") != entry["price"] or history[-1].get("price_czk") != entry["price_czk"]:
+            history.append(entry)
     return history
 
 
@@ -159,7 +166,7 @@ def merge_price_history(ad: dict, previous: dict | None, generated_at: str) -> l
     if not previous:
         return [price_history_entry(ad, generated_at)]
 
-    history = normalize_price_history(previous.get("price_history"))
+    history = normalize_price_history(previous.get("price_history"), ad.get("land_area_m2"))
     if not history:
         history = [price_history_entry(previous, previous.get("first_seen_at", previous.get("last_seen_at", generated_at)))]
 

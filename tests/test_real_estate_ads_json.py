@@ -114,6 +114,33 @@ def test_price_parser_keeps_total_and_million_prices():
     assert parse_price_czk("2,4 mil. Kč") == 2400000
 
 
+def test_per_square_meter_land_price_is_normalized_to_total_price():
+    output = build_output(
+        base_payload(
+            [
+                {
+                    "portal": ["reality.aktualne.cz"],
+                    "title": "Prodej pozemku o výměře 3 468 m2 v obci Česká Třebová",
+                    "location": "Ústí nad Orlicí",
+                    "property_type": "land",
+                    "price": "335 Kč (za m 2 )",
+                    "house_area_m2": "unknown",
+                    "land_area_m2": "3468",
+                    "urls": [
+                        "https://reality.aktualne.cz/detail/ceska-trebova/prodej-pozemku-o-vymere-3-468-m2-v-obci-ceska-trebova-8432759.html"
+                    ],
+                    "notes": ["detail-url-verified:reality.aktualne.cz", "buildable-land"],
+                }
+            ]
+        )
+    )
+
+    listing = output["listings"][0]
+    assert listing["price"] == "1 161 780 Kč"
+    assert listing["price_czk"] == 1161780
+    assert "unit-price:335 Kč (za m 2 )" in listing["notes"]
+
+
 def test_fetch_status_does_not_treat_listing_id_digits_as_http_429():
     assert detect_fetch_status(
         "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-kancelarskych-prostor-142-34-m2-jaromer-8542993.html"
