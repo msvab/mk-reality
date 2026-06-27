@@ -55,7 +55,11 @@ def test_mmreality_discovery_fetches_default_categories_and_filters_by_municipal
             return retained_detail
         raise AssertionError(f"unexpected fetch: {url}")
 
+    def fake_json_request(url, payload=None):
+        return {"items": []}
+
     monkeypatch.setattr(module, "run_fetch", fake_fetch)
+    monkeypatch.setattr(module, "run_json_request", fake_json_request)
 
     payload = module.build_output(
         "Třebechovice pod Orebem",
@@ -77,6 +81,89 @@ def test_mmreality_discovery_fetches_default_categories_and_filters_by_municipal
         (attempt["stage"], attempt["url"]) for attempt in payload["fetch_attempts"]
     ]
     assert not any(gap.startswith("outside-municipality-result:") for gap in payload["gaps"])
+
+
+def test_mmreality_discovery_uses_municipality_api_candidates(monkeypatch):
+    module = load_mmreality_fetch()
+    fetched_urls = []
+    api_payloads = []
+    empty_result_html = f':ssr="{escape(json.dumps({"offers": []}), quote=True)}"'
+    retained_detail = detail_html(
+        {
+            "title": "Prodej, Rodinný dům, 590 m², Deštné v Orlických horách",
+            "originalTitle": "Prodej RD/penzionu, 3195 m², Deštné v Orlických horách",
+            "municipality": "Deštné v Orlických horách",
+            "municipalityPart": "Deštné v Orlických horách",
+            "district": "Rychnov nad Kněžnou",
+            "group": {"name": "Dům"},
+            "type": {"name": "Rodinný dům"},
+            "price": 18500000,
+            "usableArea": 590,
+            "parcelArea": 3195,
+        }
+    )
+
+    def fake_fetch(url):
+        fetched_urls.append(url)
+        if url in module.DISCOVERY_RESULT_URLS.values():
+            return empty_result_html
+        if url == "https://www.mmreality.cz/nemovitosti/944560/":
+            return retained_detail
+        raise AssertionError(f"unexpected fetch: {url}")
+
+    def fake_json_request(url, payload=None):
+        api_payloads.append((url, payload))
+        if url.startswith(module.LOCATION_SEARCH_URL):
+            return {
+                "items": [
+                    {
+                        "id": 300000000576247,
+                        "name": "Deštné v Orlických horách",
+                        "type": "municipality",
+                        "source": 576247,
+                    }
+                ]
+            }
+        if url == module.OFFERS_QUERY_URL:
+            return {
+                "offers": [
+                    {
+                        "id": 944560,
+                        "municipality": "Deštné v Orlických horách",
+                        "title": "Prodej, Rodinný dům, 590 m², Deštné v Orlických horách",
+                    }
+                ]
+            }
+        raise AssertionError(f"unexpected API request: {url}")
+
+    monkeypatch.setattr(module, "run_fetch", fake_fetch)
+    monkeypatch.setattr(module, "run_json_request", fake_json_request)
+
+    payload = module.build_output(
+        "Deštné v Orlických horách",
+        "municipality_only",
+        include_houses=True,
+        include_land=True,
+        result_urls=[],
+        detail_urls=[],
+        discover_results=True,
+    )
+
+    assert "https://www.mmreality.cz/nemovitosti/944560/" in fetched_urls
+    assert any(item[0] == module.OFFERS_QUERY_URL for item in api_payloads)
+    assert payload["listings"] == [
+        {
+            "portal": ["mmreality.cz"],
+            "title": "Prodej, Rodinný dům, 590 m², Deštné v Orlických horách",
+            "location": "Deštné v Orlických horách, okres Rychnov nad Kněžnou",
+            "property_type": "house",
+            "price": "18 500 000 Kč",
+            "house_area_m2": "590",
+            "land_area_m2": "3195",
+            "urls": ["https://www.mmreality.cz/nemovitosti/944560/"],
+            "notes": ["detail-url-verified:mmreality.cz"],
+        }
+    ]
 
 
 def test_mmreality_fetch_records_http_fallback_status(monkeypatch):

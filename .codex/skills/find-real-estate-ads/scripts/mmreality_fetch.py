@@ -7,15 +7,46 @@ import subprocess
 import sys
 from html import unescape
 from pathlib import Path
-from urllib.parse import urlsplit
-
+from urllib.parse import urlencode, urlsplit
 
 BASE_URL = "https://www.mmreality.cz"
 USER_AGENT = "Mozilla/5.0"
 INACTIVE_MARKER = "je nam lito, ale tato nemovitost jiz neni v nabidce m&m reality"
+LOCATION_SEARCH_URL = "https://cadastral.stormm.cz/api/location/search"
+OFFERS_QUERY_URL = "https://mediator.stormm.cz/api/offers/query"
 DISCOVERY_RESULT_URLS = {
     "house": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
     "land": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+}
+DISCOVERY_API_GROUPS = {
+    "house": [
+        {
+            "group": 10,
+            "types": [20],
+            "energyClassifications": [],
+            "conditions": [],
+            "constructions": [],
+            "ownerships": [],
+            "placements": [],
+            "situations": [],
+            "rooms": [],
+            "equipments": [],
+        }
+    ],
+    "land": [
+        {
+            "group": 4,
+            "types": [],
+            "energyClassifications": [],
+            "conditions": [],
+            "constructions": [],
+            "ownerships": [],
+            "placements": [],
+            "situations": [],
+            "rooms": [],
+            "equipments": [],
+        }
+    ],
 }
 
 
@@ -64,6 +95,53 @@ def run_fetch(url: str) -> str:
     if status != "ok":
         raise FetchError(status, error or status, http_status)
     return body
+
+
+def run_json_request(url: str, payload: dict | None = None) -> dict:
+    cmd = [
+        "curl",
+        "-sL",
+        "-A",
+        USER_AGENT,
+        "-H",
+        "Accept: application/json, text/plain, */*",
+        "-H",
+        "X-Requested-With: XMLHttpRequest",
+        "-H",
+        f"Referer: {BASE_URL}/",
+        "-w",
+        "\n__HTTP_STATUS__:%{http_code}",
+    ]
+    if payload is not None:
+        cmd.extend(
+            [
+                "-H",
+                "Content-Type: application/json",
+                "-H",
+                f"Origin: {BASE_URL}",
+                "--data",
+                json.dumps(payload, ensure_ascii=False),
+            ]
+        )
+    cmd.append(url)
+    completed = subprocess.run(cmd, check=False, capture_output=True, text=True)
+    body, marker, raw_http_status = completed.stdout.rpartition("\n__HTTP_STATUS__:")
+    if not marker:
+        body = completed.stdout
+        http_status = None
+    else:
+        try:
+            http_status = int(raw_http_status.strip())
+        except ValueError:
+            http_status = None
+    status, error = classify_fetch(http_status, completed.returncode, body, completed.stderr)
+    if status != "ok":
+        raise FetchError(status, error or status, http_status)
+    try:
+        data = json.loads(body)
+    except json.JSONDecodeError as exc:
+        raise FetchError("fetch_error", f"invalid JSON response: {exc}", http_status) from exc
+    return data if isinstance(data, dict) else {"items": data}
 
 
 class FetchError(RuntimeError):
@@ -127,6 +205,23 @@ def fetch_with_attempt(url: str, attempts: list[dict], stage: str) -> str:
         raise
     append_fetch_attempt(attempts, url=url, stage=stage, status="ok")
     return html
+
+
+def json_request_with_attempt(url: str, attempts: list[dict], stage: str, payload: dict | None = None) -> dict:
+    try:
+        data = run_json_request(url, payload)
+    except FetchError as exc:
+        append_fetch_attempt(
+            attempts,
+            url=url,
+            stage=stage,
+            status=exc.status,
+            http_status=exc.http_status,
+            error=str(exc),
+        )
+        raise
+    append_fetch_attempt(attempts, url=url, stage=stage, status="ok")
+    return data
 
 
 def inactive_marker_present(html: str) -> bool:
@@ -221,6 +316,68 @@ def parse_result_offer(offer: dict, municipality: str) -> tuple[str | None, str 
     if "chata" in title:
         return None, f"excluded-chata:{listing_id}"
     return str(listing_id), None
+
+
+def discover_municipality_id(municipality: str, fetch_attempts: list[dict]) -> int | None:
+    params = urlencode({"query": municipality, "types[]": ["municipality", "municipality_part"]}, doseq=True)
+    url = f"{LOCATION_SEARCH_URL}?{params}"
+    data = json_request_with_attempt(url, fetch_attempts, "location_api")
+    candidates = data.get("items") if isinstance(data.get("items"), list) else data
+    if not isinstance(candidates, list):
+        return None
+    normalized_municipality = slug_normalize(municipality)
+    for candidate in candidates:
+        if not isinstance(candidate, dict):
+            continue
+        if candidate.get("type") == "municipality" and slug_normalize(str(candidate.get("name", ""))) == normalized_municipality:
+            return int(candidate["id"])
+    return None
+
+
+def discover_api_offer_ids(municipality: str, include_houses: bool, include_land: bool, fetch_attempts: list[dict]) -> tuple[set[str], list[str]]:
+    gaps: list[str] = []
+    try:
+        municipality_id = discover_municipality_id(municipality, fetch_attempts)
+    except FetchError:
+        return set(), ["failed-location-api"]
+    if municipality_id is None:
+        return set(), ["missing-location-api-match"]
+
+    listing_ids: set[str] = set()
+    enabled_groups = []
+    if include_houses:
+        enabled_groups.append(("house", DISCOVERY_API_GROUPS["house"]))
+    if include_land:
+        enabled_groups.append(("land", DISCOVERY_API_GROUPS["land"]))
+    for property_type, groups in enabled_groups:
+        payload = {
+            "filter": {
+                "common": {"category": 10, "status": [1], "offerIds": [], "active": 1},
+                "groups": groups,
+                "geography": {"locations": [municipality_id]},
+                "query": None,
+            },
+            "pagination": {"limit": 50, "offset": 0, "initialOffset": 0, "page": 1, "pagesCount": 1},
+            "sorting": {"descending": True, "order": "createdAt"},
+        }
+        try:
+            data = json_request_with_attempt(OFFERS_QUERY_URL, fetch_attempts, f"{property_type}_search_api", payload)
+        except FetchError:
+            gaps.append(f"failed-{property_type}-search-api")
+            continue
+        offers = data.get("offers", [])
+        if not isinstance(offers, list):
+            gaps.append(f"invalid-{property_type}-search-api")
+            continue
+        for offer in offers:
+            if not isinstance(offer, dict):
+                continue
+            listing_id, reason = parse_result_offer(offer, municipality)
+            if listing_id:
+                listing_ids.add(listing_id)
+            elif reason:
+                gaps.append(reason)
+    return listing_ids, gaps
 
 
 def infer_property_type(payload: dict) -> tuple[str | None, str | None]:
@@ -379,6 +536,9 @@ def build_output(
     listing_ids: set[str] = set()
     effective_result_urls = list(result_urls)
     if discover_results:
+        api_listing_ids, api_gaps = discover_api_offer_ids(municipality, include_houses, include_land, fetch_attempts)
+        listing_ids.update(api_listing_ids)
+        gaps.extend(api_gaps)
         for property_type, url in DISCOVERY_RESULT_URLS.items():
             if property_type == "house" and not include_houses:
                 continue

@@ -28,11 +28,13 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Třebechovice pod Orebem."
   ],
   "coverage": {
-    "workers_launched": 3,
+    "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 98,
+    "candidates_gathered": 4,
     "rows_retained": 4,
-    "zero_result_portals": [],
+    "zero_result_portals": [
+      "mmreality.cz"
+    ],
     "blocked_portals": []
   },
   "portal_status": {
@@ -47,6 +49,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "mmreality.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -977,6 +983,48 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://cadastral.stormm.cz/api/location/search?query=T%C5%99ebechovice+pod+Orebem&types%5B%5D=municipality&types%5B%5D=municipality_part",
+      "stage": "location_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "house_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "land_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/942151/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
     }
   ],
   "gaps": [
@@ -1078,7 +1126,8 @@
     "non-buildable-land:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/pronajem-roubenky-5-kk-219-m-pozemek-1-456-m-vlastni-rybnik-polanky-nad-dedinou-cena-35-000-8592317.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/rodinny-dum-trebechovice-pod-orebem-8463547.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/utulny-byt-1-1-s-parkovacim-stanim-v-trebechovicich-pod-orebem-8626249.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/zemedelska-puda-prodej-nepasice-trebechovice-pod-orebem-hradec-kralove-8626185.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/zemedelska-puda-prodej-nepasice-trebechovice-pod-orebem-hradec-kralove-8626185.html",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/942151/"
   ],
   "listings": [
     {
