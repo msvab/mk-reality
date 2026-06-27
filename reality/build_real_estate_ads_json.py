@@ -388,6 +388,8 @@ def infer_portal_status(
         if not mentioned_portals and text.strip() in DEFAULT_WORKERS:
             mentioned_portals = [text.strip()]
         for portal in mentioned_portals:
+            if status == "inactive" and portal in seen_portals:
+                continue
             merge_portal_status(
                 statuses,
                 portal,

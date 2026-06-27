@@ -191,6 +191,37 @@ def test_stale_detail_attempt_does_not_override_portal_status():
     assert output["portal_status"]["realitymix.cz"]["status"] == "no_results"
 
 
+def test_inactive_gap_does_not_override_active_portal_status():
+    payload = base_payload(
+        [
+            {
+                "portal": ["mmreality.cz"],
+                "title": "Prodej, Chalupa, 52 m², Nový Hrádek",
+                "location": "Nový Hrádek, okres Náchod",
+                "property_type": "house",
+                "price": "4 190 000 Kč",
+                "house_area_m2": 52,
+                "land_area_m2": 2008,
+                "urls": ["https://www.mmreality.cz/nemovitosti/930853/"],
+                "notes": ["detail-url-verified:mmreality.cz"],
+            }
+        ]
+    )
+    payload["portal_status"] = {
+        "mmreality.cz": {
+            "status": "ok",
+            "message": "Retained at least one detail-verified M&M Reality row.",
+        }
+    }
+    payload["gaps"] = [
+        "inactive-generic-page:https://www.mmreality.cz/nemovitosti/939683/",
+    ]
+
+    output = build_output(payload)
+
+    assert output["portal_status"]["mmreality.cz"]["status"] == "ok"
+
+
 def test_search_fallback_attempt_still_sets_portal_status():
     payload = base_payload([])
     payload["coverage"]["zero_result_portals"] = ["mmreality.cz"]

@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-06-27T07:09:50+0000",
+  "generated_at": "2026-06-27T14:03:51+0200",
   "schools_input": "dobruska_primary_schools.json",
   "raw_dir": "data/real_estate_ads_raw",
   "coverage": {
     "school_cities": 109,
     "raw_files_found": 109,
     "cities_with_ads": 62,
-    "hidden_ads": 43,
+    "hidden_ads": 42,
     "cities_with_raw_output": 109,
-    "cities_with_portal_warnings": 1
+    "cities_with_portal_warnings": 0
   },
   "unmatched_raw_files": [],
   "cities": {
@@ -21,8 +21,8 @@
         "rows_retained": 2,
         "zero_result_portals": [
           "reality.idnes.cz",
-          "mmreality.cz",
-          "realitymix.cz"
+          "realitymix.cz",
+          "mmreality.cz"
         ],
         "blocked_portals": []
       },
@@ -32,14 +32,8 @@
           "message": "No retained in-scope iDNES rows."
         },
         "mmreality.cz": {
-          "status": "blocked",
-          "http_status": 403,
-          "stage": "search_fetch",
-          "message": "HTTP 403",
-          "evidence": [
-            "search_fetch:blocked:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-            "search_fetch:blocked:https://www.mmreality.cz/nemovitosti/prodej/pozemky/"
-          ]
+          "status": "no_results",
+          "message": "No retained in-scope M&M Reality rows."
         },
         "realitymix.cz": {
           "status": "no_results",
@@ -58,24 +52,6 @@
           "attempt": 1,
           "status": "ok",
           "http_status": 200
-        },
-        {
-          "portal": "mmreality.cz",
-          "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-          "stage": "search_fetch",
-          "attempt": 1,
-          "status": "blocked",
-          "http_status": 403,
-          "error": "HTTP 403"
-        },
-        {
-          "portal": "mmreality.cz",
-          "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-          "stage": "search_fetch",
-          "attempt": 1,
-          "status": "blocked",
-          "http_status": 403,
-          "error": "HTTP 403"
         },
         {
           "portal": "realitymix.cz",
@@ -420,6 +396,20 @@
           "attempt": 1,
           "status": "ok",
           "http_status": 200
+        },
+        {
+          "portal": "mmreality.cz",
+          "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+          "stage": "search_fetch",
+          "attempt": 1,
+          "status": "ok"
+        },
+        {
+          "portal": "mmreality.cz",
+          "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+          "stage": "search_fetch",
+          "attempt": 1,
+          "status": "ok"
         }
       ],
       "candidate_exclusions": [
@@ -492,7 +482,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-18T08:00:54+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-18T08:00:54+0000",
@@ -527,7 +517,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-18T08:00:54+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-18T08:00:54+0000",
@@ -734,17 +724,23 @@
     "Nové Město nad Metují": {
       "count": 3,
       "coverage": {
-        "workers_launched": 3,
+        "workers_launched": 4,
         "workers_with_results": 3,
         "candidates_gathered": 4,
         "rows_retained": 3,
-        "zero_result_portals": [],
+        "zero_result_portals": [
+          "mmreality.cz"
+        ],
         "blocked_portals": []
       },
       "portal_status": {
         "reality.idnes.cz": {
           "status": "ok",
           "message": "Retained at least one detail-verified iDNES row."
+        },
+        "mmreality.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope M&M Reality rows."
         },
         "realitymix.cz": {
           "status": "ok",
@@ -1435,6 +1431,20 @@
           "attempt": 1,
           "status": "ok",
           "http_status": 200
+        },
+        {
+          "portal": "mmreality.cz",
+          "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+          "stage": "search_fetch",
+          "attempt": 1,
+          "status": "ok"
+        },
+        {
+          "portal": "mmreality.cz",
+          "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+          "stage": "search_fetch",
+          "attempt": 1,
+          "status": "ok"
         }
       ],
       "candidate_exclusions": [],
@@ -1535,7 +1545,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -1569,7 +1579,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T19:13:31+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T19:13:31+0200",
@@ -1598,7 +1608,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T19:13:31+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T19:13:31+0200",
@@ -1668,12 +1678,12 @@
       ]
     },
     "Nový Hrádek": {
-      "count": 3,
+      "count": 4,
       "coverage": {
-        "workers_launched": 3,
-        "workers_with_results": 3,
-        "candidates_gathered": 6,
-        "rows_retained": 3,
+        "workers_launched": 4,
+        "workers_with_results": 4,
+        "candidates_gathered": 7,
+        "rows_retained": 4,
         "zero_result_portals": [],
         "blocked_portals": []
       },
@@ -1681,6 +1691,10 @@
         "reality.idnes.cz": {
           "status": "ok",
           "message": "Retained at least one detail-verified iDNES row."
+        },
+        "mmreality.cz": {
+          "status": "ok",
+          "message": "Retained at least one detail-verified M&M Reality row."
         },
         "realitymix.cz": {
           "status": "ok",
@@ -2453,6 +2467,48 @@
           "attempt": 1,
           "status": "ok",
           "http_status": 200
+        },
+        {
+          "portal": "mmreality.cz",
+          "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+          "stage": "search_fetch",
+          "attempt": 1,
+          "status": "ok"
+        },
+        {
+          "portal": "mmreality.cz",
+          "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+          "stage": "search_fetch",
+          "attempt": 1,
+          "status": "ok"
+        },
+        {
+          "portal": "mmreality.cz",
+          "url": "https://www.mmreality.cz/nemovitosti/930853/",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok"
+        },
+        {
+          "portal": "mmreality.cz",
+          "url": "https://www.mmreality.cz/nemovitosti/939683/",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok"
+        },
+        {
+          "portal": "mmreality.cz",
+          "url": "https://www.mmreality.cz/nemovitosti/943257/",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok"
+        },
+        {
+          "portal": "mmreality.cz",
+          "url": "https://www.mmreality.cz/nemovitosti/943334/",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok"
         }
       ],
       "candidate_exclusions": [],
@@ -2535,7 +2591,10 @@
         "non-buildable-land:https://reality.aktualne.cz/detail/novy-hradek/prodej-chaty-43-m-pozemek-3-640-m-novy-hradek-rzy-8543607.html",
         "detail-fallback-page:https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/novy-hradek/prodej-rodinneho-domu-pozemek-4795-m-novy-hradek-rzy-8601263.html",
-        "land-below-threshold:https://reality.aktualne.cz/detail/novy-hradek/rodinny-dum-novy-hradek-8395975.html"
+        "land-below-threshold:https://reality.aktualne.cz/detail/novy-hradek/rodinny-dum-novy-hradek-8395975.html",
+        "inactive-generic-page:https://www.mmreality.cz/nemovitosti/939683/",
+        "inactive-generic-page:https://www.mmreality.cz/nemovitosti/943257/",
+        "inactive-generic-page:https://www.mmreality.cz/nemovitosti/943334/"
       ],
       "ads": [
         {
@@ -2559,12 +2618,46 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-08T08:24:29+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-08T08:24:29+0200",
               "price": "4 950 000 Kč",
               "price_czk": 4950000
+            }
+          ]
+        },
+        {
+          "portal": [
+            "mmreality.cz"
+          ],
+          "title": "Prodej, Chalupa, 52 m², Nový Hrádek",
+          "location": "Nový Hrádek, okres Náchod",
+          "property_type": "house",
+          "price": "4 190 000 Kč",
+          "price_czk": 4190000,
+          "house_area_m2": 52,
+          "land_area_m2": 2008,
+          "urls": [
+            "https://www.mmreality.cz/nemovitosti/930853/"
+          ],
+          "notes": [
+            "detail-url-verified:mmreality.cz",
+            "normalized-from:chalupa"
+          ],
+          "status": "active",
+          "first_seen_at": "2026-06-05T18:53:34+0200",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
+          "price_history": [
+            {
+              "seen_at": "2026-06-05T18:53:34+0200",
+              "price": "4 490 000 Kč",
+              "price_czk": 4490000
+            },
+            {
+              "seen_at": "2026-06-27T14:01:53+0200",
+              "price": "4 190 000 Kč",
+              "price_czk": 4190000
             }
           ]
         },
@@ -2594,7 +2687,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2633,7 +2726,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2670,36 +2763,6 @@
               "seen_at": "2026-06-05T18:53:34+0200",
               "price": "8 490 000 Kč",
               "price_czk": 8490000
-            }
-          ],
-          "hidden_at": "2026-06-11T19:23:58+0000"
-        },
-        {
-          "portal": [
-            "mmreality.cz"
-          ],
-          "title": "Prodej, Chalupa, 52 m², Nový Hrádek",
-          "location": "Nový Hrádek, okres Náchod",
-          "property_type": "house",
-          "price": "4 490 000 Kč",
-          "price_czk": 4490000,
-          "house_area_m2": 52,
-          "land_area_m2": 2008,
-          "urls": [
-            "https://www.mmreality.cz/nemovitosti/930853/"
-          ],
-          "notes": [
-            "detail-url-verified:mmreality.cz",
-            "normalized-from:chalupa"
-          ],
-          "status": "hidden",
-          "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-09T22:32:34+0200",
-          "price_history": [
-            {
-              "seen_at": "2026-06-05T18:53:34+0200",
-              "price": "4 490 000 Kč",
-              "price_czk": 4490000
             }
           ],
           "hidden_at": "2026-06-11T19:23:58+0000"
@@ -2833,13 +2896,14 @@
     "České Meziříčí": {
       "count": 1,
       "coverage": {
-        "workers_launched": 3,
+        "workers_launched": 4,
         "workers_with_results": 1,
         "candidates_gathered": 1,
         "rows_retained": 1,
         "zero_result_portals": [
           "realitymix.cz",
-          "reality.aktualne.cz"
+          "reality.aktualne.cz",
+          "mmreality.cz"
         ],
         "blocked_portals": []
       },
@@ -2847,6 +2911,10 @@
         "reality.idnes.cz": {
           "status": "ok",
           "message": "Retained at least one detail-verified iDNES row."
+        },
+        "mmreality.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope M&M Reality rows."
         },
         "realitymix.cz": {
           "status": "no_results",
@@ -3467,6 +3535,20 @@
           "attempt": 1,
           "status": "ok",
           "http_status": 200
+        },
+        {
+          "portal": "mmreality.cz",
+          "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+          "stage": "search_fetch",
+          "attempt": 1,
+          "status": "ok"
+        },
+        {
+          "portal": "mmreality.cz",
+          "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+          "stage": "search_fetch",
+          "attempt": 1,
+          "status": "ok"
         }
       ],
       "candidate_exclusions": [],
@@ -3565,7 +3647,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T19:50:52+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T19:50:52+0200",
@@ -3644,13 +3726,14 @@
     "Velká Jesenice": {
       "count": 1,
       "coverage": {
-        "workers_launched": 3,
+        "workers_launched": 4,
         "workers_with_results": 1,
         "candidates_gathered": 1,
         "rows_retained": 1,
         "zero_result_portals": [
           "reality.idnes.cz",
-          "realitymix.cz"
+          "realitymix.cz",
+          "mmreality.cz"
         ],
         "blocked_portals": []
       },
@@ -3658,6 +3741,10 @@
         "reality.idnes.cz": {
           "status": "no_results",
           "message": "No retained in-scope iDNES rows."
+        },
+        "mmreality.cz": {
+          "status": "no_results",
+          "message": "No retained in-scope M&M Reality rows."
         },
         "realitymix.cz": {
           "status": "no_results",
@@ -3756,6 +3843,20 @@
           "attempt": 1,
           "status": "ok",
           "http_status": 200
+        },
+        {
+          "portal": "mmreality.cz",
+          "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+          "stage": "search_fetch",
+          "attempt": 1,
+          "status": "ok"
+        },
+        {
+          "portal": "mmreality.cz",
+          "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+          "stage": "search_fetch",
+          "attempt": 1,
+          "status": "ok"
         }
       ],
       "candidate_exclusions": [],
@@ -3793,7 +3894,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T19:50:52+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T19:50:52+0200",
@@ -4937,7 +5038,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -4970,7 +5071,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-07T20:52:54+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-07T20:52:54+0200",
@@ -4999,7 +5100,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -5028,7 +5129,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -6111,7 +6212,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-21T09:11:20+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-21T09:11:20+0000",
@@ -6141,7 +6242,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-21T09:11:20+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-21T09:11:20+0000",
@@ -6170,7 +6271,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:22:08+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:22:08+0200",
@@ -6479,7 +6580,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -6926,7 +7027,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -6961,7 +7062,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -7953,7 +8054,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -7988,7 +8089,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -8017,7 +8118,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-21T09:11:20+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-21T09:11:20+0000",
@@ -8045,7 +8146,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -8073,7 +8174,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -8101,7 +8202,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -8130,7 +8231,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-21T09:11:20+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-21T09:11:20+0000",
@@ -8159,7 +8260,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -9648,7 +9749,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -9989,7 +10090,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-07T20:58:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-07T20:58:49+0200",
@@ -10770,7 +10871,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-15T08:34:31+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-15T08:34:31+0000",
@@ -10798,7 +10899,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:22:08+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:22:08+0200",
@@ -10827,7 +10928,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -11293,7 +11394,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-07T21:08:05+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-07T21:08:05+0200",
@@ -11501,7 +11602,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-07T21:08:05+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-07T21:08:05+0200",
@@ -11731,7 +11832,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-25T07:26:17+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-25T07:26:17+0000",
@@ -11762,7 +11863,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-16T08:47:03+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-16T08:47:03+0000",
@@ -12313,7 +12414,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -12342,7 +12443,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -12609,7 +12710,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -13030,7 +13131,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -13420,7 +13521,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -13450,7 +13551,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -13658,7 +13759,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-25T07:26:17+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-25T07:26:17+0000",
@@ -13688,7 +13789,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -14473,7 +14574,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -14503,7 +14604,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-20T07:40:52+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-20T07:40:52+0000",
@@ -14532,7 +14633,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-17T08:19:51+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-17T08:19:51+0000",
@@ -14560,7 +14661,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -14590,7 +14691,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -14618,7 +14719,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -14646,7 +14747,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -14674,7 +14775,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-14T07:43:57+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-14T07:43:57+0000",
@@ -14702,7 +14803,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -14731,7 +14832,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -14759,7 +14860,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -14789,7 +14890,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-20T07:40:52+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-20T07:40:52+0000",
@@ -15020,7 +15121,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -15050,7 +15151,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -15385,7 +15486,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -15590,7 +15691,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -16842,7 +16943,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -17066,7 +17167,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-24T07:11:28+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-24T07:11:28+0000",
@@ -17096,7 +17197,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -17345,7 +17446,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -17720,7 +17821,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-16T08:47:03+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-16T08:47:03+0000",
@@ -17749,7 +17850,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -17779,7 +17880,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -17809,7 +17910,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -17839,7 +17940,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -18102,7 +18203,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -18131,7 +18232,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -18394,7 +18495,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -18428,7 +18529,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -18748,7 +18849,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-19T08:20:47+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-19T08:20:47+0000",
@@ -19032,7 +19133,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -19224,7 +19325,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -19433,7 +19534,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -19708,7 +19809,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -20135,7 +20236,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -20659,7 +20760,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -20689,7 +20790,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -20724,7 +20825,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -21354,7 +21455,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -21504,7 +21605,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-25T07:26:17+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-25T07:26:17+0000",
@@ -21788,7 +21889,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -21993,7 +22094,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -22023,7 +22124,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -22053,7 +22154,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -22336,7 +22437,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-25T07:26:17+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-25T07:26:17+0000",
@@ -22627,7 +22728,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -22656,7 +22757,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -22685,7 +22786,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -22714,7 +22815,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -22744,7 +22845,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -23023,7 +23124,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -23052,7 +23153,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -23082,7 +23183,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -23112,7 +23213,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -23142,7 +23243,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -23172,7 +23273,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -23504,7 +23605,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -23538,7 +23639,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -23879,7 +23980,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -23908,7 +24009,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -23937,7 +24038,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -24591,7 +24692,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -24826,7 +24927,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -24856,7 +24957,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -25734,7 +25835,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-11T19:23:58+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-11T19:23:58+0000",
@@ -25762,7 +25863,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -25790,7 +25891,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -25818,7 +25919,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -25846,7 +25947,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -25880,7 +25981,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -25913,7 +26014,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -25942,7 +26043,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-24T07:11:28+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-24T07:11:28+0000",
@@ -25971,7 +26072,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -26000,7 +26101,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-27T07:09:50+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-27T07:09:50+0000",
@@ -26029,7 +26130,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -26542,7 +26643,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -26571,7 +26672,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -26820,7 +26921,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -27649,7 +27750,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -27678,7 +27779,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -27706,7 +27807,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-18T08:00:54+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-18T08:00:54+0000",
@@ -27740,7 +27841,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-27T07:09:50+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-27T07:09:50+0000",
@@ -27768,7 +27869,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-17T08:19:51+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-17T08:19:51+0000",
@@ -27798,7 +27899,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -27827,7 +27928,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -27856,7 +27957,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -27884,7 +27985,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -27912,7 +28013,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -27940,7 +28041,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -27974,7 +28075,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -28003,7 +28104,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -28036,7 +28137,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -28064,7 +28165,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -28092,7 +28193,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -28120,7 +28221,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -28148,7 +28249,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -28177,7 +28278,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -28206,7 +28307,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -28379,7 +28480,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -28687,7 +28788,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -28716,7 +28817,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -29054,7 +29155,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -29294,7 +29395,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -29324,7 +29425,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -29354,7 +29455,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -29389,7 +29490,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -29424,7 +29525,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -29459,7 +29560,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -29794,7 +29895,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -29823,7 +29924,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-17T08:19:51+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-17T08:19:51+0000",
@@ -29853,7 +29954,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -30507,7 +30608,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -30537,7 +30638,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -30567,7 +30668,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-20T07:40:52+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-20T07:40:52+0000",
@@ -30737,7 +30838,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-27T07:09:50+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-27T07:09:50+0000",
@@ -30767,7 +30868,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -30797,7 +30898,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -31341,7 +31442,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -31370,7 +31471,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -31399,7 +31500,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -31438,7 +31539,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-11T19:23:58+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-11T19:23:58+0000",
@@ -31773,7 +31874,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -31802,7 +31903,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-11T19:23:58+0000",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-11T19:23:58+0000",
@@ -31832,7 +31933,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-27T07:09:50+0000",
+          "last_seen_at": "2026-06-27T14:03:51+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
