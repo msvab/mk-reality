@@ -143,6 +143,8 @@ Useful flags:
 - `--force-daily-refresh` allows a daily refresh to re-run municipalities already refreshed today
 - `--local-first` tries deterministic portal fetchers before falling back to Codex
 - `--local-only` uses only deterministic portal fetchers and records a failure instead of falling back to Codex
+- `--local-portal PORTAL` limits deterministic local fetching to one supported portal; repeat it for multiple portals
+- `--merge-local-results` merges local fetcher output into existing raw city files instead of replacing the full snapshot
 - `--aggregate-after-each` refreshes `real_estate_ads_by_city.json` after every successful city
 
 Typical usage:
@@ -169,6 +171,21 @@ Daily refresh:
 rtk python3 run_real_estate_ads_by_city.py --daily-refresh --local-first --aggregate-after-each
 rtk python3 build_html.py --ads-only
 ```
+
+Provider-only enhancement run:
+
+```bash
+rtk python3 run_real_estate_ads_by_city.py \
+  --daily-refresh \
+  --force-daily-refresh \
+  --local-only \
+  --local-portal mmreality.cz \
+  --merge-local-results \
+  --aggregate-after-each
+rtk python3 build_html.py --ads-only
+```
+
+Use `--merge-local-results` for provider-only runs against `data/real_estate_ads_raw`; otherwise a partial provider result would replace the full raw city snapshot. This mode refreshes only the selected portal rows, status, and fetch attempts while preserving rows from the other portals in the same raw file.
 
 One-command daily workflow:
 

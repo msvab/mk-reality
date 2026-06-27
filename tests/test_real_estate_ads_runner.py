@@ -14,6 +14,7 @@ from reality.run_real_estate_ads_by_city import (
     combine_local_fetcher_payloads,
     daily_refresh_city_completed_today,
     format_delta,
+    merge_local_payload_into_existing_raw,
     run_local_fetchers,
     select_cities,
 )
@@ -461,6 +462,128 @@ def test_local_fetcher_payloads_are_combined_into_raw_city_payload():
     assert payload["coverage"]["rows_retained"] == 1
     assert payload["portal_status"]["realitymix.cz"]["status"] == "ok"
     assert payload["listings"] == [{"title": "Listing"}]
+
+
+def test_local_fetcher_can_be_limited_to_one_portal(tmp_path, monkeypatch):
+    commands = []
+
+    def fake_run(cmd, check, capture_output, text):
+        commands.append(cmd)
+        portal = "mmreality.cz" if cmd[1].endswith("mmreality_fetch.py") else "unexpected.test"
+        payload = {
+            "city": "Portal Filter",
+            "query": {
+                "municipality": "Portal Filter",
+                "location_scope": "municipality_only",
+                "country": "Czech Republic",
+                "property_types": ["house", "chalupa", "land"],
+                "land_size_min_m2": 1000,
+            },
+            "assumptions": [],
+            "coverage": {
+                "workers_launched": 1,
+                "workers_with_results": 0,
+                "candidates_gathered": 0,
+                "rows_retained": 0,
+                "zero_result_portals": [portal],
+                "blocked_portals": [],
+            },
+            "portal_status": {portal: {"status": "no_results"}},
+            "fetch_attempts": [],
+            "gaps": [],
+            "listings": [],
+        }
+        return subprocess.CompletedProcess(cmd, 0, stdout=json.dumps(payload), stderr="")
+
+    monkeypatch.setattr(runner, "MMREALITY_BLOCKED_FOR_RUN", False)
+    monkeypatch.setattr("reality.run_real_estate_ads_by_city.subprocess.run", fake_run)
+
+    assert run_local_fetchers(
+        "Portal Filter",
+        tmp_path,
+        tmp_path / "raw.json",
+        previous_aggregate=None,
+        local_portals={"mmreality.cz"},
+    )
+
+    assert [cmd[1].split("/")[-1] for cmd in commands] == ["mmreality_fetch.py"]
+
+
+def test_merge_local_payload_replaces_only_refreshed_portal_rows():
+    existing = {
+        "city": "Dobruška",
+        "query": {"municipality": "Dobruška"},
+        "coverage": {
+            "workers_launched": 2,
+            "workers_with_results": 2,
+            "candidates_gathered": 2,
+            "rows_retained": 2,
+            "zero_result_portals": [],
+            "blocked_portals": [],
+        },
+        "portal_status": {
+            "reality.idnes.cz": {"status": "ok"},
+            "mmreality.cz": {"status": "ok"},
+        },
+        "fetch_attempts": [
+            {"portal": "reality.idnes.cz", "url": "https://reality.idnes.cz/detail/1", "stage": "detail_fetch", "attempt": 1, "status": "ok"},
+            {"portal": "mmreality.cz", "url": "https://www.mmreality.cz/nemovitosti/1/", "stage": "detail_fetch", "attempt": 1, "status": "ok"},
+        ],
+        "gaps": ["old-gap"],
+        "assumptions": ["old-assumption"],
+        "listings": [
+            {
+                "portal": ["reality.idnes.cz"],
+                "title": "iDNES house",
+                "location": "Dobruška",
+                "property_type": "house",
+                "urls": ["https://reality.idnes.cz/detail/1"],
+            },
+            {
+                "portal": ["mmreality.cz"],
+                "title": "Old MM house",
+                "location": "Dobruška",
+                "property_type": "house",
+                "urls": ["https://www.mmreality.cz/nemovitosti/1/"],
+            },
+        ],
+    }
+    local = {
+        "city": "Dobruška",
+        "query": {"municipality": "Dobruška"},
+        "coverage": {
+            "workers_launched": 1,
+            "workers_with_results": 1,
+            "candidates_gathered": 1,
+            "rows_retained": 1,
+            "zero_result_portals": [],
+            "blocked_portals": [],
+        },
+        "portal_status": {"mmreality.cz": {"status": "ok"}},
+        "fetch_attempts": [
+            {"portal": "mmreality.cz", "url": "https://www.mmreality.cz/nemovitosti/2/", "stage": "detail_fetch", "attempt": 1, "status": "ok"},
+        ],
+        "gaps": ["new-mm-gap"],
+        "assumptions": ["new-mm-assumption"],
+        "listings": [
+            {
+                "portal": ["mmreality.cz"],
+                "title": "New MM house",
+                "location": "Dobruška",
+                "property_type": "house",
+                "urls": ["https://www.mmreality.cz/nemovitosti/2/"],
+            }
+        ],
+    }
+
+    merged = merge_local_payload_into_existing_raw(existing, local)
+
+    assert [row["title"] for row in merged["listings"]] == ["iDNES house", "New MM house"]
+    assert set(merged["portal_status"]) == {"reality.idnes.cz", "mmreality.cz"}
+    assert [attempt["portal"] for attempt in merged["fetch_attempts"]] == ["reality.idnes.cz", "mmreality.cz"]
+    assert merged["coverage"]["workers_launched"] == 2
+    assert merged["coverage"]["workers_with_results"] == 2
+    assert merged["gaps"] == ["old-gap", "new-mm-gap"]
 
 
 def test_local_fetchers_run_realitymix_discovery_without_cached_urls(tmp_path, monkeypatch):

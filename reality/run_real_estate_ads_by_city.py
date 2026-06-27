@@ -26,6 +26,7 @@ LOCAL_FETCHERS = {
     "realitymix.cz": Path(".codex/skills/find-real-estate-ads/scripts/realitymix_fetch.py"),
     "reality.aktualne.cz": Path(".codex/skills/find-real-estate-ads/scripts/reality_aktualne_fetch.py"),
 }
+SUPPORTED_PORTALS = tuple(LOCAL_FETCHERS)
 
 STOP_REQUESTED = False
 MMREALITY_BLOCKED_FOR_RUN = False
@@ -358,11 +359,116 @@ def combine_local_fetcher_payloads(city: str, payloads: list[dict]) -> dict:
     }
 
 
+def listing_portals(listing: dict) -> set[str]:
+    portals = listing.get("portal", [])
+    if isinstance(portals, str):
+        portals = [portals]
+    if not isinstance(portals, list):
+        return set()
+    return {str(portal) for portal in portals}
+
+
+def payload_portals(payload: dict) -> set[str]:
+    portals = set()
+    portal_status = payload.get("portal_status", {})
+    if isinstance(portal_status, dict):
+        portals.update(str(portal) for portal in portal_status)
+    coverage = payload.get("coverage", {})
+    if isinstance(coverage, dict):
+        for portal in coverage.get("zero_result_portals", []):
+            portals.add(str(portal))
+    for attempt in payload.get("fetch_attempts", []):
+        if isinstance(attempt, dict) and attempt.get("portal"):
+            portals.add(str(attempt["portal"]))
+    for listing in payload.get("listings", []):
+        if isinstance(listing, dict):
+            portals.update(listing_portals(listing))
+    return portals & set(SUPPORTED_PORTALS)
+
+
+def merge_local_payload_into_existing_raw(existing_payload: dict, local_payload: dict) -> dict:
+    portals = payload_portals(local_payload)
+    if not portals:
+        return local_payload
+
+    merged = dict(existing_payload)
+    merged["city"] = local_payload.get("city") or existing_payload.get("city")
+    if "query" not in merged and isinstance(local_payload.get("query"), dict):
+        merged["query"] = local_payload["query"]
+
+    existing_listings = existing_payload.get("listings", [])
+    if not isinstance(existing_listings, list):
+        existing_listings = []
+    local_listings = local_payload.get("listings", [])
+    if not isinstance(local_listings, list):
+        local_listings = []
+    merged["listings"] = [
+        listing
+        for listing in existing_listings
+        if not (isinstance(listing, dict) and listing_portals(listing) & portals)
+    ] + [listing for listing in local_listings if isinstance(listing, dict)]
+
+    existing_status = existing_payload.get("portal_status", {})
+    if not isinstance(existing_status, dict):
+        existing_status = {}
+    local_status = local_payload.get("portal_status", {})
+    if not isinstance(local_status, dict):
+        local_status = {}
+    merged_status = dict(existing_status)
+    for portal in portals:
+        merged_status.pop(portal, None)
+    for portal, status in local_status.items():
+        if portal in portals:
+            merged_status[portal] = status
+    merged["portal_status"] = merged_status
+
+    existing_attempts = existing_payload.get("fetch_attempts", [])
+    if not isinstance(existing_attempts, list):
+        existing_attempts = []
+    local_attempts = local_payload.get("fetch_attempts", [])
+    if not isinstance(local_attempts, list):
+        local_attempts = []
+    merged["fetch_attempts"] = [
+        attempt
+        for attempt in existing_attempts
+        if not (isinstance(attempt, dict) and str(attempt.get("portal")) in portals)
+    ] + [attempt for attempt in local_attempts if isinstance(attempt, dict)]
+
+    existing_gaps = [item for item in existing_payload.get("gaps", []) if isinstance(item, str)]
+    local_gaps = [item for item in local_payload.get("gaps", []) if isinstance(item, str)]
+    merged["gaps"] = list(dict.fromkeys(existing_gaps + local_gaps))
+    existing_assumptions = [item for item in existing_payload.get("assumptions", []) if isinstance(item, str)]
+    local_assumptions = [item for item in local_payload.get("assumptions", []) if isinstance(item, str)]
+    merged["assumptions"] = list(dict.fromkeys(existing_assumptions + local_assumptions))
+
+    retained_portals = set()
+    for listing in merged["listings"]:
+        if isinstance(listing, dict):
+            retained_portals.update(listing_portals(listing))
+    merged_statuses = merged.get("portal_status", {})
+    status_portals = set(merged_statuses) if isinstance(merged_statuses, dict) else set()
+    merged["coverage"] = {
+        "workers_launched": len(status_portals),
+        "workers_with_results": len(retained_portals & status_portals),
+        "candidates_gathered": len(merged["listings"]),
+        "rows_retained": len(merged["listings"]),
+        "zero_result_portals": [
+            portal
+            for portal, status in merged_statuses.items()
+            if isinstance(status, dict) and status.get("status") == "no_results"
+        ],
+        "blocked_portals": [],
+    }
+    return merged
+
+
 def run_local_fetchers(
     city: str,
     repo_root: Path,
     output_path: Path,
     previous_aggregate: dict | None,
+    local_portals: set[str] | None = None,
+    merge_local_results: bool = False,
 ) -> bool:
     global MMREALITY_BLOCKED_FOR_RUN
     urls_by_portal = cached_detail_urls_by_portal(previous_aggregate, city)
@@ -372,6 +478,8 @@ def run_local_fetchers(
     reality_idnes_result_urls = cached_reality_idnes_result_page_urls(previous_aggregate, city)
     payloads = []
     for portal, urls in urls_by_portal.items():
+        if local_portals is not None and portal not in local_portals:
+            continue
         if portal == "mmreality.cz" and MMREALITY_BLOCKED_FOR_RUN:
             continue
         use_reality_idnes_results = portal == "reality.idnes.cz" and bool(reality_idnes_result_urls)
@@ -432,6 +540,11 @@ def run_local_fetchers(
         return False
 
     combined = combine_local_fetcher_payloads(city, payloads)
+    if merge_local_results:
+        if not output_path.exists():
+            return False
+        existing_payload = load_previous_aggregate(output_path)
+        combined = merge_local_payload_into_existing_raw(existing_payload, combined)
     validate_raw_output(combined, city)
     atomic_write_json(output_path, combined)
     return True
@@ -704,6 +817,17 @@ def main() -> None:
         action="store_true",
         help="Use only deterministic local cached-detail fetchers and fail cities that would need Codex fallback.",
     )
+    parser.add_argument(
+        "--local-portal",
+        action="append",
+        choices=SUPPORTED_PORTALS,
+        help="Limit deterministic local fetchers to one portal. Repeat to include multiple portals.",
+    )
+    parser.add_argument(
+        "--merge-local-results",
+        action="store_true",
+        help="Merge local fetcher output into an existing raw city file instead of replacing the full snapshot.",
+    )
     args = parser.parse_args()
 
     repo_root = Path.cwd()
@@ -713,6 +837,11 @@ def main() -> None:
     state_path = Path(args.state_path)
     schema_path = Path(args.schema_path)
     use_local_fetchers = args.local_first or args.local_only
+    local_portals = set(args.local_portal) if args.local_portal else None
+    if local_portals and not use_local_fetchers:
+        parser.error("--local-portal requires --local-first or --local-only")
+    if args.merge_local_results and not use_local_fetchers:
+        parser.error("--merge-local-results requires --local-first or --local-only")
     needs_previous_aggregate = args.daily_refresh or use_local_fetchers
     previous_aggregate = load_previous_aggregate(aggregate_output) if needs_previous_aggregate and aggregate_output.exists() else None
     overwrite = args.overwrite or args.daily_refresh
@@ -781,7 +910,14 @@ def main() -> None:
                 used_local_fetchers = False
                 if use_local_fetchers:
                     try:
-                        used_local_fetchers = run_local_fetchers(city, repo_root, output_path, previous_aggregate)
+                        used_local_fetchers = run_local_fetchers(
+                            city,
+                            repo_root,
+                            output_path,
+                            previous_aggregate,
+                            local_portals=local_portals,
+                            merge_local_results=args.merge_local_results,
+                        )
                         if used_local_fetchers:
                             print(f"  used local cached-detail fetchers for {city}", flush=True)
                     except Exception as local_exc:
