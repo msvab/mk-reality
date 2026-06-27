@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Orlické Záhoří."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 1,
-    "candidates_gathered": 6,
-    "rows_retained": 2,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 3,
+    "rows_retained": 3,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,6 +50,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "mmreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -182,6 +186,55 @@
       "attempt": 1,
       "status": "fallback_page",
       "message": "Detail URL returned fallback or non-detail content."
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://cadastral.stormm.cz/api/location/search?query=Orlick%C3%A9+Z%C3%A1ho%C5%99%C3%AD&types%5B%5D=municipality&types%5B%5D=municipality_part",
+      "stage": "location_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "house_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "land_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/932384/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/937741/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
     }
   ],
   "gaps": [
@@ -192,7 +245,8 @@
     "outside-municipality:https://reality.aktualne.cz/detail/orlicke-zahori/prodej-domu-na-klic-nicea-8503003.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/orlicke-zahori/prodej-na-klic-riviera-8366755.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/orlicke-zahori/prodej-penzionu-orlicke-zahori-okres-rychnov-nad-kneznou-8632059.html",
-    "detail-fallback-page:https://reality.aktualne.cz/detail/orlicke-zahori/prodej-rodinneho-domu-orlicke-zahori-kunstat-u-orlickeho-zahori-okres-rychnov-nad-kneznou-8541339.html"
+    "detail-fallback-page:https://reality.aktualne.cz/detail/orlicke-zahori/prodej-rodinneho-domu-orlicke-zahori-kunstat-u-orlickeho-zahori-okres-rychnov-nad-kneznou-8541339.html",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/932384/"
   ],
   "listings": [
     {
@@ -231,6 +285,24 @@
         "detail-url-verified:reality.aktualne.cz",
         "normalized-from:chalupa",
         "aggregator-source:pink-reality,-s.r.o."
+      ]
+    },
+    {
+      "portal": [
+        "mmreality.cz"
+      ],
+      "title": "Prodej, Pozemek k bydlení, 1517 m², Orlické Záhoří",
+      "location": "Orlické Záhoří, okres Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "5 699 999 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1517",
+      "urls": [
+        "https://www.mmreality.cz/nemovitosti/937741/"
+      ],
+      "notes": [
+        "detail-url-verified:mmreality.cz",
+        "buildable-land"
       ]
     }
   ]

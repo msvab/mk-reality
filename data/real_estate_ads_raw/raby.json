@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Ráby."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 1,
-    "candidates_gathered": 12,
-    "rows_retained": 6,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 8,
+    "rows_retained": 8,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,6 +50,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "mmreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -252,6 +256,55 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://cadastral.stormm.cz/api/location/search?query=R%C3%A1by&types%5B%5D=municipality&types%5B%5D=municipality_part",
+      "stage": "location_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "house_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "land_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/871883/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/908427/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
     }
   ],
   "gaps": [
@@ -377,6 +430,42 @@
       "notes": [
         "detail-url-verified:reality.aktualne.cz",
         "aggregator-source:martin-dolezel-s.r.o."
+      ]
+    },
+    {
+      "portal": [
+        "mmreality.cz"
+      ],
+      "title": "Prodej, Pozemek k bydlení, 8620 m², Ráby",
+      "location": "Ráby, okres Pardubice",
+      "property_type": "land",
+      "price": "41 807 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "8620",
+      "urls": [
+        "https://www.mmreality.cz/nemovitosti/908427/"
+      ],
+      "notes": [
+        "detail-url-verified:mmreality.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "mmreality.cz"
+      ],
+      "title": "Prodej, Pozemek k bydlení, 2012 m², Ráby",
+      "location": "Ráby, okres Pardubice",
+      "property_type": "land",
+      "price": "3 999 999 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2012",
+      "urls": [
+        "https://www.mmreality.cz/nemovitosti/871883/"
+      ],
+      "notes": [
+        "detail-url-verified:mmreality.cz",
+        "buildable-land"
       ]
     }
   ]

@@ -28,14 +28,15 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Bílá Třemešná."
   ],
   "coverage": {
-    "workers_launched": 3,
+    "workers_launched": 4,
     "workers_with_results": 0,
-    "candidates_gathered": 5,
+    "candidates_gathered": 0,
     "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
-      "reality.aktualne.cz"
+      "reality.aktualne.cz",
+      "mmreality.cz"
     ],
     "blocked_portals": []
   },
@@ -51,6 +52,10 @@
     "reality.aktualne.cz": {
       "status": "no_results",
       "message": "No retained in-scope Reality Aktuálně rows."
+    },
+    "mmreality.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -133,6 +138,48 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://cadastral.stormm.cz/api/location/search?query=B%C3%ADl%C3%A1+T%C5%99eme%C5%A1n%C3%A1&types%5B%5D=municipality&types%5B%5D=municipality_part",
+      "stage": "location_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "house_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "land_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/924748/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
     }
   ],
   "gaps": [
@@ -143,7 +190,8 @@
     "non-buildable-land:https://reality.aktualne.cz/detail/bila-tremesna/prodej-pozemku-k-bydleni-1448-m-bila-tremesna-7740894.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/bila-tremesna/prodej-rodinneho-domu-v-bile-tremesne-8462861.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/bila-tremesna/prodej-vyrobniho-prostoru-4-100-m-bila-tremesna-8548323.html",
-    "outside-municipality:https://reality.aktualne.cz/detail/bila-tremesna/prostorny-zemedelsky-objekt-senik-1-411m2-8314319.html"
+    "outside-municipality:https://reality.aktualne.cz/detail/bila-tremesna/prostorny-zemedelsky-objekt-senik-1-411m2-8314319.html",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/924748/"
   ],
   "listings": []
 }

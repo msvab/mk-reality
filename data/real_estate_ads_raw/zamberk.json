@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Žamberk."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 1,
-    "candidates_gathered": 20,
-    "rows_retained": 5,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 10,
+    "rows_retained": 10,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,6 +50,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "mmreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -308,6 +312,104 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://cadastral.stormm.cz/api/location/search?query=%C5%BDamberk&types%5B%5D=municipality&types%5B%5D=municipality_part",
+      "stage": "location_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "house_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "land_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/910205/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/910206/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/924206/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/924208/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/934463/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/935994/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/935999/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/943745/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/946137/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
     }
   ],
   "gaps": [
@@ -329,7 +431,11 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/zamberk/pronajem-bytu-3-kk-60-m2-zamberk-tovarni-8630479.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/zamberk/pronajem-rodinneho-domu-v-zamberku-ul-jiraskovo-namesti-8571001.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/zamberk/prvorepublikova-vila-se-zahradou-v-centru-zamberka-8127539.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/zamberk/vilka-s-novou-tvari-vyjimecne-rodinne-bydleni-v-top-lokalite-zamberka-8602097.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/zamberk/vilka-s-novou-tvari-vyjimecne-rodinne-bydleni-v-top-lokalite-zamberka-8602097.html",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/910205/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/910206/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/924206/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/924208/"
   ],
   "listings": [
     {
@@ -423,6 +529,95 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "mmreality.cz"
+      ],
+      "title": "Prodej, Pozemek k bydlení, 3787 m², Žamberk",
+      "location": "Žamberk, okres Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "4 771 620 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "3787",
+      "urls": [
+        "https://www.mmreality.cz/nemovitosti/934463/"
+      ],
+      "notes": [
+        "detail-url-verified:mmreality.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "mmreality.cz"
+      ],
+      "title": "Prodej, Pozemek k bydlení, 1894 m², Žamberk",
+      "location": "Žamberk, okres Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "2 386 440 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1894",
+      "urls": [
+        "https://www.mmreality.cz/nemovitosti/935994/"
+      ],
+      "notes": [
+        "detail-url-verified:mmreality.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "mmreality.cz"
+      ],
+      "title": "Prodej, Pozemek k bydlení, 1893 m², Žamberk",
+      "location": "Žamberk, okres Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "2 385 180 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1893",
+      "urls": [
+        "https://www.mmreality.cz/nemovitosti/935999/"
+      ],
+      "notes": [
+        "detail-url-verified:mmreality.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "mmreality.cz"
+      ],
+      "title": "Prodej, Rodinný dům, 87 m², Žamberk, Betlém",
+      "location": "Žamberk, okres Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "1 925 000 Kč",
+      "house_area_m2": "87",
+      "land_area_m2": "1237",
+      "urls": [
+        "https://www.mmreality.cz/nemovitosti/943745/"
+      ],
+      "notes": [
+        "detail-url-verified:mmreality.cz"
+      ]
+    },
+    {
+      "portal": [
+        "mmreality.cz"
+      ],
+      "title": "Prodej, Pozemek k bydlení, 1237 m², Žamberk",
+      "location": "Žamberk, okres Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "1 925 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1237",
+      "urls": [
+        "https://www.mmreality.cz/nemovitosti/946137/"
+      ],
+      "notes": [
+        "detail-url-verified:mmreality.cz",
+        "buildable-land"
       ]
     }
   ]

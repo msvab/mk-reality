@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Choceň."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 1,
-    "candidates_gathered": 7,
-    "rows_retained": 1,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 2,
+    "rows_retained": 2,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,6 +50,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "mmreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -164,6 +168,62 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://cadastral.stormm.cz/api/location/search?query=Choce%C5%88&types%5B%5D=municipality&types%5B%5D=municipality_part",
+      "stage": "location_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "house_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "land_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/933556/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/936114/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/945027/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
     }
   ],
   "gaps": [
@@ -176,7 +236,9 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/chocen/prodej-bytu-4-kk-112-m-chocen-ul-zamesti-8300689.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/chocen/prodej-domu-191-m-pozemek-905-m-8580631.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/chocen/prodej-rodinneho-domu-210-m-chocen-8381495.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/chocen/prodej-rodinneho-domu-v-chocni-ul-svatojirska-8614369.html"
+    "land-below-threshold:https://reality.aktualne.cz/detail/chocen/prodej-rodinneho-domu-v-chocni-ul-svatojirska-8614369.html",
+    "non-buildable-land:https://www.mmreality.cz/nemovitosti/936114/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/945027/"
   ],
   "listings": [
     {
@@ -196,6 +258,24 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "mmreality.cz"
+      ],
+      "title": "Prodej, Pozemek k bydlení, 1000 m², Choceň, V Kamení",
+      "location": "Choceň, okres Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "3 490 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1000",
+      "urls": [
+        "https://www.mmreality.cz/nemovitosti/933556/"
+      ],
+      "notes": [
+        "detail-url-verified:mmreality.cz",
+        "buildable-land"
       ]
     }
   ]

@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Vysoké Mýto."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 1,
-    "candidates_gathered": 12,
-    "rows_retained": 1,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 2,
+    "rows_retained": 2,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,6 +50,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "mmreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -188,6 +192,76 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://cadastral.stormm.cz/api/location/search?query=Vysok%C3%A9+M%C3%BDto&types%5B%5D=municipality&types%5B%5D=municipality_part",
+      "stage": "location_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "house_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "land_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/912146/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/929805/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/940971/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/941004/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/944866/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
     }
   ],
   "gaps": [
@@ -204,7 +278,11 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-2-1-rokycanova-vysoke-myto-12-000-kc-mes-53-m2-8570021.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-2-kk-49-m-vysoke-myto-ul-tumova-8597077.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-2-kk-53-m-vysoke-myto-ul-litomyslska-8599057.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-3-1-67-m-vysoke-myto-ul-odbojarska-8599603.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-3-1-67-m-vysoke-myto-ul-odbojarska-8599603.html",
+    "missing-price:https://www.mmreality.cz/nemovitosti/912146/",
+    "missing-price:https://www.mmreality.cz/nemovitosti/929805/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/940971/",
+    "missing-price:https://www.mmreality.cz/nemovitosti/944866/"
   ],
   "listings": [
     {
@@ -224,6 +302,24 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "mmreality.cz"
+      ],
+      "title": "Prodej, Rodinný dům, 160 m², Vysoké Mýto, Luční",
+      "location": "Vysoké Mýto - Choceňské Předměstí, okres Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "2 121 000 Kč",
+      "house_area_m2": "160",
+      "land_area_m2": "1087",
+      "urls": [
+        "https://www.mmreality.cz/nemovitosti/941004/"
+      ],
+      "notes": [
+        "detail-url-verified:mmreality.cz",
+        "municipality-subarea:Choceňské Předměstí"
       ]
     }
   ]

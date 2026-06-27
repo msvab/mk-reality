@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Letohrad."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 1,
-    "candidates_gathered": 14,
-    "rows_retained": 5,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 6,
+    "rows_retained": 6,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,6 +50,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "mmreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -260,6 +264,76 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://cadastral.stormm.cz/api/location/search?query=Letohrad&types%5B%5D=municipality&types%5B%5D=municipality_part",
+      "stage": "location_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "house_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "land_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/740206/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/740208/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/740209/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/931113/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/942791/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
     }
   ],
   "gaps": [
@@ -276,7 +350,11 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/letohrad/pronajem-bytu-2-kk-51-m-letohrad-ul-vaclavske-namesti-8432887.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/letohrad/pronajem-bytu-2-kk-62-m-letohrad-ul-vaclavske-namesti-8584417.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/letohrad/pronajem-bytu-2-kk-66-m-letohrad-ul-vaclavske-namesti-8477351.html",
-    "outside-municipality:https://reality.aktualne.cz/detail/letohrad/pronajem-nekolika-skladovych-prostor-o-ruznych-vymerach-v-1np-a-2np-kladkovy-vytah-celkova-vymera-8011962.html"
+    "outside-municipality:https://reality.aktualne.cz/detail/letohrad/pronajem-nekolika-skladovych-prostor-o-ruznych-vymerach-v-1np-a-2np-kladkovy-vytah-celkova-vymera-8011962.html",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/740206/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/740208/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/740209/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/942791/"
   ],
   "listings": [
     {
@@ -368,6 +446,23 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:ondrej-kolar---vasrealitak.cz"
+      ]
+    },
+    {
+      "portal": [
+        "mmreality.cz"
+      ],
+      "title": "Prodej, Rodinný dům, 164 m², Letohrad, Podměstí",
+      "location": "Letohrad, okres Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "4 499 999 Kč",
+      "house_area_m2": "164",
+      "land_area_m2": "1447",
+      "urls": [
+        "https://www.mmreality.cz/nemovitosti/931113/"
+      ],
+      "notes": [
+        "detail-url-verified:mmreality.cz"
       ]
     }
   ]

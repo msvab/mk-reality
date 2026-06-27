@@ -28,13 +28,14 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Týniště nad Orlicí."
   ],
   "coverage": {
-    "workers_launched": 3,
+    "workers_launched": 4,
     "workers_with_results": 1,
-    "candidates_gathered": 16,
+    "candidates_gathered": 1,
     "rows_retained": 1,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "realitymix.cz"
+      "realitymix.cz",
+      "mmreality.cz"
     ],
     "blocked_portals": []
   },
@@ -50,6 +51,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "mmreality.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -236,6 +241,62 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://cadastral.stormm.cz/api/location/search?query=T%C3%BDni%C5%A1t%C4%9B+nad+Orlic%C3%AD&types%5B%5D=municipality&types%5B%5D=municipality_part",
+      "stage": "location_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "house_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "land_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/925815/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/925977/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/942616/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
     }
   ],
   "gaps": [
@@ -256,7 +317,10 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/tyniste-nad-orlici/pronajem-skladu-vyrobnich-prostor-22-300-m-tyniste-nad-orlici-7269062.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/tyniste-nad-orlici/pronajem-skladu-vyrobnich-prostor-7-800-m-tyniste-nad-orlici-8497859.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/tyniste-nad-orlici/prosluneny-byt-2-kk-po-cerstve-rekonstrukci-8594413.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/tyniste-nad-orlici/prumyslovy-areal-tyniste-nad-orlici-pronajem-skladovych-prostor-8523535.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/tyniste-nad-orlici/prumyslovy-areal-tyniste-nad-orlici-pronajem-skladovych-prostor-8523535.html",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/925815/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/925977/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/942616/"
   ],
   "listings": [
     {

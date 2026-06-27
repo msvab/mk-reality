@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Hronov."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 1,
-    "candidates_gathered": 19,
-    "rows_retained": 2,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 3,
+    "rows_retained": 3,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,6 +50,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "mmreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -268,6 +272,76 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://cadastral.stormm.cz/api/location/search?query=Hronov&types%5B%5D=municipality&types%5B%5D=municipality_part",
+      "stage": "location_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "house_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "land_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/906275/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/941527/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/941944/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/943131/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/945280/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
     }
   ],
   "gaps": [
@@ -290,7 +364,11 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/hronov/pronajem-bytu-1-1-63-m-hronov-ul-husova-8512853.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hronov/pronajem-luxusnich-nebytovych-prostor-120-m2-s-bytem-2-kk-45-m2-v-hronove-1-patro-8453191.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hronov/pronajem-obchod-a-sluzby-66000-m-hronov-ul-kostelecka-8556155.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/hronov/pronajem-rodinneho-domu-80-m-dvorska-hronov-549-31-8552613.html"
+    "land-below-threshold:https://reality.aktualne.cz/detail/hronov/pronajem-rodinneho-domu-80-m-dvorska-hronov-549-31-8552613.html",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/906275/",
+    "non-buildable-land:https://www.mmreality.cz/nemovitosti/941527/",
+    "non-buildable-land:https://www.mmreality.cz/nemovitosti/943131/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/945280/"
   ],
   "listings": [
     {
@@ -329,6 +407,25 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "mmreality.cz"
+      ],
+      "title": "Prodej, Pozemek k bydlení, 1090 m², Hronov",
+      "location": "Hronov - Rokytník, okres Náchod",
+      "property_type": "land",
+      "price": "2 310 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1090",
+      "urls": [
+        "https://www.mmreality.cz/nemovitosti/941944/"
+      ],
+      "notes": [
+        "detail-url-verified:mmreality.cz",
+        "municipality-subarea:Rokytník",
+        "buildable-land"
       ]
     }
   ]
