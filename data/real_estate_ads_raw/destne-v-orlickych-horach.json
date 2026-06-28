@@ -25,13 +25,14 @@
   },
   "assumptions": [
     "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
-    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Deštné v Orlických horách."
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Deštné v Orlických horách.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 2,
-    "candidates_gathered": 74,
-    "rows_retained": 5,
+    "workers_launched": 4,
+    "workers_with_results": 3,
+    "candidates_gathered": 9,
+    "rows_retained": 9,
     "zero_result_portals": [
       "realitymix.cz"
     ],
@@ -49,6 +50,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -773,6 +778,62 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=De%C5%A1tn%C3%A9+v+Orlick%C3%BDch+hor%C3%A1ch&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2647&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2647&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1067352140",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1982939724",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2056414028",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/662397516",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -939,6 +1000,81 @@
       "notes": [
         "detail-url-verified:reality.aktualne.cz",
         "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 8718 m²",
+      "location": "Deštné v Orlických horách, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "21 795 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "8718",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/destne-v-orlickych-horach/1982939724"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1982939724",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 590 m², pozemek 3195 m²",
+      "location": "Deštné v Orlických horách, Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "18 500 000 Kč",
+      "house_area_m2": "590",
+      "land_area_m2": "3195",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/destne-v-orlickych-horach/1067352140"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1067352140"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1167 m²",
+      "location": "Deštné v Orlických horách, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "6 950 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1167",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/destne-v-orlickych-horach/662397516"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/662397516",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1051 m²",
+      "location": "Deštné v Orlických horách, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "4 612 500 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1051",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/destne-v-orlickych-horach/2056414028"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2056414028",
+        "buildable-land"
       ]
     }
   ]

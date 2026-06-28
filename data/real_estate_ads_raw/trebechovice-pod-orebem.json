@@ -25,13 +25,14 @@
   },
   "assumptions": [
     "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
-    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Třebechovice pod Orebem."
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Třebechovice pod Orebem.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 3,
-    "candidates_gathered": 98,
-    "rows_retained": 4,
+    "workers_launched": 4,
+    "workers_with_results": 4,
+    "candidates_gathered": 8,
+    "rows_retained": 8,
     "zero_result_portals": [],
     "blocked_portals": []
   },
@@ -47,6 +48,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -977,6 +982,118 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=T%C5%99ebechovice+pod+Orebem&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2241&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2241&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/10183500",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1259122764",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1317061452",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1326396236",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1582297164",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2484314956",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3865477196",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4067644236",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4171595852",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4293288524",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/85979212",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -1078,7 +1195,14 @@
     "non-buildable-land:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/pronajem-roubenky-5-kk-219-m-pozemek-1-456-m-vlastni-rybnik-polanky-nad-dedinou-cena-35-000-8592317.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/rodinny-dum-trebechovice-pod-orebem-8463547.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/utulny-byt-1-1-s-parkovacim-stanim-v-trebechovicich-pod-orebem-8626249.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/zemedelska-puda-prodej-nepasice-trebechovice-pod-orebem-hradec-kralove-8626185.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trebechovice-pod-orebem/zemedelska-puda-prodej-nepasice-trebechovice-pod-orebem-hradec-kralove-8626185.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/10183500",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1317061452",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1326396236",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1582297164",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2484314956",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4067644236",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/85979212"
   ],
   "listings": [
     {
@@ -1150,6 +1274,78 @@
       "notes": [
         "detail-url-verified:reality.aktualne.cz",
         "aggregator-source:broker-consulting,-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 436 m², pozemek 2452 m²",
+      "location": "Třebechovice pod Orebem, Havlíčkova, Hradec Králové",
+      "property_type": "house",
+      "price": "14 895 000 Kč",
+      "house_area_m2": "436",
+      "land_area_m2": "2452",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/trebechovice-pod-orebem-havlickova/4171595852"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/4171595852"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 427 m², pozemek 3101 m²",
+      "location": "Třebechovice pod Orebem, Hradec Králové",
+      "property_type": "house",
+      "price": "11 990 000 Kč",
+      "house_area_m2": "427",
+      "land_area_m2": "3101",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/trebechovice-pod-orebem-polanky-nad-dedinou/4293288524"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/4293288524"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 219 m², pozemek 1560 m²",
+      "location": "Třebechovice pod Orebem, Hradec Králové",
+      "property_type": "house",
+      "price": "11 800 000 Kč",
+      "house_area_m2": "219",
+      "land_area_m2": "1560",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/trebechovice-pod-orebem-polanky-nad-dedinou/1259122764"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1259122764"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 150 m², pozemek 2700 m²",
+      "location": "Třebechovice pod Orebem, Hradec Králové",
+      "property_type": "house",
+      "price": "9 500 000 Kč",
+      "house_area_m2": "150",
+      "land_area_m2": "2700",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/trebechovice-pod-orebem-nepasice/3865477196"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3865477196"
       ]
     }
   ]
