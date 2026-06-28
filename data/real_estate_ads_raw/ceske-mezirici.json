@@ -25,13 +25,14 @@
   },
   "assumptions": [
     "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
-    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of České Meziříčí."
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of České Meziříčí.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 1,
-    "candidates_gathered": 66,
-    "rows_retained": 1,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 2,
+    "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -50,6 +51,10 @@
     "reality.aktualne.cz": {
       "status": "no_results",
       "message": "No retained in-scope Reality Aktuálně rows."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -678,6 +683,70 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=%C4%8Cesk%C3%A9+Mezi%C5%99%C3%AD%C4%8D%C3%AD&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2645&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2645&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1496948812",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1779180108",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3491656524",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3609899084",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3978162252",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -749,7 +818,11 @@
     "land-below-threshold:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinneho-domu-6-kk-pozemek-892-m2-ceske-mezirici-8487969.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinneho-domu-zemedelske-usedlosti-ceske-mezirici-8594143.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinny-dum-124-8554997.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-zahrady-1215-m-ceske-mezirici-8477899.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-zahrady-1215-m-ceske-mezirici-8477899.html",
+    "missing-price:https://www.sreality.cz/api/v1/estates/1496948812",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3491656524",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3978162252",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1779180108"
   ],
   "listings": [
     {
@@ -767,6 +840,24 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 124 m², pozemek 1420 m²",
+      "location": "České Meziříčí, Na Nábřeží, Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "6 800 000 Kč",
+      "house_area_m2": "124",
+      "land_area_m2": "1420",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/ceske-mezirici-na-nabrezi/3609899084"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3609899084"
       ]
     }
   ]

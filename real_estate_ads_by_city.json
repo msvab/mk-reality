@@ -1,12 +1,12 @@
 {
-  "generated_at": "2026-06-28T07:33:39+0000",
+  "generated_at": "2026-06-28T22:15:49+0200",
   "schools_input": "dobruska_primary_schools.json",
   "raw_dir": "data/real_estate_ads_raw",
   "coverage": {
     "school_cities": 109,
     "raw_files_found": 109,
     "cities_with_ads": 66,
-    "hidden_ads": 41,
+    "hidden_ads": 44,
     "cities_with_raw_output": 109,
     "cities_with_portal_warnings": 1
   },
@@ -15,13 +15,12 @@
     "Opočno": {
       "count": 2,
       "coverage": {
-        "workers_launched": 4,
-        "workers_with_results": 1,
-        "candidates_gathered": 6,
+        "workers_launched": 5,
+        "workers_with_results": 2,
+        "candidates_gathered": 18,
         "rows_retained": 2,
         "zero_result_portals": [
           "reality.idnes.cz",
-          "mmreality.cz",
           "realitymix.cz"
         ],
         "blocked_portals": []
@@ -48,6 +47,10 @@
         "reality.aktualne.cz": {
           "status": "ok",
           "message": "Retained at least one detail-verified Reality Aktuálně row."
+        },
+        "sreality.cz": {
+          "status": "ok",
+          "message": "Retained at least one detail-verified Sreality row."
         }
       },
       "fetch_attempts": [
@@ -441,6 +444,126 @@
           "attempt": 1,
           "status": "ok",
           "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/localities/suggest",
+          "stage": "locality_suggest",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/search",
+          "stage": "house_search_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/search",
+          "stage": "land_search_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/1009774668",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/1260524364",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/154136652",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/1780618060",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/2133848140",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/2317488972",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/2385506380",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/2553278540",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/2838491212",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/3122795340",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/3659666252",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/723653452",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
         }
       ],
       "candidate_exclusions": [
@@ -457,7 +580,8 @@
       ],
       "assumptions": [
         "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
-        "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Opočno."
+        "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Opočno.",
+        "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported."
       ],
       "gaps": [
         "idnes-discovery-missing-locality-id",
@@ -489,7 +613,8 @@
       "ads": [
         {
           "portal": [
-            "reality.aktualne.cz"
+            "reality.aktualne.cz",
+            "sreality.cz"
           ],
           "title": "Prodej pozemek Bydlení|Královéhradecký kraj, Rychnov nad Kněžnou, Opočno, Dobříkovec, 20, 51773",
           "location": "Dobříkovec, Opočno, okr.Rychnov nad Kněžnou",
@@ -499,17 +624,23 @@
           "house_area_m2": null,
           "land_area_m2": 1199,
           "urls": [
-            "https://reality.aktualne.cz/detail/opocno/prodej-pozemek-bydleni-kralovehradecky-kraj-rychnov-nad-kneznou-opocno-dobrikovec-20-51773-8625999.html"
+            "https://reality.aktualne.cz/detail/opocno/prodej-pozemek-bydleni-kralovehradecky-kraj-rychnov-nad-kneznou-opocno-dobrikovec-20-51773-8625999.html",
+            "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/2838491212",
+            "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/3122795340"
           ],
           "notes": [
             "detail-url-verified:reality.aktualne.cz",
             "buildable-land",
             "aggregator-source:prime-living-s.r.o.",
-            "unit-price:2 400 Kč (za m 2 )"
+            "unit-price:2 400 Kč (za m 2 )",
+            "detail-url-verified:sreality.cz",
+            "api-detail:https://www.sreality.cz/api/v1/estates/2838491212",
+            "duplicate-merged-from:sreality.cz",
+            "api-detail:https://www.sreality.cz/api/v1/estates/3122795340"
           ],
           "status": "active",
           "first_seen_at": "2026-06-18T08:00:54+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-18T08:00:54+0000",
@@ -520,7 +651,8 @@
         },
         {
           "portal": [
-            "reality.aktualne.cz"
+            "reality.aktualne.cz",
+            "sreality.cz"
           ],
           "title": "Prodej pozemek Bydlení|Královéhradecký kraj, Rychnov nad Kněžnou, Opočno, Dobříkovec, 20, 51773",
           "location": "Dobříkovec, Opočno, okr.Rychnov nad Kněžnou",
@@ -534,18 +666,40 @@
             "https://reality.aktualne.cz/detail/opocno/prodej-pozemek-bydleni-kralovehradecky-kraj-rychnov-nad-kneznou-opocno-dobrikovec-20-51773-8625991.html",
             "https://reality.aktualne.cz/detail/opocno/prodej-pozemek-bydleni-kralovehradecky-kraj-rychnov-nad-kneznou-opocno-dobrikovec-20-51773-8625995.html",
             "https://reality.aktualne.cz/detail/opocno/prodej-pozemek-bydleni-kralovehradecky-kraj-rychnov-nad-kneznou-opocno-dobrikovec-20-51773-8626003.html",
-            "https://reality.aktualne.cz/detail/opocno/prodej-pozemek-bydleni-kralovehradecky-kraj-rychnov-nad-kneznou-opocno-dobrikovec-20-51773-8626009.html"
+            "https://reality.aktualne.cz/detail/opocno/prodej-pozemek-bydleni-kralovehradecky-kraj-rychnov-nad-kneznou-opocno-dobrikovec-20-51773-8626009.html",
+            "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/1009774668",
+            "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/1260524364",
+            "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/154136652",
+            "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/1780618060",
+            "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/2133848140",
+            "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/2317488972",
+            "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/2385506380",
+            "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/2553278540",
+            "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/3659666252",
+            "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/723653452"
           ],
           "notes": [
             "detail-url-verified:reality.aktualne.cz",
             "buildable-land",
             "aggregator-source:prime-living-s.r.o.",
             "unit-price:2 400 Kč (za m 2 )",
-            "duplicate-merged-from:reality.aktualne.cz"
+            "duplicate-merged-from:reality.aktualne.cz",
+            "detail-url-verified:sreality.cz",
+            "api-detail:https://www.sreality.cz/api/v1/estates/1009774668",
+            "duplicate-merged-from:sreality.cz",
+            "api-detail:https://www.sreality.cz/api/v1/estates/1260524364",
+            "api-detail:https://www.sreality.cz/api/v1/estates/154136652",
+            "api-detail:https://www.sreality.cz/api/v1/estates/1780618060",
+            "api-detail:https://www.sreality.cz/api/v1/estates/2133848140",
+            "api-detail:https://www.sreality.cz/api/v1/estates/2317488972",
+            "api-detail:https://www.sreality.cz/api/v1/estates/2385506380",
+            "api-detail:https://www.sreality.cz/api/v1/estates/2553278540",
+            "api-detail:https://www.sreality.cz/api/v1/estates/3659666252",
+            "api-detail:https://www.sreality.cz/api/v1/estates/723653452"
           ],
           "status": "active",
           "first_seen_at": "2026-06-18T08:00:54+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-18T08:00:54+0000",
@@ -745,12 +899,12 @@
       ]
     },
     "Nové Město nad Metují": {
-      "count": 3,
+      "count": 4,
       "coverage": {
-        "workers_launched": 3,
-        "workers_with_results": 3,
-        "candidates_gathered": 4,
-        "rows_retained": 3,
+        "workers_launched": 4,
+        "workers_with_results": 4,
+        "candidates_gathered": 5,
+        "rows_retained": 4,
         "zero_result_portals": [],
         "blocked_portals": []
       },
@@ -766,6 +920,10 @@
         "reality.aktualne.cz": {
           "status": "ok",
           "message": "Retained at least one detail-verified Reality Aktuálně row."
+        },
+        "sreality.cz": {
+          "status": "ok",
+          "message": "Retained at least one detail-verified Sreality row."
         }
       },
       "fetch_attempts": [
@@ -1448,12 +1606,125 @@
           "attempt": 1,
           "status": "ok",
           "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/localities/suggest",
+          "stage": "locality_suggest",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/search",
+          "stage": "house_search_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/search",
+          "stage": "land_search_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/1426890828",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/1458172492",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/1701995340",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/1900503884",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/213893964",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/2207088716",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/2430219084",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/2898248524",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/3504849740",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/3745985356",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/4207342412",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
         }
       ],
       "candidate_exclusions": [],
       "assumptions": [
         "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
-        "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Nové Město nad Metují."
+        "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Nové Město nad Metují.",
+        "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported."
       ],
       "gaps": [
         "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/hostice/689cdff9b1d942905d075c50/",
@@ -1526,9 +1797,48 @@
         "land-below-threshold:https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-rodinneho-domu-140-m-nove-mesto-nad-metuji-8537981.html",
         "outside-municipality:https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-rodinneho-domu-635-m-nove-mesto-nmet-ul-1-maje-8540683.html",
         "unsupported-property-type:https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-vyrobniho-objektu-938-m-nove-mesto-nad-metuji-8443489.html",
-        "unsupported-property-type:https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-zahrady-546-m-nove-mesto-nad-metuji-8496741.html"
+        "unsupported-property-type:https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-zahrady-546-m-nove-mesto-nad-metuji-8496741.html",
+        "missing-price:https://www.sreality.cz/api/v1/estates/1426890828",
+        "non-buildable-land:https://www.sreality.cz/api/v1/estates/1458172492",
+        "missing-price:https://www.sreality.cz/api/v1/estates/213893964",
+        "missing-price:https://www.sreality.cz/api/v1/estates/2207088716",
+        "non-buildable-land:https://www.sreality.cz/api/v1/estates/2430219084",
+        "missing-price:https://www.sreality.cz/api/v1/estates/2898248524",
+        "non-buildable-land:https://www.sreality.cz/api/v1/estates/3504849740",
+        "non-buildable-land:https://www.sreality.cz/api/v1/estates/3745985356",
+        "non-buildable-land:https://www.sreality.cz/api/v1/estates/4207342412",
+        "non-buildable-land:https://www.sreality.cz/api/v1/estates/1900503884"
       ],
       "ads": [
+        {
+          "portal": [
+            "sreality.cz"
+          ],
+          "title": "Prodej rodinného domu 1720 m², pozemek 9376 m²",
+          "location": "Nové Město nad Metují, Rezek, Náchod",
+          "property_type": "house",
+          "price": "12 904 275 Kč",
+          "price_czk": 12904275,
+          "house_area_m2": 1720,
+          "land_area_m2": 9376,
+          "urls": [
+            "https://www.sreality.cz/detail/prodej/dum/rodinny/nove-mesto-nad-metuji-rezek/1701995340"
+          ],
+          "notes": [
+            "detail-url-verified:sreality.cz",
+            "api-detail:https://www.sreality.cz/api/v1/estates/1701995340"
+          ],
+          "status": "active",
+          "first_seen_at": "2026-06-28T22:11:12+0200",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
+          "price_history": [
+            {
+              "seen_at": "2026-06-28T22:11:12+0200",
+              "price": "12 904 275 Kč",
+              "price_czk": 12904275
+            }
+          ]
+        },
         {
           "portal": [
             "reality.idnes.cz"
@@ -1548,7 +1858,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -1582,7 +1892,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T19:13:31+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T19:13:31+0200",
@@ -1611,7 +1921,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T19:13:31+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T19:13:31+0200",
@@ -1622,6 +1932,37 @@
         }
       ],
       "hidden_ads": [
+        {
+          "portal": [
+            "sreality.cz"
+          ],
+          "title": "Prodej stavebního pozemku 1995 m²",
+          "location": "Nové Město nad Metují, Náchod",
+          "property_type": "land",
+          "price": "4 189 500 Kč",
+          "price_czk": 4189500,
+          "house_area_m2": null,
+          "land_area_m2": 1995,
+          "urls": [
+            "https://www.sreality.cz/detail/prodej/pozemek/bydleni/nove-mesto-nad-metuji-spy/1900503884"
+          ],
+          "notes": [
+            "detail-url-verified:sreality.cz",
+            "api-detail:https://www.sreality.cz/api/v1/estates/1900503884",
+            "buildable-land"
+          ],
+          "status": "hidden",
+          "first_seen_at": "2026-06-28T22:11:12+0200",
+          "last_seen_at": "2026-06-28T22:13:16+0200",
+          "price_history": [
+            {
+              "seen_at": "2026-06-28T22:11:12+0200",
+              "price": "4 189 500 Kč",
+              "price_czk": 4189500
+            }
+          ],
+          "hidden_at": "2026-06-28T22:15:49+0200"
+        },
         {
           "portal": [
             "reality.idnes.cz"
@@ -1681,12 +2022,12 @@
       ]
     },
     "Nový Hrádek": {
-      "count": 4,
+      "count": 5,
       "coverage": {
-        "workers_launched": 3,
-        "workers_with_results": 3,
-        "candidates_gathered": 6,
-        "rows_retained": 3,
+        "workers_launched": 4,
+        "workers_with_results": 4,
+        "candidates_gathered": 7,
+        "rows_retained": 4,
         "zero_result_portals": [],
         "blocked_portals": []
       },
@@ -1702,6 +2043,10 @@
         "reality.aktualne.cz": {
           "status": "ok",
           "message": "Retained at least one detail-verified Reality Aktuálně row."
+        },
+        "sreality.cz": {
+          "status": "ok",
+          "message": "Retained at least one detail-verified Sreality row."
         }
       },
       "fetch_attempts": [
@@ -2474,12 +2819,77 @@
           "attempt": 1,
           "status": "ok",
           "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/localities/suggest",
+          "stage": "locality_suggest",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/search",
+          "stage": "house_search_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/search",
+          "stage": "land_search_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/1290180700",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/221614156",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/347947852",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/3626726220",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/971413596",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
         }
       ],
       "candidate_exclusions": [],
       "assumptions": [
         "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
-        "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Nový Hrádek."
+        "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Nový Hrádek.",
+        "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported."
       ],
       "gaps": [
         "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/novy-hradek-konciny/67e3dead943bbbb1da000bd2/",
@@ -2557,7 +2967,11 @@
         "non-buildable-land:https://reality.aktualne.cz/detail/novy-hradek/prodej-chaty-43-m-pozemek-3-640-m-novy-hradek-rzy-8543607.html",
         "detail-fallback-page:https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/novy-hradek/prodej-rodinneho-domu-pozemek-4795-m-novy-hradek-rzy-8601263.html",
-        "land-below-threshold:https://reality.aktualne.cz/detail/novy-hradek/rodinny-dum-novy-hradek-8395975.html"
+        "land-below-threshold:https://reality.aktualne.cz/detail/novy-hradek/rodinny-dum-novy-hradek-8395975.html",
+        "non-buildable-land:https://www.sreality.cz/api/v1/estates/1290180700",
+        "non-buildable-land:https://www.sreality.cz/api/v1/estates/221614156",
+        "non-buildable-land:https://www.sreality.cz/api/v1/estates/971413596",
+        "excluded-chata:https://www.sreality.cz/api/v1/estates/347947852"
       ],
       "ads": [
         {
@@ -2581,12 +2995,41 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-08T08:24:29+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-08T08:24:29+0200",
               "price": "4 950 000 Kč",
               "price_czk": 4950000
+            }
+          ]
+        },
+        {
+          "portal": [
+            "sreality.cz"
+          ],
+          "title": "Prodej chalupy 52 m², pozemek 2008 m²",
+          "location": "Nový Hrádek, Náchod",
+          "property_type": "house",
+          "price": "4 190 000 Kč",
+          "price_czk": 4190000,
+          "house_area_m2": 52,
+          "land_area_m2": 2008,
+          "urls": [
+            "https://www.sreality.cz/detail/prodej/dum/chalupa/novy-hradek/3626726220"
+          ],
+          "notes": [
+            "detail-url-verified:sreality.cz",
+            "api-detail:https://www.sreality.cz/api/v1/estates/3626726220"
+          ],
+          "status": "active",
+          "first_seen_at": "2026-06-28T22:11:12+0200",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
+          "price_history": [
+            {
+              "seen_at": "2026-06-28T22:11:12+0200",
+              "price": "4 190 000 Kč",
+              "price_czk": 4190000
             }
           ]
         },
@@ -2616,7 +3059,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2655,7 +3098,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -2700,6 +3143,36 @@
         }
       ],
       "hidden_ads": [
+        {
+          "portal": [
+            "sreality.cz"
+          ],
+          "title": "Prodej chaty 43 m², pozemek 2578 m²",
+          "location": "Nový Hrádek, Náchod",
+          "property_type": "house",
+          "price": "2 890 000 Kč",
+          "price_czk": 2890000,
+          "house_area_m2": 43,
+          "land_area_m2": 2578,
+          "urls": [
+            "https://www.sreality.cz/detail/prodej/dum/chata/novy-hradek-rzy/347947852"
+          ],
+          "notes": [
+            "detail-url-verified:sreality.cz",
+            "api-detail:https://www.sreality.cz/api/v1/estates/347947852"
+          ],
+          "status": "hidden",
+          "first_seen_at": "2026-06-28T22:11:12+0200",
+          "last_seen_at": "2026-06-28T22:11:12+0200",
+          "price_history": [
+            {
+              "seen_at": "2026-06-28T22:11:12+0200",
+              "price": "2 890 000 Kč",
+              "price_czk": 2890000
+            }
+          ],
+          "hidden_at": "2026-06-28T22:13:16+0200"
+        },
         {
           "portal": [
             "mmreality.cz"
@@ -2859,9 +3332,9 @@
     "České Meziříčí": {
       "count": 1,
       "coverage": {
-        "workers_launched": 3,
-        "workers_with_results": 1,
-        "candidates_gathered": 1,
+        "workers_launched": 4,
+        "workers_with_results": 2,
+        "candidates_gathered": 2,
         "rows_retained": 1,
         "zero_result_portals": [
           "realitymix.cz",
@@ -2881,6 +3354,10 @@
         "reality.aktualne.cz": {
           "status": "no_results",
           "message": "No retained in-scope Reality Aktuálně rows."
+        },
+        "sreality.cz": {
+          "status": "ok",
+          "message": "Retained at least one detail-verified Sreality row."
         }
       },
       "fetch_attempts": [
@@ -3493,12 +3970,77 @@
           "attempt": 1,
           "status": "ok",
           "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/localities/suggest",
+          "stage": "locality_suggest",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/search",
+          "stage": "house_search_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/search",
+          "stage": "land_search_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/1496948812",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/1779180108",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/3491656524",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/3609899084",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/3978162252",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
         }
       ],
       "candidate_exclusions": [],
       "assumptions": [
         "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
-        "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of České Meziříčí."
+        "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of České Meziříčí.",
+        "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported."
       ],
       "gaps": [
         "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vojkov/6994de4cd8143b182b05eaab/",
@@ -3569,12 +4111,17 @@
         "land-below-threshold:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinneho-domu-6-kk-pozemek-892-m2-ceske-mezirici-8487969.html",
         "detail-fallback-page:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinneho-domu-zemedelske-usedlosti-ceske-mezirici-8594143.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinny-dum-124-8554997.html",
-        "unsupported-property-type:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-zahrady-1215-m-ceske-mezirici-8477899.html"
+        "unsupported-property-type:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-zahrady-1215-m-ceske-mezirici-8477899.html",
+        "missing-price:https://www.sreality.cz/api/v1/estates/1496948812",
+        "non-buildable-land:https://www.sreality.cz/api/v1/estates/3491656524",
+        "non-buildable-land:https://www.sreality.cz/api/v1/estates/3978162252",
+        "non-buildable-land:https://www.sreality.cz/api/v1/estates/1779180108"
       ],
       "ads": [
         {
           "portal": [
-            "reality.idnes.cz"
+            "reality.idnes.cz",
+            "sreality.cz"
           ],
           "title": "Prodej Rodinný dům, 124m2, České Meziříčí",
           "location": "České Meziříčí, okres Rychnov nad Kněžnou",
@@ -3584,14 +4131,18 @@
           "house_area_m2": 124,
           "land_area_m2": 1420,
           "urls": [
-            "https://reality.idnes.cz/detail/prodej/dum/ceske-mezirici-na-nabrezi/69d4d3167cfdbda79005f8b2/"
+            "https://reality.idnes.cz/detail/prodej/dum/ceske-mezirici-na-nabrezi/69d4d3167cfdbda79005f8b2/",
+            "https://www.sreality.cz/detail/prodej/dum/rodinny/ceske-mezirici-na-nabrezi/3609899084"
           ],
           "notes": [
-            "detail-url-verified:reality.idnes.cz"
+            "detail-url-verified:reality.idnes.cz",
+            "detail-url-verified:sreality.cz",
+            "api-detail:https://www.sreality.cz/api/v1/estates/3609899084",
+            "duplicate-merged-from:sreality.cz"
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T19:50:52+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T19:50:52+0200",
@@ -3602,6 +4153,37 @@
         }
       ],
       "hidden_ads": [
+        {
+          "portal": [
+            "sreality.cz"
+          ],
+          "title": "Prodej zahrady 4137 m²",
+          "location": "České Meziříčí, Rychnov nad Kněžnou",
+          "property_type": "land",
+          "price": "145 209 Kč",
+          "price_czk": 145209,
+          "house_area_m2": null,
+          "land_area_m2": 4137,
+          "urls": [
+            "https://www.sreality.cz/detail/prodej/pozemek/zahrady/ceske-mezirici/1779180108"
+          ],
+          "notes": [
+            "detail-url-verified:sreality.cz",
+            "api-detail:https://www.sreality.cz/api/v1/estates/1779180108",
+            "buildable-land"
+          ],
+          "status": "hidden",
+          "first_seen_at": "2026-06-28T22:11:12+0200",
+          "last_seen_at": "2026-06-28T22:13:16+0200",
+          "price_history": [
+            {
+              "seen_at": "2026-06-28T22:11:12+0200",
+              "price": "145 209 Kč",
+              "price_czk": 145209
+            }
+          ],
+          "hidden_at": "2026-06-28T22:15:49+0200"
+        },
         {
           "portal": [
             "reality.aktualne.cz"
@@ -3668,12 +4250,12 @@
       ]
     },
     "Velká Jesenice": {
-      "count": 1,
+      "count": 2,
       "coverage": {
-        "workers_launched": 3,
-        "workers_with_results": 1,
-        "candidates_gathered": 1,
-        "rows_retained": 1,
+        "workers_launched": 4,
+        "workers_with_results": 2,
+        "candidates_gathered": 3,
+        "rows_retained": 2,
         "zero_result_portals": [
           "reality.idnes.cz",
           "realitymix.cz"
@@ -3692,6 +4274,10 @@
         "reality.aktualne.cz": {
           "status": "ok",
           "message": "Retained at least one detail-verified Reality Aktuálně row."
+        },
+        "sreality.cz": {
+          "status": "ok",
+          "message": "Retained at least one detail-verified Sreality row."
         }
       },
       "fetch_attempts": [
@@ -3782,12 +4368,61 @@
           "attempt": 1,
           "status": "ok",
           "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/localities/suggest",
+          "stage": "locality_suggest",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/search",
+          "stage": "house_search_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/search",
+          "stage": "land_search_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/1460446028",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/2023338060",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
+        },
+        {
+          "portal": "sreality.cz",
+          "url": "https://www.sreality.cz/api/v1/estates/2721600076",
+          "stage": "detail_fetch",
+          "attempt": 1,
+          "status": "ok",
+          "http_status": 200
         }
       ],
       "candidate_exclusions": [],
       "assumptions": [
         "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
-        "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Velká Jesenice."
+        "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Velká Jesenice.",
+        "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported."
       ],
       "gaps": [
         "idnes-discovery-missing-locality-id",
@@ -3796,12 +4431,14 @@
         "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/pronajem-domy_vily.html",
         "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-domy_vily.html",
         "land-below-threshold:https://reality.aktualne.cz/detail/velka-jesenice/prodej-pozemku-928-m-8516499.html",
-        "land-below-threshold:https://reality.aktualne.cz/detail/velka-jesenice/prodej-pozemku-k-bydleni-v-velke-jesenici-8423571.html"
+        "land-below-threshold:https://reality.aktualne.cz/detail/velka-jesenice/prodej-pozemku-k-bydleni-v-velke-jesenici-8423571.html",
+        "non-buildable-land:https://www.sreality.cz/api/v1/estates/2721600076"
       ],
       "ads": [
         {
           "portal": [
-            "reality.aktualne.cz"
+            "reality.aktualne.cz",
+            "sreality.cz"
           ],
           "title": "Prodej rodinného domu, 200 m², Velká Jesenice",
           "location": "Velká Jesenice, Náchod",
@@ -3811,20 +4448,54 @@
           "house_area_m2": 200,
           "land_area_m2": 1149,
           "urls": [
-            "https://reality.aktualne.cz/detail/velka-jesenice/prodej-rodinneho-domu-200-m-velka-jesenice-8317457.html"
+            "https://reality.aktualne.cz/detail/velka-jesenice/prodej-rodinneho-domu-200-m-velka-jesenice-8317457.html",
+            "https://www.sreality.cz/detail/prodej/dum/rodinny/velka-jesenice/1460446028"
           ],
           "notes": [
             "detail-url-verified:reality.aktualne.cz",
-            "aggregator-source:m&m-reality-holding-a.s."
+            "aggregator-source:m&m-reality-holding-a.s.",
+            "detail-url-verified:sreality.cz",
+            "api-detail:https://www.sreality.cz/api/v1/estates/1460446028",
+            "duplicate-merged-from:sreality.cz"
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T19:50:52+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T19:50:52+0200",
               "price": "5 998 000 Kč",
               "price_czk": 5998000
+            }
+          ]
+        },
+        {
+          "portal": [
+            "sreality.cz"
+          ],
+          "title": "Prodej stavebního pozemku 1867 m²",
+          "location": "Velká Jesenice, Náchod",
+          "property_type": "land",
+          "price": "2 290 000 Kč",
+          "price_czk": 2290000,
+          "house_area_m2": null,
+          "land_area_m2": 1867,
+          "urls": [
+            "https://www.sreality.cz/detail/prodej/pozemek/bydleni/velka-jesenice/2023338060"
+          ],
+          "notes": [
+            "detail-url-verified:sreality.cz",
+            "api-detail:https://www.sreality.cz/api/v1/estates/2023338060",
+            "buildable-land"
+          ],
+          "status": "active",
+          "first_seen_at": "2026-06-28T22:11:12+0200",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
+          "price_history": [
+            {
+              "seen_at": "2026-06-28T22:11:12+0200",
+              "price": "2 290 000 Kč",
+              "price_czk": 2290000
             }
           ]
         }
@@ -4963,7 +5634,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -4996,7 +5667,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-07T20:52:54+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-07T20:52:54+0200",
@@ -5025,7 +5696,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -5054,7 +5725,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -6137,7 +6808,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-21T09:11:20+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-21T09:11:20+0000",
@@ -6167,7 +6838,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-21T09:11:20+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-21T09:11:20+0000",
@@ -6196,7 +6867,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:22:08+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:22:08+0200",
@@ -6505,7 +7176,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -6952,7 +7623,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -6987,7 +7658,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -8047,7 +8718,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -8082,7 +8753,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -8111,7 +8782,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-21T09:11:20+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-21T09:11:20+0000",
@@ -8139,7 +8810,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -8167,7 +8838,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -8195,7 +8866,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -8224,7 +8895,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-21T09:11:20+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-21T09:11:20+0000",
@@ -8253,7 +8924,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -9711,7 +10382,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -10052,7 +10723,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-07T20:58:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-07T20:58:49+0200",
@@ -10862,7 +11533,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-15T08:34:31+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-15T08:34:31+0000",
@@ -10890,7 +11561,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:22:08+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:22:08+0200",
@@ -10919,7 +11590,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-05T18:53:34+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-05T18:53:34+0200",
@@ -11385,7 +12056,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-07T21:08:05+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-07T21:08:05+0200",
@@ -11593,7 +12264,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-07T21:08:05+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-07T21:08:05+0200",
@@ -11823,7 +12494,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-25T07:26:17+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-25T07:26:17+0000",
@@ -11854,7 +12525,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-16T08:47:03+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-16T08:47:03+0000",
@@ -12463,7 +13134,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -12492,7 +13163,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -12759,7 +13430,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -13180,7 +13851,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -13599,7 +14270,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -13629,7 +14300,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -13867,7 +14538,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-25T07:26:17+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-25T07:26:17+0000",
@@ -13897,7 +14568,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -14691,7 +15362,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -14721,7 +15392,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-20T07:40:52+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-20T07:40:52+0000",
@@ -14750,7 +15421,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-17T08:19:51+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-17T08:19:51+0000",
@@ -14778,7 +15449,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -14808,7 +15479,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -14836,7 +15507,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -14864,7 +15535,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -14892,7 +15563,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-14T07:43:57+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-14T07:43:57+0000",
@@ -14920,7 +15591,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -14949,7 +15620,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -14977,7 +15648,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -15008,7 +15679,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-20T07:40:52+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-20T07:40:52+0000",
@@ -15351,7 +16022,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -15381,7 +16052,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -15716,7 +16387,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -16009,7 +16680,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:30:20+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:30:20+0200",
@@ -17290,7 +17961,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -17514,7 +18185,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-24T07:11:28+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-24T07:11:28+0000",
@@ -17544,7 +18215,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -17793,7 +18464,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -18168,7 +18839,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-16T08:47:03+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-16T08:47:03+0000",
@@ -18197,7 +18868,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -18227,7 +18898,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -18257,7 +18928,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -18287,7 +18958,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -18607,7 +19278,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -18636,7 +19307,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -18927,7 +19598,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -18961,7 +19632,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -19281,7 +19952,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-19T08:20:47+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-19T08:20:47+0000",
@@ -19565,7 +20236,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -19757,7 +20428,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -19966,7 +20637,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -20270,7 +20941,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -20726,7 +21397,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:35:47+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:35:47+0200",
@@ -21250,7 +21921,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -21280,7 +21951,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -21315,7 +21986,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -21945,7 +22616,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -22095,7 +22766,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-25T07:26:17+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-25T07:26:17+0000",
@@ -22387,7 +23058,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -22592,7 +23263,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -22623,7 +23294,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -22653,7 +23324,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -22931,7 +23602,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-25T07:26:17+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-25T07:26:17+0000",
@@ -23222,7 +23893,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -23251,7 +23922,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -23280,7 +23951,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -23309,7 +23980,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -23339,7 +24010,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -23619,7 +24290,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -23648,7 +24319,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -23678,7 +24349,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -23708,7 +24379,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -23738,7 +24409,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -23768,7 +24439,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -24129,7 +24800,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -24163,7 +24834,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -24495,7 +25166,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -24524,7 +25195,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -24553,7 +25224,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T21:45:57+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T21:45:57+0200",
@@ -25237,7 +25908,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -25472,7 +26143,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -25502,7 +26173,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -26389,7 +27060,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -26418,7 +27089,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-28T07:33:39+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-28T07:33:39+0000",
@@ -26447,7 +27118,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-11T19:23:58+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-11T19:23:58+0000",
@@ -26475,7 +27146,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -26503,7 +27174,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -26531,7 +27202,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -26559,7 +27230,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -26593,7 +27264,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -26626,7 +27297,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -26655,7 +27326,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-24T07:11:28+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-24T07:11:28+0000",
@@ -26684,7 +27355,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -26713,7 +27384,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-27T07:09:50+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-27T07:09:50+0000",
@@ -27250,7 +27921,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -27279,7 +27950,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -27585,7 +28256,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -28430,7 +29101,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -28459,7 +29130,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -28487,7 +29158,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-18T08:00:54+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-18T08:00:54+0000",
@@ -28521,7 +29192,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-27T07:09:50+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-27T07:09:50+0000",
@@ -28549,7 +29220,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-17T08:19:51+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-17T08:19:51+0000",
@@ -28579,7 +29250,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -28608,7 +29279,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -28637,7 +29308,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -28665,7 +29336,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -28693,7 +29364,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -28721,7 +29392,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -28755,7 +29426,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -28784,7 +29455,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -28817,7 +29488,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -28845,7 +29516,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -28873,7 +29544,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -28901,7 +29572,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -28929,7 +29600,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -28958,7 +29629,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -28987,7 +29658,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -29189,7 +29860,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -29497,7 +30168,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -29526,7 +30197,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -29865,7 +30536,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -30101,7 +30772,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -30131,7 +30802,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -30161,7 +30832,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -30192,7 +30863,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -30223,7 +30894,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -30254,7 +30925,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -30584,7 +31255,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -30613,7 +31284,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-17T08:19:51+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-17T08:19:51+0000",
@@ -30643,7 +31314,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -31297,7 +31968,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -31327,7 +31998,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -31357,7 +32028,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-20T07:40:52+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-20T07:40:52+0000",
@@ -31535,7 +32206,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-27T07:09:50+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-27T07:09:50+0000",
@@ -31565,7 +32236,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -31595,7 +32266,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -32139,7 +32810,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -32175,7 +32846,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-11T19:23:58+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-11T19:23:58+0000",
@@ -32204,7 +32875,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -32233,7 +32904,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -32568,7 +33239,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",
@@ -32597,7 +33268,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-11T19:23:58+0000",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-11T19:23:58+0000",
@@ -32627,7 +33298,7 @@
           ],
           "status": "active",
           "first_seen_at": "2026-06-09T22:03:49+0200",
-          "last_seen_at": "2026-06-28T07:33:39+0000",
+          "last_seen_at": "2026-06-28T22:15:49+0200",
           "price_history": [
             {
               "seen_at": "2026-06-09T22:03:49+0200",

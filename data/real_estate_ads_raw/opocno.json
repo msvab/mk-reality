@@ -25,16 +25,16 @@
   },
   "assumptions": [
     "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
-    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Opočno."
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Opočno.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported."
   ],
   "coverage": {
-    "workers_launched": 4,
-    "workers_with_results": 1,
-    "candidates_gathered": 24,
-    "rows_retained": 6,
+    "workers_launched": 5,
+    "workers_with_results": 2,
+    "candidates_gathered": 18,
+    "rows_retained": 18,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "mmreality.cz",
       "realitymix.cz"
     ],
     "blocked_portals": []
@@ -60,6 +60,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -453,6 +457,126 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Opo%C4%8Dno&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2671&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2671&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1009774668",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1260524364",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/154136652",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1780618060",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2133848140",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2317488972",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2385506380",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2553278540",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2838491212",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3122795340",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3659666252",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/723653452",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -595,6 +719,234 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:prime-living-s.r.o."
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1199 m²",
+      "location": "Opočno, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "2 877 600 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1199",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/2838491212"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2838491212",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1199 m²",
+      "location": "Opočno, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "2 877 600 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1199",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/3122795340"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3122795340",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1198 m²",
+      "location": "Opočno, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "2 875 200 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1198",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/1009774668"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1009774668",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1198 m²",
+      "location": "Opočno, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "2 875 200 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1198",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/1260524364"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1260524364",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1198 m²",
+      "location": "Opočno, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "2 875 200 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1198",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/154136652"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/154136652",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1198 m²",
+      "location": "Opočno, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "2 875 200 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1198",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/1780618060"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1780618060",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1198 m²",
+      "location": "Opočno, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "2 875 200 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1198",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/2133848140"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2133848140",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1198 m²",
+      "location": "Opočno, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "2 875 200 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1198",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/2317488972"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2317488972",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1198 m²",
+      "location": "Opočno, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "2 875 200 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1198",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/2385506380"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2385506380",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1198 m²",
+      "location": "Opočno, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "2 875 200 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1198",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/2553278540"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2553278540",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1198 m²",
+      "location": "Opočno, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "2 875 200 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1198",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/3659666252"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3659666252",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1198 m²",
+      "location": "Opočno, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "2 875 200 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1198",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/723653452"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/723653452",
+        "buildable-land"
       ]
     }
   ]

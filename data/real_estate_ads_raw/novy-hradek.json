@@ -25,13 +25,14 @@
   },
   "assumptions": [
     "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
-    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Nový Hrádek."
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Nový Hrádek.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 3,
-    "candidates_gathered": 83,
-    "rows_retained": 6,
+    "workers_launched": 4,
+    "workers_with_results": 4,
+    "candidates_gathered": 7,
+    "rows_retained": 7,
     "zero_result_portals": [],
     "blocked_portals": []
   },
@@ -47,6 +48,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -851,6 +856,70 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Nov%C3%BD+Hr%C3%A1dek&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2505&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2505&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1290180700",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/221614156",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/347947852",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3626726220",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/971413596",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -929,7 +998,11 @@
     "non-buildable-land:https://reality.aktualne.cz/detail/novy-hradek/prodej-chaty-43-m-pozemek-3-640-m-novy-hradek-rzy-8543607.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/novy-hradek/prodej-rodinneho-domu-pozemek-4795-m-novy-hradek-rzy-8601263.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/novy-hradek/rodinny-dum-novy-hradek-8395975.html"
+    "land-below-threshold:https://reality.aktualne.cz/detail/novy-hradek/rodinny-dum-novy-hradek-8395975.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1290180700",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/221614156",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/971413596",
+    "excluded-chata:https://www.sreality.cz/api/v1/estates/347947852"
   ],
   "listings": [
     {
@@ -1041,6 +1114,24 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej chalupy 52 m², pozemek 2008 m²",
+      "location": "Nový Hrádek, Náchod",
+      "property_type": "house",
+      "price": "4 190 000 Kč",
+      "house_area_m2": "52",
+      "land_area_m2": "2008",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/chalupa/novy-hradek/3626726220"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3626726220"
       ]
     }
   ]

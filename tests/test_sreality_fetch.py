@@ -170,3 +170,58 @@ def test_land_requires_buildable_or_residential_signal():
 
     assert listing is None
     assert reason == "non-buildable-land"
+
+
+def test_chata_inflection_is_excluded():
+    module = load_sreality_fetch()
+    detail = {
+        "result": {
+            "hash_id": 347947852,
+            "advert_name": "Prodej chaty 43 m², pozemek 2578 m²",
+            "advert_description": "Rekreační chata v Rzech.",
+            "category_type_cb": {"name": "Prodej", "value": 1},
+            "category_main_cb": {"name": "Domy", "value": 2},
+            "category_sub_cb": {"name": "Chata", "value": 33},
+            "locality": {
+                "city": "Nový Hrádek",
+                "city_seo_name": "novy-hradek",
+                "district": "Náchod",
+                "municipality_id": 2961,
+            },
+            "estate_area": 2578,
+            "usable_area": 43,
+            "price_summary_czk": 2890000,
+        }
+    }
+
+    listing, reason = module.listing_from_detail(
+        detail,
+        "Nový Hrádek",
+        {"id": 2961, "entity_type": "municipality"},
+        "Náchod",
+    )
+
+    assert listing is None
+    assert reason == "excluded-chata"
+
+
+def test_garden_without_buildable_signal_is_not_buildable_land():
+    module = load_sreality_fetch()
+    item = {
+        "advert_name": "Prodej zahrady 4137 m²",
+        "advert_description": "Zahrada u obce.",
+        "category_sub_cb": {"name": "Zahrady"},
+    }
+
+    assert not module.land_is_buildable(item)
+
+
+def test_garden_with_only_future_building_potential_is_not_buildable_land():
+    module = load_sreality_fetch()
+    item = {
+        "advert_name": "Prodej zahrady 4137 m²",
+        "advert_description": "Investiční příležitost se zhodnocením cenou budoucích stavebních parcel.",
+        "category_sub_cb": {"name": "Zahrady"},
+    }
+
+    assert not module.land_is_buildable(item)

@@ -348,7 +348,21 @@ def land_is_buildable(item: dict) -> bool:
     lowered = slug_normalize(" ".join(texts))
     if any(marker in lowered for marker in ["zemedel", "orna puda", "louka", "les", "nestaveb"]):
         return False
-    return any(marker in lowered for marker in ["staveb", "bydleni", "rodinny", "rezidenc", "zahrada"])
+    if "zahrad" in lowered and not any(marker in lowered for marker in ["stavebni pozemek", "pro bydleni"]):
+        return False
+    return any(marker in lowered for marker in ["staveb", "bydleni", "rodinny", "rezidenc"])
+
+
+def is_chata_title_or_category(item: dict) -> bool:
+    text = slug_normalize(
+        " ".join(
+            [
+                str(item.get("advert_name") or ""),
+                str(nested_value(item, "category_sub_cb", "name") or ""),
+            ]
+        )
+    )
+    return bool(re.search(r"\bchat(?:a|y|u|ou|e|am|ami|ach)?\b", text))
 
 
 def listing_from_detail(detail: dict, municipality: str, locality: dict, expected_district: str | None = None) -> tuple[dict | None, str | None]:
@@ -369,7 +383,7 @@ def listing_from_detail(detail: dict, municipality: str, locality: dict, expecte
         return None, "unsupported-property-type"
 
     title = str(item.get("advert_name") or "unknown").strip() or "unknown"
-    if property_type == "house" and "chata" in slug_normalize(title):
+    if property_type == "house" and is_chata_title_or_category(item):
         return None, "excluded-chata"
 
     land_area = item.get("estate_area")

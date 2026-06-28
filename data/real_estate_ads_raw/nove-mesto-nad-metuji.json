@@ -25,13 +25,14 @@
   },
   "assumptions": [
     "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
-    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Nové Město nad Metují."
+    "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Nové Město nad Metují.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 3,
-    "candidates_gathered": 78,
-    "rows_retained": 7,
+    "workers_launched": 4,
+    "workers_with_results": 4,
+    "candidates_gathered": 8,
+    "rows_retained": 8,
     "zero_result_portals": [],
     "blocked_portals": []
   },
@@ -47,6 +48,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -761,6 +766,118 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Nov%C3%A9+M%C4%9Bsto+nad+Metuj%C3%AD&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2504&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2504&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1426890828",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1458172492",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1701995340",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1900503884",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/213893964",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2207088716",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2430219084",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2898248524",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3504849740",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3745985356",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4207342412",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -834,7 +951,17 @@
     "land-below-threshold:https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-rodinneho-domu-140-m-nove-mesto-nad-metuji-8537981.html",
     "outside-municipality:https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-rodinneho-domu-635-m-nove-mesto-nmet-ul-1-maje-8540683.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-vyrobniho-objektu-938-m-nove-mesto-nad-metuji-8443489.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-zahrady-546-m-nove-mesto-nad-metuji-8496741.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/nove-mesto-nad-metuji/prodej-zahrady-546-m-nove-mesto-nad-metuji-8496741.html",
+    "missing-price:https://www.sreality.cz/api/v1/estates/1426890828",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1458172492",
+    "missing-price:https://www.sreality.cz/api/v1/estates/213893964",
+    "missing-price:https://www.sreality.cz/api/v1/estates/2207088716",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2430219084",
+    "missing-price:https://www.sreality.cz/api/v1/estates/2898248524",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3504849740",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3745985356",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4207342412",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1900503884"
   ],
   "listings": [
     {
@@ -959,6 +1086,24 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 1720 m², pozemek 9376 m²",
+      "location": "Nové Město nad Metují, Rezek, Náchod",
+      "property_type": "house",
+      "price": "12 904 275 Kč",
+      "house_area_m2": "1720",
+      "land_area_m2": "9376",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/nove-mesto-nad-metuji-rezek/1701995340"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1701995340"
       ]
     }
   ]
