@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Hradec Králové."
   ],
   "coverage": {
-    "workers_launched": 4,
-    "workers_with_results": 3,
-    "candidates_gathered": 22,
-    "rows_retained": 22,
+    "workers_launched": 3,
+    "workers_with_results": 2,
+    "candidates_gathered": 83,
+    "rows_retained": 18,
     "zero_result_portals": [
       "reality.idnes.cz"
     ],
@@ -49,10 +49,6 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
-    },
-    "mmreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -634,6 +630,14 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-3-1-62-m-hradec-kralove-ul-severni-8540473.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-3-1-70-2-m2-zasklena-lodzie-velky-sklep-hradec-kralove-8632687.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -687,153 +691,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=Hradec+Kr%C3%A1lov%C3%A9&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/851970/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/881532/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/890866/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/912432/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/931425/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/935958/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/937264/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/937266/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/937268/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/939511/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/941030/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/941042/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/944879/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/945294/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/946573/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/946950/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -886,24 +743,13 @@
     "non-buildable-land:https://reality.aktualne.cz/detail/hradec-kralove/prodej-stavebniho-pozemku-4560-m-8597059.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-zrekonstruovane-garsoniery-30-2-m-se-sklepni-koji-trida-edvarda-benese-hradec-kralove-8632169.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-2-kk-59-m-hradec-kralove-trebes-8632989.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-3-1-62-m-hradec-kralove-ul-severni-8540473.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-3-1-70-2-m2-zasklena-lodzie-velky-sklep-hradec-kralove-8632687.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-3-1-v-hradci-kralove-ul-gebauerova-8631731.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-pekneho-bytu-s-dobrou-dopravni-dostupnosti-8632773.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-rekonstruovaneho-bytu-2-kk-42-m-hradec-kralove-trida-edvarda-benese-8633771.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/sportovni-areal-tj-lokomotiva-hradec-kralove-v-prodeji-investicni-prilezitost-sportovni-areal-11-8624863.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/zahradka-v-zahradkarske-kolonii-8629987.html",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/851970/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/881532/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/890866/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/912432/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/935958/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/937266/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/937268/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/939511/",
-    "missing-price:https://www.mmreality.cz/nemovitosti/941042/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/944879/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/946573/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/946950/"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/zahradka-v-zahradkarske-kolonii-8629987.html"
   ],
   "listings": [
     {
@@ -1222,79 +1068,6 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:reality-cerny-s.r.o."
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Komerční pozemky, 6364 m², Hradec Králové",
-      "location": "Hradec Králové - Třebeš, okres Hradec Králové",
-      "property_type": "land",
-      "price": "8 670 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "6364",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/945294/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "municipality-subarea:Třebeš",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Rodinný dům, 232 m², Hradec Králové, Na Hrázce",
-      "location": "Hradec Králové - Malšovice, okres Hradec Králové",
-      "property_type": "house",
-      "price": "17 900 000 Kč",
-      "house_area_m2": "232",
-      "land_area_m2": "1142",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/931425/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "municipality-subarea:Malšovice"
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Rodinný dům, 159 m², Hradec Králové, U Cihelny",
-      "location": "Hradec Králové - Svobodné Dvory, okres Hradec Králové",
-      "property_type": "house",
-      "price": "13 990 000 Kč",
-      "house_area_m2": "159",
-      "land_area_m2": "1129",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/937264/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "municipality-subarea:Svobodné Dvory"
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Rodinný dům, 150 m², Hradec Králové, Černilovská",
-      "location": "Hradec Králové - Rusek, okres Hradec Králové",
-      "property_type": "house",
-      "price": "11 790 000 Kč",
-      "house_area_m2": "150",
-      "land_area_m2": "1000",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/941030/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "municipality-subarea:Rusek"
       ]
     }
   ]

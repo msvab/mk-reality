@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Javornice."
   ],
   "coverage": {
-    "workers_launched": 4,
-    "workers_with_results": 2,
+    "workers_launched": 3,
+    "workers_with_results": 1,
     "candidates_gathered": 5,
-    "rows_retained": 5,
+    "rows_retained": 3,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,10 +50,6 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
-    },
-    "mmreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -176,76 +172,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=Javornice&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/890982/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/890984/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/936012/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/943827/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/943828/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -253,10 +179,7 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "unsupported-property-type:https://reality.aktualne.cz/detail/javornice/prodej-pole-1432-m-javornice-8138679.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/javornice/prodej-pole-1661-m-javornice-8138677.html",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/890982/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/890984/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/936012/"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/javornice/prodej-pole-1661-m-javornice-8138677.html"
   ],
   "listings": [
     {
@@ -312,42 +235,6 @@
       "notes": [
         "detail-url-verified:reality.aktualne.cz",
         "aggregator-source:broker-consulting,-a.s."
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Pozemek k bydlení, 4450 m², Javornice",
-      "location": "Javornice, okres Rychnov nad Kněžnou",
-      "property_type": "land",
-      "price": "3 999 999 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "4450",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/943828/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Rodinný dům, 218 m², Javornice",
-      "location": "Javornice - Jaroslav, okres Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "14 995 000 Kč",
-      "house_area_m2": "218",
-      "land_area_m2": "5844",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/943827/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "municipality-subarea:Jaroslav"
       ]
     }
   ]

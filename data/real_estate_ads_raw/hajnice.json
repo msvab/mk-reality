@@ -28,14 +28,13 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Hajnice."
   ],
   "coverage": {
-    "workers_launched": 4,
+    "workers_launched": 3,
     "workers_with_results": 1,
-    "candidates_gathered": 1,
+    "candidates_gathered": 7,
     "rows_retained": 1,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "realitymix.cz",
-      "mmreality.cz"
+      "realitymix.cz"
     ],
     "blocked_portals": []
   },
@@ -51,10 +50,6 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
-    },
-    "mmreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -169,76 +164,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=Hajnice&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/890863/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/891974/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/891978/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/937048/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/937682/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -251,12 +176,7 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/hajnice/prodej-pastviny-3357-m-hajnice-8143155.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/hajnice/prodej-pozemku-k-bydleni-699-m-hajnice-8550263.html",
     "non-buildable-land:https://reality.aktualne.cz/detail/hajnice/prodej-rodinneho-domu-4-kk-115-m-pozemek-1471-m-hajnice-8562081.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/hajnice/prodej-rodinneho-domu-74-m-hajnice-8550269.html",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/890863/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/891974/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/891978/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/937048/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/937682/"
+    "land-below-threshold:https://reality.aktualne.cz/detail/hajnice/prodej-rodinneho-domu-74-m-hajnice-8550269.html"
   ],
   "listings": [
     {

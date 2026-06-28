@@ -28,13 +28,12 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Chrudim."
   ],
   "coverage": {
-    "workers_launched": 4,
+    "workers_launched": 3,
     "workers_with_results": 2,
-    "candidates_gathered": 6,
+    "candidates_gathered": 41,
     "rows_retained": 6,
     "zero_result_portals": [
-      "reality.idnes.cz",
-      "mmreality.cz"
+      "reality.idnes.cz"
     ],
     "blocked_portals": []
   },
@@ -50,10 +49,6 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
-    },
-    "mmreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -75,6 +70,14 @@
     },
     {
       "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/chrudim/vyjimecny-pozemek-s-dechberoucim-vyhledem-na-vychodoceskou-krajinu-1-700-m-soukromi-a-prostoru-8619425.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
       "url": "https://realitymix.cz/detail/chrudim/prodej-pozemku-k-bydleni-v-chrudimi-8444709.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -84,14 +87,6 @@
     {
       "portal": "realitymix.cz",
       "url": "https://realitymix.cz/detail/chrudim/prodej-stavebniho-pozemku-1-345-m-chrudim-8377027.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/chrudim/vyjimecny-pozemek-s-dechberoucim-vyhledem-na-vychodoceskou-krajinu-1-700-m-soukromi-a-prostoru-8619425.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -400,76 +395,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=Chrudim&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/751014/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/924500/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/930455/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/941082/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/943761/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -504,12 +429,7 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/pronajem-skladove-vyrobni-plochy-213-m2-chrudim-8583765.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/prostorny-byt-4-1-106-m-balkon-blizko-centra-chrudimi-8627397.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/slunny-byt-s-krasnym-vyhledem-do-krajiny-8631835.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/zemedelska-puda-prodej-chrudim-iv-chrudim-8631957.html",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/751014/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/924500/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/930455/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/941082/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/943761/"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/zemedelska-puda-prodej-chrudim-iv-chrudim-8631957.html"
   ],
   "listings": [
     {

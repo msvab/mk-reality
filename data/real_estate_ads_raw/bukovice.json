@@ -28,15 +28,14 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Bukovice."
   ],
   "coverage": {
-    "workers_launched": 4,
+    "workers_launched": 3,
     "workers_with_results": 0,
-    "candidates_gathered": 0,
+    "candidates_gathered": 2,
     "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
-      "reality.aktualne.cz",
-      "mmreality.cz"
+      "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
@@ -52,10 +51,6 @@
     "reality.aktualne.cz": {
       "status": "no_results",
       "message": "No retained in-scope Reality Aktuálně rows."
-    },
-    "mmreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -114,48 +109,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=Bukovice&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/940568/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -163,8 +116,7 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "outside-municipality:https://reality.aktualne.cz/detail/bukovice/ovocny-sad-3-400-m-se-stavbou-studnou-a-elektrinou-bukovice-u-rohozce-8589455.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/bukovice/prodej-rodinneho-domu-129-m-bukovice-8579379.html",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/940568/"
+    "land-below-threshold:https://reality.aktualne.cz/detail/bukovice/prodej-rodinneho-domu-129-m-bukovice-8579379.html"
   ],
   "listings": []
 }

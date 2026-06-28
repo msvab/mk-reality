@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Velké Poříčí."
   ],
   "coverage": {
-    "workers_launched": 4,
-    "workers_with_results": 2,
-    "candidates_gathered": 2,
-    "rows_retained": 2,
+    "workers_launched": 3,
+    "workers_with_results": 1,
+    "candidates_gathered": 3,
+    "rows_retained": 1,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,10 +50,6 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
-    },
-    "mmreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -136,62 +132,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=Velk%C3%A9+Po%C5%99%C3%AD%C4%8D%C3%AD&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/934723/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/943134/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/946026/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -200,9 +140,7 @@
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-domy_vily.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/velke-porici/prodej-pole-14799-m-velke-porici-8609299.html",
-    "outside-municipality:https://reality.aktualne.cz/detail/velke-porici/prodej-zahrady-s-moznosti-stavby-18-m2-velke-pocici-nachod-8562653.html",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/934723/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/943134/"
+    "outside-municipality:https://reality.aktualne.cz/detail/velke-porici/prodej-zahrady-s-moznosti-stavby-18-m2-velke-pocici-nachod-8562653.html"
   ],
   "listings": [
     {
@@ -222,24 +160,6 @@
         "detail-url-verified:reality.aktualne.cz",
         "normalized-from:chalupa",
         "aggregator-source:bydleni-na-doporuceni-s.r.o."
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Pozemek k bydlení, 5000 m², Velké Poříčí",
-      "location": "Velké Poříčí, okres Náchod",
-      "property_type": "land",
-      "price": "8 850 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "5000",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/946026/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "buildable-land"
       ]
     }
   ]

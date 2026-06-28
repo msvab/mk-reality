@@ -28,14 +28,13 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Česká Třebová."
   ],
   "coverage": {
-    "workers_launched": 4,
+    "workers_launched": 3,
     "workers_with_results": 1,
-    "candidates_gathered": 1,
+    "candidates_gathered": 21,
     "rows_retained": 1,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "realitymix.cz",
-      "mmreality.cz"
+      "realitymix.cz"
     ],
     "blocked_portals": []
   },
@@ -51,10 +50,6 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
-    },
-    "mmreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -281,83 +276,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=%C4%8Cesk%C3%A1+T%C5%99ebov%C3%A1&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/750354/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/750356/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/903540/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/915626/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/929997/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/932961/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -383,13 +301,7 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/ceska-trebova/pronajem-bytu-2-kk-40-m-ceska-trebova-ul-riegrova-8499595.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/ceska-trebova/pronajem-bytu-3-kk-v-ceske-trebove-ul-hyblova-8520203.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/ceska-trebova/pronajem-komercni-ostatni-544-8614405.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/ceska-trebova/pronajem-skladu-vyrobnich-prostor-900-m-ceska-trebova-d35-8536851.html",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/750354/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/750356/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/903540/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/915626/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/929997/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/932961/"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/ceska-trebova/pronajem-skladu-vyrobnich-prostor-900-m-ceska-trebova-d35-8536851.html"
   ],
   "listings": [
     {

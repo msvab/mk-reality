@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Černožice."
   ],
   "coverage": {
-    "workers_launched": 4,
-    "workers_with_results": 2,
-    "candidates_gathered": 2,
-    "rows_retained": 2,
+    "workers_launched": 3,
+    "workers_with_results": 1,
+    "candidates_gathered": 6,
+    "rows_retained": 1,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,10 +50,6 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
-    },
-    "mmreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -160,55 +156,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=%C4%8Cerno%C5%BEice&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/944652/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/944653/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -220,8 +167,7 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/cernozice/prodej-komercniho-pozemku-10213-m-cernozice-ul-revolucni-7740923.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/cernozice/prodej-rodinneho-domu-130-m-cernozice-ul-gen-svobody-8615419.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/cernozice/pronajem-komercni-prostor-2720-m2-cernozice-8251901.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/cernozice/pronajem-komercnich-prostor-400-m2-cernozice-nad-labem-okr-hradec-kralove-8320165.html",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/944652/"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cernozice/pronajem-komercnich-prostor-400-m2-cernozice-nad-labem-okr-hradec-kralove-8320165.html"
   ],
   "listings": [
     {
@@ -241,24 +187,6 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:m&m-reality-holding-a.s."
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Pozemek k bydlení, 1025 m², Černožice, Gen. Svobody",
-      "location": "Černožice, okres Hradec Králové",
-      "property_type": "land",
-      "price": "4 490 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1025",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/944653/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "buildable-land"
       ]
     }
   ]

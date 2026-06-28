@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Náchod."
   ],
   "coverage": {
-    "workers_launched": 4,
-    "workers_with_results": 3,
-    "candidates_gathered": 6,
-    "rows_retained": 6,
+    "workers_launched": 3,
+    "workers_with_results": 2,
+    "candidates_gathered": 33,
+    "rows_retained": 4,
     "zero_result_portals": [
       "reality.idnes.cz"
     ],
@@ -49,10 +49,6 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
-    },
-    "mmreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -401,97 +397,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=N%C3%A1chod&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/918301/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/921624/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/931984/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/932040/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/932615/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/934313/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/946078/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/946926/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -523,13 +428,7 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/nachod/pronajem-bytu-1-kk-v-nachode-nachodu-ul-prazska-8465573.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/nachod/pronajem-bytu-48-m-and-sup2-zizkova-nachod-8629295.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/nachod/pronajem-byty-3-kk-71-6-m2-na-hamrech-1484-54701-nachod-nachod-id-86039-8604621.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/nachod/pronajem-komercniho-prostoru-a-restaurace-232-m2-masarykovo-namesti-nachod-8560769.html",
-    "inactive-generic-page:https://www.mmreality.cz/nemovitosti/918301/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/921624/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/932040/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/932615/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/934313/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/946926/"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/nachod/pronajem-komercniho-prostoru-a-restaurace-232-m2-masarykovo-namesti-nachod-8560769.html"
   ],
   "listings": [
     {
@@ -602,43 +501,6 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:m&m-reality-holding-a.s."
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Pozemek k bydlení, 1381 m², Náchod",
-      "location": "Náchod - Malé Poříčí, okres Náchod",
-      "property_type": "land",
-      "price": "2 590 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1381",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/946078/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "municipality-subarea:Malé Poříčí",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Pozemek k bydlení, 13250 m², Náchod",
-      "location": "Náchod, okres Náchod",
-      "property_type": "land",
-      "price": "14 300 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "13250",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/931984/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "buildable-land"
       ]
     }
   ]

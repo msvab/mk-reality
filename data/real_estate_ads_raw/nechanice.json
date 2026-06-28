@@ -28,14 +28,13 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Nechanice."
   ],
   "coverage": {
-    "workers_launched": 4,
+    "workers_launched": 3,
     "workers_with_results": 1,
-    "candidates_gathered": 3,
+    "candidates_gathered": 8,
     "rows_retained": 3,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "realitymix.cz",
-      "mmreality.cz"
+      "realitymix.cz"
     ],
     "blocked_portals": []
   },
@@ -51,10 +50,6 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
-    },
-    "mmreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -140,14 +135,6 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/nechanice/prodej-domy-rodinny-180-m2-stare-nechanice-92-50315-nechanice-hradec-kralove-id-83180-8536931.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/nechanice/prodej-garaze-19-m2-nechanice-8607865.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -201,48 +188,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=Nechanice&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/938376/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -250,12 +195,10 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "outside-municipality:https://reality.aktualne.cz/detail/nechanice/novostavba-rodinneho-domu-s-velkorysym-pozemkem-8629359.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/nechanice/prodej-domy-rodinny-180-m2-stare-nechanice-92-50315-nechanice-hradec-kralove-id-83180-8536931.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/nechanice/prodej-garaze-19-m2-nechanice-8607865.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/nechanice/prodej-pozemek-bydleni-474-8521135.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/nechanice/prodej-pozemek-bydleni-949-8446007.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/nechanice/prodej-rozlehle-komercni-nemovitosti-v-obci-nechanice-idealni-pro-podnikani-i-prestavbu-na-bd-8502035.html",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/938376/"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/nechanice/prodej-rozlehle-komercni-nemovitosti-v-obci-nechanice-idealni-pro-podnikani-i-prestavbu-na-bd-8502035.html"
   ],
   "listings": [
     {

@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Pardubice."
   ],
   "coverage": {
-    "workers_launched": 4,
-    "workers_with_results": 3,
-    "candidates_gathered": 14,
-    "rows_retained": 14,
+    "workers_launched": 3,
+    "workers_with_results": 2,
+    "candidates_gathered": 82,
+    "rows_retained": 13,
     "zero_result_portals": [
       "reality.idnes.cz"
     ],
@@ -49,10 +49,6 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
-    },
-    "mmreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -60,6 +56,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Pardubice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
       "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/pardubice/prodej-stavebniho-pozemku-16-400-m-pardubice-drazkovice-8542129.html",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -122,7 +126,7 @@
     },
     {
       "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/pardubice/prodej-stavebniho-pozemku-16-400-m-pardubice-drazkovice-8542129.html",
+      "url": "https://realitymix.cz/detail/pardubice/prodej-atraktivniho-stavebniho-pozemku-pardubice-hurka-8634215.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -155,6 +159,14 @@
     {
       "portal": "realitymix.cz",
       "url": "https://realitymix.cz/detail/pardubice/krasny-rodinny-dum-na-skvele-adrese-8618811.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/pardubice/novostavba-rodinneho-domu-4-kk-141m2-t-g-pozemek-5016m2-pardubice-bile-predmesti-8634495.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -410,14 +422,6 @@
     },
     {
       "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/pardubice/prodej-atraktivniho-stavebniho-pozemku-pardubice-hurka-8634215.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "realitymix.cz",
       "url": "https://realitymix.cz/detail/pardubice/prodej-pozemku-990-m2-v-ohrazenicich-8542707.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -530,6 +534,14 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/pardubice/novostavba-rodinneho-domu-4-kk-141m2-t-g-pozemek-5016m2-pardubice-bile-predmesti-8634495.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/pardubice/pardubice-ul-druzby-pronajem-bytu-1-1-c-p-cca-31-m-8617459.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -578,7 +590,7 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/pardubice/prodej-bytu-o-dispozici-1kk-v-projektu-novostavby-bytoveho-domu-rezidence-arc-pardubice-8633811.html",
+      "url": "https://reality.aktualne.cz/detail/pardubice/prodej-bytu-3-kk-v-pardubicich-ul-kosmonautu-8540467.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -586,7 +598,7 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/pardubice/prodej-byty-2-1-76-8-m2-ludka-matury-851-studanka-53012-pardubice-iii-id-85176-8621707.html",
+      "url": "https://reality.aktualne.cz/detail/pardubice/prodej-bytu-o-dispozici-1kk-v-projektu-novostavby-bytoveho-domu-rezidence-arc-pardubice-8633811.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -603,14 +615,6 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/pardubice/prodej-jednotky-2-1-64-m-s-predzahradkou-v-pardubicich-zelene-predmesti-8632269.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/pardubice/prodej-pozemky-zahrada-224-m2-zelene-predmesti-pardubice-i-id-85397-8611767.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -666,6 +670,14 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/pardubice/pronajem-castecne-oplocene-travnate-plochy-o-velikosti-zhruba-3000m2-s-panelovym-vjezdem-ze-silnice-8634651.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/pardubice/pronajem-modernich-klimatizovanych-kancelari-2-x-220-m-v-arealu-fablovka-pardubice-8632951.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -675,14 +687,6 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/pardubice/pronajem-obchod-a-sluzby-130-m-8632751.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/pardubice/pronajem-obchod-a-sluzby-350-m-8631301.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -703,160 +707,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=Pardubice&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/765344/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/919681/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/923555/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/931222/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/931869/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/932831/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/932832/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/932833/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/932834/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/934435/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/938286/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/939048/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/939730/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/940087/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/942545/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/943937/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/945664/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -902,40 +752,25 @@
     "land-below-threshold:https://realitymix.cz/detail/pardubice/prodej-stavebniho-pozemku-404-m2-v-drozdicich-mestsky-obvod-pardubice-iv-8467215.html",
     "land-below-threshold:https://realitymix.cz/detail/pardubice/prodej-stavebniho-pozemku-v-pardubicich-ul-marie-pujmanove-8591273.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/pardubice/id-11-40-stavebniho-pozemku-v-k-u-svitkov-okres-pardubice-pozor-na-lv-zapsan-rodinny-dum-ktery-8632197.html",
+    "non-buildable-land:https://reality.aktualne.cz/detail/pardubice/novostavba-rodinneho-domu-4-kk-141m2-t-g-pozemek-5016m2-pardubice-bile-predmesti-8634495.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pardubice-ul-druzby-pronajem-bytu-1-1-c-p-cca-31-m-8617459.html",
     "non-buildable-land:https://reality.aktualne.cz/detail/pardubice/prodej-atraktivniho-stavebniho-pozemku-pardubice-hurka-8634215.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/prodej-bytu-2-kk-58-m-pardubice-ul-havlickova-8537409.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/prodej-bytu-2-kk-73-m2-k-polabinam-pardubice-8632111.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/prodej-bytu-3-1-70-m2-160-m2-zahrada-8630475.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/prodej-bytu-3-kk-81-m2-pod-vinici-pardubice-zelene-predmesti-8631363.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/prodej-bytu-3-kk-v-pardubicich-ul-kosmonautu-8540467.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/pardubice/prodej-bytu-o-dispozici-1kk-v-projektu-novostavby-bytoveho-domu-rezidence-arc-pardubice-8633811.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/prodej-byty-2-1-76-8-m2-ludka-matury-851-studanka-53012-pardubice-iii-id-85176-8621707.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/prodej-byty-3-1-73-m2-kuneticka-53009-pardubice-pardubice-id-87579-8633275.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/prodej-jednotky-2-1-64-m-s-predzahradkou-v-pardubicich-zelene-predmesti-8632269.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/prodej-pozemky-zahrada-224-m2-zelene-predmesti-pardubice-i-id-85397-8611767.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pronajem-bytu-2-1-m2-anenska-2640-pardubice-8629293.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pronajem-bytu-2-kk-58-m-pardubice-ul-husova-8632029.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pronajem-bytu-2-kk-pardubice-ul-labsky-palouk-8505149.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pronajem-castecne-oplocene-travnate-plochy-o-velikosti-zhruba-3000m2-s-panelovym-vjezdem-ze-silnice-8634651.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pronajem-modernich-klimatizovanych-kancelari-2-x-220-m-v-arealu-fablovka-pardubice-8632951.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pronajem-obchod-a-sluzby-130-m-8632751.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pronajem-obchod-a-sluzby-350-m-8631301.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/pronajem-parkovaciho-stani-pardubice-8631565.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/vyjimecne-bydleni-v-centru-pardubic-byt-2-1-s-vlastnim-dvorem-parkovanim-a-2-balkony-8631689.html",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/765344/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/919681/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/923555/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/931222/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/931869/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/932831/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/932832/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/932833/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/932834/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/938286/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/939730/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/940087/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/942545/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/943937/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/945664/"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/pardubice/vyjimecne-bydleni-v-centru-pardubic-byt-2-1-s-vlastnim-dvorem-parkovanim-a-2-balkony-8631689.html"
   ],
   "listings": [
     {
@@ -989,6 +824,24 @@
       "notes": [
         "detail-url-verified:realitymix.cz",
         "municipal-part:Pardubice III"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Novostavba rodinného domu, 4+kk, 141m2/T,G, pozemek 5016m2, Pardubice, Bílé Předměstí",
+      "location": "Pardubice I, Pardubice",
+      "property_type": "house",
+      "price": "24 990 000 Kč",
+      "house_area_m2": "141",
+      "land_area_m2": "5016",
+      "urls": [
+        "https://realitymix.cz/detail/pardubice/novostavba-rodinneho-domu-4-kk-141m2-t-g-pozemek-5016m2-pardubice-bile-predmesti-8634495.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz",
+        "municipal-part:Pardubice I"
       ]
     },
     {
@@ -1147,42 +1000,6 @@
       "notes": [
         "detail-url-verified:reality.aktualne.cz",
         "aggregator-source:next-reality-svatos"
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Rodinný dům, 150 m², Pardubice",
-      "location": "Pardubice - Lány na Důlku, okres Pardubice",
-      "property_type": "house",
-      "price": "7 499 000 Kč",
-      "house_area_m2": "150",
-      "land_area_m2": "1135",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/934435/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "municipality-subarea:Lány na Důlku"
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Rodinný dům, 250 m², Pardubice",
-      "location": "Pardubice - Dražkovice, okres Pardubice",
-      "property_type": "house",
-      "price": "14 490 000 Kč",
-      "house_area_m2": "250",
-      "land_area_m2": "1062",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/939048/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "municipality-subarea:Dražkovice"
       ]
     }
   ]

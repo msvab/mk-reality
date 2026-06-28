@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Rokytnice v Orlických horách."
   ],
   "coverage": {
-    "workers_launched": 4,
-    "workers_with_results": 1,
-    "candidates_gathered": 1,
-    "rows_retained": 1,
+    "workers_launched": 3,
+    "workers_with_results": 0,
+    "candidates_gathered": 20,
+    "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
@@ -51,10 +51,6 @@
     "reality.aktualne.cz": {
       "status": "no_results",
       "message": "No retained in-scope Reality Aktuálně rows."
-    },
-    "mmreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -257,83 +253,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=Rokytnice+v+Orlick%C3%BDch+hor%C3%A1ch&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/936225/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/937985/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/938582/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/938621/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/941012/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/942612/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -359,30 +278,7 @@
     "land-below-threshold:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/prodej-rodinneho-domu-v-porto-8592251.html",
     "outside-municipality:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/pronajem-bytu-1-1-64-m2-nebeska-rybna-klidne-bydleni-v-prirode-8566571.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/pronajem-bytu-2-1-v-rokytnici-v-o-h-ul-sidliste-1-maje-8616385.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/pronajem-byty-2-1-50m-rokytnice-v-orlickych-horach-8563919.html",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/936225/",
-    "missing-price:https://www.mmreality.cz/nemovitosti/937985/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/938621/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/941012/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/942612/"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/pronajem-byty-2-1-50m-rokytnice-v-orlickych-horach-8563919.html"
   ],
-  "listings": [
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Rodinný dům, 1152 m², Rokytnice v Orlických horách, 5. května",
-      "location": "Rokytnice v Orlických horách, okres Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "19 875 245 Kč",
-      "house_area_m2": "1152",
-      "land_area_m2": "1679",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/938582/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz"
-      ]
-    }
-  ]
+  "listings": []
 }
