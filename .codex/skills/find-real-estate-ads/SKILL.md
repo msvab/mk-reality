@@ -1,6 +1,6 @@
 ---
 name: find-real-estate-ads
-description: Orchestrate portal-specific sub-agents to find Czech real estate advertisements for a provided municipality, then merge and deduplicate the results into a normalized shortlist. Use when Codex needs to search current property listings in parallel across supported portals, currently reality.idnes.cz, mmreality.cz, realitymix.cz, and reality.aktualne.cz, with defaults limited to houses or building land and a minimum land size of 1000 m2 in both cases.
+description: Orchestrate portal-specific sub-agents to find Czech real estate advertisements for a provided municipality, then merge and deduplicate the results into a normalized shortlist. Use when Codex needs to search current property listings in parallel across supported portals, currently reality.idnes.cz, mmreality.cz, realitymix.cz, reality.aktualne.cz, and sreality.cz, with defaults limited to houses or building land and a minimum land size of 1000 m2 in both cases.
 ---
 
 # Find Real Estate Ads
@@ -9,7 +9,7 @@ description: Orchestrate portal-specific sub-agents to find Czech real estate ad
 
 Act as a parent orchestrator, not a single search worker. Parse the request once, launch one sub-agent per supported portal, collect normalized portal outputs, and perform final deduplication and ranking in the parent agent.
 
-Supported portals currently include `reality.idnes.cz`, `mmreality.cz`, `realitymix.cz`, and `reality.aktualne.cz`.
+Supported portals currently include `reality.idnes.cz`, `mmreality.cz`, `realitymix.cz`, `reality.aktualne.cz`, and `sreality.cz`.
 
 Default search scope:
 
@@ -30,7 +30,7 @@ Default search scope:
 4. Launch portal-specific sub-agents in parallel when sub-agents are available.
    Each sub-agent must own exactly one portal and must not search outside that portal.
 5. Use the matching dedicated worker agent configuration for each portal:
-   `agents/reality-idnes.yaml`, `agents/mmreality.yaml`, `agents/realitymix.yaml`, and `agents/reality-aktualne.yaml`.
+   `agents/reality-idnes.yaml`, `agents/mmreality.yaml`, `agents/realitymix.yaml`, `agents/reality-aktualne.yaml`, and `agents/sreality.yaml`.
 6. Wait for portal workers to finish, then collect their outputs into one combined candidate set.
 7. Normalize field formatting if portal workers differ slightly.
 8. Deduplicate overlapping listings across all worker outputs.
@@ -72,6 +72,7 @@ Use `agents/reality-idnes.yaml` with [reality-idnes.md](./references/reality-idn
 Use `agents/mmreality.yaml` with [mmreality.md](./references/mmreality.md) for the `mmreality.cz` worker.
 Use `agents/realitymix.yaml` with [realitymix.md](./references/realitymix.md) for the `realitymix.cz` worker.
 Use `agents/reality-aktualne.yaml` with [reality-aktualne.md](./references/reality-aktualne.md) for the `reality.aktualne.cz` worker.
+Use `agents/sreality.yaml` with [sreality.md](./references/sreality.md) for the `sreality.cz` worker.
 
 ## Portal Registry
 
@@ -81,6 +82,7 @@ Supported portal workers:
 - `mmreality.cz`
 - `realitymix.cz`
 - `reality.aktualne.cz`
+- `sreality.cz`
 
 For unsupported portals:
 

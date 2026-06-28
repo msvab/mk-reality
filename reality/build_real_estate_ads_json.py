@@ -10,6 +10,7 @@ DEFAULT_WORKERS = [
     "mmreality.cz",
     "realitymix.cz",
     "reality.aktualne.cz",
+    "sreality.cz",
 ]
 REALITY_AKTUALNE_CANDIDATE_EXCLUSION_REASONS = {
     "inactive-or-unpriced",

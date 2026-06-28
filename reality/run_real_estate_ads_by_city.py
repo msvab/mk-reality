@@ -25,6 +25,7 @@ LOCAL_FETCHERS = {
     "mmreality.cz": Path(".codex/skills/find-real-estate-ads/scripts/mmreality_fetch.py"),
     "realitymix.cz": Path(".codex/skills/find-real-estate-ads/scripts/realitymix_fetch.py"),
     "reality.aktualne.cz": Path(".codex/skills/find-real-estate-ads/scripts/reality_aktualne_fetch.py"),
+    "sreality.cz": Path(".codex/skills/find-real-estate-ads/scripts/sreality_fetch.py"),
 }
 SUPPORTED_PORTALS = tuple(LOCAL_FETCHERS)
 
@@ -309,7 +310,7 @@ def combine_local_fetcher_payloads(city: str, payloads: list[dict]) -> dict:
         "blocked_portals": [],
     }
     assumptions = [
-        "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported."
+        "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported."
     ]
     gaps = []
     listings = []
@@ -489,6 +490,7 @@ def run_local_fetchers(
         discover_realitymix = portal == "realitymix.cz"
         use_reality_aktualne_results = portal == "reality.aktualne.cz" and bool(reality_aktualne_result_urls)
         discover_reality_aktualne = portal == "reality.aktualne.cz"
+        discover_sreality = portal == "sreality.cz"
         if (
             not urls
             and not use_reality_idnes_results
@@ -498,6 +500,7 @@ def run_local_fetchers(
             and not discover_mmreality
             and not use_reality_aktualne_results
             and not discover_reality_aktualne
+            and not discover_sreality
         ):
             continue
         script_path = repo_root / LOCAL_FETCHERS[portal]
@@ -516,6 +519,8 @@ def run_local_fetchers(
             for result_url in reality_aktualne_result_urls:
                 cmd.extend(["--result-url", result_url])
         if discover_reality_aktualne:
+            cmd.append("--discover-results")
+        if discover_sreality:
             cmd.append("--discover-results")
         if discover_realitymix:
             cmd.append("--discover-results")
@@ -612,7 +617,7 @@ Set:
 - `query.land_size_min_m2` to 1000
 
 For `portal_status`, use portal domains as keys and objects with:
-- include all four supported portal keys: `reality.idnes.cz`, `mmreality.cz`, `realitymix.cz`, and `reality.aktualne.cz`
+- include all five supported portal keys: `reality.idnes.cz`, `mmreality.cz`, `realitymix.cz`, `reality.aktualne.cz`, and `sreality.cz`
 - `status`: one of `ok`, `no_results`, `rate_limited`, `fetch_error`, `dns_error`, `timeout`, `blocked`, `inactive`, `fallback_page`, `partial`, or `unknown`
 - `http_status`: include numeric HTTP code when known, e.g. `429`
 - `stage`: where it happened, e.g. `search_fetch`, `detail_fetch`, `helper_fetch`, or `browser_open`

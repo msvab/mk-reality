@@ -908,6 +908,52 @@ def test_local_fetchers_pass_cached_reality_aktualne_result_page_urls_and_discov
     assert "https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-domy_vily.html" in matching_commands[0]
 
 
+def test_local_fetchers_run_sreality_discovery_without_cache(tmp_path, monkeypatch):
+    commands = []
+
+    def fake_run(cmd, check, capture_output, text):
+        commands.append(cmd)
+        payload = {
+            "city": "Česká Třebová",
+            "query": {
+                "municipality": "Česká Třebová",
+                "location_scope": "municipality_only",
+                "country": "Czech Republic",
+                "property_types": ["house", "chalupa", "land"],
+                "land_size_min_m2": 1000,
+            },
+            "assumptions": [],
+            "coverage": {
+                "workers_launched": 1,
+                "workers_with_results": 0,
+                "candidates_gathered": 0,
+                "rows_retained": 0,
+                "zero_result_portals": ["sreality.cz"],
+                "blocked_portals": [],
+            },
+            "portal_status": {"sreality.cz": {"status": "no_results"}},
+            "fetch_attempts": [],
+            "gaps": [],
+            "listings": [],
+        }
+        return subprocess.CompletedProcess(cmd, 0, stdout=json.dumps(payload), stderr="")
+
+    monkeypatch.setattr("reality.run_real_estate_ads_by_city.subprocess.run", fake_run)
+
+    assert run_local_fetchers(
+        "Česká Třebová",
+        tmp_path,
+        tmp_path / "raw.json",
+        previous_aggregate=None,
+        local_portals={"sreality.cz"},
+    )
+
+    assert len(commands) == 1
+    assert commands[0][1].endswith("sreality_fetch.py")
+    assert "--discover-results" in commands[0]
+    assert "--detail-url" not in commands[0]
+
+
 def test_local_fetchers_raise_when_helper_reports_blocked_requests(tmp_path, monkeypatch):
     def fake_run(cmd, check, capture_output, text):
         payload = {
@@ -959,6 +1005,7 @@ def test_mmreality_block_circuit_breaker_skips_later_cities(tmp_path, monkeypatc
             "realitymix_fetch.py": "realitymix.cz",
             "reality_aktualne_fetch.py": "reality.aktualne.cz",
             "reality_idnes_fetch.py": "reality.idnes.cz",
+            "sreality_fetch.py": "sreality.cz",
         }[script_name]
         portal_status = {"status": "no_results"}
         fetch_attempts = []

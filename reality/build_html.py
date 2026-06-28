@@ -433,6 +433,7 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
             "mmreality.cz": "MM Reality",
             "realitymix.cz": "RealityMix",
             "reality.aktualne.cz": "Aktuálně",
+            "sreality.cz": "Sreality",
           }};
 
           const statusLabels = {{
