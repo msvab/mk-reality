@@ -28,12 +28,13 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Lípa nad Orlicí."
   ],
   "coverage": {
-    "workers_launched": 4,
+    "workers_launched": 5,
     "workers_with_results": 3,
-    "candidates_gathered": 5,
+    "candidates_gathered": 4,
     "rows_retained": 4,
     "zero_result_portals": [
-      "reality.idnes.cz"
+      "reality.idnes.cz",
+      "mmreality.cz"
     ],
     "blocked_portals": []
   },
@@ -53,6 +54,10 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "mmreality.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -191,6 +196,48 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://cadastral.stormm.cz/api/location/search?query=L%C3%ADpa+nad+Orlic%C3%AD&types%5B%5D=municipality&types%5B%5D=municipality_part",
+      "stage": "location_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "house_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "land_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/938521/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
     }
   ],
   "gaps": [
@@ -200,7 +247,8 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-domy_vily.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/lipa-nad-orlici/pronajem-dreveneho-srubu-2-ps-lipa-nad-orlici-8537033.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/lipa-nad-orlici/pronajem-dreveneho-srubu-2-ps-lipa-nad-orlici-8537033.html",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/938521/"
   ],
   "listings": [
     {

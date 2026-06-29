@@ -28,11 +28,13 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Nové Město nad Metují."
   ],
   "coverage": {
-    "workers_launched": 4,
+    "workers_launched": 5,
     "workers_with_results": 4,
-    "candidates_gathered": 89,
+    "candidates_gathered": 8,
     "rows_retained": 8,
-    "zero_result_portals": [],
+    "zero_result_portals": [
+      "mmreality.cz"
+    ],
     "blocked_portals": []
   },
   "portal_status": {
@@ -51,6 +53,10 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "mmreality.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -877,6 +883,62 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://cadastral.stormm.cz/api/location/search?query=Nov%C3%A9+M%C4%9Bsto+nad+Metuj%C3%AD&types%5B%5D=municipality&types%5B%5D=municipality_part",
+      "stage": "location_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "house_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "land_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/931748/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/934323/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/939531/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
     }
   ],
   "gaps": [
@@ -960,7 +1022,10 @@
     "missing-price:https://www.sreality.cz/api/v1/estates/2898248524",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3504849740",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3745985356",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4207342412"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4207342412",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/931748/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/934323/",
+    "missing-price:https://www.mmreality.cz/nemovitosti/939531/"
   ],
   "listings": [
     {

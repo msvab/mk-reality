@@ -187,6 +187,21 @@ rtk python3 build_html.py --ads-only
 
 Use `--merge-local-results` for provider-only runs against `data/real_estate_ads_raw`; otherwise a partial provider result would replace the full raw city snapshot. This mode refreshes only the selected portal rows, status, and fetch attempts while preserving rows from the other portals in the same raw file.
 
+MM Reality all-cities refresh:
+
+```bash
+rtk .venv/bin/python run_real_estate_ads_by_city.py \
+  --daily-refresh \
+  --force-daily-refresh \
+  --local-only \
+  --local-portal mmreality.cz \
+  --merge-local-results \
+  --aggregate-after-each
+rtk .venv/bin/python build_html.py --ads-only
+```
+
+Use this when the task is specifically to refresh `mmreality.cz` for every municipality and keep the existing rows from all other providers. `--force-daily-refresh` is needed when re-running after the scheduled daily refresh has already marked municipalities complete for today.
+
 One-command daily workflow:
 
 ```bash

@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Velká Jesenice."
   ],
   "coverage": {
-    "workers_launched": 4,
-    "workers_with_results": 2,
-    "candidates_gathered": 6,
-    "rows_retained": 3,
+    "workers_launched": 5,
+    "workers_with_results": 3,
+    "candidates_gathered": 4,
+    "rows_retained": 4,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -54,6 +54,10 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "mmreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -192,6 +196,55 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://cadastral.stormm.cz/api/location/search?query=Velk%C3%A1+Jesenice&types%5B%5D=municipality&types%5B%5D=municipality_part",
+      "stage": "location_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "house_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "land_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/910514/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/923874/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
     }
   ],
   "gaps": [
@@ -202,7 +255,8 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-domy_vily.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/velka-jesenice/prodej-pozemku-928-m-8516499.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/velka-jesenice/prodej-pozemku-k-bydleni-v-velke-jesenici-8423571.html",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2721600076"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2721600076",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/923874/"
   ],
   "listings": [
     {
@@ -258,6 +312,23 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2023338060",
         "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "mmreality.cz"
+      ],
+      "title": "Prodej, Rodinný dům, 200 m², Velká Jesenice",
+      "location": "Velká Jesenice, okres Náchod",
+      "property_type": "house",
+      "price": "5 998 000 Kč",
+      "house_area_m2": "200",
+      "land_area_m2": "1149",
+      "urls": [
+        "https://www.mmreality.cz/nemovitosti/910514/"
+      ],
+      "notes": [
+        "detail-url-verified:mmreality.cz"
       ]
     }
   ]

@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Ústí nad Orlicí."
   ],
   "coverage": {
-    "workers_launched": 4,
-    "workers_with_results": 3,
-    "candidates_gathered": 49,
-    "rows_retained": 7,
+    "workers_launched": 5,
+    "workers_with_results": 4,
+    "candidates_gathered": 9,
+    "rows_retained": 9,
     "zero_result_portals": [
       "reality.idnes.cz"
     ],
@@ -53,6 +53,10 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "mmreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -487,6 +491,83 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://cadastral.stormm.cz/api/location/search?query=%C3%9Ast%C3%AD+nad+Orlic%C3%AD&types%5B%5D=municipality&types%5B%5D=municipality_part",
+      "stage": "location_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "house_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "land_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/899829/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/899916/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/917131/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/928250/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/941417/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/944739/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
     }
   ],
   "gaps": [
@@ -530,7 +611,11 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-prostorneho-bytu-3-1-s-balkonem-usti-nad-orlici-trebovska-68-m2-8626041.html",
     "missing-price:https://www.sreality.cz/api/v1/estates/1062379596",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3262115916",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3650376524"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3650376524",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/899829/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/899916/",
+    "missing-price:https://www.mmreality.cz/nemovitosti/917131/",
+    "missing-price:https://www.mmreality.cz/nemovitosti/941417/"
   ],
   "listings": [
     {
@@ -657,6 +742,41 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3890868300"
+      ]
+    },
+    {
+      "portal": [
+        "mmreality.cz"
+      ],
+      "title": "Prodej, Rodinný dům, 198 m², Ústí nad Orlicí, A. Staška",
+      "location": "Ústí nad Orlicí, okres Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "6 864 000 Kč",
+      "house_area_m2": "198",
+      "land_area_m2": "1224",
+      "urls": [
+        "https://www.mmreality.cz/nemovitosti/928250/"
+      ],
+      "notes": [
+        "detail-url-verified:mmreality.cz"
+      ]
+    },
+    {
+      "portal": [
+        "mmreality.cz"
+      ],
+      "title": "Prodej, Rodinný dům, 80 m², Ústí nad Orlicí",
+      "location": "Ústí nad Orlicí - Dolní Houžovec, okres Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "2 190 000 Kč",
+      "house_area_m2": "80",
+      "land_area_m2": "1107",
+      "urls": [
+        "https://www.mmreality.cz/nemovitosti/944739/"
+      ],
+      "notes": [
+        "detail-url-verified:mmreality.cz",
+        "municipality-subarea:Dolní Houžovec"
       ]
     }
   ]

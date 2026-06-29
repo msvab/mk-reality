@@ -28,14 +28,15 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Hnátnice."
   ],
   "coverage": {
-    "workers_launched": 4,
+    "workers_launched": 5,
     "workers_with_results": 1,
-    "candidates_gathered": 6,
+    "candidates_gathered": 1,
     "rows_retained": 1,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
-      "reality.aktualne.cz"
+      "reality.aktualne.cz",
+      "mmreality.cz"
     ],
     "blocked_portals": []
   },
@@ -55,6 +56,10 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "mmreality.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -169,6 +174,48 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://cadastral.stormm.cz/api/location/search?query=Hn%C3%A1tnice&types%5B%5D=municipality&types%5B%5D=municipality_part",
+      "stage": "location_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "house_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "land_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/909990/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
     }
   ],
   "gaps": [
@@ -179,7 +226,8 @@
     "land-below-threshold:https://reality.aktualne.cz/detail/hnatnice/prodej-rodinny-dum-v-hnatnici-8531837.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hnatnice/stodola-s-pozemkem-hnatnice-okres-usti-nad-orlici-8421281.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1385694028",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/416023372"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/416023372",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/909990/"
   ],
   "listings": [
     {

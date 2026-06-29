@@ -28,13 +28,14 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Vamberk."
   ],
   "coverage": {
-    "workers_launched": 4,
+    "workers_launched": 5,
     "workers_with_results": 2,
-    "candidates_gathered": 19,
+    "candidates_gathered": 4,
     "rows_retained": 4,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "realitymix.cz"
+      "realitymix.cz",
+      "mmreality.cz"
     ],
     "blocked_portals": []
   },
@@ -54,6 +55,10 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "mmreality.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -304,6 +309,69 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://cadastral.stormm.cz/api/location/search?query=Vamberk&types%5B%5D=municipality&types%5B%5D=municipality_part",
+      "stage": "location_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "house_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "land_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/751007/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/940883/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/944723/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/945393/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
     }
   ],
   "gaps": [
@@ -325,7 +393,11 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/vamberk/pronajem-komercni-obchodni-prostory-200-m2-zamberecka-27-51754-vamberk-rychnov-nad-kneznou-id-8592655.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/vamberk/pronajem-ubytovaciho-zarizeni-70-m2-vamberk-8496787.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/vamberk/pronajem-ubytovaciho-zarizeni-80-m2-vamberk-8496781.html",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3857658956"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3857658956",
+    "non-buildable-land:https://www.mmreality.cz/nemovitosti/751007/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/940883/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/944723/",
+    "missing-price:https://www.mmreality.cz/nemovitosti/945393/"
   ],
   "listings": [
     {

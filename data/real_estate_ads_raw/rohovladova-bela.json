@@ -28,14 +28,15 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Rohovládova Bělá."
   ],
   "coverage": {
-    "workers_launched": 4,
+    "workers_launched": 5,
     "workers_with_results": 1,
-    "candidates_gathered": 3,
+    "candidates_gathered": 1,
     "rows_retained": 1,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
-      "sreality.cz"
+      "sreality.cz",
+      "mmreality.cz"
     ],
     "blocked_portals": []
   },
@@ -55,6 +56,10 @@
     "sreality.cz": {
       "status": "no_results",
       "message": "No retained in-scope Sreality rows."
+    },
+    "mmreality.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -145,6 +150,48 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://cadastral.stormm.cz/api/location/search?query=Rohovl%C3%A1dova+B%C4%9Bl%C3%A1&types%5B%5D=municipality&types%5B%5D=municipality_part",
+      "stage": "location_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "house_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "land_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/929392/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
     }
   ],
   "gaps": [
@@ -152,7 +199,8 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "land-below-threshold:https://reality.aktualne.cz/detail/rohovladova-bela/prodej-pozemku-609-m-8540575.html",
-    "missing-price:https://www.sreality.cz/api/v1/estates/3857908556"
+    "missing-price:https://www.sreality.cz/api/v1/estates/3857908556",
+    "missing-price:https://www.mmreality.cz/nemovitosti/929392/"
   ],
   "listings": [
     {

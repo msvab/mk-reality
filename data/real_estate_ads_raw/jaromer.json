@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Jaroměř."
   ],
   "coverage": {
-    "workers_launched": 4,
-    "workers_with_results": 2,
-    "candidates_gathered": 25,
-    "rows_retained": 3,
+    "workers_launched": 5,
+    "workers_with_results": 3,
+    "candidates_gathered": 5,
+    "rows_retained": 5,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -54,6 +54,10 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "mmreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -336,6 +340,62 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://cadastral.stormm.cz/api/location/search?query=Jarom%C4%9B%C5%99&types%5B%5D=municipality&types%5B%5D=municipality_part",
+      "stage": "location_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "house_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "land_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/932153/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/934404/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/943194/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
     }
   ],
   "gaps": [
@@ -363,7 +423,8 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-skladovych-a-vyrobnich-prostor-od-1-706-m-jaromer-8630601.html",
     "missing-price:https://www.sreality.cz/api/v1/estates/2264159052",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2979607884",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4027224140"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4027224140",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/934404/"
   ],
   "listings": [
     {
@@ -418,6 +479,42 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2155974732"
+      ]
+    },
+    {
+      "portal": [
+        "mmreality.cz"
+      ],
+      "title": "Prodej, Rodinný dům, 46 m², Jaroměř, Štěrbova",
+      "location": "Jaroměř - Josefov, okres Náchod",
+      "property_type": "house",
+      "price": "5 500 000 Kč",
+      "house_area_m2": "46",
+      "land_area_m2": "1226",
+      "urls": [
+        "https://www.mmreality.cz/nemovitosti/943194/"
+      ],
+      "notes": [
+        "detail-url-verified:mmreality.cz",
+        "municipality-subarea:Josefov"
+      ]
+    },
+    {
+      "portal": [
+        "mmreality.cz"
+      ],
+      "title": "Prodej, Rodinný dům, 454 m², Jaroměř, Palackého",
+      "location": "Jaroměř - Jakubské Předměstí, okres Náchod",
+      "property_type": "house",
+      "price": "12 360 000 Kč",
+      "house_area_m2": "454",
+      "land_area_m2": "1395",
+      "urls": [
+        "https://www.mmreality.cz/nemovitosti/932153/"
+      ],
+      "notes": [
+        "detail-url-verified:mmreality.cz",
+        "municipality-subarea:Jakubské Předměstí"
       ]
     }
   ]

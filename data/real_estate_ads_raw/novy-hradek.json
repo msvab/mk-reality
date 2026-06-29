@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Nový Hrádek."
   ],
   "coverage": {
-    "workers_launched": 4,
-    "workers_with_results": 4,
-    "candidates_gathered": 87,
-    "rows_retained": 7,
+    "workers_launched": 5,
+    "workers_with_results": 5,
+    "candidates_gathered": 9,
+    "rows_retained": 9,
     "zero_result_portals": [],
     "blocked_portals": []
   },
@@ -51,6 +51,10 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "mmreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -911,6 +915,97 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://cadastral.stormm.cz/api/location/search?query=Nov%C3%BD+Hr%C3%A1dek&types%5B%5D=municipality&types%5B%5D=municipality_part",
+      "stage": "location_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "house_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "land_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/784838/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/784839/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/930853/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/939683/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/943257/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/943314/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/943334/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/946183/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
     }
   ],
   "gaps": [
@@ -992,7 +1087,13 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1290180700",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/221614156",
     "excluded-chata:https://www.sreality.cz/api/v1/estates/347947852",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/971413596"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/971413596",
+    "non-buildable-land:https://www.mmreality.cz/nemovitosti/784838/",
+    "non-buildable-land:https://www.mmreality.cz/nemovitosti/784839/",
+    "inactive-generic-page:https://www.mmreality.cz/nemovitosti/939683/",
+    "inactive-generic-page:https://www.mmreality.cz/nemovitosti/943257/",
+    "inactive-generic-page:https://www.mmreality.cz/nemovitosti/943334/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/946183/"
   ],
   "listings": [
     {
@@ -1122,6 +1223,43 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3626726220"
+      ]
+    },
+    {
+      "portal": [
+        "mmreality.cz"
+      ],
+      "title": "Prodej, Chalupa, 52 m², Nový Hrádek",
+      "location": "Nový Hrádek, okres Náchod",
+      "property_type": "house",
+      "price": "4 190 000 Kč",
+      "house_area_m2": "52",
+      "land_area_m2": "2008",
+      "urls": [
+        "https://www.mmreality.cz/nemovitosti/930853/"
+      ],
+      "notes": [
+        "detail-url-verified:mmreality.cz",
+        "normalized-from:chalupa"
+      ]
+    },
+    {
+      "portal": [
+        "mmreality.cz"
+      ],
+      "title": "Prodej, Pozemek k bydlení, 1182 m², Nový Hrádek",
+      "location": "Nový Hrádek - Rzy, okres Náchod",
+      "property_type": "land",
+      "price": "1 590 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1182",
+      "urls": [
+        "https://www.mmreality.cz/nemovitosti/943314/"
+      ],
+      "notes": [
+        "detail-url-verified:mmreality.cz",
+        "municipality-subarea:Rzy",
+        "buildable-land"
       ]
     }
   ]

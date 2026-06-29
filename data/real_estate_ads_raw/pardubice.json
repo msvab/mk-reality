@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Pardubice."
   ],
   "coverage": {
-    "workers_launched": 4,
-    "workers_with_results": 3,
-    "candidates_gathered": 120,
-    "rows_retained": 36,
+    "workers_launched": 5,
+    "workers_with_results": 4,
+    "candidates_gathered": 38,
+    "rows_retained": 38,
     "zero_result_portals": [
       "reality.idnes.cz"
     ],
@@ -53,6 +53,10 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "mmreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -1031,6 +1035,160 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://cadastral.stormm.cz/api/location/search?query=Pardubice&types%5B%5D=municipality&types%5B%5D=municipality_part",
+      "stage": "location_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "house_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "land_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/765344/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/919681/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/923555/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/931222/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/931869/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/932831/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/932832/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/932833/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/932834/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/934435/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/938286/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/939048/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/939730/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/940087/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/942545/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/943937/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/945664/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
     }
   ],
   "gaps": [
@@ -1108,7 +1266,22 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3839533900",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4019606348",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/457995084",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/624743500"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/624743500",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/765344/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/919681/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/923555/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/931222/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/931869/",
+    "non-buildable-land:https://www.mmreality.cz/nemovitosti/932831/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/932832/",
+    "non-buildable-land:https://www.mmreality.cz/nemovitosti/932833/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/932834/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/938286/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/939730/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/940087/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/942545/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/943937/",
+    "non-buildable-land:https://www.mmreality.cz/nemovitosti/945664/"
   ],
   "listings": [
     {
@@ -1760,6 +1933,42 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3002069068",
         "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "mmreality.cz"
+      ],
+      "title": "Prodej, Rodinný dům, 150 m², Pardubice",
+      "location": "Pardubice - Lány na Důlku, okres Pardubice",
+      "property_type": "house",
+      "price": "7 499 000 Kč",
+      "house_area_m2": "150",
+      "land_area_m2": "1135",
+      "urls": [
+        "https://www.mmreality.cz/nemovitosti/934435/"
+      ],
+      "notes": [
+        "detail-url-verified:mmreality.cz",
+        "municipality-subarea:Lány na Důlku"
+      ]
+    },
+    {
+      "portal": [
+        "mmreality.cz"
+      ],
+      "title": "Prodej, Rodinný dům, 250 m², Pardubice",
+      "location": "Pardubice - Dražkovice, okres Pardubice",
+      "property_type": "house",
+      "price": "14 490 000 Kč",
+      "house_area_m2": "250",
+      "land_area_m2": "1062",
+      "urls": [
+        "https://www.mmreality.cz/nemovitosti/939048/"
+      ],
+      "notes": [
+        "detail-url-verified:mmreality.cz",
+        "municipality-subarea:Dražkovice"
       ]
     }
   ]

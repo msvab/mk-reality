@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Deštné v Orlických horách."
   ],
   "coverage": {
-    "workers_launched": 4,
-    "workers_with_results": 3,
-    "candidates_gathered": 79,
-    "rows_retained": 9,
+    "workers_launched": 5,
+    "workers_with_results": 4,
+    "candidates_gathered": 10,
+    "rows_retained": 10,
     "zero_result_portals": [
       "realitymix.cz"
     ],
@@ -53,6 +53,10 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "mmreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -841,6 +845,62 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://cadastral.stormm.cz/api/location/search?query=De%C5%A1tn%C3%A9+v+Orlick%C3%BDch+hor%C3%A1ch&types%5B%5D=municipality&types%5B%5D=municipality_part",
+      "stage": "location_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "house_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "land_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/926516/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/943889/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/944560/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
     }
   ],
   "gaps": [
@@ -918,7 +978,9 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/destne-v-orlickych-horach/prodej-komercniho-objektu-v-srdci-destneho-v-orlickych-horach-8521385.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/destne-v-orlickych-horach/prodej-penzionu-3920-m-destne-v-orlickych-horach-8621789.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/destne-v-orlickych-horach/prodej-rodinneho-domu-400-m-destne-v-orlickych-horach-8454415.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/destne-v-orlickych-horach/prodej-rodinneho-domu-629-m-destne-v-orlickych-horach-8606025.html"
+    "land-below-threshold:https://reality.aktualne.cz/detail/destne-v-orlickych-horach/prodej-rodinneho-domu-629-m-destne-v-orlickych-horach-8606025.html",
+    "inactive-generic-page:https://www.mmreality.cz/nemovitosti/926516/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/943889/"
   ],
   "listings": [
     {
@@ -1083,6 +1145,23 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2056414028",
         "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "mmreality.cz"
+      ],
+      "title": "Prodej, Rodinný dům, 590 m², Deštné v Orlických horách",
+      "location": "Deštné v Orlických horách, okres Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "18 500 000 Kč",
+      "house_area_m2": "590",
+      "land_area_m2": "3195",
+      "urls": [
+        "https://www.mmreality.cz/nemovitosti/944560/"
+      ],
+      "notes": [
+        "detail-url-verified:mmreality.cz"
       ]
     }
   ]
