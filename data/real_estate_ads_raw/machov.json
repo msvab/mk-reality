@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Machov."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 0,
-    "candidates_gathered": 4,
-    "rows_retained": 0,
+    "workers_launched": 4,
+    "workers_with_results": 1,
+    "candidates_gathered": 8,
+    "rows_retained": 2,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
@@ -51,6 +51,10 @@
     "reality.aktualne.cz": {
       "status": "no_results",
       "message": "No retained in-scope Reality Aktuálně rows."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -125,6 +129,62 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Machov&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2498&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2498&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1094337356",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2854622028",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3301352268",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/656544588",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -134,7 +194,46 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/machov/prodej-bytu-3-1-balkon-v-krasne-prirode-bely-machov-8617013.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/machov/prodej-louky-10746-m-machov-8193471.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/machov/prodej-pole-55140-m-machov-nizka-srbska-8193479.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/machov/prodej-rodinneho-domu-268-m-machov-8463099.html"
+    "land-below-threshold:https://reality.aktualne.cz/detail/machov/prodej-rodinneho-domu-268-m-machov-8463099.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1094337356",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3301352268"
   ],
-  "listings": []
+  "listings": [
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej památky 268 m², pozemek 5776 m²",
+      "location": "Machov, Náchod",
+      "property_type": "house",
+      "price": "4 200 000 Kč",
+      "house_area_m2": "268",
+      "land_area_m2": "5776",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/pamatka-jine/machov/2854622028"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2854622028"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 268 m², pozemek 5776 m²",
+      "location": "Machov, Náchod",
+      "property_type": "house",
+      "price": "4 200 000 Kč",
+      "house_area_m2": "268",
+      "land_area_m2": "5776",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/machov/656544588"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/656544588"
+      ]
+    }
+  ]
 }

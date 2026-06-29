@@ -24,17 +24,18 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Opatovice nad Labem."
   ],
   "coverage": {
-    "workers_launched": 3,
+    "workers_launched": 4,
     "workers_with_results": 1,
-    "candidates_gathered": 9,
+    "candidates_gathered": 12,
     "rows_retained": 1,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "realitymix.cz"
+      "realitymix.cz",
+      "sreality.cz"
     ],
     "blocked_portals": []
   },
@@ -50,6 +51,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope Sreality rows."
     }
   },
   "fetch_attempts": [
@@ -180,6 +185,54 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Opatovice+nad+Labem&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2585&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2585&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/115123020",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2568847436",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3376571212",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -194,7 +247,10 @@
     "land-below-threshold:https://reality.aktualne.cz/detail/opatovice-nad-labem/prodej-rd-4-1-opatovice-nad-labem-okres-pardubice-8317657.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/opatovice-nad-labem/prodej-rodinneho-domu-pozemek-598-m2-opatovice-na-labem-8592909.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/opatovice-nad-labem/prodej-stavebniho-pozemku-opatovice-nad-labem-8619547.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/opatovice-nad-labem/zemedelska-puda-prodej-opatovice-nad-labem-pardubice-8611721.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/opatovice-nad-labem/zemedelska-puda-prodej-opatovice-nad-labem-pardubice-8611721.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/115123020",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2568847436",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3376571212"
   ],
   "listings": [
     {

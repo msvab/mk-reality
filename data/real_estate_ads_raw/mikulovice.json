@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Mikulovice."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 1,
-    "candidates_gathered": 16,
-    "rows_retained": 3,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 18,
+    "rows_retained": 4,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,6 +50,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -284,6 +288,46 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Mikulovice&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2582&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2582&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2414756684",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/411730508",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -304,7 +348,8 @@
     "outside-municipality:https://reality.aktualne.cz/detail/mikulovice/prodej-stavebniho-pozemku-934-m2-mikulovice-okres-jesenik-8562603.html",
     "outside-municipality:https://reality.aktualne.cz/detail/mikulovice/prodej-stavebniho-pozemku-v-obci-mikulovice-8085973.html",
     "outside-municipality:https://reality.aktualne.cz/detail/mikulovice/pronajem-bytu-1-1-v-mikulovicich-u-jeseniku-8587985.html",
-    "outside-municipality:https://reality.aktualne.cz/detail/mikulovice/rodinny-dum-v-mikulovicich-klidne-bydleni-se-zahradou-a-velkym-potencialem-8604629.html"
+    "outside-municipality:https://reality.aktualne.cz/detail/mikulovice/rodinny-dum-v-mikulovicich-klidne-bydleni-se-zahradou-a-velkym-potencialem-8604629.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/411730508"
   ],
   "listings": [
     {
@@ -360,6 +405,24 @@
       "notes": [
         "detail-url-verified:reality.aktualne.cz",
         "aggregator-source:svatava-dlouha---realitni-kancelar"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 231 m², pozemek 1010 m²",
+      "location": "Mikulovice, V Loučkách, Pardubice",
+      "property_type": "house",
+      "price": "13 490 000 Kč",
+      "house_area_m2": "231",
+      "land_area_m2": "1010",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/mikulovice-v-louckach/2414756684"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2414756684"
       ]
     }
   ]

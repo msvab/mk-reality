@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Mladkov."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 0,
-    "candidates_gathered": 2,
-    "rows_retained": 0,
+    "workers_launched": 4,
+    "workers_with_results": 1,
+    "candidates_gathered": 4,
+    "rows_retained": 2,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
@@ -51,6 +51,10 @@
     "reality.aktualne.cz": {
       "status": "no_results",
       "message": "No retained in-scope Reality Aktuálně rows."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -109,6 +113,46 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Mladkov&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2997&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2997&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1771348044",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3120599116",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -118,5 +162,42 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/mladkov/prodej-bytu-3-kk-70-m-mladkov-8552985.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/mladkov/prodej-rodinneho-domu-mladkov-petrovicky-8533903.html"
   ],
-  "listings": []
+  "listings": [
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej chalupy 135 m², pozemek 1277 m²",
+      "location": "Mladkov, Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "11 990 000 Kč",
+      "house_area_m2": "135",
+      "land_area_m2": "1277",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/chalupa/mladkov-vlckovice/1771348044"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1771348044"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 209 m², pozemek 1148 m²",
+      "location": "Mladkov, Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "4 700 000 Kč",
+      "house_area_m2": "209",
+      "land_area_m2": "1148",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/mladkov/3120599116"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3120599116"
+      ]
+    }
+  ]
 }

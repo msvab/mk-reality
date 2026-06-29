@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Ústí nad Orlicí."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 2,
-    "candidates_gathered": 43,
-    "rows_retained": 4,
+    "workers_launched": 4,
+    "workers_with_results": 3,
+    "candidates_gathered": 49,
+    "rows_retained": 7,
     "zero_result_portals": [
       "reality.idnes.cz"
     ],
@@ -49,6 +49,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -411,6 +415,78 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=%C3%9Ast%C3%AD+nad+Orlic%C3%AD&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2952&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2952&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1062379596",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1196700492",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1723994956",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3262115916",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3650376524",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3890868300",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -451,7 +527,10 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-bytu-3-kk-62-m-ul-v-lukach-usti-nad-orlici-8604947.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-moderniho-bytu-2-1-v-usti-nad-orlici-s-garazi-8569343.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-prostor-207-m-usti-nad-orlici-ul-mirove-nam-8591515.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-prostorneho-bytu-3-1-s-balkonem-usti-nad-orlici-trebovska-68-m2-8626041.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-prostorneho-bytu-3-1-s-balkonem-usti-nad-orlici-trebovska-68-m2-8626041.html",
+    "missing-price:https://www.sreality.cz/api/v1/estates/1062379596",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3262115916",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3650376524"
   ],
   "listings": [
     {
@@ -524,6 +603,60 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:next-reality-vision"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 198 m², pozemek 1224 m²",
+      "location": "Ústí nad Orlicí, A. Staška, Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "6 864 000 Kč",
+      "house_area_m2": "198",
+      "land_area_m2": "1224",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/usti-nad-orlici-a-staska/1723994956"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1723994956"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 150 m², pozemek 3188 m²",
+      "location": "Ústí nad Orlicí, Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "5 850 000 Kč",
+      "house_area_m2": "150",
+      "land_area_m2": "3188",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/usti-nad-orlici-dolni-houzovec/1196700492"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1196700492"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 80 m², pozemek 1107 m²",
+      "location": "Ústí nad Orlicí, Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "2 190 000 Kč",
+      "house_area_m2": "80",
+      "land_area_m2": "1107",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/usti-nad-orlici-dolni-houzovec/3890868300"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3890868300"
       ]
     }
   ]

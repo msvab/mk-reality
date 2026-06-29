@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Bílá Třemešná."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 0,
-    "candidates_gathered": 5,
-    "rows_retained": 0,
+    "workers_launched": 4,
+    "workers_with_results": 1,
+    "candidates_gathered": 10,
+    "rows_retained": 1,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
@@ -51,6 +51,10 @@
     "reality.aktualne.cz": {
       "status": "no_results",
       "message": "No retained in-scope Reality Aktuálně rows."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -133,6 +137,70 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=B%C3%ADl%C3%A1+T%C5%99eme%C5%A1n%C3%A1&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2881&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2881&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2639721292",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3105911884",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3896140876",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4162876492",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/660181068",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -143,7 +211,31 @@
     "non-buildable-land:https://reality.aktualne.cz/detail/bila-tremesna/prodej-pozemku-k-bydleni-1448-m-bila-tremesna-7740894.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/bila-tremesna/prodej-rodinneho-domu-v-bile-tremesne-8462861.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/bila-tremesna/prodej-vyrobniho-prostoru-4-100-m-bila-tremesna-8548323.html",
-    "outside-municipality:https://reality.aktualne.cz/detail/bila-tremesna/prostorny-zemedelsky-objekt-senik-1-411m2-8314319.html"
+    "outside-municipality:https://reality.aktualne.cz/detail/bila-tremesna/prostorny-zemedelsky-objekt-senik-1-411m2-8314319.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2639721292",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3105911884",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3896140876",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4162876492"
   ],
-  "listings": []
+  "listings": [
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej komerčního pozemku 12667 m²",
+      "location": "Bílá Třemešná, Trutnov",
+      "property_type": "land",
+      "price": "18 000 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "12667",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/komercni/bila-tremesna/660181068"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/660181068",
+        "buildable-land"
+      ]
+    }
+  ]
 }

@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Rybitví."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 0,
-    "candidates_gathered": 3,
-    "rows_retained": 0,
+    "workers_launched": 4,
+    "workers_with_results": 1,
+    "candidates_gathered": 5,
+    "rows_retained": 1,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
@@ -51,6 +51,10 @@
     "reality.aktualne.cz": {
       "status": "no_results",
       "message": "No retained in-scope Reality Aktuálně rows."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -117,6 +121,46 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Rybitv%C3%AD&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2597&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2597&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1319125836",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/526148684",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -125,7 +169,28 @@
     "missing-page-url:land",
     "unsupported-property-type:https://reality.aktualne.cz/detail/rybitvi/prodej-pozemky-zahrada-185-m2-rybitvi-pardubice-id-75855-8389825.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/rybitvi/prodej-rodinneho-domu-85-m-rybitvi-ul-capkova-8324475.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/rybitvi/prodej-zahrady-v-rybitvi-8589969.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/rybitvi/prodej-zahrady-v-rybitvi-8589969.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/526148684"
   ],
-  "listings": []
+  "listings": [
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej komerčního pozemku 16259 m²",
+      "location": "Rybitví, Pardubice",
+      "property_type": "land",
+      "price": "59 900 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "16259",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/komercni/rybitvi/1319125836"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1319125836",
+        "buildable-land"
+      ]
+    }
+  ]
 }

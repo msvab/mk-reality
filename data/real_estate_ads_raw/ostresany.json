@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Ostřešany."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 0,
-    "candidates_gathered": 2,
-    "rows_retained": 0,
+    "workers_launched": 4,
+    "workers_with_results": 1,
+    "candidates_gathered": 5,
+    "rows_retained": 1,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
@@ -51,6 +51,10 @@
     "reality.aktualne.cz": {
       "status": "no_results",
       "message": "No retained in-scope Reality Aktuálně rows."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -109,6 +113,54 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Ost%C5%99e%C5%A1any&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2586&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2586&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1306234956",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/212303948",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/517022540",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -116,7 +168,28 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "land-below-threshold:https://reality.aktualne.cz/detail/ostresany/prodej-rodinneho-domu-5-1-ostresany-8534747.html",
-    "outside-municipality:https://reality.aktualne.cz/detail/ostresany/prodej-stavebnich-pozemku-celkem-3-106-m-ostresany-u-pardubic-8588275.html"
+    "outside-municipality:https://reality.aktualne.cz/detail/ostresany/prodej-stavebnich-pozemku-celkem-3-106-m-ostresany-u-pardubic-8588275.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1306234956",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/517022540"
   ],
-  "listings": []
+  "listings": [
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 240 m², pozemek 1207 m²",
+      "location": "Ostřešany, Pardubice",
+      "property_type": "house",
+      "price": "7 799 000 Kč",
+      "house_area_m2": "240",
+      "land_area_m2": "1207",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/ostresany/212303948"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/212303948"
+      ]
+    }
+  ]
 }

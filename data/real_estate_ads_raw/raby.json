@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Ráby."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 1,
-    "candidates_gathered": 12,
-    "rows_retained": 6,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 19,
+    "rows_retained": 9,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,6 +50,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -252,6 +256,86 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=R%C3%A1by&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2593&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2593&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1708409676",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1850454092",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2029409100",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3251856204",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3377180748",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/38400076",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/869957708",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -264,7 +348,11 @@
     "land-below-threshold:https://reality.aktualne.cz/detail/raby/prodej-rodinneho-domu-89-m-raby-8553741.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/raby/prodej-rodinneho-domu-89-m-raby-8553753.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/raby/prodej-rodinneho-domu-89-m-raby-8553953.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/raby/prodej-rodinneho-domu-89-m-raby-8553959.html"
+    "land-below-threshold:https://reality.aktualne.cz/detail/raby/prodej-rodinneho-domu-89-m-raby-8553959.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1850454092",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2029409100",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3377180748",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/869957708"
   ],
   "listings": [
     {
@@ -378,6 +466,62 @@
       "notes": [
         "detail-url-verified:reality.aktualne.cz",
         "aggregator-source:martin-dolezel-s.r.o."
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 89 m², pozemek 1001 m²",
+      "location": "Ráby, Pardubice",
+      "property_type": "house",
+      "price": "10 999 000 Kč",
+      "house_area_m2": "89",
+      "land_area_m2": "1001",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/raby/1708409676"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1708409676"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1152 m²",
+      "location": "Ráby, Pardubice",
+      "property_type": "land",
+      "price": "7 100 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1152",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/raby/38400076"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/38400076",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1114 m²",
+      "location": "Ráby, Pardubice",
+      "property_type": "land",
+      "price": "6 684 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1114",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/raby/3251856204"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3251856204",
+        "buildable-land"
       ]
     }
   ]

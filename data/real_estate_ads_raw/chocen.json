@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Choceň."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 1,
-    "candidates_gathered": 7,
-    "rows_retained": 1,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 10,
+    "rows_retained": 3,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,6 +50,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -164,6 +168,54 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Choce%C5%88&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2977&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2977&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1402684236",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1559257932",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2052412236",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -176,7 +228,8 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/chocen/prodej-bytu-4-kk-112-m-chocen-ul-zamesti-8300689.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/chocen/prodej-domu-191-m-pozemek-905-m-8580631.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/chocen/prodej-rodinneho-domu-210-m-chocen-8381495.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/chocen/prodej-rodinneho-domu-v-chocni-ul-svatojirska-8614369.html"
+    "land-below-threshold:https://reality.aktualne.cz/detail/chocen/prodej-rodinneho-domu-v-chocni-ul-svatojirska-8614369.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2052412236"
   ],
   "listings": [
     {
@@ -196,6 +249,43 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 177 m², pozemek 1185 m²",
+      "location": "Choceň, Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "8 750 000 Kč",
+      "house_area_m2": "177",
+      "land_area_m2": "1185",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/chocen-plchuvky/1402684236"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1402684236"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1000 m²",
+      "location": "Choceň, V Kamení, Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "3 490 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1000",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/chocen-v-kameni/1559257932"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1559257932",
+        "buildable-land"
       ]
     }
   ]

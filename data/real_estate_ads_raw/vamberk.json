@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Vamberk."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 1,
-    "candidates_gathered": 16,
-    "rows_retained": 2,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 19,
+    "rows_retained": 4,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,6 +50,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -252,6 +256,54 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Vamberk&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2694&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2694&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2019296076",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3275989068",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3857658956",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -272,7 +324,8 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/vamberk/prodej-zahrady-ve-vamberku-8575541.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/vamberk/pronajem-komercni-obchodni-prostory-200-m2-zamberecka-27-51754-vamberk-rychnov-nad-kneznou-id-8592655.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/vamberk/pronajem-ubytovaciho-zarizeni-70-m2-vamberk-8496787.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/vamberk/pronajem-ubytovaciho-zarizeni-80-m2-vamberk-8496781.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vamberk/pronajem-ubytovaciho-zarizeni-80-m2-vamberk-8496781.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3857658956"
   ],
   "listings": [
     {
@@ -310,6 +363,43 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:vcrf-reality"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 20667 m²",
+      "location": "Vamberk, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "11 366 850 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "20667",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/vamberk/2019296076"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2019296076",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 180 m², pozemek 2143 m²",
+      "location": "Vamberk, Janáčkova, Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "5 790 000 Kč",
+      "house_area_m2": "180",
+      "land_area_m2": "2143",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/vamberk-janackova/3275989068"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3275989068"
       ]
     }
   ]

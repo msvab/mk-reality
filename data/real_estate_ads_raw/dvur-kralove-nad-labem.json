@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Dvůr Králové nad Labem."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 1,
-    "candidates_gathered": 21,
-    "rows_retained": 1,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 38,
+    "rows_retained": 9,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,6 +50,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -276,6 +280,166 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Dv%C5%AFr+Kr%C3%A1lov%C3%A9+nad+Labem&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2894&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2894&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1064890444",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1430127436",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1825615948",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2035888972",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2207486028",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2331849548",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2362486860",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2664534860",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2930147404",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3041203020",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3264450636",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3380512076",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3448864844",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3521347660",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3745530700",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3838247756",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/946959180",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -301,7 +465,16 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/pronajem-zavedene-restaurace-u-hlavacku-dvur-kralove-nad-labem-8594905.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prostorny-byt-3-1-se-soukromou-zahradou-a-bazenem-8605813.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prostorny-byt-4-1-139-m-v-klidne-casti-dvora-kralove-nad-labem-8605909.html",
-    "outside-municipality:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/stavebni-pozemek-pro-rodinny-dum-v-klidne-casti-mesta-8631613.html"
+    "outside-municipality:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/stavebni-pozemek-pro-rodinny-dum-v-klidne-casti-mesta-8631613.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1064890444",
+    "missing-price:https://www.sreality.cz/api/v1/estates/1825615948",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2035888972",
+    "missing-price:https://www.sreality.cz/api/v1/estates/2362486860",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2664534860",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3041203020",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3380512076",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3521347660",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/946959180"
   ],
   "listings": [
     {
@@ -320,6 +493,154 @@
       "notes": [
         "detail-url-verified:reality.aktualne.cz",
         "aggregator-source:broker-consulting,-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 140 m², pozemek 1245 m²",
+      "location": "Dvůr Králové nad Labem, Trutnov",
+      "property_type": "house",
+      "price": "9 990 000 Kč",
+      "house_area_m2": "140",
+      "land_area_m2": "1245",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/dvur-kralove-nad-labem-verdek/3838247756"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3838247756"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 200 m², pozemek 1500 m²",
+      "location": "Dvůr Králové nad Labem, Trutnov",
+      "property_type": "house",
+      "price": "5 590 000 Kč",
+      "house_area_m2": "200",
+      "land_area_m2": "1500",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/dvur-kralove-nad-labem-verdek/3745530700"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3745530700"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 230 m², pozemek 2698 m²",
+      "location": "Dvůr Králové nad Labem, Trutnov",
+      "property_type": "house",
+      "price": "5 490 000 Kč",
+      "house_area_m2": "230",
+      "land_area_m2": "2698",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/dvur-kralove-nad-labem-zirec/2207486028"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2207486028"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 107 m², pozemek 6795 m²",
+      "location": "Dvůr Králové nad Labem, Trutnov",
+      "property_type": "house",
+      "price": "4 250 000 Kč",
+      "house_area_m2": "107",
+      "land_area_m2": "6795",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/dvur-kralove-nad-labem-zirecka-podstran/3448864844"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3448864844"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1126 m²",
+      "location": "Dvůr Králové nad Labem, Kotkova, Trutnov",
+      "property_type": "land",
+      "price": "3 378 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1126",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/dvur-kralove-nad-labem-kotkova/2930147404"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2930147404",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1821 m²",
+      "location": "Dvůr Králové nad Labem, Trutnov",
+      "property_type": "land",
+      "price": "2 799 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1821",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/dvur-kralove-nad-labem-zirec/3264450636"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3264450636",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1109 m²",
+      "location": "Dvůr Králové nad Labem, Trutnov",
+      "property_type": "land",
+      "price": "2 500 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1109",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/dvur-kralove-nad-labem/2331849548"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2331849548",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 2228 m²",
+      "location": "Dvůr Králové nad Labem, Trutnov",
+      "property_type": "land",
+      "price": "1 600 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2228",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/dvur-kralove-nad-labem-verdek/1430127436"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1430127436",
+        "buildable-land"
       ]
     }
   ]

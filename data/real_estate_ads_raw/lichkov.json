@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Lichkov."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 1,
-    "candidates_gathered": 8,
-    "rows_retained": 6,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 14,
+    "rows_retained": 11,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,6 +50,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -212,6 +216,78 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Lichkov&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2991&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2991&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1104835404",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/114979660",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1457156940",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/168325964",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2799334220",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/569930572",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -219,7 +295,8 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "unsupported-property-type:https://reality.aktualne.cz/detail/lichkov/prodej-louky-7222-m-lichkov-8489903.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/lichkov/prodej-rodinneho-domu-300-m-lichkov-8632641.html"
+    "land-below-threshold:https://reality.aktualne.cz/detail/lichkov/prodej-rodinneho-domu-300-m-lichkov-8632641.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/168325964"
   ],
   "listings": [
     {
@@ -334,6 +411,101 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:next-reality-property"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 5800 m²",
+      "location": "Lichkov, Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "4 060 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "5800",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/lichkov/1104835404"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1104835404",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1010 m²",
+      "location": "Lichkov, Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "2 290 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1010",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/lichkov/569930572"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/569930572",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1920 m²",
+      "location": "Lichkov, Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "1 632 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1920",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/lichkov/2799334220"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2799334220",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1855 m²",
+      "location": "Lichkov, Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "1 576 750 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1855",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/lichkov/1457156940"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1457156940",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1206 m²",
+      "location": "Lichkov, Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "1 025 100 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1206",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/lichkov/114979660"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/114979660",
+        "buildable-land"
       ]
     }
   ]

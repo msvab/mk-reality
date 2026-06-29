@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Ostřetín."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 1,
-    "candidates_gathered": 4,
-    "rows_retained": 2,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 12,
+    "rows_retained": 7,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,6 +50,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -148,6 +152,94 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Ost%C5%99et%C3%ADn&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2587&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2587&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1463771980",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2198475596",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2232938572",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2355933260",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3236470860",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3292095308",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3695207244",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4024954956",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -156,7 +248,10 @@
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3606-pardubice/pardubicky/prodej-domy_vily.html",
     "outside-municipality:https://reality.aktualne.cz/detail/ostretin/prodej-pozemku-pro-rodinny-dum-vysoka-u-holic-8574197.html",
-    "outside-municipality:https://reality.aktualne.cz/detail/ostretin/prodej-pozemku-vysoka-u-holic-investicni-prilezitost-pro-mensi-developery-8454377.html"
+    "outside-municipality:https://reality.aktualne.cz/detail/ostretin/prodej-pozemku-vysoka-u-holic-investicni-prilezitost-pro-mensi-developery-8454377.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1463771980",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2198475596",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3236470860"
   ],
   "listings": [
     {
@@ -193,6 +288,97 @@
       "notes": [
         "detail-url-verified:reality.aktualne.cz",
         "aggregator-source:remax-alfa"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 160 m², pozemek 1454 m²",
+      "location": "Ostřetín, Pardubice",
+      "property_type": "house",
+      "price": "8 300 000 Kč",
+      "house_area_m2": "160",
+      "land_area_m2": "1454",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/ostretin/3292095308"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3292095308"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 180 m², pozemek 2451 m²",
+      "location": "Ostřetín, Pardubice",
+      "property_type": "house",
+      "price": "6 200 000 Kč",
+      "house_area_m2": "180",
+      "land_area_m2": "2451",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/ostretin/2232938572"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2232938572"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 2451 m²",
+      "location": "Ostřetín, Pardubice",
+      "property_type": "land",
+      "price": "6 200 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2451",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/ostretin/4024954956"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/4024954956",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 250 m², pozemek 4164 m²",
+      "location": "Ostřetín, Pardubice",
+      "property_type": "house",
+      "price": "5 900 000 Kč",
+      "house_area_m2": "250",
+      "land_area_m2": "4164",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/ostretin/3695207244"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3695207244"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 153 m², pozemek 1406 m²",
+      "location": "Ostřetín, Pardubice",
+      "property_type": "house",
+      "price": "4 898 000 Kč",
+      "house_area_m2": "153",
+      "land_area_m2": "1406",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/ostretin/2355933260"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2355933260"
       ]
     }
   ]

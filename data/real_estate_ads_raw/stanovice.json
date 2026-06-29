@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Stanovice."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 1,
-    "candidates_gathered": 10,
-    "rows_retained": 2,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 18,
+    "rows_retained": 8,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,6 +50,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -196,6 +200,94 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Stanovice&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=1279&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=1279&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/157261900",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1753919564",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/193638476",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/220463692",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2592780364",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2615312460",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2965409868",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3935232844",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -210,7 +302,9 @@
     "outside-municipality:https://reality.aktualne.cz/detail/stanovice/prodej-pozemku-k-bydleni-1889-m2-drazov-8555789.html",
     "outside-municipality:https://reality.aktualne.cz/detail/stanovice/prodej-stavebnich-pozemku-v-obci-stanovice-u-karlovych-varu-zahajena-vystavby-32025-8227559.html",
     "outside-municipality:https://reality.aktualne.cz/detail/stanovice/prodej-stavebniho-pozemku-1-513-m2-elektrika-rovinaty-hlinky-u-becova-nad-teplou-8574755.html",
-    "outside-municipality:https://reality.aktualne.cz/detail/stanovice/pronajem-byt-2kk-69m2-komora-sklep-kulna-hlinky-8622715.html"
+    "outside-municipality:https://reality.aktualne.cz/detail/stanovice/pronajem-byt-2kk-69m2-komora-sklep-kulna-hlinky-8622715.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/157261900",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3935232844"
   ],
   "listings": [
     {
@@ -249,6 +343,118 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 4412 m²",
+      "location": "Stanovice, Karlovy Vary",
+      "property_type": "land",
+      "price": "8 280 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "4412",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/stanovice/2592780364"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2592780364",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej vícegeneračního domu 100 m², pozemek 2839 m²",
+      "location": "Stanovice, Karlovy Vary",
+      "property_type": "house",
+      "price": "6 700 000 Kč",
+      "house_area_m2": "100",
+      "land_area_m2": "2839",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/vicegeneracni-dum/stanovice/2615312460"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2615312460"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1675 m²",
+      "location": "Stanovice, Karlovy Vary",
+      "property_type": "land",
+      "price": "2 850 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1675",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/stanovice/1753919564"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1753919564",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 330 m², pozemek 1180 m²",
+      "location": "Stanovice, Karlovy Vary",
+      "property_type": "house",
+      "price": "2 785 000 Kč",
+      "house_area_m2": "330",
+      "land_area_m2": "1180",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/stanovice-drazov/2965409868"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2965409868"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1000 m²",
+      "location": "Stanovice, Karlovy Vary",
+      "property_type": "land",
+      "price": "2 200 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1000",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/stanovice/220463692"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/220463692",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1889 m²",
+      "location": "Stanovice, Karlovy Vary",
+      "property_type": "land",
+      "price": "1 970 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1889",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/stanovice/193638476"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/193638476",
+        "buildable-land"
       ]
     }
   ]

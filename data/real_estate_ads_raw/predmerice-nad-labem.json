@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Předměřice nad Labem."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 0,
-    "candidates_gathered": 7,
-    "rows_retained": 0,
+    "workers_launched": 4,
+    "workers_with_results": 1,
+    "candidates_gathered": 12,
+    "rows_retained": 4,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
@@ -51,6 +51,10 @@
     "reality.aktualne.cz": {
       "status": "no_results",
       "message": "No retained in-scope Reality Aktuálně rows."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -149,6 +153,70 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=P%C5%99edm%C4%9B%C5%99ice+nad+Labem&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2220&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2220&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1921540940",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2442625868",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3338842188",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3824939084",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/448262220",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -161,7 +229,83 @@
     "land-below-threshold:https://reality.aktualne.cz/detail/predmerice-nad-labem/prodej-rd-predmerice-nad-labem-8532051.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/predmerice-nad-labem/prodej-vily-379-m2-obrancu-miru-predmerice-nad-labem-8563771.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/predmerice-nad-labem/pronajem-rodinneho-domu-150-m-predmerice-n-l-ul-na-obci-8629625.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/predmerice-nad-labem/pronajem-skladu-175-m-predmerice-nad-labem-ul-v-aleji-8521311.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/predmerice-nad-labem/pronajem-skladu-175-m-predmerice-nad-labem-ul-v-aleji-8521311.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1921540940"
   ],
-  "listings": []
+  "listings": [
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej vily 379 m², pozemek 1897 m²",
+      "location": "Předměřice nad Labem, Obránců míru, Hradec Králové",
+      "property_type": "house",
+      "price": "28 840 000 Kč",
+      "house_area_m2": "379",
+      "land_area_m2": "1897",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/vila/predmerice-nad-labem-obrancu-miru/3338842188"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3338842188"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 146 m², pozemek 1400 m²",
+      "location": "Předměřice nad Labem, U Cihelny, Hradec Králové",
+      "property_type": "house",
+      "price": "16 790 000 Kč",
+      "house_area_m2": "146",
+      "land_area_m2": "1400",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/predmerice-nad-labem-u-cihelny/3824939084"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3824939084"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1749 m²",
+      "location": "Předměřice nad Labem, Zelená cihelna, Hradec Králové",
+      "property_type": "land",
+      "price": "7 450 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1749",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/predmerice-nad-labem-zelena-cihelna/448262220"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/448262220",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej komerčního pozemku 11770 m²",
+      "location": "Předměřice nad Labem, Obránců míru, Hradec Králové",
+      "property_type": "land",
+      "price": "1 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "11770",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/komercni/predmerice-nad-labem-obrancu-miru/2442625868"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2442625868",
+        "buildable-land"
+      ]
+    }
+  ]
 }

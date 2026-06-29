@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Letohrad."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 1,
-    "candidates_gathered": 14,
-    "rows_retained": 5,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 21,
+    "rows_retained": 11,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,6 +50,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -260,6 +264,86 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Letohrad&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2989&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2989&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/158044236",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1652965964",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1726026316",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2647028556",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2942509900",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3871776844",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3956834380",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -276,7 +360,8 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/letohrad/pronajem-bytu-2-kk-51-m-letohrad-ul-vaclavske-namesti-8432887.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/letohrad/pronajem-bytu-2-kk-62-m-letohrad-ul-vaclavske-namesti-8584417.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/letohrad/pronajem-bytu-2-kk-66-m-letohrad-ul-vaclavske-namesti-8477351.html",
-    "outside-municipality:https://reality.aktualne.cz/detail/letohrad/pronajem-nekolika-skladovych-prostor-o-ruznych-vymerach-v-1np-a-2np-kladkovy-vytah-celkova-vymera-8011962.html"
+    "outside-municipality:https://reality.aktualne.cz/detail/letohrad/pronajem-nekolika-skladovych-prostor-o-ruznych-vymerach-v-1np-a-2np-kladkovy-vytah-celkova-vymera-8011962.html",
+    "excluded-chata:https://www.sreality.cz/api/v1/estates/158044236"
   ],
   "listings": [
     {
@@ -368,6 +453,116 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:ondrej-kolar---vasrealitak.cz"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej komerčního pozemku 11223 m²",
+      "location": "Letohrad, Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "13 500 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "11223",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/komercni/letohrad/3871776844"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3871776844",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej chalupy 322 m², pozemek 1175 m²",
+      "location": "Letohrad, Taušlova, Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "5 499 000 Kč",
+      "house_area_m2": "322",
+      "land_area_m2": "1175",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/chalupa/letohrad-tauslova/1726026316"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1726026316"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej chalupy 129 m², pozemek 4080 m²",
+      "location": "Letohrad, Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "4 967 400 Kč",
+      "house_area_m2": "129",
+      "land_area_m2": "4080",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/chalupa/letohrad-cervena/3956834380"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3956834380"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 164 m², pozemek 1447 m²",
+      "location": "Letohrad, Podměstí, Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "4 499 999 Kč",
+      "house_area_m2": "164",
+      "land_area_m2": "1447",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/letohrad-podmesti/2647028556"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2647028556"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 120 m², pozemek 1027 m²",
+      "location": "Letohrad, Komenského, Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "3 790 000 Kč",
+      "house_area_m2": "120",
+      "land_area_m2": "1027",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/letohrad-komenskeho/2942509900"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2942509900"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1937 m²",
+      "location": "Letohrad, Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "3 485 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1937",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/letohrad/1652965964"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1652965964",
+        "buildable-land"
       ]
     }
   ]

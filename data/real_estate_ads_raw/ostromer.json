@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Ostroměř."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 0,
-    "candidates_gathered": 2,
-    "rows_retained": 0,
+    "workers_launched": 4,
+    "workers_with_results": 1,
+    "candidates_gathered": 6,
+    "rows_retained": 3,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
@@ -51,6 +51,10 @@
     "reality.aktualne.cz": {
       "status": "no_results",
       "message": "No retained in-scope Reality Aktuálně rows."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -109,6 +113,62 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Ostrom%C4%9B%C5%99&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2413&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2413&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1290933068",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3089093452",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3892555852",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/788242508",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -116,7 +176,63 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "non-buildable-land:https://reality.aktualne.cz/detail/ostromer/pozemek-o-velikosti-3046m2-ostromer-8625767.html",
-    "inactive-or-unpriced:https://reality.aktualne.cz/detail/ostromer/prodej-pozemku-2-619-m-ve-vesnicke-pamatkove-zone-nove-smrkovice-8396331.html"
+    "inactive-or-unpriced:https://reality.aktualne.cz/detail/ostromer/prodej-pozemku-2-619-m-ve-vesnicke-pamatkove-zone-nove-smrkovice-8396331.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3089093452"
   ],
-  "listings": []
+  "listings": [
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 130 m², pozemek 1014 m²",
+      "location": "Ostroměř, Domoslavická, Jičín",
+      "property_type": "house",
+      "price": "4 350 000 Kč",
+      "house_area_m2": "130",
+      "land_area_m2": "1014",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/ostromer-domoslavicka/1290933068"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1290933068"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 110 m², pozemek 1037 m²",
+      "location": "Ostroměř, Domoslavická, Jičín",
+      "property_type": "house",
+      "price": "4 199 000 Kč",
+      "house_area_m2": "110",
+      "land_area_m2": "1037",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/ostromer-domoslavicka/788242508"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/788242508"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 96 m², pozemek 1597 m²",
+      "location": "Ostroměř, Jičín",
+      "property_type": "house",
+      "price": "3 900 000 Kč",
+      "house_area_m2": "96",
+      "land_area_m2": "1597",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/ostromer-domoslavice/3892555852"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3892555852"
+      ]
+    }
+  ]
 }

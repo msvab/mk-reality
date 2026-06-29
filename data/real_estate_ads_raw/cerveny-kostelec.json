@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Červený Kostelec."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 1,
-    "candidates_gathered": 21,
-    "rows_retained": 1,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 31,
+    "rows_retained": 8,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,6 +50,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -294,6 +298,110 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=%C4%8Cerven%C3%BD+Kostelec&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2473&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2473&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1789235276",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1864536140",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2107769676",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2431578188",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2940960844",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/334426188",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3860087628",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3993542732",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/437257036",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/691454796",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -319,7 +427,10 @@
     "outside-municipality:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-rodinneho-domu-v-cervenem-kostelci-olesnice-8449813.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-obchod-a-sluzby-90-m-cerveny-kostelec-8561275.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-rodinneho-domu-80-m2-cerveny-kostelec-8568477.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-skladu-4000-m-cerveny-kostelec-ul-jiraskova-8559107.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-skladu-4000-m-cerveny-kostelec-ul-jiraskova-8559107.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1789235276",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3993542732",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/437257036"
   ],
   "listings": [
     {
@@ -339,6 +450,135 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 3338 m²",
+      "location": "Červený Kostelec, Náchod",
+      "property_type": "land",
+      "price": "5 600 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "3338",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/cerveny-kostelec/2940960844"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2940960844",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1928 m²",
+      "location": "Červený Kostelec, Náchod",
+      "property_type": "land",
+      "price": "5 000 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1928",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/cerveny-kostelec-stolin/2431578188"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2431578188",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 200 m², pozemek 1929 m²",
+      "location": "Červený Kostelec, Náchod",
+      "property_type": "house",
+      "price": "3 700 000 Kč",
+      "house_area_m2": "200",
+      "land_area_m2": "1929",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/cerveny-kostelec-stolin/334426188"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/334426188"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 184 m², pozemek 2388 m²",
+      "location": "Červený Kostelec, Náchod",
+      "property_type": "house",
+      "price": "3 200 000 Kč",
+      "house_area_m2": "184",
+      "land_area_m2": "2388",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/cerveny-kostelec-horni-kostelec/2107769676"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2107769676"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej chalupy 80 m², pozemek 6504 m²",
+      "location": "Červený Kostelec, Náchod",
+      "property_type": "house",
+      "price": "2 199 999 Kč",
+      "house_area_m2": "80",
+      "land_area_m2": "6504",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/chalupa/cerveny-kostelec-horni-kostelec/1864536140"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1864536140"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 80 m², pozemek 6504 m²",
+      "location": "Červený Kostelec, Náchod",
+      "property_type": "house",
+      "price": "2 199 999 Kč",
+      "house_area_m2": "80",
+      "land_area_m2": "6504",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/cerveny-kostelec-horni-kostelec/3860087628"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3860087628"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej pole 1859 m²",
+      "location": "Červený Kostelec, Náchod",
+      "property_type": "land",
+      "price": "103 732 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1859",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/pole/cerveny-kostelec/691454796"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/691454796",
+        "buildable-land"
       ]
     }
   ]

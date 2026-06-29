@@ -24,18 +24,19 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Černilov."
   ],
   "coverage": {
-    "workers_launched": 3,
+    "workers_launched": 4,
     "workers_with_results": 0,
-    "candidates_gathered": 5,
+    "candidates_gathered": 6,
     "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
-      "reality.aktualne.cz"
+      "reality.aktualne.cz",
+      "sreality.cz"
     ],
     "blocked_portals": []
   },
@@ -51,6 +52,10 @@
     "reality.aktualne.cz": {
       "status": "no_results",
       "message": "No retained in-scope Reality Aktuálně rows."
+    },
+    "sreality.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope Sreality rows."
     }
   },
   "fetch_attempts": [
@@ -133,6 +138,38 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=%C4%8Cernilov&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2157&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2157&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1017413708",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -143,7 +180,8 @@
     "outside-municipality:https://reality.aktualne.cz/detail/cernilov/nadstandardne-vybaveny-novy-rodinny-dum-4-kk-8610985.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/cernilov/prodej-domy-rodinny-178-m2-cernilov-hradec-kralove-id-83655-8615505.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/cernilov/prodej-rodinny-dum-124-8622639.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/cernilov/prodej-vicegeneracniho-rodinneho-domu-v-cernilove-8522533.html"
+    "land-below-threshold:https://reality.aktualne.cz/detail/cernilov/prodej-vicegeneracniho-rodinneho-domu-v-cernilove-8522533.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1017413708"
   ],
   "listings": []
 }

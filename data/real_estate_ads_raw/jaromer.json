@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Jaroměř."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 1,
-    "candidates_gathered": 20,
-    "rows_retained": 1,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 25,
+    "rows_retained": 3,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,6 +50,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -268,6 +272,70 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Jarom%C4%9B%C5%99&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2489&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2489&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2155974732",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2264159052",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2399036236",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2979607884",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4027224140",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -292,7 +360,10 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-obchodni-prostor-75-m2-ul-svat-cecha-jaromer-8627731.html",
     "outside-municipality:https://reality.aktualne.cz/detail/jaromer/pronajem-obchodniho-prostoru-josefov-masarykovo-namesti-8626265.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-skladovy-prostor-135-m2-jaromer-8621427.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-skladovych-a-vyrobnich-prostor-od-1-706-m-jaromer-8630601.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-skladovych-a-vyrobnich-prostor-od-1-706-m-jaromer-8630601.html",
+    "missing-price:https://www.sreality.cz/api/v1/estates/2264159052",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2979607884",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4027224140"
   ],
   "listings": [
     {
@@ -311,6 +382,42 @@
       "notes": [
         "detail-url-verified:reality.aktualne.cz",
         "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 454 m², pozemek 1395 m²",
+      "location": "Jaroměř, Palackého, Náchod",
+      "property_type": "house",
+      "price": "12 360 000 Kč",
+      "house_area_m2": "454",
+      "land_area_m2": "1395",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/jaromer-jakubske-predmesti-palackeho/2399036236"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2399036236"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 46 m², pozemek 1226 m²",
+      "location": "Jaroměř, Štěrbova, Náchod",
+      "property_type": "house",
+      "price": "5 500 000 Kč",
+      "house_area_m2": "46",
+      "land_area_m2": "1226",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/jaromer-josefov-sterbova/2155974732"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2155974732"
       ]
     }
   ]

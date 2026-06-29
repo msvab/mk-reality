@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Hradec Králové."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 2,
-    "candidates_gathered": 83,
-    "rows_retained": 18,
+    "workers_launched": 4,
+    "workers_with_results": 3,
+    "candidates_gathered": 135,
+    "rows_retained": 41,
     "zero_result_portals": [
       "reality.idnes.cz"
     ],
@@ -49,6 +49,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -534,6 +538,14 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hradec-kralove/prodej-bytu-3-1-98-m-hradec-kralove-ul-trida-e-benese-8558165.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/hradec-kralove/prodej-bytu-3-1-hradec-kralove-8528913.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -575,6 +587,14 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/hradec-kralove/prodej-byty-3-1-78-72-m2-cajkovskeho-922-60-novy-hradec-kralove-50009-hradec-kralove-hradec-kr-8555081.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hradec-kralove/prodej-byty-3-1-98-m2-trida-edvarda-benese-1425-17-novy-hradec-kralove-50012-hradec-kralove-hr-8529341.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -646,23 +666,7 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-3-1-v-hradci-kralove-ul-gebauerova-8631731.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/hradec-kralove/pronajem-pekneho-bytu-s-dobrou-dopravni-dostupnosti-8632773.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/hradec-kralove/pronajem-rekonstruovaneho-bytu-2-kk-42-m-hradec-kralove-trida-edvarda-benese-8633771.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -687,6 +691,446 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/hradec-kralove/zahradka-v-zahradkarske-kolonii-8629987.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Hradec+Kr%C3%A1lov%C3%A9&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2149&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2149&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1105240652",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1115116364",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1264578636",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1341092684",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1443271500",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1550656332",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1683652684",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1729151564",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1947906124",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1997497164",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2065150028",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2141700684",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2143912012",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2220855372",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2267738188",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2277798732",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2416694092",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2438430796",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2448986188",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2465898572",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2478654284",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2572136524",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2685470028",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2814672972",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2820534348",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2845282380",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2869534796",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2908287052",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3349877580",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3351540556",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3421832524",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3436179532",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3511988300",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3531964492",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3641700428",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3848885068",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3975970892",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3993677900",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4121396556",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4180848716",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/568464204",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/606249036",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/631006284",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/64393292",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/772599884",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/827540300",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/858661708",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/876539980",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/958763084",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/987799628",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/993501260",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/994410572",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -732,12 +1176,14 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/podnajem-byty-pokoj-50-m2-habrmanova-295-16-50002-hradec-kralove-hradec-kralove-id-81715-8497833.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/podnajem-komercni-vyroba-1059-m2-vyrobni-952-slezske-predmesti-50003-hradec-kralove-hradec-kra-8259375.html",
     "non-buildable-land:https://reality.aktualne.cz/detail/hradec-kralove/pozemek-33-989m2-hradec-kralove-malsova-lhota-7706119.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-bytu-3-1-98-m-hradec-kralove-ul-trida-e-benese-8558165.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-bytu-3-1-hradec-kralove-8528913.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-bytu-3-kk-68-m2-hradec-kralove-8609677.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-byty-1-1-35-m2-formankova-516-23-moravske-predmesti-50011-hradec-kralove-hradec-kralove-8631853.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-byty-2-kk-44-m2-pospisilova-698-17-50003-hradec-kralove-hradec-kralove-id-80992-8532031.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-byty-2-kk-46-m2-bidlova-796-16-50003-hradec-kralove-hradec-kralove-id-87203-8624495.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-byty-3-1-78-72-m2-cajkovskeho-922-60-novy-hradec-kralove-50009-hradec-kralove-hradec-kr-8555081.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-byty-3-1-98-m2-trida-edvarda-benese-1425-17-novy-hradec-kralove-50012-hradec-kralove-hr-8529341.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-garazoveho-stani-15-m-ul-pod-svahem-765-8549155.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/hradec-kralove/prodej-pozemek-zahrada-ustecky-kraj-chomutov-skroupova-1444-3-43001-8631393.html",
     "non-buildable-land:https://reality.aktualne.cz/detail/hradec-kralove/prodej-stavebniho-pozemku-4560-m-8597059.html",
@@ -745,11 +1191,38 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-2-kk-59-m-hradec-kralove-trebes-8632989.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-3-1-62-m-hradec-kralove-ul-severni-8540473.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-3-1-70-2-m2-zasklena-lodzie-velky-sklep-hradec-kralove-8632687.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-3-1-v-hradci-kralove-ul-gebauerova-8631731.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-pekneho-bytu-s-dobrou-dopravni-dostupnosti-8632773.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-rekonstruovaneho-bytu-2-kk-42-m-hradec-kralove-trida-edvarda-benese-8633771.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/sportovni-areal-tj-lokomotiva-hradec-kralove-v-prodeji-investicni-prilezitost-sportovni-areal-11-8624863.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/zahradka-v-zahradkarske-kolonii-8629987.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/zahradka-v-zahradkarske-kolonii-8629987.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1105240652",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1115116364",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1550656332",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1729151564",
+    "missing-price:https://www.sreality.cz/api/v1/estates/1947906124",
+    "missing-price:https://www.sreality.cz/api/v1/estates/2065150028",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2141700684",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2277798732",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2416694092",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2438430796",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2465898572",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2572136524",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2820534348",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2845282380",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2869534796",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2908287052",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3349877580",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3351540556",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3421832524",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3641700428",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3848885068",
+    "missing-price:https://www.sreality.cz/api/v1/estates/3993677900",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4121396556",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4180848716",
+    "missing-price:https://www.sreality.cz/api/v1/estates/568464204",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/631006284",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/958763084",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/993501260",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/994410572"
   ],
   "listings": [
     {
@@ -1068,6 +1541,427 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:reality-cerny-s.r.o."
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 6116 m²",
+      "location": "Hradec Králové, K Dolíkám, Hradec Králové",
+      "property_type": "land",
+      "price": "42 200 400 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "6116",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/hradec-kralove-svobodne-dvory-k-dolikam/64393292"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/64393292",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej komerčního pozemku 7896 m²",
+      "location": "Hradec Králové, Hradec Králové",
+      "property_type": "land",
+      "price": "30 794 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "7896",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/komercni/hradec-kralove-placky/1683652684"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1683652684",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 289 m², pozemek 1700 m²",
+      "location": "Hradec Králové, Náhon, Hradec Králové",
+      "property_type": "house",
+      "price": "27 250 000 Kč",
+      "house_area_m2": "289",
+      "land_area_m2": "1700",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/hradec-kralove-malsovice-nahon/1443271500"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1443271500"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 110 m², pozemek 3025 m²",
+      "location": "Hradec Králové, Obecní, Hradec Králové",
+      "property_type": "house",
+      "price": "24 000 000 Kč",
+      "house_area_m2": "110",
+      "land_area_m2": "3025",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/hradec-kralove-slatina-obecni/3975970892"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3975970892"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej komerčního pozemku 1871 m²",
+      "location": "Hradec Králové, Náhon, Hradec Králové",
+      "property_type": "land",
+      "price": "22 425 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1871",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/komercni/hradec-kralove-malsovice-nahon/3511988300"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3511988300",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 210 m², pozemek 1003 m²",
+      "location": "Hradec Králové, Horní, Hradec Králové",
+      "property_type": "house",
+      "price": "19 990 031 Kč",
+      "house_area_m2": "210",
+      "land_area_m2": "1003",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/hradec-kralove-roudnicka-horni/2220855372"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2220855372"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 232 m², pozemek 1142 m²",
+      "location": "Hradec Králové, Na Hrázce, Hradec Králové",
+      "property_type": "house",
+      "price": "17 900 000 Kč",
+      "house_area_m2": "232",
+      "land_area_m2": "1142",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/hradec-kralove-malsovice-na-hrazce/1997497164"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1997497164"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 300 m², pozemek 1176 m²",
+      "location": "Hradec Králové, Ve Svahu, Hradec Králové",
+      "property_type": "house",
+      "price": "17 900 000 Kč",
+      "house_area_m2": "300",
+      "land_area_m2": "1176",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/hradec-kralove-roudnicka-ve-svahu/3531964492"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3531964492"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 260 m², pozemek 1037 m²",
+      "location": "Hradec Králové, Hradec Králové",
+      "property_type": "house",
+      "price": "17 850 000 Kč",
+      "house_area_m2": "260",
+      "land_area_m2": "1037",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/hradec-kralove/1341092684"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1341092684"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 560 m², pozemek 5194 m²",
+      "location": "Hradec Králové, Petra Jilemnického, Hradec Králové",
+      "property_type": "house",
+      "price": "15 000 000 Kč",
+      "house_area_m2": "560",
+      "land_area_m2": "5194",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/hradec-kralove-plotiste-nad-labem-petra-jilemnickeho/2267738188"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2267738188"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 218 m², pozemek 2603 m²",
+      "location": "Hradec Králové, Hradec Králové",
+      "property_type": "house",
+      "price": "15 000 000 Kč",
+      "house_area_m2": "218",
+      "land_area_m2": "2603",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/hradec-kralove-kukleny/827540300"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/827540300"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 260 m², pozemek 1214 m²",
+      "location": "Hradec Králové, Jiráskova, Hradec Králové",
+      "property_type": "house",
+      "price": "14 800 000 Kč",
+      "house_area_m2": "260",
+      "land_area_m2": "1214",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/hradec-kralove-kukleny-jiraskova/2685470028"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2685470028"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 159 m², pozemek 1129 m²",
+      "location": "Hradec Králové, U Cihelny, Hradec Králové",
+      "property_type": "house",
+      "price": "13 990 000 Kč",
+      "house_area_m2": "159",
+      "land_area_m2": "1129",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/hradec-kralove-svobodne-dvory-u-cihelny/2478654284"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2478654284"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 90 m², pozemek 1512 m²",
+      "location": "Hradec Králové, Brněnská, Hradec Králové",
+      "property_type": "house",
+      "price": "12 000 000 Kč",
+      "house_area_m2": "90",
+      "land_area_m2": "1512",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/hradec-kralove-novy-hradec-kralove-brnenska/1264578636"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1264578636"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 150 m², pozemek 1000 m²",
+      "location": "Hradec Králové, Černilovská, Hradec Králové",
+      "property_type": "house",
+      "price": "11 790 000 Kč",
+      "house_area_m2": "150",
+      "land_area_m2": "1000",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/hradec-kralove-rusek-cernilovska/987799628"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/987799628"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 150 m², pozemek 1118 m²",
+      "location": "Hradec Králové, Kydlinovská, Hradec Králové",
+      "property_type": "house",
+      "price": "9 500 000 Kč",
+      "house_area_m2": "150",
+      "land_area_m2": "1118",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/hradec-kralove-placky-kydlinovska/772599884"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/772599884"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej komerčního pozemku 6364 m²",
+      "location": "Hradec Králové, Hradec Králové",
+      "property_type": "land",
+      "price": "8 670 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "6364",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/komercni/hradec-kralove-trebes/3436179532"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3436179532",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1384 m²",
+      "location": "Hradec Králové, Hradec Králové",
+      "property_type": "land",
+      "price": "8 304 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1384",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/hradec-kralove/858661708"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/858661708",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej vícegeneračního domu 236 m², pozemek 1191 m²",
+      "location": "Hradec Králové, Honkova, Hradec Králové",
+      "property_type": "house",
+      "price": "8 000 000 Kč",
+      "house_area_m2": "236",
+      "land_area_m2": "1191",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/vicegeneracni-dum/hradec-kralove-kukleny-honkova/2814672972"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2814672972"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 112 m², pozemek 1073 m²",
+      "location": "Hradec Králové, Drtinova, Hradec Králové",
+      "property_type": "house",
+      "price": "7 500 000 Kč",
+      "house_area_m2": "112",
+      "land_area_m2": "1073",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/hradec-kralove-svobodne-dvory-drtinova/606249036"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/606249036"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1328 m²",
+      "location": "Hradec Králové, Hradec Králové",
+      "property_type": "land",
+      "price": "6 890 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1328",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/hradec-kralove/2448986188"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2448986188",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rybníku (vodní plochy) 13336 m²",
+      "location": "Hradec Králové, Hradec Králové",
+      "property_type": "land",
+      "price": "6 500 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "13336",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/rybniky/hradec-kralove-plotiste-nad-labem/2143912012"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2143912012",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 220 m², pozemek 1098 m²",
+      "location": "Hradec Králové, Piletická, Hradec Králové",
+      "property_type": "house",
+      "price": "6 500 000 Kč",
+      "house_area_m2": "220",
+      "land_area_m2": "1098",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/hradec-kralove-piletice-pileticka/876539980"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/876539980"
       ]
     }
   ]

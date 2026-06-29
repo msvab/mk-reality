@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Hořice."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 1,
-    "candidates_gathered": 22,
-    "rows_retained": 2,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 28,
+    "rows_retained": 8,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,6 +50,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -152,14 +156,6 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/horice/novostavba-bytu-3-kk-85-34-m2-3-balkon-13-85-m2-vytah-podlahove-vytapeni-uzavreny-areal-8629997.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/horice/pozemek-bydleni-prodej-horice-pelhrimov-8593755.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -292,6 +288,86 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Ho%C5%99ice&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2378&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2378&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1354010700",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2064503628",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2330570828",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3038310476",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3123446348",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/315188044",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/997949516",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -302,7 +378,6 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/horice/novostavba-bytu-3-kk-75-32-m2-2-balkon-8-63-m2-vytah-podlahove-vytapeni-uzavreny-areal-8629807.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/horice/novostavba-bytu-3-kk-82-2-m2-balkon-2-6-m2-vytah-podlahove-vytapeni-uzavreny-areal-8629819.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/horice/novostavba-bytu-3-kk-85-34-m2-3-balkon-13-85-m2-vytah-podlahove-vytapeni-uzavreny-areal-8629997.html",
-    "non-buildable-land:https://reality.aktualne.cz/detail/horice/pozemek-bydleni-prodej-horice-pelhrimov-8593755.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/horice/prodej-bytu-2-kk-44-m2-horice-8625007.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/horice/prodej-bytu-2-kk-44-m2-horice-8625009.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/horice/prodej-bytu-2-kk-44-m2-horice-8625023.html",
@@ -317,7 +392,8 @@
     "outside-municipality:https://reality.aktualne.cz/detail/horice/prodej-chata-62-8616485.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/horice/prodej-komercni-nemovitosti-horice-v-podkrkonosi-8495613.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/horice/prodej-prostorneho-rodinneho-domu-4-1-se-zahradou-a-garazi-v-horicich-8630773.html",
-    "outside-municipality:https://reality.aktualne.cz/detail/horice/prodej-rodinny-dum-62-8617261.html"
+    "outside-municipality:https://reality.aktualne.cz/detail/horice/prodej-rodinny-dum-62-8617261.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/997949516"
   ],
   "listings": [
     {
@@ -354,6 +430,114 @@
       "notes": [
         "detail-url-verified:reality.aktualne.cz",
         "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 705 m², pozemek 2972 m²",
+      "location": "Hořice, Janákova, Jičín",
+      "property_type": "house",
+      "price": "13 900 000 Kč",
+      "house_area_m2": "705",
+      "land_area_m2": "2972",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/horice-janakova/3123446348"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3123446348"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 520 m², pozemek 1389 m²",
+      "location": "Hořice, Maixnerova, Jičín",
+      "property_type": "house",
+      "price": "12 700 000 Kč",
+      "house_area_m2": "520",
+      "land_area_m2": "1389",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/horice-maixnerova/2064503628"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2064503628"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 427 m², pozemek 1520 m²",
+      "location": "Hořice, Jičín",
+      "property_type": "house",
+      "price": "8 990 000 Kč",
+      "house_area_m2": "427",
+      "land_area_m2": "1520",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/horice-chlum/2330570828"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2330570828"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 115 m², pozemek 2115 m²",
+      "location": "Hořice, Jičín",
+      "property_type": "house",
+      "price": "7 950 000 Kč",
+      "house_area_m2": "115",
+      "land_area_m2": "2115",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/horice-doubrava/1354010700"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1354010700"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 207 m², pozemek 2549 m²",
+      "location": "Hořice, Palackého náměstí, Jičín",
+      "property_type": "house",
+      "price": "6 580 000 Kč",
+      "house_area_m2": "207",
+      "land_area_m2": "2549",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/horice-palackeho-namesti/315188044"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/315188044"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 82 m², pozemek 3374 m²",
+      "location": "Hořice, Jičín",
+      "property_type": "house",
+      "price": "5 900 000 Kč",
+      "house_area_m2": "82",
+      "land_area_m2": "3374",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/horice-chvalina/3038310476"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3038310476"
       ]
     }
   ]

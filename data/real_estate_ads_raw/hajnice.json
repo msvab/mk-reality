@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Hajnice."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 1,
-    "candidates_gathered": 7,
-    "rows_retained": 1,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 12,
+    "rows_retained": 3,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,6 +50,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -164,6 +168,70 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Hajnice&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2895&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2895&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1286574156",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/281679180",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2854006860",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2915201868",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3782144076",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -176,7 +244,10 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/hajnice/prodej-pastviny-3357-m-hajnice-8143155.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/hajnice/prodej-pozemku-k-bydleni-699-m-hajnice-8550263.html",
     "non-buildable-land:https://reality.aktualne.cz/detail/hajnice/prodej-rodinneho-domu-4-kk-115-m-pozemek-1471-m-hajnice-8562081.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/hajnice/prodej-rodinneho-domu-74-m-hajnice-8550269.html"
+    "land-below-threshold:https://reality.aktualne.cz/detail/hajnice/prodej-rodinneho-domu-74-m-hajnice-8550269.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/281679180",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2915201868",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3782144076"
   ],
   "listings": [
     {
@@ -196,6 +267,43 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:bidli-reality,-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 115 m², pozemek 1471 m²",
+      "location": "Hajnice, Trutnov",
+      "property_type": "house",
+      "price": "6 999 000 Kč",
+      "house_area_m2": "115",
+      "land_area_m2": "1471",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/hajnice/2854006860"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2854006860"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 3878 m²",
+      "location": "Hajnice, Trutnov",
+      "property_type": "land",
+      "price": "5 990 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "3878",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/hajnice/1286574156"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1286574156",
+        "buildable-land"
       ]
     }
   ]

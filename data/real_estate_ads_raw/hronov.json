@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Hronov."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 1,
-    "candidates_gathered": 19,
-    "rows_retained": 2,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 24,
+    "rows_retained": 4,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,6 +50,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -268,6 +272,70 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Hronov&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2485&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2485&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1177854028",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2662838348",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2800444236",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3287392332",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/524283980",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -290,7 +358,10 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/hronov/pronajem-bytu-1-1-63-m-hronov-ul-husova-8512853.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hronov/pronajem-luxusnich-nebytovych-prostor-120-m2-s-bytem-2-kk-45-m2-v-hronove-1-patro-8453191.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hronov/pronajem-obchod-a-sluzby-66000-m-hronov-ul-kostelecka-8556155.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/hronov/pronajem-rodinneho-domu-80-m-dvorska-hronov-549-31-8552613.html"
+    "land-below-threshold:https://reality.aktualne.cz/detail/hronov/pronajem-rodinneho-domu-80-m-dvorska-hronov-549-31-8552613.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1177854028",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2800444236",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3287392332"
   ],
   "listings": [
     {
@@ -329,6 +400,42 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 150 m², pozemek 1136 m²",
+      "location": "Hronov, Náchod",
+      "property_type": "house",
+      "price": "2 290 000 Kč",
+      "house_area_m2": "150",
+      "land_area_m2": "1136",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/hronov-velky-drevic/2662838348"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2662838348"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 150 m², pozemek 1136 m²",
+      "location": "Hronov, Náchod",
+      "property_type": "house",
+      "price": "2 290 000 Kč",
+      "house_area_m2": "150",
+      "land_area_m2": "1136",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/hronov-velky-drevic/524283980"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/524283980"
       ]
     }
   ]

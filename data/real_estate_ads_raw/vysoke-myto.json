@@ -24,17 +24,18 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Vysoké Mýto."
   ],
   "coverage": {
-    "workers_launched": 3,
+    "workers_launched": 4,
     "workers_with_results": 1,
-    "candidates_gathered": 12,
+    "candidates_gathered": 19,
     "rows_retained": 1,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "realitymix.cz"
+      "realitymix.cz",
+      "sreality.cz"
     ],
     "blocked_portals": []
   },
@@ -50,6 +51,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope Sreality rows."
     }
   },
   "fetch_attempts": [
@@ -188,6 +193,86 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Vysok%C3%A9+M%C3%BDto&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=3036&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=3036&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2234115404",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/241931084",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2575536204",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3244523596",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/63414348",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/694677580",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/853516364",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -204,7 +289,14 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-2-1-rokycanova-vysoke-myto-12-000-kc-mes-53-m2-8570021.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-2-kk-49-m-vysoke-myto-ul-tumova-8597077.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-2-kk-53-m-vysoke-myto-ul-litomyslska-8599057.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-3-1-67-m-vysoke-myto-ul-odbojarska-8599603.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-3-1-67-m-vysoke-myto-ul-odbojarska-8599603.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2234115404",
+    "missing-price:https://www.sreality.cz/api/v1/estates/241931084",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2575536204",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3244523596",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/63414348",
+    "missing-price:https://www.sreality.cz/api/v1/estates/694677580",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/853516364"
   ],
   "listings": [
     {

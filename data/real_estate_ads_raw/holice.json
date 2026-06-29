@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Holice."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 1,
-    "candidates_gathered": 7,
-    "rows_retained": 2,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 24,
+    "rows_retained": 10,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,6 +50,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -198,6 +202,166 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Holice&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2560&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2560&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1095807052",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1188969308",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1239449676",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1533715276",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1855688780",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1874690124",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2035978316",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2148815692",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2492723276",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3070509900",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3114397772",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3133009996",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3431632972",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3572600908",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3765477452",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/660505164",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/959271756",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -209,7 +373,16 @@
     "detail-fallback-page:https://reality.aktualne.cz/detail/holice/prodej-domy-rodinny-194-m2-dudychova-524-53401-holice-pardubice-id-83784-8595827.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/holice/prodej-garaze-18-m-holice-8483473.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/holice/prodej-rodinneho-domu-autoservisu-a-lakovny-holice-8619705.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/holice/pronajem-bytu-2-1-62-m-holice-ul-ottmarova-8610675.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/holice/pronajem-bytu-2-1-62-m-holice-ul-ottmarova-8610675.html",
+    "missing-price:https://www.sreality.cz/api/v1/estates/1095807052",
+    "missing-price:https://www.sreality.cz/api/v1/estates/1188969308",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1239449676",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1874690124",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2148815692",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3070509900",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3114397772",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3431632972",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/660505164"
   ],
   "listings": [
     {
@@ -247,6 +420,152 @@
       "notes": [
         "detail-url-verified:reality.aktualne.cz",
         "aggregator-source:irealitka.cz"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 75 m², pozemek 1732 m²",
+      "location": "Holice, Smetanova, Pardubice",
+      "property_type": "house",
+      "price": "17 997 000 Kč",
+      "house_area_m2": "75",
+      "land_area_m2": "1732",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/holice-smetanova/2492723276"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2492723276"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 573 m², pozemek 1944 m²",
+      "location": "Holice, Pardubice",
+      "property_type": "house",
+      "price": "17 600 000 Kč",
+      "house_area_m2": "573",
+      "land_area_m2": "1944",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/holice-podlesi/959271756"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/959271756"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 288 m², pozemek 1132 m²",
+      "location": "Holice, Pardubice",
+      "property_type": "house",
+      "price": "10 200 000 Kč",
+      "house_area_m2": "288",
+      "land_area_m2": "1132",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/holice-stare-holice/1855688780"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1855688780"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 102 m², pozemek 1309 m²",
+      "location": "Holice, Sadová, Pardubice",
+      "property_type": "house",
+      "price": "8 850 000 Kč",
+      "house_area_m2": "102",
+      "land_area_m2": "1309",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/holice-sadova/3572600908"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3572600908"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 200 m², pozemek 1272 m²",
+      "location": "Holice, Bratří Čapků, Pardubice",
+      "property_type": "house",
+      "price": "6 700 000 Kč",
+      "house_area_m2": "200",
+      "land_area_m2": "1272",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/holice-bratri-capku/3765477452"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3765477452"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 2219 m²",
+      "location": "Holice, Staroholická, Pardubice",
+      "property_type": "land",
+      "price": "5 490 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2219",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/holice-stare-holice-staroholicka/2035978316"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2035978316",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 2204 m²",
+      "location": "Holice, Pardubice",
+      "property_type": "land",
+      "price": "5 289 600 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2204",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/holice-kamenec/1533715276"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1533715276",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 124 m², pozemek 1560 m²",
+      "location": "Holice, Pardubice",
+      "property_type": "house",
+      "price": "3 990 000 Kč",
+      "house_area_m2": "124",
+      "land_area_m2": "1560",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/holice-podhraz/3133009996"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3133009996"
       ]
     }
   ]

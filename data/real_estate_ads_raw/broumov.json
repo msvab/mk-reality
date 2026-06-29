@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Broumov."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 1,
-    "candidates_gathered": 20,
-    "rows_retained": 3,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 33,
+    "rows_retained": 7,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,6 +50,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -292,6 +296,134 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Broumov&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2469&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2469&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1047494732",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1300140876",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3022291020",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3121516620",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3365487436",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3455648588",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3721114444",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3844399948",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4032200780",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4112420940",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/479228492",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/51216460",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/963515212",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -314,7 +446,16 @@
     "outside-municipality:https://reality.aktualne.cz/detail/broumov/prodej-stavebniho-pozemku-3-146-m2-8618669.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/broumov/pronajem-podkrovniho-bytu-3-1-broumov-8503771.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/broumov/pronajem-zahrady-206-m-broumov-ul-dukelska-8498575.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/broumov/pronajem-zahrady-206-m-broumov-ul-dukelska-8591745.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/broumov/pronajem-zahrady-206-m-broumov-ul-dukelska-8591745.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1047494732",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3022291020",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3121516620",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3365487436",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3721114444",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3844399948",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4032200780",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4112420940",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/51216460"
   ],
   "listings": [
     {
@@ -371,6 +512,81 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:next-reality-horizont"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej vily 360 m², pozemek 1307 m²",
+      "location": "Broumov, třída Masarykova, Náchod",
+      "property_type": "house",
+      "price": "9 990 000 Kč",
+      "house_area_m2": "360",
+      "land_area_m2": "1307",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/vila/broumov-trida-masarykova/1300140876"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1300140876"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 7256 m²",
+      "location": "Broumov, Náchod",
+      "property_type": "land",
+      "price": "3 500 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "7256",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/broumov-velka-ves/479228492"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/479228492",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1398 m²",
+      "location": "Broumov, Šaldova, Náchod",
+      "property_type": "land",
+      "price": "1 290 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1398",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/broumov-saldova/3455648588"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3455648588",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1045 m²",
+      "location": "Broumov, Náchod",
+      "property_type": "land",
+      "price": "995 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1045",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/broumov-benesov/963515212"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/963515212",
+        "buildable-land"
       ]
     }
   ]

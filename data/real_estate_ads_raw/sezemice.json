@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Sezemice."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 1,
-    "candidates_gathered": 20,
-    "rows_retained": 2,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 28,
+    "rows_retained": 8,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,6 +50,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -268,6 +272,94 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Sezemice&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2601&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2601&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1896317004",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2131968844",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2149486668",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3357184076",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3742855756",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3786248268",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4139679820",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4145508940",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -292,7 +384,9 @@
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-7820454.html",
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-7820461.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-8014042.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-8014266.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-8014266.html",
+    "missing-price:https://www.sreality.cz/api/v1/estates/2149486668",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3357184076"
   ],
   "listings": [
     {
@@ -330,6 +424,118 @@
       "notes": [
         "detail-url-verified:reality.aktualne.cz",
         "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej vily 400 m², pozemek 2846 m²",
+      "location": "Sezemice, Pardubice",
+      "property_type": "house",
+      "price": "27 777 000 Kč",
+      "house_area_m2": "400",
+      "land_area_m2": "2846",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/vila/sezemice-veska/1896317004"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1896317004"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej pozemku 1734 m²",
+      "location": "Sezemice, Pardubice",
+      "property_type": "land",
+      "price": "7 800 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1734",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/ostatni/sezemice-veska/2131968844"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2131968844",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 130 m², pozemek 1180 m²",
+      "location": "Sezemice, Pardubice",
+      "property_type": "house",
+      "price": "3 500 000 Kč",
+      "house_area_m2": "130",
+      "land_area_m2": "1180",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/sezemice-veska/3786248268"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3786248268"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1150 m²",
+      "location": "Sezemice, Pardubice",
+      "property_type": "land",
+      "price": "3 490 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1150",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/sezemice-veska/4139679820"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/4139679820",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1269 m²",
+      "location": "Sezemice, Pardubice",
+      "property_type": "land",
+      "price": "3 463 063 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1269",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/sezemice-drazkov/4145508940"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/4145508940",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1140 m²",
+      "location": "Sezemice, Pardubice",
+      "property_type": "land",
+      "price": "2 959 325 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1140",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/sezemice-drazkov/3742855756"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3742855756",
+        "buildable-land"
       ]
     }
   ]

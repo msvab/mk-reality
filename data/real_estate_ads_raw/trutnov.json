@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Trutnov."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 2,
-    "candidates_gathered": 66,
-    "rows_retained": 22,
+    "workers_launched": 4,
+    "workers_with_results": 3,
+    "candidates_gathered": 130,
+    "rows_retained": 42,
     "zero_result_portals": [
       "reality.idnes.cz"
     ],
@@ -49,6 +49,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -382,6 +386,14 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trutnov/prodej-bytu-2-1-75-m2-libavska-libec-8634851.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/trutnov/prodej-bytu-3-1-v-trutnove-ul-za-kominem-8630183.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -462,14 +474,6 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/trutnov/prodej-zdeneho-bytu-2-kk-v-osobnim-vlastnictvi-trutnov-stredni-predmesti-ul-blanicka-8544335.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/trutnov/pronajem-byt-1-kk-30-8633713.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -507,6 +511,542 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Trutnov&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2877&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2877&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/103903820",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1084399692",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1171628876",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1191412556",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1279492940",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1307882316",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1317646412",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1523528780",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1628570188",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/166101068",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1669967948",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1703714892",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1720299596",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/173903948",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/181351500",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1820962892",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1825042508",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/18641740",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1890542156",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1947136844",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1990434892",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2160914508",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2206838860",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2319556684",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2424942668",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2497348428",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2577903692",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2609492044",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2727514956",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2836508748",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2907243084",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3072323660",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3078685260",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3112808524",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3150918732",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3156799564",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3181527884",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3230548812",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/328373068",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3354645580",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3402576972",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3577746252",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3648578636",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3661316940",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3680260940",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3696948044",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3742863436",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3872266588",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3987251276",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3995386700",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4129645644",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4145152588",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4169773132",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/42577996",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4262593100",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4278456908",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4287213644",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/559776588",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/635384908",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/721530956",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/740552780",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/831107148",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/837849164",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/91680844",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -523,6 +1063,7 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/moderni-byt-4-kk-102-m-novostavba-c-p-602-v-rezidenci-kasarna-8521441.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/prodej-bytu-2-1-57-m2-polska-trutnov-8632813.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/prodej-bytu-2-1-61-m2-dlouha-ul-trutnov-8631529.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/prodej-bytu-2-1-75-m2-libavska-libec-8634851.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/prodej-bytu-3-1-v-trutnove-ul-za-kominem-8630183.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/prodej-bytu-3kk-64m2-v-rezidenci-kasarna-v-trutnove-8550835.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/prodej-bytu-4-1-117-m2-lipova-trutnov-8560627.html",
@@ -530,12 +1071,55 @@
     "land-below-threshold:https://reality.aktualne.cz/detail/trutnov/prodej-rd-trutnov-kryblice-8345371.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/trutnov/prodej-stavebniho-pozemku-735-m2-junaku-trutnov-8633643.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/prodej-zdene-dvougaraze-a-dalsi-dve-parkovaci-stani-na-vlastnim-pozemku-dobry-stav-trutnov-centrum-8629401.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/prodej-zdeneho-bytu-2-kk-v-osobnim-vlastnictvi-trutnov-stredni-predmesti-ul-blanicka-8544335.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/pronajem-byt-1-kk-30-8633713.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-2-1-64-m-trutnov-ul-polska-8528835.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-2-kk-52-m2-komenskeho-trutnov-8616023.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-3-kk-63-m2-prokopa-holeho-trutnov-8610571.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/pronajem-komercni-obchodni-prostory-560-8620481.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/pronajem-komercni-obchodni-prostory-560-8620481.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1171628876",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1191412556",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1317646412",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1523528780",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1628570188",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1669967948",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1720299596",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/173903948",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/181351500",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1820962892",
+    "missing-price:https://www.sreality.cz/api/v1/estates/1890542156",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1947136844",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1990434892",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2206838860",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2319556684",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2424942668",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2497348428",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2609492044",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2727514956",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2907243084",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3078685260",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3112808524",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3150918732",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3156799564",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/328373068",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3354645580",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3402576972",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3648578636",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3661316940",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3680260940",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3696948044",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3742863436",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3872266588",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4129645644",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4145152588",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4169773132",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/42577996",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4262593100",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4287213644",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/559776588",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/635384908",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/721530956",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/831107148",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/91680844"
   ],
   "listings": [
     {
@@ -922,6 +1506,378 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:bo!-reality-a-finance-s.r.o."
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 715 m², pozemek 1494 m²",
+      "location": "Trutnov, Polská, Trutnov",
+      "property_type": "house",
+      "price": "45 900 000 Kč",
+      "house_area_m2": "715",
+      "land_area_m2": "1494",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/trutnov-porici-polska/2577903692"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2577903692"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej komerčního pozemku 5970 m²",
+      "location": "Trutnov, Volanovská, Trutnov",
+      "property_type": "land",
+      "price": "29 850 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "5970",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/komercni/trutnov-horni-predmesti-volanovska/3072323660"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3072323660",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 240 m², pozemek 1129 m²",
+      "location": "Trutnov, Trutnov",
+      "property_type": "house",
+      "price": "9 250 000 Kč",
+      "house_area_m2": "240",
+      "land_area_m2": "1129",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/trutnov-stary-rokytnik/1825042508"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1825042508"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 131 m², pozemek 1118 m²",
+      "location": "Trutnov, Petříkovická, Trutnov",
+      "property_type": "house",
+      "price": "6 490 000 Kč",
+      "house_area_m2": "131",
+      "land_area_m2": "1118",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/trutnov-porici-petrikovicka/3987251276"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3987251276"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1894 m²",
+      "location": "Trutnov, Trutnov",
+      "property_type": "land",
+      "price": "6 250 200 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1894",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/trutnov/166101068"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/166101068",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 2437 m²",
+      "location": "Trutnov, Za Zbrojnicí, Trutnov",
+      "property_type": "land",
+      "price": "5 900 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2437",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/trutnov-voletiny-za-zbrojnici/2836508748"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2836508748",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 151 m², pozemek 1813 m²",
+      "location": "Trutnov, K Vébrovce, Trutnov",
+      "property_type": "house",
+      "price": "4 900 000 Kč",
+      "house_area_m2": "151",
+      "land_area_m2": "1813",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/trutnov-voletiny-k-vebrovce/1084399692"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1084399692"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 320 m², pozemek 2462 m²",
+      "location": "Trutnov, Trutnov",
+      "property_type": "house",
+      "price": "4 495 000 Kč",
+      "house_area_m2": "320",
+      "land_area_m2": "2462",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/trutnov-babi/3577746252"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3577746252"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1927 m²",
+      "location": "Trutnov, Trutnov",
+      "property_type": "land",
+      "price": "4 490 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1927",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/trutnov-babi/4278456908"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/4278456908",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 212 m², pozemek 2399 m²",
+      "location": "Trutnov, Bezděkovská, Trutnov",
+      "property_type": "house",
+      "price": "4 190 000 Kč",
+      "house_area_m2": "212",
+      "land_area_m2": "2399",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/trutnov-lhota-bezdekovska/740552780"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/740552780"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 109 m², pozemek 1997 m²",
+      "location": "Trutnov, Trutnov",
+      "property_type": "house",
+      "price": "3 900 000 Kč",
+      "house_area_m2": "109",
+      "land_area_m2": "1997",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/trutnov-stary-rokytnik/1703714892"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1703714892"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1469 m²",
+      "location": "Trutnov, Nad Poříčskou, Trutnov",
+      "property_type": "land",
+      "price": "3 700 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1469",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/trutnov-dolni-predmesti-nad-poricskou/103903820"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/103903820",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1015 m²",
+      "location": "Trutnov, Nad Poříčskou, Trutnov",
+      "property_type": "land",
+      "price": "3 552 500 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1015",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/trutnov-dolni-predmesti-nad-poricskou/2160914508"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2160914508",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 76 m², pozemek 1599 m²",
+      "location": "Trutnov, Novorokytnická, Trutnov",
+      "property_type": "house",
+      "price": "3 500 000 Kč",
+      "house_area_m2": "76",
+      "land_area_m2": "1599",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/trutnov-novy-rokytnik-novorokytnicka/3230548812"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3230548812"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 3084 m²",
+      "location": "Trutnov, Sedloňovská, Trutnov",
+      "property_type": "land",
+      "price": "3 300 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "3084",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/trutnov-lhota-sedlonovska/837849164"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/837849164",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1372 m²",
+      "location": "Trutnov, Svojšova, Trutnov",
+      "property_type": "land",
+      "price": "3 200 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1372",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/trutnov-bojiste-svojsova/3181527884"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3181527884",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1478 m²",
+      "location": "Trutnov, Trutnov",
+      "property_type": "land",
+      "price": "2 808 200 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1478",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/trutnov-volanov/18641740"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/18641740",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1585 m²",
+      "location": "Trutnov, Za Mostem, Trutnov",
+      "property_type": "land",
+      "price": "1 650 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1585",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/trutnov-volanov-za-mostem/1307882316"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1307882316",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 2384 m²",
+      "location": "Trutnov, Vysoký Most, Trutnov",
+      "property_type": "land",
+      "price": "1 200 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2384",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/trutnov-bojiste-vysoky-most/1279492940"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1279492940",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 2091 m²",
+      "location": "Trutnov, Trutnov",
+      "property_type": "land",
+      "price": "500 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2091",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/trutnov/3995386700"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3995386700",
+        "buildable-land"
       ]
     }
   ]

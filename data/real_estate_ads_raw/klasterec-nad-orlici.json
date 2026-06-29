@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Klášterec nad Orlicí."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 1,
-    "candidates_gathered": 9,
-    "rows_retained": 3,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 15,
+    "rows_retained": 7,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,6 +50,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -204,6 +208,78 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Kl%C3%A1%C5%A1terec+nad+Orlic%C3%AD&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2983&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2983&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1251005004",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2259776332",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/268276556",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/322446156",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/720212812",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/856195916",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -217,7 +293,9 @@
     "non-buildable-land:https://reality.aktualne.cz/detail/klasterec-nad-orlici/pozemek-na-vystavbu-apartmanovych-domu-idealni-pro-podnikani-i-bydleni-8333347.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/klasterec-nad-orlici/prodej-chaty-klasterec-nad-orlici-8512063.html",
     "outside-municipality:https://reality.aktualne.cz/detail/klasterec-nad-orlici/prodej-pozemek-v-klasterci-nad-orlici-8440999.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/klasterec-nad-orlici/projekt-na-vystavbu-apartmanu-idealni-pro-podnikani-i-bydleni-8333291.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/klasterec-nad-orlici/projekt-na-vystavbu-apartmanu-idealni-pro-podnikani-i-bydleni-8333291.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2259776332",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/322446156"
   ],
   "listings": [
     {
@@ -275,6 +353,80 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej chalupy 575 m², pozemek 9674 m²",
+      "location": "Klášterec nad Orlicí, Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "19 990 000 Kč",
+      "house_area_m2": "575",
+      "land_area_m2": "9674",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/chalupa/klasterec-nad-orlici-jedlina/268276556"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/268276556"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 9674 m²",
+      "location": "Klášterec nad Orlicí, Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "19 990 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "9674",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/klasterec-nad-orlici-jedlina/720212812"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/720212812",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 575 m², pozemek 9674 m²",
+      "location": "Klášterec nad Orlicí, Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "19 990 000 Kč",
+      "house_area_m2": "575",
+      "land_area_m2": "9674",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/klasterec-nad-orlici-jedlina/856195916"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/856195916"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 3186 m²",
+      "location": "Klášterec nad Orlicí, Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "2 890 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "3186",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/klasterec-nad-orlici/1251005004"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1251005004",
+        "buildable-land"
       ]
     }
   ]

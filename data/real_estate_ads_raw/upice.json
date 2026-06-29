@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Úpice."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 1,
-    "candidates_gathered": 14,
-    "rows_retained": 3,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 23,
+    "rows_retained": 7,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,6 +50,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -262,6 +266,102 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=%C3%9Apice&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2943&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2943&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1144463948",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1908941388",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1985642572",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2075951948",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2462007884",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2524483660",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3888312396",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/401683276",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4053696588",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -280,7 +380,12 @@
     "land-below-threshold:https://reality.aktualne.cz/detail/upice/prodej-rodinneho-domu-v-upici-ul-palackeho-8575065.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/upice/prodej-zrekonstruovaneho-rodinneho-domu-o-trech-bytovych-jednotkach-na-namesti-mesta-upice-8624205.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/upice/pronajem-bytu-2-kk-46-m2-narodni-upice-8581731.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/upice/zrekonstruovany-svetly-byt-8618769.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/upice/zrekonstruovany-svetly-byt-8618769.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1144463948",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1908941388",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1985642572",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3888312396",
+    "missing-price:https://www.sreality.cz/api/v1/estates/4053696588"
   ],
   "listings": [
     {
@@ -337,6 +442,80 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:qara-s.r.o."
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 140 m², pozemek 1930 m²",
+      "location": "Úpice, J. W. Mezerové, Trutnov",
+      "property_type": "house",
+      "price": "4 990 000 Kč",
+      "house_area_m2": "140",
+      "land_area_m2": "1930",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/upice-j-w-mezerove/2462007884"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2462007884"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 110 m², pozemek 1592 m²",
+      "location": "Úpice, Chelčického, Trutnov",
+      "property_type": "house",
+      "price": "3 790 000 Kč",
+      "house_area_m2": "110",
+      "land_area_m2": "1592",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/upice-chelcickeho/401683276"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/401683276"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1627 m²",
+      "location": "Úpice, Trutnov",
+      "property_type": "land",
+      "price": "3 579 400 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1627",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/upice/2075951948"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2075951948",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1649 m²",
+      "location": "Úpice, Puškinova, Trutnov",
+      "property_type": "land",
+      "price": "1 899 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1649",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/upice-puskinova/2524483660"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2524483660",
+        "buildable-land"
       ]
     }
   ]

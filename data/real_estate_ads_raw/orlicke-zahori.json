@@ -24,14 +24,14 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, and Reality Aktuálně rows were refreshed where supported.",
+    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Orlické Záhoří."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 1,
-    "candidates_gathered": 6,
-    "rows_retained": 2,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 15,
+    "rows_retained": 10,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -50,6 +50,10 @@
     "reality.aktualne.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Reality Aktuálně row."
+    },
+    "sreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -182,6 +186,102 @@
       "attempt": 1,
       "status": "fallback_page",
       "message": "Detail URL returned fallback or non-detail content."
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Orlick%C3%A9+Z%C3%A1ho%C5%99%C3%AD&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
+      "stage": "locality_suggest",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2672&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2672&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1486615372",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1862144844",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2554975052",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3410096204",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3964334924",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3988160588",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3991028556",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/473830220",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/621167436",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -192,7 +292,8 @@
     "outside-municipality:https://reality.aktualne.cz/detail/orlicke-zahori/prodej-domu-na-klic-nicea-8503003.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/orlicke-zahori/prodej-na-klic-riviera-8366755.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/orlicke-zahori/prodej-penzionu-orlicke-zahori-okres-rychnov-nad-kneznou-8632059.html",
-    "detail-fallback-page:https://reality.aktualne.cz/detail/orlicke-zahori/prodej-rodinneho-domu-orlicke-zahori-kunstat-u-orlickeho-zahori-okres-rychnov-nad-kneznou-8541339.html"
+    "detail-fallback-page:https://reality.aktualne.cz/detail/orlicke-zahori/prodej-rodinneho-domu-orlicke-zahori-kunstat-u-orlickeho-zahori-okres-rychnov-nad-kneznou-8541339.html",
+    "missing-price:https://www.sreality.cz/api/v1/estates/621167436"
   ],
   "listings": [
     {
@@ -231,6 +332,156 @@
         "detail-url-verified:reality.aktualne.cz",
         "normalized-from:chalupa",
         "aggregator-source:pink-reality,-s.r.o."
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej chalupy 184 m², pozemek 2410 m²",
+      "location": "Orlické Záhoří, Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "16 950 000 Kč",
+      "house_area_m2": "184",
+      "land_area_m2": "2410",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/chalupa/orlicke-zahori/3410096204"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3410096204"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1444 m²",
+      "location": "Orlické Záhoří, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "7 999 875 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1444",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/orlicke-zahori/3988160588"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3988160588",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej chalupy 110 m², pozemek 1942 m²",
+      "location": "Orlické Záhoří, Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "7 500 000 Kč",
+      "house_area_m2": "110",
+      "land_area_m2": "1942",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/chalupa/orlicke-zahori/2554975052"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2554975052"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1520 m²",
+      "location": "Orlické Záhoří, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "5 700 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1520",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/orlicke-zahori/1862144844"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1862144844",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1444 m²",
+      "location": "Orlické Záhoří, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "5 700 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1444",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/orlicke-zahori/473830220"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/473830220",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1517 m²",
+      "location": "Orlické Záhoří, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "5 699 999 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1517",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/orlicke-zahori/3991028556"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3991028556",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1944 m²",
+      "location": "Orlické Záhoří, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "5 100 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1944",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/orlicke-zahori/1486615372"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1486615372",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1894 m²",
+      "location": "Orlické Záhoří, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "5 100 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1894",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/orlicke-zahori/3964334924"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3964334924",
+        "buildable-land"
       ]
     }
   ]
