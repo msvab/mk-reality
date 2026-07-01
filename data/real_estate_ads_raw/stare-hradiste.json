@@ -28,16 +28,13 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Staré Hradiště."
   ],
   "coverage": {
-    "workers_launched": 5,
-    "workers_with_results": 0,
-    "candidates_gathered": 0,
-    "rows_retained": 0,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 9,
+    "rows_retained": 2,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "realitymix.cz",
-      "reality.aktualne.cz",
-      "sreality.cz",
-      "mmreality.cz"
+      "realitymix.cz"
     ],
     "blocked_portals": []
   },
@@ -51,16 +48,12 @@
       "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Reality Aktuálně rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
     },
     "sreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Sreality rows."
-    },
-    "mmreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope M&M Reality rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -100,6 +93,14 @@
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Star%C3%A9+Hradi%C5%A1t%C4%9B&form%5Bcena_mena%5D=1",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/stare-hradiste/prodej-domu-ve-starem-hradisti-8090704.html",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -178,53 +179,19 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/2625761356",
+      "url": "https://www.sreality.cz/api/v1/estates/2107249484",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
     },
     {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=Star%C3%A9+Hradi%C5%A1t%C4%9B&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/932829/",
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2625761356",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok"
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -237,8 +204,44 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1349173836",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1402204236",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1634386508",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2625761356",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/932829/"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2625761356"
   ],
-  "listings": []
+  "listings": [
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej domu ve Starém Hradišti",
+      "location": "Hradecká, Staré Hradiště, Pardubice",
+      "property_type": "house",
+      "price": "7 750 000 Kč",
+      "house_area_m2": "200",
+      "land_area_m2": "1235",
+      "urls": [
+        "https://reality.aktualne.cz/detail/stare-hradiste/prodej-domu-ve-starem-hradisti-8090704.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "aggregator-source:sting-reality-s.r.o."
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 200 m², pozemek 1235 m²",
+      "location": "Staré Hradiště, Hradecká, Pardubice",
+      "property_type": "house",
+      "price": "7 750 000 Kč",
+      "house_area_m2": "200",
+      "land_area_m2": "1235",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/stare-hradiste-hradecka/2107249484"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2107249484"
+      ]
+    }
+  ]
 }

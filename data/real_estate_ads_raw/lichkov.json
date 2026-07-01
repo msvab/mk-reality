@@ -28,14 +28,13 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Lichkov."
   ],
   "coverage": {
-    "workers_launched": 5,
+    "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 11,
+    "candidates_gathered": 15,
     "rows_retained": 11,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "realitymix.cz",
-      "mmreality.cz"
+      "realitymix.cz"
     ],
     "blocked_portals": []
   },
@@ -55,10 +54,6 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "mmreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -161,6 +156,14 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/lichkov/prodej-chalupy-310-m-lichkov-8401587.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/lichkov/prodej-hotelu-penzionu-737-m-lichkov-8636739.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -293,66 +296,16 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=Lichkov&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/930796/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/945363/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
     "idnes-discovery-missing-locality-id",
     "missing-page-url:house",
     "missing-page-url:land",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/lichkov/prodej-hotelu-penzionu-737-m-lichkov-8636739.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/lichkov/prodej-louky-7222-m-lichkov-8489903.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/lichkov/prodej-rodinneho-domu-300-m-lichkov-8632641.html",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/168325964",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/930796/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/945363/"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/168325964"
   ],
   "listings": [
     {

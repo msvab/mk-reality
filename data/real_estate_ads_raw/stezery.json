@@ -28,14 +28,13 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Stěžery."
   ],
   "coverage": {
-    "workers_launched": 5,
+    "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 3,
-    "rows_retained": 3,
+    "candidates_gathered": 13,
+    "rows_retained": 2,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "realitymix.cz",
-      "mmreality.cz"
+      "realitymix.cz"
     ],
     "blocked_portals": []
   },
@@ -55,10 +54,6 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "mmreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -114,14 +109,6 @@
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=St%C4%9B%C5%BEery&form%5Bcena_mena%5D=1",
       "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/stezery/dum-o-trech-bytovych-jednotkach-8604471.html",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -208,7 +195,7 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/stezery/pronajem-komercni-sklad-75-m2-stezery-id-85770-8605621.html",
+      "url": "https://reality.aktualne.cz/detail/stezery/pronajem-komercni-sklad-75-m2-k-chaloupkam-92-50321-stezery-hradec-kralove-id-85770-8605621.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -251,57 +238,25 @@
       "url": "https://www.sreality.cz/api/v1/estates/763662412",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=St%C4%9B%C5%BEery&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/945873/",
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/763662412",
       "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
     "idnes-discovery-missing-locality-id",
     "missing-page-url:house",
     "missing-page-url:land",
-    "outside-municipality:https://reality.aktualne.cz/detail/stezery/dum-o-trech-bytovych-jednotkach-8604471.html",
+    "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3602-hradec-kralove/kralovehradecky/prodej-pozemky.html",
     "non-buildable-land:https://reality.aktualne.cz/detail/stezery/pozemek-bydleni-prodej-hribsko-stezery-hradec-kralove-8621897.html",
     "non-buildable-land:https://reality.aktualne.cz/detail/stezery/pozemek-komercni-prodej-hribsko-stezery-hradec-kralove-8626953.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/stezery/prodej-byty-3-kk-73-m2-stezery-hradec-kralove-id-83131-8548875.html",
@@ -311,8 +266,8 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/stezery/pronajem-komercni-sklad-300-m2-stezery-id-86617-8626201.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/stezery/pronajem-komercni-sklad-350-m2-stezery-id-86619-8626199.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/stezery/pronajem-komercni-sklad-56-m2-stezery-id-84496-8608335.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/stezery/pronajem-komercni-sklad-75-m2-stezery-id-85770-8605621.html",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/945873/"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/stezery/pronajem-komercni-sklad-75-m2-k-chaloupkam-92-50321-stezery-hradec-kralove-id-85770-8605621.html",
+    "stale-detail-fetch:763662412:Failed to fetch https://www.sreality.cz/api/v1/estates/763662412: HTTP 404"
   ],
   "listings": [
     {
@@ -350,24 +305,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/364048460"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 275 m², pozemek 2144 m²",
-      "location": "Stěžery, Hradec Králové",
-      "property_type": "house",
-      "price": "5 790 000 Kč",
-      "house_area_m2": "275",
-      "land_area_m2": "2144",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/stezery-hribsko/763662412"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/763662412"
       ]
     }
   ]

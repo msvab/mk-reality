@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Červený Kostelec."
   ],
   "coverage": {
-    "workers_launched": 5,
-    "workers_with_results": 3,
-    "candidates_gathered": 12,
-    "rows_retained": 12,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 31,
+    "rows_retained": 8,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -54,10 +54,6 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "mmreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -176,14 +172,6 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-3-1-72-m2-koubovka-cerveny-kostelec-8626825.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-3-1-91-m-cerveny-kostelec-centrum-mesta-8528335.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -201,6 +189,14 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-chaty-34-m-cerveny-kostelec-8446945.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-domu-270-m-s-pozemkem-439-m-8187335.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -406,97 +402,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=%C4%8Cerven%C3%BD+Kostelec&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/937198/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/939756/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/942880/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/942881/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/943123/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/943886/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/946052/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/946295/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -509,10 +414,10 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-1-1-56-m-cerveny-kostelec-ul-bozeny-nemcove-8540579.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-1-1-85-m-cerveny-kostelec-centrum-obce-8533709.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-2-1-59-m-cerveny-kostelec-ul-bozeny-nemcove-8534343.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-3-1-72-m2-koubovka-cerveny-kostelec-8626825.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-3-1-91-m-cerveny-kostelec-centrum-mesta-8528335.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-3-1-s-balkonem-8588645.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-chaty-34-m-cerveny-kostelec-8446945.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-domu-270-m-s-pozemkem-439-m-8187335.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-domu-270-m-s-pozemkem-439-m-v-cervenem-kostelci-8246779.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-louky-5804-m-cerveny-kostelec-8609309.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-obch-objektu-239-m-cerveny-kostelec-ul-b-nemcove-8534313.html",
@@ -525,11 +430,7 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-skladu-4000-m-cerveny-kostelec-ul-jiraskova-8559107.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1789235276",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3993542732",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/437257036",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/939756/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/942880/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/942881/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/943123/"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/437257036"
   ],
   "listings": [
     {
@@ -678,79 +579,6 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/691454796",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Pozemek k bydlení, 3338 m², Červený Kostelec",
-      "location": "Červený Kostelec, okres Náchod",
-      "property_type": "land",
-      "price": "5 600 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "3338",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/943886/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Pozemek k bydlení, 1928 m², Červený Kostelec",
-      "location": "Červený Kostelec - Stolín, okres Náchod",
-      "property_type": "land",
-      "price": "5 000 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1928",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/946295/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "municipality-subarea:Stolín",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Rodinný dům, 200 m², Červený Kostelec",
-      "location": "Červený Kostelec - Stolín, okres Náchod",
-      "property_type": "house",
-      "price": "3 700 000 Kč",
-      "house_area_m2": "200",
-      "land_area_m2": "1929",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/946052/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "municipality-subarea:Stolín"
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Rodinný dům, 80 m², Červený Kostelec",
-      "location": "Červený Kostelec - Horní Kostelec, okres Náchod",
-      "property_type": "house",
-      "price": "2 199 999 Kč",
-      "house_area_m2": "80",
-      "land_area_m2": "6504",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/937198/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "municipality-subarea:Horní Kostelec"
       ]
     }
   ]

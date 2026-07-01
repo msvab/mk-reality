@@ -28,14 +28,13 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Holice."
   ],
   "coverage": {
-    "workers_launched": 5,
+    "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 10,
+    "candidates_gathered": 24,
     "rows_retained": 10,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "realitymix.cz",
-      "mmreality.cz"
+      "realitymix.cz"
     ],
     "blocked_portals": []
   },
@@ -55,10 +54,6 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "mmreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -153,6 +148,14 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/holice/prodej-domy-rodinny-150-m2-komenskeho-297-53401-holice-pardubice-id-87004-8636733.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/holice/prodej-domy-rodinny-194-m2-dudychova-524-53401-holice-pardubice-id-83784-8595827.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -167,14 +170,6 @@
       "attempt": 1,
       "status": "fallback_page",
       "message": "Detail URL returned fallback or non-detail content."
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/holice/prodej-garaze-18-m-holice-8483473.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     },
     {
       "portal": "reality.aktualne.cz",
@@ -367,48 +362,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=Holice&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/940154/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -417,8 +370,8 @@
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3606-pardubice/pardubicky/prodej-pozemky.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/holice/louka-prodej-rovensko-holice-pardubice-8612109.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/holice/prodej-domy-rodinny-150-m2-komenskeho-297-53401-holice-pardubice-id-87004-8636733.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/holice/prodej-domy-rodinny-194-m2-dudychova-524-53401-holice-pardubice-id-83784-8595827.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/holice/prodej-garaze-18-m-holice-8483473.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/holice/prodej-rodinneho-domu-autoservisu-a-lakovny-holice-8619705.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/holice/pronajem-bytu-2-1-62-m-holice-ul-ottmarova-8610675.html",
     "missing-price:https://www.sreality.cz/api/v1/estates/1095807052",
@@ -429,8 +382,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3070509900",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3114397772",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3431632972",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/660505164",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/940154/"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/660505164"
   ],
   "listings": [
     {

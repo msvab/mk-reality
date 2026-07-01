@@ -28,13 +28,12 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Chrudim."
   ],
   "coverage": {
-    "workers_launched": 5,
+    "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 14,
-    "rows_retained": 14,
+    "candidates_gathered": 58,
+    "rows_retained": 15,
     "zero_result_portals": [
-      "reality.idnes.cz",
-      "mmreality.cz"
+      "reality.idnes.cz"
     ],
     "blocked_portals": []
   },
@@ -54,10 +53,6 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "mmreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -112,14 +107,6 @@
     {
       "portal": "realitymix.cz",
       "url": "https://realitymix.cz/detail/chrudim/novostavba-rd-4-kk-89-m2-pozemek-402-m2-chrudim-medlesice-8614915.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/chrudim/prodej-1-2-domu-domu-v-chrudimi-8307773.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -239,7 +226,23 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/chrudim/lesni-pozemek-o-vymere-59-928-m2-podil-1-1-katastralni-uzemi-chrudim-obec-chrudim-obec-s-rozsire-8627761.html",
+      "url": "https://reality.aktualne.cz/detail/chrudim/chrudim-polyfunkcni-objekt-8636205.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/chrudim/chrudim-polyfunkcni-objekt-8636221.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/chrudim/chrudim-polyfunkcni-objekt-8636227.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -287,6 +290,14 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/chrudim/prodej-byty-2-kk-51-m2-v-hlinikach-1483-53701-chrudim-chrudim-id-84883-8575763.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/chrudim/prodej-domu-185-m-pozemek-458-m-8628699.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -304,14 +315,6 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/chrudim/prodej-rodinne-domy-162-m-chrudim-iv-8337707.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/chrudim/prodej-vyrobniho-a-skladovaciho-prostoru-1784-m2-chrudim-blehovsko-8068411.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -360,22 +363,6 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/chrudim/pronajem-komercni-sklady-861-8633357.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/chrudim/pronajem-skladove-vyrobni-plochy-213-m2-chrudim-8583765.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/chrudim/prostorny-byt-4-1-106-m-balkon-blizko-centra-chrudimi-8627397.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -440,6 +427,14 @@
     {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/1053610572",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1436938316",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -564,82 +559,11 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=Chrudim&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/751014/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/924500/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/930455/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/941082/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/943761/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
     "idnes-discovery-missing-locality-id",
     "land-below-threshold:https://realitymix.cz/detail/chrudim/novostavba-rd-4-kk-89-m2-pozemek-402-m2-chrudim-medlesice-8614915.html",
-    "land-below-threshold:https://realitymix.cz/detail/chrudim/prodej-1-2-domu-domu-v-chrudimi-8307773.html",
     "land-below-threshold:https://realitymix.cz/detail/chrudim/prodej-domu-185-m-pozemek-458-m-8628699.html",
     "land-below-threshold:https://realitymix.cz/detail/chrudim/prodej-domu-5-1-159-m-chrudim-jungmannovo-nabrezi-8625485.html",
     "land-below-threshold:https://realitymix.cz/detail/chrudim/prodej-nadstandardne-vybaveneho-rodinneho-domu-v-klidne-casti-chrudimi-vlci-hora-8630651.html",
@@ -649,24 +573,24 @@
     "land-below-threshold:https://realitymix.cz/detail/chrudim/prodej-rodinneho-domu-v-chrudimi-ul-obce-lezaku-8488461.html",
     "land-below-threshold:https://realitymix.cz/detail/chrudim/prodej-rodinny-dum-110-8532777.html",
     "land-below-threshold:https://realitymix.cz/detail/chrudim/prodej-rodinny-dum-124-8540099.html",
-    "non-buildable-land:https://reality.aktualne.cz/detail/chrudim/lesni-pozemek-o-vymere-59-928-m2-podil-1-1-katastralni-uzemi-chrudim-obec-chrudim-obec-s-rozsire-8627761.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/chrudim-polyfunkcni-objekt-8636205.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/chrudim-polyfunkcni-objekt-8636221.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/chrudim-polyfunkcni-objekt-8636227.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/prodej-byt-2-1-39-8630243.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/prodej-bytu-2-kk-64-m-8633523.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/prodej-bytu-3-1-66-m2-sladkovskeho-chrudim-8629129.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/prodej-bytu-3-kk-67m2-chrudim-ulice-cs-armady-8631145.html",
     "outside-municipality:https://reality.aktualne.cz/detail/chrudim/prodej-bytu-3-kk-72-m-v-chrudimi-ul-u-stadionu-8630609.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/prodej-byty-2-kk-51-m2-v-hlinikach-1483-53701-chrudim-chrudim-id-84883-8575763.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/chrudim/prodej-domu-185-m-pozemek-458-m-8628699.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/chrudim/prodej-nadstandardne-vybaveneho-rodinneho-domu-v-klidne-casti-chrudimi-vlci-hora-8630651.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/prodej-rodinne-domy-162-m-chrudim-iv-8337707.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/prodej-vyrobniho-a-skladovaciho-prostoru-1784-m2-chrudim-blehovsko-8068411.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/pronajem-byt-2-1-54-8628707.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/pronajem-byt-2-1-63-8634885.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/pronajem-bytu-2-kk-49-3-m-chrudim-8629885.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/pronajem-bytu-2-kk-v-hlinikach-chrudim-13000-kc-mes-50-m2-8224137.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/pronajem-kancelarskych-prostor-510-m-ulice-prumyslova-chrudim-8275897.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/pronajem-komercni-sklady-861-8633357.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/pronajem-skladove-vyrobni-plochy-213-m2-chrudim-8583765.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/prostorny-byt-4-1-106-m-balkon-blizko-centra-chrudimi-8627397.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/slunny-byt-s-krasnym-vyhledem-do-krajiny-8631835.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/zemedelska-puda-prodej-chrudim-iv-chrudim-8631957.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1003804492",
@@ -677,12 +601,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2844164172",
     "excluded-chata:https://www.sreality.cz/api/v1/estates/357131084",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4186284108",
-    "missing-price:https://www.sreality.cz/api/v1/estates/927395916",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/751014/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/924500/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/930455/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/941082/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/943761/"
+    "missing-price:https://www.sreality.cz/api/v1/estates/927395916"
   ],
   "listings": [
     {
@@ -798,7 +717,7 @@
       "title": "Prodej zemědělské usedlosti 253 m², pozemek 9482 m²",
       "location": "Chrudim, Pod Strání, Chrudim",
       "property_type": "house",
-      "price": "32 990 000 Kč",
+      "price": "25 000 000 Kč",
       "house_area_m2": "253",
       "land_area_m2": "9482",
       "urls": [
@@ -862,6 +781,25 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/372408396",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1056 m²",
+      "location": "Chrudim, Pod Kopcem, Chrudim",
+      "property_type": "land",
+      "price": "3 900 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1056",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/chrudim-chrudim-iv-pod-kopcem/1436938316"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1436938316",
         "buildable-land"
       ]
     },

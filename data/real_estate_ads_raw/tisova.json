@@ -28,16 +28,15 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Tisová."
   ],
   "coverage": {
-    "workers_launched": 5,
+    "workers_launched": 4,
     "workers_with_results": 0,
-    "candidates_gathered": 0,
+    "candidates_gathered": 4,
     "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz",
-      "sreality.cz",
-      "mmreality.cz"
+      "sreality.cz"
     ],
     "blocked_portals": []
   },
@@ -57,10 +56,6 @@
     "sreality.cz": {
       "status": "no_results",
       "message": "No retained in-scope Sreality rows."
-    },
-    "mmreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -122,23 +117,7 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/tisova/pronajem-skladu-1-582-m-tisova-lhotka-7366860.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/tisova/pronajem-skladu-1000-m-a-zp-pl-1100-m2-tisova-u-tachova-8345047.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/tisova/pronajem-skladu-316-m-tisova-lhotka-7368001.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -175,41 +154,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=Tisov%C3%A1&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -218,9 +162,7 @@
     "missing-page-url:land",
     "unsupported-property-type:https://reality.aktualne.cz/detail/tisova/prodej-pole-349175-m-tisova-8371669.html",
     "non-buildable-land:https://reality.aktualne.cz/detail/tisova/prodej-rodinneho-domu-180-m2-pozemek-1666-m2-zahaj-tisova-8537197.html",
-    "outside-municipality:https://reality.aktualne.cz/detail/tisova/pronajem-skladu-1-582-m-tisova-lhotka-7366860.html",
     "outside-municipality:https://reality.aktualne.cz/detail/tisova/pronajem-skladu-1000-m-a-zp-pl-1100-m2-tisova-u-tachova-8345047.html",
-    "outside-municipality:https://reality.aktualne.cz/detail/tisova/pronajem-skladu-316-m-tisova-lhotka-7368001.html",
     "missing-price:https://www.sreality.cz/api/v1/estates/3128574796"
   ],
   "listings": []

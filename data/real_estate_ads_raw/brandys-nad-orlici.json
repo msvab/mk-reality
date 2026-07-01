@@ -28,16 +28,14 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Brandýs nad Orlicí."
   ],
   "coverage": {
-    "workers_launched": 5,
-    "workers_with_results": 0,
-    "candidates_gathered": 0,
-    "rows_retained": 0,
+    "workers_launched": 4,
+    "workers_with_results": 1,
+    "candidates_gathered": 2,
+    "rows_retained": 1,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
-      "reality.aktualne.cz",
-      "sreality.cz",
-      "mmreality.cz"
+      "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
@@ -55,12 +53,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Sreality rows."
-    },
-    "mmreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope M&M Reality rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -143,49 +137,32 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=Brand%C3%BDs+nad+Orlic%C3%AD&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
     "idnes-discovery-missing-locality-id",
     "missing-page-url:house",
     "missing-page-url:land",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/brandys-nad-orlici/prodej-bytu-3-1-v-brandysu-nad-orlici-8553947.html",
-    "missing-price:https://www.sreality.cz/api/v1/estates/673604428"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/brandys-nad-orlici/prodej-bytu-3-1-v-brandysu-nad-orlici-8553947.html"
   ],
-  "listings": []
+  "listings": [
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 95 m², pozemek 1031 m²",
+      "location": "Brandýs nad Orlicí, Husova, Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "4 150 000 Kč",
+      "house_area_m2": "95",
+      "land_area_m2": "1031",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/brandys-nad-orlici-husova/673604428"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/673604428"
+      ]
+    }
+  ]
 }

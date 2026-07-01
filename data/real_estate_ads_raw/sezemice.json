@@ -28,14 +28,13 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Sezemice."
   ],
   "coverage": {
-    "workers_launched": 5,
+    "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 8,
-    "rows_retained": 8,
+    "candidates_gathered": 28,
+    "rows_retained": 7,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "realitymix.cz",
-      "mmreality.cz"
+      "realitymix.cz"
     ],
     "blocked_portals": []
   },
@@ -55,10 +54,6 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "mmreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -168,6 +163,14 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/sezemice/letni-akce-cena-snizena-z-3-490-000-kc-na-2-990-000-kc-8610955.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/sezemice/moderni-bungalov-v-en-tride-3-minuty-od-pardubic-8366813.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -217,14 +220,6 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/sezemice/prodej-rodinneho-domu-98-m-sezemice-8593321.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/sezemice/pronajem-bytu-2-kk-v-sezemicich-ul-tyrsovo-nam-8630743.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -365,55 +360,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=Sezemice&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/936456/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/941512/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -427,43 +373,23 @@
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/bytovy-dum-v-centru-mesta-s-potencialem-pudniho-prostoru-8419491.html",
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/dum-5kk-v-en-tride-a-za-bezkonkurencni-cenu-3-minuty-od-pardubic-8290007.html",
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/dum-v-centru-mesta-pro-soukrome-i-komercni-ucely-8419621.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/sezemice/letni-akce-cena-snizena-z-3-490-000-kc-na-2-990-000-kc-8610955.html",
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/moderni-bungalov-v-en-tride-3-minuty-od-pardubic-8366813.html",
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/moderni-prostorny-bungalov-v-en-tride-a-3-minuty-od-pardubic-8366801.html",
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/novostavba-v-en-tride-a-za-bezkonkurencni-cenu-8365815.html",
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/prodej-domu-na-klic-silvermoon-8510117.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/sezemice/prodej-rodinneho-domu-121-m-sezemice-8546415.html",
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/prodej-rodinneho-domu-4-kk-121-m-se-zahradou-197m-sezemice-u-pardubic-8078255.html",
-    "outside-municipality:https://reality.aktualne.cz/detail/sezemice/pronajem-bytu-2-kk-v-sezemicich-ul-tyrsovo-nam-8630743.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/sezemice/pronajem-zahrady-sezemice-8574009.html",
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-7820454.html",
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-7820461.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-8014042.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-8014266.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/sezemice/stavebni-pozemek-cca-1-150-m-klidna-lokalita-veska-u-sezemice-8610955.html",
     "missing-price:https://www.sreality.cz/api/v1/estates/2149486668",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3357184076",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/936456/",
-    "missing-price:https://www.mmreality.cz/nemovitosti/941512/"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3357184076"
   ],
   "listings": [
-    {
-      "portal": [
-        "reality.aktualne.cz"
-      ],
-      "title": "Stavební pozemek cca 1 150 m² – klidná lokalita Veská u Sezemice",
-      "location": "Veská, Pardubice",
-      "property_type": "land",
-      "price": "3 490 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1150",
-      "urls": [
-        "https://reality.aktualne.cz/detail/sezemice/stavebni-pozemek-cca-1-150-m-klidna-lokalita-veska-u-sezemice-8610955.html"
-      ],
-      "notes": [
-        "detail-url-verified:reality.aktualne.cz",
-        "buildable-land",
-        "aggregator-source:edo-reality,-s.r.o."
-      ]
-    },
     {
       "portal": [
         "reality.aktualne.cz"
@@ -541,25 +467,6 @@
       "portal": [
         "sreality.cz"
       ],
-      "title": "Prodej stavebního pozemku 1150 m²",
-      "location": "Sezemice, Pardubice",
-      "property_type": "land",
-      "price": "3 490 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1150",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/sezemice-veska/4139679820"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/4139679820",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
       "title": "Prodej stavebního pozemku 1269 m²",
       "location": "Sezemice, Pardubice",
       "property_type": "land",
@@ -572,6 +479,25 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/4145508940",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1150 m²",
+      "location": "Sezemice, Pardubice",
+      "property_type": "land",
+      "price": "2 990 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1150",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/sezemice-veska/4139679820"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/4139679820",
         "buildable-land"
       ]
     },

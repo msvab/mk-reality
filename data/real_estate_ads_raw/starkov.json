@@ -28,16 +28,15 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Stárkov."
   ],
   "coverage": {
-    "workers_launched": 5,
+    "workers_launched": 4,
     "workers_with_results": 0,
-    "candidates_gathered": 0,
+    "candidates_gathered": 7,
     "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz",
-      "sreality.cz",
-      "mmreality.cz"
+      "sreality.cz"
     ],
     "blocked_portals": []
   },
@@ -57,10 +56,6 @@
     "sreality.cz": {
       "status": "no_results",
       "message": "No retained in-scope Sreality rows."
-    },
-    "mmreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -183,69 +178,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=St%C3%A1rkov&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/932545/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/933281/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/933874/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/943121/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -258,11 +190,7 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/starkov/prodej-louky-1899-m-starkov-8499919.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/starkov/prodej-louky-3308-m-starkov-8506407.html",
     "missing-price:https://www.sreality.cz/api/v1/estates/1497887564",
-    "missing-price:https://www.sreality.cz/api/v1/estates/307753804",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/932545/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/933281/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/933874/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/943121/"
+    "missing-price:https://www.sreality.cz/api/v1/estates/307753804"
   ],
   "listings": []
 }

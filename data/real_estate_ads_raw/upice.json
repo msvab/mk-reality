@@ -28,14 +28,13 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Úpice."
   ],
   "coverage": {
-    "workers_launched": 5,
+    "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 7,
+    "candidates_gathered": 23,
     "rows_retained": 7,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "realitymix.cz",
-      "mmreality.cz"
+      "realitymix.cz"
     ],
     "blocked_portals": []
   },
@@ -55,10 +54,6 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "mmreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -147,14 +142,6 @@
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=%C3%9Apice&form%5Bcena_mena%5D=1",
       "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/upice/chata-po-castecne-rekonstrukci-u-potoka-radec-upice-8-9-podil-8406815.html",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -251,6 +238,14 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/upice/prodej-zrekonstruovaneho-rodinneho-domu-o-trech-bytovych-jednotkach-na-namesti-mesta-upice-8624205.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/upice/prodej-zrekonstruovaneho-rodinneho-domu-o-trech-bytovych-jednotkach-na-namesti-mesta-upice-8637409.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -367,48 +362,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=%C3%9Apice&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/945635/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -417,7 +370,6 @@
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3610-trutnov/kralovehradecky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3610-trutnov/kralovehradecky/prodej-pozemky.html",
-    "excluded-chata:https://reality.aktualne.cz/detail/upice/chata-po-castecne-rekonstrukci-u-potoka-radec-upice-8-9-podil-8406815.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/upice/prodej-chaty-30-m-upice-8524197.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/upice/prodej-komercnich-prostory-1705m2-v-upici-8561841.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/upice/prodej-obchodniho-prostoru-1212-m2-bezrucova-upice-8398967.html",
@@ -426,14 +378,14 @@
     "land-below-threshold:https://reality.aktualne.cz/detail/upice/prodej-rodinneho-domu-4-1-210-m2-sukova-upice-8413527.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/upice/prodej-rodinneho-domu-v-upici-ul-palackeho-8575065.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/upice/prodej-zrekonstruovaneho-rodinneho-domu-o-trech-bytovych-jednotkach-na-namesti-mesta-upice-8624205.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/upice/prodej-zrekonstruovaneho-rodinneho-domu-o-trech-bytovych-jednotkach-na-namesti-mesta-upice-8637409.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/upice/pronajem-bytu-2-kk-46-m2-narodni-upice-8581731.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/upice/zrekonstruovany-svetly-byt-8618769.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1144463948",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1908941388",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1985642572",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3888312396",
-    "missing-price:https://www.sreality.cz/api/v1/estates/4053696588",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/945635/"
+    "missing-price:https://www.sreality.cz/api/v1/estates/4053696588"
   ],
   "listings": [
     {

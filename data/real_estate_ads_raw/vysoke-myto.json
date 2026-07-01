@@ -28,14 +28,13 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Vysoké Mýto."
   ],
   "coverage": {
-    "workers_launched": 5,
+    "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 2,
+    "candidates_gathered": 21,
     "rows_retained": 2,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "realitymix.cz",
-      "sreality.cz"
+      "realitymix.cz"
     ],
     "blocked_portals": []
   },
@@ -53,12 +52,8 @@
       "message": "Retained at least one detail-verified Reality Aktuálně row."
     },
     "sreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Sreality rows."
-    },
-    "mmreality.cz": {
       "status": "ok",
-      "message": "Retained at least one detail-verified M&M Reality row."
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -168,6 +163,14 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vysoke-myto/prodej-rodinny-dum-120-8636825.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-2-1-rokycanova-vysoke-myto-12-000-kc-mes-53-m2-8570021.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -256,6 +259,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4112416844",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/63414348",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -277,76 +288,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=Vysok%C3%A9+M%C3%BDto&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/912146/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/929805/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/940971/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/941004/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/944866/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -360,6 +301,7 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/prodej-rodinne-domy-190-m2-vysoke-myto-prazske-predmesti-8169005.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/vysoke-myto/prodej-rodinneho-domu-139-m-vysoke-myto-8486801.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/vysoke-myto/prodej-rodinneho-domu-86-m2-vysoke-myto-b-korabove-prazske-predmesti-8289201.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/vysoke-myto/prodej-rodinny-dum-120-8636825.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-2-1-rokycanova-vysoke-myto-12-000-kc-mes-53-m2-8570021.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-2-kk-49-m-vysoke-myto-ul-tumova-8597077.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-2-kk-53-m-vysoke-myto-ul-litomyslska-8599057.html",
@@ -370,11 +312,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3244523596",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/63414348",
     "missing-price:https://www.sreality.cz/api/v1/estates/694677580",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/853516364",
-    "missing-price:https://www.mmreality.cz/nemovitosti/912146/",
-    "missing-price:https://www.mmreality.cz/nemovitosti/929805/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/940971/",
-    "missing-price:https://www.mmreality.cz/nemovitosti/944866/"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/853516364"
   ],
   "listings": [
     {
@@ -398,20 +336,20 @@
     },
     {
       "portal": [
-        "mmreality.cz"
+        "sreality.cz"
       ],
-      "title": "Prodej, Rodinný dům, 160 m², Vysoké Mýto, Luční",
-      "location": "Vysoké Mýto - Choceňské Předměstí, okres Ústí nad Orlicí",
+      "title": "Prodej rodinného domu 75 m², pozemek 1909 m²",
+      "location": "Vysoké Mýto, Ústí nad Orlicí",
       "property_type": "house",
-      "price": "2 121 000 Kč",
-      "house_area_m2": "160",
-      "land_area_m2": "1087",
+      "price": "2 150 000 Kč",
+      "house_area_m2": "75",
+      "land_area_m2": "1909",
       "urls": [
-        "https://www.mmreality.cz/nemovitosti/941004/"
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/vysoke-myto/4112416844"
       ],
       "notes": [
-        "detail-url-verified:mmreality.cz",
-        "municipality-subarea:Choceňské Předměstí"
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/4112416844"
       ]
     }
   ]

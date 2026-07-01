@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Velké Poříčí."
   ],
   "coverage": {
-    "workers_launched": 5,
-    "workers_with_results": 3,
-    "candidates_gathered": 4,
-    "rows_retained": 4,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 6,
+    "rows_retained": 3,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -54,10 +54,6 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "mmreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -188,69 +184,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=Velk%C3%A9+Po%C5%99%C3%AD%C4%8D%C3%AD&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/934723/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/943134/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/946026/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/946670/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -260,10 +193,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-domy_vily.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/velke-porici/prodej-pole-14799-m-velke-porici-8609299.html",
     "outside-municipality:https://reality.aktualne.cz/detail/velke-porici/prodej-zahrady-s-moznosti-stavby-18-m2-velke-pocici-nachod-8562653.html",
-    "excluded-chata:https://www.sreality.cz/api/v1/estates/1728294988",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/934723/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/943134/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/946670/"
+    "excluded-chata:https://www.sreality.cz/api/v1/estates/1728294988"
   ],
   "listings": [
     {
@@ -320,24 +250,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2297271116"
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Pozemek k bydlení, 5000 m², Velké Poříčí",
-      "location": "Velké Poříčí, okres Náchod",
-      "property_type": "land",
-      "price": "8 850 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "5000",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/946026/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "buildable-land"
       ]
     }
   ]

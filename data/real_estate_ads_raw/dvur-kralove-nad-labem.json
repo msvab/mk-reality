@@ -28,14 +28,13 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Dvůr Králové nad Labem."
   ],
   "coverage": {
-    "workers_launched": 5,
+    "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 9,
+    "candidates_gathered": 37,
     "rows_retained": 9,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "realitymix.cz",
-      "mmreality.cz"
+      "realitymix.cz"
     ],
     "blocked_portals": []
   },
@@ -55,10 +54,6 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "mmreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -217,14 +212,6 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-rodinny-dum-78-8632585.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-styloveho-domu-4-kk-ve-dvore-kralove-nad-labem-8554777.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -445,62 +432,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=Dv%C5%AFr+Kr%C3%A1lov%C3%A9+nad+Labem&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/908883/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/941067/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/942992/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -519,7 +450,6 @@
     "land-below-threshold:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-rodinneho-domu-113-m-dvur-kralove-nad-labem-8584203.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-rodinneho-domu-200-m-dvur-kralove-nad-labem-8601177.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-rodinny-dum-78-8632585.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-styloveho-domu-4-kk-ve-dvore-kralove-nad-labem-8554777.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/prodej-zahrady-676-m-dvur-kralove-nad-labem-8284273.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/pronajem-bytu-1-1-dvur-kralove-8615359.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/dvur-kralove-nad-labem/pronajem-bytu-2-kk-dvur-kralove-nad-labem-8522159.html",
@@ -535,10 +465,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3041203020",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3380512076",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3521347660",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/946959180",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/908883/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/941067/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/942992/"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/946959180"
   ],
   "listings": [
     {

@@ -28,16 +28,15 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Spojil."
   ],
   "coverage": {
-    "workers_launched": 5,
+    "workers_launched": 4,
     "workers_with_results": 0,
-    "candidates_gathered": 0,
+    "candidates_gathered": 3,
     "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz",
-      "sreality.cz",
-      "mmreality.cz"
+      "sreality.cz"
     ],
     "blocked_portals": []
   },
@@ -57,10 +56,6 @@
     "sreality.cz": {
       "status": "no_results",
       "message": "No retained in-scope Sreality rows."
-    },
-    "mmreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -121,14 +116,6 @@
       "http_status": 200
     },
     {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/spojil/prodej-stavebniho-pozemku-pro-bydleni-893-m-spojil-pardubice-8365689.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Spojil&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
       "stage": "locality_suggest",
@@ -159,41 +146,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=Spojil&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -202,7 +154,6 @@
     "missing-page-url:land",
     "land-below-threshold:https://reality.aktualne.cz/detail/spojil/prodej-domu-na-klic-128-m-spojil-8595951.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/spojil/prodej-pozemek-681-m-spojil-8405765.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/spojil/prodej-stavebniho-pozemku-pro-bydleni-893-m-spojil-pardubice-8365689.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/114573900"
   ],
   "listings": []

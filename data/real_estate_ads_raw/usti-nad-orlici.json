@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Ústí nad Orlicí."
   ],
   "coverage": {
-    "workers_launched": 5,
-    "workers_with_results": 4,
-    "candidates_gathered": 9,
-    "rows_retained": 9,
+    "workers_launched": 4,
+    "workers_with_results": 3,
+    "candidates_gathered": 49,
+    "rows_retained": 7,
     "zero_result_portals": [
       "reality.idnes.cz"
     ],
@@ -53,10 +53,6 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "mmreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -366,6 +362,14 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-byt-1-1-37-8637477.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-bytu-1-1-35-m-usti-nad-orlici-ul-trebovska-8606703.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -399,14 +403,6 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-moderniho-bytu-2-1-v-usti-nad-orlici-s-garazi-8569343.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-prostor-207-m-usti-nad-orlici-ul-mirove-nam-8591515.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -491,83 +487,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=%C3%9Ast%C3%AD+nad+Orlic%C3%AD&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/899829/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/899916/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/917131/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/928250/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/941417/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/944739/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -594,7 +513,7 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/garaz-v-usti-nad-orlici-s-elektrinou-5805796.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-byt-3-1-na-dukle-v-usti-nad-orlici-8626773.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-bytu-2-1-po-rekonstrukci-dukelska-322-usti-nad-orlici-8584525.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-bytu-2-kk-ul-pisecnik-okres-usti-nad-orlici-8628775.html",
+    "inactive-or-unpriced:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-bytu-2-kk-ul-pisecnik-okres-usti-nad-orlici-8628775.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-chaty-25-m2-usti-nad-orlici-stare-oldrichovice-okres-usti-nad-orlici-8578773.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-chaty-chatova-osada-na-americe-usti-nad-orlici-8611707.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-domu-ubytovny-cp-250-m2-ul-kralovehradecka-okres-usti-nad-orlici-8319537.html",
@@ -602,20 +521,16 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-druzstevniho-bytu-3-1-67-m-zadane-sidliste-stepnice-v-usti-nad-orlici-8600699.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-garaze-v-centru-usti-nad-orlici-5788436.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/usti-nad-orlici/prodej-rodinneho-domu-198-m-usti-nad-orlici-ul-a-staska-8463591.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-byt-1-1-37-8637477.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-bytu-1-1-35-m-usti-nad-orlici-ul-trebovska-8606703.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-bytu-1-1-v-usti-nad-orlici-ul-jilemnickeho-8461895.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-bytu-2-1-59-m-usti-nad-orlici-ul-trebovska-8620389.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-bytu-3-kk-62-m-ul-v-lukach-usti-nad-orlici-8604947.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-moderniho-bytu-2-1-v-usti-nad-orlici-s-garazi-8569343.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-prostor-207-m-usti-nad-orlici-ul-mirove-nam-8591515.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/usti-nad-orlici/pronajem-prostorneho-bytu-3-1-s-balkonem-usti-nad-orlici-trebovska-68-m2-8626041.html",
     "missing-price:https://www.sreality.cz/api/v1/estates/1062379596",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3262115916",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3650376524",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/899829/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/899916/",
-    "missing-price:https://www.mmreality.cz/nemovitosti/917131/",
-    "missing-price:https://www.mmreality.cz/nemovitosti/941417/"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3650376524"
   ],
   "listings": [
     {
@@ -742,41 +657,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3890868300"
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Rodinný dům, 198 m², Ústí nad Orlicí, A. Staška",
-      "location": "Ústí nad Orlicí, okres Ústí nad Orlicí",
-      "property_type": "house",
-      "price": "6 864 000 Kč",
-      "house_area_m2": "198",
-      "land_area_m2": "1224",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/928250/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz"
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Rodinný dům, 80 m², Ústí nad Orlicí",
-      "location": "Ústí nad Orlicí - Dolní Houžovec, okres Ústí nad Orlicí",
-      "property_type": "house",
-      "price": "2 190 000 Kč",
-      "house_area_m2": "80",
-      "land_area_m2": "1107",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/944739/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "municipality-subarea:Dolní Houžovec"
       ]
     }
   ]

@@ -28,14 +28,13 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Chlumec nad Cidlinou."
   ],
   "coverage": {
-    "workers_launched": 5,
+    "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 13,
+    "candidates_gathered": 36,
     "rows_retained": 13,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "realitymix.cz",
-      "mmreality.cz"
+      "realitymix.cz"
     ],
     "blocked_portals": []
   },
@@ -55,10 +54,6 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "mmreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -137,6 +132,14 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/investicni-prilezitost-v-centru-chlumce-nad-cidlinou-8616347.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/pozemek-pro-vystavbu-rodinneho-domu-541-m-projekt-skalka-8601611.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -240,7 +243,7 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/prvorepublikova-vila-216-m-vicegeneracni-bydleni-pozemek-1-160-m-chlumec-nad-cidlinou-iv-8631801.html",
+      "url": "https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/rovinaty-stavebni-pozemek-537-m-pro-rodinny-dum-projekt-skalka-8601615.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -248,7 +251,7 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/rovinaty-stavebni-pozemek-537-m-pro-rodinny-dum-projekt-skalka-8601615.html",
+      "url": "https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/stavebni-parcela-539-m-v-nove-rezidencni-lokalite-projekt-skalka-8601613.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -265,14 +268,6 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/stavebni-pozemek-536-m-pro-rodinny-dum-projekt-skalka-8601617.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/stavebni-pozemek-692m2-v-chlumci-nad-cidlinou-projekt-skalka-8601619.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -445,48 +440,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=Chlumec+nad+Cidlinou&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/737604/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -494,6 +447,7 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "unsupported-property-type:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/investicni-prilezitost-v-centru-chlumce-nad-cidlinou-8616347.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/pozemek-pro-vystavbu-rodinneho-domu-541-m-projekt-skalka-8601611.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/prodej-bytu-3-kk-68-m2-smetanova-chlumec-nad-cidlinou-8633201.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/prodej-bytu-5-1-a-vetsi-139-m-chlumec-nad-cidlinou-8615541.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/prodej-prostorneho-radoveho-domu-s-potencialem-dvougeneracniho-bydleni-chlumec-nad-cidlinou-ul-n-8629143.html",
@@ -504,10 +458,9 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/pronajem-bytu-3-kk-58-m-2-np-chlumec-nad-cidlinou-ulice-rooseveltova-8619035.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/pronajem-bytu-3-kk-59-m-2-np-chlumec-nad-cidlinou-ulice-rooseveltova-8619029.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/pronajem-novostavby-radoveho-rodinneho-domu-4-kk-s-garazi-v-obci-chlumec-nad-cidlinou-kladruby-8528147.html",
-    "non-buildable-land:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/prvorepublikova-vila-216-m-vicegeneracni-bydleni-pozemek-1-160-m-chlumec-nad-cidlinou-iv-8631801.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/rovinaty-stavebni-pozemek-537-m-pro-rodinny-dum-projekt-skalka-8601615.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/stavebni-parcela-539-m-v-nove-rezidencni-lokalite-projekt-skalka-8601613.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/stavebni-pozemek-536-m-pro-rodinny-dum-projekt-skalka-8601617.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/stavebni-pozemek-692m2-v-chlumci-nad-cidlinou-projekt-skalka-8601619.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/stavebni-pozemek-v-klidne-casti-zastavby-809-m2-projekt-skalka-8601625.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/udrzovany-rodinny-dum-v-rezidencni-lokalite-8630933.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2323276876",
@@ -515,8 +468,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3869610828",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3888812108",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/857683020",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/868107084",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/737604/"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/868107084"
   ],
   "listings": [
     {
