@@ -72,6 +72,76 @@ def test_unfiltered_generic_search_response_is_rejected():
     )
 
 
+def test_detail_404_is_not_classified_as_blocked():
+    module = load_sreality_fetch()
+
+    assert module.classify_fetch(404, 0, '{"status_code":404}', "", "detail_fetch") == ("not_found", "HTTP 404")
+    assert module.classify_fetch(404, 0, '{"status_code":404}', "", "land_search_fetch") == ("blocked", "HTTP 404")
+
+
+def test_stale_detail_404_is_excluded_without_blocking_portal(monkeypatch):
+    module = load_sreality_fetch()
+
+    def fake_run_json_fetch(url, *, attempts=None, stage="fetch", retries=1, backoff_seconds=1.0):
+        if attempts is not None:
+            attempts.append(
+                {
+                    "portal": "sreality.cz",
+                    "url": url,
+                    "stage": stage,
+                    "attempt": 1,
+                    "status": "not_found" if stage == "detail_fetch" else "ok",
+                    "http_status": 404 if stage == "detail_fetch" else 200,
+                }
+            )
+        if stage == "locality_suggest":
+            return {
+                "results": [
+                    {
+                        "userData": {
+                            "id": 2960,
+                            "entityType": "municipality",
+                            "municipality": "Česká Třebová",
+                            "district": "Ústí nad Orlicí",
+                        }
+                    }
+                ]
+            }
+        if stage.endswith("_search_fetch"):
+            return {
+                "search_title": "Pozemky na prodej Česká Třebová, plocha pozemku od 1 000 m²",
+                "results": [],
+                "pagination": {"total": 0},
+            }
+        if stage == "detail_fetch":
+            raise RuntimeError("Failed to fetch https://www.sreality.cz/api/v1/estates/123: HTTP 404")
+        raise AssertionError(stage)
+
+    monkeypatch.setattr(module, "expected_district_for_municipality", lambda _municipality: "Ústí nad Orlicí")
+    monkeypatch.setattr(module, "run_json_fetch", fake_run_json_fetch)
+
+    output = module.build_output(
+        "Česká Třebová",
+        "municipality_only",
+        True,
+        True,
+        ["https://www.sreality.cz/detail/prodej/pozemek/bydleni/ceska-trebova/123"],
+    )
+
+    assert output["coverage"]["blocked_portals"] == []
+    assert output["portal_status"]["sreality.cz"]["status"] == "no_results"
+    assert output["gaps"] == [
+        "stale-detail-fetch:123:Failed to fetch https://www.sreality.cz/api/v1/estates/123: HTTP 404"
+    ]
+    assert output["excluded_candidates"] == [
+        {
+            "portal": "sreality.cz",
+            "url": "https://www.sreality.cz/api/v1/estates/123",
+            "reason": "not-found",
+        }
+    ]
+
+
 def test_per_square_meter_price_is_normalized_to_full_price():
     module = load_sreality_fetch()
     item = {

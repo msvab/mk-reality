@@ -62,13 +62,21 @@ def path_slug(value: str | None) -> str:
     return text.strip("-") or "-"
 
 
-def classify_fetch(http_status: int | None, returncode: int, body: str, stderr: str) -> tuple[str, str | None]:
+def classify_fetch(
+    http_status: int | None,
+    returncode: int,
+    body: str,
+    stderr: str,
+    stage: str | None = None,
+) -> tuple[str, str | None]:
     if returncode != 0:
         return "fetch_error", stderr.strip() or f"curl exited with {returncode}"
     if http_status == 429:
         return "rate_limited", "HTTP 429"
     if http_status is not None and http_status >= 500:
         return "fetch_error", f"HTTP {http_status}"
+    if stage == "detail_fetch" and http_status == 404:
+        return "not_found", "HTTP 404"
     if http_status in {401, 403}:
         return "blocked", f"HTTP {http_status}"
     if http_status is not None and http_status >= 400:
@@ -132,7 +140,7 @@ def run_json_fetch(
                 http_status = int(raw_http_status.strip())
             except ValueError:
                 http_status = None
-        status, error = classify_fetch(http_status, completed.returncode, body, completed.stderr)
+        status, error = classify_fetch(http_status, completed.returncode, body, completed.stderr, stage)
         if status == "ok":
             try:
                 payload = json.loads(body)
@@ -387,15 +395,9 @@ def listing_from_detail(detail: dict, municipality: str, locality: dict, expecte
         return None, "excluded-chata"
 
     land_area = item.get("estate_area")
-    if not isinstance(land_area, (int, float)):
-        land_area = None
-    else:
-        land_area = int(round(land_area))
+    land_area = None if not isinstance(land_area, (int, float)) else int(round(land_area))
     house_area = item.get("usable_area") or item.get("floor_area")
-    if not isinstance(house_area, (int, float)):
-        house_area = None
-    else:
-        house_area = int(round(house_area))
+    house_area = None if not isinstance(house_area, (int, float)) else int(round(house_area))
     if land_area is None or land_area < MIN_LAND_AREA_M2:
         return None, "land-below-threshold"
     if property_type == "land" and not land_is_buildable(item):
@@ -465,6 +467,10 @@ def build_portal_status(fetch_attempts: list[dict], listings: list[dict]) -> dic
     else:
         output["message"] = "No retained in-scope Sreality rows."
     return output
+
+
+def is_not_found_error(exc: RuntimeError) -> bool:
+    return "HTTP 404" in str(exc)
 
 
 def build_output(
@@ -551,6 +557,16 @@ def build_output(
         try:
             detail_payload = run_json_fetch(detail_api_url(candidate_id), attempts=fetch_attempts, stage="detail_fetch")
         except RuntimeError as exc:
+            if is_not_found_error(exc):
+                gaps.append(f"stale-detail-fetch:{candidate_id}:{exc}")
+                excluded_candidates.append(
+                    {
+                        "portal": "sreality.cz",
+                        "url": detail_api_url(candidate_id),
+                        "reason": "not-found",
+                    }
+                )
+                continue
             gaps.append(f"failed-detail-fetch:{candidate_id}:{exc}")
             coverage["blocked_portals"].append(f"sreality.cz detail fetch failed: {candidate_id}: {exc}")
             continue
