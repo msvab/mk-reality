@@ -28,12 +28,13 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Chrudim."
   ],
   "coverage": {
-    "workers_launched": 4,
+    "workers_launched": 5,
     "workers_with_results": 3,
-    "candidates_gathered": 58,
+    "candidates_gathered": 15,
     "rows_retained": 15,
     "zero_result_portals": [
-      "reality.idnes.cz"
+      "reality.idnes.cz",
+      "mmreality.cz"
     ],
     "blocked_portals": []
   },
@@ -53,6 +54,10 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "mmreality.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -559,6 +564,76 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://cadastral.stormm.cz/api/location/search?query=Chrudim&types%5B%5D=municipality&types%5B%5D=municipality_part",
+      "stage": "location_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "house_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "land_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/751014/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/924500/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/930455/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/941082/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/943761/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
     }
   ],
   "gaps": [
@@ -601,7 +676,12 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2844164172",
     "excluded-chata:https://www.sreality.cz/api/v1/estates/357131084",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4186284108",
-    "missing-price:https://www.sreality.cz/api/v1/estates/927395916"
+    "missing-price:https://www.sreality.cz/api/v1/estates/927395916",
+    "non-buildable-land:https://www.mmreality.cz/nemovitosti/751014/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/924500/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/930455/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/941082/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/943761/"
   ],
   "listings": [
     {

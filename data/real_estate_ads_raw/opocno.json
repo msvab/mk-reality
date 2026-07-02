@@ -30,12 +30,12 @@
   "coverage": {
     "workers_launched": 5,
     "workers_with_results": 2,
-    "candidates_gathered": 35,
+    "candidates_gathered": 18,
     "rows_retained": 18,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "mmreality.cz",
-      "realitymix.cz"
+      "realitymix.cz",
+      "mmreality.cz"
     ],
     "blocked_portals": []
   },
@@ -43,15 +43,6 @@
     "reality.idnes.cz": {
       "status": "no_results",
       "message": "No retained in-scope iDNES rows."
-    },
-    "mmreality.cz": {
-      "status": "fetch_error",
-      "stage": "land_search_api",
-      "message": "HTTP 520",
-      "evidence": [
-        "land_search_api:fetch_error:https://mediator.stormm.cz/api/offers/query"
-      ],
-      "http_status": 520
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -64,6 +55,10 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "mmreality.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -74,47 +69,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=Opo%C4%8Dno&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "fetch_error",
-      "http_status": 520,
-      "error": "HTTP 520"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "blocked",
-      "http_status": 403,
-      "error": "HTTP 403"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "blocked",
-      "http_status": 403,
-      "error": "HTTP 403"
     },
     {
       "portal": "realitymix.cz",
@@ -571,6 +525,41 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://cadastral.stormm.cz/api/location/search?query=Opo%C4%8Dno&types%5B%5D=municipality&types%5B%5D=municipality_part",
+      "stage": "location_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "house_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "land_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
     }
   ],
   "gaps": [

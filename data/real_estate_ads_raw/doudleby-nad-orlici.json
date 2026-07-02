@@ -28,13 +28,14 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Doudleby nad Orlicí."
   ],
   "coverage": {
-    "workers_launched": 4,
+    "workers_launched": 5,
     "workers_with_results": 2,
-    "candidates_gathered": 13,
+    "candidates_gathered": 5,
     "rows_retained": 5,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "realitymix.cz"
+      "realitymix.cz",
+      "mmreality.cz"
     ],
     "blocked_portals": []
   },
@@ -54,6 +55,10 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "mmreality.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -248,6 +253,55 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://cadastral.stormm.cz/api/location/search?query=Doudleby+nad+Orlic%C3%AD&types%5B%5D=municipality&types%5B%5D=municipality_part",
+      "stage": "location_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "house_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "land_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/943162/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/943173/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
     }
   ],
   "gaps": [
@@ -262,7 +316,9 @@
     "land-below-threshold:https://reality.aktualne.cz/detail/doudleby-nad-orlici/prodej-rodinneho-domu-doudleby-nad-orlici-8614797.html",
     "outside-municipality:https://reality.aktualne.cz/detail/doudleby-nad-orlici/prodej-stavebniho-pozemku-8411829.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/doudleby-nad-orlici/prodej-stavebniho-pozemku-8412213.html",
-    "excluded-chata:https://www.sreality.cz/api/v1/estates/1729119052"
+    "excluded-chata:https://www.sreality.cz/api/v1/estates/1729119052",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/943162/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/943173/"
   ],
   "listings": [
     {

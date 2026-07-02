@@ -28,14 +28,15 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Mikulovice."
   ],
   "coverage": {
-    "workers_launched": 4,
+    "workers_launched": 5,
     "workers_with_results": 1,
-    "candidates_gathered": 18,
+    "candidates_gathered": 2,
     "rows_retained": 2,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
-      "sreality.cz"
+      "sreality.cz",
+      "mmreality.cz"
     ],
     "blocked_portals": []
   },
@@ -55,6 +56,10 @@
     "sreality.cz": {
       "status": "no_results",
       "message": "No retained in-scope Sreality rows."
+    },
+    "mmreality.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -349,6 +354,55 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://cadastral.stormm.cz/api/location/search?query=Mikulovice&types%5B%5D=municipality&types%5B%5D=municipality_part",
+      "stage": "location_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "house_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "land_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/905040/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/909527/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
     }
   ],
   "gaps": [
@@ -372,7 +426,9 @@
     "outside-municipality:https://reality.aktualne.cz/detail/mikulovice/pronajem-bytu-1-1-v-mikulovicich-u-jeseniku-8587985.html",
     "outside-municipality:https://reality.aktualne.cz/detail/mikulovice/rodinny-dum-v-mikulovicich-klidne-bydleni-se-zahradou-a-velkym-potencialem-8604629.html",
     "stale-detail-fetch:2414756684:Failed to fetch https://www.sreality.cz/api/v1/estates/2414756684: HTTP 404",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/411730508"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/411730508",
+    "non-buildable-land:https://www.mmreality.cz/nemovitosti/905040/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/909527/"
   ],
   "listings": [
     {

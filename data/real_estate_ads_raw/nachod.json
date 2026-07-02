@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Náchod."
   ],
   "coverage": {
-    "workers_launched": 4,
-    "workers_with_results": 3,
-    "candidates_gathered": 42,
-    "rows_retained": 10,
+    "workers_launched": 5,
+    "workers_with_results": 4,
+    "candidates_gathered": 12,
+    "rows_retained": 12,
     "zero_result_portals": [
       "reality.idnes.cz"
     ],
@@ -53,6 +53,10 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "mmreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -497,6 +501,104 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://cadastral.stormm.cz/api/location/search?query=N%C3%A1chod&types%5B%5D=municipality&types%5B%5D=municipality_part",
+      "stage": "location_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "house_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "land_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/918301/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/921624/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/931984/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/932040/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/932615/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/934313/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/946078/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/946842/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/946926/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
     }
   ],
   "gaps": [
@@ -531,7 +633,14 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1924048204",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2137330508",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/320959308",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3485565004"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3485565004",
+    "inactive-generic-page:https://www.mmreality.cz/nemovitosti/918301/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/921624/",
+    "non-buildable-land:https://www.mmreality.cz/nemovitosti/932040/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/932615/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/934313/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/946842/",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/946926/"
   ],
   "listings": [
     {
@@ -714,6 +823,43 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1391390796",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "mmreality.cz"
+      ],
+      "title": "Prodej, Pozemek k bydlení, 1381 m², Náchod",
+      "location": "Náchod - Malé Poříčí, okres Náchod",
+      "property_type": "land",
+      "price": "2 590 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1381",
+      "urls": [
+        "https://www.mmreality.cz/nemovitosti/946078/"
+      ],
+      "notes": [
+        "detail-url-verified:mmreality.cz",
+        "municipality-subarea:Malé Poříčí",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "mmreality.cz"
+      ],
+      "title": "Prodej, Pozemek k bydlení, 13250 m², Náchod",
+      "location": "Náchod, okres Náchod",
+      "property_type": "land",
+      "price": "14 300 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "13250",
+      "urls": [
+        "https://www.mmreality.cz/nemovitosti/931984/"
+      ],
+      "notes": [
+        "detail-url-verified:mmreality.cz",
         "buildable-land"
       ]
     }

@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Česká Skalice."
   ],
   "coverage": {
-    "workers_launched": 4,
-    "workers_with_results": 3,
-    "candidates_gathered": 97,
-    "rows_retained": 20,
+    "workers_launched": 5,
+    "workers_with_results": 4,
+    "candidates_gathered": 22,
+    "rows_retained": 22,
     "zero_result_portals": [
       "realitymix.cz"
     ],
@@ -53,6 +53,10 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "mmreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -1001,6 +1005,69 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://cadastral.stormm.cz/api/location/search?query=%C4%8Cesk%C3%A1+Skalice&types%5B%5D=municipality&types%5B%5D=municipality_part",
+      "stage": "location_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "house_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "land_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/869337/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/892597/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/915210/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/941742/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
     }
   ],
   "gaps": [
@@ -1083,7 +1150,9 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/ceska-skalice/pronajem-byty-2-kk-45-m2-e-benese-291-55203-ceska-skalice-nachod-id-85093-8578509.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1040969804",
     "stale-detail-fetch:1647911756:Failed to fetch https://www.sreality.cz/api/v1/estates/1647911756: HTTP 404",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/702309196"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/702309196",
+    "land-below-threshold:https://www.mmreality.cz/nemovitosti/915210/",
+    "non-buildable-land:https://www.mmreality.cz/nemovitosti/941742/"
   ],
   "listings": [
     {
@@ -1445,6 +1514,43 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/43618380",
         "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "mmreality.cz"
+      ],
+      "title": "Prodej, Pozemek k bydlení, 14291 m², Česká Skalice",
+      "location": "Česká Skalice - Zlíč, okres Náchod",
+      "property_type": "land",
+      "price": "14 990 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "14291",
+      "urls": [
+        "https://www.mmreality.cz/nemovitosti/869337/"
+      ],
+      "notes": [
+        "detail-url-verified:mmreality.cz",
+        "municipality-subarea:Zlíč",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "mmreality.cz"
+      ],
+      "title": "Prodej, Rodinný dům, 247 m², Česká Skalice",
+      "location": "Česká Skalice - Zlíč, okres Náchod",
+      "property_type": "house",
+      "price": "14 990 000 Kč",
+      "house_area_m2": "247",
+      "land_area_m2": "14291",
+      "urls": [
+        "https://www.mmreality.cz/nemovitosti/892597/"
+      ],
+      "notes": [
+        "detail-url-verified:mmreality.cz",
+        "municipality-subarea:Zlíč"
       ]
     }
   ]

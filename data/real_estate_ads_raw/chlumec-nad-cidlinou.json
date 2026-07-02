@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Chlumec nad Cidlinou."
   ],
   "coverage": {
-    "workers_launched": 4,
-    "workers_with_results": 2,
-    "candidates_gathered": 36,
-    "rows_retained": 13,
+    "workers_launched": 5,
+    "workers_with_results": 3,
+    "candidates_gathered": 14,
+    "rows_retained": 14,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -54,6 +54,10 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "mmreality.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -440,6 +444,55 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://cadastral.stormm.cz/api/location/search?query=Chlumec+nad+Cidlinou&types%5B%5D=municipality&types%5B%5D=municipality_part",
+      "stage": "location_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "house_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://mediator.stormm.cz/api/offers/query",
+      "stage": "land_search_api",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/737604/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
+    },
+    {
+      "portal": "mmreality.cz",
+      "url": "https://www.mmreality.cz/nemovitosti/947647/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok"
     }
   ],
   "gaps": [
@@ -468,7 +521,8 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3869610828",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3888812108",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/857683020",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/868107084"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/868107084",
+    "non-buildable-land:https://www.mmreality.cz/nemovitosti/737604/"
   ],
   "listings": [
     {
@@ -712,6 +766,25 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/61211468",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "mmreality.cz"
+      ],
+      "title": "Prodej, Pozemek k bydlení, 1107 m², Chlumec nad Cidlinou",
+      "location": "Chlumec nad Cidlinou - Chlumec nad Cidlinou III, okres Hradec Králové",
+      "property_type": "land",
+      "price": "3 995 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1107",
+      "urls": [
+        "https://www.mmreality.cz/nemovitosti/947647/"
+      ],
+      "notes": [
+        "detail-url-verified:mmreality.cz",
+        "municipality-subarea:Chlumec nad Cidlinou III",
         "buildable-land"
       ]
     }
