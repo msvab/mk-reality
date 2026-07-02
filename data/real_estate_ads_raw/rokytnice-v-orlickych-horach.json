@@ -53,8 +53,13 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Sreality row."
+      "status": "fetch_error",
+      "http_status": 0,
+      "stage": "detail_fetch",
+      "message": "curl exited with 35",
+      "evidence": [
+        "detail_fetch:fetch_error:https://www.sreality.cz/api/v1/estates/2996932684"
+      ]
     }
   },
   "fetch_attempts": [
@@ -367,6 +372,15 @@
       "url": "https://www.sreality.cz/api/v1/estates/2996932684",
       "stage": "detail_fetch",
       "attempt": 1,
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 35"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2996932684",
+      "stage": "detail_fetch",
+      "attempt": 2,
       "status": "ok",
       "http_status": 200
     },

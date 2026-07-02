@@ -45,13 +45,13 @@
       "message": "No retained in-scope iDNES rows."
     },
     "mmreality.cz": {
-      "status": "blocked",
-      "stage": "search_fetch",
-      "message": "HTTP 403",
+      "status": "fetch_error",
+      "stage": "land_search_api",
+      "message": "HTTP 520",
       "evidence": [
-        "search_fetch:blocked:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/"
+        "land_search_api:fetch_error:https://mediator.stormm.cz/api/offers/query"
       ],
-      "http_status": 403
+      "http_status": 520
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -94,7 +94,9 @@
       "url": "https://mediator.stormm.cz/api/offers/query",
       "stage": "land_search_api",
       "attempt": 1,
-      "status": "ok"
+      "status": "fetch_error",
+      "http_status": 520,
+      "error": "HTTP 520"
     },
     {
       "portal": "mmreality.cz",
@@ -573,6 +575,7 @@
   ],
   "gaps": [
     "idnes-discovery-missing-locality-id",
+    "failed-land-search-api",
     "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
     "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
     "removed-fallback-page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-4-1-199-m2-dobrikovec-u-opocna-8463059.html",

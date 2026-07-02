@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 31,
-    "rows_retained": 8,
+    "rows_retained": 6,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -336,8 +336,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1864536140",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1864536140",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -376,8 +386,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3860087628",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3860087628",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -429,6 +449,8 @@
     "detail-fallback-page:https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-rodinneho-domu-80-m2-cerveny-kostelec-8568477.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-skladu-4000-m-cerveny-kostelec-ul-jiraskova-8559107.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1789235276",
+    "stale-detail-fetch:1864536140:Failed to fetch https://www.sreality.cz/api/v1/estates/1864536140: HTTP 404",
+    "stale-detail-fetch:3860087628:Failed to fetch https://www.sreality.cz/api/v1/estates/3860087628: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3993542732",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/437257036"
   ],
@@ -524,42 +546,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2107769676"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej chalupy 80 m², pozemek 6504 m²",
-      "location": "Červený Kostelec, Náchod",
-      "property_type": "house",
-      "price": "2 199 999 Kč",
-      "house_area_m2": "80",
-      "land_area_m2": "6504",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/chalupa/cerveny-kostelec-horni-kostelec/1864536140"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1864536140"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 80 m², pozemek 6504 m²",
-      "location": "Červený Kostelec, Náchod",
-      "property_type": "house",
-      "price": "2 199 999 Kč",
-      "house_area_m2": "80",
-      "land_area_m2": "6504",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/cerveny-kostelec-horni-kostelec/3860087628"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3860087628"
       ]
     },
     {

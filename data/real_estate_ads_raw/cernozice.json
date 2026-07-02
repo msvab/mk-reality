@@ -29,13 +29,12 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
+    "workers_with_results": 2,
     "candidates_gathered": 8,
-    "rows_retained": 1,
+    "rows_retained": 2,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "realitymix.cz",
-      "sreality.cz"
+      "realitymix.cz"
     ],
     "blocked_portals": []
   },
@@ -53,8 +52,8 @@
       "message": "Retained at least one detail-verified Reality Aktuálně row."
     },
     "sreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Sreality rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -199,18 +198,8 @@
       "url": "https://www.sreality.cz/api/v1/estates/3694297164",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/3694297164",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -222,8 +211,7 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/cernozice/prodej-komercniho-pozemku-10213-m-cernozice-ul-revolucni-7740923.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/cernozice/prodej-rodinneho-domu-130-m-cernozice-ul-gen-svobody-8615419.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/cernozice/pronajem-komercni-prostor-187-m2-cernozice-okres-hradec-kralove-8635611.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/cernozice/pronajem-komercnich-prostor-400-m2-cernozice-nad-labem-okr-hradec-kralove-8320165.html",
-    "stale-detail-fetch:3694297164:Failed to fetch https://www.sreality.cz/api/v1/estates/3694297164: HTTP 404"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cernozice/pronajem-komercnich-prostor-400-m2-cernozice-nad-labem-okr-hradec-kralove-8320165.html"
   ],
   "listings": [
     {
@@ -243,6 +231,25 @@
         "detail-url-verified:reality.aktualne.cz",
         "buildable-land",
         "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1025 m²",
+      "location": "Černožice, Gen. Svobody, Hradec Králové",
+      "property_type": "land",
+      "price": "4 490 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1025",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/cernozice-gen-svobody/3694297164"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3694297164",
+        "buildable-land"
       ]
     }
   ]

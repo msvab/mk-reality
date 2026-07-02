@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 9,
+    "candidates_gathered": 8,
     "rows_retained": 2,
     "zero_result_portals": [
       "reality.idnes.cz",
@@ -85,6 +85,22 @@
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/prodej/",
       "stage": "land_root_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/stare-hradiste/prodej-domu-ve-starem-hradisti-8090704.html",
+      "stage": "discovery_detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/vyhledavani/r-3606-pardubice/pardubicky/prodej-domy_vily.html",
+      "stage": "search_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -184,27 +200,19 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/2625761356",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
     "idnes-discovery-missing-locality-id",
     "missing-page-url:house",
     "missing-page-url:land",
+    "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3606-pardubice/pardubicky/prodej-domy_vily.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/stare-hradiste/prodej-pole-1891-m-stare-hradiste-8540285.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/stare-hradiste/prodej-rodinny-dum-ve-starem-hradisti-8626815.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/stare-hradiste/pronajem-zdeneho-bytu-1-kk-8599231.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1349173836",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1402204236",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1634386508",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2625761356"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1634386508"
   ],
   "listings": [
     {

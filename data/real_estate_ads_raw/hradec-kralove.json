@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 3,
     "candidates_gathered": 135,
-    "rows_retained": 40,
+    "rows_retained": 39,
     "zero_result_portals": [
       "reality.idnes.cz"
     ],
@@ -522,14 +522,6 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/hradec-kralove/prodej-bytu-1-1-59m2-v-centru-hradce-kralove-strelecka-ulice-8593715.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/hradec-kralove/prodej-bytu-3-1-98-m-hradec-kralove-ul-trida-e-benese-8558165.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -586,15 +578,7 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/hradec-kralove/prodej-rekreacniho-objektu-v-zahradkarske-kolonii-orlican-na-slezskem-predmesti-v-hradci-kralove-8635629.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/hradec-kralove/prodej-rodinneho-domu-v-zadane-lokalite-novy-hradec-kralove-8595225.html",
+      "url": "https://reality.aktualne.cz/detail/hradec-kralove/prodej-rodinneho-domu-159-m-hradec-kralove-ul-u-cihelny-8543613.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -603,6 +587,14 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/hradec-kralove/prodej-stavebniho-pozemku-v-hradci-kralove-prazske-predmesti-cp-1081-m2-8628143.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hradec-kralove/pronajem-1-kk-hradec-kralove-8637873.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -643,6 +635,14 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/hradec-kralove/pronajem-prostorneho-bytu-3-1-98-m-s-balkonem-hradec-kralove-ul-nerudova-8636007.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/hradec-kralove/pronajem-zarizeneho-bytu-kousek-od-centra-mesta-8637881.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -1077,8 +1077,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/772599884",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/772599884",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -1175,7 +1185,6 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/podnajem-byty-pokoj-50-m2-habrmanova-295-16-50002-hradec-kralove-hradec-kralove-id-77482-8410207.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/podnajem-komercni-vyroba-1059-m2-vyrobni-952-slezske-predmesti-50003-hradec-kralove-hradec-kra-8259375.html",
     "non-buildable-land:https://reality.aktualne.cz/detail/hradec-kralove/pozemek-33-989m2-hradec-kralove-malsova-lhota-7706119.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-bytu-1-1-59m2-v-centru-hradce-kralove-strelecka-ulice-8593715.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-bytu-3-1-98-m-hradec-kralove-ul-trida-e-benese-8558165.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-bytu-3-1-hradec-kralove-8528913.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-bytu-3-kk-68-m2-hradec-kralove-8609677.html",
@@ -1183,13 +1192,14 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-byty-3-1-98-m2-trida-edvarda-benese-1425-17-novy-hradec-kralove-50012-hradec-kralove-hr-8529341.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-byty-3-kk-85-m2-klumparova-605-2-50002-hradec-kralove-hradec-kralove-id-84202-8587235.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/hradec-kralove/prodej-pozemek-zahrada-ustecky-kraj-chomutov-skroupova-1444-3-43001-8631393.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/prodej-rekreacniho-objektu-v-zahradkarske-kolonii-orlican-na-slezskem-predmesti-v-hradci-kralove-8635629.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/hradec-kralove/prodej-rodinneho-domu-v-zadane-lokalite-novy-hradec-kralove-8595225.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/hradec-kralove/prodej-rodinneho-domu-159-m-hradec-kralove-ul-u-cihelny-8543613.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-1-kk-hradec-kralove-8637873.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-1-kk-30-m2-po-kompletni-rekonstrukci-ed-benese-hk-moravske-predmesti-8637021.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-1-kk-se-dvema-lodziemi-hk-8636941.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-bytu-2-1-61-m2-po-celkove-rekonstrukci-hradec-kralove-8636329.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-byty-2-1-50-m2-labska-kotlina-1019-63-50002-hradec-kralove-hradec-kralove-id-87733-8636089.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-prostorneho-bytu-3-1-98-m-s-balkonem-hradec-kralove-ul-nerudova-8636007.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/pronajem-zarizeneho-bytu-kousek-od-centra-mesta-8637881.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/hradec-kralove/rodinny-dum-3-1-s-garazi-dilnou-a-zahradou-slezske-predmesti-v-hradci-kralove-8624453.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/sportovni-areal-tj-lokomotiva-hradec-kralove-v-prodeji-investicni-prilezitost-sportovni-areal-11-8624863.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/hradec-kralove/stylovy-byt-2-kk-61-m-v-samotnem-centru-hradce-kralove-ul-manesova-8637157.html",
@@ -1221,6 +1231,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4180848716",
     "missing-price:https://www.sreality.cz/api/v1/estates/568464204",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/631006284",
+    "stale-detail-fetch:772599884:Failed to fetch https://www.sreality.cz/api/v1/estates/772599884: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/958763084",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/993501260",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/994410572"
@@ -1797,24 +1808,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/987799628"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 150 m², pozemek 1118 m²",
-      "location": "Hradec Králové, Kydlinovská, Hradec Králové",
-      "property_type": "house",
-      "price": "9 500 000 Kč",
-      "house_area_m2": "150",
-      "land_area_m2": "1118",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/hradec-kralove-placky-kydlinovska/772599884"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/772599884"
       ]
     },
     {
