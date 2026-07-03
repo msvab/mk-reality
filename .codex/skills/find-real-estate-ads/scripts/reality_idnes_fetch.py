@@ -42,6 +42,10 @@ def slug_normalize(value: str) -> str:
     return re.sub(r"\s+", " ", text)
 
 
+def path_slug(value: str) -> str:
+    return re.sub(r"[^a-z0-9]+", "-", slug_normalize(value)).strip("-")
+
+
 def classify_fetch(http_status: int | None, returncode: int, body: str, stderr: str) -> tuple[str, str | None]:
     if returncode != 0:
         return "fetch_error", stderr.strip() or f"curl exited with {returncode}"
@@ -135,6 +139,16 @@ def result_urls_from_locality_ids(locality_ids: list[str]) -> list[str]:
             if url not in urls:
                 urls.append(url)
     return urls
+
+
+def result_urls_from_municipality_slug(municipality: str) -> list[str]:
+    slug = path_slug(municipality)
+    if not slug:
+        return []
+    return [
+        f"https://reality.idnes.cz/s/prodej/domy/{slug}/",
+        f"https://reality.idnes.cz/s/prodej/pozemky/{slug}/",
+    ]
 
 
 def extract_locality_ids(html: str) -> list[str]:
@@ -404,7 +418,13 @@ def build_output(
             if result_url not in normalized_result_urls:
                 normalized_result_urls.append(result_url)
         if not normalized_result_urls:
-            gaps.append("idnes-discovery-missing-locality-id")
+            for result_url in result_urls_from_municipality_slug(municipality):
+                if result_url not in normalized_result_urls:
+                    normalized_result_urls.append(result_url)
+            if normalized_result_urls:
+                gaps.append("idnes-discovery-used-municipality-slug-fallback")
+            else:
+                gaps.append("idnes-discovery-missing-locality-id")
 
     for result_url in normalized_result_urls:
         try:

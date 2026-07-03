@@ -29,19 +29,13 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 3,
-    "candidates_gathered": 126,
-    "rows_retained": 39,
-    "zero_result_portals": [
-      "reality.idnes.cz"
-    ],
+    "workers_with_results": 4,
+    "candidates_gathered": 48,
+    "rows_retained": 48,
+    "zero_result_portals": [],
     "blocked_portals": []
   },
   "portal_status": {
-    "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
-    },
     "realitymix.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified RealityMix row."
@@ -53,17 +47,13 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Pardubice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://realitymix.cz/detail/pardubice/prodej-stavebniho-pozemku-16-400-m-pardubice-drazkovice-8542129.html",
@@ -1055,6 +1045,430 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Pardubice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/pardubice/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/pardubice/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-kyjevska/6a47c75514a1a79af90c5e1b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice/6a3fb9517776bc42f90a4ec4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice/6a478913ff413f25d10b9517/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-bartolomejska/68bb4e85fbff817bd4000537/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice/69dbcf98df462e1fbb0b0a57/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice/69d3e4f7ed737324050babf2/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-jahnova/694e3d082c8fff4e67085d75/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-28-rijna/68da0d72d8492770ec054026/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-28-rijna/68ddee078e1167093d060b0f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-28-rijna/68ddf143e5b873e3df0cdbf4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-seifertova/6992f7a931d1e094850bc730/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-konecna/6a33cd9bba235145f30239f2/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice/69dfa7f4149cf50cb00dc68b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-erno-kostala/6a457c368c7aa7a24809889f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-mudr-duchackove/6a45488ce7a4b1bba706b713/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-komenskeho/69c171c7e3e09ae7bb0a9a44/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice/6a44d8e532266a40140bbdd7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice/69c135bd2642c6e7210e5568/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-v-raji/6a442908ab80651d0b089ac6/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-wintrova-ii/698a4c51fa30337af301d08b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-u-bylanky/6a439d11009cb5e6ea07b76c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice/6a4381fc570365ff4c000c14/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice/6a291dfff356e7643300b617/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice/6a424b94a274a1cd7c0406f5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice-podhumenska/692c877aece7273a5a0a7d55/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a467bd4f828fb118d0eb244/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice-hurka/69f067c135bd718d4c08daf4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a45624eec85939fbf0c19aa/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/69ca3ded0b95db1be6090c3a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice-ve-stezkach/67370d1e336f7aba2f0898ef/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice-marie-pujmanove/6a031eb539ddb9b5040086c5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a1eb23b6744136884024caa/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a156fb697f89387af014542/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a42802b74608e8daa0c460f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/689b69ac2f28dd38a407ba95/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice-k-visnovce/6a1ea8812bf6a6f2b70f0935/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/69ca978ea8023a68200a2118/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a4103a329488fcec409e8f7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a3f1178b8cf60b2810fcf74/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/69ea0f51bfd5ffd03d05af42/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a36f14e9459f728d7052845/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a36f6eef7cff2bc0009f69d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/67ffa7840af76f59ed06270c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/67ffa65b6940f545010d1208/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a350168b01491fde1041c68/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a3543f42bbd392c520fcfe9/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a351f3493f961345609bceb/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/69bd0804eb07f62dd4007a64/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/69bd0e2cca75b343dd0e8068/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -1133,7 +1547,49 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3839533900",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4019606348",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/457995084",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/624743500"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/624743500",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice-kyjevska/6a47c75514a1a79af90c5e1b/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/pardubice/6a3fb9517776bc42f90a4ec4/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice/6a478913ff413f25d10b9517/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice-bartolomejska/68bb4e85fbff817bd4000537/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice/69dbcf98df462e1fbb0b0a57/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice/69d3e4f7ed737324050babf2/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice-28-rijna/68ddee078e1167093d060b0f/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice-28-rijna/68ddf143e5b873e3df0cdbf4/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice-konecna/6a33cd9bba235145f30239f2/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice/69dfa7f4149cf50cb00dc68b/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice-erno-kostala/6a457c368c7aa7a24809889f/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice-mudr-duchackove/6a45488ce7a4b1bba706b713/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice-komenskeho/69c171c7e3e09ae7bb0a9a44/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/pardubice/6a44d8e532266a40140bbdd7/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/pardubice/69c135bd2642c6e7210e5568/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice-v-raji/6a442908ab80651d0b089ac6/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice-wintrova-ii/698a4c51fa30337af301d08b/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice-u-bylanky/6a439d11009cb5e6ea07b76c/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/pardubice/6a4381fc570365ff4c000c14/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/pardubice/6a424b94a274a1cd7c0406f5/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/pardubice-podhumenska/692c877aece7273a5a0a7d55/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/pardubice-hurka/69f067c135bd718d4c08daf4/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/69ca3ded0b95db1be6090c3a/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/pardubice-ve-stezkach/67370d1e336f7aba2f0898ef/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/pardubice-marie-pujmanove/6a031eb539ddb9b5040086c5/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a1eb23b6744136884024caa/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a156fb697f89387af014542/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a42802b74608e8daa0c460f/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/689b69ac2f28dd38a407ba95/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a4103a329488fcec409e8f7/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/69ea0f51bfd5ffd03d05af42/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a36f14e9459f728d7052845/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a36f6eef7cff2bc0009f69d/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/67ffa7840af76f59ed06270c/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/67ffa65b6940f545010d1208/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a350168b01491fde1041c68/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a3543f42bbd392c520fcfe9/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a351f3493f961345609bceb/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/69bd0804eb07f62dd4007a64/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/69bd0e2cca75b343dd0e8068/"
   ],
   "listings": [
     {
@@ -1838,6 +2294,164 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2882470732",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej Vila, 350m2, Pardubice, Pardubice I, Zelené Předměstí",
+      "location": "Pardubice, okres Pardubice",
+      "property_type": "house",
+      "price": "27 500 000 Kč",
+      "house_area_m2": "350",
+      "land_area_m2": "1115",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/pardubice-jahnova/694e3d082c8fff4e67085d75/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemek Bydlení, 1136m2, Pardubice, Pardubice V, Zelené Předměstí",
+      "location": "Pardubice, okres Pardubice",
+      "property_type": "land",
+      "price": "24 900 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1136",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/pardubice-k-visnovce/6a1ea8812bf6a6f2b70f0935/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej, pozemky pro bydlení, 1599 m2 - Pardubice",
+      "location": "Pardubice, okres Pardubice",
+      "property_type": "land",
+      "price": "23 900 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1599",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/69ca978ea8023a68200a2118/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej Rodinný dům, 240m2, Pardubice, Pardubice V, Dražkovice",
+      "location": "Pardubice, okres Pardubice",
+      "property_type": "house",
+      "price": "21 500 000 Kč",
+      "house_area_m2": "240",
+      "land_area_m2": "1335",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/pardubice/6a291dfff356e7643300b617/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebních pozemků (6736 m2), Pardubice Nemošice (okr. Pardubice)",
+      "location": "Pardubice, okres Pardubice",
+      "property_type": "land",
+      "price": "15 156 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "6736",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a45624eec85939fbf0c19aa/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Rodinný dům 5+1 na velkém pozemku 1 560 m2 Pardubice Ohrazenice",
+      "location": "Pardubice, okres Pardubice",
+      "property_type": "house",
+      "price": "13 400 000 Kč",
+      "house_area_m2": "195",
+      "land_area_m2": "1560",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/pardubice-seifertova/6992f7a931d1e094850bc730/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu 89 m2, Pardubice - Nemošice",
+      "location": "Pardubice, okres Pardubice",
+      "property_type": "house",
+      "price": "9 180 000 Kč",
+      "house_area_m2": "89",
+      "land_area_m2": "1036",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/pardubice-28-rijna/68da0d72d8492770ec054026/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej atraktivního stavebního pozemku Pardubice, Hůrka",
+      "location": "Pardubice, okres Pardubice",
+      "property_type": "land",
+      "price": "6 990 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1240",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a3f1178b8cf60b2810fcf74/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemku v obci Hostovice u Pardubic, p. č 76/3 o velikosti 1740 m2",
+      "location": "Pardubice, okres Pardubice",
+      "property_type": "land",
+      "price": "3 775 800 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1740",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a467bd4f828fb118d0eb244/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
         "buildable-land"
       ]
     }

@@ -185,3 +185,47 @@ def test_idnes_discovery_uses_autocomplete_without_cached_details(monkeypatch):
     assert [item["title"] for item in payload["listings"]] == ["Prodej rodinného domu, Třebechovice pod Orebem"]
     assert ("locality_autocomplete_fetch", module.AUTOCOMPLETE_LOCALITY_URL.format(query="T%C5%99ebechovice+pod+Orebem")) in fetched_urls
     assert ("search_fetch", "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-12345") in fetched_urls
+
+
+def test_idnes_discovery_falls_back_to_municipality_slug_when_autocomplete_is_empty(monkeypatch):
+    module = load_reality_idnes_fetch()
+    fetched_urls = []
+    new_detail_url = "https://reality.idnes.cz/detail/prodej/dum/pardubice/new/"
+    result_html = f'<a href="{new_detail_url}">New detail</a>'
+    detail_html = """
+        <meta name="cXenseParse:qiw-reaCategory" content="Dům/Rodinný dům">
+        <meta name="cXenseParse:qiw-reaCity" content="Pardubice">
+        <meta name="cXenseParse:qiw-reaDistrict" content="Pardubice">
+        <meta property="og:title" content="Prodej rodinného domu, Pardubice">
+        <meta property="og:description" content="Rodinný dům s pozemkem 1 250 m².">
+        <script>
+          dataLayer.push({
+            "listing_price":8990000,
+            "listing_localityCity":"Pardubice",
+            "listing_area":180,
+            "listing_landArea":1250
+          });
+        </script>
+    """
+
+    def fake_fetch(url, *, attempts=None, stage="fetch"):
+        fetched_urls.append((stage, url))
+        if stage == "locality_autocomplete_fetch":
+            return "[]"
+        if url in {
+            "https://reality.idnes.cz/s/prodej/domy/pardubice/",
+            "https://reality.idnes.cz/s/prodej/pozemky/pardubice/",
+        }:
+            return result_html
+        if url == new_detail_url:
+            return detail_html
+        raise AssertionError(f"unexpected fetch: {stage} {url}")
+
+    monkeypatch.setattr(module, "run_fetch", fake_fetch)
+
+    payload = module.build_output("Pardubice", "municipality_only", [], discover_results=True)
+
+    assert [item["title"] for item in payload["listings"]] == ["Prodej rodinného domu, Pardubice"]
+    assert ("search_fetch", "https://reality.idnes.cz/s/prodej/domy/pardubice/") in fetched_urls
+    assert ("search_fetch", "https://reality.idnes.cz/s/prodej/pozemky/pardubice/") in fetched_urls
+    assert "idnes-discovery-used-municipality-slug-fallback" in payload["gaps"]
