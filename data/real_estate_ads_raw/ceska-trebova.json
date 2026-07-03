@@ -29,20 +29,15 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
-    "candidates_gathered": 41,
-    "rows_retained": 8,
+    "workers_with_results": 3,
+    "candidates_gathered": 16,
+    "rows_retained": 16,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
-    "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
-    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -54,17 +49,13 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=%C4%8Cesk%C3%A1+T%C5%99ebov%C3%A1&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -464,6 +455,326 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=%C4%8Cesk%C3%A1+T%C5%99ebov%C3%A1&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/ceska-trebova/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/ceska-trebova/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/ceska-trebova/69c7ab76994913835b03a05d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/ceska-trebova/6a4632f506fdb825090e16e7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/ceska-trebova/6a3aaf639d3c8ff64a030e82/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/ceska-trebova/6a317334565f4506f3068434/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/ceska-trebova-moravska/69315927eef65fc808073364/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/ceska-trebova/69d4ef250dce2e914d0f8b14/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/ceska-trebova/69fd935c6828d46c150008eb/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/ceska-trebova-moravska/69309febcec66b6fa00a182e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/ceska-trebova/69cb868a3be5fa360206c9b9/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/ceska-trebova-tylova/6977edc12dbd11e04f0d4867/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/ceska-trebova/691c9569b2c50f590a0ef088/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/69738490cc2592bbc20836dd/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/67e53ef15d8458e4270b2496/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/67ff50cb42f6f0307906c160/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/5fb064f73866331c0b41a083/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova-bezdekov/69bd93ca03b1297e93087c13/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/5fb05363ded3837499734653/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/6a048116d7ba1358a40c873c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/6a15db8a95031fbdd0065f78/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/6a0a22bc04821c2b550425f9/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/6a05c896b3bbc898f309b9dc/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/69f3ab4a98fad68f910a33d9/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/69f1f8e39ccbe0adf8013776/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/69f1f6b3574da6323501dfb6/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/69b688362f7cfb273203174a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/6819b3b681ef53507f02b7af/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/69ca6bba7856ec19370e9262/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/6964d7ea3ccfcd0ed00cc54f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/690b41f5fccc5e0c78075189/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/68d71db499b05242650a7d05/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/69dc5a89777a7419290cf9b8/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/68592f6a7b112bbca804d53b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova-nabrezi-miru/6842db67d8c85bb84400b5bc/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/69dc6a5ae19c5c82610ae395/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/68f6afd1ea4662f1ee02a59e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/68f67249ad61d782ab036fad/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/68f6560fb9b9f4c7c2031f96/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -503,7 +814,37 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4117123916",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/43844428",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/488584268",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/605831756"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/605831756",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/ceska-trebova/6a4632f506fdb825090e16e7/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/ceska-trebova/6a3aaf639d3c8ff64a030e82/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/ceska-trebova/6a317334565f4506f3068434/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ceska-trebova-moravska/69315927eef65fc808073364/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/ceska-trebova/69d4ef250dce2e914d0f8b14/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/ceska-trebova/69fd935c6828d46c150008eb/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ceska-trebova/69cb868a3be5fa360206c9b9/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ceska-trebova-tylova/6977edc12dbd11e04f0d4867/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ceska-trebova/691c9569b2c50f590a0ef088/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/69738490cc2592bbc20836dd/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/67e53ef15d8458e4270b2496/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/67ff50cb42f6f0307906c160/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/5fb064f73866331c0b41a083/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova-bezdekov/69bd93ca03b1297e93087c13/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/5fb05363ded3837499734653/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/6a048116d7ba1358a40c873c/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/69f3ab4a98fad68f910a33d9/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/69f1f8e39ccbe0adf8013776/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/69f1f6b3574da6323501dfb6/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/69b688362f7cfb273203174a/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/69ca6bba7856ec19370e9262/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/6964d7ea3ccfcd0ed00cc54f/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/68d71db499b05242650a7d05/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/69dc5a89777a7419290cf9b8/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova-nabrezi-miru/6842db67d8c85bb84400b5bc/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/69dc6a5ae19c5c82610ae395/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/68f6afd1ea4662f1ee02a59e/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/68f67249ad61d782ab036fad/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/68f6560fb9b9f4c7c2031f96/"
   ],
   "listings": [
     {
@@ -653,6 +994,148 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3098620748",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prestižní vila, Česká Třebová, Moravská 929",
+      "location": "Česká Třebová, okres Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "26 900 000 Kč",
+      "house_area_m2": "650",
+      "land_area_m2": "3071",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/ceska-trebova-moravska/69309febcec66b6fa00a182e/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "PRODEJ - rodinný dům po částečné rekonstrukci",
+      "location": "Česká Třebová, okres Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "5 990 000 Kč",
+      "house_area_m2": "201",
+      "land_area_m2": "6833",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/ceska-trebova/69c7ab76994913835b03a05d/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Parcela číslo 954, voda, elektrika 3126m2, Česká Třebová - Studená Hůra",
+      "location": "Česká Třebová, okres Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "3 185 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "3126",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/6819b3b681ef53507f02b7af/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku Skuhrov",
+      "location": "Česká Třebová, okres Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "2 590 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2590",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/6a05c896b3bbc898f309b9dc/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavební parcely 1097 m2 včetně základové desky a schváleného projektu výstavby RD, Skuhrov",
+      "location": "Česká Třebová, okres Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "2 150 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1097",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/6a0a22bc04821c2b550425f9/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku 2704 m2, Česká Třebová - Svinná, okres Ústí nad Orlicí",
+      "location": "Česká Třebová, okres Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "2 136 160 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2704",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/68592f6a7b112bbca804d53b/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemků, 5 486 m², Lhotka u České Třebové",
+      "location": "Česká Třebová, okres Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "1 995 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "5486",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/6a15db8a95031fbdd0065f78/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemku o výměře 3 468 m2 v obci Česká Třebová",
+      "location": "Česká Třebová, okres Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "1 161 780 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "3468",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/690b41f5fccc5e0c78075189/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
         "buildable-land"
       ]
     }

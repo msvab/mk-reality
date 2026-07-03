@@ -29,20 +29,15 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
-    "candidates_gathered": 13,
-    "rows_retained": 2,
+    "workers_with_results": 3,
+    "candidates_gathered": 3,
+    "rows_retained": 3,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
-    "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
-    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -54,17 +49,13 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=St%C4%9B%C5%BEery&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -250,6 +241,94 @@
       "status": "not_found",
       "http_status": 404,
       "error": "HTTP 404"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=St%C4%9B%C5%BEery&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/stezery/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/stezery/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/stezery/6a3b4bfdef884a42910da40f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/stezery/6a1b0cab6acd69cf31081afa/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/stezery-lipova/6a3cf1df3ef36c1caf06a6cc/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/stezery/689ecf135243d7f8f1010462/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/stezery/6a2bce68ae389b3e610c9778/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/stezery/6a33d298e6632cd20a0aad32/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/stezery/6a33b9e8dfaef8e6180c1997/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/stezery-mala-strana/68e3b936ff811a0ede0caa3c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -267,7 +346,15 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/stezery/pronajem-komercni-sklad-350-m2-stezery-id-86619-8626199.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/stezery/pronajem-komercni-sklad-56-m2-stezery-id-84496-8608335.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/stezery/pronajem-komercni-sklad-75-m2-k-chaloupkam-92-50321-stezery-hradec-kralove-id-85770-8605621.html",
-    "stale-detail-fetch:763662412:Failed to fetch https://www.sreality.cz/api/v1/estates/763662412: HTTP 404"
+    "stale-detail-fetch:763662412:Failed to fetch https://www.sreality.cz/api/v1/estates/763662412: HTTP 404",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/stezery/6a1b0cab6acd69cf31081afa/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/stezery-lipova/6a3cf1df3ef36c1caf06a6cc/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/stezery/689ecf135243d7f8f1010462/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/stezery/6a2bce68ae389b3e610c9778/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/stezery/6a33d298e6632cd20a0aad32/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/stezery/6a33b9e8dfaef8e6180c1997/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/stezery-mala-strana/68e3b936ff811a0ede0caa3c/"
   ],
   "listings": [
     {
@@ -305,6 +392,23 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/364048460"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej Rodinný dům, 100m2, Stěžery, Stěžírky",
+      "location": "Stěžery, okres Hradec Králové",
+      "property_type": "house",
+      "price": "9 900 000 Kč",
+      "house_area_m2": "100",
+      "land_area_m2": "1021",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/stezery/6a3b4bfdef884a42910da40f/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
       ]
     }
   ]

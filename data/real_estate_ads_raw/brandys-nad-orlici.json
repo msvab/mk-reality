@@ -30,20 +30,16 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 1,
-    "candidates_gathered": 2,
+    "candidates_gathered": 1,
     "rows_retained": 1,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz",
-      "reality.aktualne.cz"
+      "reality.aktualne.cz",
+      "reality.idnes.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
-    "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
-    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -55,17 +51,13 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "reality.idnes.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope iDNES rows."
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Brand%C3%BDs+nad+Orlic%C3%AD&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -137,13 +129,74 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Brand%C3%BDs+nad+Orlic%C3%AD&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/brandys-nad-orlici/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/brandys-nad-orlici/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/brandys-nad-orlici-lazenska/69e7c53b3a3120e8690751ad/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/brandys-nad-orlici-lazenska/69d7b7ffb9ecb4bd740ca64b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/zarecka-lhota/691341dcde0d93b9e20e2ba4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/oucmanice/697e720527bb58f8fd0278b7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
     "idnes-discovery-missing-locality-id",
     "missing-page-url:house",
     "missing-page-url:land",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/brandys-nad-orlici/prodej-bytu-3-1-v-brandysu-nad-orlici-8553947.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/brandys-nad-orlici/prodej-bytu-3-1-v-brandysu-nad-orlici-8553947.html",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/brandys-nad-orlici-lazenska/69e7c53b3a3120e8690751ad/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/brandys-nad-orlici-lazenska/69d7b7ffb9ecb4bd740ca64b/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/zarecka-lhota/691341dcde0d93b9e20e2ba4/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/oucmanice/697e720527bb58f8fd0278b7/"
   ],
   "listings": [
     {

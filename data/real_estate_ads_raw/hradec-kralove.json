@@ -29,19 +29,13 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 3,
-    "candidates_gathered": 135,
-    "rows_retained": 39,
-    "zero_result_portals": [
-      "reality.idnes.cz"
-    ],
+    "workers_with_results": 4,
+    "candidates_gathered": 46,
+    "rows_retained": 46,
+    "zero_result_portals": [],
     "blocked_portals": []
   },
   "portal_status": {
-    "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
-    },
     "realitymix.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified RealityMix row."
@@ -53,17 +47,13 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Hradec+Kr%C3%A1lov%C3%A9&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://realitymix.cz/detail/hradec-kralove/prodej-domy-rodinny-210-m2-horni-253-30-50002-hradec-kralove-hradec-kralove-id-85276-8591989.html",
@@ -1145,6 +1135,430 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Hradec+Kr%C3%A1lov%C3%A9&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/hradec-kralove/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/hradec-kralove/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-zahradkarska-osada-tresnovka/6a47cb340b03a8b2320866fc/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove/6a17ffc962915028a609968d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove/6a0ef850257b5a18a302e424/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove/6a0f01b58e9e355d700d3bee/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-pouchovska/69fb25f658f20fd3be0780b9/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-zahradkarska-osada-slatina/6a4367ab1f131773840500ff/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove/69aedd36fe4aa54f7d0ba81a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-ke-krizku/69efa1afb330ba04540d1584/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-lesni/6a467516c77814b3ea0b127a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-nahon/6a2a9ea0c7d21e88fa05f836/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-cihlarska/6a458ac5fce0caa8e00dd0a5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-orlican/6a453ba5ed27d930810fc5d9/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-travni/6888c76f4777db06d70a12fa/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-husova/6a34d72ef07d8f93df064d37/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-na-konecne/69b3e66d463d274311048d2d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove/697a184f7191293f1c027047/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-k-chatam/69ef292a4f2b5823d405de24/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-obecni/6a1fe9fe71fe8d5ee50702a5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-velke-namesti/6a42c81d9c24724afd0ba6d5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-smiricka/68df6676216de512290a4735/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-pesinova/6a072e1b3eae087ba2010089/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-nad-oborou/69e8b953fad696a65d00815a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-ve-svahu/6a29aaecdf1602d9cc02cd38/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-obecni/6a267fea2590a368230b8df5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-u-cihelny/69c25128b524c7e371015795/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove-zemedelska/691dbb20b12325f272040dcd/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/67fe9fda323ce14b8a064795/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/6a463edcde0c3229a9053156/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/6a463b73ee8a38cf94004b36/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove-roudnicska/699f04650934509fad06310d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove-nahon/69e721df0ed763fafb0db275/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove-smiricka/68db79e92defd2654d0a61d1/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove-nabrezi-u-privozu/69d798a7a63998f8bd065e75/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove-u-cihelny/69c25dea71b87caa0e0cd4ee/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove-pardubicka/689f2db198bc8371d30bf3f4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/6480884826558b7fa60b9b51/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/6a3a84685c67cfd9d40bd4dc/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove-obecni/6a2675a2094ea622cd02ace0/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove-k-brizkam/6890bb598f79771a140b1e25/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/69b3fc4edf45918b870b328f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/662141318df6b175aa0b5ee9/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/6a211a12a811f1f38f086854/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/69d814d38ae0c4c124084fa8/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove-zahradkarska-osada-zvu/6a392c3604811108a606cd87/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove-predmericka/693fe2c19229255daf0a3416/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/69de9e018e5c113cb506f7fc/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove-cerveny-dvur/6a35145faf8e5d98bf0b50ba/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/6a33f2762736312c4402f23e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/6a33b53786fef2a9d50c949d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove-zahradkarska/6a31163f6840d8eae10bd33c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -1234,7 +1648,51 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/631006284",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/958763084",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/993501260",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/994410572"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/994410572",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-zahradkarska-osada-tresnovka/6a47cb340b03a8b2320866fc/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove/6a17ffc962915028a609968d/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove/6a0ef850257b5a18a302e424/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove/6a0f01b58e9e355d700d3bee/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-pouchovska/69fb25f658f20fd3be0780b9/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-zahradkarska-osada-slatina/6a4367ab1f131773840500ff/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove/69aedd36fe4aa54f7d0ba81a/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-ke-krizku/69efa1afb330ba04540d1584/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-lesni/6a467516c77814b3ea0b127a/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-nahon/6a2a9ea0c7d21e88fa05f836/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-cihlarska/6a458ac5fce0caa8e00dd0a5/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-orlican/6a453ba5ed27d930810fc5d9/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-travni/6888c76f4777db06d70a12fa/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-husova/6a34d72ef07d8f93df064d37/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-na-konecne/69b3e66d463d274311048d2d/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-k-chatam/69ef292a4f2b5823d405de24/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-obecni/6a1fe9fe71fe8d5ee50702a5/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-velke-namesti/6a42c81d9c24724afd0ba6d5/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-smiricka/68df6676216de512290a4735/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-pesinova/6a072e1b3eae087ba2010089/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-nad-oborou/69e8b953fad696a65d00815a/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-obecni/6a267fea2590a368230b8df5/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-u-cihelny/69c25128b524c7e371015795/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove-zemedelska/691dbb20b12325f272040dcd/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/67fe9fda323ce14b8a064795/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove-roudnicska/699f04650934509fad06310d/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove-nahon/69e721df0ed763fafb0db275/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove-smiricka/68db79e92defd2654d0a61d1/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove-nabrezi-u-privozu/69d798a7a63998f8bd065e75/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove-u-cihelny/69c25dea71b87caa0e0cd4ee/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/6a3a84685c67cfd9d40bd4dc/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove-obecni/6a2675a2094ea622cd02ace0/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove-k-brizkam/6890bb598f79771a140b1e25/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/69b3fc4edf45918b870b328f/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/662141318df6b175aa0b5ee9/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/6a211a12a811f1f38f086854/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/69d814d38ae0c4c124084fa8/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove-zahradkarska-osada-zvu/6a392c3604811108a606cd87/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove-predmericka/693fe2c19229255daf0a3416/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/69de9e018e5c113cb506f7fc/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/6a33f2762736312c4402f23e/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/6a33b53786fef2a9d50c949d/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove-zahradkarska/6a31163f6840d8eae10bd33c/"
   ],
   "listings": [
     {
@@ -1938,6 +2396,130 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/876539980"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej dům Rodinný, 300m2, Hradec Králové, Roudnička",
+      "location": "Hradec Králové, okres Hradec Králové",
+      "property_type": "house",
+      "price": "17 900 000 Kč",
+      "house_area_m2": "300",
+      "land_area_m2": "1176",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-ve-svahu/6a29aaecdf1602d9cc02cd38/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej Rodinný dům, 260m2, Hradec Králové",
+      "location": "Hradec Králové, okres Hradec Králové",
+      "property_type": "house",
+      "price": "17 850 000 Kč",
+      "house_area_m2": "260",
+      "land_area_m2": "1037",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove/697a184f7191293f1c027047/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1 235 m2 Nový Hradec Králové",
+      "location": "Hradec Králové, okres Hradec Králové",
+      "property_type": "land",
+      "price": "14 999 999 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1235",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/6a463edcde0c3229a9053156/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1 235 m2 Nový Hradec Králové",
+      "location": "Hradec Králové, okres Hradec Králové",
+      "property_type": "land",
+      "price": "14 999 999 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1235",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/6a463b73ee8a38cf94004b36/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemek Bydlení, Hradec Králové, Kukleny",
+      "location": "Hradec Králové, okres Hradec Králové",
+      "property_type": "land",
+      "price": "7 980 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1399",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove-pardubicka/689f2db198bc8371d30bf3f4/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej, výjimečný pozemek, pro bydlení, 6.111 m2, Hradec Králové, Kopec Sv. Jana.",
+      "location": "Hradec Králové, okres Hradec Králové",
+      "property_type": "land",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "unknown",
+      "land_area_m2": "6111",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/6480884826558b7fa60b9b51/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku v Hradci Králové - Pražské předměstí, CP 1081 m2",
+      "location": "Hradec Králové, okres Hradec Králové",
+      "property_type": "land",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1081",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove-cerveny-dvur/6a35145faf8e5d98bf0b50ba/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
       ]
     }
   ]

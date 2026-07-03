@@ -30,20 +30,14 @@
   "coverage": {
     "workers_launched": 5,
     "workers_with_results": 2,
-    "candidates_gathered": 35,
+    "candidates_gathered": 18,
     "rows_retained": 18,
     "zero_result_portals": [
-      "reality.idnes.cz",
-      "mmreality.cz",
       "realitymix.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
-    "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
-    },
     "mmreality.cz": {
       "status": "blocked",
       "stage": "search_fetch",
@@ -64,17 +58,18 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "reality.idnes.cz": {
+      "status": "fallback_page",
+      "http_status": 404,
+      "stage": "search_fetch",
+      "message": "HTTP 404",
+      "evidence": [
+        "search_fetch:fallback_page:https://reality.idnes.cz/s/prodej/domy/opocno/"
+      ]
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Opo%C4%8Dno&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "mmreality.cz",
       "url": "https://cadastral.stormm.cz/api/location/search?query=Opo%C4%8Dno&types%5B%5D=municipality&types%5B%5D=municipality_part",
@@ -569,6 +564,32 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Opo%C4%8Dno&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/opocno/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/opocno/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
@@ -595,7 +616,10 @@
     "land-below-threshold:https://reality.aktualne.cz/detail/opocno/prodej-rodinneho-domu-se-zahradou-8636105.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/opocno/pronajem-bytu-1-1-32-m-opocno-ul-kratka-8612925.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/opocno/pronajem-bytu-2-kk-57-m-opocno-ul-kupkovo-nam-8598121.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/opocno/pronajem-bytu-3-kk-v-opocne-ul-kratka-8605181.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/opocno/pronajem-bytu-3-kk-v-opocne-ul-kratka-8605181.html",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/opocno/",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/opocno/"
   ],
   "listings": [
     {

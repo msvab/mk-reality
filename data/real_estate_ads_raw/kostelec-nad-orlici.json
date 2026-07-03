@@ -29,21 +29,16 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
-    "candidates_gathered": 23,
-    "rows_retained": 1,
+    "workers_with_results": 2,
+    "candidates_gathered": 2,
+    "rows_retained": 2,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
-    "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
-    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -55,17 +50,13 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Kostelec+nad+Orlic%C3%AD&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -305,6 +296,150 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Kostelec+nad+Orlic%C3%AD&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/kostelec-nad-orlici/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/kostelec-nad-orlici/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici-komenskeho/673b4d8a00dd5ff8f8046396/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici-u-tutlek/6a3d37f15a7eb0aa480b7734/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici-smetanova/6a39409e120efa95860795fc/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici-husova/6a392c8470c447c3450db8b4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici-pod-branou/6903d2cfdfabe53bbb0bf6c4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici-tumova/6a154d4dc92493f43b088581/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici-sadova/6a0f1706b448480c810bd90e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici/69e09fd3520e7d366e0593fa/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici-na-vrbine/69df96fbb77f8b1da4058278/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici-za-drahou/680bd90e51e573d46e09cc07/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici/67ecef498efaabb8a40235d1/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/kostelec-nad-orlici/6a393039b91194195d0c24a5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/kostelec-nad-orlici/6852b3b906c250d0e30cb219/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/kostelec-nad-orlici/69de01bad9adfb3a940e8757/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/kostelec-nad-orlici/68f69d8d0b8ba49e88086988/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -332,7 +467,22 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/kostelec-nad-orlici/pronajem-skladu-v-kostelci-nad-orlici-ul-manesova-8565069.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/kostelec-nad-orlici/rodinny-dum-garaz-dilna-mensi-zahrada-v-centru-mesta-kostelec-nad-orlici-8427537.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3988128332",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4199805004"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4199805004",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici-komenskeho/673b4d8a00dd5ff8f8046396/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici-smetanova/6a39409e120efa95860795fc/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici-husova/6a392c8470c447c3450db8b4/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici-pod-branou/6903d2cfdfabe53bbb0bf6c4/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici-tumova/6a154d4dc92493f43b088581/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici-sadova/6a0f1706b448480c810bd90e/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici/69e09fd3520e7d366e0593fa/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici-na-vrbine/69df96fbb77f8b1da4058278/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici-za-drahou/680bd90e51e573d46e09cc07/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici/67ecef498efaabb8a40235d1/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/kostelec-nad-orlici/6a393039b91194195d0c24a5/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/kostelec-nad-orlici/6852b3b906c250d0e30cb219/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/kostelec-nad-orlici/69de01bad9adfb3a940e8757/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/kostelec-nad-orlici/68f69d8d0b8ba49e88086988/"
   ],
   "listings": [
     {
@@ -351,6 +501,23 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3222335564"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu v Kostelci nad Orlicí, ul. U Tutlek",
+      "location": "Kostelec nad Orlicí, okres Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "5 699 000 Kč",
+      "house_area_m2": "140",
+      "land_area_m2": "4049",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici-u-tutlek/6a3d37f15a7eb0aa480b7734/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
       ]
     }
   ]

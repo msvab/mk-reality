@@ -29,20 +29,15 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
-    "candidates_gathered": 25,
-    "rows_retained": 3,
+    "workers_with_results": 3,
+    "candidates_gathered": 7,
+    "rows_retained": 7,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
-    "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
-    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -54,17 +49,13 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Jarom%C4%9B%C5%99&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -336,6 +327,230 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Jarom%C4%9B%C5%99&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/jaromer/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/jaromer/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/jaromer-havlickova/6930134de62728104c0d10c0/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/jaromer-sterbova/6a0d6d9545052bd34807c1ab/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/jaromer-palackeho/6a2a9d79e19b8057b0067605/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/jaromer-rumunska/6a32c4ec64943dfbf30ed0f2/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/jaromer-husova/675f1b09287ffaa4e004b31f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/jaromer-ivanovova/695a55e7266094cd2d0b5cbd/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/jaromer-bezrucova/6a1058c0ee0ad35fcf059ebb/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/jaromer-jiraskova/69cdf764d74ee8deed0b375a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/jaromer-jaromirova/69946374d36238a9870af8cf/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/jaromer/6a3a2fb6b321e6686c0847fb/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/jaromer/6a456b14fd9eb0c1040e809b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/jaromer/6a3dcd8677faeb2e6701a1d7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/jaromer-nachodska/6a3b909764c10bdb910a23b7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/jaromer/6a017ad06a5640e8410af8e5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/jaromer/6a33a3f827d8299bbd041f7f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/jaromer/6a264edcfd83d1c9050177b8/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/jaromer/69f2c7cc25bf0c234602570c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/jaromer/69f2c5bb2bbe59a6f4027e4e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/jaromer/69ca8c10a472dd3ddc050380/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/jaromer/69ca859d2a41ea127a07cd8e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/jaromer/69ca821a55ee41be9d034d2e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/jaromer/69d77c7c7f82ee06b60ff24d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/jaromer/68f6c36fa652151f5b0bbcc9/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/jaromer/68f6149686da0aebf801881d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -363,7 +578,29 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/jaromer/pronajem-skladovych-a-vyrobnich-prostor-od-1-706-m-jaromer-8630601.html",
     "missing-price:https://www.sreality.cz/api/v1/estates/2264159052",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2979607884",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4027224140"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4027224140",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/jaromer-havlickova/6930134de62728104c0d10c0/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/jaromer-rumunska/6a32c4ec64943dfbf30ed0f2/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/jaromer-husova/675f1b09287ffaa4e004b31f/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/jaromer-ivanovova/695a55e7266094cd2d0b5cbd/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/jaromer-bezrucova/6a1058c0ee0ad35fcf059ebb/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/jaromer-jiraskova/69cdf764d74ee8deed0b375a/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/jaromer-jaromirova/69946374d36238a9870af8cf/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/jaromer/6a3a2fb6b321e6686c0847fb/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/jaromer/6a3dcd8677faeb2e6701a1d7/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/jaromer-nachodska/6a3b909764c10bdb910a23b7/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/jaromer/6a33a3f827d8299bbd041f7f/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/jaromer/6a264edcfd83d1c9050177b8/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/jaromer/69f2c7cc25bf0c234602570c/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/jaromer/69f2c5bb2bbe59a6f4027e4e/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/jaromer/69ca8c10a472dd3ddc050380/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/jaromer/69ca859d2a41ea127a07cd8e/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/jaromer/69ca821a55ee41be9d034d2e/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/jaromer/69d77c7c7f82ee06b60ff24d/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/jaromer/68f6c36fa652151f5b0bbcc9/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/jaromer/68f6149686da0aebf801881d/"
   ],
   "listings": [
     {
@@ -418,6 +655,76 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2155974732"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu, 454 m2, Jaroměř, ul. Palackého",
+      "location": "Jaroměř, okres Náchod",
+      "property_type": "house",
+      "price": "12 360 000 Kč",
+      "house_area_m2": "454",
+      "land_area_m2": "1395",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/jaromer-palackeho/6a2a9d79e19b8057b0067605/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemku 17154 m2",
+      "location": "Jaroměř, okres Náchod",
+      "property_type": "land",
+      "price": "12 007 800 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "17154",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/jaromer/6a017ad06a5640e8410af8e5/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu, 46 m2, Jaroměř, ul. Štěrbova",
+      "location": "Jaroměř, okres Náchod",
+      "property_type": "house",
+      "price": "5 500 000 Kč",
+      "house_area_m2": "46",
+      "land_area_m2": "1226",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/jaromer-sterbova/6a0d6d9545052bd34807c1ab/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Parcela pro rodinnou výstavbu.",
+      "location": "Jaroměř, okres Náchod",
+      "property_type": "land",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "unknown",
+      "land_area_m2": "15356",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/jaromer/6a456b14fd9eb0c1040e809b/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
       ]
     }
   ]

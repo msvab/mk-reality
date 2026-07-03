@@ -29,21 +29,16 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
-    "candidates_gathered": 3,
-    "rows_retained": 1,
+    "workers_with_results": 2,
+    "candidates_gathered": 2,
+    "rows_retained": 2,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz",
       "sreality.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
-    "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
-    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -55,17 +50,13 @@
     "sreality.cz": {
       "status": "no_results",
       "message": "No retained in-scope Sreality rows."
+    },
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Dob%C5%99enice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -161,6 +152,46 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Dob%C5%99enice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/dobrenice/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/dobrenice/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/dobrenice/68c94f69add0b377d20beff6/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/dobrenice/6a3bc22093554a346d0d408f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -168,7 +199,9 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "land-below-threshold:https://reality.aktualne.cz/detail/dobrenice/prodej-rodinny-dum-351-8390151.html",
-    "missing-price:https://www.sreality.cz/api/v1/estates/1776218188"
+    "missing-price:https://www.sreality.cz/api/v1/estates/1776218188",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/dobrenice/68c94f69add0b377d20beff6/"
   ],
   "listings": [
     {
@@ -186,6 +219,24 @@
       ],
       "notes": [
         "detail-url-verified:reality.aktualne.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemku 1.277 m2",
+      "location": "Dobřenice, okres Hradec Králové",
+      "property_type": "land",
+      "price": "8 160 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1277",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/dobrenice/6a3bc22093554a346d0d408f/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
         "buildable-land"
       ]
     }

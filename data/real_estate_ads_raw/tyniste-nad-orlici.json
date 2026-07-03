@@ -29,20 +29,15 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
-    "candidates_gathered": 24,
-    "rows_retained": 4,
+    "workers_with_results": 3,
+    "candidates_gathered": 10,
+    "rows_retained": 10,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
-    "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
-    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -54,17 +49,13 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=T%C3%BDni%C5%A1t%C4%9B+nad+Orlic%C3%AD&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -328,6 +319,254 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=T%C3%BDni%C5%A1t%C4%9B+nad+Orlic%C3%AD&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/tyniste-nad-orlici/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/tyniste-nad-orlici/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/6a2db929db79e6f4f105cc18/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/6a450cff5377c7ff2c0d525c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici-dukelska/6a42c6e257996cb3f50aa736/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/6a4230a98d0d17ce5401b005/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici-voklik/6a01f867ef542e4282058154/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici-v-sitinach/69bc24adbc43af4a050727c8/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/6a0ae6ca8b0aa97a2403cfd5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/6a3925b4348e56a42c0b2b77/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/6a0ae6b9ba200bfc7d02bef1/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici-dr-e-benese/6a2d56138ec1d4d66a02f6c9/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici-v-opatrneho/6a159e6e7cb6a52f870eb1a8/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici-mostecka/6a030193eb285cb83e08c51e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici-olsina/69e5ff6865984f950d007a80/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/698c94c43579c61f50030302/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/68ee37b5f089e6ef4c0f2499/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/tyniste-nad-orlici/6a453b5b311de708500147ed/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/tyniste-nad-orlici/6a4229cbb0c3e0876708d556/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/tyniste-nad-orlici/6a3a815b929e57bec90361e9/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/tyniste-nad-orlici/6a3cef8e8f7ff3926c0791b5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/tyniste-nad-orlici/67ffd53a6a2699661a013b19/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/tyniste-nad-orlici/6a2bde4272ddc0744e01f20b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/tyniste-nad-orlici/68f6e6291c9089424c09059a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/tyniste-nad-orlici/6849743953b53473aa0aeac9/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/tyniste-nad-orlici/6839aa2563e57ff2ab019d7e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/tyniste-nad-orlici/681082ab1531f6c90709cc96/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/tyniste-nad-orlici/68f635c32e92fb327400bcb1/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/tyniste-nad-orlici/68f6268382fb9cef22006df4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/tyniste-nad-orlici/67bc3de5f574f739a2094145/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -353,7 +592,30 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/180138060",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3404915532",
     "missing-price:https://www.sreality.cz/api/v1/estates/456912972",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/468677452"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/468677452",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/6a2db929db79e6f4f105cc18/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/6a450cff5377c7ff2c0d525c/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici-dukelska/6a42c6e257996cb3f50aa736/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/6a4230a98d0d17ce5401b005/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici-voklik/6a01f867ef542e4282058154/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici-v-sitinach/69bc24adbc43af4a050727c8/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/6a0ae6ca8b0aa97a2403cfd5/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/6a3925b4348e56a42c0b2b77/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/6a0ae6b9ba200bfc7d02bef1/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici-dr-e-benese/6a2d56138ec1d4d66a02f6c9/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici-mostecka/6a030193eb285cb83e08c51e/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici-olsina/69e5ff6865984f950d007a80/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/68ee37b5f089e6ef4c0f2499/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/tyniste-nad-orlici/6a453b5b311de708500147ed/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/tyniste-nad-orlici/6a4229cbb0c3e0876708d556/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/tyniste-nad-orlici/6a3cef8e8f7ff3926c0791b5/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/tyniste-nad-orlici/67ffd53a6a2699661a013b19/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/tyniste-nad-orlici/68f6e6291c9089424c09059a/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/tyniste-nad-orlici/6849743953b53473aa0aeac9/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/tyniste-nad-orlici/6839aa2563e57ff2ab019d7e/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/tyniste-nad-orlici/68f635c32e92fb327400bcb1/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/tyniste-nad-orlici/68f6268382fb9cef22006df4/"
   ],
   "listings": [
     {
@@ -426,6 +688,112 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3861578316",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemky pro komerční výstavbu, 12 076 m2",
+      "location": "Týniště nad Orlicí, okres Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "27 171 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "12076",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/tyniste-nad-orlici/681082ab1531f6c90709cc96/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Rodinný dům v Týništi nad Orlicí, ul. V. Opatrného",
+      "location": "Týniště nad Orlicí, okres Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "6 500 000 Kč",
+      "house_area_m2": "120",
+      "land_area_m2": "1243",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici-v-opatrneho/6a159e6e7cb6a52f870eb1a8/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej domy, 115 m2, Týniště nad Orlicí",
+      "location": "Týniště nad Orlicí, okres Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "5 675 000 Kč",
+      "house_area_m2": "115",
+      "land_area_m2": "2105",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/698c94c43579c61f50030302/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemku v Petrovičkách",
+      "location": "Týniště nad Orlicí, okres Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "5 342 500 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2137",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/tyniste-nad-orlici/67bc3de5f574f739a2094145/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej komerčního pozemku 4 000 m2 se stavebním povolením pro výrobní / skladovou halu",
+      "location": "Týniště nad Orlicí, okres Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "unknown",
+      "land_area_m2": "4000",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/tyniste-nad-orlici/6a3a815b929e57bec90361e9/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej komerčního pozemku 12 076 m2 se stavebním povolením pro výrobní / skladovou halu",
+      "location": "Týniště nad Orlicí, okres Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "unknown",
+      "land_area_m2": "12076",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/tyniste-nad-orlici/6a2bde4272ddc0744e01f20b/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
         "buildable-land"
       ]
     }

@@ -29,19 +29,13 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 3,
-    "candidates_gathered": 43,
-    "rows_retained": 10,
-    "zero_result_portals": [
-      "reality.idnes.cz"
-    ],
+    "workers_with_results": 4,
+    "candidates_gathered": 17,
+    "rows_retained": 17,
+    "zero_result_portals": [],
     "blocked_portals": []
   },
   "portal_status": {
-    "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
-    },
     "realitymix.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified RealityMix row."
@@ -53,17 +47,13 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=N%C3%A1chod&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://realitymix.cz/detail/nachod/prodej-rodinneho-domu-165-m-nachod-brazec-8573911.html",
@@ -505,6 +495,326 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=N%C3%A1chod&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/nachod/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/nachod/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod-u-prachovny/6a44c7b67a45572ce4062bd0/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod-doubicova/6a4253d6913a4fb831031d3e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod-v-namerkach/69eb61d2da14ea8e7e059037/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod-k-brodu/6a17ec5ddc2cf0689709a065/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod/6a3b863cd01c96daa60629a5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod-u-prachovny/6a3a485bbcc887f2e103d500/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod/69dcef714ccd4327820edd60/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod/6a3416bf308d46560e0117c4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod/6a329cc3c407b994cc086e4d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod/6a3121084b4cd949bf08cff3/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod-1-maje/68f73ebb3191113b21043d7c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod-podebradova/6a22f4f005e64c30620486ac/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod-na-skalce/6a221e0345fdb264a507086e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod/6a21f8bd88d624607f007704/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod-krapkova/69b9312164d2f31d9d01de28/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod-alsova/69c14975d66a4ad0d20de8d2/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod-koterova/69b7628ed6129f63840d3150/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod-rajmonova/69d4d481ca746a98be000d1d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod-broumovska/6a2aad97930605a0db0cb7ca/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod/6a33da0e94c0c4782b00078e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod-jilova/6a326927953727dc280b6370/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod/67ffe5a35eb4aa1a770767e7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod/69c53e4bbd04378d7f0a10e8/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod-svobody/6a2333edaa5983a468014a97/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod/67ffb7eec002623136043134/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod/6a3118cf23d2acd8d30ae1c8/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod/6a311b03ca1176feb90ebd6c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod/6a11283c9def37fcc7017929/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod-u-cihelny/69b7f9ecae0b0a28b008ca4b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod-alsova/69a966e98237cc8d72048c7c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod/69522853c5933df26f02a688/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod/69094abe9c844426e402cb76/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod-komenskeho/68b95fbc82ddc1a1d7003505/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod/67dbd88519969996420811dd/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod/68f67ec2a65ef7023c0c33e0/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod/68f638dd1c999107420ba988/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -540,7 +850,38 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2137330508",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/320959308",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3485565004",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4077498444"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4077498444",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/nachod-u-prachovny/6a44c7b67a45572ce4062bd0/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod-doubicova/6a4253d6913a4fb831031d3e/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod-k-brodu/6a17ec5ddc2cf0689709a065/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod/6a3b863cd01c96daa60629a5/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/nachod-u-prachovny/6a3a485bbcc887f2e103d500/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod/69dcef714ccd4327820edd60/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/nachod/6a3416bf308d46560e0117c4/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/nachod/6a329cc3c407b994cc086e4d/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/nachod/6a3121084b4cd949bf08cff3/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod-1-maje/68f73ebb3191113b21043d7c/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod-podebradova/6a22f4f005e64c30620486ac/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod-na-skalce/6a221e0345fdb264a507086e/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod/6a21f8bd88d624607f007704/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod-krapkova/69b9312164d2f31d9d01de28/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod-alsova/69c14975d66a4ad0d20de8d2/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod-koterova/69b7628ed6129f63840d3150/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nachod-broumovska/6a2aad97930605a0db0cb7ca/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nachod/67ffe5a35eb4aa1a770767e7/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nachod/69c53e4bbd04378d7f0a10e8/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nachod/67ffb7eec002623136043134/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/nachod/6a311b03ca1176feb90ebd6c/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nachod/6a11283c9def37fcc7017929/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/nachod-u-cihelny/69b7f9ecae0b0a28b008ca4b/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nachod-alsova/69a966e98237cc8d72048c7c/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/nachod/69522853c5933df26f02a688/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nachod/69094abe9c844426e402cb76/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nachod-komenskeho/68b95fbc82ddc1a1d7003505/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nachod/68f67ec2a65ef7023c0c33e0/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/nachod/68f638dd1c999107420ba988/"
   ],
   "listings": [
     {
@@ -723,6 +1064,131 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1391390796",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Pozemek 13250 m2, Lázně Běloves, Náchod, studie využití",
+      "location": "Náchod, okres Náchod",
+      "property_type": "land",
+      "price": "14 300 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "13250",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/nachod/6a3118cf23d2acd8d30ae1c8/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej výjimečného pozemku u lesa s panoramatickým výhledem – Branka, ul. Rajmonova",
+      "location": "Náchod, okres Náchod",
+      "property_type": "land",
+      "price": "8 485 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2782",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/nachod-rajmonova/69d4d481ca746a98be000d1d/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu 165 m2, Náchod - Bražec",
+      "location": "Náchod, okres Náchod",
+      "property_type": "house",
+      "price": "5 450 000 Kč",
+      "house_area_m2": "165",
+      "land_area_m2": "1495",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/nachod-v-namerkach/69eb61d2da14ea8e7e059037/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1002 m2, Jílová, Náchod",
+      "location": "Náchod, okres Náchod",
+      "property_type": "land",
+      "price": "4 500 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1002",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/nachod-jilova/6a326927953727dc280b6370/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemku k bydlení, Náchod, Malé Poříčí",
+      "location": "Náchod, okres Náchod",
+      "property_type": "land",
+      "price": "2 590 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1381",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/nachod/6a33da0e94c0c4782b00078e/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1 657 m2 Náchod",
+      "location": "Náchod, okres Náchod",
+      "property_type": "land",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1657",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/nachod-svobody/6a2333edaa5983a468014a97/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku U Prachovny Náchod",
+      "location": "Náchod, okres Náchod",
+      "property_type": "land",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2705",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/nachod/67dbd88519969996420811dd/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
         "buildable-land"
       ]
     }

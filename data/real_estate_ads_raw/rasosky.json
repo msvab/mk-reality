@@ -29,21 +29,16 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
-    "candidates_gathered": 6,
-    "rows_retained": 1,
+    "workers_with_results": 2,
+    "candidates_gathered": 2,
+    "rows_retained": 2,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
-    "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
-    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -55,17 +50,13 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Raso%C5%A1ky&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://realitymix.cz/detail/rasosky/rasosky-prodej-domu-s-projektem-novostavby-a-rozlehlymi-pozemky-3-593-m2-8411309.html",
@@ -185,6 +176,110 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Raso%C5%A1ky&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/rasosky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/rasosky/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/zdarky/6a421bc0876cb8910c0d6c32/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/rasosky/6a27d1dec222fc07920fe474/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rasosky/6a4520bdd59855311701178c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rasosky/6a452652f29732cd0e00f7f8/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rasosky/69e6bb9270326f297b051098/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rasosky/69ca7da91aa0cd8e0f0ebe40/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rasosky/69ca7e23f5af84447e050e65/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rasosky/69ca7de781a08c961909bd14/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rasosky/69ca7785a57802206c0c50e4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rasosky/68d7836c63c5a348880a51f9/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -196,7 +291,17 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Raso%C5%A1ky&form%5Bcena_mena%5D=1",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1806893644",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3403801420",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/899146572"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/899146572",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/zdarky/6a421bc0876cb8910c0d6c32/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/rasosky/6a4520bdd59855311701178c/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/rasosky/6a452652f29732cd0e00f7f8/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/rasosky/69e6bb9270326f297b051098/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/rasosky/69ca7da91aa0cd8e0f0ebe40/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/rasosky/69ca7e23f5af84447e050e65/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/rasosky/69ca7de781a08c961909bd14/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/rasosky/69ca7785a57802206c0c50e4/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/rasosky/68d7836c63c5a348880a51f9/"
   ],
   "listings": [
     {
@@ -215,6 +320,23 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3649536076"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu 4+kk, 130 m",
+      "location": "Rasošky, okres Náchod",
+      "property_type": "house",
+      "price": "4 700 000 Kč",
+      "house_area_m2": "130",
+      "land_area_m2": "1000",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/rasosky/6a27d1dec222fc07920fe474/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
       ]
     }
   ]

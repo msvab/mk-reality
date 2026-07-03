@@ -29,21 +29,16 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
+    "workers_with_results": 2,
     "candidates_gathered": 4,
-    "rows_retained": 2,
+    "rows_retained": 4,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
-    "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
-    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -55,17 +50,13 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Milet%C3%ADn&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -153,6 +144,70 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Milet%C3%ADn&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/miletin/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/miletin/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/markvartice/6a08c693133c0987ff034a92/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/miletin-jiriho-z-podebrad/69b90008a94f25ec7605c7b7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/miletin-arnoldova/68ff875eef3b1faf7d0bc8f4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/miletin-arnoldova/6a201f018c86f110a301ef49/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/miletin-lhotova/6a201ed865093f0af9062a75/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -160,7 +215,11 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "unsupported-property-type:https://reality.aktualne.cz/detail/miletin/prodej-bytu-3-kk-76-m-miletin-ul-komenskeho-8304303.html",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1667465292"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1667465292",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/markvartice/6a08c693133c0987ff034a92/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/miletin-jiriho-z-podebrad/69b90008a94f25ec7605c7b7/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/miletin-arnoldova/68ff875eef3b1faf7d0bc8f4/"
   ],
   "listings": [
     {
@@ -198,6 +257,42 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/298210124"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku 16566 m2, Miletín",
+      "location": "Miletín, okres Jičín",
+      "property_type": "land",
+      "price": "10 602 240 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "16566",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/miletin-arnoldova/6a201f018c86f110a301ef49/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku 16853 m2, Miletín",
+      "location": "Miletín, okres Jičín",
+      "property_type": "land",
+      "price": "4 887 370 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "16853",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/miletin-lhotova/6a201ed865093f0af9062a75/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
       ]
     }
   ]

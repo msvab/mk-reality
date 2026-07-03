@@ -30,21 +30,17 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 0,
-    "candidates_gathered": 7,
+    "candidates_gathered": 0,
     "rows_retained": 0,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz",
-      "sreality.cz"
+      "sreality.cz",
+      "reality.idnes.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
-    "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
-    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -56,17 +52,13 @@
     "sreality.cz": {
       "status": "no_results",
       "message": "No retained in-scope Sreality rows."
+    },
+    "reality.idnes.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope iDNES rows."
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=St%C3%A1rkov&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -178,6 +170,102 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=St%C3%A1rkov&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/starkov/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/starkov/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/zdarky/6a421bc0876cb8910c0d6c32/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/starkov/6a43a8fb36d7baa97700ff3e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/starkov/6a2c0dedbaef6c97840951c8/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/starkov/6a29211b7ad853cfca035ec6/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/starkov/699248ed1208f2ec350befa7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/starkov/69978e7c1feb4d348c0e2acb/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/starkov/6987b40860efba521302ac18/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/starkov/6a1b34a7f11ef0dfd00fbf7d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/starkov/68f6857db60bd58f330bd755/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -190,7 +278,17 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/starkov/prodej-louky-1899-m-starkov-8499919.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/starkov/prodej-louky-3308-m-starkov-8506407.html",
     "missing-price:https://www.sreality.cz/api/v1/estates/1497887564",
-    "missing-price:https://www.sreality.cz/api/v1/estates/307753804"
+    "missing-price:https://www.sreality.cz/api/v1/estates/307753804",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/zdarky/6a421bc0876cb8910c0d6c32/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/starkov/6a43a8fb36d7baa97700ff3e/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/starkov/6a2c0dedbaef6c97840951c8/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/starkov/6a29211b7ad853cfca035ec6/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/starkov/699248ed1208f2ec350befa7/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/starkov/69978e7c1feb4d348c0e2acb/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/starkov/6987b40860efba521302ac18/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/starkov/6a1b34a7f11ef0dfd00fbf7d/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/starkov/68f6857db60bd58f330bd755/"
   ],
   "listings": []
 }

@@ -30,21 +30,17 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 0,
-    "candidates_gathered": 3,
+    "candidates_gathered": 0,
     "rows_retained": 0,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz",
-      "sreality.cz"
+      "sreality.cz",
+      "reality.idnes.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
-    "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
-    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -56,17 +52,13 @@
     "sreality.cz": {
       "status": "no_results",
       "message": "No retained in-scope Sreality rows."
+    },
+    "reality.idnes.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope iDNES rows."
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Choustn%C3%ADkovo+Hradi%C5%A1t%C4%9B&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -146,6 +138,62 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Choustn%C3%ADkovo+Hradi%C5%A1t%C4%9B&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/choustnikovo-hradiste/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/choustnikovo-hradiste/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem/6a0aff12de715cac450810f7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/kuks/6630e2a104560c253c03a0a4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vlckovice-v-podkrkonosi/6a2078ca9a0f2ce7cc08d6a9/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/choustnikovo-hradiste/69f19f940d3f9fc8ef01fc05/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -154,7 +202,12 @@
     "missing-page-url:land",
     "unsupported-property-type:https://reality.aktualne.cz/detail/choustnikovo-hradiste/nabizime-vam-k-prodeji-byt-3-kk-v-osobnim-vlastnictvi-v-choustnikove-hradisti-okr-trutnov-8345789.html",
     "inactive-or-unpriced:https://reality.aktualne.cz/detail/choustnikovo-hradiste/nabizime-vam-k-prodeji-byt-3-kk-v-osobnim-vlastnictvi-v-choustnikove-hradisti-okres-trutnov-8345787.html",
-    "inactive-or-unpriced:https://reality.aktualne.cz/detail/choustnikovo-hradiste/prodej-bytu-3-1-v-osobnim-vlastnictvi-v-choustnikove-hradisti-okr-trutnov-8345729.html"
+    "inactive-or-unpriced:https://reality.aktualne.cz/detail/choustnikovo-hradiste/prodej-bytu-3-1-v-osobnim-vlastnictvi-v-choustnikove-hradisti-okr-trutnov-8345729.html",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem/6a0aff12de715cac450810f7/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/kuks/6630e2a104560c253c03a0a4/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vlckovice-v-podkrkonosi/6a2078ca9a0f2ce7cc08d6a9/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/choustnikovo-hradiste/69f19f940d3f9fc8ef01fc05/"
   ],
   "listings": []
 }

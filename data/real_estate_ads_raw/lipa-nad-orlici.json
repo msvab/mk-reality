@@ -29,19 +29,13 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 3,
-    "candidates_gathered": 5,
-    "rows_retained": 4,
-    "zero_result_portals": [
-      "reality.idnes.cz"
-    ],
+    "workers_with_results": 4,
+    "candidates_gathered": 6,
+    "rows_retained": 6,
+    "zero_result_portals": [],
     "blocked_portals": []
   },
   "portal_status": {
-    "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
-    },
     "realitymix.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified RealityMix row."
@@ -53,17 +47,13 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=L%C3%ADpa+nad+Orlic%C3%AD&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://realitymix.cz/detail/lipa-nad-orlici/prodej-2-rodinnych-domu-s-bazenem-lipa-nad-orlici-8533969.html",
@@ -191,6 +181,62 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=L%C3%ADpa+nad+Orlic%C3%AD&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/lipa-nad-orlici/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/lipa-nad-orlici/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/lipa-nad-orlici/69b7d3c11f14249cf00b2978/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/lipa-nad-orlici/6a2fd788010fdb0f43039515/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/lipa-nad-orlici/699f0369aea5f378f1069974/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/lipa-nad-orlici/67ffb0e47a9535c364038975/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -200,7 +246,10 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-domy_vily.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/lipa-nad-orlici/pronajem-dreveneho-srubu-2-ps-lipa-nad-orlici-8537033.html"
+    "unsupported-property-type:https://reality.aktualne.cz/detail/lipa-nad-orlici/pronajem-dreveneho-srubu-2-ps-lipa-nad-orlici-8537033.html",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/lipa-nad-orlici/6a2fd788010fdb0f43039515/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/lipa-nad-orlici/67ffb0e47a9535c364038975/"
   ],
   "listings": [
     {
@@ -272,6 +321,40 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/720855884"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej 2 rodinných domů s bazénem Lípa nad Orlicí",
+      "location": "Lípa nad Orlicí, okres Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "11 950 000 Kč",
+      "house_area_m2": "340",
+      "land_area_m2": "1427",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/lipa-nad-orlici/69b7d3c11f14249cf00b2978/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej velkého rodinného domu v Lípě nad Orlicí.",
+      "location": "Lípa nad Orlicí, okres Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "7 990 000 Kč",
+      "house_area_m2": "170",
+      "land_area_m2": "1413",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/lipa-nad-orlici/699f0369aea5f378f1069974/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
       ]
     }
   ]

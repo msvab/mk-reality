@@ -29,20 +29,15 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
-    "candidates_gathered": 19,
-    "rows_retained": 4,
+    "workers_with_results": 3,
+    "candidates_gathered": 8,
+    "rows_retained": 8,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
-    "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
-    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -54,17 +49,13 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Vamberk&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -304,6 +295,182 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Vamberk&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/vamberk/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/vamberk/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vamberk-koukolova/65ee234b71f22a265e05379c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vamberk/6a01edd5fa90fbfa5a032708/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vamberk-janackova/69f265b95cd2e431c0049d0f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vamberk-koukolova/6a2fe6f3c5dcabdcc7055db5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vamberk/68df98b96519bbc30305967c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vamberk/69dcf39f996ae0187b0a564c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vamberk/699d808cfe1cdc5d7202e8b2/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vamberk-zamberecka/699947276af3aedaa409adc5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vamberk-krajkarska/67d5626348d2fdee450d3a35/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vamberk-koukolova/67cdf5bda25d107fb6049d61/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vamberk/67ff451791116d03d80643cc/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vamberk/6a27cfa8a69e1a2deb0161d8/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vamberk/6a27ceb0d5dfacdf1b08df9c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vamberk/5fbaca4cd84bfe17b113f533/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vamberk/6964ff6e88919fc6cb04272e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vamberk/68f65fc3eab88a14ce00b5e7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vamberk/6759a8c10ab0b330c20cde58/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vamberk/67599e332b9ab76ee40a094a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vamberk/652faa3e0762f7e4b608313f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -325,7 +492,23 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/vamberk/pronajem-komercni-obchodni-prostory-200-m2-zamberecka-27-51754-vamberk-rychnov-nad-kneznou-id-8592655.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/vamberk/pronajem-ubytovaciho-zarizeni-70-m2-vamberk-8496787.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/vamberk/pronajem-ubytovaciho-zarizeni-80-m2-vamberk-8496781.html",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3857658956"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3857658956",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vamberk-koukolova/65ee234b71f22a265e05379c/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vamberk/6a01edd5fa90fbfa5a032708/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vamberk-koukolova/6a2fe6f3c5dcabdcc7055db5/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vamberk/68df98b96519bbc30305967c/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vamberk/69dcf39f996ae0187b0a564c/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vamberk/699d808cfe1cdc5d7202e8b2/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vamberk-zamberecka/699947276af3aedaa409adc5/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vamberk-koukolova/67cdf5bda25d107fb6049d61/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/vamberk/67ff451791116d03d80643cc/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/vamberk/6a27cfa8a69e1a2deb0161d8/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/vamberk/6a27ceb0d5dfacdf1b08df9c/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/vamberk/5fbaca4cd84bfe17b113f533/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/vamberk/68f65fc3eab88a14ce00b5e7/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/vamberk/6759a8c10ab0b330c20cde58/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/vamberk/67599e332b9ab76ee40a094a/"
   ],
   "listings": [
     {
@@ -400,6 +583,76 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3275989068"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej souboru pozemků 20.667m2 v obci Vamberk, Jugoslávská ulice",
+      "location": "Vamberk, okres Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "11 366 850 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "20667",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/vamberk/6964ff6e88919fc6cb04272e/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu Vamberk",
+      "location": "Vamberk, okres Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "5 590 000 Kč",
+      "house_area_m2": "180",
+      "land_area_m2": "2143",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/vamberk-janackova/69f265b95cd2e431c0049d0f/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu, 211 m2 - Vamberk",
+      "location": "Vamberk, okres Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "5 500 000 Kč",
+      "house_area_m2": "211",
+      "land_area_m2": "1005",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/vamberk-krajkarska/67d5626348d2fdee450d3a35/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Nabízíme prodej, pozemky pro bydlení Vamberk - Merklovice",
+      "location": "Vamberk, okres Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "1 360 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1100",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/vamberk/652faa3e0762f7e4b608313f/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
       ]
     }
   ]

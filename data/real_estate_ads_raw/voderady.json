@@ -30,10 +30,9 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 0,
-    "candidates_gathered": 2,
+    "candidates_gathered": 0,
     "rows_retained": 0,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz",
       "sreality.cz"
@@ -41,10 +40,6 @@
     "blocked_portals": []
   },
   "portal_status": {
-    "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
-    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -56,17 +51,18 @@
     "sreality.cz": {
       "status": "no_results",
       "message": "No retained in-scope Sreality rows."
+    },
+    "reality.idnes.cz": {
+      "status": "fallback_page",
+      "http_status": 404,
+      "stage": "search_fetch",
+      "message": "HTTP 404",
+      "evidence": [
+        "search_fetch:fallback_page:https://reality.idnes.cz/s/prodej/domy/voderady/"
+      ]
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Vod%C4%9Brady&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -154,6 +150,32 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Vod%C4%9Brady&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/voderady/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/voderady/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
@@ -163,7 +185,10 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html",
     "outside-municipality:https://reality.aktualne.cz/detail/voderady/prodej-rodinneho-domu-150-m-vyhnanice-u-voderad-8279109.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/voderady/prodej-rodinneho-domu-v-voderadech-8545253.html"
+    "land-below-threshold:https://reality.aktualne.cz/detail/voderady/prodej-rodinneho-domu-v-voderadech-8545253.html",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/voderady/",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/voderady/"
   ],
   "listings": []
 }

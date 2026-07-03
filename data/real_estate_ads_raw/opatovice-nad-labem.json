@@ -30,20 +30,16 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 1,
-    "candidates_gathered": 12,
+    "candidates_gathered": 1,
     "rows_retained": 1,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz",
-      "sreality.cz"
+      "sreality.cz",
+      "reality.idnes.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
-    "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
-    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -55,17 +51,13 @@
     "sreality.cz": {
       "status": "no_results",
       "message": "No retained in-scope Sreality rows."
+    },
+    "reality.idnes.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope iDNES rows."
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Opatovice+nad+Labem&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -233,6 +225,126 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Opatovice+nad+Labem&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/opatovice-nad-labem/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/opatovice-nad-labem/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/opatovice-nad-labem-lucni/685406c282d022dba109bc44/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/opatovice-nad-labem-na-hrazi/6a33d97085771f8b7a0fe42e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/opatovice-nad-labem/695c074a4f9cde2cec0fa253/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/opatovice-nad-labem-k-dubovce/6a215171f0e6c9d58602a273/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/opatovice-nad-labem-kuneticka/6a0490c8aff0f893ea029854/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/opatovice-nad-labem-zakova/6852ded0fa985e38a3030784/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/opatovice-nad-labem/6a1eaab272ad108a07007432/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/opatovice-nad-labem/6a3182220bbd3a4f2f0ee581/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/opatovice-nad-labem/6a29146894edc2fcfa0366c0/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/opatovice-nad-labem/68540e95ce961276c00e58f5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/opatovice-nad-labem/67fed494f3997d819a0f3a4b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/opatovice-nad-labem/6a44ab5535eee26a830a02f8/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -250,7 +362,20 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/opatovice-nad-labem/zemedelska-puda-prodej-opatovice-nad-labem-pardubice-8611721.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/115123020",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2568847436",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3376571212"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3376571212",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/opatovice-nad-labem-lucni/685406c282d022dba109bc44/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/opatovice-nad-labem-na-hrazi/6a33d97085771f8b7a0fe42e/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/opatovice-nad-labem/695c074a4f9cde2cec0fa253/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/opatovice-nad-labem-k-dubovce/6a215171f0e6c9d58602a273/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/opatovice-nad-labem-kuneticka/6a0490c8aff0f893ea029854/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/opatovice-nad-labem-zakova/6852ded0fa985e38a3030784/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/opatovice-nad-labem/6a1eaab272ad108a07007432/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/opatovice-nad-labem/6a3182220bbd3a4f2f0ee581/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/opatovice-nad-labem/6a29146894edc2fcfa0366c0/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/opatovice-nad-labem/68540e95ce961276c00e58f5/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/opatovice-nad-labem/67fed494f3997d819a0f3a4b/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/opatovice-nad-labem/6a44ab5535eee26a830a02f8/"
   ],
   "listings": [
     {

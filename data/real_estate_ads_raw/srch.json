@@ -29,21 +29,16 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
+    "workers_with_results": 2,
     "candidates_gathered": 4,
-    "rows_retained": 2,
+    "rows_retained": 4,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
-    "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
-    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -55,17 +50,13 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Srch&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -153,6 +144,54 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Srch&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/srch/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/srch/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/srch-na-vysluni/6a4566162ca2e8195408fe89/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/srch-pardubicka/69f902ace78c6f552400e805/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/srch/6a3be16d17be6028e90bd0f8/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -160,7 +199,9 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "outside-municipality:https://reality.aktualne.cz/detail/srch/prodej-lesniho-pozemku-u-rybnika-v-pohranove-jedinecne-misto-v-prirode-8592525.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/srch/prodej-pozemky-bydleni-569-m2-srch-id-86870-8632213.html"
+    "land-below-threshold:https://reality.aktualne.cz/detail/srch/prodej-pozemky-bydleni-569-m2-srch-id-86870-8632213.html",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/srch/6a3be16d17be6028e90bd0f8/"
   ],
   "listings": [
     {
@@ -197,6 +238,40 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1400348748"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej dům Rodinný, 185m2, Srch",
+      "location": "Srch, okres Pardubice",
+      "property_type": "house",
+      "price": "9 800 000 Kč",
+      "house_area_m2": "185",
+      "land_area_m2": "1323",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/srch-na-vysluni/6a4566162ca2e8195408fe89/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Dům s velkou zahradou",
+      "location": "Srch, okres Pardubice",
+      "property_type": "house",
+      "price": "6 900 000 Kč",
+      "house_area_m2": "95",
+      "land_area_m2": "1633",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/srch-pardubicka/69f902ace78c6f552400e805/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
       ]
     }
   ]

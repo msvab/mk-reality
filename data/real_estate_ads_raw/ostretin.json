@@ -29,20 +29,15 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
+    "workers_with_results": 3,
     "candidates_gathered": 12,
-    "rows_retained": 7,
+    "rows_retained": 12,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
-    "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
-    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -54,17 +49,13 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Ost%C5%99et%C3%ADn&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -240,6 +231,94 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Ost%C5%99et%C3%ADn&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/ostretin/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/ostretin/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/ostretin/6a44e2d15f45676aa304c768/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/ostretin/699d67b1a21d09cf9b0e634f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/ostretin/69dcabced291c79059086c6c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ostretin/6a44ab500d6c5c1daa096538/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ostretin/699309d4285e9ba0cd00b9e0/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ostretin/69eb8d34e3bb6d2a7200f495/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ostretin/690e3396a7227bd9c30f6eff/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ostretin/67f515dacdee4d3eff04c206/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -251,7 +330,11 @@
     "outside-municipality:https://reality.aktualne.cz/detail/ostretin/prodej-pozemku-vysoka-u-holic-investicni-prilezitost-pro-mensi-developery-8454377.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1463771980",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2198475596",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3236470860"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3236470860",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/ostretin/699309d4285e9ba0cd00b9e0/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/ostretin/690e3396a7227bd9c30f6eff/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/ostretin/67f515dacdee4d3eff04c206/"
   ],
   "listings": [
     {
@@ -379,6 +462,93 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2355933260"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemku Vysoká u Holic Investiční příležitost pro menší developery",
+      "location": "Ostřetín, okres Pardubice",
+      "property_type": "land",
+      "price": "8 950 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "5742",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/ostretin/69eb8d34e3bb6d2a7200f495/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu, 2x bytová jednotka, Ostřetín",
+      "location": "Ostřetín, okres Pardubice",
+      "property_type": "house",
+      "price": "8 300 000 Kč",
+      "house_area_m2": "160",
+      "land_area_m2": "1454",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/ostretin/6a44e2d15f45676aa304c768/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu, 250 m2, Ostřetín",
+      "location": "Ostřetín, okres Pardubice",
+      "property_type": "house",
+      "price": "5 900 000 Kč",
+      "house_area_m2": "250",
+      "land_area_m2": "4164",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/ostretin/699d67b1a21d09cf9b0e634f/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prostorný rodinný/vícegenerační dům s pozemkem 1 406 m2 a velkým potenciálem Ostřetín",
+      "location": "Ostřetín, okres Pardubice",
+      "property_type": "house",
+      "price": "4 898 000 Kč",
+      "house_area_m2": "153",
+      "land_area_m2": "1406",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/ostretin/69dcabced291c79059086c6c/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemku pro rodinný dům Vysoká u Holic",
+      "location": "Ostřetín, okres Pardubice",
+      "property_type": "land",
+      "price": "1 666 500 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1111",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/ostretin/6a44ab500d6c5c1daa096538/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
       ]
     }
   ]

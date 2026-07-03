@@ -29,20 +29,15 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
-    "candidates_gathered": 6,
-    "rows_retained": 6,
+    "workers_with_results": 3,
+    "candidates_gathered": 9,
+    "rows_retained": 9,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
-    "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
-    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -54,17 +49,13 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Piln%C3%ADkov&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -192,13 +183,71 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Piln%C3%ADkov&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/pilnikov/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/pilnikov/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pilnikov-okruzni/68ef7fc9e0cb7127ec0680f5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pilnikov-prazska/69dcee4faa6a91269a02abb5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pilnikov-novomestska/69e231c2cceb2a9699073bff/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pilnikov/60ce3b0e859b060af7568ad1/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
     "idnes-discovery-missing-locality-id",
     "missing-page-url:house",
     "missing-page-url:land",
-    "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3610-trutnov/kralovehradecky/prodej-domy_vily.html"
+    "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3610-trutnov/kralovehradecky/prodej-domy_vily.html",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/pilnikov/60ce3b0e859b060af7568ad1/"
   ],
   "listings": [
     {
@@ -308,6 +357,58 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3521949772"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu, Pilníkov, ul. Okružní",
+      "location": "Pilníkov, okres Trutnov",
+      "property_type": "house",
+      "price": "8 400 000 Kč",
+      "house_area_m2": "145",
+      "land_area_m2": "2965",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/pilnikov-okruzni/68ef7fc9e0cb7127ec0680f5/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku v Pilníkově - i pro dva rodinné domy",
+      "location": "Pilníkov, okres Trutnov",
+      "property_type": "land",
+      "price": "6 198 450 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2883",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/pilnikov-novomestska/69e231c2cceb2a9699073bff/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej domu 2+1, Pilníkov",
+      "location": "Pilníkov, okres Trutnov",
+      "property_type": "house",
+      "price": "2 990 000 Kč",
+      "house_area_m2": "85",
+      "land_area_m2": "1000",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/pilnikov-prazska/69dcee4faa6a91269a02abb5/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
       ]
     }
   ]

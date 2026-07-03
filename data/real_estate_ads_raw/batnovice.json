@@ -30,21 +30,17 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 0,
-    "candidates_gathered": 1,
+    "candidates_gathered": 0,
     "rows_retained": 0,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz",
-      "sreality.cz"
+      "sreality.cz",
+      "reality.idnes.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
-    "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
-    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -56,17 +52,13 @@
     "sreality.cz": {
       "status": "no_results",
       "message": "No retained in-scope Sreality rows."
+    },
+    "reality.idnes.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope iDNES rows."
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Bat%C5%88ovice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -130,13 +122,200 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Bat%C5%88ovice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/batnovice/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/batnovice/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-svatonovice/69d8d42039c94a467f02b434/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-svatonovice/6a0ad17de0b66f3c400dd99d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/male-svatonovice-zahradni/69aa7bbff5099639b503215f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-rtynka/69d1643c3cb3c80cc80b11e0/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-svatonovice/69f3538a449b5671c2079303/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-svatonovice/6a3654569afcdecfc70fcb95/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-namesti-t-g-masaryka/6a30137120e8b0c09d0080a7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-zizkova/6a3f7921a4066f9ede0b32d8/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-j-w-mezerove/68233c50e54843df140e348c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-a-bunzla/69d157c1a9ace00b760b38b5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/male-svatonovice/60ce3d9b94e4156881108156/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/male-svatonovice/6a39d916e389b4f05200dc07/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/male-svatonovice/6a22873061b7a946940f8070/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rtyne-v-podkrkonosi-upicka/69dbc8ae22a4bd632e050510/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/upice-puskinova/6a02ee44a902387d3f024646/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/upice/68f7d125ca1e6bbf23098f75/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/suchovrsice/6a1414566f85bfb93d03e426/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/upice/69aecb57c5c41641b3099aec/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
     "idnes-discovery-missing-locality-id",
     "missing-page-url:house",
     "missing-page-url:land",
-    "outside-municipality:https://reality.aktualne.cz/detail/batnovice/prodej-chaty-v-batnovicich-kvicala-8526259.html"
+    "outside-municipality:https://reality.aktualne.cz/detail/batnovice/prodej-chaty-v-batnovicich-kvicala-8526259.html",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/velke-svatonovice/69d8d42039c94a467f02b434/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/velke-svatonovice/6a0ad17de0b66f3c400dd99d/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/male-svatonovice-zahradni/69aa7bbff5099639b503215f/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/upice-rtynka/69d1643c3cb3c80cc80b11e0/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/velke-svatonovice/69f3538a449b5671c2079303/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/velke-svatonovice/6a3654569afcdecfc70fcb95/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/upice-namesti-t-g-masaryka/6a30137120e8b0c09d0080a7/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/upice-zizkova/6a3f7921a4066f9ede0b32d8/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/upice-j-w-mezerove/68233c50e54843df140e348c/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/upice-a-bunzla/69d157c1a9ace00b760b38b5/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/male-svatonovice/60ce3d9b94e4156881108156/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/male-svatonovice/6a39d916e389b4f05200dc07/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/male-svatonovice/6a22873061b7a946940f8070/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/rtyne-v-podkrkonosi-upicka/69dbc8ae22a4bd632e050510/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/upice-puskinova/6a02ee44a902387d3f024646/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/upice/68f7d125ca1e6bbf23098f75/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/suchovrsice/6a1414566f85bfb93d03e426/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/upice/69aecb57c5c41641b3099aec/"
   ],
   "listings": []
 }

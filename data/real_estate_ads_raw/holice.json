@@ -29,20 +29,15 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
-    "candidates_gathered": 23,
-    "rows_retained": 9,
+    "workers_with_results": 3,
+    "candidates_gathered": 17,
+    "rows_retained": 17,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
-    "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
-    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -54,17 +49,13 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Holice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -364,6 +355,222 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Holice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/holice/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/holice/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/holice-komenskeho/6a43fab49c901cb2df0ed607/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/holice-smetanova/6a3a42590e0658dff60c29be/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/holice-pardubicka/69d5633e6e3f0393e90117d4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/holice/6a343b8f92f35b9505046b0f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/holice/6a316f4946d24d8efe0dc94b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/holice/6a1d6631dcb176e31e077c79/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/holice-sadova/6a0cacd015f2dc14980966f8/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/holice-vrchlickeho/69f24c7cd802051f320a7ad9/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/holice-vrchlickeho/69f24c62b62c5236d508174e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/holice/69ad9613f7b8b6c66f03a5d9/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/holice/6a1ed71b4fcb2937450fb79d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/holice/69f0915d096a9a273107a8d9/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/holice-staroholicka/6a00ed37a2b776222609f2c5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/holice/67ffb7f16139c3cc6d032f85/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/holice/699709633e938213720cbd95/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/holice/6a32aebb08782d20e5040a5d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/holice-pod-parkem/69d75af4bbb073fc51037ab7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/holice/6a3e9cac4b1fb0ac84069079/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/holice/67ff6a99383c32453102ef8b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/holice-pod-parkem/69e0cf1207e6df799a02166e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/holice/69b955b952dbcb7d2c093edb/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/holice-staroholicka/6a01b63d78c26dc7700ace2a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/holice/684aa067a254335d3a093215/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/holice/63bad68251c5bc7b4e0c1a79/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -384,7 +591,24 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3114397772",
     "stale-detail-fetch:3133009996:Failed to fetch https://www.sreality.cz/api/v1/estates/3133009996: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3431632972",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/660505164"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/660505164",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice-komenskeho/6a43fab49c901cb2df0ed607/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice-pardubicka/69d5633e6e3f0393e90117d4/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/holice/6a343b8f92f35b9505046b0f/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/holice/6a1d6631dcb176e31e077c79/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice-vrchlickeho/69f24c7cd802051f320a7ad9/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice-vrchlickeho/69f24c62b62c5236d508174e/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/holice/69ad9613f7b8b6c66f03a5d9/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/holice/6a1ed71b4fcb2937450fb79d/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/holice/69f0915d096a9a273107a8d9/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/holice/67ffb7f16139c3cc6d032f85/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/holice/699709633e938213720cbd95/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/holice/6a32aebb08782d20e5040a5d/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/holice-pod-parkem/69d75af4bbb073fc51037ab7/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/holice/6a3e9cac4b1fb0ac84069079/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/holice/67ff6a99383c32453102ef8b/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/holice-staroholicka/6a01b63d78c26dc7700ace2a/"
   ],
   "listings": [
     {
@@ -549,6 +773,147 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1533715276",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu, autoservisu a lakovny - Holice",
+      "location": "Holice, okres Pardubice",
+      "property_type": "house",
+      "price": "17 997 000 Kč",
+      "house_area_m2": "75",
+      "land_area_m2": "1732",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/holice-smetanova/6a3a42590e0658dff60c29be/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Moderní novostavba, Holice, ul. Na Povětrníku",
+      "location": "Holice, okres Pardubice",
+      "property_type": "house",
+      "price": "8 850 000 Kč",
+      "house_area_m2": "102",
+      "land_area_m2": "1309",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/holice-sadova/6a0cacd015f2dc14980966f8/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemky, 2219 m2, HoliceStaroholická",
+      "location": "Holice, okres Pardubice",
+      "property_type": "land",
+      "price": "5 490 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2219",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/holice-staroholicka/6a00ed37a2b776222609f2c5/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku, 2204 m2 - Holice - Kamenec",
+      "location": "Holice, okres Pardubice",
+      "property_type": "land",
+      "price": "5 289 600 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2204",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/holice/684aa067a254335d3a093215/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu v Holicích",
+      "location": "Holice, okres Pardubice",
+      "property_type": "house",
+      "price": "4 590 000 Kč",
+      "house_area_m2": "76",
+      "land_area_m2": "1343",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/holice/6a316f4946d24d8efe0dc94b/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Pozemek, 1901 m2, Holice, Koudelka",
+      "location": "Holice, okres Pardubice",
+      "property_type": "land",
+      "price": "3 200 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1901",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/holice/69b955b952dbcb7d2c093edb/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1 775 m2, Holice",
+      "location": "Holice, okres Pardubice",
+      "property_type": "land",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1775",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/holice-pod-parkem/69e0cf1207e6df799a02166e/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemku pro bydlení - Holice",
+      "location": "Holice, okres Pardubice",
+      "property_type": "land",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1309",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/holice/63bad68251c5bc7b4e0c1a79/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
         "buildable-land"
       ]
     }

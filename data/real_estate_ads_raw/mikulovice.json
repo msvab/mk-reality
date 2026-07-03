@@ -30,20 +30,15 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 1,
-    "candidates_gathered": 18,
+    "candidates_gathered": 2,
     "rows_retained": 2,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz",
       "sreality.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
-    "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
-    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -55,17 +50,18 @@
     "sreality.cz": {
       "status": "no_results",
       "message": "No retained in-scope Sreality rows."
+    },
+    "reality.idnes.cz": {
+      "status": "fallback_page",
+      "http_status": 404,
+      "stage": "search_fetch",
+      "message": "HTTP 404",
+      "evidence": [
+        "search_fetch:fallback_page:https://reality.idnes.cz/s/prodej/domy/mikulovice/"
+      ]
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Mikulovice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -349,6 +345,32 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Mikulovice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/mikulovice/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/mikulovice/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
@@ -372,7 +394,10 @@
     "outside-municipality:https://reality.aktualne.cz/detail/mikulovice/pronajem-bytu-1-1-v-mikulovicich-u-jeseniku-8587985.html",
     "outside-municipality:https://reality.aktualne.cz/detail/mikulovice/rodinny-dum-v-mikulovicich-klidne-bydleni-se-zahradou-a-velkym-potencialem-8604629.html",
     "stale-detail-fetch:2414756684:Failed to fetch https://www.sreality.cz/api/v1/estates/2414756684: HTTP 404",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/411730508"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/411730508",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/mikulovice/",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/mikulovice/"
   ],
   "listings": [
     {

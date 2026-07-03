@@ -29,20 +29,15 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
-    "candidates_gathered": 8,
-    "rows_retained": 2,
+    "workers_with_results": 3,
+    "candidates_gathered": 3,
+    "rows_retained": 3,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
-    "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
-    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -54,17 +49,13 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
+    },
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Star%C3%A9+Hradi%C5%A1t%C4%9B&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -200,6 +191,86 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Star%C3%A9+Hradi%C5%A1t%C4%9B&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/stare-hradiste/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/stare-hradiste/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/stare-hradiste/69fcd673393ecad70600c738/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/stare-hradiste-hradecka/6a44d5f2467c67ccbb00f688/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/stare-hradiste-orechova/6a339f056d1ee3f923001a55/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/stare-hradiste/66dac3e8cfd2b1ece805dcb6/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/stare-hradiste/69bd101dbef45f243f0ec5a4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/stare-hradiste/684fd8a3960efb7a2607700a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/stare-hradiste/684fd867cfaf4c860b04f044/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -212,7 +283,14 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/stare-hradiste/pronajem-zdeneho-bytu-1-kk-8599231.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1349173836",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1402204236",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1634386508"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1634386508",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/stare-hradiste/69fcd673393ecad70600c738/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/stare-hradiste-orechova/6a339f056d1ee3f923001a55/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/stare-hradiste/66dac3e8cfd2b1ece805dcb6/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/stare-hradiste/69bd101dbef45f243f0ec5a4/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/stare-hradiste/684fd8a3960efb7a2607700a/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/stare-hradiste/684fd867cfaf4c860b04f044/"
   ],
   "listings": [
     {
@@ -249,6 +327,23 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2107249484"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej domu ve Starém Hradišti",
+      "location": "Staré Hradiště, okres Pardubice",
+      "property_type": "house",
+      "price": "7 750 000 Kč",
+      "house_area_m2": "200",
+      "land_area_m2": "1235",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/stare-hradiste-hradecka/6a44d5f2467c67ccbb00f688/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
       ]
     }
   ]
