@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Trutnov."
   ],
   "coverage": {
-    "workers_launched": 5,
-    "workers_with_results": 4,
-    "candidates_gathered": 47,
-    "rows_retained": 47,
+    "workers_launched": 4,
+    "workers_with_results": 3,
+    "candidates_gathered": 129,
+    "rows_retained": 43,
     "zero_result_portals": [
       "reality.idnes.cz"
     ],
@@ -53,10 +53,6 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "mmreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -486,6 +482,14 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-1-1-30-m2-upske-nabrezi-trutnov-8615299.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-2-1-64-m-trutnov-ul-polska-8528835.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -495,14 +499,6 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-2-kk-52-m2-komenskeho-trutnov-8616023.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-3-kk-63-m2-prokopa-holeho-trutnov-8610571.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -1053,189 +1049,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/91680844",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=Trutnov&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/799086/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/799090/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/799103/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/799104/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/799105/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/800491/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/800538/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/800540/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/866794/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/889362/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/890052/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/890851/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/910909/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/914259/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/914612/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/915321/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/916213/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/916307/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/917627/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/934745/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -1261,9 +1074,9 @@
     "land-below-threshold:https://reality.aktualne.cz/detail/trutnov/prodej-stavebniho-pozemku-735-m2-junaku-trutnov-8633643.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/prodej-zdene-dvougaraze-a-dalsi-dve-parkovaci-stani-na-vlastnim-pozemku-dobry-stav-trutnov-centrum-8629401.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/pronajem-byt-1-kk-30-8633713.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-1-1-30-m2-upske-nabrezi-trutnov-8615299.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-2-1-64-m-trutnov-ul-polska-8528835.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-2-kk-52-m2-komenskeho-trutnov-8616023.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/pronajem-bytu-3-kk-63-m2-prokopa-holeho-trutnov-8610571.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/trutnov/pronajem-komercni-obchodni-prostory-560-8620481.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1171628876",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1191412556",
@@ -1306,24 +1119,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/559776588",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/635384908",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/721530956",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/831107148",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/91680844",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/799086/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/799090/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/799103/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/799104/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/799105/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/800491/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/800538/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/800540/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/889362/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/890851/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/910909/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/914612/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/915321/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/916307/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/917627/",
-    "non-buildable-land:https://www.mmreality.cz/nemovitosti/934745/"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/831107148"
   ],
   "listings": [
     {
@@ -1342,23 +1138,6 @@
       "notes": [
         "detail-url-verified:realitymix.cz",
         "municipal-part:Starý Rokytník"
-      ]
-    },
-    {
-      "portal": [
-        "realitymix.cz"
-      ],
-      "title": "Prodej rodinného domu 131 m2 Petříkovická, Trutnov",
-      "location": "Petříkovická, Poříčí, Trutnov",
-      "property_type": "house",
-      "price": "6 490 000 Kč",
-      "house_area_m2": "131",
-      "land_area_m2": "1118",
-      "urls": [
-        "https://realitymix.cz/detail/trutnov/prodej-rodinneho-domu-131-m2-petrikovicka-trutnov-8574401.html"
-      ],
-      "notes": [
-        "detail-url-verified:realitymix.cz"
       ]
     },
     {
@@ -1654,6 +1433,23 @@
       "notes": [
         "detail-url-verified:realitymix.cz",
         "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej rodinného domu 131 m2 Petříkovická, Trutnov",
+      "location": "Petříkovická, Poříčí, Trutnov",
+      "property_type": "house",
+      "price": "Rezervováno",
+      "house_area_m2": "131",
+      "land_area_m2": "1118",
+      "urls": [
+        "https://realitymix.cz/detail/trutnov/prodej-rodinneho-domu-131-m2-petrikovicka-trutnov-8574401.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz"
       ]
     },
     {
@@ -2099,79 +1895,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3995386700",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Pozemek k bydlení, 1831 m², Trutnov, Pod Antoníčkem",
-      "location": "Trutnov, okres Trutnov",
-      "property_type": "land",
-      "price": "5 242 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1831",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/916213/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Pozemek k bydlení, 1122 m², Trutnov, Justova",
-      "location": "Trutnov, okres Trutnov",
-      "property_type": "land",
-      "price": "4 600 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1122",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/866794/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Pozemek k bydlení, 2372 m², Trutnov",
-      "location": "Trutnov, okres Trutnov",
-      "property_type": "land",
-      "price": "2 362 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "2372",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/914259/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Pozemek k bydlení, 2507 m², Trutnov",
-      "location": "Trutnov - Starý Rokytník, okres Trutnov",
-      "property_type": "land",
-      "price": "1 591 945 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "2507",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/890052/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "municipality-subarea:Starý Rokytník",
         "buildable-land"
       ]
     }

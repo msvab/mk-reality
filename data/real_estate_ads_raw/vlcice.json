@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Vlčice."
   ],
   "coverage": {
-    "workers_launched": 5,
-    "workers_with_results": 3,
-    "candidates_gathered": 7,
-    "rows_retained": 7,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 9,
+    "rows_retained": 4,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -54,10 +54,6 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "mmreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -202,8 +198,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1691644748",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1691644748",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -228,55 +234,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=Vl%C4%8Dice&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/902910/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/908988/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -284,6 +241,7 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "land-below-threshold:https://reality.aktualne.cz/detail/vlcice/prodej-rodinneho-domu-131-m2-vlcice-8577477.html",
+    "stale-detail-fetch:1691644748:Failed to fetch https://www.sreality.cz/api/v1/estates/1691644748: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2163585100",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3340087372",
     "missing-price:https://www.sreality.cz/api/v1/estates/4284236364"
@@ -362,60 +320,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1005482828"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 280 m², pozemek 1390 m²",
-      "location": "Vlčice, Trutnov",
-      "property_type": "house",
-      "price": "4 190 000 Kč",
-      "house_area_m2": "280",
-      "land_area_m2": "1390",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/vlcice/1691644748"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1691644748"
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Pozemek k bydlení, 5869 m², Vlčice",
-      "location": "Vlčice, okres Jeseník",
-      "property_type": "land",
-      "price": "2 450 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "5869",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/902910/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Pozemek k bydlení, 7089 m², Vlčice",
-      "location": "Vlčice, okres Jeseník",
-      "property_type": "land",
-      "price": "1 900 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "7089",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/908988/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "buildable-land"
       ]
     }
   ]

@@ -28,14 +28,13 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Holice."
   ],
   "coverage": {
-    "workers_launched": 5,
+    "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 10,
-    "rows_retained": 10,
+    "candidates_gathered": 23,
+    "rows_retained": 9,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "realitymix.cz",
-      "mmreality.cz"
+      "realitymix.cz"
     ],
     "blocked_portals": []
   },
@@ -55,10 +54,6 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "mmreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -139,14 +134,6 @@
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Holice&form%5Bcena_mena%5D=1",
       "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/holice/louka-prodej-rovensko-holice-pardubice-8612109.html",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -325,8 +312,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3133009996",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3133009996",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -367,48 +364,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=Holice&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/940154/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -416,7 +371,6 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3606-pardubice/pardubicky/prodej-pozemky.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/holice/louka-prodej-rovensko-holice-pardubice-8612109.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/holice/prodej-domy-rodinny-150-m2-komenskeho-297-53401-holice-pardubice-id-87004-8636733.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/holice/prodej-domy-rodinny-194-m2-dudychova-524-53401-holice-pardubice-id-83784-8595827.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/holice/prodej-rodinneho-domu-autoservisu-a-lakovny-holice-8619705.html",
@@ -428,9 +382,9 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2148815692",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3070509900",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3114397772",
+    "stale-detail-fetch:3133009996:Failed to fetch https://www.sreality.cz/api/v1/estates/3133009996: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3431632972",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/660505164",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/940154/"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/660505164"
   ],
   "listings": [
     {
@@ -596,24 +550,6 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1533715276",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 124 m², pozemek 1560 m²",
-      "location": "Holice, Pardubice",
-      "property_type": "house",
-      "price": "3 990 000 Kč",
-      "house_area_m2": "124",
-      "land_area_m2": "1560",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/holice-podhraz/3133009996"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3133009996"
       ]
     }
   ]

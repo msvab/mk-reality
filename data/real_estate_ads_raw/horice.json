@@ -28,14 +28,13 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Hořice."
   ],
   "coverage": {
-    "workers_launched": 5,
+    "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 6,
-    "rows_retained": 6,
+    "candidates_gathered": 30,
+    "rows_retained": 7,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "realitymix.cz",
-      "mmreality.cz"
+      "realitymix.cz"
     ],
     "blocked_portals": []
   },
@@ -55,10 +54,6 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "mmreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -129,6 +124,14 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/horice/investicni-prilezitost-v-centru-horic-cinzovni-dum-s-peti-byty-a-povolenim-k-pudni-vestavbe-8540061.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/horice/kouzelna-roubenka-k-trvalemu-bydleni-i-rekreaci-na-krasnem-miste-v-chlumu-u-horic-okr-jicin-8637973.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -331,18 +334,8 @@
       "url": "https://www.sreality.cz/api/v1/estates/2064503628",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/2064503628",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "sreality.cz",
@@ -401,47 +394,13 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=Ho%C5%99ice&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
     "idnes-discovery-missing-locality-id",
     "missing-page-url:house",
     "missing-page-url:land",
+    "outside-municipality:https://reality.aktualne.cz/detail/horice/kouzelna-roubenka-k-trvalemu-bydleni-i-rekreaci-na-krasnem-miste-v-chlumu-u-horic-okr-jicin-8637973.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/horice/novostavba-bytu-3-kk-75-32-m2-2-balkon-8-63-m2-vytah-podlahove-vytapeni-uzavreny-areal-8629807.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/horice/novostavba-bytu-3-kk-82-2-m2-balkon-2-6-m2-vytah-podlahove-vytapeni-uzavreny-areal-8629819.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/horice/novostavba-bytu-3-kk-85-34-m2-3-balkon-13-85-m2-vytah-podlahove-vytapeni-uzavreny-areal-8629997.html",
@@ -461,7 +420,6 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/horice/prodej-komercni-nemovitosti-horice-v-podkrkonosi-8495613.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/horice/prodej-prostorneho-rodinneho-domu-4-1-se-zahradou-a-garazi-v-horicich-8630773.html",
     "outside-municipality:https://reality.aktualne.cz/detail/horice/prodej-rodinny-dum-62-8617261.html",
-    "stale-detail-fetch:2064503628:Failed to fetch https://www.sreality.cz/api/v1/estates/2064503628: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/2267869260",
     "stale-detail-fetch:2330570828:Failed to fetch https://www.sreality.cz/api/v1/estates/2330570828: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/997949516"
@@ -519,6 +477,24 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3123446348"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 520 m², pozemek 1389 m²",
+      "location": "Hořice, Maixnerova, Jičín",
+      "property_type": "house",
+      "price": "12 700 000 Kč",
+      "house_area_m2": "520",
+      "land_area_m2": "1389",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/horice-maixnerova/2064503628"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2064503628"
       ]
     },
     {

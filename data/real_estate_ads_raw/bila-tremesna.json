@@ -28,15 +28,14 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Bílá Třemešná."
   ],
   "coverage": {
-    "workers_launched": 5,
+    "workers_launched": 4,
     "workers_with_results": 1,
-    "candidates_gathered": 1,
+    "candidates_gathered": 9,
     "rows_retained": 1,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
-      "reality.aktualne.cz",
-      "mmreality.cz"
+      "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
@@ -56,10 +55,6 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "mmreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope M&M Reality rows."
     }
   },
   "fetch_attempts": [
@@ -198,48 +193,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=B%C3%ADl%C3%A1+T%C5%99eme%C5%A1n%C3%A1&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/924748/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -253,8 +206,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2639721292",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3105911884",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3896140876",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4162876492",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/924748/"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4162876492"
   ],
   "listings": [
     {

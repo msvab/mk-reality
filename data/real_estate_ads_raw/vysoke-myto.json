@@ -28,10 +28,10 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Vysoké Mýto."
   ],
   "coverage": {
-    "workers_launched": 5,
-    "workers_with_results": 3,
-    "candidates_gathered": 3,
-    "rows_retained": 3,
+    "workers_launched": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 21,
+    "rows_retained": 2,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -54,10 +54,6 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "mmreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified M&M Reality row."
     }
   },
   "fetch_attempts": [
@@ -292,76 +288,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=Vysok%C3%A9+M%C3%BDto&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/912146/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/929805/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/940971/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/941004/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/944866/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok"
     }
   ],
   "gaps": [
@@ -386,11 +312,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3244523596",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/63414348",
     "missing-price:https://www.sreality.cz/api/v1/estates/694677580",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/853516364",
-    "missing-price:https://www.mmreality.cz/nemovitosti/912146/",
-    "missing-price:https://www.mmreality.cz/nemovitosti/929805/",
-    "land-below-threshold:https://www.mmreality.cz/nemovitosti/940971/",
-    "missing-price:https://www.mmreality.cz/nemovitosti/944866/"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/853516364"
   ],
   "listings": [
     {
@@ -428,24 +350,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/4112416844"
-      ]
-    },
-    {
-      "portal": [
-        "mmreality.cz"
-      ],
-      "title": "Prodej, Rodinný dům, 160 m², Vysoké Mýto, Luční",
-      "location": "Vysoké Mýto - Choceňské Předměstí, okres Ústí nad Orlicí",
-      "property_type": "house",
-      "price": "2 121 000 Kč",
-      "house_area_m2": "160",
-      "land_area_m2": "1087",
-      "urls": [
-        "https://www.mmreality.cz/nemovitosti/941004/"
-      ],
-      "notes": [
-        "detail-url-verified:mmreality.cz",
-        "municipality-subarea:Choceňské Předměstí"
       ]
     }
   ]
