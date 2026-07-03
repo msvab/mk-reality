@@ -27,14 +27,14 @@ def test_cross_portal_land_rows_merge_when_title_and_location_wording_differs():
         base_payload(
             [
                 {
-                    "portal": ["mmreality.cz"],
+                    "portal": ["sreality.cz"],
                     "title": "Prodej, Pozemek k bydlení, 1328 m², Nový Hrádek",
                     "location": "Nový Hrádek - Rzy, okres Náchod",
                     "property_type": "land",
                     "price": "1 650 000 Kč",
                     "house_area_m2": "unknown",
                     "land_area_m2": "1328",
-                    "urls": ["https://www.mmreality.cz/nemovitosti/943316/"],
+                    "urls": ["https://www.sreality.cz/detail/prodej/pozemek/bydleni/novy-hradek-rzy/943316"],
                     "notes": [],
                 },
                 {
@@ -65,7 +65,7 @@ def test_cross_portal_land_rows_merge_when_title_and_location_wording_differs():
 
     assert len(output["listings"]) == 1
     listing = output["listings"][0]
-    assert listing["portal"] == ["mmreality.cz", "reality.aktualne.cz", "realitymix.cz"]
+    assert listing["portal"] == ["reality.aktualne.cz", "realitymix.cz", "sreality.cz"]
     assert len(listing["urls"]) == 3
 
 
@@ -222,40 +222,40 @@ def test_inactive_gap_does_not_override_active_portal_status():
     payload = base_payload(
         [
             {
-                "portal": ["mmreality.cz"],
+                "portal": ["realitymix.cz"],
                 "title": "Prodej, Chalupa, 52 m², Nový Hrádek",
                 "location": "Nový Hrádek, okres Náchod",
                 "property_type": "house",
                 "price": "4 190 000 Kč",
                 "house_area_m2": 52,
                 "land_area_m2": 2008,
-                "urls": ["https://www.mmreality.cz/nemovitosti/930853/"],
-                "notes": ["detail-url-verified:mmreality.cz"],
+                "urls": ["https://realitymix.cz/detail/novy-hradek/chalupa-930853.html"],
+                "notes": ["detail-url-verified:realitymix.cz"],
             }
         ]
     )
     payload["portal_status"] = {
-        "mmreality.cz": {
+        "realitymix.cz": {
             "status": "ok",
-            "message": "Retained at least one detail-verified M&M Reality row.",
+            "message": "Retained at least one detail-verified RealityMix row.",
         }
     }
     payload["gaps"] = [
-        "inactive-generic-page:https://www.mmreality.cz/nemovitosti/939683/",
+        "removed-fallback-page:https://realitymix.cz/detail/novy-hradek/old-939683.html",
     ]
 
     output = build_output(payload)
 
-    assert output["portal_status"]["mmreality.cz"]["status"] == "ok"
+    assert output["portal_status"]["realitymix.cz"]["status"] == "ok"
 
 
 def test_search_fallback_attempt_still_sets_portal_status():
     payload = base_payload([])
-    payload["coverage"]["zero_result_portals"] = ["mmreality.cz"]
+    payload["coverage"]["zero_result_portals"] = ["realitymix.cz"]
     payload["fetch_attempts"] = [
         {
-            "portal": "mmreality.cz",
-            "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
+            "portal": "realitymix.cz",
+            "url": "https://realitymix.cz/reality/domy/prodej/kralovehradecky/opocno",
             "stage": "search_fetch",
             "attempt": 1,
             "status": "blocked",
@@ -266,5 +266,5 @@ def test_search_fallback_attempt_still_sets_portal_status():
 
     output = build_output(payload)
 
-    assert output["portal_status"]["mmreality.cz"]["status"] == "blocked"
-    assert output["portal_status"]["mmreality.cz"]["http_status"] == 403
+    assert output["portal_status"]["realitymix.cz"]["status"] == "blocked"
+    assert output["portal_status"]["realitymix.cz"]["http_status"] == 403

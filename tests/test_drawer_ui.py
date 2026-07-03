@@ -64,7 +64,6 @@ def test_hk_drawer_scrolls_without_gaps_text() -> None:
         assert "Aktualizováno:" in meta_text
         provider_text = page.locator("#ads-provider-coverage").inner_text()
         assert "iDNES:" in provider_text
-        assert "MM Reality:" in provider_text
         assert "RealityMix:" in provider_text
         assert "Aktuálně:" in provider_text
 

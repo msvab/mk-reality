@@ -22,7 +22,6 @@ DEFAULT_AGGREGATE_PATH = Path("real_estate_ads_by_city.json")
 DEFAULT_SCHEMA_PATH = Path("real_estate_ads_exec_output.schema.json")
 LOCAL_FETCHERS = {
     "reality.idnes.cz": Path(".codex/skills/find-real-estate-ads/scripts/reality_idnes_fetch.py"),
-    "mmreality.cz": Path(".codex/skills/find-real-estate-ads/scripts/mmreality_fetch.py"),
     "realitymix.cz": Path(".codex/skills/find-real-estate-ads/scripts/realitymix_fetch.py"),
     "reality.aktualne.cz": Path(".codex/skills/find-real-estate-ads/scripts/reality_aktualne_fetch.py"),
     "sreality.cz": Path(".codex/skills/find-real-estate-ads/scripts/sreality_fetch.py"),
@@ -30,7 +29,6 @@ LOCAL_FETCHERS = {
 SUPPORTED_PORTALS = tuple(LOCAL_FETCHERS)
 
 STOP_REQUESTED = False
-MMREALITY_BLOCKED_FOR_RUN = False
 
 
 def request_stop(_signum, _frame) -> None:
@@ -239,21 +237,6 @@ def cached_portal_fetch_attempts(previous_aggregate: dict | None, city: str, por
     return [attempt for attempt in fetch_attempts if isinstance(attempt, dict) and attempt.get("portal") == portal]
 
 
-def cached_mmreality_result_page_urls(previous_aggregate: dict | None, city: str) -> list[str]:
-    urls = []
-    for attempt in cached_portal_fetch_attempts(previous_aggregate, city, "mmreality.cz"):
-        if attempt.get("status") != "ok":
-            continue
-        url = str(attempt.get("url", ""))
-        if "mmreality.cz" not in url:
-            continue
-        if "/nemovitosti/" not in url or re.search(r"/nemovitosti/\d+/?$", url):
-            continue
-        if url not in urls:
-            urls.append(url)
-    return urls
-
-
 def cached_realitymix_result_page_urls(previous_aggregate: dict | None, city: str) -> dict[str, str]:
     urls = {}
     for attempt in cached_portal_fetch_attempts(previous_aggregate, city, "realitymix.cz"):
@@ -310,7 +293,7 @@ def combine_local_fetcher_payloads(city: str, payloads: list[dict]) -> dict:
         "blocked_portals": [],
     }
     assumptions = [
-        "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported."
+        "local-first cached detail verification was used; cached iDNES, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported."
     ]
     gaps = []
     listings = []
@@ -471,9 +454,7 @@ def run_local_fetchers(
     local_portals: set[str] | None = None,
     merge_local_results: bool = False,
 ) -> bool:
-    global MMREALITY_BLOCKED_FOR_RUN
     urls_by_portal = cached_detail_urls_by_portal(previous_aggregate, city)
-    mmreality_result_urls = cached_mmreality_result_page_urls(previous_aggregate, city)
     realitymix_result_urls = cached_realitymix_result_page_urls(previous_aggregate, city)
     reality_aktualne_result_urls = cached_reality_aktualne_result_page_urls(previous_aggregate, city)
     reality_idnes_result_urls = cached_reality_idnes_result_page_urls(previous_aggregate, city)
@@ -481,12 +462,8 @@ def run_local_fetchers(
     for portal, urls in urls_by_portal.items():
         if local_portals is not None and portal not in local_portals:
             continue
-        if portal == "mmreality.cz" and MMREALITY_BLOCKED_FOR_RUN:
-            continue
         use_reality_idnes_results = portal == "reality.idnes.cz" and bool(reality_idnes_result_urls)
         discover_reality_idnes = portal == "reality.idnes.cz"
-        use_cached_mmreality_results = portal == "mmreality.cz" and bool(mmreality_result_urls)
-        discover_mmreality = portal == "mmreality.cz"
         discover_realitymix = portal == "realitymix.cz"
         use_reality_aktualne_results = portal == "reality.aktualne.cz" and bool(reality_aktualne_result_urls)
         discover_reality_aktualne = portal == "reality.aktualne.cz"
@@ -496,8 +473,6 @@ def run_local_fetchers(
             and not use_reality_idnes_results
             and not discover_reality_idnes
             and not discover_realitymix
-            and not use_cached_mmreality_results
-            and not discover_mmreality
             and not use_reality_aktualne_results
             and not discover_reality_aktualne
             and not discover_sreality
@@ -509,11 +484,6 @@ def run_local_fetchers(
             for result_url in reality_idnes_result_urls:
                 cmd.extend(["--result-url", result_url])
         if discover_reality_idnes:
-            cmd.append("--discover-results")
-        if use_cached_mmreality_results:
-            for result_url in mmreality_result_urls:
-                cmd.extend(["--result-url", result_url])
-        if discover_mmreality:
             cmd.append("--discover-results")
         if use_reality_aktualne_results:
             for result_url in reality_aktualne_result_urls:
@@ -533,8 +503,6 @@ def run_local_fetchers(
         completed = subprocess.run(cmd, check=True, capture_output=True, text=True)
         payload = json.loads(completed.stdout)
         if isinstance(payload, dict):
-            if portal == "mmreality.cz" and mmreality_is_run_blocked(payload):
-                MMREALITY_BLOCKED_FOR_RUN = True
             coverage = payload.get("coverage", {})
             blocked_portals = coverage.get("blocked_portals", []) if isinstance(coverage, dict) else []
             if blocked_portals:
@@ -553,27 +521,6 @@ def run_local_fetchers(
     validate_raw_output(combined, city)
     atomic_write_json(output_path, combined)
     return True
-
-
-def mmreality_is_run_blocked(payload: dict) -> bool:
-    status = payload.get("portal_status", {}).get("mmreality.cz", {})
-    if not isinstance(status, dict):
-        return False
-    if status.get("status") == "blocked" and status.get("http_status") == 403:
-        return True
-    attempts = payload.get("fetch_attempts", [])
-    if not isinstance(attempts, list):
-        return False
-    search_attempts = [
-        attempt
-        for attempt in attempts
-        if isinstance(attempt, dict)
-        and attempt.get("portal") == "mmreality.cz"
-        and attempt.get("stage") == "search_fetch"
-    ]
-    return bool(search_attempts) and all(
-        attempt.get("status") == "blocked" and attempt.get("http_status") == 403 for attempt in search_attempts
-    )
 
 
 def build_prompt(city: str, cached_ads: list[dict] | None = None) -> str:
@@ -617,7 +564,7 @@ Set:
 - `query.land_size_min_m2` to 1000
 
 For `portal_status`, use portal domains as keys and objects with:
-- include all five supported portal keys: `reality.idnes.cz`, `mmreality.cz`, `realitymix.cz`, `reality.aktualne.cz`, and `sreality.cz`
+- include all four supported portal keys: `reality.idnes.cz`, `realitymix.cz`, `reality.aktualne.cz`, and `sreality.cz`
 - `status`: one of `ok`, `no_results`, `rate_limited`, `fetch_error`, `dns_error`, `timeout`, `blocked`, `inactive`, `fallback_page`, `partial`, or `unknown`
 - `http_status`: include numeric HTTP code when known, e.g. `429`
 - `stage`: where it happened, e.g. `search_fetch`, `detail_fetch`, `helper_fetch`, or `browser_open`

@@ -7,7 +7,6 @@ from pathlib import Path
 
 DEFAULT_WORKERS = [
     "reality.idnes.cz",
-    "mmreality.cz",
     "realitymix.cz",
     "reality.aktualne.cz",
     "sreality.cz",
@@ -174,14 +173,6 @@ def normalize_legacy_portal_status(portal: str, status: dict) -> dict | None:
         and all(is_stale_detail_evidence(item) for item in evidence)
     ):
         return None
-    if (
-        portal == "mmreality.cz"
-        and status_name == "fallback_page"
-        and normalized.get("http_status") == 403
-        and stage == "search_fetch"
-    ):
-        normalized["status"] = "blocked"
-        normalized["message"] = normalized.get("message") or "HTTP 403"
     return normalized
 
 

@@ -15,14 +15,14 @@ interface:
 
     Supported portals:
     - reality.idnes.cz
-    - mmreality.cz
     - realitymix.cz
     - reality.aktualne.cz
+    - sreality.cz
 
     Workflow:
     1. Parse the user request once into a shared search brief.
     2. Build one portal-specific worker task per supported portal using the matching dedicated worker agent configuration.
-    3. Use agents/reality-idnes.yaml for reality.idnes.cz, agents/mmreality.yaml for mmreality.cz, agents/realitymix.yaml for realitymix.cz, and agents/reality-aktualne.yaml for reality.aktualne.cz.
+    3. Use agents/reality-idnes.yaml for reality.idnes.cz, agents/realitymix.yaml for realitymix.cz, agents/reality-aktualne.yaml for reality.aktualne.cz, and agents/sreality.yaml for sreality.cz.
     4. Each worker must own exactly one portal and must not search outside that portal.
     5. Launch portal workers in parallel when sub-agents are available.
     6. Collect normalized worker rows, remove malformed rows, conservatively filter on land-size requirements, deduplicate overlaps, and sort the retained results by parsed verified price in descending order with fixed tie-breakers.

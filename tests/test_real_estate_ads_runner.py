@@ -1,12 +1,10 @@
 import json
 import subprocess
 
-import reality.run_real_estate_ads_by_city as runner
 from reality.run_real_estate_ads_by_city import (
     build_prompt,
     cached_ads_for_prompt,
     cached_detail_urls_by_portal,
-    cached_mmreality_result_page_urls,
     cached_reality_aktualne_result_page_urls,
     cached_reality_idnes_result_page_urls,
     cached_realitymix_result_page_urls,
@@ -161,7 +159,6 @@ def test_cached_detail_urls_are_grouped_by_supported_local_fetcher_portal():
                 "ads": [
                     {
                         "urls": [
-                            "https://www.mmreality.cz/nemovitosti/123/",
                             "https://realitymix.cz/detail/opocno/example-456.html",
                             "https://reality.aktualne.cz/detail/opocno/example-789.html",
                             "https://reality.idnes.cz/detail/prodej/dum/opocno/abc/",
@@ -174,7 +171,6 @@ def test_cached_detail_urls_are_grouped_by_supported_local_fetcher_portal():
 
     urls = cached_detail_urls_by_portal(previous_aggregate, "Opočno")
 
-    assert urls["mmreality.cz"] == ["https://www.mmreality.cz/nemovitosti/123/"]
     assert urls["realitymix.cz"] == ["https://realitymix.cz/detail/opocno/example-456.html"]
     assert urls["reality.aktualne.cz"] == ["https://reality.aktualne.cz/detail/opocno/example-789.html"]
     assert urls["reality.idnes.cz"] == ["https://reality.idnes.cz/detail/prodej/dum/opocno/abc/"]
@@ -197,7 +193,6 @@ def test_cached_detail_urls_include_hidden_historical_ads():
                         "urls": [
                             "https://realitymix.cz/detail/trebechovice-pod-orebem/old-mix.html",
                             "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/old-idnes/",
-                            "https://www.mmreality.cz/nemovitosti/123456/",
                         ]
                     }
                 ],
@@ -210,7 +205,6 @@ def test_cached_detail_urls_include_hidden_historical_ads():
     assert urls["reality.aktualne.cz"] == ["https://reality.aktualne.cz/detail/trebechovice-pod-orebem/current.html"]
     assert urls["realitymix.cz"] == ["https://realitymix.cz/detail/trebechovice-pod-orebem/old-mix.html"]
     assert urls["reality.idnes.cz"] == ["https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/old-idnes/"]
-    assert urls["mmreality.cz"] == ["https://www.mmreality.cz/nemovitosti/123456/"]
 
 
 def test_cached_ads_for_prompt_include_hidden_historical_ads():
@@ -256,8 +250,8 @@ def test_cached_ads_for_prompt_handles_hidden_only_city():
             "Třebechovice pod Orebem": {
                 "hidden_ads": [
                     {
-                        "title": "Old MM listing",
-                        "urls": ["https://www.mmreality.cz/nemovitosti/123456/"],
+                        "title": "Old RealityMix listing",
+                        "urls": ["https://realitymix.cz/detail/trebechovice-pod-orebem/old-mix.html"],
                     }
                 ],
             }
@@ -269,13 +263,13 @@ def test_cached_ads_for_prompt_handles_hidden_only_city():
     assert cached_ads == [
         {
             "status": "hidden",
-            "title": "Old MM listing",
+            "title": "Old RealityMix listing",
             "location": None,
             "property_type": None,
             "price": None,
             "house_area_m2": None,
             "land_area_m2": None,
-            "urls": ["https://www.mmreality.cz/nemovitosti/123456/"],
+            "urls": ["https://realitymix.cz/detail/trebechovice-pod-orebem/old-mix.html"],
         }
     ]
 
@@ -323,48 +317,6 @@ def test_cached_realitymix_result_page_urls_are_grouped_by_category():
         "house": "https://realitymix.cz/reality/domy/prodej/kralovehradecky/rychnov-nad-kneznou/opocno",
         "land": "https://realitymix.cz/reality/pozemky/pro-bydleni/kralovehradecky/rychnov-nad-kneznou/opocno",
     }
-
-
-def test_cached_mmreality_result_page_urls_ignore_detail_pages():
-    previous_aggregate = {
-        "cities": {
-            "Opočno": {
-                "fetch_attempts": [
-                    {
-                        "portal": "mmreality.cz",
-                        "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/kralovehradecky-kraj/",
-                        "stage": "search_fetch",
-                        "status": "ok",
-                    },
-                    {
-                        "portal": "mmreality.cz",
-                        "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/rychnov-nad-kneznou/",
-                        "stage": "search_fetch",
-                        "status": "ok",
-                    },
-                    {
-                        "portal": "mmreality.cz",
-                        "url": "https://www.mmreality.cz/nemovitosti/123456/",
-                        "stage": "detail_fetch",
-                        "status": "ok",
-                    },
-                    {
-                        "portal": "mmreality.cz",
-                        "url": "https://www.mmreality.cz/nemovitosti/prodej/byty/kralovehradecky-kraj/",
-                        "stage": "search_fetch",
-                        "status": "fetch_error",
-                    },
-                ]
-            }
-        }
-    }
-
-    urls = cached_mmreality_result_page_urls(previous_aggregate, "Opočno")
-
-    assert urls == [
-        "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/kralovehradecky-kraj/",
-        "https://www.mmreality.cz/nemovitosti/prodej/pozemky/rychnov-nad-kneznou/",
-    ]
 
 
 def test_cached_reality_aktualne_result_page_urls_ignore_detail_pages():
@@ -469,7 +421,7 @@ def test_local_fetcher_can_be_limited_to_one_portal(tmp_path, monkeypatch):
 
     def fake_run(cmd, check, capture_output, text):
         commands.append(cmd)
-        portal = "mmreality.cz" if cmd[1].endswith("mmreality_fetch.py") else "unexpected.test"
+        portal = "realitymix.cz" if cmd[1].endswith("realitymix_fetch.py") else "unexpected.test"
         payload = {
             "city": "Portal Filter",
             "query": {
@@ -495,7 +447,6 @@ def test_local_fetcher_can_be_limited_to_one_portal(tmp_path, monkeypatch):
         }
         return subprocess.CompletedProcess(cmd, 0, stdout=json.dumps(payload), stderr="")
 
-    monkeypatch.setattr(runner, "MMREALITY_BLOCKED_FOR_RUN", False)
     monkeypatch.setattr("reality.run_real_estate_ads_by_city.subprocess.run", fake_run)
 
     assert run_local_fetchers(
@@ -503,10 +454,10 @@ def test_local_fetcher_can_be_limited_to_one_portal(tmp_path, monkeypatch):
         tmp_path,
         tmp_path / "raw.json",
         previous_aggregate=None,
-        local_portals={"mmreality.cz"},
+        local_portals={"realitymix.cz"},
     )
 
-    assert [cmd[1].split("/")[-1] for cmd in commands] == ["mmreality_fetch.py"]
+    assert [cmd[1].split("/")[-1] for cmd in commands] == ["realitymix_fetch.py"]
 
 
 def test_merge_local_payload_replaces_only_refreshed_portal_rows():
@@ -523,11 +474,11 @@ def test_merge_local_payload_replaces_only_refreshed_portal_rows():
         },
         "portal_status": {
             "reality.idnes.cz": {"status": "ok"},
-            "mmreality.cz": {"status": "ok"},
+            "realitymix.cz": {"status": "ok"},
         },
         "fetch_attempts": [
             {"portal": "reality.idnes.cz", "url": "https://reality.idnes.cz/detail/1", "stage": "detail_fetch", "attempt": 1, "status": "ok"},
-            {"portal": "mmreality.cz", "url": "https://www.mmreality.cz/nemovitosti/1/", "stage": "detail_fetch", "attempt": 1, "status": "ok"},
+            {"portal": "realitymix.cz", "url": "https://realitymix.cz/detail/dobruska/old.html", "stage": "detail_fetch", "attempt": 1, "status": "ok"},
         ],
         "gaps": ["old-gap"],
         "assumptions": ["old-assumption"],
@@ -540,11 +491,11 @@ def test_merge_local_payload_replaces_only_refreshed_portal_rows():
                 "urls": ["https://reality.idnes.cz/detail/1"],
             },
             {
-                "portal": ["mmreality.cz"],
-                "title": "Old MM house",
+                "portal": ["realitymix.cz"],
+                "title": "Old RealityMix house",
                 "location": "Dobruška",
                 "property_type": "house",
-                "urls": ["https://www.mmreality.cz/nemovitosti/1/"],
+                "urls": ["https://realitymix.cz/detail/dobruska/old.html"],
             },
         ],
     }
@@ -559,31 +510,31 @@ def test_merge_local_payload_replaces_only_refreshed_portal_rows():
             "zero_result_portals": [],
             "blocked_portals": [],
         },
-        "portal_status": {"mmreality.cz": {"status": "ok"}},
+        "portal_status": {"realitymix.cz": {"status": "ok"}},
         "fetch_attempts": [
-            {"portal": "mmreality.cz", "url": "https://www.mmreality.cz/nemovitosti/2/", "stage": "detail_fetch", "attempt": 1, "status": "ok"},
+            {"portal": "realitymix.cz", "url": "https://realitymix.cz/detail/dobruska/new.html", "stage": "detail_fetch", "attempt": 1, "status": "ok"},
         ],
-        "gaps": ["new-mm-gap"],
-        "assumptions": ["new-mm-assumption"],
+        "gaps": ["new-realitymix-gap"],
+        "assumptions": ["new-realitymix-assumption"],
         "listings": [
             {
-                "portal": ["mmreality.cz"],
-                "title": "New MM house",
+                "portal": ["realitymix.cz"],
+                "title": "New RealityMix house",
                 "location": "Dobruška",
                 "property_type": "house",
-                "urls": ["https://www.mmreality.cz/nemovitosti/2/"],
+                "urls": ["https://realitymix.cz/detail/dobruska/new.html"],
             }
         ],
     }
 
     merged = merge_local_payload_into_existing_raw(existing, local)
 
-    assert [row["title"] for row in merged["listings"]] == ["iDNES house", "New MM house"]
-    assert set(merged["portal_status"]) == {"reality.idnes.cz", "mmreality.cz"}
-    assert [attempt["portal"] for attempt in merged["fetch_attempts"]] == ["reality.idnes.cz", "mmreality.cz"]
+    assert [row["title"] for row in merged["listings"]] == ["iDNES house", "New RealityMix house"]
+    assert set(merged["portal_status"]) == {"reality.idnes.cz", "realitymix.cz"}
+    assert [attempt["portal"] for attempt in merged["fetch_attempts"]] == ["reality.idnes.cz", "realitymix.cz"]
     assert merged["coverage"]["workers_launched"] == 2
     assert merged["coverage"]["workers_with_results"] == 2
-    assert merged["gaps"] == ["old-gap", "new-mm-gap"]
+    assert merged["gaps"] == ["old-gap", "new-realitymix-gap"]
 
 
 def test_local_fetchers_run_realitymix_discovery_without_cached_urls(tmp_path, monkeypatch):
@@ -688,62 +639,6 @@ def test_local_fetchers_pass_cached_realitymix_result_page_urls(tmp_path, monkey
     assert "--land-page-url" in realitymix_commands[0]
     assert "https://realitymix.cz/reality/domy/prodej/kralovehradecky/rychnov-nad-kneznou/opocno" in realitymix_commands[0]
     assert "https://realitymix.cz/reality/pozemky/pro-bydleni/kralovehradecky/rychnov-nad-kneznou/opocno" in realitymix_commands[0]
-
-
-def test_local_fetchers_pass_cached_mmreality_result_page_urls(tmp_path, monkeypatch):
-    commands = []
-
-    def fake_run(cmd, check, capture_output, text):
-        commands.append(cmd)
-        payload = {
-            "city": "Opočno",
-            "query": {
-                "municipality": "Opočno",
-                "location_scope": "municipality_only",
-                "country": "Czech Republic",
-                "property_types": ["house", "chalupa", "land"],
-                "land_size_min_m2": 1000,
-            },
-            "assumptions": [],
-            "coverage": {
-                "workers_launched": 1,
-                "workers_with_results": 0,
-                "candidates_gathered": 0,
-                "rows_retained": 0,
-                "zero_result_portals": ["mmreality.cz"],
-                "blocked_portals": [],
-            },
-            "portal_status": {"mmreality.cz": {"status": "no_results"}},
-            "fetch_attempts": [],
-            "gaps": [],
-            "listings": [],
-        }
-        return subprocess.CompletedProcess(cmd, 0, stdout=json.dumps(payload), stderr="")
-
-    previous_aggregate = {
-        "cities": {
-            "Opočno": {
-                "fetch_attempts": [
-                    {
-                        "portal": "mmreality.cz",
-                        "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/kralovehradecky-kraj/",
-                        "stage": "search_fetch",
-                        "status": "ok",
-                    }
-                ],
-            }
-        }
-    }
-    monkeypatch.setattr("reality.run_real_estate_ads_by_city.subprocess.run", fake_run)
-
-    assert run_local_fetchers("Opočno", tmp_path, tmp_path / "raw.json", previous_aggregate)
-
-    mmreality_commands = [cmd for cmd in commands if cmd[1].endswith("mmreality_fetch.py")]
-    assert len(mmreality_commands) == 1
-    assert "--discover-results" in mmreality_commands[0]
-    assert "--result-url" in mmreality_commands[0]
-    assert "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/kralovehradecky-kraj/" in mmreality_commands[0]
-    assert "--detail-url" not in mmreality_commands[0]
 
 
 def test_local_fetchers_pass_cached_reality_idnes_detail_urls(tmp_path, monkeypatch):
@@ -992,65 +887,3 @@ def test_local_fetchers_raise_when_helper_reports_blocked_requests(tmp_path, mon
         raise AssertionError("expected helper-reported blocked requests to fail local fetch")
 
     assert not output_path.exists()
-
-
-def test_mmreality_block_circuit_breaker_skips_later_cities(tmp_path, monkeypatch):
-    commands = []
-
-    def fake_run(cmd, check, capture_output, text):
-        commands.append(cmd)
-        script_name = cmd[1].split("/")[-1]
-        portal = {
-            "mmreality_fetch.py": "mmreality.cz",
-            "realitymix_fetch.py": "realitymix.cz",
-            "reality_aktualne_fetch.py": "reality.aktualne.cz",
-            "reality_idnes_fetch.py": "reality.idnes.cz",
-            "sreality_fetch.py": "sreality.cz",
-        }[script_name]
-        portal_status = {"status": "no_results"}
-        fetch_attempts = []
-        if portal == "mmreality.cz":
-            portal_status = {"status": "blocked", "http_status": 403, "stage": "search_fetch"}
-            fetch_attempts = [
-                {
-                    "portal": "mmreality.cz",
-                    "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-                    "stage": "search_fetch",
-                    "attempt": 1,
-                    "status": "blocked",
-                    "http_status": 403,
-                }
-            ]
-        payload = {
-            "city": cmd[cmd.index("--municipality") + 1],
-            "query": {
-                "municipality": cmd[cmd.index("--municipality") + 1],
-                "location_scope": "municipality_only",
-                "country": "Czech Republic",
-                "property_types": ["house", "chalupa", "land"],
-                "land_size_min_m2": 1000,
-            },
-            "assumptions": [],
-            "coverage": {
-                "workers_launched": 1,
-                "workers_with_results": 0,
-                "candidates_gathered": 0,
-                "rows_retained": 0,
-                "zero_result_portals": [portal],
-                "blocked_portals": [],
-            },
-            "portal_status": {portal: portal_status},
-            "fetch_attempts": fetch_attempts,
-            "gaps": [],
-            "listings": [],
-        }
-        return subprocess.CompletedProcess(cmd, 0, stdout=json.dumps(payload), stderr="")
-
-    monkeypatch.setattr(runner, "MMREALITY_BLOCKED_FOR_RUN", False)
-    monkeypatch.setattr("reality.run_real_estate_ads_by_city.subprocess.run", fake_run)
-
-    assert run_local_fetchers("First", tmp_path, tmp_path / "first.json", previous_aggregate=None)
-    assert run_local_fetchers("Second", tmp_path, tmp_path / "second.json", previous_aggregate=None)
-
-    mmreality_commands = [cmd for cmd in commands if cmd[1].endswith("mmreality_fetch.py")]
-    assert len(mmreality_commands) == 1

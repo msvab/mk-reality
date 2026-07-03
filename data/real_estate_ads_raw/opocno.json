@@ -24,11 +24,10 @@
     ]
   },
   "assumptions": [
-    "local-first cached detail verification was used; cached iDNES, MM Reality, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Opočno."
   ],
   "coverage": {
-    "workers_launched": 5,
+    "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 18,
     "rows_retained": 18,
@@ -38,15 +37,6 @@
     "blocked_portals": []
   },
   "portal_status": {
-    "mmreality.cz": {
-      "status": "blocked",
-      "stage": "search_fetch",
-      "message": "HTTP 403",
-      "evidence": [
-        "search_fetch:blocked:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/"
-      ],
-      "http_status": 403
-    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -70,45 +60,6 @@
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "mmreality.cz",
-      "url": "https://cadastral.stormm.cz/api/location/search?query=Opo%C4%8Dno&types%5B%5D=municipality&types%5B%5D=municipality_part",
-      "stage": "location_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "house_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://mediator.stormm.cz/api/offers/query",
-      "stage": "land_search_api",
-      "attempt": 1,
-      "status": "ok"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "blocked",
-      "http_status": 403,
-      "error": "HTTP 403"
-    },
-    {
-      "portal": "mmreality.cz",
-      "url": "https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "blocked",
-      "http_status": 403,
-      "error": "HTTP 403"
-    },
     {
       "portal": "realitymix.cz",
       "url": "https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-4-1-199-m2-dobrikovec-u-opocna-8463059.html",
@@ -594,8 +545,6 @@
   ],
   "gaps": [
     "idnes-discovery-missing-locality-id",
-    "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/rodinne-domy/",
-    "failed-result-fetch:https://www.mmreality.cz/nemovitosti/prodej/pozemky/",
     "removed-fallback-page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-4-1-199-m2-dobrikovec-u-opocna-8463059.html",
     "removed-fallback-page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-1-1-198-m2-dobrikovec-u-opocna-8463053.html",
     "removed-fallback-page:https://realitymix.cz/detail/opocno/prodej-stavebniho-pozemku-c-2-1-198-m2-dobrikovec-u-opocna-8463055.html",

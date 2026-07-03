@@ -179,28 +179,13 @@ rtk python3 run_real_estate_ads_by_city.py \
   --daily-refresh \
   --force-daily-refresh \
   --local-only \
-  --local-portal mmreality.cz \
+  --local-portal reality.idnes.cz \
   --merge-local-results \
   --aggregate-after-each
 rtk python3 build_html.py --ads-only
 ```
 
 Use `--merge-local-results` for provider-only runs against `data/real_estate_ads_raw`; otherwise a partial provider result would replace the full raw city snapshot. This mode refreshes only the selected portal rows, status, and fetch attempts while preserving rows from the other portals in the same raw file.
-
-MM Reality all-cities refresh:
-
-```bash
-rtk .venv/bin/python run_real_estate_ads_by_city.py \
-  --daily-refresh \
-  --force-daily-refresh \
-  --local-only \
-  --local-portal mmreality.cz \
-  --merge-local-results \
-  --aggregate-after-each
-rtk .venv/bin/python build_html.py --ads-only
-```
-
-Use this when the task is specifically to refresh `mmreality.cz` for every municipality and keep the existing rows from all other providers. `--force-daily-refresh` is needed when re-running after the scheduled daily refresh has already marked municipalities complete for today.
 
 One-command daily workflow:
 
@@ -220,7 +205,7 @@ The daily refresh still runs current municipality-level searches so it can detec
 
 Daily refreshes are guarded per municipality in `real_estate_ads_run_state.json`. If a municipality has already completed today, a later `--daily-refresh` skips it and continues with the next municipality, which keeps partial refreshes resumable without paying to re-check the same city. Use `--force-daily-refresh` only when you intentionally want to re-run already refreshed municipalities on the same day.
 
-Use `--local-first` to reduce Codex usage where deterministic portal helpers can cover the refresh. This path reuses cached result pages for `mmreality.cz` and `reality.aktualne.cz`, discovers current result pages on `realitymix.cz` and `reality.aktualne.cz` where possible, queries the live `sreality.cz` JSON API, and verifies cached detail URLs for all local helper-backed portals; it falls back to Codex when local verification fails.
+Use `--local-first` to reduce Codex usage where deterministic portal helpers can cover the refresh. This path reuses cached result pages for `reality.idnes.cz` and `reality.aktualne.cz`, discovers current result pages on `realitymix.cz` and `reality.aktualne.cz` where possible, queries the live `sreality.cz` JSON API, and verifies cached detail URLs for all local helper-backed portals; it falls back to Codex when local verification fails.
 
 Use `--local-only` for cost-controlled test runs where Codex must not be invoked. It uses the same local helper path as `--local-first`, but cities that local helpers cannot refresh are recorded as failures instead of falling back.
 

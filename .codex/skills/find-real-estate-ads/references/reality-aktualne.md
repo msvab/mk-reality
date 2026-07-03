@@ -50,7 +50,7 @@ Default scope:
 ## Aggregator Caveat
 
 - Treat `reality.aktualne.cz` as an aggregator, not a canonical source of unique inventory.
-- Expect many rows to mirror agency and portal listings from sources such as RE/MAX, M&M Reality, or other broker sites.
+- Expect many rows to mirror agency and portal listings from sources such as RE/MAX or other broker sites.
 - When a Reality Aktuálně row clearly mirrors another portal's listing, still return the `reality.aktualne.cz` row normally; the parent orchestrator will handle cross-portal deduplication.
 - If the detail page visibly names the underlying agency or source brand, record that source in `notes`, for example `aggregator-source:remax-infinity.cz`.
 - Do not replace the `reality.aktualne.cz` detail URL with an external agency URL inside the worker output. Keep the Reality Aktuálně detail URL in `urls` and let the parent merge alternate URLs from other portals later.

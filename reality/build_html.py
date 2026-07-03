@@ -430,7 +430,6 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
 
           const portalLabels = {{
             "reality.idnes.cz": "iDNES",
-            "mmreality.cz": "MM Reality",
             "realitymix.cz": "RealityMix",
             "reality.aktualne.cz": "Aktuálně",
             "sreality.cz": "Sreality",

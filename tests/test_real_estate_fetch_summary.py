@@ -86,7 +86,7 @@ def test_grouped_rows_collapses_repeated_warning_shape():
     rows = [
         {
             "city": "Opočno",
-            "portal": "mmreality.cz",
+            "portal": "realitymix.cz",
             "status": "blocked",
             "http_status": 403,
             "stage": "search_fetch",
@@ -95,7 +95,7 @@ def test_grouped_rows_collapses_repeated_warning_shape():
         },
         {
             "city": "Dobruška",
-            "portal": "mmreality.cz",
+            "portal": "realitymix.cz",
             "status": "blocked",
             "http_status": 403,
             "stage": "search_fetch",

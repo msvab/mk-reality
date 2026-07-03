@@ -49,9 +49,9 @@ Default scope:
 ## Aggregator Caveat
 
 - Treat `realitymix.cz` as an aggregator, not a canonical source of unique inventory.
-- Expect many rows to duplicate listings that also appear on agency or portal sites such as `mmreality.cz`.
+- Expect many rows to duplicate listings that also appear on agency or portal sites.
 - When a RealtyMix row clearly mirrors another portal's listing, still return the `realitymix.cz` row normally; the parent orchestrator will handle cross-portal deduplication.
-- If the RealtyMix detail page visibly names the underlying agency, record that agency in `notes`, for example `aggregator-source:mmreality.cz`.
+- If the RealtyMix detail page visibly names the underlying agency, record that agency in `notes`, for example `aggregator-source:remax`.
 - Do not replace the `realitymix.cz` detail URL with an external agency URL inside the worker output. Keep the RealityMix detail URL in `urls` and let the parent merge alternate URLs from other portals later.
 
 ## Expected Output
@@ -85,5 +85,5 @@ Use one or more `realitymix.cz/detail/...` URLs in `urls`. Do not put category o
 - For house listings, populate `house_area_m2` from the visible floor/interior area when possible.
 - For house and land listings, populate `land_area_m2` from the visible parcel/land area when possible.
 - If a house page shows floor area clearly but parcel area is missing, set `land_area_m2` to `unknown` and exclude the row.
-- Record recurring provenance and ambiguity in machine-readable `notes`, for example `aggregator-source:mmreality.cz`, `snapshot-sufficient`, `mixed-residential-recreational`.
+- Record recurring provenance and ambiguity in machine-readable `notes`, for example `aggregator-source:remax`, `snapshot-sufficient`, `mixed-residential-recreational`.
 - Do not compare or merge with listings from other portals. That is the parent orchestrator's job.

@@ -374,14 +374,14 @@ def test_merged_current_row_marks_all_previous_duplicate_urls_as_seen(tmp_path):
                 },
                 "listings": [
                     {
-                        "portal": ["mmreality.cz"],
+                        "portal": ["sreality.cz"],
                         "title": "Prodej, Pozemek k bydlení, 1328 m², Nový Hrádek",
                         "location": "Nový Hrádek - Rzy, okres Náchod",
                         "property_type": "land",
                         "price": "1 650 000 Kč",
                         "house_area_m2": "unknown",
                         "land_area_m2": "1328",
-                        "urls": ["https://www.mmreality.cz/nemovitosti/943316/"],
+                        "urls": ["https://www.sreality.cz/detail/prodej/pozemek/bydleni/novy-hradek-rzy/943316"],
                         "notes": [],
                     },
                     {
@@ -408,7 +408,7 @@ def test_merged_current_row_marks_all_previous_duplicate_urls_as_seen(tmp_path):
                 "count": 2,
                 "ads": [
                     {
-                        "portal": ["mmreality.cz"],
+                        "portal": ["sreality.cz"],
                         "title": "Prodej, Pozemek k bydlení, 1328 m², Nový Hrádek",
                         "location": "Nový Hrádek - Rzy, okres Náchod",
                         "property_type": "land",
@@ -416,7 +416,7 @@ def test_merged_current_row_marks_all_previous_duplicate_urls_as_seen(tmp_path):
                         "price_czk": 1650000,
                         "house_area_m2": None,
                         "land_area_m2": 1328,
-                        "urls": ["https://www.mmreality.cz/nemovitosti/943316/"],
+                        "urls": ["https://www.sreality.cz/detail/prodej/pozemek/bydleni/novy-hradek-rzy/943316"],
                         "notes": [],
                         "status": "active",
                         "first_seen_at": "2026-06-01T00:00:00+0200",
@@ -447,5 +447,5 @@ def test_merged_current_row_marks_all_previous_duplicate_urls_as_seen(tmp_path):
     bundle = output["cities"]["Nový Hrádek"]
 
     assert bundle["count"] == 1
-    assert bundle["ads"][0]["portal"] == ["mmreality.cz", "realitymix.cz"]
+    assert bundle["ads"][0]["portal"] == ["realitymix.cz", "sreality.cz"]
     assert bundle["hidden_ads"] == []

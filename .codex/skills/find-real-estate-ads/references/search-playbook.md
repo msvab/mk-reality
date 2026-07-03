@@ -67,7 +67,7 @@ Field expectations:
 - `house_area_m2`: interior/floor area when visible, else `unknown`
 - `land_area_m2`: parcel or land area when visible, else `unknown`
 - `urls`: one or more direct detail-page listing URLs for the same retained property, not category/search page URLs
-- `notes`: compact machine-readable qualifiers such as `snapshot-sufficient`, `duplicate-merged-from:mmreality.cz`, `duplicate-price:mmreality.cz=6390000`, `missing-public-sewer`
+- `notes`: compact machine-readable qualifiers such as `snapshot-sufficient`, `duplicate-merged-from:realitymix.cz`, `duplicate-price:realitymix.cz=6390000`, `missing-public-sewer`
 
 Rules by property type:
 
