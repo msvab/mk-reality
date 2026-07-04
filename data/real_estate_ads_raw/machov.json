@@ -24,12 +24,13 @@
     ]
   },
   "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Machov."
   ],
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 3,
+    "candidates_gathered": 12,
     "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz",
@@ -38,6 +39,10 @@
     "blocked_portals": []
   },
   "portal_status": {
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
+    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -49,13 +54,73 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/machov/6a0c25b2875e9659de0481ca/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/machov/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/machov/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-89842",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-89842",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/machov/6a4612ae2e29075f7108aca5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/machov/69bcf4f5c0b61f365e02d7fa/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -175,66 +240,12 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Machov&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/machov/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/machov/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/zdarky/6a421bc0876cb8910c0d6c32/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/machov/6a0c25b2875e9659de0481ca/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/machov/6a4612ae2e29075f7108aca5/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/machov/69bcf4f5c0b61f365e02d7fa/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
-    "idnes-discovery-missing-locality-id",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/machov/6a4612ae2e29075f7108aca5/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/machov/69bcf4f5c0b61f365e02d7fa/",
     "missing-page-url:house",
     "missing-page-url:land",
     "unsupported-property-type:https://reality.aktualne.cz/detail/machov/prodej-bytu-3-1-balkon-v-krasne-prirode-bely-machov-8617013.html",
@@ -242,13 +253,26 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/machov/prodej-pole-55140-m-machov-nizka-srbska-8193479.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/machov/prodej-rodinneho-domu-268-m-machov-8463099.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1094337356",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1545330764",
-    "idnes-discovery-used-municipality-slug-fallback",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/zdarky/6a421bc0876cb8910c0d6c32/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/machov/6a4612ae2e29075f7108aca5/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/machov/69bcf4f5c0b61f365e02d7fa/"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1545330764"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu, 268 m2, Machov",
+      "location": "Machov, okres Náchod",
+      "property_type": "house",
+      "price": "4 200 000 Kč",
+      "house_area_m2": "268",
+      "land_area_m2": "5776",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/machov/6a0c25b2875e9659de0481ca/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
     {
       "portal": [
         "sreality.cz"
@@ -283,23 +307,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/656544588"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej rodinného domu, 268 m2, Machov",
-      "location": "Machov, okres Náchod",
-      "property_type": "house",
-      "price": "4 200 000 Kč",
-      "house_area_m2": "268",
-      "land_area_m2": "5776",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/machov/6a0c25b2875e9659de0481ca/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
       ]
     }
   ]

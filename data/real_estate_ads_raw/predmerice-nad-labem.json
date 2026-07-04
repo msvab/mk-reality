@@ -24,12 +24,13 @@
     ]
   },
   "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Předměřice nad Labem."
   ],
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 7,
+    "candidates_gathered": 18,
     "rows_retained": 7,
     "zero_result_portals": [
       "realitymix.cz",
@@ -38,6 +39,10 @@
     "blocked_portals": []
   },
   "portal_status": {
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
+    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -49,13 +54,89 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/predmerice-nad-labem-obrancu-miru/69deb37367edf46eb306a987/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/predmerice-nad-labem-pod-nadrazim/6992d2826d6847b7c207e25c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/predmerice-nad-labem/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/predmerice-nad-labem/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-134295",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-134295",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/predmerice-nad-labem-na-vysehrade/69b3d3c19dfb6847550a9788/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/predmerice-nad-labem/6a476a32c40e212ff00271c1/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/predmerice-nad-labem/6a460531d15eda84ee0b0ca4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/predmerice-nad-labem-obrancu-miru/68934c3728c32853890b08a4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -207,82 +288,12 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=P%C5%99edm%C4%9B%C5%99ice+nad+Labem&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/predmerice-nad-labem/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/predmerice-nad-labem/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/predmerice-nad-labem-na-vysehrade/69b3d3c19dfb6847550a9788/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/predmerice-nad-labem-obrancu-miru/69deb37367edf46eb306a987/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/predmerice-nad-labem/6a476a32c40e212ff00271c1/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/predmerice-nad-labem/6a460531d15eda84ee0b0ca4/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/predmerice-nad-labem-obrancu-miru/68934c3728c32853890b08a4/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/predmerice-nad-labem-pod-nadrazim/6992d2826d6847b7c207e25c/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
-    "idnes-discovery-missing-locality-id",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/predmerice-nad-labem-na-vysehrade/69b3d3c19dfb6847550a9788/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/predmerice-nad-labem/6a476a32c40e212ff00271c1/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/predmerice-nad-labem/6a460531d15eda84ee0b0ca4/",
     "missing-page-url:house",
     "missing-page-url:land",
     "unsupported-property-type:https://reality.aktualne.cz/detail/predmerice-nad-labem/prodej-komercni-nemovitost-objekt-obcanske-vybavenosti-1-100-m2-predmerice-nad-labem-8309013.html",
@@ -292,13 +303,62 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/predmerice-nad-labem/prodej-vily-379-m2-obrancu-miru-predmerice-nad-labem-8563771.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/predmerice-nad-labem/pronajem-rodinneho-domu-150-m-predmerice-n-l-ul-na-obci-8629625.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/predmerice-nad-labem/pronajem-skladu-175-m-predmerice-nad-labem-ul-v-aleji-8521311.html",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1921540940",
-    "idnes-discovery-used-municipality-slug-fallback",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/predmerice-nad-labem-na-vysehrade/69b3d3c19dfb6847550a9788/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/predmerice-nad-labem/6a476a32c40e212ff00271c1/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/predmerice-nad-labem/6a460531d15eda84ee0b0ca4/"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1921540940"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej vily 379 m2 Obránců míru, Předměřice nad Labem",
+      "location": "Předměřice nad Labem, okres Hradec Králové",
+      "property_type": "house",
+      "price": "28 840 000 Kč",
+      "house_area_m2": "379",
+      "land_area_m2": "1897",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/predmerice-nad-labem-obrancu-miru/69deb37367edf46eb306a987/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemky, 1037 m2, Předměřice nad LabemPod Nádražím",
+      "location": "Předměřice nad Labem, okres Hradec Králové",
+      "property_type": "land",
+      "price": "3 990 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1037",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/predmerice-nad-labem-pod-nadrazim/6992d2826d6847b7c207e25c/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Exkluzivní prodej stavebního pozemku 11 770 m2 Předměřice nad Labem, Hradec Kr",
+      "location": "Předměřice nad Labem, okres Hradec Králové",
+      "property_type": "land",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "unknown",
+      "land_area_m2": "11770",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/predmerice-nad-labem-obrancu-miru/68934c3728c32853890b08a4/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
     {
       "portal": [
         "sreality.cz"
@@ -370,59 +430,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2442625868",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej vily 379 m2 Obránců míru, Předměřice nad Labem",
-      "location": "Předměřice nad Labem, okres Hradec Králové",
-      "property_type": "house",
-      "price": "28 840 000 Kč",
-      "house_area_m2": "379",
-      "land_area_m2": "1897",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/predmerice-nad-labem-obrancu-miru/69deb37367edf46eb306a987/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej pozemky, 1037 m2, Předměřice nad LabemPod Nádražím",
-      "location": "Předměřice nad Labem, okres Hradec Králové",
-      "property_type": "land",
-      "price": "3 990 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1037",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/predmerice-nad-labem-pod-nadrazim/6992d2826d6847b7c207e25c/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Exkluzivní prodej stavebního pozemku 11 770 m2 Předměřice nad Labem, Hradec Kr",
-      "location": "Předměřice nad Labem, okres Hradec Králové",
-      "property_type": "land",
-      "price": "Cena na vyžádání",
-      "house_area_m2": "unknown",
-      "land_area_m2": "11770",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/predmerice-nad-labem-obrancu-miru/68934c3728c32853890b08a4/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
         "buildable-land"
       ]
     }

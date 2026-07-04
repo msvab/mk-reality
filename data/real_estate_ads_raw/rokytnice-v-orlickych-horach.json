@@ -24,12 +24,13 @@
     ]
   },
   "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Rokytnice v Orlických horách."
   ],
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 22,
+    "candidates_gathered": 65,
     "rows_retained": 22,
     "zero_result_portals": [
       "realitymix.cz",
@@ -38,6 +39,10 @@
     "blocked_portals": []
   },
   "portal_status": {
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
+    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -49,13 +54,249 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-5-kvetna/69dde076a0c8615d4501fb08/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-namesti-t-g-masaryka/6a0d8052bdee1cdbf8031e07/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/69eb516660d4ff9b2602fecf/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/686ea7ab6f31736481066153/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/6a16f534a632687ab00d18d8/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/698f0ade09dec1f6b0053565/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/698f0ab1541260b43c02360d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/6905e50697d0f0dcdb00c517/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/6a143fab3d5b57381f0f19d6/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/rokytnice-v-orlickych-horach/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/rokytnice-v-orlickych-horach/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-141054",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-141054",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-j-v-sladka/6a185c48fda9597b020ba746/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/6a185c0a2881b30b1608005f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-5-kvetna/69baca4aeff263a76c095599/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/69ca3eee99d0da5b2e0f6ea1/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/69ccecdfe64a0675b80b48ed/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-j-v-sladka/6a2fd7006f5e1270d60117b6/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/6a04406d2770eb97590bdf13/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-skolni/68c3b7046088244d000fa064/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/6a059c7dafa229098100e194/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/69eb518b6b73dc81f00379ea/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/698f0acefd5af56170041995/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/6a2a7565fb5457248d05b4b4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-stribrny-vrch/67175bf6f112a60a010bf485/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/6a44d841f759623a39087370/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/69df7652c31dd8f4690df86c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/69d8acd9908e2b76aa0a1bb8/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/6964c7903c7a6add90044772/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -443,242 +684,25 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Rokytnice+v+Orlick%C3%BDch+hor%C3%A1ch&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/rokytnice-v-orlickych-horach/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/rokytnice-v-orlickych-horach/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-j-v-sladka/6a185c48fda9597b020ba746/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/6a185c0a2881b30b1608005f/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-5-kvetna/69baca4aeff263a76c095599/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/69ca3eee99d0da5b2e0f6ea1/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/69ccecdfe64a0675b80b48ed/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-5-kvetna/69dde076a0c8615d4501fb08/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-j-v-sladka/6a2fd7006f5e1270d60117b6/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/6a04406d2770eb97590bdf13/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-skolni/68c3b7046088244d000fa064/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-namesti-t-g-masaryka/6a0d8052bdee1cdbf8031e07/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/6a059c7dafa229098100e194/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/69eb518b6b73dc81f00379ea/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/69eb516660d4ff9b2602fecf/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/698f0ade09dec1f6b0053565/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/698f0acefd5af56170041995/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/6a2a7565fb5457248d05b4b4/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-stribrny-vrch/67175bf6f112a60a010bf485/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/6a44d841f759623a39087370/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/6a143fab3d5b57381f0f19d6/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/686ea7ab6f31736481066153/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/69df7652c31dd8f4690df86c/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/6905e50697d0f0dcdb00c517/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/6a16f534a632687ab00d18d8/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/69d8acd9908e2b76aa0a1bb8/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/698f0ab1541260b43c02360d/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/6964c7903c7a6add90044772/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
-    "idnes-discovery-missing-locality-id",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-j-v-sladka/6a185c48fda9597b020ba746/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/6a185c0a2881b30b1608005f/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-5-kvetna/69baca4aeff263a76c095599/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/69ca3eee99d0da5b2e0f6ea1/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-j-v-sladka/6a2fd7006f5e1270d60117b6/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/6a04406d2770eb97590bdf13/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-skolni/68c3b7046088244d000fa064/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/6a059c7dafa229098100e194/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/69eb518b6b73dc81f00379ea/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/698f0acefd5af56170041995/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/6a2a7565fb5457248d05b4b4/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-stribrny-vrch/67175bf6f112a60a010bf485/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/6a44d841f759623a39087370/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/69df7652c31dd8f4690df86c/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/69d8acd9908e2b76aa0a1bb8/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/6964c7903c7a6add90044772/",
     "missing-page-url:house",
     "missing-page-url:land",
     "unsupported-property-type:https://reality.aktualne.cz/detail/rokytnice-v-orlickych-horach/apartman-4-kk-rokytnice-v-orlickych-horach-8006131.html",
@@ -707,26 +731,185 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3518579276",
     "stale-detail-fetch:4034629708:Failed to fetch https://www.sreality.cz/api/v1/estates/4034629708: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/732758860",
-    "missing-price:https://www.sreality.cz/api/v1/estates/945832780",
-    "idnes-discovery-used-municipality-slug-fallback",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-j-v-sladka/6a185c48fda9597b020ba746/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/6a185c0a2881b30b1608005f/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-5-kvetna/69baca4aeff263a76c095599/",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/69ca3eee99d0da5b2e0f6ea1/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-j-v-sladka/6a2fd7006f5e1270d60117b6/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/6a04406d2770eb97590bdf13/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-skolni/68c3b7046088244d000fa064/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/6a059c7dafa229098100e194/",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/69eb518b6b73dc81f00379ea/",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/698f0acefd5af56170041995/",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/6a2a7565fb5457248d05b4b4/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-stribrny-vrch/67175bf6f112a60a010bf485/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/6a44d841f759623a39087370/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/69df7652c31dd8f4690df86c/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/69d8acd9908e2b76aa0a1bb8/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/6964c7903c7a6add90044772/"
+    "missing-price:https://www.sreality.cz/api/v1/estates/945832780"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej dvou rodinných domů 1152m2, Rokytnice v Orlických h.",
+      "location": "Rokytnice v Orlických horách, okres Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "19 875 245 Kč",
+      "house_area_m2": "1152",
+      "land_area_m2": "1679",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-5-kvetna/69dde076a0c8615d4501fb08/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Rodinný dům s 5 byty na historickém náměstí - Rokytnice v Orlických horách",
+      "location": "Rokytnice v Orlických horách, okres Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "12 879 000 Kč",
+      "house_area_m2": "639",
+      "land_area_m2": "2985",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-namesti-t-g-masaryka/6a0d8052bdee1cdbf8031e07/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu, pozemek 1873 m2, Rokytnice v Orlických horách",
+      "location": "Rokytnice v Orlických horách, okres Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "6 500 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1873",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/69eb516660d4ff9b2602fecf/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku s výhledem na přírodu Rokytnice v Orlických horách",
+      "location": "Rokytnice v Orlických horách, okres Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "4 000 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "3285",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/686ea7ab6f31736481066153/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemku o výměře 2 779 m2 v Nebeské Rybné.",
+      "location": "Rokytnice v Orlických horách, okres Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "3 176 897 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2779",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/6a16f534a632687ab00d18d8/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu s pozemkem 2.170 m2, Rokytnice v Orlických horách",
+      "location": "Rokytnice v Orlických horách, okres Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "2 900 000 Kč",
+      "house_area_m2": "37",
+      "land_area_m2": "2170",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/698f0ade09dec1f6b0053565/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku, 2.170 m2, Rokytnice v Orlických horách",
+      "location": "Rokytnice v Orlických horách, okres Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "2 900 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2170",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/698f0ab1541260b43c02360d/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku s výhledem na přírodu Rokytnice v Orlických horách",
+      "location": "Rokytnice v Orlických horách, okres Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "2 000 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1640",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/6905e50697d0f0dcdb00c517/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "pozemek",
+      "location": "Rokytnice v Orlických horách, okres Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "1 499 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1499",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/6a143fab3d5b57381f0f19d6/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu v Rokytnici v Orlických horách",
+      "location": "Rokytnice v Orlických horách, okres Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "386",
+      "land_area_m2": "1335",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/69ccecdfe64a0675b80b48ed/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
     {
       "portal": [
         "sreality.cz"
@@ -945,182 +1128,6 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2996932684",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej dvou rodinných domů 1152m2, Rokytnice v Orlických h.",
-      "location": "Rokytnice v Orlických horách, okres Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "19 875 245 Kč",
-      "house_area_m2": "1152",
-      "land_area_m2": "1679",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-5-kvetna/69dde076a0c8615d4501fb08/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Rodinný dům s 5 byty na historickém náměstí - Rokytnice v Orlických horách",
-      "location": "Rokytnice v Orlických horách, okres Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "12 879 000 Kč",
-      "house_area_m2": "639",
-      "land_area_m2": "2985",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-namesti-t-g-masaryka/6a0d8052bdee1cdbf8031e07/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej rodinného domu, pozemek 1873 m2, Rokytnice v Orlických horách",
-      "location": "Rokytnice v Orlických horách, okres Rychnov nad Kněžnou",
-      "property_type": "land",
-      "price": "6 500 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1873",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/69eb516660d4ff9b2602fecf/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej stavebního pozemku s výhledem na přírodu Rokytnice v Orlických horách",
-      "location": "Rokytnice v Orlických horách, okres Rychnov nad Kněžnou",
-      "property_type": "land",
-      "price": "4 000 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "3285",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/686ea7ab6f31736481066153/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej pozemku o výměře 2 779 m2 v Nebeské Rybné.",
-      "location": "Rokytnice v Orlických horách, okres Rychnov nad Kněžnou",
-      "property_type": "land",
-      "price": "3 176 897 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "2779",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/6a16f534a632687ab00d18d8/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej rodinného domu s pozemkem 2.170 m2, Rokytnice v Orlických horách",
-      "location": "Rokytnice v Orlických horách, okres Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "2 900 000 Kč",
-      "house_area_m2": "37",
-      "land_area_m2": "2170",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/698f0ade09dec1f6b0053565/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej stavebního pozemku, 2.170 m2, Rokytnice v Orlických horách",
-      "location": "Rokytnice v Orlických horách, okres Rychnov nad Kněžnou",
-      "property_type": "land",
-      "price": "2 900 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "2170",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/698f0ab1541260b43c02360d/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej stavebního pozemku s výhledem na přírodu Rokytnice v Orlických horách",
-      "location": "Rokytnice v Orlických horách, okres Rychnov nad Kněžnou",
-      "property_type": "land",
-      "price": "2 000 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1640",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/6905e50697d0f0dcdb00c517/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "pozemek",
-      "location": "Rokytnice v Orlických horách, okres Rychnov nad Kněžnou",
-      "property_type": "land",
-      "price": "1 499 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1499",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/6a143fab3d5b57381f0f19d6/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej rodinného domu v Rokytnici v Orlických horách",
-      "location": "Rokytnice v Orlických horách, okres Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "Cena na vyžádání",
-      "house_area_m2": "386",
-      "land_area_m2": "1335",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/69ccecdfe64a0675b80b48ed/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
       ]
     }
   ]

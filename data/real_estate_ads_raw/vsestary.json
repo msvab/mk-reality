@@ -24,20 +24,31 @@
     ]
   },
   "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Všestary."
   ],
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 1,
-    "candidates_gathered": 4,
+    "candidates_gathered": 18,
     "rows_retained": 4,
     "zero_result_portals": [
+      "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
+    "reality.idnes.cz": {
+      "status": "fallback_page",
+      "http_status": 404,
+      "stage": "search_fetch",
+      "message": "HTTP 404",
+      "evidence": [
+        "search_fetch:fallback_page:https://reality.idnes.cz/s/prodej/domy/vsestary/"
+      ]
+    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -49,18 +60,35 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "reality.idnes.cz": {
-      "status": "fallback_page",
-      "http_status": 404,
-      "stage": "search_fetch",
-      "message": "HTTP 404",
-      "evidence": [
-        "search_fetch:fallback_page:https://reality.idnes.cz/s/prodej/domy/vsestary/"
-      ]
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=V%C5%A1estary&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/vsestary/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/vsestary/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -207,7 +235,7 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/vsestary/prodej-rd-o-dispozice-2x-3-1-rozlohe-pozemku-802-m2-vsestary-u-rican-obec-strancice-8587211.html",
+      "url": "https://reality.aktualne.cz/detail/vsestary/prodej-rd-dispozice-2x-3-1-rozloha-pozemku-802-m2-vsestary-u-rican-obec-strancice-8587211.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -292,36 +320,12 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=V%C5%A1estary&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/vsestary/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/vsestary/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 404,
-      "error": "HTTP 404"
     }
   ],
   "gaps": [
-    "idnes-discovery-missing-locality-id",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/vsestary/",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/vsestary/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3209-praha-vychod/stredocesky/prodej-domy_vily.html",
@@ -336,13 +340,10 @@
     "outside-municipality:https://reality.aktualne.cz/detail/vsestary/prodej-pozemku-k-bydleni-1293-m-rosnice-8571143.html",
     "non-buildable-land:https://reality.aktualne.cz/detail/vsestary/prodej-pozemku-k-bydleni-3266-m-vsestary-8491963.html",
     "outside-municipality:https://reality.aktualne.cz/detail/vsestary/prodej-pozemku-vsestary-1-073m2-8433537.html",
-    "outside-municipality:https://reality.aktualne.cz/detail/vsestary/prodej-rd-o-dispozice-2x-3-1-rozlohe-pozemku-802-m2-vsestary-u-rican-obec-strancice-8587211.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/vsestary/prodej-rd-dispozice-2x-3-1-rozloha-pozemku-802-m2-vsestary-u-rican-obec-strancice-8587211.html",
     "outside-municipality:https://reality.aktualne.cz/detail/vsestary/prodej-rodinneho-domu-280-m2-obloukova-vsestary-8616311.html",
     "outside-municipality:https://reality.aktualne.cz/detail/vsestary/prodej-souboru-dvou-rodinnych-domku-s-velkorysou-zahradou-a-truhlarskou-dilnou-v-malebne-lokalite-vs-8524209.html",
-    "outside-municipality:https://reality.aktualne.cz/detail/vsestary/prodej-stavebniho-pozemku-1671-m2-8541429.html",
-    "idnes-discovery-used-municipality-slug-fallback",
-    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/vsestary/",
-    "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/vsestary/"
+    "outside-municipality:https://reality.aktualne.cz/detail/vsestary/prodej-stavebniho-pozemku-1671-m2-8541429.html"
   ],
   "listings": [
     {

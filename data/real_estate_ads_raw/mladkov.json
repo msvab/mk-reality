@@ -24,12 +24,13 @@
     ]
   },
   "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Mladkov."
   ],
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 5,
+    "candidates_gathered": 10,
     "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz"
@@ -37,6 +38,10 @@
     "blocked_portals": []
   },
   "portal_status": {
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
+    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -48,13 +53,81 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/mladkov/6a0dc5294ed45f452f048d94/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/mladkov/6a44add760be3b110a08153e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/mladkov/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/mladkov/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-96997",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-96997",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/mladkov/69fce39a5da5fb86b5077e27/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/mladkov/69cd6c4512c1fa0bf50e1528/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/mladkov/67fedcc8da19a41e50009ae6/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -166,84 +239,53 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Mladkov&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/mladkov/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/mladkov/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/mladkov/6a0dc5294ed45f452f048d94/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/mladkov/69fce39a5da5fb86b5077e27/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/mladkov/69cd6c4512c1fa0bf50e1528/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/mladkov/6a44add760be3b110a08153e/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/mladkov/67fedcc8da19a41e50009ae6/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
-    "idnes-discovery-missing-locality-id",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/mladkov/69fce39a5da5fb86b5077e27/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/mladkov/69cd6c4512c1fa0bf50e1528/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/mladkov/67fedcc8da19a41e50009ae6/",
     "missing-page-url:house",
     "missing-page-url:land",
     "unsupported-property-type:https://reality.aktualne.cz/detail/mladkov/prodej-bytu-3-kk-70-m-mladkov-8552985.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/mladkov/prodej-rodinneho-domu-mladkov-petrovicky-8533903.html",
-    "idnes-discovery-used-municipality-slug-fallback",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/mladkov/69fce39a5da5fb86b5077e27/",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/mladkov/69cd6c4512c1fa0bf50e1528/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/mladkov/67fedcc8da19a41e50009ae6/"
+    "land-below-threshold:https://reality.aktualne.cz/detail/mladkov/prodej-rodinneho-domu-mladkov-petrovicky-8533903.html"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej domu 7+2kk, 209 m²",
+      "location": "Mladkov, okres Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "4 700 000 Kč",
+      "house_area_m2": "209",
+      "land_area_m2": "1148",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/mladkov/6a0dc5294ed45f452f048d94/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Dražba pozemku Mladkov",
+      "location": "Mladkov, okres Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "149 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1004",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/mladkov/6a44add760be3b110a08153e/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
     {
       "portal": [
         "reality.aktualne.cz"
@@ -297,41 +339,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3120599116"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej domu 7+2kk, 209 m²",
-      "location": "Mladkov, okres Ústí nad Orlicí",
-      "property_type": "house",
-      "price": "4 700 000 Kč",
-      "house_area_m2": "209",
-      "land_area_m2": "1148",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/mladkov/6a0dc5294ed45f452f048d94/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Dražba pozemku Mladkov",
-      "location": "Mladkov, okres Ústí nad Orlicí",
-      "property_type": "land",
-      "price": "149 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1004",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/mladkov/6a44add760be3b110a08153e/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
       ]
     }
   ]

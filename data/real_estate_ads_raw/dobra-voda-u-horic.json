@@ -24,12 +24,13 @@
     ]
   },
   "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Dobrá Voda u Hořic."
   ],
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 2,
+    "candidates_gathered": 4,
     "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
@@ -38,6 +39,10 @@
     "blocked_portals": []
   },
   "portal_status": {
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
+    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -49,13 +54,65 @@
     "sreality.cz": {
       "status": "no_results",
       "message": "No retained in-scope Sreality rows."
-    },
-    "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/dobra-voda-u-horic/6a3c46782029578eca08b186/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/dobra-voda-u-horic/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/dobra-voda-u-horic/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-410233",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-410233",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/dobra-voda-u-horic/6a207e8aefe47384390a9a5a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/dobra-voda-u-horic/68f6b2e96481c9d51e00c26c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -135,74 +192,32 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Dobr%C3%A1+Voda+u+Ho%C5%99ic&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/dobra-voda-u-horic/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/dobra-voda-u-horic/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/markvartice/6a08c693133c0987ff034a92/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/dobra-voda-u-horic/6a3c46782029578eca08b186/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/dobra-voda-u-horic/6a207e8aefe47384390a9a5a/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/dobra-voda-u-horic/68f6b2e96481c9d51e00c26c/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
-    "idnes-discovery-missing-locality-id",
-    "missing-page-url:house",
-    "missing-page-url:land",
-    "idnes-discovery-used-municipality-slug-fallback",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/markvartice/6a08c693133c0987ff034a92/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/dobra-voda-u-horic/6a207e8aefe47384390a9a5a/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/dobra-voda-u-horic/68f6b2e96481c9d51e00c26c/"
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/dobra-voda-u-horic/68f6b2e96481c9d51e00c26c/",
+    "missing-page-url:house",
+    "missing-page-url:land"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej RD Dobrá Voda u Hořic",
+      "location": "Dobrá Voda u Hořic, okres Jičín",
+      "property_type": "house",
+      "price": "8 400 000 Kč",
+      "house_area_m2": "2572",
+      "land_area_m2": "2572",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/dobra-voda-u-horic/6a3c46782029578eca08b186/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
     {
       "portal": [
         "reality.aktualne.cz"
@@ -219,23 +234,6 @@
       "notes": [
         "detail-url-verified:reality.aktualne.cz",
         "aggregator-source:reality-11"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej RD Dobrá Voda u Hořic",
-      "location": "Dobrá Voda u Hořic, okres Jičín",
-      "property_type": "house",
-      "price": "8 400 000 Kč",
-      "house_area_m2": "2572",
-      "land_area_m2": "2572",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/dobra-voda-u-horic/6a3c46782029578eca08b186/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
       ]
     }
   ]

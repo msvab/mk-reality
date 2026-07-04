@@ -24,12 +24,13 @@
     ]
   },
   "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Úpice."
   ],
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 13,
+    "candidates_gathered": 42,
     "rows_retained": 13,
     "zero_result_portals": [
       "realitymix.cz"
@@ -37,6 +38,10 @@
     "blocked_portals": []
   },
   "portal_status": {
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
+    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -48,13 +53,193 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-j-w-mezerove/68233c50e54843df140e348c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-chelcickeho/690b19807107f77e410a4419/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/upice-pod-velbabou/688a8218b5b6d588650d1137/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/upice-machova/679b6e9faca37f92ae0c6238/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/upice-puskinova/6a02ee44a902387d3f024646/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/upice/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/upice/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-174653",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-174653",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-regnerova/67e4f775cce4ddddeb0397b4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-puskinova/6a1dcfb35172b0bb5c0d0945/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-zizkova/6a3f7921a4066f9ede0b32d8/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-svornosti/6a4260a158b81347550f4775/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-sukova/68ed54d222bf8d981a0ed9bf/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-namesti-t-g-masaryka/6a30137120e8b0c09d0080a7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/upice/69ce1c901c63ba86cd048cce/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-rtynka/69d1643c3cb3c80cc80b11e0/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-a-bunzla/69d157c1a9ace00b760b38b5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-smetanova/697335db1ea7a078c400143d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/upice/69aecb57c5c41641b3099aec/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/upice/6a16bf264a869a836f05df38/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/upice/68f7d125ca1e6bbf23098f75/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/upice/68f6b050ac639b6eba01f33b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -352,186 +537,22 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=%C3%9Apice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/upice/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/upice/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-j-w-mezerove/68233c50e54843df140e348c/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-puskinova/6a1dcfb35172b0bb5c0d0945/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-zizkova/6a3f7921a4066f9ede0b32d8/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-svornosti/6a4260a158b81347550f4775/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-chelcickeho/690b19807107f77e410a4419/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-sukova/68ed54d222bf8d981a0ed9bf/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-namesti-t-g-masaryka/6a30137120e8b0c09d0080a7/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-regnerova/67e4f775cce4ddddeb0397b4/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/upice/69ce1c901c63ba86cd048cce/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-rtynka/69d1643c3cb3c80cc80b11e0/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-a-bunzla/69d157c1a9ace00b760b38b5/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-smetanova/697335db1ea7a078c400143d/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/upice/69aecb57c5c41641b3099aec/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/upice-pod-velbabou/688a8218b5b6d588650d1137/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/upice/6a16bf264a869a836f05df38/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/upice-puskinova/6a02ee44a902387d3f024646/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/upice/68f7d125ca1e6bbf23098f75/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/upice-machova/679b6e9faca37f92ae0c6238/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/upice/68f6b050ac639b6eba01f33b/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
-    "idnes-discovery-missing-locality-id",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-regnerova/67e4f775cce4ddddeb0397b4/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-zizkova/6a3f7921a4066f9ede0b32d8/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-svornosti/6a4260a158b81347550f4775/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-sukova/68ed54d222bf8d981a0ed9bf/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-namesti-t-g-masaryka/6a30137120e8b0c09d0080a7/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/upice/69ce1c901c63ba86cd048cce/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-rtynka/69d1643c3cb3c80cc80b11e0/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-a-bunzla/69d157c1a9ace00b760b38b5/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-smetanova/697335db1ea7a078c400143d/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/upice/69aecb57c5c41641b3099aec/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/upice/6a16bf264a869a836f05df38/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/upice/68f7d125ca1e6bbf23098f75/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/upice/68f6b050ac639b6eba01f33b/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3610-trutnov/kralovehradecky/prodej-domy_vily.html",
@@ -551,23 +572,114 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1908941388",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1985642572",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3888312396",
-    "missing-price:https://www.sreality.cz/api/v1/estates/4053696588",
-    "idnes-discovery-used-municipality-slug-fallback",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-zizkova/6a3f7921a4066f9ede0b32d8/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-svornosti/6a4260a158b81347550f4775/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-sukova/68ed54d222bf8d981a0ed9bf/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-namesti-t-g-masaryka/6a30137120e8b0c09d0080a7/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-regnerova/67e4f775cce4ddddeb0397b4/",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/upice/69ce1c901c63ba86cd048cce/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-rtynka/69d1643c3cb3c80cc80b11e0/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-a-bunzla/69d157c1a9ace00b760b38b5/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-smetanova/697335db1ea7a078c400143d/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/upice/69aecb57c5c41641b3099aec/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/upice/6a16bf264a869a836f05df38/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/upice/68f7d125ca1e6bbf23098f75/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/upice/68f6b050ac639b6eba01f33b/"
+    "missing-price:https://www.sreality.cz/api/v1/estates/4053696588"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej domu po rekonstrukci se dvěma bytovými jednotkami a zahradou v obci Úpice, okres Trutnov",
+      "location": "Úpice, okres Trutnov",
+      "property_type": "house",
+      "price": "4 990 000 Kč",
+      "house_area_m2": "140",
+      "land_area_m2": "1930",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/upice-j-w-mezerove/68233c50e54843df140e348c/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu, 110 m2, Úpice, ul. Chelčického",
+      "location": "Úpice, okres Trutnov",
+      "property_type": "house",
+      "price": "3 790 000 Kč",
+      "house_area_m2": "110",
+      "land_area_m2": "1592",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/upice-chelcickeho/690b19807107f77e410a4419/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemku určeného k bydlení v Úpici, okres Trutnov",
+      "location": "Úpice, okres Trutnov",
+      "property_type": "land",
+      "price": "3 579 400 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1627",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/upice-pod-velbabou/688a8218b5b6d588650d1137/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemku 5361 m2, Úpice okr. Trutnov",
+      "location": "Úpice, okres Trutnov",
+      "property_type": "land",
+      "price": "2 900 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "5361",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/upice-machova/679b6e9faca37f92ae0c6238/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku, Úpice",
+      "location": "Úpice, okres Trutnov",
+      "property_type": "land",
+      "price": "1 899 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1649",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/upice-puskinova/6a02ee44a902387d3f024646/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Nadčasový rodinný dům se zahradou, dvougaráží a vedlejšími stavbami v Úpici, okrese Trutnov",
+      "location": "Úpice, okres Trutnov",
+      "property_type": "house",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "214",
+      "land_area_m2": "1115",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/upice-puskinova/6a1dcfb35172b0bb5c0d0945/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
     {
       "portal": [
         "reality.aktualne.cz"
@@ -696,111 +808,6 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2524483660",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej domu po rekonstrukci se dvěma bytovými jednotkami a zahradou v obci Úpice, okres Trutnov",
-      "location": "Úpice, okres Trutnov",
-      "property_type": "house",
-      "price": "4 990 000 Kč",
-      "house_area_m2": "140",
-      "land_area_m2": "1930",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/upice-j-w-mezerove/68233c50e54843df140e348c/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej rodinného domu, 110 m2, Úpice, ul. Chelčického",
-      "location": "Úpice, okres Trutnov",
-      "property_type": "house",
-      "price": "3 790 000 Kč",
-      "house_area_m2": "110",
-      "land_area_m2": "1592",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/upice-chelcickeho/690b19807107f77e410a4419/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej pozemku určeného k bydlení v Úpici, okres Trutnov",
-      "location": "Úpice, okres Trutnov",
-      "property_type": "land",
-      "price": "3 579 400 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1627",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/upice-pod-velbabou/688a8218b5b6d588650d1137/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej pozemku 5361 m2, Úpice okr. Trutnov",
-      "location": "Úpice, okres Trutnov",
-      "property_type": "land",
-      "price": "2 900 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "5361",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/upice-machova/679b6e9faca37f92ae0c6238/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej stavebního pozemku, Úpice",
-      "location": "Úpice, okres Trutnov",
-      "property_type": "land",
-      "price": "1 899 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1649",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/upice-puskinova/6a02ee44a902387d3f024646/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Nadčasový rodinný dům se zahradou, dvougaráží a vedlejšími stavbami v Úpici, okrese Trutnov",
-      "location": "Úpice, okres Trutnov",
-      "property_type": "house",
-      "price": "Cena na vyžádání",
-      "house_area_m2": "214",
-      "land_area_m2": "1115",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/upice-puskinova/6a1dcfb35172b0bb5c0d0945/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
       ]
     }
   ]

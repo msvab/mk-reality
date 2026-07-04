@@ -24,19 +24,30 @@
     ]
   },
   "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Broumov."
   ],
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 6,
+    "candidates_gathered": 33,
     "rows_retained": 6,
     "zero_result_portals": [
+      "reality.idnes.cz",
       "realitymix.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
+    "reality.idnes.cz": {
+      "status": "fallback_page",
+      "http_status": 404,
+      "stage": "search_fetch",
+      "message": "HTTP 404",
+      "evidence": [
+        "search_fetch:fallback_page:https://reality.idnes.cz/s/prodej/domy/broumov/"
+      ]
+    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -48,18 +59,35 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "reality.idnes.cz": {
-      "status": "fallback_page",
-      "http_status": 404,
-      "stage": "search_fetch",
-      "message": "HTTP 404",
-      "evidence": [
-        "search_fetch:fallback_page:https://reality.idnes.cz/s/prodej/domy/broumov/"
-      ]
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Broumov&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/broumov/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/broumov/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -429,36 +457,12 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Broumov&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/broumov/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/broumov/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 404,
-      "error": "HTTP 404"
     }
   ],
   "gaps": [
-    "idnes-discovery-missing-locality-id",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/broumov/",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/broumov/",
     "missing-page-url:house",
     "missing-page-url:land",
     "land-below-threshold:https://reality.aktualne.cz/detail/broumov/prodej-bytoveho-domu-broumov-8549681.html",
@@ -487,10 +491,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3721114444",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3844399948",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4032200780",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4112420940",
-    "idnes-discovery-used-municipality-slug-fallback",
-    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/broumov/",
-    "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/broumov/"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4112420940"
   ],
   "listings": [
     {
@@ -508,7 +509,8 @@
       ],
       "notes": [
         "detail-url-verified:reality.aktualne.cz",
-        "normalized-from:chalupa"
+        "normalized-from:chalupa",
+        "aggregator-source:m&m-reality-holding-a.s."
       ]
     },
     {
@@ -536,7 +538,7 @@
       "title": "Prodej pozemek Bydlení, 1915㎡",
       "location": "Broumov, okr.Náchod",
       "property_type": "land",
-      "price": "cena na vyžádání",
+      "price": "1 690 000 Kč",
       "house_area_m2": "unknown",
       "land_area_m2": "1915",
       "urls": [

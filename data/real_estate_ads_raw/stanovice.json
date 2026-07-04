@@ -24,19 +24,30 @@
     ]
   },
   "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Stanovice."
   ],
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 8,
+    "candidates_gathered": 17,
     "rows_retained": 8,
     "zero_result_portals": [
+      "reality.idnes.cz",
       "realitymix.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
+    "reality.idnes.cz": {
+      "status": "fallback_page",
+      "http_status": 404,
+      "stage": "search_fetch",
+      "message": "HTTP 404",
+      "evidence": [
+        "search_fetch:fallback_page:https://reality.idnes.cz/s/prodej/domy/stanovice/"
+      ]
+    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -48,18 +59,35 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "reality.idnes.cz": {
-      "status": "fallback_page",
-      "http_status": 404,
-      "stage": "search_fetch",
-      "message": "HTTP 404",
-      "evidence": [
-        "search_fetch:fallback_page:https://reality.idnes.cz/s/prodej/domy/stanovice/"
-      ]
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Stanovice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/stanovice/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/stanovice/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -275,36 +303,12 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Stanovice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/stanovice/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/stanovice/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 404,
-      "error": "HTTP 404"
     }
   ],
   "gaps": [
-    "idnes-discovery-missing-locality-id",
+    "idnes-discovery-used-municipality-slug-fallback",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/stanovice/",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/stanovice/",
     "missing-page-url:house",
     "missing-page-url:land",
     "land-below-threshold:https://reality.aktualne.cz/detail/stanovice/dum-stodola-pred-rekonstrukci-zast-plocha-184-m2-pozemek-632-m2-stanovice-drazov-8137505.html",
@@ -315,10 +319,7 @@
     "outside-municipality:https://reality.aktualne.cz/detail/stanovice/prodej-stavebniho-pozemku-1-513-m2-elektrika-rovinaty-hlinky-u-becova-nad-teplou-8574755.html",
     "outside-municipality:https://reality.aktualne.cz/detail/stanovice/pronajem-byt-2kk-69m2-komora-sklep-kulna-hlinky-8622715.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/157261900",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3935232844",
-    "idnes-discovery-used-municipality-slug-fallback",
-    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/stanovice/",
-    "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/stanovice/"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3935232844"
   ],
   "listings": [
     {
@@ -336,7 +337,8 @@
       ],
       "notes": [
         "detail-url-verified:reality.aktualne.cz",
-        "buildable-land"
+        "buildable-land",
+        "aggregator-source:m&m-reality-holding-a.s."
       ]
     },
     {
@@ -354,7 +356,8 @@
       ],
       "notes": [
         "detail-url-verified:reality.aktualne.cz",
-        "buildable-land"
+        "buildable-land",
+        "aggregator-source:m&m-reality-holding-a.s."
       ]
     },
     {

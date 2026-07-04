@@ -24,12 +24,13 @@
     ]
   },
   "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Velké Poříčí."
   ],
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 5,
+    "candidates_gathered": 14,
     "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz"
@@ -37,6 +38,10 @@
     "blocked_portals": []
   },
   "portal_status": {
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
+    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -48,13 +53,105 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velke-porici/6a311ed3c88ca9c007040a25/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-porici-brne/6968e1cc913ad7949805bfad/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/velke-porici/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/velke-porici/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-48429",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-48429",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-porici-nachodska/6a424942de4b50a4850e877a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-porici-poricska/6a0b4932df1619f3da0b4323/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-porici/6a3184a470da38b5120419f6/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velke-porici/6a311fda51cff2872f03d414/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velke-porici/6a1b50c507c6d6b3e203997d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -174,113 +271,59 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Velk%C3%A9+Po%C5%99%C3%AD%C4%8D%C3%AD&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/velke-porici/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/velke-porici/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/zdarky/6a421bc0876cb8910c0d6c32/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-porici-poricska/6a0b4932df1619f3da0b4323/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-porici-nachodska/6a424942de4b50a4850e877a/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-porici/6a3184a470da38b5120419f6/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-porici-brne/6968e1cc913ad7949805bfad/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velke-porici/6a311ed3c88ca9c007040a25/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velke-porici/6a311fda51cff2872f03d414/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velke-porici/6a1b50c507c6d6b3e203997d/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
-    "idnes-discovery-missing-locality-id",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/velke-porici-nachodska/6a424942de4b50a4850e877a/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/velke-porici-poricska/6a0b4932df1619f3da0b4323/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/velke-porici/6a3184a470da38b5120419f6/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/velke-porici/6a311fda51cff2872f03d414/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/velke-porici/6a1b50c507c6d6b3e203997d/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-domy_vily.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/velke-porici/prodej-pole-14799-m-velke-porici-8609299.html",
     "outside-municipality:https://reality.aktualne.cz/detail/velke-porici/prodej-zahrady-s-moznosti-stavby-18-m2-velke-pocici-nachod-8562653.html",
-    "excluded-chata:https://www.sreality.cz/api/v1/estates/1728294988",
-    "idnes-discovery-used-municipality-slug-fallback",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/zdarky/6a421bc0876cb8910c0d6c32/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/velke-porici-poricska/6a0b4932df1619f3da0b4323/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/velke-porici-nachodska/6a424942de4b50a4850e877a/",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/velke-porici/6a3184a470da38b5120419f6/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/velke-porici/6a311fda51cff2872f03d414/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/velke-porici/6a1b50c507c6d6b3e203997d/"
+    "excluded-chata:https://www.sreality.cz/api/v1/estates/1728294988"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemku k stavbě hospodářského zázemí, 5000 m2 Hronov",
+      "location": "Velké Poříčí, okres Náchod",
+      "property_type": "land",
+      "price": "8 850 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "5000",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/velke-porici/6a311ed3c88ca9c007040a25/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej chalupy 155 m2, pozemek 1468 m2, Brné Velké Poříčí, okr. Náchod",
+      "location": "Velké Poříčí, okres Náchod",
+      "property_type": "house",
+      "price": "3 750 000 Kč",
+      "house_area_m2": "90",
+      "land_area_m2": "1468",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/velke-porici-brne/6968e1cc913ad7949805bfad/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "normalized-from:chalupa"
+      ]
+    },
     {
       "portal": [
         "reality.aktualne.cz"
@@ -335,42 +378,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2297271116"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej pozemku k stavbě hospodářského zázemí, 5000 m2 Hronov",
-      "location": "Velké Poříčí, okres Náchod",
-      "property_type": "land",
-      "price": "8 850 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "5000",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/velke-porici/6a311ed3c88ca9c007040a25/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej chalupy 155 m2, pozemek 1468 m2, Brné Velké Poříčí, okr. Náchod",
-      "location": "Velké Poříčí, okres Náchod",
-      "property_type": "house",
-      "price": "3 750 000 Kč",
-      "house_area_m2": "90",
-      "land_area_m2": "1468",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/velke-porici-brne/6968e1cc913ad7949805bfad/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "normalized-from:chalupa"
       ]
     }
   ]

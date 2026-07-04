@@ -24,12 +24,13 @@
     ]
   },
   "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Dolní Ředice."
   ],
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 3,
+    "candidates_gathered": 20,
     "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz"
@@ -37,6 +38,10 @@
     "blocked_portals": []
   },
   "portal_status": {
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
+    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -48,13 +53,137 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/dolni-redice/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/dolni-redice/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/moravany/6a031f51053714ceee0fa41a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/dolni-redice-farmarska/6a4523ee1c6769ffaf018684/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/dolni-redice-pardubicka/6a44ec26f1b2473b490252b3/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/dolni-redice-lucni/6a2eb658e0c8e0cbd20ba70b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/dolni-redice-k-casum/67f7a4084ccdc8b50f03a0ae/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/bukovina-nad-labem/69f349e16d240979da07b0e4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice-k-casum/6760385804aab8be7d0cd359/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice-k-casum/679d083c8b5edee239010308/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice-k-casum/67bc43c319fb2c3f2a06deab/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice-k-casum/67bc439539963915d0066354/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice-k-casum/67bc435b21b665336108ec5e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice-k-casum/67bc431a4106580a130c4f07/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice-k-casum/67bc42de8ce85c058003bed5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice/68f667613e5ab0bfbf0fc3f1/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -174,141 +303,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Doln%C3%AD+%C5%98edice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/dolni-redice/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/dolni-redice/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/dolni-redice-farmarska/6a4523ee1c6769ffaf018684/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/dolni-redice-pardubicka/6a44ec26f1b2473b490252b3/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/dolni-redice-lucni/6a2eb658e0c8e0cbd20ba70b/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/dolni-redice-k-casum/67f7a4084ccdc8b50f03a0ae/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice-k-casum/6760385804aab8be7d0cd359/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice-k-casum/679d083c8b5edee239010308/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice-k-casum/67bc43c319fb2c3f2a06deab/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice-k-casum/67bc439539963915d0066354/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice-k-casum/67bc435b21b665336108ec5e/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice-k-casum/67bc431a4106580a130c4f07/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice-k-casum/67bc42de8ce85c058003bed5/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice/68f667613e5ab0bfbf0fc3f1/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
-    "idnes-discovery-missing-locality-id",
-    "missing-page-url:house",
-    "missing-page-url:land",
-    "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3606-pardubice/pardubicky/prodej-pozemky.html",
-    "non-buildable-land:https://reality.aktualne.cz/detail/dolni-redice/prodej-pozemku-k-bydleni-1064-m-dolni-redice-8513131.html",
-    "missing-price:https://www.sreality.cz/api/v1/estates/2518008652",
-    "missing-price:https://www.sreality.cz/api/v1/estates/3057712988",
-    "missing-price:https://www.sreality.cz/api/v1/estates/3954045516",
-    "idnes-discovery-used-municipality-slug-fallback",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/moravany/6a031f51053714ceee0fa41a/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/dolni-redice-pardubicka/6a44ec26f1b2473b490252b3/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/dolni-redice-lucni/6a2eb658e0c8e0cbd20ba70b/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/dolni-redice-k-casum/67f7a4084ccdc8b50f03a0ae/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/bukovina-nad-labem/69f349e16d240979da07b0e4/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice-k-casum/6760385804aab8be7d0cd359/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice-k-casum/679d083c8b5edee239010308/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice-k-casum/67bc43c319fb2c3f2a06deab/",
@@ -316,9 +318,33 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice-k-casum/67bc435b21b665336108ec5e/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice-k-casum/67bc431a4106580a130c4f07/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice-k-casum/67bc42de8ce85c058003bed5/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice/68f667613e5ab0bfbf0fc3f1/"
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice/68f667613e5ab0bfbf0fc3f1/",
+    "missing-page-url:house",
+    "missing-page-url:land",
+    "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3606-pardubice/pardubicky/prodej-pozemky.html",
+    "non-buildable-land:https://reality.aktualne.cz/detail/dolni-redice/prodej-pozemku-k-bydleni-1064-m-dolni-redice-8513131.html",
+    "missing-price:https://www.sreality.cz/api/v1/estates/2518008652",
+    "missing-price:https://www.sreality.cz/api/v1/estates/3057712988",
+    "missing-price:https://www.sreality.cz/api/v1/estates/3954045516"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Rodinný dům v pěkné lokalitě, prodej",
+      "location": "Dolní Ředice, okres Pardubice",
+      "property_type": "house",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "465",
+      "land_area_m2": "4116",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/dolni-redice-farmarska/6a4523ee1c6769ffaf018684/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
     {
       "portal": [
         "reality.aktualne.cz"
@@ -355,23 +381,6 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3803845452",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Rodinný dům v pěkné lokalitě, prodej",
-      "location": "Dolní Ředice, okres Pardubice",
-      "property_type": "house",
-      "price": "Cena na vyžádání",
-      "house_area_m2": "465",
-      "land_area_m2": "4116",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/dolni-redice-farmarska/6a4523ee1c6769ffaf018684/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
       ]
     }
   ]

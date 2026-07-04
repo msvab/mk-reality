@@ -24,12 +24,13 @@
     ]
   },
   "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Velká Jesenice."
   ],
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 7,
+    "candidates_gathered": 16,
     "rows_retained": 7,
     "zero_result_portals": [
       "realitymix.cz"
@@ -37,6 +38,10 @@
     "blocked_portals": []
   },
   "portal_status": {
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
+    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -48,13 +53,121 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/velka-jesenice/699c5f15ebca881b9b0d0b27/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/6807dfa9ed4d3ab666027640/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/69d654808aed7570eb00d757/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/69e569f5af1679385f01b8f9/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/velka-jesenice/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/velka-jesenice/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-178411",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-178411",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/68fba3a3e5e7723e4c07cc5c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/6a35bdcfb66b1e3f800ad15a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/6a1d829071cb1646d0072636/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/68f68982a3f0cffc380f498d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/68f6363619d4999f94085a62/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -182,184 +295,24 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Velk%C3%A1+Jesenice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/velka-jesenice/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/velka-jesenice/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/velka-jesenice/699c5f15ebca881b9b0d0b27/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/69d654808aed7570eb00d757/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/68fba3a3e5e7723e4c07cc5c/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/6a35bdcfb66b1e3f800ad15a/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/6a1d829071cb1646d0072636/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/6807dfa9ed4d3ab666027640/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/69e569f5af1679385f01b8f9/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/68f68982a3f0cffc380f498d/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/68f6363619d4999f94085a62/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
-    "idnes-discovery-missing-locality-id",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/68fba3a3e5e7723e4c07cc5c/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/6a35bdcfb66b1e3f800ad15a/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/6a1d829071cb1646d0072636/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/68f68982a3f0cffc380f498d/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/68f6363619d4999f94085a62/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/pronajem-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-domy_vily.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/velka-jesenice/prodej-pozemku-928-m-8516499.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/velka-jesenice/prodej-pozemku-k-bydleni-v-velke-jesenici-8423571.html",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2721600076",
-    "idnes-discovery-used-municipality-slug-fallback",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/68fba3a3e5e7723e4c07cc5c/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/6a35bdcfb66b1e3f800ad15a/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/6a1d829071cb1646d0072636/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/68f68982a3f0cffc380f498d/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/68f6363619d4999f94085a62/"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2721600076"
   ],
   "listings": [
-    {
-      "portal": [
-        "reality.aktualne.cz"
-      ],
-      "title": "Prodej rodinného domu, 200 m², Velká Jesenice",
-      "location": "Velká Jesenice, Náchod",
-      "property_type": "house",
-      "price": "5 998 000 Kč",
-      "house_area_m2": "200",
-      "land_area_m2": "1149",
-      "urls": [
-        "https://reality.aktualne.cz/detail/velka-jesenice/prodej-rodinneho-domu-200-m-velka-jesenice-8317457.html"
-      ],
-      "notes": [
-        "detail-url-verified:reality.aktualne.cz"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 200 m², pozemek 1149 m²",
-      "location": "Velká Jesenice, Náchod",
-      "property_type": "house",
-      "price": "5 998 000 Kč",
-      "house_area_m2": "200",
-      "land_area_m2": "1149",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/velka-jesenice/1460446028"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1460446028"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1867 m²",
-      "location": "Velká Jesenice, Náchod",
-      "property_type": "land",
-      "price": "2 290 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1867",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/velka-jesenice/2023338060"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2023338060",
-        "buildable-land"
-      ]
-    },
     {
       "portal": [
         "reality.idnes.cz"
@@ -428,6 +381,61 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej rodinného domu, 200 m², Velká Jesenice",
+      "location": "Velká Jesenice, Náchod",
+      "property_type": "house",
+      "price": "5 998 000 Kč",
+      "house_area_m2": "200",
+      "land_area_m2": "1149",
+      "urls": [
+        "https://reality.aktualne.cz/detail/velka-jesenice/prodej-rodinneho-domu-200-m-velka-jesenice-8317457.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 200 m², pozemek 1149 m²",
+      "location": "Velká Jesenice, Náchod",
+      "property_type": "house",
+      "price": "5 998 000 Kč",
+      "house_area_m2": "200",
+      "land_area_m2": "1149",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/velka-jesenice/1460446028"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1460446028"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1867 m²",
+      "location": "Velká Jesenice, Náchod",
+      "property_type": "land",
+      "price": "2 290 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1867",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/velka-jesenice/2023338060"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2023338060",
         "buildable-land"
       ]
     }

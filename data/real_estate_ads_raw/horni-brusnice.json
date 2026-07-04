@@ -24,12 +24,13 @@
     ]
   },
   "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Horní Brusnice."
   ],
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 11,
+    "candidates_gathered": 16,
     "rows_retained": 11,
     "zero_result_portals": [
       "realitymix.cz",
@@ -38,6 +39,10 @@
     "blocked_portals": []
   },
   "portal_status": {
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
+    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -49,13 +54,121 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/horni-brusnice/6a17244e8fd91de54d00b87d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/horni-brusnice/62e8f1af7b28a6461739288c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/horni-brusnice/62ea333a93323735d34a49b4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/horni-brusnice/62e8f1aa9cca870a5461c4f7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/horni-brusnice/69dea61103f6c5383a07a600/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/horni-brusnice/69e67492d0b12a4a76098152/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/horni-brusnice/69e67758297d4808020ef0e6/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/horni-brusnice/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/horni-brusnice/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-42595",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-42595",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/horni-brusnice/67ffe4787d0ff0a08104e7f4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/horni-brusnice/6971dfdc7fca86ef9908329c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/horni-brusnice/662b8df8fccc4e0a69014a27/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -159,198 +272,18 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Horn%C3%AD+Brusnice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/horni-brusnice/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/horni-brusnice/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/horni-brusnice/6a17244e8fd91de54d00b87d/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/horni-brusnice/67ffe4787d0ff0a08104e7f4/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/horni-brusnice/69e67492d0b12a4a76098152/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/horni-brusnice/69e67758297d4808020ef0e6/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/horni-brusnice/69dea61103f6c5383a07a600/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/horni-brusnice/6971dfdc7fca86ef9908329c/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/horni-brusnice/662b8df8fccc4e0a69014a27/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/horni-brusnice/62ea333a93323735d34a49b4/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/horni-brusnice/62e8f1aa9cca870a5461c4f7/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/horni-brusnice/62e8f1af7b28a6461739288c/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
-    "idnes-discovery-missing-locality-id",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/horni-brusnice/67ffe4787d0ff0a08104e7f4/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/horni-brusnice/6971dfdc7fca86ef9908329c/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/horni-brusnice/662b8df8fccc4e0a69014a27/",
     "missing-page-url:house",
     "missing-page-url:land",
     "unsupported-property-type:https://reality.aktualne.cz/detail/horni-brusnice/prodej-louky-14487-m-horni-brusnice-8486835.html",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2514923596",
-    "idnes-discovery-used-municipality-slug-fallback",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/horni-brusnice/67ffe4787d0ff0a08104e7f4/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/horni-brusnice/6971dfdc7fca86ef9908329c/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/horni-brusnice/662b8df8fccc4e0a69014a27/"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2514923596"
   ],
   "listings": [
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 230 m², pozemek 8570 m²",
-      "location": "Horní Brusnice, Trutnov",
-      "property_type": "house",
-      "price": "24 990 000 Kč",
-      "house_area_m2": "230",
-      "land_area_m2": "8570",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/horni-brusnice/1079329612"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1079329612"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 230 m², pozemek 4310 m²",
-      "location": "Horní Brusnice, Trutnov",
-      "property_type": "house",
-      "price": "19 950 000 Kč",
-      "house_area_m2": "230",
-      "land_area_m2": "4310",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/horni-brusnice/692405068"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/692405068"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 2264 m²",
-      "location": "Horní Brusnice, Trutnov",
-      "property_type": "land",
-      "price": "2 300 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "2264",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/horni-brusnice/3842158668"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3842158668",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1128 m²",
-      "location": "Horní Brusnice, Trutnov",
-      "property_type": "land",
-      "price": "945 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1128",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/horni-brusnice/4041650252"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/4041650252",
-        "buildable-land"
-      ]
-    },
     {
       "portal": [
         "reality.idnes.cz"
@@ -474,6 +407,80 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 230 m², pozemek 8570 m²",
+      "location": "Horní Brusnice, Trutnov",
+      "property_type": "house",
+      "price": "24 990 000 Kč",
+      "house_area_m2": "230",
+      "land_area_m2": "8570",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/horni-brusnice/1079329612"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1079329612"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 230 m², pozemek 4310 m²",
+      "location": "Horní Brusnice, Trutnov",
+      "property_type": "house",
+      "price": "19 950 000 Kč",
+      "house_area_m2": "230",
+      "land_area_m2": "4310",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/horni-brusnice/692405068"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/692405068"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 2264 m²",
+      "location": "Horní Brusnice, Trutnov",
+      "property_type": "land",
+      "price": "2 300 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2264",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/horni-brusnice/3842158668"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3842158668",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1128 m²",
+      "location": "Horní Brusnice, Trutnov",
+      "property_type": "land",
+      "price": "945 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1128",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/horni-brusnice/4041650252"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/4041650252",
         "buildable-land"
       ]
     }

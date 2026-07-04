@@ -24,19 +24,24 @@
     ]
   },
   "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Orlické Záhoří."
   ],
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 13,
-    "rows_retained": 13,
+    "candidates_gathered": 21,
+    "rows_retained": 12,
     "zero_result_portals": [
       "realitymix.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
+    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -48,13 +53,89 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/orlicke-zahori/6a287714a8ad9d9d3402afaa/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/orlicke-zahori/69c6799881494b45100e3596/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/orlicke-zahori/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/orlicke-zahori/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-410748",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-410748",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/orlicke-zahori/6a4503a27e646a8e9702c1a7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/orlicke-zahori/6a45014a1e6d2e0ad809b56f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/orlicke-zahori/6a3bb4e57c0f732751061396/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/686ea7ab6f31736481066153/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -254,8 +335,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3991028556",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3991028556",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -272,74 +363,12 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Orlick%C3%A9+Z%C3%A1ho%C5%99%C3%AD&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/orlicke-zahori/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/orlicke-zahori/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/orlicke-zahori/6a4503a27e646a8e9702c1a7/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/orlicke-zahori/6a45014a1e6d2e0ad809b56f/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/orlicke-zahori/6a3bb4e57c0f732751061396/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/orlicke-zahori/6a287714a8ad9d9d3402afaa/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/orlicke-zahori/69c6799881494b45100e3596/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
-    "idnes-discovery-missing-locality-id",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/orlicke-zahori/6a45014a1e6d2e0ad809b56f/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/orlicke-zahori/6a3bb4e57c0f732751061396/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/686ea7ab6f31736481066153/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-pozemky.html",
@@ -347,12 +376,63 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/orlicke-zahori/prodej-na-klic-riviera-8366755.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/orlicke-zahori/prodej-penzionu-orlicke-zahori-okres-rychnov-nad-kneznou-8632059.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/orlicke-zahori/prodej-rodinneho-domu-orlicke-zahori-kunstat-u-orlickeho-zahori-okres-rychnov-nad-kneznou-8541339.html",
-    "missing-price:https://www.sreality.cz/api/v1/estates/621167436",
-    "idnes-discovery-used-municipality-slug-fallback",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/orlicke-zahori/6a45014a1e6d2e0ad809b56f/",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/orlicke-zahori/6a3bb4e57c0f732751061396/"
+    "stale-detail-fetch:3991028556:Failed to fetch https://www.sreality.cz/api/v1/estates/3991028556: HTTP 404",
+    "missing-price:https://www.sreality.cz/api/v1/estates/621167436"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku, 1 444 m2 - Orlické Záhoří",
+      "location": "Orlické Záhoří, okres Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "7 999 875 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1444",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/orlicke-zahori/6a287714a8ad9d9d3402afaa/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemku Orlické Záhoří",
+      "location": "Orlické Záhoří, okres Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "5 699 999 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1517",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/orlicke-zahori/69c6799881494b45100e3596/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemku s domečkem NICEA, Orlické Záhoří",
+      "location": "Orlické Záhoří, okres Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "48",
+      "land_area_m2": "1517",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/orlicke-zahori/6a4503a27e646a8e9702c1a7/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
     {
       "portal": [
         "reality.aktualne.cz"
@@ -368,7 +448,8 @@
       ],
       "notes": [
         "detail-url-verified:reality.aktualne.cz",
-        "buildable-land"
+        "buildable-land",
+        "aggregator-source:m&m-reality-holding-a.s."
       ]
     },
     {
@@ -487,25 +568,6 @@
       "portal": [
         "sreality.cz"
       ],
-      "title": "Prodej stavebního pozemku 1517 m²",
-      "location": "Orlické Záhoří, Rychnov nad Kněžnou",
-      "property_type": "land",
-      "price": "5 699 999 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1517",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/orlicke-zahori/3991028556"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3991028556",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
       "title": "Prodej stavebního pozemku 1944 m²",
       "location": "Orlické Záhoří, Rychnov nad Kněžnou",
       "property_type": "land",
@@ -538,59 +600,6 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3964334924",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej stavebního pozemku, 1 444 m2 - Orlické Záhoří",
-      "location": "Orlické Záhoří, okres Rychnov nad Kněžnou",
-      "property_type": "land",
-      "price": "7 999 875 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1444",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/orlicke-zahori/6a287714a8ad9d9d3402afaa/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej pozemku Orlické Záhoří",
-      "location": "Orlické Záhoří, okres Rychnov nad Kněžnou",
-      "property_type": "land",
-      "price": "5 699 999 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1517",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/orlicke-zahori/69c6799881494b45100e3596/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej pozemku s domečkem NICEA, Orlické Záhoří",
-      "location": "Orlické Záhoří, okres Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "Cena na vyžádání",
-      "house_area_m2": "48",
-      "land_area_m2": "1517",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/orlicke-zahori/6a4503a27e646a8e9702c1a7/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
       ]
     }
   ]

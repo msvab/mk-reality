@@ -24,20 +24,26 @@
     ]
   },
   "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Rohovládova Bělá."
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
-    "candidates_gathered": 2,
-    "rows_retained": 2,
+    "workers_with_results": 1,
+    "candidates_gathered": 9,
+    "rows_retained": 1,
     "zero_result_portals": [
+      "reality.idnes.cz",
       "realitymix.cz",
       "sreality.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
+    "reality.idnes.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope iDNES rows."
+    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -49,13 +55,81 @@
     "sreality.cz": {
       "status": "no_results",
       "message": "No retained in-scope Sreality rows."
-    },
-    "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/rohovladova-bela/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/rohovladova-bela/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/kasalice/6a4410949b7a02eb15009a54/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/kasalice/68b567a887a6124ae0065ddc/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/volec/6a22a7eedddeb57f0406feb6/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/bukovka/6a2aaf0af284a83ab90914e6/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/bukovina-nad-labem/6a0ee0fa714e05b71f0ed811/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rohovladova-bela/69c053b5c79217f25c024356/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rohovladova-bela/69a69ae2a3fe27d3ca064b54/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -127,73 +201,19 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/3857908556",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Rohovl%C3%A1dova+B%C4%9Bl%C3%A1&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/rohovladova-bela/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/rohovladova-bela/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/rohovladova-bela/6a16d0a540d9c122fa0f49ae/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rohovladova-bela/69c053b5c79217f25c024356/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rohovladova-bela/69a69ae2a3fe27d3ca064b54/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
-    "idnes-discovery-missing-locality-id",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/kasalice/6a4410949b7a02eb15009a54/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/kasalice/68b567a887a6124ae0065ddc/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/volec/6a22a7eedddeb57f0406feb6/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/bukovka/6a2aaf0af284a83ab90914e6/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/bukovina-nad-labem/6a0ee0fa714e05b71f0ed811/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/rohovladova-bela/69c053b5c79217f25c024356/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/rohovladova-bela/69a69ae2a3fe27d3ca064b54/",
     "missing-page-url:house",
     "missing-page-url:land",
-    "land-below-threshold:https://reality.aktualne.cz/detail/rohovladova-bela/prodej-pozemku-609-m-8540575.html",
-    "missing-price:https://www.sreality.cz/api/v1/estates/3857908556",
-    "idnes-discovery-used-municipality-slug-fallback",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/rohovladova-bela/69c053b5c79217f25c024356/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/rohovladova-bela/69a69ae2a3fe27d3ca064b54/"
+    "land-below-threshold:https://reality.aktualne.cz/detail/rohovladova-bela/prodej-pozemku-609-m-8540575.html"
   ],
   "listings": [
     {
@@ -210,24 +230,8 @@
         "https://reality.aktualne.cz/detail/rohovladova-bela/prodej-rodinneho-domu-287-m-rohovladova-bela-8479311.html"
       ],
       "notes": [
-        "detail-url-verified:reality.aktualne.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej rodinného domu, 287 m2, Rohovládova Bělá",
-      "location": "Rohovládova Bělá, okres Pardubice",
-      "property_type": "house",
-      "price": "Cena na vyžádání",
-      "house_area_m2": "287",
-      "land_area_m2": "1396",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/rohovladova-bela/6a16d0a540d9c122fa0f49ae/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
+        "detail-url-verified:reality.aktualne.cz",
+        "aggregator-source:m&m-reality-holding-a.s."
       ]
     }
   ]

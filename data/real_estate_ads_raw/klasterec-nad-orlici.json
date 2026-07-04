@@ -24,12 +24,13 @@
     ]
   },
   "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Klášterec nad Orlicí."
   ],
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 10,
+    "candidates_gathered": 24,
     "rows_retained": 10,
     "zero_result_portals": [
       "realitymix.cz"
@@ -37,6 +38,10 @@
     "blocked_portals": []
   },
   "portal_status": {
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
+    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -48,13 +53,113 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/klasterec-nad-orlici/68823c0a465cfd05220dd4de/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/klasterec-nad-orlici/686d2a1f8d1772bc8101dc26/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/klasterec-nad-orlici/69178f6387fc4b97c50d4065/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/klasterec-nad-orlici/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/klasterec-nad-orlici/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-65714",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-65714",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/klasterec-nad-orlici/6a44d54e63d3f0337d03acc4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/klasterec-nad-orlici/6a44d545c79cbd52c10547fe/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/klasterec-nad-orlici/695f6cefdd43f88f3d05eb12/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/klasterec-nad-orlici/686d34368c08b1919a075f9d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/klasterec-nad-orlici/69c1a3dcebff3f5a900b043c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/klasterec-nad-orlici/69837c8869acbff32500877b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -270,106 +375,15 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Kl%C3%A1%C5%A1terec+nad+Orlic%C3%AD&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/klasterec-nad-orlici/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/klasterec-nad-orlici/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/klasterec-nad-orlici/6a44d54e63d3f0337d03acc4/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/klasterec-nad-orlici/6a44d545c79cbd52c10547fe/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/klasterec-nad-orlici/695f6cefdd43f88f3d05eb12/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/klasterec-nad-orlici/68823c0a465cfd05220dd4de/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/klasterec-nad-orlici/686d34368c08b1919a075f9d/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/klasterec-nad-orlici/69178f6387fc4b97c50d4065/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/klasterec-nad-orlici/69c1a3dcebff3f5a900b043c/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/klasterec-nad-orlici/69837c8869acbff32500877b/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/klasterec-nad-orlici/686d2a1f8d1772bc8101dc26/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
-    "idnes-discovery-missing-locality-id",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/klasterec-nad-orlici/6a44d54e63d3f0337d03acc4/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/klasterec-nad-orlici/6a44d545c79cbd52c10547fe/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/klasterec-nad-orlici/695f6cefdd43f88f3d05eb12/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/klasterec-nad-orlici/686d34368c08b1919a075f9d/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/klasterec-nad-orlici/69c1a3dcebff3f5a900b043c/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/klasterec-nad-orlici/69837c8869acbff32500877b/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3611-usti-nad-orlici/pardubicky/prodej-domy_vily.html",
@@ -381,16 +395,63 @@
     "outside-municipality:https://reality.aktualne.cz/detail/klasterec-nad-orlici/prodej-pozemek-v-klasterci-nad-orlici-8440999.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/klasterec-nad-orlici/projekt-na-vystavbu-apartmanu-idealni-pro-podnikani-i-bydleni-8333291.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2259776332",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/322446156",
-    "idnes-discovery-used-municipality-slug-fallback",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/klasterec-nad-orlici/6a44d54e63d3f0337d03acc4/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/klasterec-nad-orlici/6a44d545c79cbd52c10547fe/",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/klasterec-nad-orlici/695f6cefdd43f88f3d05eb12/",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/klasterec-nad-orlici/686d34368c08b1919a075f9d/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/klasterec-nad-orlici/69c1a3dcebff3f5a900b043c/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/klasterec-nad-orlici/69837c8869acbff32500877b/"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/322446156"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Chalupa s pozemkem 10 000m2 ideální pro podnikání i bydlení",
+      "location": "Klášterec nad Orlicí, okres Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "19 990 000 Kč",
+      "house_area_m2": "575",
+      "land_area_m2": "9674",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/klasterec-nad-orlici/68823c0a465cfd05220dd4de/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "normalized-from:chalupa"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Pozemek na výstavbu apartmánových domů ideální pro podnikání i bydlení",
+      "location": "Klášterec nad Orlicí, okres Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "19 990 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "9674",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/klasterec-nad-orlici/686d2a1f8d1772bc8101dc26/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "PRODEJ - pozemek v Klášterci nad Orlicí",
+      "location": "Klášterec nad Orlicí, okres Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "3 888 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "3200",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/klasterec-nad-orlici/69178f6387fc4b97c50d4065/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
     {
       "portal": [
         "reality.aktualne.cz"
@@ -444,7 +505,8 @@
       ],
       "notes": [
         "detail-url-verified:reality.aktualne.cz",
-        "buildable-land"
+        "buildable-land",
+        "aggregator-source:m&m-reality-holding-a.s."
       ]
     },
     {
@@ -518,60 +580,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1251005004",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Chalupa s pozemkem 10 000m2 ideální pro podnikání i bydlení",
-      "location": "Klášterec nad Orlicí, okres Ústí nad Orlicí",
-      "property_type": "house",
-      "price": "19 990 000 Kč",
-      "house_area_m2": "575",
-      "land_area_m2": "9674",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/klasterec-nad-orlici/68823c0a465cfd05220dd4de/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "normalized-from:chalupa"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Pozemek na výstavbu apartmánových domů ideální pro podnikání i bydlení",
-      "location": "Klášterec nad Orlicí, okres Ústí nad Orlicí",
-      "property_type": "land",
-      "price": "19 990 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "9674",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/klasterec-nad-orlici/686d2a1f8d1772bc8101dc26/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "PRODEJ - pozemek v Klášterci nad Orlicí",
-      "location": "Klášterec nad Orlicí, okres Ústí nad Orlicí",
-      "property_type": "land",
-      "price": "3 888 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "3200",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/klasterec-nad-orlici/69178f6387fc4b97c50d4065/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
         "buildable-land"
       ]
     }

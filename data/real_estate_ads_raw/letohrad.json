@@ -24,12 +24,13 @@
     ]
   },
   "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Letohrad."
   ],
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 13,
+    "candidates_gathered": 34,
     "rows_retained": 13,
     "zero_result_portals": [
       "realitymix.cz"
@@ -37,6 +38,10 @@
     "blocked_portals": []
   },
   "portal_status": {
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
+    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -48,13 +53,145 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/letohrad-podmesti/69ca38e2e77fd78858048ed0/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/letohrad/682f1de4f9b45ae242006229/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/letohrad/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/letohrad/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-80667",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-80667",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/letohrad-tauslova/67b301edd89756257d0954a2/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/letohrad/6a199f3352ccf9e160065304/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/letohrad/69fd073b429a7c4e51058a19/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/letohrad/6a0acaa0cb95303cb60ea0e8/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/letohrad-komenskeho/6a04495eecdc2457ce05a687/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/letohrad-ul-snp/689dc83b15cc6863f703b116/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/letohrad-u-biatlonu/68cbc70cd3bb7edf3406f88c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/letohrad-u-biatlonu/680a20f992674095f2013436/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/letohrad/5f27224b558f0703b15dcfe3/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/letohrad/5f271b4637ba4d35045ba663/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/letohrad/5f272ce937ba4d42ff086ca3/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -334,138 +471,20 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Letohrad&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/letohrad/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/letohrad/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/letohrad-tauslova/67b301edd89756257d0954a2/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/letohrad/6a199f3352ccf9e160065304/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/letohrad-podmesti/69ca38e2e77fd78858048ed0/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/letohrad/69fd073b429a7c4e51058a19/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/letohrad/6a0acaa0cb95303cb60ea0e8/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/letohrad-komenskeho/6a04495eecdc2457ce05a687/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/letohrad-ul-snp/689dc83b15cc6863f703b116/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/letohrad-u-biatlonu/68cbc70cd3bb7edf3406f88c/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/letohrad-u-biatlonu/680a20f992674095f2013436/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/letohrad/682f1de4f9b45ae242006229/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/letohrad/5f27224b558f0703b15dcfe3/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/letohrad/5f271b4637ba4d35045ba663/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/letohrad/5f272ce937ba4d42ff086ca3/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
-    "idnes-discovery-missing-locality-id",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/letohrad-tauslova/67b301edd89756257d0954a2/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/letohrad/6a199f3352ccf9e160065304/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/letohrad/69fd073b429a7c4e51058a19/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/letohrad/6a0acaa0cb95303cb60ea0e8/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/letohrad-komenskeho/6a04495eecdc2457ce05a687/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/letohrad-ul-snp/689dc83b15cc6863f703b116/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/letohrad-u-biatlonu/68cbc70cd3bb7edf3406f88c/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/letohrad-u-biatlonu/680a20f992674095f2013436/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/letohrad/5f27224b558f0703b15dcfe3/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/letohrad/5f271b4637ba4d35045ba663/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/letohrad/5f272ce937ba4d42ff086ca3/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3611-usti-nad-orlici/pardubicky/prodej-domy_vily.html",
@@ -479,21 +498,44 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/letohrad/pronajem-bytu-2-kk-62-m-letohrad-ul-vaclavske-namesti-8584417.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/letohrad/pronajem-bytu-2-kk-66-m-letohrad-ul-vaclavske-namesti-8477351.html",
     "outside-municipality:https://reality.aktualne.cz/detail/letohrad/pronajem-nekolika-skladovych-prostor-o-ruznych-vymerach-v-1np-a-2np-kladkovy-vytah-celkova-vymera-8011962.html",
-    "excluded-chata:https://www.sreality.cz/api/v1/estates/158044236",
-    "idnes-discovery-used-municipality-slug-fallback",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/letohrad-tauslova/67b301edd89756257d0954a2/",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/letohrad/6a199f3352ccf9e160065304/",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/letohrad/69fd073b429a7c4e51058a19/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/letohrad/6a0acaa0cb95303cb60ea0e8/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/letohrad-komenskeho/6a04495eecdc2457ce05a687/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/letohrad-ul-snp/689dc83b15cc6863f703b116/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/letohrad-u-biatlonu/68cbc70cd3bb7edf3406f88c/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/letohrad-u-biatlonu/680a20f992674095f2013436/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/letohrad/5f27224b558f0703b15dcfe3/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/letohrad/5f271b4637ba4d35045ba663/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/letohrad/5f272ce937ba4d42ff086ca3/"
+    "excluded-chata:https://www.sreality.cz/api/v1/estates/158044236"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu, 164m2, Letohrad, ul. Podměstí 93",
+      "location": "Letohrad, okres Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "4 499 999 Kč",
+      "house_area_m2": "164",
+      "land_area_m2": "1447",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/letohrad-podmesti/69ca38e2e77fd78858048ed0/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "PRODEJ - stavební pozemek Za Humny v Letohradě",
+      "location": "Letohrad, okres Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "3 485 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1937",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/letohrad/682f1de4f9b45ae242006229/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
     {
       "portal": [
         "reality.aktualne.cz"
@@ -526,7 +568,8 @@
         "https://reality.aktualne.cz/detail/letohrad/prodej-rodinneho-domu-164m2-letohrad-ul-podmesti-93-8500269.html"
       ],
       "notes": [
-        "detail-url-verified:reality.aktualne.cz"
+        "detail-url-verified:reality.aktualne.cz",
+        "aggregator-source:m&m-reality-holding-a.s."
       ]
     },
     {
@@ -691,41 +734,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1652965964",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej rodinného domu, 164m2, Letohrad, ul. Podměstí 93",
-      "location": "Letohrad, okres Ústí nad Orlicí",
-      "property_type": "house",
-      "price": "4 499 999 Kč",
-      "house_area_m2": "164",
-      "land_area_m2": "1447",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/letohrad-podmesti/69ca38e2e77fd78858048ed0/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "PRODEJ - stavební pozemek Za Humny v Letohradě",
-      "location": "Letohrad, okres Ústí nad Orlicí",
-      "property_type": "land",
-      "price": "3 485 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1937",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/letohrad/682f1de4f9b45ae242006229/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
         "buildable-land"
       ]
     }

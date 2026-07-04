@@ -24,19 +24,24 @@
     ]
   },
   "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Vysoké Mýto."
   ],
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 5,
-    "rows_retained": 5,
+    "candidates_gathered": 47,
+    "rows_retained": 6,
     "zero_result_portals": [
       "realitymix.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
+    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -48,13 +53,241 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-lucni/6a0c4af147fc290bfa0bbf29/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/vysoke-myto/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/vysoke-myto/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-188247",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-188247",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-fibichova/6a4423803f78466bab011ff8/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-chocenska/6a3e3c0d4132a813a5051c29/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-a-v-sembery/69cd0667cf42ce67da0d0458/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto/6a393ef7c75dd06477010b0a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-javornickeho/6a3b99e2440a703e1007baad/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto/69a41e62d499ea89190ce858/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto/6a269dce67eea299360dbdd6/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-sarovec/6a0daffb59ceb3657005d44f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-b-smetany/69bc2659c76200360a0e362b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-na-vrchach/69c3fd58371cb40ca007bd44/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-jozky-svobody/6952ced624f9a0cbc8066ff7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto/652e87118b6d97a2570c0309/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto/6a0af84c80df48685d05d07b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto/67ffd793c245395374023548/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto/67ffd7942871fb9b450c38eb/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto/67ffd7907a19b2b2910a8839/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto/67ffd79124d905cd770c2335/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto/6862987aa0ca6577240db5eb/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto/6a201ccaa62d73db8c07bd2b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto/69f9cc9cc977aaec5c0acfac/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto/69d0ee3e6b2b7b49f70e22a4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto/69456041205e9a84440772ee/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto-vostice/655c58393ecc2618d4045bca/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto-vostice/655c572846279141aa034359/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -249,6 +482,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3611398220",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/4112416844",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -278,265 +519,9 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Vysok%C3%A9+M%C3%BDto&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/vysoke-myto/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/vysoke-myto/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-halkova/677528a84eaa3b3f490dbfa7/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-fibichova/6a4423803f78466bab011ff8/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-chocenska/6a3e3c0d4132a813a5051c29/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-a-v-sembery/69cd0667cf42ce67da0d0458/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto/6a393ef7c75dd06477010b0a/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-javornickeho/6a3b99e2440a703e1007baad/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto/69a41e62d499ea89190ce858/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-lucni/6a0c4af147fc290bfa0bbf29/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto/6a269dce67eea299360dbdd6/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-sarovec/6a0daffb59ceb3657005d44f/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-b-smetany/69bc2659c76200360a0e362b/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-na-vrchach/69c3fd58371cb40ca007bd44/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-jozky-svobody/6952ced624f9a0cbc8066ff7/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto/652e87118b6d97a2570c0309/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto/6a0af84c80df48685d05d07b/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto/67ffd793c245395374023548/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto/67ffd7942871fb9b450c38eb/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto/67ffd7907a19b2b2910a8839/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto/67ffd79124d905cd770c2335/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto/6862987aa0ca6577240db5eb/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto/6a201ccaa62d73db8c07bd2b/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto/69f9cc9cc977aaec5c0acfac/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto/69d0ee3e6b2b7b49f70e22a4/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto/69456041205e9a84440772ee/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto-vostice/655c58393ecc2618d4045bca/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto-vostice/655c572846279141aa034359/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
-    "idnes-discovery-missing-locality-id",
-    "missing-page-url:house",
-    "missing-page-url:land",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/byt-3-1-75m2-s-lodzii-75-m2-chmelova-vysoke-myto-8289189.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/industrial-park-vysoke-myto-pronajem-skladovych-prostor-8175075.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/industrial-park-vysoke-myto-pronajem-skladovych-prostor-8175083.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/prodej-pole-18365-m2-vysoke-myto-8583955.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/prodej-rodinne-domy-190-m2-vysoke-myto-prazske-predmesti-8169005.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/vysoke-myto/prodej-rodinneho-domu-139-m-vysoke-myto-8486801.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/vysoke-myto/prodej-rodinneho-domu-86-m2-vysoke-myto-b-korabove-prazske-predmesti-8289201.html",
-    "outside-municipality:https://reality.aktualne.cz/detail/vysoke-myto/prodej-rodinny-dum-120-8636825.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-2-1-rokycanova-vysoke-myto-12-000-kc-mes-53-m2-8570021.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-2-kk-49-m-vysoke-myto-ul-tumova-8597077.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-2-kk-53-m-vysoke-myto-ul-litomyslska-8599057.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-3-1-67-m-vysoke-myto-ul-odbojarska-8599603.html",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2234115404",
-    "missing-price:https://www.sreality.cz/api/v1/estates/241931084",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2575536204",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3244523596",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/63414348",
-    "missing-price:https://www.sreality.cz/api/v1/estates/694677580",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/853516364",
-    "idnes-discovery-used-municipality-slug-fallback",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-halkova/677528a84eaa3b3f490dbfa7/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-fibichova/6a4423803f78466bab011ff8/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-a-v-sembery/69cd0667cf42ce67da0d0458/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vysoke-myto/6a393ef7c75dd06477010b0a/",
@@ -558,45 +543,30 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto/69d0ee3e6b2b7b49f70e22a4/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto/69456041205e9a84440772ee/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto-vostice/655c58393ecc2618d4045bca/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto-vostice/655c572846279141aa034359/"
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto-vostice/655c572846279141aa034359/",
+    "missing-page-url:house",
+    "missing-page-url:land",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/byt-3-1-75m2-s-lodzii-75-m2-chmelova-vysoke-myto-8289189.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/industrial-park-vysoke-myto-pronajem-skladovych-prostor-8175075.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/industrial-park-vysoke-myto-pronajem-skladovych-prostor-8175083.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/prodej-pole-18365-m2-vysoke-myto-8583955.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/prodej-rodinne-domy-190-m2-vysoke-myto-prazske-predmesti-8169005.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/vysoke-myto/prodej-rodinneho-domu-139-m-vysoke-myto-8486801.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/vysoke-myto/prodej-rodinneho-domu-86-m2-vysoke-myto-b-korabove-prazske-predmesti-8289201.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/vysoke-myto/prodej-rodinny-dum-120-8636825.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-2-1-rokycanova-vysoke-myto-12-000-kc-mes-53-m2-8570021.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-2-kk-49-m-vysoke-myto-ul-tumova-8597077.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-2-kk-53-m-vysoke-myto-ul-litomyslska-8599057.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/vysoke-myto/pronajem-bytu-3-1-67-m-vysoke-myto-ul-odbojarska-8599603.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2234115404",
+    "missing-price:https://www.sreality.cz/api/v1/estates/241931084",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2575536204",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3244523596",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/63414348",
+    "missing-price:https://www.sreality.cz/api/v1/estates/694677580",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/853516364"
   ],
   "listings": [
-    {
-      "portal": [
-        "reality.aktualne.cz"
-      ],
-      "title": "Prodej pozemku k bydlení, 4725 m², Vysoké Mýto",
-      "location": "Vysoké Mýto-Město, Ústí nad Orlicí",
-      "property_type": "land",
-      "price": "cena na vyžádání",
-      "house_area_m2": "unknown",
-      "land_area_m2": "4725",
-      "urls": [
-        "https://reality.aktualne.cz/detail/vysoke-myto/prodej-pozemku-k-bydleni-4725-m-vysoke-myto-8326571.html"
-      ],
-      "notes": [
-        "detail-url-verified:reality.aktualne.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 75 m², pozemek 1909 m²",
-      "location": "Vysoké Mýto, Ústí nad Orlicí",
-      "property_type": "house",
-      "price": "2 150 000 Kč",
-      "house_area_m2": "75",
-      "land_area_m2": "1909",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/vysoke-myto/4112416844"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/4112416844"
-      ]
-    },
     {
       "portal": [
         "reality.idnes.cz"
@@ -647,6 +617,61 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej pozemku k bydlení, 4725 m², Vysoké Mýto",
+      "location": "Vysoké Mýto-Město, Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "cena na vyžádání",
+      "house_area_m2": "unknown",
+      "land_area_m2": "4725",
+      "urls": [
+        "https://reality.aktualne.cz/detail/vysoke-myto/prodej-pozemku-k-bydleni-4725-m-vysoke-myto-8326571.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "buildable-land",
+        "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 75 m², pozemek 1909 m²",
+      "location": "Vysoké Mýto, Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "2 150 000 Kč",
+      "house_area_m2": "75",
+      "land_area_m2": "1909",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/vysoke-myto/4112416844"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/4112416844"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 160 m², pozemek 1087 m²",
+      "location": "Vysoké Mýto, Luční, Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "2 121 000 Kč",
+      "house_area_m2": "160",
+      "land_area_m2": "1087",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/vysoke-myto-chocenske-predmesti-lucni/3611398220"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3611398220"
       ]
     }
   ]

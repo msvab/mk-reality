@@ -24,19 +24,24 @@
     ]
   },
   "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Červený Kostelec."
   ],
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 17,
-    "rows_retained": 17,
+    "candidates_gathered": 55,
+    "rows_retained": 18,
     "zero_result_portals": [
       "realitymix.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
+    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -48,13 +53,257 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec-chrby/6a479330b35a2fc2bc0478bd/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec/6a157e2d6316780d5205eca6/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec/6a33d92589e79952920c22d4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec/6a142274ac3c68e798063433/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec/6a33da07e71b493c390ce46e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec/698e12fa83e60c43d10817c6/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec/6a464cf31a6c7241200a929a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/cerveny-kostelec/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/cerveny-kostelec/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-21105",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-21105",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-21148",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-21148",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-21113",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-21113",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec/69c2ba771559b74ee3096d5d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec/6a464e2d9b784d12090d09d9/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec-jiraskova/69eb3f143683d52af90985a7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec-jiraskova/6a46221466481fd7950c2c5f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec-jiraskova/6a0321a360fa41c819030bcf/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec-rehakova/696d05040db34bb1a700196b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec/6a3058675c7ab56e22023aa9/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec/6a2ff8441562fb536c00ae78/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec/69f9b63bd0755356bc09d475/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec-letna/69eb7bee3ca1944cd60cf145/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec-v-raji/6a1b5a67919b43b2f90f1d18/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec/6a14208c1644ee130501c9d7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec/69819c38531dd56a090b3090/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec/68f66aee634ccdfffa06e346/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec/69dc4dc7e0f8433adb0b1d17/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -186,14 +435,6 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-domu-270-m-s-pozemkem-439-m-8187335.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-domu-270-m-s-pozemkem-439-m-v-cervenem-kostelci-8246779.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -243,6 +484,14 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-pozemku-k-bydleni-496-m-cerveny-kostelec-8603375.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-prostorne-vily-s-velkym-pozemkem-v-cervenem-kostelci-8638995.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -309,6 +558,14 @@
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2473&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
       "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1608179788",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -392,244 +649,9 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=%C4%8Cerven%C3%BD+Kostelec&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/cerveny-kostelec/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/cerveny-kostelec/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec-chrby/6a479330b35a2fc2bc0478bd/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec/69c2ba771559b74ee3096d5d/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec/6a464cf31a6c7241200a929a/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec/6a464e2d9b784d12090d09d9/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec-jiraskova/69eb3f143683d52af90985a7/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec-jiraskova/6a46221466481fd7950c2c5f/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec-jiraskova/6a0321a360fa41c819030bcf/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec-rehakova/696d05040db34bb1a700196b/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec/6a33da07e71b493c390ce46e/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec/6a3058675c7ab56e22023aa9/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec/6a2ff8441562fb536c00ae78/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec/69f9b63bd0755356bc09d475/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec/698e12fa83e60c43d10817c6/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec-letna/69eb7bee3ca1944cd60cf145/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec/6a33d92589e79952920c22d4/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec-v-raji/6a1b5a67919b43b2f90f1d18/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec/6a157e2d6316780d5205eca6/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec/6a142274ac3c68e798063433/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec/6a14208c1644ee130501c9d7/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec/69819c38531dd56a090b3090/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec/68f66aee634ccdfffa06e346/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec/69dc4dc7e0f8433adb0b1d17/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
-    "idnes-discovery-missing-locality-id",
-    "missing-page-url:house",
-    "missing-page-url:land",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-1-1-48-m-cerveny-kostelec-u-namesti-obce-8532079.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-1-1-53-m-cerveny-kostelec-ul-bozeny-nemcove-8528481.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-1-1-54-m-cerveny-kostelec-ul-bozeny-nemcove-8532819.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-1-1-56-m-cerveny-kostelec-ul-bozeny-nemcove-8540579.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-1-1-85-m-cerveny-kostelec-centrum-obce-8533709.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-2-1-59-m-cerveny-kostelec-ul-bozeny-nemcove-8534343.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-3-1-91-m-cerveny-kostelec-centrum-mesta-8528335.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-3-1-s-balkonem-8588645.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-chaty-34-m-cerveny-kostelec-8446945.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-domu-270-m-s-pozemkem-439-m-8187335.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-domu-270-m-s-pozemkem-439-m-v-cervenem-kostelci-8246779.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-louky-5804-m-cerveny-kostelec-8609309.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-obch-objektu-239-m-cerveny-kostelec-ul-b-nemcove-8534313.html",
-    "outside-municipality:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-pozemku-k-bydleni-1929-m-8627169.html",
-    "non-buildable-land:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-pozemku-k-bydleni-2842-m-cerveny-kostelec-8603371.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-pozemku-k-bydleni-496-m-cerveny-kostelec-8603375.html",
-    "outside-municipality:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-rodinneho-domu-v-cervenem-kostelci-olesnice-8449813.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-obchod-a-sluzby-90-m-cerveny-kostelec-8561275.html",
-    "detail-fallback-page:https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-rodinneho-domu-80-m2-cerveny-kostelec-8568477.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-skladu-4000-m-cerveny-kostelec-ul-jiraskova-8559107.html",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1789235276",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3993542732",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/437257036",
-    "idnes-discovery-used-municipality-slug-fallback",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec/69c2ba771559b74ee3096d5d/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec/6a464e2d9b784d12090d09d9/",
@@ -643,156 +665,34 @@
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec-v-raji/6a1b5a67919b43b2f90f1d18/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec/6a14208c1644ee130501c9d7/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec/68f66aee634ccdfffa06e346/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec/69dc4dc7e0f8433adb0b1d17/"
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec/69dc4dc7e0f8433adb0b1d17/",
+    "missing-page-url:house",
+    "missing-page-url:land",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-1-1-48-m-cerveny-kostelec-u-namesti-obce-8532079.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-1-1-53-m-cerveny-kostelec-ul-bozeny-nemcove-8528481.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-1-1-54-m-cerveny-kostelec-ul-bozeny-nemcove-8532819.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-1-1-56-m-cerveny-kostelec-ul-bozeny-nemcove-8540579.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-1-1-85-m-cerveny-kostelec-centrum-obce-8533709.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-2-1-59-m-cerveny-kostelec-ul-bozeny-nemcove-8534343.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-3-1-91-m-cerveny-kostelec-centrum-mesta-8528335.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-bytu-3-1-s-balkonem-8588645.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-chaty-34-m-cerveny-kostelec-8446945.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-domu-270-m-s-pozemkem-439-m-v-cervenem-kostelci-8246779.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-louky-5804-m-cerveny-kostelec-8609309.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-obch-objektu-239-m-cerveny-kostelec-ul-b-nemcove-8534313.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-pozemku-k-bydleni-1929-m-8627169.html",
+    "non-buildable-land:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-pozemku-k-bydleni-2842-m-cerveny-kostelec-8603371.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-pozemku-k-bydleni-496-m-cerveny-kostelec-8603375.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-prostorne-vily-s-velkym-pozemkem-v-cervenem-kostelci-8638995.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-rodinneho-domu-v-cervenem-kostelci-olesnice-8449813.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-obchod-a-sluzby-90-m-cerveny-kostelec-8561275.html",
+    "detail-fallback-page:https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-rodinneho-domu-80-m2-cerveny-kostelec-8568477.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-skladu-4000-m-cerveny-kostelec-ul-jiraskova-8559107.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1789235276",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3993542732",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/437257036"
   ],
   "listings": [
-    {
-      "portal": [
-        "reality.aktualne.cz"
-      ],
-      "title": "Prodej pozemku k bydlení, 3338 m², Červený Kostelec",
-      "location": "Červený Kostelec, Náchod",
-      "property_type": "land",
-      "price": "5 600 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "3338",
-      "urls": [
-        "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-pozemku-k-bydleni-3338-m-cerveny-kostelec-8604749.html"
-      ],
-      "notes": [
-        "detail-url-verified:reality.aktualne.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 3338 m²",
-      "location": "Červený Kostelec, Náchod",
-      "property_type": "land",
-      "price": "5 600 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "3338",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/cerveny-kostelec/2940960844"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2940960844",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1928 m²",
-      "location": "Červený Kostelec, Náchod",
-      "property_type": "land",
-      "price": "5 000 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1928",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/cerveny-kostelec-stolin/2431578188"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2431578188",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 200 m², pozemek 1929 m²",
-      "location": "Červený Kostelec, Náchod",
-      "property_type": "house",
-      "price": "3 700 000 Kč",
-      "house_area_m2": "200",
-      "land_area_m2": "1929",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/cerveny-kostelec-stolin/334426188"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/334426188"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 184 m², pozemek 2388 m²",
-      "location": "Červený Kostelec, Náchod",
-      "property_type": "house",
-      "price": "3 200 000 Kč",
-      "house_area_m2": "184",
-      "land_area_m2": "2388",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/cerveny-kostelec-horni-kostelec/2107769676"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2107769676"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej chalupy 80 m², pozemek 6504 m²",
-      "location": "Červený Kostelec, Náchod",
-      "property_type": "house",
-      "price": "2 075 000 Kč",
-      "house_area_m2": "80",
-      "land_area_m2": "6504",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/chalupa/cerveny-kostelec-horni-kostelec/1864536140"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1864536140"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 80 m², pozemek 6504 m²",
-      "location": "Červený Kostelec, Náchod",
-      "property_type": "house",
-      "price": "2 075 000 Kč",
-      "house_area_m2": "80",
-      "land_area_m2": "6504",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/cerveny-kostelec-horni-kostelec/3860087628"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3860087628"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej pole 1859 m²",
-      "location": "Červený Kostelec, Náchod",
-      "property_type": "land",
-      "price": "103 732 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1859",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/pole/cerveny-kostelec/691454796"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/691454796",
-        "buildable-land"
-      ]
-    },
     {
       "portal": [
         "reality.idnes.cz"
@@ -948,6 +848,172 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej pozemku k bydlení, 3338 m², Červený Kostelec",
+      "location": "Červený Kostelec, Náchod",
+      "property_type": "land",
+      "price": "5 600 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "3338",
+      "urls": [
+        "https://reality.aktualne.cz/detail/cerveny-kostelec/prodej-pozemku-k-bydleni-3338-m-cerveny-kostelec-8604749.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "buildable-land",
+        "aggregator-source:m&m-reality-holding-a.s."
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 405 m², pozemek 2501 m²",
+      "location": "Červený Kostelec, Chrby, Náchod",
+      "property_type": "house",
+      "price": "13 499 000 Kč",
+      "house_area_m2": "405",
+      "land_area_m2": "2501",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/cerveny-kostelec-chrby/1608179788"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1608179788"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 3338 m²",
+      "location": "Červený Kostelec, Náchod",
+      "property_type": "land",
+      "price": "5 600 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "3338",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/cerveny-kostelec/2940960844"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2940960844",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1928 m²",
+      "location": "Červený Kostelec, Náchod",
+      "property_type": "land",
+      "price": "5 000 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1928",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/cerveny-kostelec-stolin/2431578188"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2431578188",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 200 m², pozemek 1929 m²",
+      "location": "Červený Kostelec, Náchod",
+      "property_type": "house",
+      "price": "3 700 000 Kč",
+      "house_area_m2": "200",
+      "land_area_m2": "1929",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/cerveny-kostelec-stolin/334426188"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/334426188"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 184 m², pozemek 2388 m²",
+      "location": "Červený Kostelec, Náchod",
+      "property_type": "house",
+      "price": "3 200 000 Kč",
+      "house_area_m2": "184",
+      "land_area_m2": "2388",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/cerveny-kostelec-horni-kostelec/2107769676"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2107769676"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej chalupy 80 m², pozemek 6504 m²",
+      "location": "Červený Kostelec, Náchod",
+      "property_type": "house",
+      "price": "2 075 000 Kč",
+      "house_area_m2": "80",
+      "land_area_m2": "6504",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/chalupa/cerveny-kostelec-horni-kostelec/1864536140"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1864536140"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 80 m², pozemek 6504 m²",
+      "location": "Červený Kostelec, Náchod",
+      "property_type": "house",
+      "price": "2 075 000 Kč",
+      "house_area_m2": "80",
+      "land_area_m2": "6504",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/cerveny-kostelec-horni-kostelec/3860087628"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3860087628"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej pole 1859 m²",
+      "location": "Červený Kostelec, Náchod",
+      "property_type": "land",
+      "price": "103 732 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1859",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/pole/cerveny-kostelec/691454796"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/691454796",
         "buildable-land"
       ]
     }

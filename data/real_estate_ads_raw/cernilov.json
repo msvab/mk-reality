@@ -24,21 +24,26 @@
     ]
   },
   "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Černilov."
   ],
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 1,
-    "candidates_gathered": 1,
+    "candidates_gathered": 13,
     "rows_retained": 1,
     "zero_result_portals": [
+      "reality.idnes.cz",
       "realitymix.cz",
-      "reality.aktualne.cz",
-      "reality.idnes.cz"
+      "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
+    "reality.idnes.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope iDNES rows."
+    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -50,13 +55,73 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/cernilov/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/cernilov/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/cernilov/6a2d185bfbc4cb0e2d0f1f96/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/cernilov/6a26a478e4df1765f7095e54/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/cernilov/6a22af43ae144024110b3cbd/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/cernilov/69a95a956e1fa923a50709ca/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cernilov/67ff3ce331c357df4b01e429/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cernilov/67ff3e0ded410655c60dea76/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -168,82 +233,15 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=%C4%8Cernilov&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/cernilov/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/cernilov/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/cernilov/6a2d185bfbc4cb0e2d0f1f96/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/cernilov/6a26a478e4df1765f7095e54/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/cernilov/6a22af43ae144024110b3cbd/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/cernilov/69a95a956e1fa923a50709ca/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cernilov/67ff3ce331c357df4b01e429/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cernilov/67ff3e0ded410655c60dea76/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
-    "idnes-discovery-missing-locality-id",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cernilov/6a2d185bfbc4cb0e2d0f1f96/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cernilov/6a26a478e4df1765f7095e54/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cernilov/6a22af43ae144024110b3cbd/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cernilov/69a95a956e1fa923a50709ca/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/cernilov/67ff3ce331c357df4b01e429/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/cernilov/67ff3e0ded410655c60dea76/",
     "missing-page-url:house",
     "missing-page-url:land",
     "land-below-threshold:https://reality.aktualne.cz/detail/cernilov/cernilov-domy-rodinny-8617397.html",
@@ -251,14 +249,7 @@
     "land-below-threshold:https://reality.aktualne.cz/detail/cernilov/prodej-domy-rodinny-178-m2-cernilov-hradec-kralove-id-83655-8615505.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/cernilov/prodej-rodinny-dum-124-8622639.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/cernilov/prodej-vicegeneracniho-rodinneho-domu-v-cernilove-8522533.html",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1017413708",
-    "idnes-discovery-used-municipality-slug-fallback",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cernilov/6a2d185bfbc4cb0e2d0f1f96/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cernilov/6a26a478e4df1765f7095e54/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cernilov/6a22af43ae144024110b3cbd/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cernilov/69a95a956e1fa923a50709ca/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/cernilov/67ff3ce331c357df4b01e429/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/cernilov/67ff3e0ded410655c60dea76/"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1017413708"
   ],
   "listings": [
     {

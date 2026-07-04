@@ -24,12 +24,13 @@
     ]
   },
   "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Hajnice."
   ],
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 3,
+    "candidates_gathered": 19,
     "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz"
@@ -37,6 +38,10 @@
     "blocked_portals": []
   },
   "portal_status": {
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
+    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -48,13 +53,89 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hajnice/6a046d71106f9ae3c80ed355/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/hajnice/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/hajnice/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hajnice/69fc50f192c017488b0d10c6/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hajnice/673d971437beb29a9f06be7e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hajnice/69cbcee6853373fc7a0bf441/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hajnice/673d971e5ca759789605078a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hajnice/673d972c9a8da4e2a007f129/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hajnice/672b316c69801a2f940c60a7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hajnice/65f2142c9073c8d6140e8eaa/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -224,98 +305,16 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Hajnice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/hajnice/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/hajnice/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/hajnice/69fc50f192c017488b0d10c6/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hajnice/673d971437beb29a9f06be7e/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hajnice/69cbcee6853373fc7a0bf441/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hajnice/673d971e5ca759789605078a/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hajnice/6a046d71106f9ae3c80ed355/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hajnice/673d972c9a8da4e2a007f129/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hajnice/672b316c69801a2f940c60a7/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hajnice/65f2142c9073c8d6140e8eaa/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
-    "idnes-discovery-missing-locality-id",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/hajnice/69fc50f192c017488b0d10c6/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hajnice/673d971437beb29a9f06be7e/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/hajnice/69cbcee6853373fc7a0bf441/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hajnice/673d971e5ca759789605078a/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hajnice/673d972c9a8da4e2a007f129/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hajnice/672b316c69801a2f940c60a7/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hajnice/65f2142c9073c8d6140e8eaa/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3610-trutnov/kralovehradecky/prodej-pozemky.html",
@@ -327,17 +326,27 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/281679180",
     "stale-detail-fetch:2854006860:Failed to fetch https://www.sreality.cz/api/v1/estates/2854006860: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2915201868",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3782144076",
-    "idnes-discovery-used-municipality-slug-fallback",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/hajnice/69fc50f192c017488b0d10c6/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hajnice/673d971437beb29a9f06be7e/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/hajnice/69cbcee6853373fc7a0bf441/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hajnice/673d971e5ca759789605078a/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hajnice/673d972c9a8da4e2a007f129/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hajnice/672b316c69801a2f940c60a7/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hajnice/65f2142c9073c8d6140e8eaa/"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3782144076"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej, stavební pozemek, Hajnice",
+      "location": "Hajnice, okres Trutnov",
+      "property_type": "land",
+      "price": "5 990 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "3878",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/hajnice/6a046d71106f9ae3c80ed355/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
     {
       "portal": [
         "reality.aktualne.cz"
@@ -373,24 +382,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1286574156",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej, stavební pozemek, Hajnice",
-      "location": "Hajnice, okres Trutnov",
-      "property_type": "land",
-      "price": "5 990 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "3878",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/hajnice/6a046d71106f9ae3c80ed355/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
         "buildable-land"
       ]
     }

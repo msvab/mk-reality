@@ -24,17 +24,22 @@
     ]
   },
   "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Chrudim."
   ],
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 4,
-    "candidates_gathered": 29,
+    "candidates_gathered": 103,
     "rows_retained": 29,
     "zero_result_portals": [],
     "blocked_portals": []
   },
   "portal_status": {
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
+    },
     "realitymix.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified RealityMix row."
@@ -46,13 +51,401 @@
     "sreality.cz": {
       "status": "ok",
       "message": "Retained at least one detail-verified Sreality row."
-    },
-    "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-pod-strani/6a426046431cc9dd2e021d68/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-na-vysluni/63496a10c8f409663c429fbd/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim-pod-kopcem/6a44e8f3f5370ee2670bf3b4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/695b9cde47af0ba7b8036c2b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69df412ec3e25425e5051535/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69de1453b42a69929f07e935/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69dcaaad795e798420037564/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim-na-kopci/673471a52d12f622840e8e9f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69e09d233020eb5f7906be77/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69d8e9eb154b9384a1061d95/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/698ed8b409d2c833ff0c8d9d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69dba4416717e63eaa03ae39/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/chrudim/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/chrudim/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-409910",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-409910",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-malecka/687504d9eff91a176c0b1266/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim/6a45f30b0a296f6983018ee5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim/69ea2eda7a8540c745079045/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim/69ea2cb5f07a2b655908832c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-s-k-neumanna/69b447c33f222877b40ce52a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-na-valech/6a44e5e08cb2863b1e0eacbc/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-v-zahradkach/6a0320af797c6b98ea0bda94/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-gorkeho/69bff8416bf56951ca098f44/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-kozeluzska/6a33e46658208255a30c1a44/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-malecka/6a15bab12bcb0b57a801c641/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-na-kopanici/693c1fdacde6c2a060013278/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-k-presum/6a042be3e27ddc319d028acd/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-svermova/6a364d544c22d855c4015069/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-obce-lezaku/6a02ed19382f69ac570fd69c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim/6a351a0674d3a4b58706c999/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-na-kopanici/6a350ea0535f69d21208318d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-jungmannovo-nabrezi/6a3166dd58941478bf01a78b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/6a3bbbfcd4e46d8adb0a3d8a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/6800d25e486aff05a50e9bf2/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/5fbad4f33ae2ac68cd68ad4a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/6a1d4c55ddbb7b6c7f04c4e7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/695a68d23fa032c39e0d6e0d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69eb2df8e387aeaebf0bb2a5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim-obce-lezaku/68f4b3ceb22edad9680c2477/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/690b474bfa0a40cf340dc494/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim-obce-lezaku/68382ae6c96ced460f03ac44/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69848494bea0645e1605f906/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69675e6ac2652371c4044eed/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/6952297570bea67ff301dc2a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/68f6616f5346cb51c909773a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/68f6583c368e3fb85c0eb854/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/68f623b448d96594700e0534/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim-na-kopci/68c48a3e36ed6b4b540b68bc/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "realitymix.cz",
       "url": "https://realitymix.cz/detail/chrudim/prodej-rodinneho-domu-3-1-a-restaurace-ulice-na-vysluni-chrudim-7843678.html",
@@ -239,6 +632,14 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/chrudim/lesni-pozemek-o-vymere-59-928-m2-podil-1-1-katastralni-uzemi-chrudim-obec-chrudim-obec-s-rozsire-8627761.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/chrudim/prodej-byt-2-1-39-8630243.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -279,14 +680,6 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/chrudim/prodej-byty-2-kk-51-m2-v-hlinikach-1483-53701-chrudim-chrudim-id-84883-8575763.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/chrudim/prodej-domu-185-m-pozemek-458-m-8628699.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -304,6 +697,14 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/chrudim/prodej-rodinne-domy-162-m-chrudim-iv-8337707.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/chrudim/prodej-vyrobniho-a-skladovaciho-prostoru-1784-m2-chrudim-blehovsko-8068411.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -336,14 +737,6 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/chrudim/pronajem-bytu-2-kk-v-hlinikach-chrudim-13000-kc-mes-50-m2-8224137.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/chrudim/pronajem-kancelarskych-prostor-510-m-ulice-prumyslova-chrudim-8275897.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -548,434 +941,10 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Chrudim&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/chrudim/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/chrudim/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim/6a45f30b0a296f6983018ee5/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim/69ea2eda7a8540c745079045/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim/69ea2cb5f07a2b655908832c/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-s-k-neumanna/69b447c33f222877b40ce52a/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-na-valech/6a44e5e08cb2863b1e0eacbc/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-v-zahradkach/6a0320af797c6b98ea0bda94/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-gorkeho/69bff8416bf56951ca098f44/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-kozeluzska/6a33e46658208255a30c1a44/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-pod-strani/6a426046431cc9dd2e021d68/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-malecka/687504d9eff91a176c0b1266/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-malecka/6a15bab12bcb0b57a801c641/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-malecka/6a15b9188550fe53f6060f74/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-na-kopanici/693c1fdacde6c2a060013278/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-na-vysluni/63496a10c8f409663c429fbd/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-k-presum/6a042be3e27ddc319d028acd/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-svermova/6a364d544c22d855c4015069/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-obce-lezaku/6a02ed19382f69ac570fd69c/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim/6a351a0674d3a4b58706c999/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-na-kopanici/6a350ea0535f69d21208318d/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-jungmannovo-nabrezi/6a3166dd58941478bf01a78b/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim-na-kopci/673471a52d12f622840e8e9f/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim-pod-kopcem/6a44e8f3f5370ee2670bf3b4/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/6a3bbbfcd4e46d8adb0a3d8a/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/6800d25e486aff05a50e9bf2/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/5fbad4f33ae2ac68cd68ad4a/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/6a1d4c55ddbb7b6c7f04c4e7/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/695a68d23fa032c39e0d6e0d/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69eb2df8e387aeaebf0bb2a5/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69e09d233020eb5f7906be77/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69df412ec3e25425e5051535/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69de1453b42a69929f07e935/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69dcaaad795e798420037564/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69dba4416717e63eaa03ae39/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69d8e9eb154b9384a1061d95/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim-obce-lezaku/68f4b3ceb22edad9680c2477/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/690b474bfa0a40cf340dc494/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim-obce-lezaku/68382ae6c96ced460f03ac44/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/698ed8b409d2c833ff0c8d9d/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69848494bea0645e1605f906/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69675e6ac2652371c4044eed/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/6952297570bea67ff301dc2a/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/695b9cde47af0ba7b8036c2b/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/68f6616f5346cb51c909773a/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/68f6583c368e3fb85c0eb854/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/68f623b448d96594700e0534/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
-    "idnes-discovery-missing-locality-id",
-    "land-below-threshold:https://realitymix.cz/detail/chrudim/novostavba-rd-4-kk-89-m2-pozemek-402-m2-chrudim-medlesice-8614915.html",
-    "land-below-threshold:https://realitymix.cz/detail/chrudim/prodej-domu-185-m-pozemek-458-m-8628699.html",
-    "land-below-threshold:https://realitymix.cz/detail/chrudim/prodej-domu-5-1-159-m-chrudim-jungmannovo-nabrezi-8625485.html",
-    "land-below-threshold:https://realitymix.cz/detail/chrudim/prodej-nadstandardne-vybaveneho-rodinneho-domu-v-klidne-casti-chrudimi-vlci-hora-8630651.html",
-    "land-below-threshold:https://realitymix.cz/detail/chrudim/prodej-rodinne-domy-162-m-chrudim-iv-8337707.html",
-    "land-below-threshold:https://realitymix.cz/detail/chrudim/prodej-rodinneho-domu-4-1-1-051-m-ul-na-kopanici-chrudim-8474421.html",
-    "land-below-threshold:https://realitymix.cz/detail/chrudim/prodej-rodinneho-domu-97-m-chrudim-8591265.html",
-    "land-below-threshold:https://realitymix.cz/detail/chrudim/prodej-rodinneho-domu-v-chrudimi-ul-obce-lezaku-8488461.html",
-    "land-below-threshold:https://realitymix.cz/detail/chrudim/prodej-rodinny-dum-110-8532777.html",
-    "land-below-threshold:https://realitymix.cz/detail/chrudim/prodej-rodinny-dum-124-8540099.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/chrudim-polyfunkcni-objekt-8636205.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/chrudim-polyfunkcni-objekt-8636221.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/chrudim-polyfunkcni-objekt-8636227.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/prodej-byt-2-1-39-8630243.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/prodej-bytu-2-kk-64-m-8633523.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/prodej-bytu-3-1-66-m2-sladkovskeho-chrudim-8629129.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/prodej-bytu-3-kk-67m2-chrudim-ulice-cs-armady-8631145.html",
-    "outside-municipality:https://reality.aktualne.cz/detail/chrudim/prodej-bytu-3-kk-72-m-v-chrudimi-ul-u-stadionu-8630609.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/prodej-byty-2-kk-51-m2-v-hlinikach-1483-53701-chrudim-chrudim-id-84883-8575763.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/chrudim/prodej-domu-185-m-pozemek-458-m-8628699.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/chrudim/prodej-nadstandardne-vybaveneho-rodinneho-domu-v-klidne-casti-chrudimi-vlci-hora-8630651.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/prodej-rodinne-domy-162-m-chrudim-iv-8337707.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/pronajem-byt-2-1-54-8628707.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/pronajem-byt-2-1-63-8634885.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/pronajem-bytu-2-kk-49-3-m-chrudim-8629885.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/pronajem-bytu-2-kk-v-hlinikach-chrudim-13000-kc-mes-50-m2-8224137.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/pronajem-kancelarskych-prostor-510-m-ulice-prumyslova-chrudim-8275897.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/pronajem-komercni-sklady-861-8633357.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/slunny-byt-s-krasnym-vyhledem-do-krajiny-8631835.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/zemedelska-puda-prodej-chrudim-iv-chrudim-8631957.html",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1003804492",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2085388876",
-    "missing-price:https://www.sreality.cz/api/v1/estates/2233331788",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2421289036",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2718630732",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2844164172",
-    "excluded-chata:https://www.sreality.cz/api/v1/estates/357131084",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4186284108",
-    "missing-price:https://www.sreality.cz/api/v1/estates/927395916",
-    "idnes-discovery-used-municipality-slug-fallback",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim-malecka/687504d9eff91a176c0b1266/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/chrudim/6a45f30b0a296f6983018ee5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim/69ea2eda7a8540c745079045/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim/69ea2cb5f07a2b655908832c/",
@@ -984,9 +953,7 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim-v-zahradkach/6a0320af797c6b98ea0bda94/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim-gorkeho/69bff8416bf56951ca098f44/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim-kozeluzska/6a33e46658208255a30c1a44/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim-malecka/687504d9eff91a176c0b1266/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim-malecka/6a15bab12bcb0b57a801c641/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim-malecka/6a15b9188550fe53f6060f74/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim-na-kopanici/693c1fdacde6c2a060013278/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim-k-presum/6a042be3e27ddc319d028acd/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim-svermova/6a364d544c22d855c4015069/",
@@ -1006,9 +973,298 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/chrudim/6952297570bea67ff301dc2a/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/chrudim/68f6616f5346cb51c909773a/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/chrudim/68f6583c368e3fb85c0eb854/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/chrudim/68f623b448d96594700e0534/"
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/chrudim/68f623b448d96594700e0534/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/chrudim-na-kopci/68c48a3e36ed6b4b540b68bc/",
+    "land-below-threshold:https://realitymix.cz/detail/chrudim/novostavba-rd-4-kk-89-m2-pozemek-402-m2-chrudim-medlesice-8614915.html",
+    "land-below-threshold:https://realitymix.cz/detail/chrudim/prodej-domu-185-m-pozemek-458-m-8628699.html",
+    "land-below-threshold:https://realitymix.cz/detail/chrudim/prodej-domu-5-1-159-m-chrudim-jungmannovo-nabrezi-8625485.html",
+    "land-below-threshold:https://realitymix.cz/detail/chrudim/prodej-nadstandardne-vybaveneho-rodinneho-domu-v-klidne-casti-chrudimi-vlci-hora-8630651.html",
+    "land-below-threshold:https://realitymix.cz/detail/chrudim/prodej-rodinne-domy-162-m-chrudim-iv-8337707.html",
+    "land-below-threshold:https://realitymix.cz/detail/chrudim/prodej-rodinneho-domu-4-1-1-051-m-ul-na-kopanici-chrudim-8474421.html",
+    "land-below-threshold:https://realitymix.cz/detail/chrudim/prodej-rodinneho-domu-97-m-chrudim-8591265.html",
+    "land-below-threshold:https://realitymix.cz/detail/chrudim/prodej-rodinneho-domu-v-chrudimi-ul-obce-lezaku-8488461.html",
+    "land-below-threshold:https://realitymix.cz/detail/chrudim/prodej-rodinny-dum-110-8532777.html",
+    "land-below-threshold:https://realitymix.cz/detail/chrudim/prodej-rodinny-dum-124-8540099.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/chrudim-polyfunkcni-objekt-8636205.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/chrudim-polyfunkcni-objekt-8636221.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/chrudim-polyfunkcni-objekt-8636227.html",
+    "non-buildable-land:https://reality.aktualne.cz/detail/chrudim/lesni-pozemek-o-vymere-59-928-m2-podil-1-1-katastralni-uzemi-chrudim-obec-chrudim-obec-s-rozsire-8627761.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/prodej-byt-2-1-39-8630243.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/prodej-bytu-2-kk-64-m-8633523.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/prodej-bytu-3-1-66-m2-sladkovskeho-chrudim-8629129.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/prodej-bytu-3-kk-67m2-chrudim-ulice-cs-armady-8631145.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/chrudim/prodej-bytu-3-kk-72-m-v-chrudimi-ul-u-stadionu-8630609.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/chrudim/prodej-domu-185-m-pozemek-458-m-8628699.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/chrudim/prodej-nadstandardne-vybaveneho-rodinneho-domu-v-klidne-casti-chrudimi-vlci-hora-8630651.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/prodej-rodinne-domy-162-m-chrudim-iv-8337707.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/prodej-vyrobniho-a-skladovaciho-prostoru-1784-m2-chrudim-blehovsko-8068411.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/pronajem-byt-2-1-54-8628707.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/pronajem-byt-2-1-63-8634885.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/pronajem-bytu-2-kk-49-3-m-chrudim-8629885.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/pronajem-bytu-2-kk-v-hlinikach-chrudim-13000-kc-mes-50-m2-8224137.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/pronajem-komercni-sklady-861-8633357.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/slunny-byt-s-krasnym-vyhledem-do-krajiny-8631835.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/chrudim/zemedelska-puda-prodej-chrudim-iv-chrudim-8631957.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1003804492",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2085388876",
+    "missing-price:https://www.sreality.cz/api/v1/estates/2233331788",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2421289036",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2718630732",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2844164172",
+    "excluded-chata:https://www.sreality.cz/api/v1/estates/357131084",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4186284108",
+    "missing-price:https://www.sreality.cz/api/v1/estates/927395916"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej zemědělské usedlosti v Chrudimi, ul. Pod Strání",
+      "location": "Chrudim, okres Chrudim",
+      "property_type": "house",
+      "price": "25 000 000 Kč",
+      "house_area_m2": "253",
+      "land_area_m2": "9482",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/chrudim-pod-strani/6a426046431cc9dd2e021d68/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu 3+1 a restaurace, ulice Na Výsluní, Chrudim",
+      "location": "Chrudim, okres Chrudim",
+      "property_type": "house",
+      "price": "19 995 000 Kč",
+      "house_area_m2": "140",
+      "land_area_m2": "2514",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/chrudim-na-vysluni/63496a10c8f409663c429fbd/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1056 m² Pod Kopcem, Chrudim",
+      "location": "Chrudim, okres Chrudim",
+      "property_type": "land",
+      "price": "3 900 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1056",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/chrudim-pod-kopcem/6a44e8f3f5370ee2670bf3b4/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1.345 m2, Chrudim",
+      "location": "Chrudim, okres Chrudim",
+      "property_type": "land",
+      "price": "3 490 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1345",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/695b9cde47af0ba7b8036c2b/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1433 m² - Morašice",
+      "location": "Chrudim, okres Chrudim",
+      "property_type": "land",
+      "price": "3 469 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1433",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69df412ec3e25425e5051535/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1465 m² - Morašice",
+      "location": "Chrudim, okres Chrudim",
+      "property_type": "land",
+      "price": "3 469 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1465",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69de1453b42a69929f07e935/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1458 m² - Morašice",
+      "location": "Chrudim, okres Chrudim",
+      "property_type": "land",
+      "price": "3 459 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1458",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69dcaaad795e798420037564/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemky pro bydlení, 1 307 m2 - Chrudim",
+      "location": "Chrudim, okres Chrudim",
+      "property_type": "land",
+      "price": "3 450 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1307",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/chrudim-na-kopci/673471a52d12f622840e8e9f/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1273 m² - Morašice",
+      "location": "Chrudim, okres Chrudim",
+      "property_type": "land",
+      "price": "3 285 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1273",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69e09d233020eb5f7906be77/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1251 m² - Morašice",
+      "location": "Chrudim, okres Chrudim",
+      "property_type": "land",
+      "price": "3 269 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1251",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69d8e9eb154b9384a1061d95/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Stavební - bydlení 1 215 m2",
+      "location": "Chrudim, okres Chrudim",
+      "property_type": "land",
+      "price": "3 219 750 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1215",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/698ed8b409d2c833ff0c8d9d/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1211 m² - Morašice",
+      "location": "Chrudim, okres Chrudim",
+      "property_type": "land",
+      "price": "3 179 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1211",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69dba4416717e63eaa03ae39/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu v Chrudimi - Medlešice",
+      "location": "Chrudim, okres Chrudim",
+      "property_type": "house",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "160",
+      "land_area_m2": "1005",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/chrudim/6a351a0674d3a4b58706c999/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1243 m² - Morašice",
+      "location": "Chrudim, okres Chrudim",
+      "property_type": "land",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1243",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69eb2df8e387aeaebf0bb2a5/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
     {
       "portal": [
         "realitymix.cz"
@@ -1281,255 +1537,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1534681932",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej zemědělské usedlosti v Chrudimi, ul. Pod Strání",
-      "location": "Chrudim, okres Chrudim",
-      "property_type": "house",
-      "price": "25 000 000 Kč",
-      "house_area_m2": "253",
-      "land_area_m2": "9482",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/chrudim-pod-strani/6a426046431cc9dd2e021d68/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej rodinného domu 3+1 a restaurace, ulice Na Výsluní, Chrudim",
-      "location": "Chrudim, okres Chrudim",
-      "property_type": "house",
-      "price": "19 995 000 Kč",
-      "house_area_m2": "140",
-      "land_area_m2": "2514",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/chrudim-na-vysluni/63496a10c8f409663c429fbd/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1056 m² Pod Kopcem, Chrudim",
-      "location": "Chrudim, okres Chrudim",
-      "property_type": "land",
-      "price": "3 900 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1056",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/chrudim-pod-kopcem/6a44e8f3f5370ee2670bf3b4/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1.345 m2, Chrudim",
-      "location": "Chrudim, okres Chrudim",
-      "property_type": "land",
-      "price": "3 490 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1345",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/695b9cde47af0ba7b8036c2b/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1433 m² - Morašice",
-      "location": "Chrudim, okres Chrudim",
-      "property_type": "land",
-      "price": "3 469 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1433",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69df412ec3e25425e5051535/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1465 m² - Morašice",
-      "location": "Chrudim, okres Chrudim",
-      "property_type": "land",
-      "price": "3 469 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1465",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69de1453b42a69929f07e935/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1458 m² - Morašice",
-      "location": "Chrudim, okres Chrudim",
-      "property_type": "land",
-      "price": "3 459 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1458",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69dcaaad795e798420037564/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej pozemky pro bydlení, 1 307 m2 - Chrudim",
-      "location": "Chrudim, okres Chrudim",
-      "property_type": "land",
-      "price": "3 450 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1307",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/chrudim-na-kopci/673471a52d12f622840e8e9f/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1273 m² - Morašice",
-      "location": "Chrudim, okres Chrudim",
-      "property_type": "land",
-      "price": "3 285 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1273",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69e09d233020eb5f7906be77/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1251 m² - Morašice",
-      "location": "Chrudim, okres Chrudim",
-      "property_type": "land",
-      "price": "3 269 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1251",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69d8e9eb154b9384a1061d95/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Stavební - bydlení 1 215 m2",
-      "location": "Chrudim, okres Chrudim",
-      "property_type": "land",
-      "price": "3 219 750 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1215",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/698ed8b409d2c833ff0c8d9d/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1211 m² - Morašice",
-      "location": "Chrudim, okres Chrudim",
-      "property_type": "land",
-      "price": "3 179 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1211",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69dba4416717e63eaa03ae39/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej rodinného domu v Chrudimi - Medlešice",
-      "location": "Chrudim, okres Chrudim",
-      "property_type": "house",
-      "price": "Cena na vyžádání",
-      "house_area_m2": "160",
-      "land_area_m2": "1005",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/chrudim/6a351a0674d3a4b58706c999/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1243 m² - Morašice",
-      "location": "Chrudim, okres Chrudim",
-      "property_type": "land",
-      "price": "Cena na vyžádání",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1243",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69eb2df8e387aeaebf0bb2a5/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
         "buildable-land"
       ]
     }

@@ -24,12 +24,13 @@
     ]
   },
   "assumptions": [
+    "local-first cached detail verification was used; cached iDNES, RealityMix, Reality Aktuálně, and Sreality rows were refreshed where supported.",
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Provodov-Šonov."
   ],
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 1,
-    "candidates_gathered": 2,
+    "candidates_gathered": 12,
     "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
@@ -39,6 +40,10 @@
     "blocked_portals": []
   },
   "portal_status": {
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
+    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -50,13 +55,65 @@
     "sreality.cz": {
       "status": "no_results",
       "message": "No retained in-scope Sreality rows."
-    },
-    "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/provodov-sonov/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/provodov-sonov/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/provodov-sonov/69e0a54e2dd614fd9c08d832/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/provodov-sonov/6a0c30f6f07362740809bc1f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/provodov-sonov/69c03115f4425b375f045e52/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/provodov-sonov/690b2f31ad28ea96840ef270/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -138,14 +195,6 @@
       "http_status": 200
     },
     {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/provodov-sonov/zemedelska-puda-prodej-kleny-provodov-sonov-nachod-8585787.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Provodov-%C5%A0onov&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
       "stage": "locality_suggest",
@@ -165,14 +214,6 @@
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2512&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
       "stage": "land_search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/2115346508",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -200,74 +241,12 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Provodov-%C5%A0onov&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/provodov-sonov/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/provodov-sonov/",
-      "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/zdarky/6a421bc0876cb8910c0d6c32/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/provodov-sonov/69e0a54e2dd614fd9c08d832/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/provodov-sonov/6a0c30f6f07362740809bc1f/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/provodov-sonov/69c03115f4425b375f045e52/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/provodov-sonov/690b2f31ad28ea96840ef270/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
-    "idnes-discovery-missing-locality-id",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/provodov-sonov/69e0a54e2dd614fd9c08d832/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/provodov-sonov/690b2f31ad28ea96840ef270/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",
@@ -276,15 +255,9 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/provodov-sonov/prodej-pole-6017-m-provodov-sonov-8054978.html",
     "outside-municipality:https://reality.aktualne.cz/detail/provodov-sonov/prodej-pozemku-k-bydleni-v-provodove-sonove-8540089.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/provodov-sonov/prodej-rodinneho-domu-100-m-provodov-sonov-8565227.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/provodov-sonov/zemedelska-puda-prodej-kleny-provodov-sonov-nachod-8585787.html",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2115346508",
     "missing-price:https://www.sreality.cz/api/v1/estates/2179174476",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3671143244",
-    "missing-price:https://www.sreality.cz/api/v1/estates/580404044",
-    "idnes-discovery-used-municipality-slug-fallback",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/zdarky/6a421bc0876cb8910c0d6c32/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/provodov-sonov/69e0a54e2dd614fd9c08d832/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/provodov-sonov/690b2f31ad28ea96840ef270/"
+    "missing-price:https://www.sreality.cz/api/v1/estates/580404044"
   ],
   "listings": [
     {
