@@ -41,10 +41,19 @@ def test_hk_drawer_scrolls_without_gaps_text() -> None:
         changes = page.locator("#ads-changes")
         changes.wait_for(state="visible")
         assert "Změny v inzerátech" in changes.inner_text()
+        assert page.locator("#ads-changes-body").is_hidden()
 
         page.locator('[data-change-filter="price"]').click()
         price_change_count = int(page.locator("#ads-changes-count-price").inner_text())
         assert price_change_count > 0
+        assert page.locator(".ads-changes-item").count() > 0
+        assert page.locator('[data-change-filter="price"]').get_attribute("aria-expanded") == "true"
+
+        page.locator('[data-change-filter="price"]').click()
+        assert page.locator("#ads-changes-body").is_hidden()
+        assert page.locator('[data-change-filter="price"]').get_attribute("aria-expanded") == "false"
+
+        page.locator('[data-change-filter="price"]').click()
         assert page.locator(".ads-changes-item").count() > 0
 
         first_changed_button = page.locator(".ads-changes-city").first

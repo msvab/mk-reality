@@ -277,7 +277,7 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
           const changesBody = document.getElementById("ads-changes-body");
           const changeTabs = Array.from(document.querySelectorAll(".ads-changes-tab"));
           let currentBundle = null;
-          let currentChangeFilter = "new";
+          let currentChangeFilter = null;
 
           const escapeHtml = (value) => String(value ?? "—")
             .replace(/&/g, "&amp;")
@@ -412,14 +412,31 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
             document.getElementById("ads-changes-count-price").textContent = rows.price.length;
             document.getElementById("ads-changes-count-hidden").textContent = rows.hidden.length;
             changesPanel.hidden = false;
-            if (total === 0) currentChangeFilter = "price";
-            renderChangeRows(rows, currentChangeFilter);
+            changesBody.hidden = true;
+            changesSummary.textContent = total
+              ? "Kliknutím na štítek zobrazíte detail změn."
+              : "Žádné změny od poslední aktualizace.";
             changeTabs.forEach((tab) => {{
-              tab.classList.toggle("ads-changes-tab-active", tab.dataset.changeFilter === currentChangeFilter);
+              tab.classList.remove("ads-changes-tab-active");
+              tab.setAttribute("aria-expanded", "false");
               tab.onclick = () => {{
-                currentChangeFilter = tab.dataset.changeFilter || "new";
-                changeTabs.forEach((item) => item.classList.toggle("ads-changes-tab-active", item === tab));
-                renderChangeRows(rows, currentChangeFilter);
+                const nextFilter = tab.dataset.changeFilter || "new";
+                const collapse = currentChangeFilter === nextFilter && !changesBody.hidden;
+                currentChangeFilter = collapse ? null : nextFilter;
+                changesBody.hidden = collapse;
+                changeTabs.forEach((item) => {{
+                  const active = !collapse && item === tab;
+                  item.classList.toggle("ads-changes-tab-active", active);
+                  item.setAttribute("aria-expanded", active ? "true" : "false");
+                }});
+                if (collapse) {{
+                  changesSummary.textContent = total
+                    ? "Kliknutím na štítek zobrazíte detail změn."
+                    : "Žádné změny od poslední aktualizace.";
+                  changesBody.innerHTML = "";
+                }} else {{
+                  renderChangeRows(rows, currentChangeFilter);
+                }}
               }};
             }});
             changesBody.addEventListener("click", (event) => {{
@@ -1607,12 +1624,12 @@ def render_html(rows: list[dict]) -> str:
             <p id="ads-changes-summary">Přehled změn od poslední aktualizace.</p>
           </div>
           <div class="ads-changes-tabs" role="tablist" aria-label="Změny v inzerátech">
-            <button type="button" class="ads-changes-tab ads-changes-tab-active" data-change-filter="new">Nové <span id="ads-changes-count-new">0</span></button>
-            <button type="button" class="ads-changes-tab" data-change-filter="price">Změny cen <span id="ads-changes-count-price">0</span></button>
-            <button type="button" class="ads-changes-tab" data-change-filter="hidden">Skryté <span id="ads-changes-count-hidden">0</span></button>
+            <button type="button" class="ads-changes-tab" data-change-filter="new" aria-expanded="false">Nové <span id="ads-changes-count-new">0</span></button>
+            <button type="button" class="ads-changes-tab" data-change-filter="price" aria-expanded="false">Změny cen <span id="ads-changes-count-price">0</span></button>
+            <button type="button" class="ads-changes-tab" data-change-filter="hidden" aria-expanded="false">Skryté <span id="ads-changes-count-hidden">0</span></button>
           </div>
         </div>
-        <div class="ads-changes-body" id="ads-changes-body"></div>
+        <div class="ads-changes-body" id="ads-changes-body" hidden></div>
       </section>
       <table>
         <thead>
