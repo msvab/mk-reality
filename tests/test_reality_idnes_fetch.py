@@ -229,3 +229,31 @@ def test_idnes_discovery_falls_back_to_municipality_slug_when_autocomplete_is_em
     assert ("search_fetch", "https://reality.idnes.cz/s/prodej/domy/pardubice/") in fetched_urls
     assert ("search_fetch", "https://reality.idnes.cz/s/prodej/pozemky/pardubice/") in fetched_urls
     assert "idnes-discovery-used-municipality-slug-fallback" in payload["gaps"]
+
+
+def test_idnes_detail_fetch_error_is_nonfatal_gap(monkeypatch):
+    module = load_reality_idnes_fetch()
+    detail_url = "https://reality.idnes.cz/detail/prodej/dum/dobra-voda-u-horic/example/"
+
+    def fake_fetch(url, *, attempts=None, stage="fetch"):
+        assert url == detail_url
+        if attempts is not None:
+            module.append_fetch_attempt(
+                attempts,
+                url=url,
+                stage=stage,
+                attempt=1,
+                status="fetch_error",
+                error="curl exited with 56",
+            )
+        raise RuntimeError("curl exited with 56")
+
+    monkeypatch.setattr(module, "run_fetch", fake_fetch)
+
+    payload = module.build_output("Dobrá Voda u Hořic", "municipality_only", [detail_url])
+
+    assert payload["listings"] == []
+    assert payload["coverage"]["blocked_portals"] == []
+    assert payload["portal_status"]["reality.idnes.cz"]["status"] == "fetch_error"
+    assert payload["portal_status"]["reality.idnes.cz"]["stage"] == "detail_fetch"
+    assert payload["gaps"] == [f"failed-detail-fetch:{detail_url}:curl exited with 56"]

@@ -379,7 +379,6 @@ def build_output(
                 fetched_detail_html[detail_url] = html
         except RuntimeError as exc:
             gaps.append(f"failed-detail-fetch:{detail_url}:{exc}")
-            coverage["blocked_portals"].append(f"reality.idnes.cz detail fetch failed: {detail_url}: {exc}")
             return
         remember_locality_ids(html)
         listing, reason = listing_from_detail(detail_url, html, municipality)
