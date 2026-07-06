@@ -314,6 +314,27 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
             return `${{Number(match[3])}}. ${{Number(match[2])}}. ${{match[1]}} ${{match[4]}}:${{match[5]}}`;
           }};
           const numericValue = (value) => Number.isFinite(Number(value)) ? Number(value) : null;
+          const normalizeIdentityPart = (value) => String(value || "")
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\\u0300-\\u036f]/g, "")
+            .replace(/\\s+/g, " ")
+            .trim();
+          const adIdentityKeys = (ad) => {{
+            const keys = [];
+            for (const url of (Array.isArray(ad.urls) ? ad.urls : [])) {{
+              if (url) keys.push(`url:${{String(url).split("?")[0].split("#")[0]}}`);
+            }}
+            keys.push([
+              "shape",
+              normalizeIdentityPart(ad.title),
+              normalizeIdentityPart(ad.location),
+              normalizeIdentityPart(ad.property_type),
+              displayValue(ad.land_area_m2),
+              displayValue(ad.house_area_m2),
+            ].join("|"));
+            return keys;
+          }};
           const priceValues = (ad) => (Array.isArray(ad.price_history) ? ad.price_history : [])
             .map((entry) => numericValue(entry?.price_czk))
             .filter((value) => value !== null);
@@ -361,12 +382,17 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
           const changeRows = () => {{
             const rows = {{ new: [], price: [], hidden: [] }};
             for (const [city, bundle] of Object.entries(adsByCity)) {{
+              const hiddenKeys = new Set();
+              for (const ad of (bundle.hidden_ads || [])) {{
+                if (!isHiddenListing(ad, bundle)) continue;
+                rows.hidden.push({{ city, ad, bundle }});
+                adIdentityKeys(ad).forEach((key) => hiddenKeys.add(key));
+              }}
               for (const ad of (bundle.ads || [])) {{
                 if (isNewListing(ad, bundle)) rows.new.push({{ city, ad, bundle }});
-                if (hasPriceChanged(ad)) rows.price.push({{ city, ad, bundle, priceChange: latestPriceHistory(ad) }});
-              }}
-              for (const ad of (bundle.hidden_ads || [])) {{
-                if (isHiddenListing(ad, bundle)) rows.hidden.push({{ city, ad, bundle }});
+                if (hasPriceChanged(ad) && !adIdentityKeys(ad).some((key) => hiddenKeys.has(key))) {{
+                  rows.price.push({{ city, ad, bundle, priceChange: latestPriceHistory(ad) }});
+                }}
               }}
             }}
             rows.new.sort((a, b) => String(b.ad.first_seen_at || "").localeCompare(String(a.ad.first_seen_at || "")));

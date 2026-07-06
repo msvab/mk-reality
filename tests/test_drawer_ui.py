@@ -55,6 +55,14 @@ def test_hk_drawer_scrolls_without_gaps_text() -> None:
 
         page.locator('[data-change-filter="price"]').click()
         assert page.locator(".ads-changes-item").count() > 0
+        assert "Prodej stavebního pozemku 1520" not in page.locator("#ads-changes-body").inner_text()
+
+        page.locator('[data-change-filter="hidden"]').click()
+        hidden_text = page.locator("#ads-changes-body").inner_text()
+        assert "Prodej stavebního pozemku 1520" in hidden_text
+
+        page.locator('[data-change-filter="price"]').click()
+        assert page.locator(".ads-changes-item").count() > 0
 
         first_changed_button = page.locator(".ads-changes-city").first
         first_changed_city = first_changed_button.inner_text()
