@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 1,
-    "candidates_gathered": 13,
+    "candidates_gathered": 15,
     "rows_retained": 1,
     "zero_result_portals": [
       "reality.idnes.cz",
@@ -70,6 +70,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/bila-tremesna/",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/bila-tremesna/6a4ab04c50210686c503f3d6/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -149,6 +157,14 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/bila-tremesna/prodej-pozemku-k-bydleni-1448-m-bila-tremesna-7740894.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/bila-tremesna/prodej-rodinneho-domu-3-1-95-m2-bila-tremesna-8639921.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -236,6 +252,7 @@
     }
   ],
   "gaps": [
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/bila-tremesna/6a4ab04c50210686c503f3d6/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/bila-tremesna/69b406b6c3a26cf80301a10d/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/bila-tremesna/68c49af85908f2791f0a9563/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/bila-tremesna/6a01dae50f7772b58900e8bd/",
@@ -244,6 +261,7 @@
     "missing-page-url:land",
     "unsupported-property-type:https://reality.aktualne.cz/detail/bila-tremesna/prodej-pozemku-12-667-m-bila-tremesna-8589907.html",
     "non-buildable-land:https://reality.aktualne.cz/detail/bila-tremesna/prodej-pozemku-k-bydleni-1448-m-bila-tremesna-7740894.html",
+    "land-below-threshold:https://reality.aktualne.cz/detail/bila-tremesna/prodej-rodinneho-domu-3-1-95-m2-bila-tremesna-8639921.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/bila-tremesna/prodej-rodinneho-domu-v-bile-tremesne-8462861.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/bila-tremesna/prodej-vyrobniho-prostoru-4-100-m-bila-tremesna-8548323.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2639721292",
