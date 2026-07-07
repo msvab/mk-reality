@@ -3,6 +3,59 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 
 
+def inject_duplicate_change_fixture(page) -> None:
+    page.evaluate(
+        """
+        () => {
+            window.adsByCityForTest["Testovací změny"] = {
+                generated_at: "2026-07-07T09:00:00+0000",
+                count: 1,
+                ads: [
+                    {
+                        portal: ["sreality.cz"],
+                        title: "Synthetic duplicate category listing",
+                        location: "Testovací změny",
+                        property_type: "land",
+                        price: "2 000 000 Kč",
+                        price_czk: 2000000,
+                        house_area_m2: null,
+                        land_area_m2: 1500,
+                        urls: ["https://example.test/listing/duplicate-category"],
+                        first_seen_at: "2026-07-06T09:00:00+0000",
+                        last_seen_at: "2026-07-07T09:00:00+0000",
+                        price_history: [
+                            {seen_at: "2026-07-06T09:00:00+0000", price: "1 900 000 Kč", price_czk: 1900000},
+                            {seen_at: "2026-07-07T09:00:00+0000", price: "2 000 000 Kč", price_czk: 2000000},
+                        ],
+                    },
+                ],
+                hidden_ads: [
+                    {
+                        portal: ["sreality.cz"],
+                        title: "Synthetic duplicate category listing",
+                        location: "Testovací změny",
+                        property_type: "land",
+                        price: "1 900 000 Kč",
+                        price_czk: 1900000,
+                        house_area_m2: null,
+                        land_area_m2: 1500,
+                        urls: ["https://example.test/listing/duplicate-category"],
+                        first_seen_at: "2026-07-06T09:00:00+0000",
+                        last_seen_at: "2026-07-06T09:00:00+0000",
+                        hidden_at: "2026-07-07T09:00:00+0000",
+                        price_history: [
+                            {seen_at: "2026-07-06T09:00:00+0000", price: "1 900 000 Kč", price_czk: 1900000},
+                        ],
+                    },
+                ],
+                portal_status: {"sreality.cz": {status: "ok"}},
+            };
+            window.renderAdsChangesPanelForTest();
+        }
+        """
+    )
+
+
 def city_with_badge_candidate(page, badge_type: str) -> str | None:
     return page.evaluate(
         """
@@ -38,6 +91,7 @@ def test_hk_drawer_scrolls_without_gaps_text() -> None:
         browser = playwright.chromium.launch()
         page = browser.new_page(viewport={"width": 1280, "height": 720})
         page.goto(page_path.as_uri())
+        inject_duplicate_change_fixture(page)
         changes = page.locator("#ads-changes")
         changes.wait_for(state="visible")
         assert "Změny v inzerátech" in changes.inner_text()
@@ -55,11 +109,11 @@ def test_hk_drawer_scrolls_without_gaps_text() -> None:
 
         page.locator('[data-change-filter="price"]').click()
         assert page.locator(".ads-changes-item").count() > 0
-        assert "Prodej stavebního pozemku 1520" not in page.locator("#ads-changes-body").inner_text()
+        assert "Synthetic duplicate category listing" not in page.locator("#ads-changes-body").inner_text()
 
         page.locator('[data-change-filter="hidden"]').click()
         hidden_text = page.locator("#ads-changes-body").inner_text()
-        assert "Prodej stavebního pozemku 1520" in hidden_text
+        assert "Synthetic duplicate category listing" in hidden_text
 
         page.locator('[data-change-filter="price"]').click()
         assert page.locator(".ads-changes-item").count() > 0

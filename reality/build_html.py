@@ -263,6 +263,7 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
           const dataNode = document.getElementById("ads-by-city-data");
           if (!dataNode) return;
           const adsByCity = JSON.parse(dataNode.textContent || "{{}}");
+          window.adsByCityForTest = adsByCity;
           const drawer = document.getElementById("ads-drawer");
           const backdrop = document.getElementById("ads-drawer-backdrop");
           const closeButton = document.getElementById("ads-drawer-close");
@@ -609,6 +610,7 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
               closeDrawer();
             }}
           }});
+          window.renderAdsChangesPanelForTest = renderChangesPanel;
           renderChangesPanel();
         }})();
       </script>

@@ -76,7 +76,7 @@
     </head>
     <body>
       <h1>Kde bydlet?</h1>
-      <p>Zdroj dat: OpenStreetMap (obce/školy/populace) + OSRM routing. Vygenerováno dne 2026-07-06. Záznamů: 109.</p>
+      <p>Zdroj dat: OpenStreetMap (obce/školy/populace) + OSRM routing. Vygenerováno dne 2026-07-07. Záznamů: 109.</p>
       <section class="ads-changes" id="ads-changes" hidden>
         <div class="ads-changes-header">
           <div>
@@ -152,6 +152,7 @@
           const dataNode = document.getElementById("ads-by-city-data");
           if (!dataNode) return;
           const adsByCity = JSON.parse(dataNode.textContent || "{}");
+          window.adsByCityForTest = adsByCity;
           const drawer = document.getElementById("ads-drawer");
           const backdrop = document.getElementById("ads-drawer-backdrop");
           const closeButton = document.getElementById("ads-drawer-close");
@@ -498,6 +499,7 @@
               closeDrawer();
             }
           });
+          window.renderAdsChangesPanelForTest = renderChangesPanel;
           renderChangesPanel();
         })();
       </script>
