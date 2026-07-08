@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 29,
-    "rows_retained": 7,
+    "rows_retained": 5,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -349,8 +349,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/2064503628",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2064503628",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -399,8 +409,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/315188044",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/315188044",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -436,8 +456,10 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/horice/prodej-komercni-nemovitosti-horice-v-podkrkonosi-8495613.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/horice/prodej-prostorneho-rodinneho-domu-4-1-se-zahradou-a-garazi-v-horicich-8630773.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/horice/prodej-rodinneho-domu-v-obci-horice-pozemek-1046m2-8536779.html",
+    "stale-detail-fetch:2064503628:Failed to fetch https://www.sreality.cz/api/v1/estates/2064503628: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/2267869260",
     "stale-detail-fetch:2330570828:Failed to fetch https://www.sreality.cz/api/v1/estates/2330570828: HTTP 404",
+    "stale-detail-fetch:315188044:Failed to fetch https://www.sreality.cz/api/v1/estates/315188044: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/997949516"
   ],
   "listings": [
@@ -499,24 +521,6 @@
       "portal": [
         "sreality.cz"
       ],
-      "title": "Prodej rodinného domu 520 m², pozemek 1389 m²",
-      "location": "Hořice, Maixnerova, Jičín",
-      "property_type": "house",
-      "price": "12 700 000 Kč",
-      "house_area_m2": "520",
-      "land_area_m2": "1389",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/horice-maixnerova/2064503628"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2064503628"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
       "title": "Prodej rodinného domu 115 m², pozemek 2115 m²",
       "location": "Hořice, Jičín",
       "property_type": "house",
@@ -529,24 +533,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1354010700"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 207 m², pozemek 2549 m²",
-      "location": "Hořice, Palackého náměstí, Jičín",
-      "property_type": "house",
-      "price": "6 580 000 Kč",
-      "house_area_m2": "207",
-      "land_area_m2": "2549",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/horice-palackeho-namesti/315188044"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/315188044"
       ]
     },
     {

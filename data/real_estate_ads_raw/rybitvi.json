@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 1,
-    "candidates_gathered": 12,
+    "candidates_gathered": 14,
     "rows_retained": 1,
     "zero_result_portals": [
       "reality.idnes.cz",
@@ -76,7 +76,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/brehy-bahnikova/68e394efe58f07a3ee06d039/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -100,7 +100,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/bukovina-nad-labem/69f349e16d240979da07b0e4/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rybitvi/6a4df4f047f20423fc0c3bb5/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -158,6 +158,14 @@
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Rybitv%C3%AD&form%5Bcena_mena%5D=1",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/rybitvi/prodej-lesnich-pozemku-a-orne-pudy-v-k-u-rybitvi-8575781.html",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -225,22 +233,32 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/539926604",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/brehy-bahnikova/68e394efe58f07a3ee06d039/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/rybitvi-capkova/685e5b58bf687c052a05601a/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/rybitvi/6a186127ea826d00400edf9b/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/bukovina-nad-labem/69f349e16d240979da07b0e4/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/rybitvi/6a4df4f047f20423fc0c3bb5/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/rybitvi/69aeca831904588d470cb3f5/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/rybitvi/69d660e205aca68d6f032f0c/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/rybitvi/68c91be55eb9a651860e7916/",
     "missing-page-url:house",
     "missing-page-url:land",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/rybitvi/prodej-lesnich-pozemku-a-orne-pudy-v-k-u-rybitvi-8575781.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/rybitvi/prodej-pozemky-zahrada-185-m2-rybitvi-pardubice-id-75855-8389825.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/rybitvi/prodej-rodinneho-domu-85-m-rybitvi-ul-capkova-8324475.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/rybitvi/prodej-zahrady-v-rybitvi-8589969.html",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/526148684"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/526148684",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/539926604"
   ],
   "listings": [
     {

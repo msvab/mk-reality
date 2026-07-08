@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 33,
-    "rows_retained": 6,
+    "rows_retained": 5,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -162,6 +162,22 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/broumov/hledate-podnajem-v-nove-zrekonstruovanem-byte-v-centru-mesta-broumova-8640997.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/broumov/podnajem-nove-zrekonstruovaneho-bytu-2-kk-na-mirovem-namesti-v-broumove-8640999.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/broumov/prodej-bytoveho-domu-broumov-8549681.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -242,14 +258,6 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/broumov/prodej-pozemku-k-bydleni-v-broumove-ul-solidarity-8235117.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/broumov/prodej-rodinneho-domu-312-m-broumov-olivetin-8586973.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -267,14 +275,6 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/broumov/prodej-rodinneho-domu-v-malibu-8589983.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/broumov/prodej-rodinny-dum-115-8335959.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -407,8 +407,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3455648588",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3455648588",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -465,6 +475,8 @@
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/broumov/",
     "missing-page-url:house",
     "missing-page-url:land",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/broumov/hledate-podnajem-v-nove-zrekonstruovanem-byte-v-centru-mesta-broumova-8640997.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/broumov/podnajem-nove-zrekonstruovaneho-bytu-2-kk-na-mirovem-namesti-v-broumove-8640999.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/broumov/prodej-bytoveho-domu-broumov-8549681.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/broumov/prodej-bytoveho-domu-broumov-8553343.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/broumov/prodej-bytu-3-1-53-m-broumov-ul-dukelska-8507155.html",
@@ -472,11 +484,9 @@
     "land-below-threshold:https://reality.aktualne.cz/detail/broumov/prodej-cinzovniho-domu-broumov-8604475.html",
     "outside-municipality:https://reality.aktualne.cz/detail/broumov/prodej-domu-82-m-pozemek-589-m-8576427.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/broumov/prodej-druzstevniho-bytu-4-1-83m2-balkon-sklep-broumov-8610753.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/broumov/prodej-pozemku-k-bydleni-v-broumove-ul-solidarity-8235117.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/broumov/prodej-rodinneho-domu-312-m-broumov-olivetin-8586973.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/broumov/prodej-rodinneho-domu-broumov-ul-na-prikopech-8427795.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/broumov/prodej-rodinneho-domu-v-malibu-8589983.html",
-    "outside-municipality:https://reality.aktualne.cz/detail/broumov/prodej-rodinny-dum-115-8335959.html",
     "outside-municipality:https://reality.aktualne.cz/detail/broumov/prodej-stavebniho-pozemku-3-146-m2-8618669.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/broumov/pronajem-podkrovniho-bytu-3-1-broumov-8503771.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/broumov/pronajem-zahrady-206-m-broumov-ul-dukelska-8498575.html",
@@ -488,6 +498,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3022291020",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3121516620",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3365487436",
+    "stale-detail-fetch:3455648588:Failed to fetch https://www.sreality.cz/api/v1/estates/3455648588: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3721114444",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3844399948",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4032200780",
@@ -566,25 +577,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/479228492",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1398 m²",
-      "location": "Broumov, Šaldova, Náchod",
-      "property_type": "land",
-      "price": "1 290 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1398",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/broumov-saldova/3455648588"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3455648588",
         "buildable-land"
       ]
     },
