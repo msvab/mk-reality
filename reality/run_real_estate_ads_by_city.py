@@ -27,8 +27,41 @@ LOCAL_FETCHERS = {
     "sreality.cz": Path(".codex/skills/find-real-estate-ads/scripts/sreality_fetch.py"),
 }
 SUPPORTED_PORTALS = tuple(LOCAL_FETCHERS)
+REALITY_IDNES_PORTAL = "reality.idnes.cz"
+REALITY_IDNES_CIRCUIT_BREAKER_THRESHOLD = 3
 
 STOP_REQUESTED = False
+
+
+class LocalFetcherBlockedError(RuntimeError):
+    def __init__(self, portal: str, blocked_portals: list[str]) -> None:
+        self.portal = portal
+        self.blocked_portals = blocked_portals
+        super().__init__(f"{portal} local fetch reported blocked or failed requests: {blocked_portals}")
+
+
+class ProviderCircuitBreaker:
+    def __init__(self, threshold: int = REALITY_IDNES_CIRCUIT_BREAKER_THRESHOLD) -> None:
+        self.threshold = threshold
+        self.disabled_portals: set[str] = set()
+        self.consecutive_failures: dict[str, int] = {}
+
+    def effective_local_portals(self, local_portals: set[str] | None) -> set[str]:
+        portals = set(local_portals) if local_portals is not None else set(SUPPORTED_PORTALS)
+        return portals - self.disabled_portals
+
+    def record_success(self, portal: str) -> None:
+        self.consecutive_failures.pop(portal, None)
+
+    def record_failure(self, exc: LocalFetcherBlockedError) -> bool:
+        if exc.portal != REALITY_IDNES_PORTAL:
+            return False
+        count = self.consecutive_failures.get(exc.portal, 0) + 1
+        self.consecutive_failures[exc.portal] = count
+        if count >= self.threshold:
+            self.disabled_portals.add(exc.portal)
+            return True
+        return False
 
 
 def request_stop(_signum, _frame) -> None:
@@ -506,7 +539,7 @@ def run_local_fetchers(
             coverage = payload.get("coverage", {})
             blocked_portals = coverage.get("blocked_portals", []) if isinstance(coverage, dict) else []
             if blocked_portals:
-                raise RuntimeError(f"{portal} local fetch reported blocked or failed requests: {blocked_portals}")
+                raise LocalFetcherBlockedError(portal, blocked_portals)
             payloads.append(payload)
 
     if not payloads:
@@ -808,6 +841,7 @@ def main() -> None:
     completed_cities = []
     refreshed_cities = []
     pending_cities = []
+    circuit_breaker = ProviderCircuitBreaker()
 
     for city in all_cities:
         output_path = raw_dir / f"{slugify_city(city)}.json"
@@ -861,21 +895,56 @@ def main() -> None:
             try:
                 used_local_fetchers = False
                 if use_local_fetchers:
-                    try:
-                        used_local_fetchers = run_local_fetchers(
-                            city,
-                            repo_root,
-                            output_path,
-                            previous_aggregate,
-                            local_portals=local_portals,
-                            merge_local_results=args.merge_local_results,
+                    retry_local_portals = None
+                    while True:
+                        effective_local_portals = (
+                            retry_local_portals
+                            if retry_local_portals is not None
+                            else circuit_breaker.effective_local_portals(local_portals)
                         )
-                        if used_local_fetchers:
-                            print(f"  used local cached-detail fetchers for {city}", flush=True)
-                    except Exception as local_exc:
-                        if args.local_only:
-                            raise RuntimeError(f"local fetchers failed for {city}: {local_exc}") from local_exc
-                        print(f"  local fetchers failed for {city}: {local_exc}; falling back to Codex", flush=True)
+                        try:
+                            used_local_fetchers = run_local_fetchers(
+                                city,
+                                repo_root,
+                                output_path,
+                                previous_aggregate,
+                                local_portals=effective_local_portals,
+                                merge_local_results=args.merge_local_results,
+                            )
+                            if REALITY_IDNES_PORTAL in effective_local_portals:
+                                circuit_breaker.record_success(REALITY_IDNES_PORTAL)
+                            if used_local_fetchers:
+                                print(f"  used local cached-detail fetchers for {city}", flush=True)
+                            break
+                        except LocalFetcherBlockedError as local_exc:
+                            disabled_now = circuit_breaker.record_failure(local_exc)
+                            can_retry_without_portal = local_exc.portal == REALITY_IDNES_PORTAL and len(effective_local_portals) > 1
+                            if can_retry_without_portal:
+                                retry_local_portals = set(effective_local_portals) - {local_exc.portal}
+                                if disabled_now:
+                                    print(
+                                        f"  disabled {local_exc.portal} for rest of run after "
+                                        f"{circuit_breaker.threshold} consecutive failures; retrying {city} without it",
+                                        flush=True,
+                                    )
+                                else:
+                                    consecutive_failures = circuit_breaker.consecutive_failures.get(local_exc.portal, 0)
+                                    print(
+                                        f"  {local_exc.portal} failed "
+                                        f"({consecutive_failures}/{circuit_breaker.threshold}); "
+                                        f"retrying {city} without it",
+                                        flush=True,
+                                    )
+                                continue
+                            if args.local_only:
+                                raise RuntimeError(f"local fetchers failed for {city}: {local_exc}") from local_exc
+                            print(f"  local fetchers failed for {city}: {local_exc}; falling back to Codex", flush=True)
+                            break
+                        except Exception as local_exc:
+                            if args.local_only:
+                                raise RuntimeError(f"local fetchers failed for {city}: {local_exc}") from local_exc
+                            print(f"  local fetchers failed for {city}: {local_exc}; falling back to Codex", flush=True)
+                            break
                 if not used_local_fetchers:
                     if args.local_only:
                         raise RuntimeError(f"local-only requested but no cached detail URLs were verified for {city}")

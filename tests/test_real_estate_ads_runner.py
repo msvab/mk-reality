@@ -2,6 +2,9 @@ import json
 import subprocess
 
 from reality.run_real_estate_ads_by_city import (
+    REALITY_IDNES_PORTAL,
+    LocalFetcherBlockedError,
+    ProviderCircuitBreaker,
     build_prompt,
     cached_ads_for_prompt,
     cached_detail_urls_by_portal,
@@ -32,6 +35,40 @@ def test_daily_refresh_guard_is_per_municipality():
 
     assert daily_refresh_city_completed_today(state, "Opočno", today="2026-06-05")
     assert not daily_refresh_city_completed_today(state, "Nové Město nad Metují", today="2026-06-05")
+
+
+def test_idnes_circuit_breaker_disables_after_consecutive_failures():
+    breaker = ProviderCircuitBreaker(threshold=3)
+    portals = {"reality.idnes.cz", "realitymix.cz", "sreality.cz"}
+
+    first = LocalFetcherBlockedError(REALITY_IDNES_PORTAL, ["curl exited with 56"])
+    second = LocalFetcherBlockedError(REALITY_IDNES_PORTAL, ["HTTP 500"])
+    third = LocalFetcherBlockedError(REALITY_IDNES_PORTAL, ["curl exited with 56"])
+
+    assert not breaker.record_failure(first)
+    assert breaker.effective_local_portals(portals) == portals
+    assert not breaker.record_failure(second)
+    assert breaker.effective_local_portals(portals) == portals
+    assert breaker.record_failure(third)
+    assert breaker.effective_local_portals(portals) == {"realitymix.cz", "sreality.cz"}
+
+
+def test_idnes_circuit_breaker_resets_after_success():
+    breaker = ProviderCircuitBreaker(threshold=2)
+    error = LocalFetcherBlockedError(REALITY_IDNES_PORTAL, ["HTTP 500"])
+
+    assert not breaker.record_failure(error)
+    breaker.record_success(REALITY_IDNES_PORTAL)
+    assert not breaker.record_failure(error)
+    assert REALITY_IDNES_PORTAL in breaker.effective_local_portals({REALITY_IDNES_PORTAL})
+
+
+def test_circuit_breaker_ignores_other_portals():
+    breaker = ProviderCircuitBreaker(threshold=1)
+    error = LocalFetcherBlockedError("realitymix.cz", ["root fetch failed"])
+
+    assert not breaker.record_failure(error)
+    assert breaker.effective_local_portals({"realitymix.cz"}) == {"realitymix.cz"}
 
 
 def test_daily_refresh_guard_expires_next_day():
