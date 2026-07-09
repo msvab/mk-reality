@@ -209,6 +209,16 @@ Use `--local-first` to reduce Codex usage where deterministic portal helpers can
 
 Use `--local-only` for cost-controlled test runs where Codex must not be invoked. It uses the same local helper path as `--local-first`, but cities that local helpers cannot refresh are recorded as failures instead of falling back.
 
+Local verification:
+
+```bash
+rtk make verify
+```
+
+This performs an ads-only render smoke test, validates the checked-in aggregate against `index.html`, runs pytest, Ruff,
+the Playwright drawer smoke test, and `git diff --check`. The command restores `index.html` after the smoke render so a
+date-only rebuild does not dirty the working tree.
+
 ### [validate_real_estate_data.py](/Users/michal-mbp/dev/reality/validate_real_estate_data.py)
 
 Lightweight data-health validator for checked-in real-estate artifacts.
