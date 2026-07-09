@@ -5,11 +5,16 @@ import json
 import re
 import subprocess
 import sys
+import time
 from html import unescape
 from pathlib import Path
 from urllib.parse import parse_qs, quote_plus, urlencode, urlsplit, urlunsplit
 
 USER_AGENT = "Mozilla/5.0"
+DEFAULT_RETRIES = 2
+DEFAULT_BACKOFF_SECONDS = 2.0
+CURL_CONNECT_TIMEOUT_SECONDS = 15
+CURL_MAX_TIME_SECONDS = 45
 AUTOCOMPLETE_LOCALITY_URL = (
     "https://reality.idnes.cz/admin.api/autocomplete-locality"
     "?fe=1&st={query}"
@@ -87,36 +92,60 @@ def append_fetch_attempt(
     attempts.append(row)
 
 
-def run_fetch(url: str, *, attempts: list[dict] | None = None, stage: str = "fetch") -> str:
-    completed = subprocess.run(
-        ["curl", "-sL", "-A", USER_AGENT, "-w", "\n__HTTP_STATUS__:%{http_code}", url],
-        check=False,
-        capture_output=True,
-        text=True,
-    )
-    body, marker, raw_http_status = completed.stdout.rpartition("\n__HTTP_STATUS__:")
-    if not marker:
-        body = completed.stdout
-        http_status = None
-    else:
-        try:
-            http_status = int(raw_http_status.strip())
-        except ValueError:
-            http_status = None
-    status, error = classify_fetch(http_status, completed.returncode, body, completed.stderr)
-    if attempts is not None:
-        append_fetch_attempt(
-            attempts,
-            url=url,
-            stage=stage,
-            attempt=1,
-            status=status,
-            http_status=http_status,
-            error=error,
+def run_fetch(
+    url: str,
+    *,
+    attempts: list[dict] | None = None,
+    stage: str = "fetch",
+    retries: int = DEFAULT_RETRIES,
+    backoff_seconds: float = DEFAULT_BACKOFF_SECONDS,
+) -> str:
+    last_error = None
+    for attempt in range(1, retries + 2):
+        completed = subprocess.run(
+            [
+                "curl",
+                "-sL",
+                "--connect-timeout",
+                str(CURL_CONNECT_TIMEOUT_SECONDS),
+                "--max-time",
+                str(CURL_MAX_TIME_SECONDS),
+                "-A",
+                USER_AGENT,
+                "-w",
+                "\n__HTTP_STATUS__:%{http_code}",
+                url,
+            ],
+            check=False,
+            capture_output=True,
+            text=True,
         )
-    if status not in {"ok", "fallback_page"}:
-        raise RuntimeError(error or status)
-    return body
+        body, marker, raw_http_status = completed.stdout.rpartition("\n__HTTP_STATUS__:")
+        if not marker:
+            body = completed.stdout
+            http_status = None
+        else:
+            try:
+                http_status = int(raw_http_status.strip())
+            except ValueError:
+                http_status = None
+        status, error = classify_fetch(http_status, completed.returncode, body, completed.stderr)
+        if attempts is not None:
+            append_fetch_attempt(
+                attempts,
+                url=url,
+                stage=stage,
+                attempt=attempt,
+                status=status,
+                http_status=http_status,
+                error=error,
+            )
+        if status in {"ok", "fallback_page"}:
+            return body
+        last_error = error or status
+        if attempt <= retries:
+            time.sleep(backoff_seconds * attempt)
+    raise RuntimeError(last_error or "fetch_error")
 
 
 def canonicalize_detail_url(url: str) -> str:

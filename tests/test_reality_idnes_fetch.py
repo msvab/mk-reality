@@ -12,6 +12,71 @@ def load_reality_idnes_fetch():
     return module
 
 
+class FakeCompletedProcess:
+    def __init__(self, stdout: str, returncode: int = 0, stderr: str = ""):
+        self.stdout = stdout
+        self.returncode = returncode
+        self.stderr = stderr
+
+
+def test_idnes_run_fetch_retries_transient_server_error(monkeypatch):
+    module = load_reality_idnes_fetch()
+    calls = []
+    sleeps = []
+
+    responses = [
+        FakeCompletedProcess("temporary\n__HTTP_STATUS__:500"),
+        FakeCompletedProcess("<html>ok</html>\n__HTTP_STATUS__:200"),
+    ]
+
+    def fake_run(cmd, check, capture_output, text):
+        calls.append(cmd)
+        return responses.pop(0)
+
+    monkeypatch.setattr(module.subprocess, "run", fake_run)
+    monkeypatch.setattr(module.time, "sleep", sleeps.append)
+
+    attempts = []
+    body = module.run_fetch("https://reality.idnes.cz/s/prodej/domy/horicky/", attempts=attempts, retries=1)
+
+    assert body == "<html>ok</html>"
+    assert len(calls) == 2
+    assert calls[0][0:5] == ["curl", "-sL", "--connect-timeout", "15", "--max-time"]
+    assert calls[0][5] == "45"
+    assert sleeps == [module.DEFAULT_BACKOFF_SECONDS]
+    assert [attempt["attempt"] for attempt in attempts] == [1, 2]
+    assert [attempt["status"] for attempt in attempts] == ["fetch_error", "ok"]
+    assert attempts[0]["http_status"] == 500
+
+
+def test_idnes_run_fetch_retries_curl_transport_error_then_raises(monkeypatch):
+    module = load_reality_idnes_fetch()
+    calls = []
+    sleeps = []
+
+    def fake_run(cmd, check, capture_output, text):
+        calls.append(cmd)
+        return FakeCompletedProcess("", returncode=56)
+
+    monkeypatch.setattr(module.subprocess, "run", fake_run)
+    monkeypatch.setattr(module.time, "sleep", sleeps.append)
+
+    attempts = []
+    try:
+        module.run_fetch("https://reality.idnes.cz/s/prodej/domy/hradec-kralove/", attempts=attempts, retries=2)
+    except RuntimeError as exc:
+        error = str(exc)
+    else:
+        raise AssertionError("expected RuntimeError")
+
+    assert error == "curl exited with 56"
+    assert len(calls) == 3
+    assert sleeps == [module.DEFAULT_BACKOFF_SECONDS, module.DEFAULT_BACKOFF_SECONDS * 2]
+    assert [attempt["attempt"] for attempt in attempts] == [1, 2, 3]
+    assert [attempt["status"] for attempt in attempts] == ["fetch_error", "fetch_error", "fetch_error"]
+    assert [attempt["error"] for attempt in attempts] == ["curl exited with 56"] * 3
+
+
 def test_idnes_land_detail_is_retained_from_metadata():
     module = load_reality_idnes_fetch()
     html = """
