@@ -3,7 +3,9 @@ import html
 import json
 import re
 from pathlib import Path
+from typing import cast
 
+from .real_estate_types import JsonObject, RealEstateAggregate, ValidationReport
 from .refresh_real_estate_ads import aggregate_totals, format_counts, render_refresh_summary
 from .summarize_real_estate_fetch_errors import iter_candidate_exclusions, iter_warnings
 
@@ -14,7 +16,7 @@ DEFAULT_HTML_PATH = ROOT / "index.html"
 DEFAULT_RAW_DIR = ROOT / "data" / "real_estate_ads_raw"
 
 
-def load_json(path: Path) -> dict:
+def load_json(path: Path) -> JsonObject:
     payload = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(payload, dict):
         raise ValueError(f"{path} must contain a JSON object.")
@@ -40,7 +42,7 @@ def embedded_counts(html_path: Path) -> dict[str, int]:
     return counts
 
 
-def count_mismatches(aggregate: dict, html_path: Path) -> list[dict]:
+def count_mismatches(aggregate: RealEstateAggregate | JsonObject, html_path: Path) -> list[JsonObject]:
     counts = embedded_counts(html_path)
     cities = aggregate.get("cities", {})
     if not isinstance(cities, dict):
@@ -56,7 +58,14 @@ def count_mismatches(aggregate: dict, html_path: Path) -> list[dict]:
     return mismatches
 
 
-def validate_data(aggregate: dict, state: dict, *, html_path: Path, raw_dir: Path, fail_on_warnings: bool = False) -> dict:
+def validate_data(
+    aggregate: RealEstateAggregate | JsonObject,
+    state: JsonObject,
+    *,
+    html_path: Path,
+    raw_dir: Path,
+    fail_on_warnings: bool = False,
+) -> ValidationReport:
     errors = []
     warnings = list(iter_warnings(aggregate))
     candidate_exclusions = list(iter_candidate_exclusions(aggregate))
@@ -130,7 +139,7 @@ def validate_data(aggregate: dict, state: dict, *, html_path: Path, raw_dir: Pat
     }
 
 
-def count_by_key(rows: list[dict], key: str) -> dict[str, int]:
+def count_by_key(rows: list[JsonObject], key: str) -> dict[str, int]:
     counts = {}
     for row in rows:
         value = str(row.get(key) or "unknown")
@@ -138,7 +147,7 @@ def count_by_key(rows: list[dict], key: str) -> dict[str, int]:
     return dict(sorted(counts.items()))
 
 
-def render_text_report(report: dict) -> str:
+def render_text_report(report: ValidationReport | JsonObject) -> str:
     totals = report["totals"]
     raw_files = report["raw_files"]
     lines = [
@@ -155,7 +164,7 @@ def render_text_report(report: dict) -> str:
     return "\n".join(lines)
 
 
-def refresh_summary_from_report(report: dict, generated_at: str | None) -> dict:
+def refresh_summary_from_report(report: ValidationReport, generated_at: str | None) -> JsonObject:
     return {
         "generated_at": generated_at,
         "did_refresh": False,
@@ -184,7 +193,7 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
     aggregate_path = Path(args.aggregate)
-    aggregate = load_json(aggregate_path)
+    aggregate = cast(RealEstateAggregate, load_json(aggregate_path))
     state = load_json(Path(args.state))
     report = validate_data(
         aggregate,

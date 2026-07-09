@@ -2,19 +2,22 @@ import argparse
 import json
 from collections import defaultdict
 from pathlib import Path
+from typing import cast
+
+from .real_estate_types import JsonObject, PortalDiagnosticRow, RealEstateAggregate
 
 NON_WARNING_STATUSES = {"ok", "no_results", "inactive"}
 CANDIDATE_EXCLUSION_STATUSES = {"inactive"}
 
 
-def load_json(path: Path) -> dict:
+def load_json(path: Path) -> RealEstateAggregate:
     payload = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(payload, dict):
         raise ValueError(f"{path} must contain a JSON object.")
-    return payload
+    return cast(RealEstateAggregate, payload)
 
 
-def iter_status_rows(payload: dict):
+def iter_status_rows(payload: RealEstateAggregate | JsonObject):
     cities = payload.get("cities", {})
     if not isinstance(cities, dict):
         return
@@ -28,26 +31,29 @@ def iter_status_rows(payload: dict):
             if not isinstance(status, dict):
                 continue
             status_name = str(status.get("status", "unknown"))
-            yield {
-                "city": city,
-                "portal": portal,
-                "status": status_name,
-                "http_status": status.get("http_status"),
-                "stage": status.get("stage"),
-                "retained_from_snapshot": status.get("retained_from_snapshot"),
-                "message": status.get("message"),
-                "evidence": status.get("evidence", []),
-            }
+            yield cast(
+                PortalDiagnosticRow,
+                {
+                    "city": city,
+                    "portal": portal,
+                    "status": status_name,
+                    "http_status": status.get("http_status"),
+                    "stage": status.get("stage"),
+                    "retained_from_snapshot": status.get("retained_from_snapshot"),
+                    "message": status.get("message"),
+                    "evidence": status.get("evidence", []),
+                },
+            )
 
 
-def iter_warnings(payload: dict):
+def iter_warnings(payload: RealEstateAggregate | JsonObject):
     for row in iter_status_rows(payload):
         if row["status"] in NON_WARNING_STATUSES:
             continue
         yield row
 
 
-def iter_candidate_exclusions(payload: dict):
+def iter_candidate_exclusions(payload: RealEstateAggregate | JsonObject):
     seen = set()
     cities = payload.get("cities", {})
     if isinstance(cities, dict):
@@ -60,16 +66,19 @@ def iter_candidate_exclusions(payload: dict):
             for exclusion in exclusions:
                 if not isinstance(exclusion, dict):
                     continue
-                row = {
-                    "city": city,
-                    "portal": exclusion.get("portal"),
-                    "status": str(exclusion.get("status", "unknown")),
-                    "http_status": exclusion.get("http_status"),
-                    "stage": exclusion.get("stage"),
-                    "retained_from_snapshot": exclusion.get("retained_from_snapshot"),
-                    "message": exclusion.get("message"),
-                    "evidence": exclusion.get("evidence", []),
-                }
+                row = cast(
+                    PortalDiagnosticRow,
+                    {
+                        "city": city,
+                        "portal": exclusion.get("portal"),
+                        "status": str(exclusion.get("status", "unknown")),
+                        "http_status": exclusion.get("http_status"),
+                        "stage": exclusion.get("stage"),
+                        "retained_from_snapshot": exclusion.get("retained_from_snapshot"),
+                        "message": exclusion.get("message"),
+                        "evidence": exclusion.get("evidence", []),
+                    },
+                )
                 key = (row["city"], row["portal"], row["status"], row["message"])
                 seen.add(key)
                 yield row
@@ -82,7 +91,7 @@ def iter_candidate_exclusions(payload: dict):
             yield row
 
 
-def print_rows(title: str, rows: list[dict]) -> None:
+def print_rows(title: str, rows: list[PortalDiagnosticRow]) -> None:
     if not rows:
         print(f"{title}: 0")
         return
@@ -101,7 +110,7 @@ def print_rows(title: str, rows: list[dict]) -> None:
         print(f"    sample cities: {', '.join(group['cities'][:8])}")
 
 
-def grouped_rows(rows: list[dict]) -> list[dict]:
+def grouped_rows(rows: list[PortalDiagnosticRow]) -> list[JsonObject]:
     groups = defaultdict(list)
     for row in rows:
         key = (

@@ -6,7 +6,9 @@ import subprocess
 import sys
 from collections import Counter
 from pathlib import Path
+from typing import cast
 
+from .real_estate_types import JsonObject, PortalDiagnosticRow, RealEstateAggregate
 from .run_real_estate_ads_by_city import city_refresh_summary, format_delta
 from .summarize_real_estate_fetch_errors import grouped_rows, iter_candidate_exclusions, iter_warnings
 
@@ -30,14 +32,14 @@ def capture_command(args: list[str], *, check: bool = True) -> str:
     return completed.stdout
 
 
-def load_json(path: Path) -> dict:
+def load_json(path: Path) -> JsonObject:
     payload = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(payload, dict):
         raise ValueError(f"{path} must contain a JSON object.")
     return payload
 
 
-def load_json_if_exists(path: Path) -> dict | None:
+def load_json_if_exists(path: Path) -> JsonObject | None:
     if not path.exists():
         return None
     return load_json(path)
@@ -59,7 +61,7 @@ def load_city_order() -> list[str]:
     return cities
 
 
-def daily_refresh_stamps(state: dict | None) -> dict[str, str]:
+def daily_refresh_stamps(state: JsonObject | None) -> dict[str, str]:
     if not isinstance(state, dict):
         return {}
     daily_refresh = state.get("daily_refresh", {})
@@ -75,7 +77,7 @@ def daily_refresh_stamps(state: dict | None) -> dict[str, str]:
     return stamps
 
 
-def refreshed_city_names(previous_state: dict | None, current_state: dict) -> list[str]:
+def refreshed_city_names(previous_state: JsonObject | None, current_state: JsonObject) -> list[str]:
     before = daily_refresh_stamps(previous_state)
     after = daily_refresh_stamps(current_state)
     refreshed = [city for city, stamp in after.items() if stamp and before.get(city) != stamp]
@@ -83,7 +85,11 @@ def refreshed_city_names(previous_state: dict | None, current_state: dict) -> li
     return sorted(refreshed, key=lambda city: order.get(city, len(order)))
 
 
-def print_city_summaries(previous_aggregate: dict | None, current_aggregate: dict, cities: list[str]) -> None:
+def print_city_summaries(
+    previous_aggregate: RealEstateAggregate | JsonObject | None,
+    current_aggregate: RealEstateAggregate | JsonObject,
+    cities: list[str],
+) -> None:
     if not cities:
         print("city summaries: no cities refreshed in this run")
         return
@@ -99,7 +105,11 @@ def print_city_summaries(previous_aggregate: dict | None, current_aggregate: dic
         )
 
 
-def city_summaries(previous_aggregate: dict | None, current_aggregate: dict, cities: list[str]) -> list[dict]:
+def city_summaries(
+    previous_aggregate: RealEstateAggregate | JsonObject | None,
+    current_aggregate: RealEstateAggregate | JsonObject,
+    cities: list[str],
+) -> list[JsonObject]:
     return [
         {"city": city, **city_refresh_summary(current_aggregate, previous_aggregate, city)}
         for city in cities
@@ -114,7 +124,7 @@ def validate_state() -> None:
     print(f"state: {state.get('status')} failed=0")
 
 
-def validate_no_unmatched_raw_files(aggregate: dict) -> None:
+def validate_no_unmatched_raw_files(aggregate: RealEstateAggregate | JsonObject) -> None:
     unmatched = aggregate.get("unmatched_raw_files", [])
     if not isinstance(unmatched, list):
         raise RuntimeError("real_estate_ads_by_city.json has invalid unmatched_raw_files metadata.")
@@ -211,7 +221,7 @@ def summarize_warnings(max_warnings: int) -> None:
         print(f"  ... {grouped_exclusion_count - max_warnings} more groups")
 
 
-def aggregate_totals(aggregate: dict) -> dict:
+def aggregate_totals(aggregate: RealEstateAggregate | JsonObject) -> dict[str, int]:
     cities = aggregate.get("cities", {})
     if not isinstance(cities, dict):
         cities = {}
@@ -223,7 +233,7 @@ def aggregate_totals(aggregate: dict) -> dict:
     }
 
 
-def count_by_key(rows: list[dict], key: str) -> dict[str, int]:
+def count_by_key(rows: list[PortalDiagnosticRow], key: str) -> dict[str, int]:
     return dict(sorted(Counter(str(row.get(key) or "unknown") for row in rows).items()))
 
 
@@ -234,13 +244,13 @@ def format_counts(counts: dict[str, int]) -> str:
 
 
 def build_refresh_summary(
-    previous_aggregate: dict | None,
-    current_aggregate: dict,
-    previous_state: dict | None,
-    current_state: dict,
+    previous_aggregate: RealEstateAggregate | JsonObject | None,
+    current_aggregate: RealEstateAggregate | JsonObject,
+    previous_state: JsonObject | None,
+    current_state: JsonObject,
     *,
     did_refresh: bool,
-) -> dict:
+) -> JsonObject:
     refreshed_cities = refreshed_city_names(previous_state, current_state) if did_refresh else []
     warnings = list(iter_warnings(current_aggregate))
     candidate_exclusions = list(iter_candidate_exclusions(current_aggregate))
@@ -385,7 +395,7 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
     python = sys.executable
-    previous_aggregate = load_json_if_exists(AGGREGATE_PATH)
+    previous_aggregate = cast(RealEstateAggregate | None, load_json_if_exists(AGGREGATE_PATH))
     previous_state = load_json_if_exists(STATE_PATH)
     did_refresh = False
 
@@ -406,7 +416,7 @@ def main() -> None:
 
     run_command([python, "build_html.py", "--ads-only"])
     current_state = load_json(STATE_PATH)
-    current_aggregate = load_json(AGGREGATE_PATH)
+    current_aggregate = cast(RealEstateAggregate, load_json(AGGREGATE_PATH))
     if did_refresh:
         print_city_summaries(previous_aggregate, current_aggregate, refreshed_city_names(previous_state, current_state))
     validate_no_unmatched_raw_files(current_aggregate)

@@ -3,11 +3,13 @@ import json
 import re
 import urllib.parse
 from pathlib import Path
+from typing import Any, cast
 
 from .build_real_estate_ads_json import build_output, format_czk, is_per_square_meter_price, parse_price_czk
+from .real_estate_types import CityBundle, JsonObject, Listing, RealEstateAggregate, UnmatchedRawFile
 
 
-def load_json(path: Path) -> dict:
+def load_json(path: Path) -> JsonObject:
     payload = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(payload, dict):
         raise ValueError(f"{path} must contain a JSON object.")
@@ -31,7 +33,7 @@ def load_school_cities(path: Path) -> list[str]:
     return cities
 
 
-def extract_city_name(payload: dict, fallback_path: Path) -> str:
+def extract_city_name(payload: JsonObject, fallback_path: Path) -> str:
     city = payload.get("city")
     if city:
         return str(city).strip()
@@ -41,7 +43,7 @@ def extract_city_name(payload: dict, fallback_path: Path) -> str:
     return fallback_path.stem
 
 
-def empty_city_bundle() -> dict:
+def empty_city_bundle() -> CityBundle:
     return {
         "count": 0,
         "coverage": {
@@ -62,7 +64,7 @@ def empty_city_bundle() -> dict:
     }
 
 
-def build_city_bundle(raw_payload: dict) -> dict:
+def build_city_bundle(raw_payload: JsonObject) -> CityBundle:
     normalized = build_output(raw_payload)
     return {
         "count": len(normalized["listings"]),
@@ -72,7 +74,7 @@ def build_city_bundle(raw_payload: dict) -> dict:
         "candidate_exclusions": normalized.get("candidate_exclusions", []),
         "assumptions": normalized.get("assumptions", []),
         "gaps": normalized.get("gaps", []),
-        "ads": normalized["listings"],
+        "ads": cast(list[Listing], normalized["listings"]),
         "hidden_ads": [],
     }
 
@@ -97,7 +99,7 @@ def normalize_url(url: str | None) -> str | None:
     return urllib.parse.urlunparse(parsed._replace(query="", fragment=""))
 
 
-def ad_identity_keys(ad: dict) -> set[tuple[str, str]]:
+def ad_identity_keys(ad: Listing | JsonObject) -> set[tuple[str, str]]:
     keys = {("url", url) for url in (normalize_url(item) for item in ad.get("urls", [])) if url}
     fingerprint = (
         normalize_text(ad.get("location", "")),
@@ -111,7 +113,7 @@ def ad_identity_keys(ad: dict) -> set[tuple[str, str]]:
     return keys
 
 
-def index_previous_ads(previous_bundle: dict | None) -> dict[tuple[str, str], list[dict]]:
+def index_previous_ads(previous_bundle: CityBundle | JsonObject | None) -> dict[tuple[str, str], list[Listing]]:
     if not isinstance(previous_bundle, dict):
         return {}
     indexed = {}
@@ -127,7 +129,7 @@ def index_previous_ads(previous_bundle: dict | None) -> dict[tuple[str, str], li
     return indexed
 
 
-def price_history_entry(ad: dict, seen_at: str) -> dict:
+def price_history_entry(ad: Listing | JsonObject, seen_at: str) -> JsonObject:
     return {
         "seen_at": seen_at,
         "price": ad.get("price"),
@@ -135,7 +137,7 @@ def price_history_entry(ad: dict, seen_at: str) -> dict:
     }
 
 
-def normalize_price_history(value, land_area_m2: int | None = None) -> list[dict]:
+def normalize_price_history(value: Any, land_area_m2: int | None = None) -> list[JsonObject]:
     if not isinstance(value, list):
         return []
     history = []
@@ -162,7 +164,7 @@ def normalize_price_history(value, land_area_m2: int | None = None) -> list[dict
     return history
 
 
-def merge_price_history(ad: dict, previous: dict | None, generated_at: str) -> list[dict]:
+def merge_price_history(ad: Listing, previous: Listing | None, generated_at: str) -> list[JsonObject]:
     if not previous:
         return [price_history_entry(ad, generated_at)]
 
@@ -179,9 +181,13 @@ def merge_price_history(ad: dict, previous: dict | None, generated_at: str) -> l
     return history
 
 
-def merge_previous_city_bundle(bundle: dict, previous_bundle: dict | None, generated_at: str) -> dict:
+def merge_previous_city_bundle(
+    bundle: CityBundle,
+    previous_bundle: CityBundle | JsonObject | None,
+    generated_at: str,
+) -> CityBundle:
     if "missing-raw-skill-output" in bundle.get("gaps", []) and isinstance(previous_bundle, dict):
-        preserved = dict(previous_bundle)
+        preserved = cast(CityBundle, dict(previous_bundle))
         preserved.setdefault("hidden_ads", [])
         preserved["count"] = len(preserved.get("ads", [])) if isinstance(preserved.get("ads"), list) else 0
         return preserved
@@ -196,7 +202,7 @@ def merge_previous_city_bundle(bundle: dict, previous_bundle: dict | None, gener
         for key in keys:
             if key in indexed_previous:
                 matched_previous_ids.update(id(item) for item in indexed_previous[key])
-        enriched = dict(ad)
+        enriched = cast(Listing, dict(ad))
         enriched["status"] = "active"
         enriched["first_seen_at"] = previous.get("first_seen_at", previous.get("last_seen_at", generated_at)) if previous else generated_at
         enriched["last_seen_at"] = generated_at
@@ -219,21 +225,25 @@ def merge_previous_city_bundle(bundle: dict, previous_bundle: dict | None, gener
             if previous in previous_active and previous_portals and not previous_portals.issubset(covered_portals):
                 active_ads.append(previous)
                 continue
-            hidden = dict(previous)
+            hidden = cast(Listing, dict(previous))
             hidden["status"] = "hidden"
             hidden.setdefault("first_seen_at", previous.get("last_seen_at", generated_at))
             hidden.setdefault("last_seen_at", previous.get("last_seen_at", generated_at))
             hidden.setdefault("hidden_at", generated_at)
             hidden_ads.append(hidden)
 
-    merged = dict(bundle)
+    merged = cast(CityBundle, dict(bundle))
     merged["ads"] = active_ads
     merged["hidden_ads"] = hidden_ads
     merged["count"] = len(active_ads)
     return merged
 
 
-def build_aggregate_output(schools_input: Path, raw_dir: Path, previous_aggregate: dict | None = None) -> dict:
+def build_aggregate_output(
+    schools_input: Path,
+    raw_dir: Path,
+    previous_aggregate: RealEstateAggregate | JsonObject | None = None,
+) -> RealEstateAggregate:
     school_cities = load_school_cities(schools_input)
     raw_files = discover_raw_files(raw_dir)
     generated_at = build_output({"listings": []})["generated_at"]
@@ -242,7 +252,7 @@ def build_aggregate_output(schools_input: Path, raw_dir: Path, previous_aggregat
         previous_cities = {}
 
     cities = {city: empty_city_bundle() for city in school_cities}
-    unmatched_files = []
+    unmatched_files: list[UnmatchedRawFile] = []
 
     for raw_file in raw_files:
         raw_payload = load_json(raw_file)
@@ -258,7 +268,7 @@ def build_aggregate_output(schools_input: Path, raw_dir: Path, previous_aggregat
         for city, bundle in cities.items()
     }
 
-    output = {
+    output: RealEstateAggregate = {
         "generated_at": generated_at,
         "schools_input": str(schools_input),
         "raw_dir": str(raw_dir),
