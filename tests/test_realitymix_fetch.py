@@ -1,15 +1,8 @@
-import importlib.util
-from pathlib import Path
-
-SCRIPT_PATH = Path(".codex/skills/find-real-estate-ads/scripts/realitymix_fetch.py")
+from reality.portal_fetchers import realitymix_fetch
 
 
 def load_realitymix_fetch():
-    spec = importlib.util.spec_from_file_location("realitymix_fetch", SCRIPT_PATH)
-    module = importlib.util.module_from_spec(spec)
-    assert spec.loader is not None
-    spec.loader.exec_module(module)
-    return module
+    return realitymix_fetch
 
 
 def test_realitymix_discovery_fetches_result_page_details(monkeypatch):

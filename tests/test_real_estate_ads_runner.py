@@ -458,7 +458,7 @@ def test_local_fetcher_can_be_limited_to_one_portal(tmp_path, monkeypatch):
 
     def fake_run(cmd, check, capture_output, text):
         commands.append(cmd)
-        portal = "realitymix.cz" if cmd[1].endswith("realitymix_fetch.py") else "unexpected.test"
+        portal = "realitymix.cz" if cmd[2] == "reality.portal_fetchers.realitymix_fetch" else "unexpected.test"
         payload = {
             "city": "Portal Filter",
             "query": {
@@ -494,7 +494,7 @@ def test_local_fetcher_can_be_limited_to_one_portal(tmp_path, monkeypatch):
         local_portals={"realitymix.cz"},
     )
 
-    assert [cmd[1].split("/")[-1] for cmd in commands] == ["realitymix_fetch.py"]
+    assert [cmd[1:3] for cmd in commands] == [["-m", "reality.portal_fetchers.realitymix_fetch"]]
 
 
 def test_merge_local_payload_replaces_only_refreshed_portal_rows():
@@ -609,7 +609,7 @@ def test_local_fetchers_run_realitymix_discovery_without_cached_urls(tmp_path, m
     output_path = tmp_path / "raw.json"
     assert run_local_fetchers("Zero Cache", tmp_path, output_path, previous_aggregate=None)
 
-    realitymix_commands = [cmd for cmd in commands if cmd[1].endswith("realitymix_fetch.py")]
+    realitymix_commands = [cmd for cmd in commands if cmd[2] == "reality.portal_fetchers.realitymix_fetch"]
     assert len(realitymix_commands) == 1
     assert "--discover-results" in realitymix_commands[0]
     assert "--detail-url" not in realitymix_commands[0]
@@ -670,7 +670,7 @@ def test_local_fetchers_pass_cached_realitymix_result_page_urls(tmp_path, monkey
 
     assert run_local_fetchers("Opočno", tmp_path, tmp_path / "raw.json", previous_aggregate)
 
-    realitymix_commands = [cmd for cmd in commands if cmd[1].endswith("realitymix_fetch.py")]
+    realitymix_commands = [cmd for cmd in commands if cmd[2] == "reality.portal_fetchers.realitymix_fetch"]
     assert len(realitymix_commands) == 1
     assert "--house-page-url" in realitymix_commands[0]
     assert "--land-page-url" in realitymix_commands[0]
@@ -724,7 +724,7 @@ def test_local_fetchers_pass_cached_reality_idnes_detail_urls(tmp_path, monkeypa
 
     assert run_local_fetchers("Librantice", tmp_path, tmp_path / "raw.json", previous_aggregate)
 
-    assert commands[0][1].endswith("reality_idnes_fetch.py")
+    assert commands[0][1:3] == ["-m", "reality.portal_fetchers.reality_idnes_fetch"]
     assert "--discover-results" in commands[0]
     assert "--detail-url" in commands[0]
     assert "https://reality.idnes.cz/detail/prodej/pozemek/librantice/6915d21cf78ea8ee7a08c865/" in commands[0]
@@ -778,7 +778,7 @@ def test_local_fetchers_pass_cached_reality_idnes_result_page_urls_without_cache
 
     assert run_local_fetchers("Librantice", tmp_path, tmp_path / "raw.json", previous_aggregate)
 
-    assert commands[0][1].endswith("reality_idnes_fetch.py")
+    assert commands[0][1:3] == ["-m", "reality.portal_fetchers.reality_idnes_fetch"]
     assert "--result-url" in commands[0]
     assert "--discover-results" in commands[0]
     assert "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-83488" in commands[0]
@@ -833,7 +833,7 @@ def test_local_fetchers_pass_cached_reality_aktualne_result_page_urls_and_discov
 
     assert run_local_fetchers("České Meziříčí", tmp_path, tmp_path / "raw.json", previous_aggregate)
 
-    matching_commands = [cmd for cmd in commands if cmd[1].endswith("reality_aktualne_fetch.py")]
+    matching_commands = [cmd for cmd in commands if cmd[2] == "reality.portal_fetchers.reality_aktualne_fetch"]
     assert len(matching_commands) == 1
     assert "--discover-results" in matching_commands[0]
     assert "--result-url" in matching_commands[0]
@@ -881,7 +881,7 @@ def test_local_fetchers_run_sreality_discovery_without_cache(tmp_path, monkeypat
     )
 
     assert len(commands) == 1
-    assert commands[0][1].endswith("sreality_fetch.py")
+    assert commands[0][1:3] == ["-m", "reality.portal_fetchers.sreality_fetch"]
     assert "--discover-results" in commands[0]
     assert "--detail-url" not in commands[0]
 

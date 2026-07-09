@@ -9,7 +9,7 @@ interface:
     Workflow:
     - Keep prompt work minimal.
     - Prefer the deterministic helper path:
-      `rtk proxy python3 .codex/skills/find-real-estate-ads/scripts/sreality_fetch.py --municipality '<municipality>' --discover-results`
+      `rtk proxy python3 -m reality.portal_fetchers.sreality_fetch --municipality '<municipality>' --discover-results`
     - Add multiple `--detail-url` flags only for known Sreality detail URLs that should be reverified.
     - Use the script JSON as the authoritative source for normalized rows, coverage, and gaps whenever it succeeds.
     - Only fall back to manual row-by-row portal extraction if the script is genuinely broken against current API responses.

@@ -1,15 +1,8 @@
-import importlib.util
-from pathlib import Path
-
-SCRIPT_PATH = Path(".codex/skills/find-real-estate-ads/scripts/reality_idnes_fetch.py")
+from reality.portal_fetchers import reality_idnes_fetch
 
 
 def load_reality_idnes_fetch():
-    spec = importlib.util.spec_from_file_location("reality_idnes_fetch", SCRIPT_PATH)
-    module = importlib.util.module_from_spec(spec)
-    assert spec.loader is not None
-    spec.loader.exec_module(module)
-    return module
+    return reality_idnes_fetch
 
 
 class FakeCompletedProcess:

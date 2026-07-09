@@ -16,7 +16,7 @@ Default scope:
 ## Search Discipline
 
 - Use the helper script for the repeatable fetch, filter, and normalization path:
-  `rtk proxy python3 .codex/skills/find-real-estate-ads/scripts/realitymix_fetch.py --municipality '<municipality>' --house-page-url '<url>' --land-page-url '<url>'`
+  `rtk proxy python3 -m reality.portal_fetchers.realitymix_fetch --municipality '<municipality>' --house-page-url '<url>' --land-page-url '<url>'`
 - The script owns candidate extraction, direct-fetch verification, filtering, normalization, and coverage/gap reporting.
 - The script retries fetches by default and emits `fetch_attempts`; preserve those attempts in the parent output.
 - The worker should spend tokens only on the thin portal-navigation step needed to locate the municipality result page URLs for houses and land.
@@ -68,7 +68,7 @@ Use one or more `realitymix.cz/detail/...` URLs in `urls`. Do not put category o
 
 1. Find the municipality result page URL on `realitymix.cz` for houses and for building land when those categories are in scope.
 2. Run the helper with:
-   `rtk proxy python3 .codex/skills/find-real-estate-ads/scripts/realitymix_fetch.py --municipality '<municipality>' --house-page-url '<url>' --land-page-url '<url>'`
+   `rtk proxy python3 -m reality.portal_fetchers.realitymix_fetch --municipality '<municipality>' --house-page-url '<url>' --land-page-url '<url>'`
 3. If one category truly has no municipality result page, omit that URL and let the script report the category as a gap.
 4. Use the script JSON as the authoritative worker payload for `coverage`, `gaps`, and normalized `listings`.
 5. Preserve the script's `portal_status` and `fetch_attempts` in the parent output when available.

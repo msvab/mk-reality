@@ -1,15 +1,8 @@
-import importlib.util
-from pathlib import Path
-
-SCRIPT_PATH = Path(".codex/skills/find-real-estate-ads/scripts/sreality_fetch.py")
+from reality.portal_fetchers import sreality_fetch
 
 
 def load_sreality_fetch():
-    spec = importlib.util.spec_from_file_location("sreality_fetch", SCRIPT_PATH)
-    module = importlib.util.module_from_spec(spec)
-    assert spec.loader is not None
-    spec.loader.exec_module(module)
-    return module
+    return sreality_fetch
 
 
 def test_locality_suggest_url_uses_current_v1_endpoint_and_municipality_category():

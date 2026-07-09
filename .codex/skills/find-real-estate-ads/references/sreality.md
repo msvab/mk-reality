@@ -47,7 +47,7 @@ If `/estates/search` returns HTTP 200 but the title is still generic, for exampl
 ## Script-First Workflow
 
 1. Run:
-   `rtk proxy python3 .codex/skills/find-real-estate-ads/scripts/sreality_fetch.py --municipality '<municipality>' --discover-results`
+   `rtk proxy python3 -m reality.portal_fetchers.sreality_fetch --municipality '<municipality>' --discover-results`
 2. Add `--detail-url` only for known Sreality detail URLs that should be reverified.
 3. Use the script JSON as the authoritative worker payload for `coverage`, `portal_status`, `fetch_attempts`, `gaps`, and normalized `listings`.
 4. Only fall back to manual row extraction if the script is genuinely broken against current API responses, and explain that failure in `gaps`.

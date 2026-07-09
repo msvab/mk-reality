@@ -10,7 +10,7 @@ interface:
     - Keep prompt work minimal.
     - First find the municipality results URL on `realitymix.cz` for each in-scope category.
     - Then prefer the deterministic helper path:
-      `rtk proxy python3 .codex/skills/find-real-estate-ads/scripts/realitymix_fetch.py --municipality '<municipality>' --house-page-url '<url>' --land-page-url '<url>'`
+      `rtk proxy python3 -m reality.portal_fetchers.realitymix_fetch --municipality '<municipality>' --house-page-url '<url>' --land-page-url '<url>'`
     - If one category truly has no municipality results URL, omit that argument and let the script report the category as a gap.
     - Use the script JSON as the authoritative source for normalized rows, coverage, portal_status, fetch_attempts, and gaps whenever it succeeds.
     - Only fall back to manual row-by-row portal extraction if the script is genuinely broken against current markup.

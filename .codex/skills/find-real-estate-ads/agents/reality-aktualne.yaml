@@ -10,7 +10,7 @@ interface:
     - Keep prompt work minimal.
     - First find relevant reality.aktualne.cz detail URLs and/or a result page that already exposes those detail URLs.
     - Then prefer the deterministic helper path:
-      `rtk proxy python3 .codex/skills/find-real-estate-ads/scripts/reality_aktualne_fetch.py --municipality '<municipality>' --detail-url '<url>'`
+      `rtk proxy python3 -m reality.portal_fetchers.reality_aktualne_fetch --municipality '<municipality>' --detail-url '<url>'`
     - Add multiple `--detail-url` flags when needed, and use `--result-url '<url>'` only when the page already contains usable `reality.aktualne.cz/detail/...` links.
     - Use the script JSON as the authoritative source for normalized rows, coverage, and gaps whenever it succeeds.
     - Only fall back to manual row-by-row portal extraction if the script is genuinely broken against current markup.

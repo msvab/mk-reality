@@ -21,10 +21,10 @@ DEFAULT_STATE_PATH = Path("real_estate_ads_run_state.json")
 DEFAULT_AGGREGATE_PATH = Path("real_estate_ads_by_city.json")
 DEFAULT_SCHEMA_PATH = Path("real_estate_ads_exec_output.schema.json")
 LOCAL_FETCHERS = {
-    "reality.idnes.cz": Path(".codex/skills/find-real-estate-ads/scripts/reality_idnes_fetch.py"),
-    "realitymix.cz": Path(".codex/skills/find-real-estate-ads/scripts/realitymix_fetch.py"),
-    "reality.aktualne.cz": Path(".codex/skills/find-real-estate-ads/scripts/reality_aktualne_fetch.py"),
-    "sreality.cz": Path(".codex/skills/find-real-estate-ads/scripts/sreality_fetch.py"),
+    "reality.idnes.cz": "reality.portal_fetchers.reality_idnes_fetch",
+    "realitymix.cz": "reality.portal_fetchers.realitymix_fetch",
+    "reality.aktualne.cz": "reality.portal_fetchers.reality_aktualne_fetch",
+    "sreality.cz": "reality.portal_fetchers.sreality_fetch",
 }
 SUPPORTED_PORTALS = tuple(LOCAL_FETCHERS)
 REALITY_IDNES_PORTAL = "reality.idnes.cz"
@@ -511,8 +511,7 @@ def run_local_fetchers(
             and not discover_sreality
         ):
             continue
-        script_path = repo_root / LOCAL_FETCHERS[portal]
-        cmd = [sys.executable, str(script_path), "--municipality", city]
+        cmd = [sys.executable, "-m", LOCAL_FETCHERS[portal], "--municipality", city]
         if use_reality_idnes_results:
             for result_url in reality_idnes_result_urls:
                 cmd.extend(["--result-url", result_url])

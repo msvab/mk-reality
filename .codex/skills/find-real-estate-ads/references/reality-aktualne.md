@@ -17,7 +17,7 @@ Default scope:
 
 - Keep all search and verification scoped to `reality.aktualne.cz`.
 - Use the helper script for the repeatable detail verification, filtering, and normalization path:
-  `rtk proxy python3 .codex/skills/find-real-estate-ads/scripts/reality_aktualne_fetch.py --municipality '<municipality>'`
+  `rtk proxy python3 -m reality.portal_fetchers.reality_aktualne_fetch --municipality '<municipality>'`
 - The script accepts explicit `--detail-url` inputs and can also extract detail URLs from any provided `--result-url`.
 - The worker should spend tokens only on discovering relevant Reality Aktuálně detail URLs or result pages for the target municipality.
 - Search sale listings only. Do not search rent inventory.
@@ -42,7 +42,7 @@ Default scope:
 
 1. Find one or more relevant Reality Aktuálně detail URLs, or a result page that already exposes those detail URLs.
 2. Run the helper with:
-   `rtk proxy python3 .codex/skills/find-real-estate-ads/scripts/reality_aktualne_fetch.py --municipality '<municipality>' --detail-url '<url>'`
+   `rtk proxy python3 -m reality.portal_fetchers.reality_aktualne_fetch --municipality '<municipality>' --detail-url '<url>'`
 3. Add more `--detail-url` flags when needed, and use `--result-url '<url>'` only when that page already contains usable `reality.aktualne.cz/detail/...` links.
 4. Use the script JSON as the authoritative worker payload for `coverage`, `gaps`, and normalized `listings`.
 5. Only fall back to manual row-by-row extraction if the script is genuinely broken against the current portal markup, and explain that failure in `gaps`.
