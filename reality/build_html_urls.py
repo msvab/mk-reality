@@ -41,8 +41,6 @@ def safe_href(url: str | None) -> str | None:
     return cleaned
 
 
-
-
 def is_bad_domain(url: str) -> bool:
     host = urllib.parse.urlparse(url).netloc.lower()
     blocked = [
@@ -66,5 +64,4 @@ def is_bad_domain(url: str) -> bool:
         "x.com",
     ]
     return any(x in host for x in blocked)
-
 
