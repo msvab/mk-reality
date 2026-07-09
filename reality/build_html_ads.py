@@ -2,9 +2,8 @@ from __future__ import annotations
 
 import json
 from html import escape
-from pathlib import Path
 
-REAL_ESTATE_ADS_BY_CITY_PATH = Path("real_estate_ads_by_city.json")
+from .paths import REAL_ESTATE_ADS_BY_CITY_PATH
 
 
 def load_real_estate_ads_by_city() -> dict | None:
@@ -492,5 +491,4 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
         }})();
       </script>
     """
-
 

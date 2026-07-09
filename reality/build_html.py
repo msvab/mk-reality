@@ -18,6 +18,7 @@ from pathlib import Path
 
 from .build_html_render import load_cached_school_rows, write_html
 from .build_html_urls import is_bad_domain, is_usable_school_url, normalize_url
+from .paths import SCHOOLS_JSON_PATH
 
 DOBRUSKA = (50.2921062, 16.1605457)  # lat, lon
 RADIUS_M = 55000
@@ -556,7 +557,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--ads-only",
         action="store_true",
-        help="Reuse dobruska_primary_schools.json and rebuild only ad counts/drawer data in index.html.",
+        help=f"Reuse {SCHOOLS_JSON_PATH} and rebuild only ad counts/drawer data in index.html.",
     )
     parser.add_argument(
         "--refresh-overpass",
@@ -1282,7 +1283,8 @@ def main() -> None:
     rows.sort(key=lambda r: (r["drive_min"], r["city"]))
 
     write_html(rows)
-    Path("dobruska_primary_schools.json").write_text(json.dumps(rows, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    SCHOOLS_JSON_PATH.parent.mkdir(parents=True, exist_ok=True)
+    SCHOOLS_JSON_PATH.write_text(json.dumps(rows, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote {len(rows)} rows")
 
 

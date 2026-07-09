@@ -7,9 +7,10 @@ from pathlib import Path
 
 from .build_html_ads import load_real_estate_ads_by_city, render_ads_count_cell, render_ads_drawer_assets
 from .build_html_urls import safe_href
+from .paths import SCHOOLS_JSON_PATH
 
 
-def load_cached_school_rows(path: Path = Path("dobruska_primary_schools.json")) -> list[dict]:
+def load_cached_school_rows(path: Path = SCHOOLS_JSON_PATH) -> list[dict]:
     if not path.exists():
         raise FileNotFoundError(f"{path} does not exist; run a full build_html.py first.")
     payload = json.loads(path.read_text(encoding="utf-8"))
@@ -158,5 +159,4 @@ def render_html(rows: list[dict]) -> str:
 
 def write_html(rows: list[dict]) -> None:
     Path("index.html").write_text(render_html(rows), encoding="utf-8")
-
 

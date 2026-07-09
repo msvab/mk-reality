@@ -15,11 +15,17 @@ from .build_real_estate_ads_by_city import (
     load_school_cities,
 )
 from .build_real_estate_ads_json import build_output
+from .paths import (
+    REAL_ESTATE_ADS_BY_CITY_PATH,
+    REAL_ESTATE_EXEC_SCHEMA_PATH,
+    REAL_ESTATE_RUN_STATE_PATH,
+    SCHOOLS_JSON_PATH,
+)
 
 DEFAULT_RAW_DIR = Path("data/real_estate_ads_raw")
-DEFAULT_STATE_PATH = Path("real_estate_ads_run_state.json")
-DEFAULT_AGGREGATE_PATH = Path("real_estate_ads_by_city.json")
-DEFAULT_SCHEMA_PATH = Path("real_estate_ads_exec_output.schema.json")
+DEFAULT_STATE_PATH = REAL_ESTATE_RUN_STATE_PATH
+DEFAULT_AGGREGATE_PATH = REAL_ESTATE_ADS_BY_CITY_PATH
+DEFAULT_SCHEMA_PATH = REAL_ESTATE_EXEC_SCHEMA_PATH
 LOCAL_FETCHERS = {
     "reality.idnes.cz": "reality.portal_fetchers.reality_idnes_fetch",
     "realitymix.cz": "reality.portal_fetchers.realitymix_fetch",
@@ -769,7 +775,7 @@ def should_skip_city(city: str, output_path: Path, overwrite: bool) -> bool:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Run the real estate ads skill for all school municipalities with resumable per-city outputs.")
-    parser.add_argument("--schools-input", default="dobruska_primary_schools.json", help="Path to the source city list JSON.")
+    parser.add_argument("--schools-input", default=str(SCHOOLS_JSON_PATH), help="Path to the source city list JSON.")
     parser.add_argument("--raw-dir", default=str(DEFAULT_RAW_DIR), help="Directory for raw per-city skill outputs.")
     parser.add_argument("--aggregate-output", default=str(DEFAULT_AGGREGATE_PATH), help="Aggregate JSON output path.")
     parser.add_argument("--state-path", default=str(DEFAULT_STATE_PATH), help="Path to the resumable run-state JSON file.")

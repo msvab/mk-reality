@@ -19,9 +19,9 @@ Primary site generator.
 What it does:
 
 - collects municipality, school, amenity, population, and driving-time data
-- writes the base dataset to `dobruska_primary_schools.json`
+- writes the base dataset to `data/generated/dobruska_primary_schools.json`
 - writes the static site to `index.html`
-- optionally reads `real_estate_ads_by_city.json`
+- optionally reads `data/generated/real_estate_ads_by_city.json`
 - adds the `Počet inzerátů` column into the generated table
 - renders the per-city ads drawer UI and embeds the drawer payload into the page
 
@@ -34,11 +34,11 @@ Important inputs:
 - `data/cache/school_type_cache.json`
 - `data/cache/school_registry_cache.json`
 - `data/cache/mapotic_malotridky_cache.json`
-- optionally `real_estate_ads_by_city.json`
+- optionally `data/generated/real_estate_ads_by_city.json`
 
 Important outputs:
 
-- `dobruska_primary_schools.json`
+- `data/generated/dobruska_primary_schools.json`
 - `index.html`
 
 Typical usage:
@@ -54,7 +54,7 @@ Refresh those source files explicitly when the Overpass query changes or the cac
 rtk proxy python3 build_html.py --refresh-overpass
 ```
 
-When only `real_estate_ads_by_city.json` changed, use the faster ads-only rebuild. It reuses `dobruska_primary_schools.json` and updates only ad counts and drawer data in `index.html`:
+When only `data/generated/real_estate_ads_by_city.json` changed, use the faster ads-only rebuild. It reuses `data/generated/dobruska_primary_schools.json` and updates only ad counts and drawer data in `index.html`:
 
 ```bash
 rtk python3 build_html.py --ads-only
@@ -95,22 +95,22 @@ All-cities aggregator.
 
 What it does:
 
-- reads the city list from `dobruska_primary_schools.json`
+- reads the city list from `data/generated/dobruska_primary_schools.json`
 - reads a directory of raw per-city ads JSON files
 - normalizes each city through the same single-city logic used by `build_real_estate_ads_json.py`
 - produces one aggregated file keyed by city
 
 Important output:
 
-- `real_estate_ads_by_city.json`
+- `data/generated/real_estate_ads_by_city.json`
 
 Typical usage:
 
 ```bash
 rtk python3 build_real_estate_ads_by_city.py \
-  --schools-input dobruska_primary_schools.json \
+  --schools-input data/generated/dobruska_primary_schools.json \
   --raw-dir data/real_estate_ads_raw \
-  --output real_estate_ads_by_city.json
+  --output data/generated/real_estate_ads_by_city.json
 ```
 
 ### [run_real_estate_ads_by_city.py](/Users/michal-mbp/dev/reality/run_real_estate_ads_by_city.py)
@@ -119,7 +119,7 @@ Resumable batch runner for the ads skill.
 
 What it does:
 
-- reads municipalities from `dobruska_primary_schools.json`
+- reads municipalities from `data/generated/dobruska_primary_schools.json`
 - invokes `codex exec` with the `find-real-estate-ads` skill prompt for each city
 - writes one raw JSON file per city into a raw output directory
 - skips cities that already have a valid raw file
@@ -130,9 +130,9 @@ What it does:
 Important defaults:
 
 - raw output directory: `data/real_estate_ads_raw`
-- state file: `real_estate_ads_run_state.json`
-- aggregate output: `real_estate_ads_by_city.json`
-- exec schema: `real_estate_ads_exec_output.schema.json`
+- state file: `data/state/real_estate_ads_run_state.json`
+- aggregate output: `data/generated/real_estate_ads_by_city.json`
+- exec schema: `schemas/real_estate_ads_exec_output.schema.json`
 
 Useful flags:
 
@@ -145,7 +145,7 @@ Useful flags:
 - `--local-only` uses only deterministic portal fetchers and records a failure instead of falling back to Codex
 - `--local-portal PORTAL` limits deterministic local fetching to one supported portal; repeat it for multiple portals
 - `--merge-local-results` merges local fetcher output into existing raw city files instead of replacing the full snapshot
-- `--aggregate-after-each` refreshes `real_estate_ads_by_city.json` after every successful city
+- `--aggregate-after-each` refreshes `data/generated/real_estate_ads_by_city.json` after every successful city
 
 Typical usage:
 
@@ -203,7 +203,7 @@ uploads this summary as the `real-estate-refresh-summary` artifact.
 
 The daily refresh still runs current municipality-level searches so it can detect new and removed ads. It reuses the previous aggregate as a prompt cache, so known active ads do not need full detail re-discovery when the current search result still exposes the same URL/title/location/price/areas. Ads that were present previously but are missing from the latest city snapshot move from `ads` into `hidden_ads`; only active `ads` are counted and rendered.
 
-Daily refreshes are guarded per municipality in `real_estate_ads_run_state.json`. If a municipality has already completed today, a later `--daily-refresh` skips it and continues with the next municipality, which keeps partial refreshes resumable without paying to re-check the same city. Use `--force-daily-refresh` only when you intentionally want to re-run already refreshed municipalities on the same day.
+Daily refreshes are guarded per municipality in `data/state/real_estate_ads_run_state.json`. If a municipality has already completed today, a later `--daily-refresh` skips it and continues with the next municipality, which keeps partial refreshes resumable without paying to re-check the same city. Use `--force-daily-refresh` only when you intentionally want to re-run already refreshed municipalities on the same day.
 
 Use `--local-first` to reduce Codex usage where deterministic portal helpers can cover the refresh. This path reuses cached result pages for `reality.idnes.cz` and `reality.aktualne.cz`, discovers current result pages on `realitymix.cz` and `reality.aktualne.cz` where possible, queries the live `sreality.cz` JSON API, and verifies cached detail URLs for all local helper-backed portals; it falls back to Codex when local verification fails.
 
@@ -227,7 +227,7 @@ What it checks:
 
 - aggregate shape and totals
 - raw file count and unmatched raw-file metadata
-- failed cities in `real_estate_ads_run_state.json`
+- failed cities in `data/state/real_estate_ads_run_state.json`
 - embedded ad counts in `index.html`
 - portal-warning and candidate-exclusion counts
 
@@ -259,7 +259,7 @@ rtk python3 summarize_real_estate_fetch_errors.py --json
 
 The JSON output is grouped into `portal_warnings` and `candidate_exclusions`.
 
-### [real_estate_ads_exec_output.schema.json](/Users/michal-mbp/dev/reality/real_estate_ads_exec_output.schema.json)
+### [schemas/real_estate_ads_exec_output.schema.json](/Users/michal-mbp/dev/reality/schemas/real_estate_ads_exec_output.schema.json)
 
 JSON schema passed to `codex exec`.
 
@@ -270,7 +270,7 @@ What it does:
 - allows optional `portal_status` so portal fetch failures are structured instead of only described in text
 - allows optional `fetch_attempts` so retries and direct fetch failures can be audited later
 
-### [real_estate_ads_input.example.json](/Users/michal-mbp/dev/reality/real_estate_ads_input.example.json)
+### [examples/real_estate_ads_input.example.json](/Users/michal-mbp/dev/reality/examples/real_estate_ads_input.example.json)
 
 Example raw single-city ads payload.
 
@@ -281,7 +281,7 @@ Use it for:
 
 ## Data Files
 
-### [dobruska_primary_schools.json](/Users/michal-mbp/dev/reality/dobruska_primary_schools.json)
+### [data/generated/dobruska_primary_schools.json](/Users/michal-mbp/dev/reality/data/generated/dobruska_primary_schools.json)
 
 Generated base municipality dataset used by both pipelines.
 
@@ -295,7 +295,7 @@ Contains one object per municipality with fields such as:
 - `school_name`
 - `school_url`
 
-### [real_estate_ads_by_city.json](/Users/michal-mbp/dev/reality/real_estate_ads_by_city.json)
+### [data/generated/real_estate_ads_by_city.json](/Users/michal-mbp/dev/reality/data/generated/real_estate_ads_by_city.json)
 
 Generated aggregated ads artifact used by `build_html.py`.
 
@@ -315,7 +315,7 @@ Raw per-city outputs from the ads runner.
 
 These are the resumable boundary of the ads pipeline. If the run stops after city 5, rerunning will skip valid files for cities 1 to 5 and continue from the next missing or invalid city.
 
-### [real_estate_ads_run_state.json](/Users/michal-mbp/dev/reality/real_estate_ads_run_state.json)
+### [data/state/real_estate_ads_run_state.json](/Users/michal-mbp/dev/reality/data/state/real_estate_ads_run_state.json)
 
 Generated state file for the resumable runner.
 
@@ -334,25 +334,25 @@ Contains:
 
 1. Run `build_html.py`.
 2. The script reads cached Overpass municipality, school, and amenity data unless `--refresh-overpass` is used.
-3. It writes `dobruska_primary_schools.json`.
+3. It writes `data/generated/dobruska_primary_schools.json`.
 4. It writes `index.html`.
 
 ### Ads Flow
 
-1. Make sure `dobruska_primary_schools.json` exists.
+1. Make sure `data/generated/dobruska_primary_schools.json` exists.
 2. Run `run_real_estate_ads_by_city.py`.
-3. The runner reads cities from `dobruska_primary_schools.json`.
+3. The runner reads cities from `data/generated/dobruska_primary_schools.json`.
 4. For each city, it calls `codex exec` with a prompt that uses the `find-real-estate-ads` skill.
 5. Each city result is written as one raw JSON file in `data/real_estate_ads_raw`.
 6. The runner skips already valid city files on rerun, so the process is resumable.
-7. The runner writes progress into `real_estate_ads_run_state.json`.
-8. The runner rebuilds `real_estate_ads_by_city.json`.
+7. The runner writes progress into `data/state/real_estate_ads_run_state.json`.
+8. The runner rebuilds `data/generated/real_estate_ads_by_city.json`.
 
 For the daily refresh path, pass `--daily-refresh`. That forces each city to be refreshed instead of skipped, gives the worker cached active ads from the previous aggregate, and marks missing previous ads as hidden in the rebuilt aggregate.
 
 ### Final Render Flow
 
-1. Run `build_html.py` after `real_estate_ads_by_city.json` exists.
+1. Run `build_html.py` after `data/generated/real_estate_ads_by_city.json` exists.
 2. The generator reads the aggregated ads file.
 3. It adds a `Počet inzerátů` column to each municipality row.
 4. If a city has ads, the count is rendered as a clickable button.

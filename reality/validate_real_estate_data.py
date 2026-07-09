@@ -5,13 +5,14 @@ import re
 from pathlib import Path
 from typing import cast
 
+from .paths import REAL_ESTATE_ADS_BY_CITY_PATH, REAL_ESTATE_RUN_STATE_PATH
 from .real_estate_types import JsonObject, RealEstateAggregate, ValidationReport
 from .refresh_real_estate_ads import aggregate_totals, format_counts, render_refresh_summary
 from .summarize_real_estate_fetch_errors import iter_candidate_exclusions, iter_warnings
 
 ROOT = Path(__file__).resolve().parent.parent
-DEFAULT_AGGREGATE_PATH = ROOT / "real_estate_ads_by_city.json"
-DEFAULT_STATE_PATH = ROOT / "real_estate_ads_run_state.json"
+DEFAULT_AGGREGATE_PATH = REAL_ESTATE_ADS_BY_CITY_PATH
+DEFAULT_STATE_PATH = REAL_ESTATE_RUN_STATE_PATH
 DEFAULT_HTML_PATH = ROOT / "index.html"
 DEFAULT_RAW_DIR = ROOT / "data" / "real_estate_ads_raw"
 
@@ -46,7 +47,7 @@ def count_mismatches(aggregate: RealEstateAggregate | JsonObject, html_path: Pat
     counts = embedded_counts(html_path)
     cities = aggregate.get("cities", {})
     if not isinstance(cities, dict):
-        raise ValueError("real_estate_ads_by_city.json is missing a cities object.")
+        raise ValueError(f"{DEFAULT_AGGREGATE_PATH} is missing a cities object.")
     mismatches = []
     for city, bundle in cities.items():
         if not isinstance(bundle, dict):

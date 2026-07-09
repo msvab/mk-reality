@@ -8,13 +8,14 @@ from collections import Counter
 from pathlib import Path
 from typing import cast
 
+from .paths import REAL_ESTATE_ADS_BY_CITY_PATH, REAL_ESTATE_RUN_STATE_PATH, SCHOOLS_JSON_PATH
 from .real_estate_types import JsonObject, PortalDiagnosticRow, RealEstateAggregate
 from .run_real_estate_ads_by_city import city_refresh_summary, format_delta
 from .summarize_real_estate_fetch_errors import grouped_rows, iter_candidate_exclusions, iter_warnings
 
 ROOT = Path(__file__).resolve().parent.parent
-AGGREGATE_PATH = ROOT / "real_estate_ads_by_city.json"
-STATE_PATH = ROOT / "real_estate_ads_run_state.json"
+AGGREGATE_PATH = REAL_ESTATE_ADS_BY_CITY_PATH
+STATE_PATH = REAL_ESTATE_RUN_STATE_PATH
 HTML_PATH = ROOT / "index.html"
 DEFAULT_SUMMARY_PATH = ROOT / "real_estate_refresh_summary.md"
 
@@ -46,9 +47,9 @@ def load_json_if_exists(path: Path) -> JsonObject | None:
 
 
 def load_city_order() -> list[str]:
-    rows = json.loads((ROOT / "dobruska_primary_schools.json").read_text(encoding="utf-8"))
+    rows = json.loads(SCHOOLS_JSON_PATH.read_text(encoding="utf-8"))
     if not isinstance(rows, list):
-        raise ValueError("dobruska_primary_schools.json must contain a JSON array.")
+        raise ValueError(f"{SCHOOLS_JSON_PATH} must contain a JSON array.")
     cities = []
     seen = set()
     for row in rows:
@@ -127,7 +128,7 @@ def validate_state() -> None:
 def validate_no_unmatched_raw_files(aggregate: RealEstateAggregate | JsonObject) -> None:
     unmatched = aggregate.get("unmatched_raw_files", [])
     if not isinstance(unmatched, list):
-        raise RuntimeError("real_estate_ads_by_city.json has invalid unmatched_raw_files metadata.")
+        raise RuntimeError(f"{AGGREGATE_PATH} has invalid unmatched_raw_files metadata.")
     if not unmatched:
         print("raw files: no unmatched files")
         return
@@ -154,7 +155,7 @@ def validate_embedded_counts() -> None:
     mismatches = []
     cities = aggregate.get("cities", {})
     if not isinstance(cities, dict):
-        raise RuntimeError("real_estate_ads_by_city.json is missing a cities object.")
+        raise RuntimeError(f"{AGGREGATE_PATH} is missing a cities object.")
     for city, bundle in cities.items():
         if not isinstance(bundle, dict):
             continue
@@ -363,8 +364,8 @@ def commit_and_push(message: str, push: bool) -> None:
             "git",
             "add",
             "data/real_estate_ads_raw",
-            "real_estate_ads_by_city.json",
-            "real_estate_ads_run_state.json",
+            str(REAL_ESTATE_ADS_BY_CITY_PATH),
+            str(REAL_ESTATE_RUN_STATE_PATH),
             "index.html",
         ]
     )

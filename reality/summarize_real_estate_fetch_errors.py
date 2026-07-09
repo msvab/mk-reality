@@ -4,6 +4,7 @@ from collections import defaultdict
 from pathlib import Path
 from typing import cast
 
+from .paths import REAL_ESTATE_ADS_BY_CITY_PATH
 from .real_estate_types import JsonObject, PortalDiagnosticRow, RealEstateAggregate
 
 NON_WARNING_STATUSES = {"ok", "no_results", "inactive"}
@@ -149,7 +150,7 @@ def grouped_rows(rows: list[PortalDiagnosticRow]) -> list[JsonObject]:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Summarize portal fetch warnings from the real estate aggregate JSON.")
-    parser.add_argument("--input", default="real_estate_ads_by_city.json", help="Path to aggregate JSON.")
+    parser.add_argument("--input", default=str(REAL_ESTATE_ADS_BY_CITY_PATH), help="Path to aggregate JSON.")
     parser.add_argument("--json", action="store_true", help="Emit machine-readable JSON grouped by health warnings and candidate exclusions.")
     args = parser.parse_args()
 

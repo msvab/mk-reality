@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any, cast
 
 from .build_real_estate_ads_json import build_output, format_czk, is_per_square_meter_price, parse_price_czk
+from .paths import REAL_ESTATE_ADS_BY_CITY_PATH, SCHOOLS_JSON_PATH
 from .real_estate_types import CityBundle, JsonObject, Listing, RealEstateAggregate, UnmatchedRawFile
 
 
@@ -292,9 +293,9 @@ def build_aggregate_output(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Aggregate per-city real estate skill outputs into one HTML-ready JSON file.")
-    parser.add_argument("--schools-input", default="dobruska_primary_schools.json", help="Path to the schools JSON used as the city source list.")
+    parser.add_argument("--schools-input", default=str(SCHOOLS_JSON_PATH), help="Path to the schools JSON used as the city source list.")
     parser.add_argument("--raw-dir", required=True, help="Directory with one raw skill-output JSON file per city.")
-    parser.add_argument("--output", default="real_estate_ads_by_city.json", help="Path to the aggregated JSON output.")
+    parser.add_argument("--output", default=str(REAL_ESTATE_ADS_BY_CITY_PATH), help="Path to the aggregated JSON output.")
     parser.add_argument("--previous-aggregate", default=None, help="Optional previous aggregate used to hide ads missing from the latest raw snapshot.")
     args = parser.parse_args()
 
