@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 1,
-    "candidates_gathered": 12,
+    "candidates_gathered": 14,
     "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
@@ -93,6 +93,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/provodov-sonov/69e0a54e2dd614fd9c08d832/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/provodov-sonov/6a4e4844a2ded8922d07ac26/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -195,6 +203,14 @@
       "http_status": 200
     },
     {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/provodov-sonov/zemedelska-puda-prodej-serec-provodov-sonov-nachod-8606255.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Provodov-%C5%A0onov&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
       "stage": "locality_suggest",
@@ -228,7 +244,7 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/3671143244",
+      "url": "https://www.sreality.cz/api/v1/estates/3858399308",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -246,6 +262,7 @@
   "gaps": [
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/provodov-sonov/69e0a54e2dd614fd9c08d832/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/provodov-sonov/6a4e4844a2ded8922d07ac26/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/provodov-sonov/690b2f31ad28ea96840ef270/",
     "missing-page-url:house",
     "missing-page-url:land",
@@ -255,8 +272,9 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/provodov-sonov/prodej-pole-6017-m-provodov-sonov-8054978.html",
     "outside-municipality:https://reality.aktualne.cz/detail/provodov-sonov/prodej-pozemku-k-bydleni-v-provodove-sonove-8540089.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/provodov-sonov/prodej-rodinneho-domu-100-m-provodov-sonov-8565227.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/provodov-sonov/zemedelska-puda-prodej-serec-provodov-sonov-nachod-8606255.html",
     "missing-price:https://www.sreality.cz/api/v1/estates/2179174476",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3671143244",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3858399308",
     "missing-price:https://www.sreality.cz/api/v1/estates/580404044"
   ],
   "listings": [

@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 21,
+    "candidates_gathered": 20,
     "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz"
@@ -58,6 +58,14 @@
   "fetch_attempts": [
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice/6a4cbfb08dd4af884b0a5bd7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/domy/dolni-redice/",
       "stage": "search_fetch",
       "attempt": 1,
@@ -74,8 +82,16 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
-      "stage": "detail_fetch",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-30139",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-30139",
+      "stage": "search_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -107,14 +123,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/dolni-redice-k-casum/67f7a4084ccdc8b50f03a0ae/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice/6a4cbfb08dd4af884b0a5bd7/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -314,7 +322,6 @@
     }
   ],
   "gaps": [
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/dolni-redice-pardubicka/6a44ec26f1b2473b490252b3/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/dolni-redice-lucni/6a2eb658e0c8e0cbd20ba70b/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/dolni-redice-k-casum/67f7a4084ccdc8b50f03a0ae/",
