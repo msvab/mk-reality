@@ -185,6 +185,17 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
           }};
 
           const datePart = (value) => String(value || "").slice(0, 10);
+          const dateToUtcMs = (value) => {{
+            const match = String(value || "").match(/^(\\d{{4}})-(\\d{{2}})-(\\d{{2}})$/);
+            if (!match) return null;
+            return Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
+          }};
+          const daysBetween = (startDate, endDate) => {{
+            const start = dateToUtcMs(startDate);
+            const end = dateToUtcMs(endDate);
+            if (start === null || end === null) return null;
+            return Math.floor((end - start) / 86400000);
+          }};
           const formatTimestamp = (value) => {{
             const match = String(value || "").match(/^(\\d{{4}})-(\\d{{2}})-(\\d{{2}})T(\\d{{2}}):(\\d{{2}})/);
             if (!match) return displayValue(value);
@@ -218,7 +229,8 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
           const hasPriceChanged = (ad) => new Set(priceValues(ad)).size > 1;
           const isNewListing = (ad, bundle) => {{
             const generatedDate = datePart(bundle?.generated_at);
-            return generatedDate && datePart(ad.first_seen_at) === generatedDate;
+            const ageDays = daysBetween(datePart(ad.first_seen_at), generatedDate);
+            return ageDays !== null && ageDays >= 0 && ageDays < 5;
           }};
           const isHiddenListing = (ad, bundle) => {{
             const generatedDate = datePart(bundle?.generated_at);
@@ -491,4 +503,3 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
         }})();
       </script>
     """
-

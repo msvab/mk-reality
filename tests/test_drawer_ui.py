@@ -8,7 +8,7 @@ def inject_duplicate_change_fixture(page) -> None:
         """
         () => {
             window.adsByCityForTest["Testovací změny"] = {
-                generated_at: "2026-07-07T09:00:00+0000",
+                generated_at: "2099-07-07T09:00:00+0000",
                 count: 1,
                 ads: [
                     {
@@ -21,11 +21,43 @@ def inject_duplicate_change_fixture(page) -> None:
                         house_area_m2: null,
                         land_area_m2: 1500,
                         urls: ["https://example.test/listing/duplicate-category"],
-                        first_seen_at: "2026-07-06T09:00:00+0000",
-                        last_seen_at: "2026-07-07T09:00:00+0000",
+                        first_seen_at: "2099-07-06T09:00:00+0000",
+                        last_seen_at: "2099-07-07T09:00:00+0000",
                         price_history: [
-                            {seen_at: "2026-07-06T09:00:00+0000", price: "1 900 000 Kč", price_czk: 1900000},
-                            {seen_at: "2026-07-07T09:00:00+0000", price: "2 000 000 Kč", price_czk: 2000000},
+                            {seen_at: "2099-07-06T09:00:00+0000", price: "1 900 000 Kč", price_czk: 1900000},
+                            {seen_at: "2099-07-07T09:00:00+0000", price: "2 000 000 Kč", price_czk: 2000000},
+                        ],
+                    },
+                    {
+                        portal: ["sreality.cz"],
+                        title: "Synthetic five-day new listing",
+                        location: "Testovací změny",
+                        property_type: "land",
+                        price: "2 500 000 Kč",
+                        price_czk: 2500000,
+                        house_area_m2: null,
+                        land_area_m2: 1800,
+                        urls: ["https://example.test/listing/five-day-new"],
+                        first_seen_at: "2099-07-03T09:00:00+0000",
+                        last_seen_at: "2099-07-07T09:00:00+0000",
+                        price_history: [
+                            {seen_at: "2099-07-03T09:00:00+0000", price: "2 500 000 Kč", price_czk: 2500000},
+                        ],
+                    },
+                    {
+                        portal: ["sreality.cz"],
+                        title: "Synthetic expired new listing",
+                        location: "Testovací změny",
+                        property_type: "land",
+                        price: "2 600 000 Kč",
+                        price_czk: 2600000,
+                        house_area_m2: null,
+                        land_area_m2: 1900,
+                        urls: ["https://example.test/listing/expired-new"],
+                        first_seen_at: "2099-07-02T09:00:00+0000",
+                        last_seen_at: "2099-07-07T09:00:00+0000",
+                        price_history: [
+                            {seen_at: "2099-07-02T09:00:00+0000", price: "2 600 000 Kč", price_czk: 2600000},
                         ],
                     },
                 ],
@@ -40,11 +72,11 @@ def inject_duplicate_change_fixture(page) -> None:
                         house_area_m2: null,
                         land_area_m2: 1500,
                         urls: ["https://example.test/listing/duplicate-category"],
-                        first_seen_at: "2026-07-06T09:00:00+0000",
-                        last_seen_at: "2026-07-06T09:00:00+0000",
-                        hidden_at: "2026-07-07T09:00:00+0000",
+                        first_seen_at: "2099-07-06T09:00:00+0000",
+                        last_seen_at: "2099-07-06T09:00:00+0000",
+                        hidden_at: "2099-07-07T09:00:00+0000",
                         price_history: [
-                            {seen_at: "2026-07-06T09:00:00+0000", price: "1 900 000 Kč", price_czk: 1900000},
+                            {seen_at: "2099-07-06T09:00:00+0000", price: "1 900 000 Kč", price_czk: 1900000},
                         ],
                     },
                 ],
@@ -67,7 +99,19 @@ def city_with_badge_candidate(page, badge_type: str) -> str | None:
                 .map(entry => numericValue(entry && entry.price_czk))
                 .filter(value => value !== null);
             const hasPriceChanged = ad => new Set(priceValues(ad)).size > 1;
-            const isNewListing = (ad, bundle) => datePart(bundle.generated_at) && datePart(ad.first_seen_at) === datePart(bundle.generated_at);
+            const dateToUtcMs = value => {
+                const match = String(value || "").match(/^(\\d{4})-(\\d{2})-(\\d{2})$/);
+                return match ? Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3])) : null;
+            };
+            const daysBetween = (startDate, endDate) => {
+                const start = dateToUtcMs(startDate);
+                const end = dateToUtcMs(endDate);
+                return start === null || end === null ? null : Math.floor((end - start) / 86400000);
+            };
+            const isNewListing = (ad, bundle) => {
+                const ageDays = daysBetween(datePart(ad.first_seen_at), datePart(bundle.generated_at));
+                return ageDays !== null && ageDays >= 0 && ageDays < 5;
+            };
             for (const [city, bundle] of Object.entries(payload)) {
                 const ads = Array.isArray(bundle.ads) ? bundle.ads : [];
                 if (badgeType === "new" && ads.some(ad => isNewListing(ad, bundle))) return city;
@@ -117,6 +161,11 @@ def test_hk_drawer_scrolls_without_gaps_text() -> None:
 
         page.locator('[data-change-filter="price"]').click()
         assert page.locator(".ads-changes-item").count() > 0
+
+        page.locator('[data-change-filter="new"]').click()
+        new_text = page.locator("#ads-changes-body").inner_text()
+        assert "Synthetic five-day new listing" in new_text
+        assert "Synthetic expired new listing" not in new_text
 
         first_changed_button = page.locator(".ads-changes-city").first
         first_changed_city = first_changed_button.inner_text()
