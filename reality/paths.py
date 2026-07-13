@@ -9,9 +9,11 @@ REAL_ESTATE_RAW_DIR = DATA_DIR / "real_estate_ads_raw"
 STATE_DIR = DATA_DIR / "state"
 SCHEMAS_DIR = ROOT / "schemas"
 EXAMPLES_DIR = ROOT / "examples"
+STATIC_DIR = ROOT / "reality" / "static"
 
 HTML_PATH = ROOT / "index.html"
 REFRESH_SUMMARY_PATH = ROOT / "real_estate_refresh_summary.md"
+ADS_DRAWER_JS_PATH = STATIC_DIR / "ads_drawer.js"
 
 SCHOOL_URL_CACHE_PATH = CACHE_DIR / "school_url_cache.json"
 SCHOOL_TYPE_CACHE_PATH = CACHE_DIR / "school_type_cache.json"
