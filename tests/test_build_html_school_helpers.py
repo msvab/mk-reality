@@ -1,4 +1,4 @@
-from reality.build_html import (
+from reality.school_normalization import (
     amenity_bucket,
     amenity_city_key,
     infer_school_type,
