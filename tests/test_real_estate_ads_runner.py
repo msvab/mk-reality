@@ -484,7 +484,7 @@ def test_local_fetcher_can_be_limited_to_one_portal(tmp_path, monkeypatch):
         }
         return subprocess.CompletedProcess(cmd, 0, stdout=json.dumps(payload), stderr="")
 
-    monkeypatch.setattr("reality.run_real_estate_ads_by_city.subprocess.run", fake_run)
+    monkeypatch.setattr("reality.ads_local_fetch.subprocess.run", fake_run)
 
     assert run_local_fetchers(
         "Portal Filter",
@@ -604,7 +604,7 @@ def test_local_fetchers_run_realitymix_discovery_without_cached_urls(tmp_path, m
         }
         return subprocess.CompletedProcess(cmd, 0, stdout=json.dumps(payload), stderr="")
 
-    monkeypatch.setattr("reality.run_real_estate_ads_by_city.subprocess.run", fake_run)
+    monkeypatch.setattr("reality.ads_local_fetch.subprocess.run", fake_run)
 
     output_path = tmp_path / "raw.json"
     assert run_local_fetchers("Zero Cache", tmp_path, output_path, previous_aggregate=None)
@@ -666,7 +666,7 @@ def test_local_fetchers_pass_cached_realitymix_result_page_urls(tmp_path, monkey
             }
         }
     }
-    monkeypatch.setattr("reality.run_real_estate_ads_by_city.subprocess.run", fake_run)
+    monkeypatch.setattr("reality.ads_local_fetch.subprocess.run", fake_run)
 
     assert run_local_fetchers("Opočno", tmp_path, tmp_path / "raw.json", previous_aggregate)
 
@@ -720,7 +720,7 @@ def test_local_fetchers_pass_cached_reality_idnes_detail_urls(tmp_path, monkeypa
             }
         }
     }
-    monkeypatch.setattr("reality.run_real_estate_ads_by_city.subprocess.run", fake_run)
+    monkeypatch.setattr("reality.ads_local_fetch.subprocess.run", fake_run)
 
     assert run_local_fetchers("Librantice", tmp_path, tmp_path / "raw.json", previous_aggregate)
 
@@ -774,7 +774,7 @@ def test_local_fetchers_pass_cached_reality_idnes_result_page_urls_without_cache
             }
         }
     }
-    monkeypatch.setattr("reality.run_real_estate_ads_by_city.subprocess.run", fake_run)
+    monkeypatch.setattr("reality.ads_local_fetch.subprocess.run", fake_run)
 
     assert run_local_fetchers("Librantice", tmp_path, tmp_path / "raw.json", previous_aggregate)
 
@@ -829,7 +829,7 @@ def test_local_fetchers_pass_cached_reality_aktualne_result_page_urls_and_discov
             }
         }
     }
-    monkeypatch.setattr("reality.run_real_estate_ads_by_city.subprocess.run", fake_run)
+    monkeypatch.setattr("reality.ads_local_fetch.subprocess.run", fake_run)
 
     assert run_local_fetchers("České Meziříčí", tmp_path, tmp_path / "raw.json", previous_aggregate)
 
@@ -870,7 +870,7 @@ def test_local_fetchers_run_sreality_discovery_without_cache(tmp_path, monkeypat
         }
         return subprocess.CompletedProcess(cmd, 0, stdout=json.dumps(payload), stderr="")
 
-    monkeypatch.setattr("reality.run_real_estate_ads_by_city.subprocess.run", fake_run)
+    monkeypatch.setattr("reality.ads_local_fetch.subprocess.run", fake_run)
 
     assert run_local_fetchers(
         "Česká Třebová",
@@ -913,7 +913,7 @@ def test_local_fetchers_raise_when_helper_reports_blocked_requests(tmp_path, mon
         }
         return subprocess.CompletedProcess(cmd, 0, stdout=json.dumps(payload), stderr="")
 
-    monkeypatch.setattr("reality.run_real_estate_ads_by_city.subprocess.run", fake_run)
+    monkeypatch.setattr("reality.ads_local_fetch.subprocess.run", fake_run)
 
     output_path = tmp_path / "raw.json"
     try:
