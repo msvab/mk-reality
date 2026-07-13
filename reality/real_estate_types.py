@@ -1,6 +1,6 @@
-from typing import Any, TypeAlias, TypedDict
+from typing import Any, TypedDict
 
-JsonObject: TypeAlias = dict[str, Any]
+type JsonObject = dict[str, Any]
 
 
 class PortalStatus(TypedDict, total=False):
@@ -121,4 +121,3 @@ class ValidationReport(TypedDict):
     embedded_count_mismatches: list[JsonObject]
     portal_warnings: JsonObject
     candidate_exclusions: JsonObject
-
