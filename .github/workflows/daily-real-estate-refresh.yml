@@ -43,13 +43,13 @@ jobs:
         env:
           PYTHONUNBUFFERED: "1"
         run: >
-          python refresh_real_estate_ads.py
+          python -m reality.refresh_real_estate_ads
           --local-only
           --push
           --commit-message "Refresh real estate ads"
 
       - name: Validate real estate data
-        run: python validate_real_estate_data.py --summary-output real_estate_refresh_summary.md
+        run: python -m reality.validate_real_estate_data --summary-output real_estate_refresh_summary.md
 
       - name: Upload refresh summary
         if: always()

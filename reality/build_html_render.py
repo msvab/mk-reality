@@ -12,7 +12,7 @@ from .paths import HTML_PATH, SCHOOLS_JSON_PATH
 
 def load_cached_school_rows(path: Path = SCHOOLS_JSON_PATH) -> list[dict]:
     if not path.exists():
-        raise FileNotFoundError(f"{path} does not exist; run a full build_html.py first.")
+        raise FileNotFoundError(f"{path} does not exist; run a full python -m reality.build_html first.")
     payload = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(payload, list):
         raise ValueError(f"{path} must contain a JSON array.")

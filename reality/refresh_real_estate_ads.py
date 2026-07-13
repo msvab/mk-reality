@@ -409,7 +409,8 @@ def main() -> None:
     if not args.skip_refresh:
         refresh_cmd = [
             python,
-            "run_real_estate_ads_by_city.py",
+            "-m",
+            "reality.run_real_estate_ads_by_city",
             "--daily-refresh",
             "--aggregate-after-each",
         ]
@@ -421,7 +422,7 @@ def main() -> None:
         run_command(refresh_cmd)
         did_refresh = True
 
-    run_command([python, "build_html.py", "--ads-only"])
+    run_command([python, "-m", "reality.build_html", "--ads-only"])
     current_state = load_json(STATE_PATH)
     current_aggregate = cast(RealEstateAggregate, load_json(AGGREGATE_PATH))
     if did_refresh:

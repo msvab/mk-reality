@@ -1,8 +1,10 @@
+from __future__ import annotations
+
 import subprocess
 import sys
 from pathlib import Path
 
-from reality.paths import HTML_PATH, ROOT
+from .paths import HTML_PATH, ROOT
 
 PRESERVED_GENERATED_FILES = [
     HTML_PATH,
@@ -34,12 +36,12 @@ def main() -> None:
     python = sys.executable
     snapshots = snapshot_files(PRESERVED_GENERATED_FILES)
     try:
-        run_command([python, "build_html.py", "--ads-only"])
+        run_command([python, "-m", "reality.build_html", "--ads-only"])
         restore_files(snapshots)
-        run_command([python, "validate_real_estate_data.py"])
+        run_command([python, "-m", "reality.validate_real_estate_data"])
         run_command([python, "-m", "pytest", "-q", "--ignore=tests/test_drawer_ui.py"])
         run_command([python, "-m", "ruff", "check", "."])
-        run_command([python, "tests/test_drawer_ui.py"])
+        run_command([python, "-m", "pytest", "-q", "tests/test_drawer_ui.py"])
         run_command(["git", "diff", "--check"])
     finally:
         restore_files(snapshots)

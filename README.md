@@ -7,12 +7,11 @@ The repo currently has two connected pipelines:
 - a school and municipality pipeline that generates the base site
 - a real estate ads pipeline that fetches, normalizes, aggregates, and renders ad data into that site
 
-The root `*.py` files are command wrappers kept for compatibility with the documented commands. The implementation lives
-under `reality/`, and tests live under `tests/`.
+Run project commands with `python -m reality.<module>`. The implementation lives under `reality/`, and tests live under `tests/`.
 
 ## Main Files
 
-### [build_html.py](/Users/michal-mbp/dev/reality/build_html.py)
+### `python -m reality.build_html`
 
 Primary site generator.
 
@@ -44,23 +43,23 @@ Important outputs:
 Typical usage:
 
 ```bash
-rtk python3 build_html.py
+rtk python3 -m reality.build_html
 ```
 
-By default, `build_html.py` uses cached raw Overpass responses from `data/overpass`.
+By default, `python -m reality.build_html` uses cached raw Overpass responses from `data/overpass`.
 Refresh those source files explicitly when the Overpass query changes or the cached source data needs to be updated:
 
 ```bash
-rtk proxy python3 build_html.py --refresh-overpass
+rtk proxy python3 -m reality.build_html --refresh-overpass
 ```
 
 When only `data/generated/real_estate_ads_by_city.json` changed, use the faster ads-only rebuild. It reuses `data/generated/dobruska_primary_schools.json` and updates only ad counts and drawer data in `index.html`:
 
 ```bash
-rtk python3 build_html.py --ads-only
+rtk python3 -m reality.build_html --ads-only
 ```
 
-### [build_real_estate_ads_json.py](/Users/michal-mbp/dev/reality/build_real_estate_ads_json.py)
+### `python -m reality.build_real_estate_ads_json`
 
 Single-city ads normalizer.
 
@@ -86,10 +85,10 @@ Important input shape:
 Typical usage:
 
 ```bash
-rtk python3 build_real_estate_ads_json.py --input raw.json --output normalized.json
+rtk python3 -m reality.build_real_estate_ads_json --input raw.json --output normalized.json
 ```
 
-### [build_real_estate_ads_by_city.py](/Users/michal-mbp/dev/reality/build_real_estate_ads_by_city.py)
+### `python -m reality.build_real_estate_ads_by_city`
 
 All-cities aggregator.
 
@@ -97,7 +96,7 @@ What it does:
 
 - reads the city list from `data/generated/dobruska_primary_schools.json`
 - reads a directory of raw per-city ads JSON files
-- normalizes each city through the same single-city logic used by `build_real_estate_ads_json.py`
+- normalizes each city through the same single-city logic used by `python -m reality.build_real_estate_ads_json`
 - produces one aggregated file keyed by city
 
 Important output:
@@ -107,13 +106,13 @@ Important output:
 Typical usage:
 
 ```bash
-rtk python3 build_real_estate_ads_by_city.py \
+rtk python3 -m reality.build_real_estate_ads_by_city \
   --schools-input data/generated/dobruska_primary_schools.json \
   --raw-dir data/real_estate_ads_raw \
   --output data/generated/real_estate_ads_by_city.json
 ```
 
-### [run_real_estate_ads_by_city.py](/Users/michal-mbp/dev/reality/run_real_estate_ads_by_city.py)
+### `python -m reality.run_real_estate_ads_by_city`
 
 Resumable batch runner for the ads skill.
 
@@ -150,39 +149,39 @@ Useful flags:
 Typical usage:
 
 ```bash
-rtk python3 run_real_estate_ads_by_city.py --aggregate-after-each
+rtk python3 -m reality.run_real_estate_ads_by_city --aggregate-after-each
 ```
 
 Small safe first run:
 
 ```bash
-rtk python3 run_real_estate_ads_by_city.py --limit 5 --aggregate-after-each
+rtk python3 -m reality.run_real_estate_ads_by_city --limit 5 --aggregate-after-each
 ```
 
 Resume later:
 
 ```bash
-rtk python3 run_real_estate_ads_by_city.py --aggregate-after-each
+rtk python3 -m reality.run_real_estate_ads_by_city --aggregate-after-each
 ```
 
 Daily refresh:
 
 ```bash
-rtk python3 run_real_estate_ads_by_city.py --daily-refresh --local-first --aggregate-after-each
-rtk python3 build_html.py --ads-only
+rtk python3 -m reality.run_real_estate_ads_by_city --daily-refresh --local-first --aggregate-after-each
+rtk python3 -m reality.build_html --ads-only
 ```
 
 Provider-only enhancement run:
 
 ```bash
-rtk python3 run_real_estate_ads_by_city.py \
+rtk python3 -m reality.run_real_estate_ads_by_city \
   --daily-refresh \
   --force-daily-refresh \
   --local-only \
   --local-portal reality.idnes.cz \
   --merge-local-results \
   --aggregate-after-each
-rtk python3 build_html.py --ads-only
+rtk python3 -m reality.build_html --ads-only
 ```
 
 Use `--merge-local-results` for provider-only runs against `data/real_estate_ads_raw`; otherwise a partial provider result would replace the full raw city snapshot. This mode refreshes only the selected portal rows, status, and fetch attempts while preserving rows from the other portals in the same raw file.
@@ -190,7 +189,7 @@ Use `--merge-local-results` for provider-only runs against `data/real_estate_ads
 One-command daily workflow:
 
 ```bash
-rtk .venv/bin/python refresh_real_estate_ads.py
+rtk .venv/bin/python -m reality.refresh_real_estate_ads
 ```
 
 This runs the daily local-first refresh, rebuilds `index.html`, validates the aggregate and embedded drawer payload,
@@ -219,7 +218,7 @@ This performs an ads-only render smoke test, validates the checked-in aggregate 
 the Playwright drawer smoke test, and `git diff --check`. The command restores `index.html` after the smoke render so a
 date-only rebuild does not dirty the working tree.
 
-### [validate_real_estate_data.py](/Users/michal-mbp/dev/reality/validate_real_estate_data.py)
+### `python -m reality.validate_real_estate_data`
 
 Lightweight data-health validator for checked-in real-estate artifacts.
 
@@ -234,12 +233,12 @@ What it checks:
 Typical usage:
 
 ```bash
-rtk .venv/bin/python validate_real_estate_data.py
+rtk .venv/bin/python -m reality.validate_real_estate_data
 ```
 
 Use `--json` for machine-readable output and `--summary-output PATH` to write the same compact Markdown summary format used by the refresh workflow.
 
-### [summarize_real_estate_fetch_errors.py](/Users/michal-mbp/dev/reality/summarize_real_estate_fetch_errors.py)
+### `python -m reality.summarize_real_estate_fetch_errors`
 
 Portal health and candidate-exclusion reporter for the ads aggregate.
 
@@ -248,13 +247,13 @@ Use it to identify portal health errors after a batch fetch, including rate limi
 Typical usage:
 
 ```bash
-rtk python3 summarize_real_estate_fetch_errors.py
+rtk python3 -m reality.summarize_real_estate_fetch_errors
 ```
 
 Machine-readable usage:
 
 ```bash
-rtk python3 summarize_real_estate_fetch_errors.py --json
+rtk python3 -m reality.summarize_real_estate_fetch_errors --json
 ```
 
 The JSON output is grouped into `portal_warnings` and `candidate_exclusions`.
@@ -297,7 +296,7 @@ Contains one object per municipality with fields such as:
 
 ### [data/generated/real_estate_ads_by_city.json](/Users/michal-mbp/dev/reality/data/generated/real_estate_ads_by_city.json)
 
-Generated aggregated ads artifact used by `build_html.py`.
+Generated aggregated ads artifact used by `python -m reality.build_html`.
 
 Contains:
 
@@ -332,7 +331,7 @@ Contains:
 
 ### Base Site Flow
 
-1. Run `build_html.py`.
+1. Run `python -m reality.build_html`.
 2. The script reads cached Overpass municipality, school, and amenity data unless `--refresh-overpass` is used.
 3. It writes `data/generated/dobruska_primary_schools.json`.
 4. It writes `index.html`.
@@ -340,7 +339,7 @@ Contains:
 ### Ads Flow
 
 1. Make sure `data/generated/dobruska_primary_schools.json` exists.
-2. Run `run_real_estate_ads_by_city.py`.
+2. Run `python -m reality.run_real_estate_ads_by_city`.
 3. The runner reads cities from `data/generated/dobruska_primary_schools.json`.
 4. For each city, it calls `codex exec` with a prompt that uses the `find-real-estate-ads` skill.
 5. Each city result is written as one raw JSON file in `data/real_estate_ads_raw`.
@@ -352,7 +351,7 @@ For the daily refresh path, pass `--daily-refresh`. That forces each city to be 
 
 ### Final Render Flow
 
-1. Run `build_html.py` after `data/generated/real_estate_ads_by_city.json` exists.
+1. Run `python -m reality.build_html` after `data/generated/real_estate_ads_by_city.json` exists.
 2. The generator reads the aggregated ads file.
 3. It adds a `Počet inzerátů` column to each municipality row.
 4. If a city has ads, the count is rendered as a clickable button.
@@ -363,20 +362,20 @@ For the daily refresh path, pass `--daily-refresh`. That forces each city to be 
 For a fresh or partial ads refresh:
 
 ```bash
-rtk python3 run_real_estate_ads_by_city.py --limit 5 --aggregate-after-each
-rtk python3 build_html.py --ads-only
+rtk python3 -m reality.run_real_estate_ads_by_city --limit 5 --aggregate-after-each
+rtk python3 -m reality.build_html --ads-only
 ```
 
 After verifying the first few cities:
 
 ```bash
-rtk python3 run_real_estate_ads_by_city.py --aggregate-after-each
-rtk python3 build_html.py --ads-only
+rtk python3 -m reality.run_real_estate_ads_by_city --aggregate-after-each
+rtk python3 -m reality.build_html --ads-only
 ```
 
 ## Notes
 
 - This repo uses the RTK wrapper, so shell commands should be prefixed with `rtk`.
-- `build_html.py` remains the source of truth for `index.html`.
+- `python -m reality.build_html` remains the source of truth for `index.html`.
 - The ads pipeline is designed so raw city outputs are durable and resumable; the aggregate file can always be rebuilt from them.
 - The daily refresh uses the previous aggregate as cache context, but removals can only be detected by refreshing the current city search results.

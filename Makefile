@@ -2,4 +2,4 @@ PYTHON ?= .venv/bin/python
 
 .PHONY: verify
 verify:
-	$(PYTHON) verify_project.py
+	$(PYTHON) -m reality.verify_project
