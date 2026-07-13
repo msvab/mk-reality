@@ -247,7 +247,8 @@
           };
           const isHiddenListing = (ad, bundle) => {
             const generatedDate = datePart(bundle?.generated_at);
-            return generatedDate && datePart(ad.hidden_at) === generatedDate;
+            const ageDays = daysBetween(datePart(ad.hidden_at), generatedDate);
+            return ageDays !== null && ageDays >= 0 && ageDays < 5;
           };
           const latestPriceHistory = (ad) => {
             const history = Array.isArray(ad.price_history) ? ad.price_history : [];

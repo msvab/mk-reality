@@ -79,6 +79,40 @@ def inject_duplicate_change_fixture(page) -> None:
                             {seen_at: "2099-07-06T09:00:00+0000", price: "1 900 000 Kč", price_czk: 1900000},
                         ],
                     },
+                    {
+                        portal: ["sreality.cz"],
+                        title: "Synthetic five-day hidden listing",
+                        location: "Testovací změny",
+                        property_type: "land",
+                        price: "2 700 000 Kč",
+                        price_czk: 2700000,
+                        house_area_m2: null,
+                        land_area_m2: 2100,
+                        urls: ["https://example.test/listing/five-day-hidden"],
+                        first_seen_at: "2099-07-01T09:00:00+0000",
+                        last_seen_at: "2099-07-03T09:00:00+0000",
+                        hidden_at: "2099-07-03T09:00:00+0000",
+                        price_history: [
+                            {seen_at: "2099-07-01T09:00:00+0000", price: "2 700 000 Kč", price_czk: 2700000},
+                        ],
+                    },
+                    {
+                        portal: ["sreality.cz"],
+                        title: "Synthetic expired hidden listing",
+                        location: "Testovací změny",
+                        property_type: "land",
+                        price: "2 800 000 Kč",
+                        price_czk: 2800000,
+                        house_area_m2: null,
+                        land_area_m2: 2200,
+                        urls: ["https://example.test/listing/expired-hidden"],
+                        first_seen_at: "2099-07-01T09:00:00+0000",
+                        last_seen_at: "2099-07-02T09:00:00+0000",
+                        hidden_at: "2099-07-02T09:00:00+0000",
+                        price_history: [
+                            {seen_at: "2099-07-01T09:00:00+0000", price: "2 800 000 Kč", price_czk: 2800000},
+                        ],
+                    },
                 ],
                 portal_status: {"sreality.cz": {status: "ok"}},
             };
@@ -158,6 +192,8 @@ def test_hk_drawer_scrolls_without_gaps_text() -> None:
         page.locator('[data-change-filter="hidden"]').click()
         hidden_text = page.locator("#ads-changes-body").inner_text()
         assert "Synthetic duplicate category listing" in hidden_text
+        assert "Synthetic five-day hidden listing" in hidden_text
+        assert "Synthetic expired hidden listing" not in hidden_text
 
         page.locator('[data-change-filter="price"]').click()
         assert page.locator(".ads-changes-item").count() > 0
