@@ -10,12 +10,13 @@ from html import unescape
 from pathlib import Path
 from urllib.parse import urlencode, urlsplit, urlunsplit
 
+from reality.paths import OVERPASS_MUNICIPALITIES_PATH
+
 BASE_URL = "https://www.sreality.cz"
 API_BASE_URL = f"{BASE_URL}/api/v1"
 USER_AGENT = "Mozilla/5.0"
 DEFAULT_RETRIES = 1
 DEFAULT_BACKOFF_SECONDS = 1.0
-OVERPASS_MUNICIPALITIES_PATH = Path("data/overpass/municipalities.json")
 
 CATEGORY_MAIN = {
     "house": 2,

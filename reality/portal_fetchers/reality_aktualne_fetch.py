@@ -9,13 +9,14 @@ from html import unescape
 from pathlib import Path
 from urllib.parse import urlencode, urljoin, urlsplit, urlunsplit
 
+from reality.paths import OVERPASS_MUNICIPALITIES_PATH
+
 BASE_URL = "https://reality.aktualne.cz"
 USER_AGENT = "Mozilla/5.0"
 CATEGORY_URLS = {
     "house": "https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",
     "land": "https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html",
 }
-OVERPASS_MUNICIPALITIES_PATH = Path("data/overpass/municipalities.json")
 
 
 def slug_normalize(value: str) -> str:

@@ -18,17 +18,25 @@ from pathlib import Path
 
 from .build_html_render import load_cached_school_rows, write_html
 from .build_html_urls import is_bad_domain, is_usable_school_url, normalize_url
-from .paths import SCHOOLS_JSON_PATH
+from .paths import (
+    CACHE_DIR,
+    MAPOTIC_MALOTRIDKY_CACHE_PATH,
+    OVERPASS_DATA_DIR,
+    SCHOOL_REGISTRY_CACHE_PATH,
+    SCHOOL_TYPE_CACHE_PATH,
+    SCHOOL_URL_CACHE_PATH,
+    SCHOOLS_JSON_PATH,
+)
 
 DOBRUSKA = (50.2921062, 16.1605457)  # lat, lon
 RADIUS_M = 55000
 MAX_DRIVE_SEC = 3900
-DATA_CACHE_DIR = Path("data/cache")
-CACHE_PATH = DATA_CACHE_DIR / "school_url_cache.json"
-TYPE_CACHE_PATH = DATA_CACHE_DIR / "school_type_cache.json"
-REGISTRY_CACHE_PATH = DATA_CACHE_DIR / "school_registry_cache.json"
-MALOTRIDKY_CACHE_PATH = DATA_CACHE_DIR / "mapotic_malotridky_cache.json"
-OVERPASS_CACHE_DIR = Path("data/overpass")
+DATA_CACHE_DIR = CACHE_DIR
+CACHE_PATH = SCHOOL_URL_CACHE_PATH
+TYPE_CACHE_PATH = SCHOOL_TYPE_CACHE_PATH
+REGISTRY_CACHE_PATH = SCHOOL_REGISTRY_CACHE_PATH
+MALOTRIDKY_CACHE_PATH = MAPOTIC_MALOTRIDKY_CACHE_PATH
+OVERPASS_CACHE_DIR = OVERPASS_DATA_DIR
 MANUAL_CITY_SCHOOL_URLS = {
     "Třebechovice pod Orebem": "https://www.zst.cz/w/zakladni-skola/",
 }

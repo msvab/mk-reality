@@ -1,6 +1,11 @@
+import sys
 from pathlib import Path
 
 from playwright.sync_api import sync_playwright
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+
+from reality.paths import HTML_PATH
 
 
 def inject_duplicate_change_fixture(page) -> None:
@@ -164,7 +169,7 @@ def parse_price(text: str) -> int:
 
 
 def test_hk_drawer_scrolls_without_gaps_text() -> None:
-    page_path = Path("index.html").resolve()
+    page_path = HTML_PATH.resolve()
     with sync_playwright() as playwright:
         browser = playwright.chromium.launch()
         page = browser.new_page(viewport={"width": 1280, "height": 720})

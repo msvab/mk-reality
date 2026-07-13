@@ -2,9 +2,10 @@ import subprocess
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent
+from reality.paths import HTML_PATH, ROOT
+
 PRESERVED_GENERATED_FILES = [
-    ROOT / "index.html",
+    HTML_PATH,
 ]
 
 
