@@ -8,6 +8,7 @@ from collections import Counter
 from pathlib import Path
 from typing import cast
 
+from .ads_refresh_pipeline import city_refresh_summary, format_delta
 from .paths import (
     HTML_PATH,
     REAL_ESTATE_ADS_BY_CITY_PATH,
@@ -18,7 +19,6 @@ from .paths import (
     SCHOOLS_JSON_PATH,
 )
 from .real_estate_types import JsonObject, PortalDiagnosticRow, RealEstateAggregate
-from .run_real_estate_ads_by_city import city_refresh_summary, format_delta
 from .summarize_real_estate_fetch_errors import grouped_rows, iter_candidate_exclusions, iter_warnings
 
 AGGREGATE_PATH = REAL_ESTATE_ADS_BY_CITY_PATH
