@@ -47,6 +47,19 @@
     }).filter(Boolean).join("<br>");
   };
 
+  const primaryListingUrl = (urls) => {
+    if (!Array.isArray(urls)) return null;
+    for (const url of urls) {
+      try {
+        const parsed = new URL(url);
+        if (parsed.protocol === "http:" || parsed.protocol === "https:") return parsed.href;
+      } catch (_err) {
+        // Ignore malformed listing URLs from a portal payload.
+      }
+    }
+    return null;
+  };
+
   const datePart = (value) => String(value || "").slice(0, 10);
   const dateToUtcMs = (value) => {
     const match = String(value || "").match(/^(\d{4})-(\d{2})-(\d{2})$/);
@@ -168,11 +181,16 @@
           const priceChange = item.priceChange;
           const priceText = formatPriceChange(priceChange) || displayValue(item.ad.price);
           const timestamp = filter === "hidden" ? item.ad.hidden_at : (priceChange?.current?.seen_at || item.ad.first_seen_at || item.bundle.generated_at);
+          const listingUrl = primaryListingUrl(item.ad.urls);
+          const listingTitle = escapeHtml(displayValue(item.ad.title));
+          const listingName = listingUrl
+            ? `<a class="ads-changes-name ads-changes-listing-link" href="${escapeHtml(listingUrl)}" target="_blank" rel="noopener noreferrer">${listingTitle}</a>`
+            : `<div class="ads-changes-name">${listingTitle}</div>`;
           return `
             <li class="ads-changes-item">
               <div>
                 <button type="button" class="ads-changes-city ads-link-button" data-change-city="${escapeHtml(item.city)}">${escapeHtml(item.city)}</button>
-                <div class="ads-changes-name">${escapeHtml(displayValue(item.ad.title))}</div>
+                ${listingName}
                 <div class="ads-changes-meta">${escapeHtml(formatTimestamp(timestamp))} · ${escapeHtml(displayValue(item.ad.location))}</div>
               </div>
               <div class="ads-changes-price">${escapeHtml(priceText)}</div>

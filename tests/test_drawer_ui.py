@@ -65,6 +65,23 @@ def inject_duplicate_change_fixture(page) -> None:
                             {seen_at: "2099-07-02T09:00:00+0000", price: "2 600 000 Kč", price_czk: 2600000},
                         ],
                     },
+                    {
+                        portal: ["sreality.cz"],
+                        title: "Synthetic price changed listing",
+                        location: "Testovací změny",
+                        property_type: "land",
+                        price: "3 100 000 Kč",
+                        price_czk: 3100000,
+                        house_area_m2: null,
+                        land_area_m2: 2000,
+                        urls: ["https://example.test/listing/price-changed"],
+                        first_seen_at: "2099-06-30T09:00:00+0000",
+                        last_seen_at: "2099-07-07T09:00:00+0000",
+                        price_history: [
+                            {seen_at: "2099-06-30T09:00:00+0000", price: "3 000 000 Kč", price_czk: 3000000},
+                            {seen_at: "2099-07-07T09:00:00+0000", price: "3 100 000 Kč", price_czk: 3100000},
+                        ],
+                    },
                 ],
                 hidden_ads: [
                     {
@@ -193,12 +210,14 @@ def test_hk_drawer_scrolls_without_gaps_text() -> None:
         page.locator('[data-change-filter="price"]').click()
         assert page.locator(".ads-changes-item").count() > 0
         assert "Synthetic duplicate category listing" not in page.locator("#ads-changes-body").inner_text()
+        assert page.locator('.ads-changes-listing-link[href="https://example.test/listing/price-changed"]').count() == 1
 
         page.locator('[data-change-filter="hidden"]').click()
         hidden_text = page.locator("#ads-changes-body").inner_text()
         assert "Synthetic duplicate category listing" in hidden_text
         assert "Synthetic five-day hidden listing" in hidden_text
         assert "Synthetic expired hidden listing" not in hidden_text
+        assert page.locator('.ads-changes-listing-link[href="https://example.test/listing/five-day-hidden"]').count() == 1
 
         page.locator('[data-change-filter="price"]').click()
         assert page.locator(".ads-changes-item").count() > 0
@@ -207,6 +226,7 @@ def test_hk_drawer_scrolls_without_gaps_text() -> None:
         new_text = page.locator("#ads-changes-body").inner_text()
         assert "Synthetic five-day new listing" in new_text
         assert "Synthetic expired new listing" not in new_text
+        assert page.locator('.ads-changes-listing-link[href="https://example.test/listing/five-day-new"]').count() == 1
 
         first_changed_button = page.locator(".ads-changes-city").first
         first_changed_city = first_changed_button.inner_text()
