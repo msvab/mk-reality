@@ -74,7 +74,7 @@ def render_html(rows: list[dict]) -> str:
         .ads-changes-item:last-child {{ border-bottom: 0; }}
         .ads-changes-city {{ color: #0f766e; font-weight: 700; }}
         .ads-changes-name {{ color: #111827; font-weight: 700; }}
-        .ads-changes-listing-link {{ display: inline-block; color: #111827; text-decoration: none; }}
+        .ads-changes-listing-link {{ display: block; color: #111827; text-decoration: none; }}
         .ads-changes-listing-link:hover {{ color: #0f766e; text-decoration: underline; }}
         .ads-changes-listing-link:focus-visible {{ outline: 2px solid #0f766e; outline-offset: 2px; }}
         .ads-changes-meta {{ color: #6b7280; font-size: 13px; margin-top: 2px; }}
