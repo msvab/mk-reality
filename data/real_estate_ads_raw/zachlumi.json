@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 10,
-    "rows_retained": 3,
+    "candidates_gathered": 12,
+    "rows_retained": 2,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -138,6 +138,14 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/zachlumi/prodej-byt-2-1-s-garazi-a-zahradkou-v-zachlumi-8645631.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/zachlumi/prodej-bytu-4-1-74-m-zachlumi-8467969.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -205,12 +213,30 @@
       "url": "https://www.sreality.cz/api/v1/estates/1197834316",
       "stage": "detail_fetch",
       "attempt": 1,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1197834316",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1832775756",
+      "stage": "detail_fetch",
+      "attempt": 1,
       "status": "ok",
       "http_status": 200
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/1832775756",
+      "url": "https://www.sreality.cz/api/v1/estates/2378358860",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -248,11 +274,14 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3611-usti-nad-orlici/pardubicky/prodej-pozemky.html",
+    "unsupported-property-type:https://reality.aktualne.cz/detail/zachlumi/prodej-byt-2-1-s-garazi-a-zahradkou-v-zachlumi-8645631.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/zachlumi/prodej-bytu-4-1-74-m-zachlumi-8467969.html",
     "outside-municipality:https://reality.aktualne.cz/detail/zachlumi/prodej-historicke-chalupy-pozemek-1-199-m2-litice-nad-orlici-7812124.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/zachlumi/prodej-louky-v-zachlumi-8517409.html",
     "outside-municipality:https://reality.aktualne.cz/detail/zachlumi/prodej-rd-s-bazenem-parkovacim-stanim-technologiemi-8599079.html",
+    "stale-detail-fetch:1197834316:Failed to fetch https://www.sreality.cz/api/v1/estates/1197834316: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1832775756",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2378358860",
     "missing-price:https://www.sreality.cz/api/v1/estates/2737692748",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3840077900"
   ],
@@ -292,25 +321,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2782660428"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1277 m²",
-      "location": "Záchlumí, Ústí nad Orlicí",
-      "property_type": "land",
-      "price": "1 850 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1277",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/zachlumi-litice-nad-orlici/1197834316"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1197834316",
-        "buildable-land"
       ]
     }
   ]

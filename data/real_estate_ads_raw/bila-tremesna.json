@@ -29,28 +29,26 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
-    "candidates_gathered": 15,
-    "rows_retained": 1,
+    "workers_with_results": 3,
+    "candidates_gathered": 18,
+    "rows_retained": 4,
     "zero_result_portals": [
-      "reality.idnes.cz",
-      "realitymix.cz",
-      "reality.aktualne.cz"
+      "realitymix.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Reality Aktuálně rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified Reality Aktuálně row."
     },
     "sreality.cz": {
       "status": "ok",
@@ -70,6 +68,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/bila-tremesna/",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/bila-tremesna/6a5600f1e788d1a8fa0b82d9/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -164,6 +170,14 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/bila-tremesna/prodej-rodinneho-domu-195-m2-bila-tremesna-8645811.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/bila-tremesna/prodej-rodinneho-domu-3-1-95-m2-bila-tremesna-8639921.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -213,6 +227,14 @@
     {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/2639721292",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2940395596",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -272,6 +294,41 @@
   "listings": [
     {
       "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu 195 m2, Bílá Třemešná",
+      "location": "Bílá Třemešná, okres Trutnov",
+      "property_type": "house",
+      "price": "14 999 000 Kč",
+      "house_area_m2": "195",
+      "land_area_m2": "1151",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/bila-tremesna/6a5600f1e788d1a8fa0b82d9/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.aktualne.cz"
+      ],
+      "title": "Prodej rodinného domu 195 m2, Bílá Třemešná",
+      "location": "Bílá Třemešná, Trutnov",
+      "property_type": "house",
+      "price": "14 999 000 Kč",
+      "house_area_m2": "195",
+      "land_area_m2": "1151",
+      "urls": [
+        "https://reality.aktualne.cz/detail/bila-tremesna/prodej-rodinneho-domu-195-m2-bila-tremesna-8645811.html"
+      ],
+      "notes": [
+        "detail-url-verified:reality.aktualne.cz",
+        "aggregator-source:swiss-life-select-reality"
+      ]
+    },
+    {
+      "portal": [
         "sreality.cz"
       ],
       "title": "Prodej komerčního pozemku 12667 m²",
@@ -287,6 +344,24 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/660181068",
         "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 195 m², pozemek 1151 m²",
+      "location": "Bílá Třemešná, Trutnov",
+      "property_type": "house",
+      "price": "14 999 000 Kč",
+      "house_area_m2": "195",
+      "land_area_m2": "1151",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/bila-tremesna/2940395596"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2940395596"
       ]
     }
   ]

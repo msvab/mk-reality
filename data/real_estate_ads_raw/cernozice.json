@@ -28,16 +28,20 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Černožice."
   ],
   "coverage": {
-    "workers_launched": 3,
-    "workers_with_results": 2,
-    "candidates_gathered": 9,
-    "rows_retained": 2,
+    "workers_launched": 4,
+    "workers_with_results": 3,
+    "candidates_gathered": 13,
+    "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
+    "reality.idnes.cz": {
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
+    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -52,6 +56,62 @@
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=%C4%8Cerno%C5%BEice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/cernozice/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/cernozice/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/cernozice-gen-svobody/6a22a1bacd80b2adf2040c24/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cernozice/6a4e4c66c34949913c056257/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cernozice-gen-svobody/6a454c4d188eae940302c29c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cernozice/6a42457f0e4c0820a702941b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -198,6 +258,10 @@
     }
   ],
   "gaps": [
+    "idnes-discovery-used-municipality-slug-fallback",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cernozice-gen-svobody/6a22a1bacd80b2adf2040c24/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/cernozice/6a4e4c66c34949913c056257/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/cernozice/6a42457f0e4c0820a702941b/",
     "missing-page-url:house",
     "missing-page-url:land",
     "outside-municipality:https://reality.aktualne.cz/detail/cernozice/netradicni-pozemek-s-vlastni-studnou-8635209.html",
@@ -209,6 +273,24 @@
     "unsupported-property-type:https://reality.aktualne.cz/detail/cernozice/pronajem-komercnich-prostor-400-m2-cernozice-nad-labem-okr-hradec-kralove-8320165.html"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemku k bydlení v Černožicích, ul. Gen. Svobody",
+      "location": "Černožice, okres Hradec Králové",
+      "property_type": "land",
+      "price": "4 490 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1025",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/cernozice-gen-svobody/6a454c4d188eae940302c29c/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
     {
       "portal": [
         "reality.aktualne.cz"
