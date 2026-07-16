@@ -58,8 +58,8 @@
   "fetch_attempts": [
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=%C4%8Cerno%C5%BEice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cernozice-gen-svobody/6a454c4d188eae940302c29c/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -82,6 +82,22 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-20621",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-20621",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/cernozice-gen-svobody/6a22a1bacd80b2adf2040c24/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -91,14 +107,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/cernozice/6a4e4c66c34949913c056257/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cernozice-gen-svobody/6a454c4d188eae940302c29c/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -258,7 +266,6 @@
     }
   ],
   "gaps": [
-    "idnes-discovery-used-municipality-slug-fallback",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cernozice-gen-svobody/6a22a1bacd80b2adf2040c24/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/cernozice/6a4e4c66c34949913c056257/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/cernozice/6a42457f0e4c0820a702941b/",
