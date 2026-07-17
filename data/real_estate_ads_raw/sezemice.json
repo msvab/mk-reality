@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 28,
-    "rows_retained": 7,
+    "candidates_gathered": 29,
+    "rows_retained": 6,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz"
@@ -194,6 +194,14 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/sezemice/novostavba-dvojdomek-v-en-tride-a-8647905.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/sezemice/novostavba-v-en-tride-a-za-bezkonkurencni-cenu-8365815.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -317,8 +325,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/2131968844",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2131968844",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -402,6 +420,7 @@
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/dum-v-centru-mesta-pro-soukrome-i-komercni-ucely-8419621.html",
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/moderni-bungalov-v-en-tride-3-minuty-od-pardubic-8366813.html",
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/moderni-prostorny-bungalov-v-en-tride-a-3-minuty-od-pardubic-8366801.html",
+    "outside-municipality:https://reality.aktualne.cz/detail/sezemice/novostavba-dvojdomek-v-en-tride-a-8647905.html",
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/novostavba-v-en-tride-a-za-bezkonkurencni-cenu-8365815.html",
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/prodej-domu-na-klic-silvermoon-8510117.html",
     "land-below-threshold:https://reality.aktualne.cz/detail/sezemice/prodej-rodinneho-domu-121-m-sezemice-8546415.html",
@@ -412,6 +431,7 @@
     "outside-municipality:https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-7820461.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-8014042.html",
     "unsupported-property-type:https://reality.aktualne.cz/detail/sezemice/rezidence-loucna-sezemice-8014266.html",
+    "stale-detail-fetch:2131968844:Failed to fetch https://www.sreality.cz/api/v1/estates/2131968844: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/2149486668",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3357184076",
     "stale-detail-fetch:4139679820:Failed to fetch https://www.sreality.cz/api/v1/estates/4139679820: HTTP 404"
@@ -469,25 +489,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3232358476"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej pozemku 1734 m²",
-      "location": "Sezemice, Pardubice",
-      "property_type": "land",
-      "price": "7 800 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1734",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/ostatni/sezemice-veska/2131968844"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2131968844",
-        "buildable-land"
       ]
     },
     {

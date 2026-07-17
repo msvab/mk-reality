@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 1,
-    "candidates_gathered": 2,
+    "candidates_gathered": 3,
     "rows_retained": 1,
     "zero_result_portals": [
       "realitymix.cz",
@@ -78,6 +78,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/srnojedy/",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/kladruby-nad-labem/6a3a5d4855cfe05d4103dbfb/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -148,6 +156,7 @@
     }
   ],
   "gaps": [
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/kladruby-nad-labem/6a3a5d4855cfe05d4103dbfb/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/srnojedy-svitkovska/69fc89129c0ee0bf3f04818c/",
     "missing-page-url:house",
     "missing-page-url:land",
