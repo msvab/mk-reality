@@ -29,12 +29,13 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
-    "candidates_gathered": 10,
-    "rows_retained": 1,
+    "workers_with_results": 0,
+    "candidates_gathered": 8,
+    "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
+      "reality.aktualne.cz",
       "sreality.cz"
     ],
     "blocked_portals": []
@@ -49,8 +50,8 @@
       "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Reality Aktuálně row."
+      "status": "no_results",
+      "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
       "status": "no_results",
@@ -124,7 +125,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a42802b74608e8daa0c460f/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/bukovina-nad-labem/69f349e16d240979da07b0e4/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -171,22 +172,6 @@
       "http_status": 200
     },
     {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/rohovladova-bela/prodej-pozemku-609-m-8540575.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/rohovladova-bela/prodej-rodinneho-domu-287-m-rohovladova-bela-8479311.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/localities/suggest?phrase=Rohovl%C3%A1dova+B%C4%9Bl%C3%A1&category=municipality_cz&locality_country_id=112&lang=cs&limit=10",
       "stage": "locality_suggest",
@@ -218,30 +203,11 @@
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vysehnevice/69d695698b0efcb06a02c35c/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vysehnevice/69f0f7f808b1f9a16c06a379/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/bukovka/6a2aaf0af284a83ab90914e6/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a42802b74608e8daa0c460f/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/bukovina-nad-labem/69f349e16d240979da07b0e4/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/rohovladova-bela/69c053b5c79217f25c024356/",
     "missing-page-url:house",
     "missing-page-url:land",
-    "land-below-threshold:https://reality.aktualne.cz/detail/rohovladova-bela/prodej-pozemku-609-m-8540575.html"
+    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Rohovl%C3%A1dova+B%C4%9Bl%C3%A1&form%5Bcena_mena%5D=1"
   ],
-  "listings": [
-    {
-      "portal": [
-        "reality.aktualne.cz"
-      ],
-      "title": "Prodej rodinného domu, 287 m², Rohovládova Bělá",
-      "location": "Rohovládova Bělá, Pardubice",
-      "property_type": "house",
-      "price": "cena na vyžádání",
-      "house_area_m2": "287",
-      "land_area_m2": "1396",
-      "urls": [
-        "https://reality.aktualne.cz/detail/rohovladova-bela/prodej-rodinneho-domu-287-m-rohovladova-bela-8479311.html"
-      ],
-      "notes": [
-        "detail-url-verified:reality.aktualne.cz",
-        "aggregator-source:m&m-reality-holding-a.s."
-      ]
-    }
-  ]
+  "listings": []
 }

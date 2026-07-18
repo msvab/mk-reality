@@ -29,12 +29,13 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
-    "candidates_gathered": 12,
-    "rows_retained": 1,
+    "workers_with_results": 0,
+    "candidates_gathered": 10,
+    "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
+      "reality.aktualne.cz",
       "sreality.cz"
     ],
     "blocked_portals": []
@@ -49,8 +50,8 @@
       "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Reality Aktuálně row."
+      "status": "no_results",
+      "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
       "status": "no_results",
@@ -196,14 +197,6 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/ceperka/prodej-obchodniho-prostoru-850-m2-ceperka-7855615.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/ceperka/prodej-pozemku-k-bydleni-7676-m-ceperka-7741822.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -212,11 +205,11 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/ceperka/prodej-rodinneho-domu-4-1-s-krasnym-pozemkem-v-klidne-casti-ceperky-8485093.html",
-      "stage": "detail_fetch",
+      "url": "https://reality.aktualne.cz/detail/ceperka/prodej-pozemku-k-bydleni-7676-m-ceperka-7741822.html",
+      "stage": "detail_parse",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "sreality.cz",
@@ -256,28 +249,8 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3606-pardubice/pardubicky/prodej-pozemky.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/ceperka/prodej-obchodniho-prostoru-850-m2-ceperka-7855615.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/ceperka/prodej-rodinneho-domu-4-1-s-krasnym-pozemkem-v-klidne-casti-ceperky-8485093.html"
+    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=%C4%8Ceperka&form%5Bcena_mena%5D=1",
+    "detail-fallback-page:https://reality.aktualne.cz/detail/ceperka/prodej-pozemku-k-bydleni-7676-m-ceperka-7741822.html"
   ],
-  "listings": [
-    {
-      "portal": [
-        "reality.aktualne.cz"
-      ],
-      "title": "Prodej pozemku k bydlení, 7676 m², Čeperka",
-      "location": "Čeperka, Pardubice",
-      "property_type": "land",
-      "price": "5 250 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "7676",
-      "urls": [
-        "https://reality.aktualne.cz/detail/ceperka/prodej-pozemku-k-bydleni-7676-m-ceperka-7741822.html"
-      ],
-      "notes": [
-        "detail-url-verified:reality.aktualne.cz",
-        "buildable-land",
-        "aggregator-source:m&m-reality-holding-a.s."
-      ]
-    }
-  ]
+  "listings": []
 }

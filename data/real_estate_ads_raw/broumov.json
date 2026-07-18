@@ -29,12 +29,13 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
-    "candidates_gathered": 36,
-    "rows_retained": 11,
+    "workers_with_results": 1,
+    "candidates_gathered": 21,
+    "rows_retained": 8,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "realitymix.cz"
+      "realitymix.cz",
+      "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
@@ -53,8 +54,8 @@
       "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Reality Aktuálně row."
+      "status": "no_results",
+      "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
       "status": "ok",
@@ -162,38 +163,6 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/broumov/prodej-bytoveho-domu-broumov-8549681.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/broumov/prodej-bytoveho-domu-broumov-8553343.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/broumov/prodej-bytu-3-1-53-m-broumov-ul-dukelska-8507155.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/broumov/prodej-bytu-3-kk-49-m-broumov-ul-dukelska-8618745.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/broumov/prodej-chalupy-260-m-broumov-ul-kladska-8366647.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -202,11 +171,11 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/broumov/prodej-cinzovniho-domu-broumov-8604475.html",
-      "stage": "detail_fetch",
+      "url": "https://reality.aktualne.cz/detail/broumov/prodej-chalupy-260-m-broumov-ul-kladska-8366647.html",
+      "stage": "detail_parse",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.aktualne.cz",
@@ -218,19 +187,11 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/broumov/prodej-domu-82-m-pozemek-589-m-8576427.html",
-      "stage": "detail_fetch",
+      "url": "https://reality.aktualne.cz/detail/broumov/prodej-domu-128-m-s-pozemkem-1-552-m-v-broumove-8263337.html",
+      "stage": "detail_parse",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/broumov/prodej-druzstevniho-bytu-4-1-83m2-balkon-sklep-broumov-8610753.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.aktualne.cz",
@@ -242,83 +203,11 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/broumov/prodej-pozemku-k-bydleni-v-broumove-ul-solidarity-8235117.html",
-      "stage": "detail_fetch",
+      "url": "https://reality.aktualne.cz/detail/broumov/prodej-pozemek-bydleni-1915-8608861.html",
+      "stage": "detail_parse",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/broumov/prodej-rodinneho-domu-312-m-broumov-olivetin-8586973.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/broumov/prodej-rodinneho-domu-broumov-ul-na-prikopech-8427795.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/broumov/prodej-rodinneho-domu-v-malibu-8589983.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/broumov/prodej-rodinny-dum-115-8335959.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/broumov/prodej-stavebniho-pozemku-3-146-m2-8618669.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/broumov/pronajem-podkrovniho-bytu-3-1-broumov-8503771.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/broumov/pronajem-zahrady-206-m-broumov-ul-dukelska-8498575.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/broumov/pronajem-zahrady-206-m-broumov-ul-dukelska-8591745.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/broumov/secesni-investicni-objekt-v-broumove-750-m-secesni-budova-k-rekonstrukci-sal-387-m-8403259.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "sreality.cz",
@@ -379,6 +268,14 @@
     {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/1957032780",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2159534156",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -450,6 +347,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/782753868",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/787669068",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -479,89 +384,24 @@
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/broumov/",
     "missing-page-url:house",
     "missing-page-url:land",
-    "land-below-threshold:https://reality.aktualne.cz/detail/broumov/prodej-bytoveho-domu-broumov-8549681.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/broumov/prodej-bytoveho-domu-broumov-8553343.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/broumov/prodej-bytu-3-1-53-m-broumov-ul-dukelska-8507155.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/broumov/prodej-bytu-3-kk-49-m-broumov-ul-dukelska-8618745.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/broumov/prodej-cinzovniho-domu-broumov-8604475.html",
-    "outside-municipality:https://reality.aktualne.cz/detail/broumov/prodej-domu-82-m-pozemek-589-m-8576427.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/broumov/prodej-druzstevniho-bytu-4-1-83m2-balkon-sklep-broumov-8610753.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/broumov/prodej-pozemku-k-bydleni-v-broumove-ul-solidarity-8235117.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/broumov/prodej-rodinneho-domu-312-m-broumov-olivetin-8586973.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/broumov/prodej-rodinneho-domu-broumov-ul-na-prikopech-8427795.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/broumov/prodej-rodinneho-domu-v-malibu-8589983.html",
-    "outside-municipality:https://reality.aktualne.cz/detail/broumov/prodej-rodinny-dum-115-8335959.html",
-    "outside-municipality:https://reality.aktualne.cz/detail/broumov/prodej-stavebniho-pozemku-3-146-m2-8618669.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/broumov/pronajem-podkrovniho-bytu-3-1-broumov-8503771.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/broumov/pronajem-zahrady-206-m-broumov-ul-dukelska-8498575.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/broumov/pronajem-zahrady-206-m-broumov-ul-dukelska-8591745.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/broumov/secesni-investicni-objekt-v-broumove-750-m-secesni-budova-k-rekonstrukci-sal-387-m-8403259.html",
+    "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-domy_vily.html",
+    "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-pozemky.html",
+    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Broumov&form%5Bcena_mena%5D=1",
+    "detail-fallback-page:https://reality.aktualne.cz/detail/broumov/prodej-chalupy-260-m-broumov-ul-kladska-8366647.html",
+    "detail-fallback-page:https://reality.aktualne.cz/detail/broumov/prodej-domu-128-m-s-pozemkem-1-552-m-v-broumove-8263337.html",
+    "detail-fallback-page:https://reality.aktualne.cz/detail/broumov/prodej-pozemek-bydleni-1915-8608861.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1047494732",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1540546636",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2159534156",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3022291020",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3365487436",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3721114444",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3844399948",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4032200780",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/51216460"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/51216460",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/782753868"
   ],
   "listings": [
-    {
-      "portal": [
-        "reality.aktualne.cz"
-      ],
-      "title": "Prodej chalupy, 260 m², Broumov, ul. Kladská",
-      "location": "Kladská, Velká Ves, Náchod",
-      "property_type": "house",
-      "price": "6 700 000 Kč",
-      "house_area_m2": "260",
-      "land_area_m2": "2350",
-      "urls": [
-        "https://reality.aktualne.cz/detail/broumov/prodej-chalupy-260-m-broumov-ul-kladska-8366647.html"
-      ],
-      "notes": [
-        "detail-url-verified:reality.aktualne.cz",
-        "normalized-from:chalupa",
-        "aggregator-source:m&m-reality-holding-a.s."
-      ]
-    },
-    {
-      "portal": [
-        "reality.aktualne.cz"
-      ],
-      "title": "Prodej domu 128 m² s pozemkem 1 552 m² v Broumově",
-      "location": "Bratří Čapků, Broumov, Náchod",
-      "property_type": "house",
-      "price": "4 999 000 Kč",
-      "house_area_m2": "128",
-      "land_area_m2": "1552",
-      "urls": [
-        "https://reality.aktualne.cz/detail/broumov/prodej-domu-128-m-s-pozemkem-1-552-m-v-broumove-8263337.html"
-      ],
-      "notes": [
-        "detail-url-verified:reality.aktualne.cz",
-        "aggregator-source:realitni-pomoc-s.r.o."
-      ]
-    },
-    {
-      "portal": [
-        "reality.aktualne.cz"
-      ],
-      "title": "Prodej pozemek Bydlení, 1915㎡",
-      "location": "Broumov, okr.Náchod",
-      "property_type": "land",
-      "price": "1 690 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1915",
-      "urls": [
-        "https://reality.aktualne.cz/detail/broumov/prodej-pozemek-bydleni-1915-8608861.html"
-      ],
-      "notes": [
-        "detail-url-verified:reality.aktualne.cz",
-        "buildable-land",
-        "aggregator-source:next-reality-horizont"
-      ]
-    },
     {
       "portal": [
         "sreality.cz"

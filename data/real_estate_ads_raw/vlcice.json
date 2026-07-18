@@ -29,12 +29,13 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
-    "candidates_gathered": 7,
-    "rows_retained": 5,
+    "workers_with_results": 1,
+    "candidates_gathered": 6,
+    "rows_retained": 2,
     "zero_result_portals": [
       "reality.idnes.cz",
-      "realitymix.cz"
+      "realitymix.cz",
+      "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
@@ -53,8 +54,8 @@
       "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Reality Aktuálně row."
+      "status": "no_results",
+      "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
       "status": "ok",
@@ -162,11 +163,27 @@
     },
     {
       "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vlcice/prodej-pozemku-k-bydleni-5869-m2-vlcice-8232805.html",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
+    {
+      "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/vlcice/prodej-pozemku-k-bydleni-7089-m2-vlcice-8323721.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.aktualne.cz",
+      "url": "https://reality.aktualne.cz/detail/vlcice/prodej-pozemku-k-bydleni-7089-m2-vlcice-8323721.html",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.aktualne.cz",
@@ -178,11 +195,11 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/vlcice/prodej-rodinneho-domu-131-m2-vlcice-8577477.html",
-      "stage": "detail_fetch",
+      "url": "https://reality.aktualne.cz/detail/vlcice/prodej-pozemku-vlcice-8633809.html",
+      "stage": "detail_parse",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "sreality.cz",
@@ -239,67 +256,14 @@
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/vlcice/",
     "missing-page-url:house",
     "missing-page-url:land",
-    "land-below-threshold:https://reality.aktualne.cz/detail/vlcice/prodej-rodinneho-domu-131-m2-vlcice-8577477.html",
+    "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3811-jesenik/olomoucky/prodej-pozemky.html",
+    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Vl%C4%8Dice&form%5Bcena_mena%5D=1",
+    "detail-fallback-page:https://reality.aktualne.cz/detail/vlcice/prodej-pozemku-k-bydleni-5869-m2-vlcice-8232805.html",
+    "detail-fallback-page:https://reality.aktualne.cz/detail/vlcice/prodej-pozemku-k-bydleni-7089-m2-vlcice-8323721.html",
+    "detail-fallback-page:https://reality.aktualne.cz/detail/vlcice/prodej-pozemku-vlcice-8633809.html",
     "missing-price:https://www.sreality.cz/api/v1/estates/4284236364"
   ],
   "listings": [
-    {
-      "portal": [
-        "reality.aktualne.cz"
-      ],
-      "title": "Prodej pozemku Vlčice",
-      "location": "Jeseník",
-      "property_type": "land",
-      "price": "2 990 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "5167",
-      "urls": [
-        "https://reality.aktualne.cz/detail/vlcice/prodej-pozemku-vlcice-8633809.html"
-      ],
-      "notes": [
-        "detail-url-verified:reality.aktualne.cz",
-        "buildable-land",
-        "aggregator-source:century-21-bonus-brno"
-      ]
-    },
-    {
-      "portal": [
-        "reality.aktualne.cz"
-      ],
-      "title": "Prodej pozemku k bydlení, 5869 m2, Vlčice",
-      "location": "Jeseník",
-      "property_type": "land",
-      "price": "2 450 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "5869",
-      "urls": [
-        "https://reality.aktualne.cz/detail/vlcice/prodej-pozemku-k-bydleni-5869-m2-vlcice-8232805.html"
-      ],
-      "notes": [
-        "detail-url-verified:reality.aktualne.cz",
-        "buildable-land",
-        "aggregator-source:m&m-reality-holding-a.s."
-      ]
-    },
-    {
-      "portal": [
-        "reality.aktualne.cz"
-      ],
-      "title": "Prodej pozemku k bydlení, 7089 m2, Vlčice",
-      "location": "Vlčice, Jeseník",
-      "property_type": "land",
-      "price": "1 900 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "7089",
-      "urls": [
-        "https://reality.aktualne.cz/detail/vlcice/prodej-pozemku-k-bydleni-7089-m2-vlcice-8323721.html"
-      ],
-      "notes": [
-        "detail-url-verified:reality.aktualne.cz",
-        "buildable-land",
-        "aggregator-source:m&m-reality-holding-a.s."
-      ]
-    },
     {
       "portal": [
         "sreality.cz"

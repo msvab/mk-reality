@@ -29,11 +29,12 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 3,
-    "candidates_gathered": 22,
-    "rows_retained": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 16,
+    "rows_retained": 3,
     "zero_result_portals": [
-      "realitymix.cz"
+      "realitymix.cz",
+      "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
@@ -47,8 +48,8 @@
       "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Reality Aktuálně row."
+      "status": "no_results",
+      "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
       "status": "ok",
@@ -194,47 +195,7 @@
     },
     {
       "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/hajnice/prodej-pastviny-2160-m-hajnice-8139379.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/hajnice/prodej-pastviny-2183-m-hajnice-8143157.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/hajnice/prodej-pastviny-3357-m-hajnice-8143155.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/hajnice/prodej-pozemku-k-bydleni-699-m-hajnice-8550263.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/hajnice/prodej-rodinneho-domu-4-kk-115-m-pozemek-1471-m-hajnice-8641197.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.aktualne.cz",
-      "url": "https://reality.aktualne.cz/detail/hajnice/prodej-rodinneho-domu-74-m-hajnice-8550269.html",
+      "url": "https://reality.aktualne.cz/detail/hajnice/prodej-stavebni-pozemek-hajnice-8592703.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -243,10 +204,10 @@
     {
       "portal": "reality.aktualne.cz",
       "url": "https://reality.aktualne.cz/detail/hajnice/prodej-stavebni-pozemek-hajnice-8592703.html",
-      "stage": "detail_fetch",
+      "stage": "detail_parse",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "sreality.cz",
@@ -333,12 +294,8 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3610-trutnov/kralovehradecky/prodej-pozemky.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/hajnice/prodej-pastviny-2160-m-hajnice-8139379.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/hajnice/prodej-pastviny-2183-m-hajnice-8143157.html",
-    "unsupported-property-type:https://reality.aktualne.cz/detail/hajnice/prodej-pastviny-3357-m-hajnice-8143155.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/hajnice/prodej-pozemku-k-bydleni-699-m-hajnice-8550263.html",
-    "non-buildable-land:https://reality.aktualne.cz/detail/hajnice/prodej-rodinneho-domu-4-kk-115-m-pozemek-1471-m-hajnice-8641197.html",
-    "land-below-threshold:https://reality.aktualne.cz/detail/hajnice/prodej-rodinneho-domu-74-m-hajnice-8550269.html",
+    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Hajnice&form%5Bcena_mena%5D=1",
+    "detail-fallback-page:https://reality.aktualne.cz/detail/hajnice/prodej-stavebni-pozemek-hajnice-8592703.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/281679180",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2915201868",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3730956364",
@@ -361,25 +318,6 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.aktualne.cz"
-      ],
-      "title": "Prodej, stavební pozemek, Hajnice",
-      "location": "okr.Trutnov",
-      "property_type": "land",
-      "price": "5 990 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "3878",
-      "urls": [
-        "https://reality.aktualne.cz/detail/hajnice/prodej-stavebni-pozemek-hajnice-8592703.html"
-      ],
-      "notes": [
-        "detail-url-verified:reality.aktualne.cz",
-        "buildable-land",
-        "aggregator-source:bidli-reality,-a.s."
       ]
     },
     {
