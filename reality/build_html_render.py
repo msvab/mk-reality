@@ -94,6 +94,13 @@ def render_html(rows: list[dict]) -> str:
         .ads-provider-ok {{ background: #dcfce7; color: #166534; }}
         .ads-provider-empty {{ background: #f3f4f6; color: #4b5563; }}
         .ads-provider-warning {{ background: #fee2e2; color: #991b1b; }}
+        .ads-trust-panel {{ margin: 12px 24px 0; border: 1px solid #e5e7eb; border-radius: 8px; background: #f9fafb; padding: 10px 12px; color: #374151; font-size: 13px; line-height: 1.4; }}
+        .ads-trust-panel strong {{ color: #111827; }}
+        .ads-trust-panel-warning {{ border-color: #fecaca; background: #fff7ed; }}
+        .ads-trust-summary {{ margin-bottom: 6px; }}
+        .ads-trust-stats {{ display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }}
+        .ads-trust-stat {{ border-radius: 999px; background: #fff; border: 1px solid #e5e7eb; padding: 2px 8px; white-space: nowrap; }}
+        .ads-trust-details {{ margin: 0; padding-left: 18px; color: #4b5563; }}
         .ads-drawer-controls {{ display: flex; align-items: center; gap: 8px; padding: 12px 24px 0; color: #374151; font-size: 14px; }}
         .ads-drawer-controls select {{ border: 1px solid #d1d5db; border-radius: 6px; background: #fff; color: #111827; padding: 5px 28px 5px 8px; font: inherit; }}
         .ads-drawer-table-wrap {{ flex: 1 1 auto; min-height: 0; overflow: auto; padding: 16px 24px 24px; }}
@@ -112,6 +119,7 @@ def render_html(rows: list[dict]) -> str:
           .ads-drawer-header {{ padding: 16px 16px 8px; }}
           .ads-drawer-meta {{ padding: 12px 16px 0; }}
           .ads-provider-coverage {{ padding: 10px 16px 0; }}
+          .ads-trust-panel {{ margin: 12px 16px 0; }}
           .ads-drawer-controls {{ padding: 12px 16px 0; }}
           .ads-drawer-table-wrap {{ padding: 16px; }}
           .ads-changes-header {{ align-items: flex-start; flex-direction: column; }}

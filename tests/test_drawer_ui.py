@@ -247,6 +247,12 @@ def test_hk_drawer_scrolls_without_gaps_text() -> None:
         assert "iDNES:" in provider_text
         assert "RealityMix:" in provider_text
         assert "Aktuálně:" in provider_text
+        trust_text = page.locator("#ads-trust-panel").inner_text()
+        assert "Ověření:" in trust_text
+        assert "Aktivní:" in trust_text
+        assert "Skryté:" in trust_text
+        assert "Kandidáti:" in trust_text
+        assert "Vyřazeno:" in trust_text
 
         table_wrap = page.locator(".ads-drawer-table-wrap")
         metrics = table_wrap.evaluate(

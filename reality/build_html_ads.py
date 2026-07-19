@@ -111,6 +111,7 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
         </div>
         <div class="ads-drawer-meta" id="ads-drawer-meta"></div>
         <div class="ads-provider-coverage" id="ads-provider-coverage"></div>
+        <div class="ads-trust-panel" id="ads-trust-panel"></div>
         <div class="ads-drawer-controls">
           <label for="ads-drawer-sort">Řazení</label>
           <select id="ads-drawer-sort">

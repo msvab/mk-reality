@@ -10,6 +10,7 @@
   const summary = document.getElementById("ads-drawer-summary");
   const meta = document.getElementById("ads-drawer-meta");
   const providerCoverage = document.getElementById("ads-provider-coverage");
+  const trustPanel = document.getElementById("ads-trust-panel");
   const body = document.getElementById("ads-drawer-body");
   const sortSelect = document.getElementById("ads-drawer-sort");
   const changesPanel = document.getElementById("ads-changes");
@@ -264,6 +265,83 @@
     return "ads-provider-warning";
   };
 
+  const gapReasonLabels = {
+    "outside-municipality": "mimo obec",
+    "land-below-threshold": "pozemek pod 1000 m2",
+    "non-buildable-land": "nestavební pozemek",
+    "unsupported-property-type": "jiný typ nemovitosti",
+    "missing-page-url": "chybějící stránka výsledků",
+    "no-detail-urls-found": "bez detailů inzerátů",
+    "stale-detail-fetch": "neaktivní detail",
+    "failed-detail-fetch": "chyba detailu",
+    "detail-fetch-error": "chyba detailu",
+    "result-fetch-error": "chyba výsledků",
+    "failed-result-fetch": "chyba výsledků",
+  };
+
+  const gapReason = (gap) => {
+    const text = String(gap || "");
+    const reason = text.split(":")[0];
+    return gapReasonLabels[reason] || reason || "jiný důvod";
+  };
+
+  const countedReasons = (items) => {
+    const counts = new Map();
+    for (const item of (Array.isArray(items) ? items : [])) {
+      const reason = gapReason(item);
+      counts.set(reason, (counts.get(reason) || 0) + 1);
+    }
+    return [...counts.entries()]
+      .sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0], "cs"))
+      .slice(0, 4);
+  };
+
+  const renderTrustPanel = (bundle) => {
+    if (!trustPanel) return;
+    const statuses = Object.values(bundle?.portal_status || {});
+    const warningStatuses = statuses.filter((status) => {
+      const value = status?.status || "unknown";
+      return value !== "ok" && value !== "no_results";
+    });
+    const coverage = bundle?.coverage || {};
+    const ads = Array.isArray(bundle?.ads) ? bundle.ads : [];
+    const hiddenAds = Array.isArray(bundle?.hidden_ads) ? bundle.hidden_ads : [];
+    const gaps = Array.isArray(bundle?.gaps) ? bundle.gaps : [];
+    const retained = numericValue(coverage.rows_retained) ?? ads.length;
+    const candidates = numericValue(coverage.candidates_gathered);
+    const excluded = candidates === null ? gaps.length : Math.max(candidates - retained, 0);
+    const checkedPortals = statuses.length;
+    const expectedPortals = Object.keys(portalLabels).length;
+    const coverageText = checkedPortals >= expectedPortals
+      ? "všechny portály zkontrolované"
+      : `${checkedPortals}/${expectedPortals} portálů má stav`;
+    const warningText = warningStatuses.length
+      ? `${warningStatuses.length} portálů hlásí problém`
+      : "bez chyb portálů";
+    const details = [];
+    if (hiddenAds.length) {
+      details.push(`${hiddenAds.length} dřívějších inzerátů je skrytých, protože v posledním snímku nebyly znovu nalezeny.`);
+    }
+    const topReasons = countedReasons(gaps);
+    if (topReasons.length) {
+      details.push(`Nejčastější vyřazení: ${topReasons.map(([reason, count]) => `${reason} (${count})`).join(", ")}.`);
+    }
+    if (warningStatuses.length) {
+      details.push(`Zkontrolujte červené štítky portálů pro detail problému.`);
+    }
+    trustPanel.classList.toggle("ads-trust-panel-warning", warningStatuses.length > 0);
+    trustPanel.innerHTML = `
+      <div class="ads-trust-summary"><strong>Ověření:</strong> ${escapeHtml(coverageText)}; ${escapeHtml(warningText)}.</div>
+      <div class="ads-trust-stats">
+        <span class="ads-trust-stat">Aktivní: ${escapeHtml(ads.length)}</span>
+        <span class="ads-trust-stat">Skryté: ${escapeHtml(hiddenAds.length)}</span>
+        <span class="ads-trust-stat">Kandidáti: ${escapeHtml(candidates ?? "—")}</span>
+        <span class="ads-trust-stat">Vyřazeno: ${escapeHtml(excluded)}</span>
+      </div>
+      ${details.length ? `<ul class="ads-trust-details">${details.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>` : ""}
+    `;
+  };
+
   const renderProviderCoverage = (bundle) => {
     const statuses = bundle?.portal_status || {};
     const portals = Object.keys(portalLabels);
@@ -360,6 +438,7 @@
     }
     meta.textContent = metaParts.join(" | ");
     renderProviderCoverage(bundle);
+    renderTrustPanel(bundle);
     renderRows(bundle);
 
     drawer.setAttribute("aria-hidden", "false");
