@@ -203,6 +203,10 @@ def render_html(rows: list[dict]) -> str:
         th, td {{ border: 1px solid #ddd; padding: 8px; text-align: left; }}
         th {{ background: #f4f4f4; }}
         tr:nth-child(even) {{ background: #fafafa; }}
+        .view-switch {{ display: flex; gap: 8px; margin: 20px 0 12px; }}
+        .view-switch-button {{ border: 1px solid #d1d5db; border-radius: 999px; background: #fff; color: #374151; padding: 7px 14px; font: inherit; cursor: pointer; }}
+        .view-switch-button[aria-selected="true"] {{ background: #0f766e; border-color: #0f766e; color: #fff; }}
+        .report-view[hidden] {{ display: none; }}
         .map-section {{ margin: 20px 0; border: 1px solid #d1d5db; border-radius: 8px; overflow: hidden; background: #fff; }}
         .map-header {{ display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 12px 16px; background: #f9fafb; border-bottom: 1px solid #e5e7eb; }}
         .map-title {{ font-weight: 700; color: #111827; }}
@@ -303,7 +307,10 @@ def render_html(rows: list[dict]) -> str:
     <body>
       <h1>Kde bydlet?</h1>
       <p>Zdroj dat: OpenStreetMap (obce/školy/populace) + OSRM routing. Vygenerováno dne {generated_on}. Záznamů: {len(rows)}.</p>
-      {map_section}
+      <div class="view-switch" role="tablist" aria-label="Zobrazení přehledu">
+        <button type="button" class="view-switch-button" id="table-view-button" role="tab" aria-controls="table-view" aria-selected="true">Tabulka</button>
+        <button type="button" class="view-switch-button" id="map-view-button" role="tab" aria-controls="map-view" aria-selected="false">Mapa</button>
+      </div>
       <section class="ads-changes" id="ads-changes" hidden>
         <div class="ads-changes-header">
           <div>
@@ -318,6 +325,7 @@ def render_html(rows: list[dict]) -> str:
         </div>
         <div class="ads-changes-body" id="ads-changes-body" hidden></div>
       </section>
+      <section class="report-view" id="table-view" role="tabpanel" aria-labelledby="table-view-button">
       <table>
         <thead>
           <tr>
@@ -334,7 +342,26 @@ def render_html(rows: list[dict]) -> str:
           {''.join(html_rows)}
         </tbody>
       </table>
+      </section>
+      <section class="report-view" id="map-view" role="tabpanel" aria-labelledby="map-view-button" hidden>
+      {map_section}
+      </section>
       {ads_drawer_assets}
+      <script>
+        (() => {{
+          const views = [
+            [document.getElementById("table-view-button"), document.getElementById("table-view")],
+            [document.getElementById("map-view-button"), document.getElementById("map-view")],
+          ];
+          views.forEach(([button, view]) => button?.addEventListener("click", () => {{
+            views.forEach(([otherButton, otherView]) => {{
+              const selected = otherButton === button;
+              otherButton.setAttribute("aria-selected", String(selected));
+              otherView.hidden = !selected;
+            }});
+          }}));
+        }})();
+      </script>
     </body>
     </html>
     """

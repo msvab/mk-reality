@@ -228,7 +228,10 @@ def test_hk_drawer_scrolls_without_gaps_text() -> None:
         assert "Synthetic expired new listing" not in new_text
         assert page.locator('.ads-changes-listing-link[href="https://example.test/listing/five-day-new"]').count() == 1
 
-        assert page.locator(".map-section").is_visible()
+        assert page.locator("#table-view").is_visible()
+        assert page.locator("#map-view").is_hidden()
+        page.locator("#map-view-button").click()
+        assert page.locator("#map-view").is_visible()
         assert page.locator(".map-marker").count() > 0
 
         first_changed_button = page.locator(".ads-changes-city").first
