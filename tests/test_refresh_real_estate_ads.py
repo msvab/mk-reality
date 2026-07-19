@@ -1,10 +1,31 @@
 import pytest
 
+import reality.refresh_real_estate_ads as refresh
 from reality.refresh_real_estate_ads import (
     build_refresh_summary,
     render_refresh_summary,
     validate_no_unmatched_raw_files,
 )
+
+
+def test_refresh_commit_stages_idnes_locality_cache(monkeypatch):
+    commands = []
+
+    def fake_capture(args, *, check=True):
+        if args == ["git", "status", "--porcelain"]:
+            return " M data/cache/reality_idnes_locality_ids.json\n"
+        if args == ["git", "diff", "--cached", "--name-only"]:
+            return "data/cache/reality_idnes_locality_ids.json\n"
+        raise AssertionError(args)
+
+    monkeypatch.setattr(refresh, "capture_command", fake_capture)
+    monkeypatch.setattr(refresh, "run_command", lambda args, check=True: commands.append(args))
+
+    refresh.commit_and_push("Refresh real estate ads", push=True)
+
+    assert ["git", "add", "data/real_estate_ads_raw", "data/cache/reality_idnes_locality_ids.json", "data/generated/real_estate_ads_by_city.json", "data/state/real_estate_ads_run_state.json", "index.html"] in commands
+    assert ["git", "commit", "-m", "Refresh real estate ads"] in commands
+    assert ["git", "push"] in commands
 
 
 def test_unmatched_raw_file_validation_passes_when_metadata_is_empty(capsys):

@@ -10,7 +10,13 @@ from html import unescape
 from pathlib import Path
 from urllib.parse import parse_qs, quote_plus, urlencode, urlsplit, urlunsplit
 
-USER_AGENT = "Mozilla/5.0"
+from ..paths import REALITY_IDNES_LOCALITY_ID_CACHE_PATH
+
+USER_AGENT = (
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/138.0.0.0 Safari/537.36"
+)
 DEFAULT_RETRIES = 2
 DEFAULT_BACKOFF_SECONDS = 2.0
 CURL_CONNECT_TIMEOUT_SECONDS = 15
@@ -20,7 +26,7 @@ AUTOCOMPLETE_LOCALITY_URL = (
     "?fe=1&st={query}"
     "&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE"
 )
-LOCALITY_ID_CACHE_PATH = Path(__file__).resolve().parents[2] / "data" / "cache" / "reality_idnes_locality_ids.json"
+LOCALITY_ID_CACHE_PATH = REALITY_IDNES_LOCALITY_ID_CACHE_PATH
 
 
 def slug_normalize(value: str) -> str:

@@ -36,6 +36,7 @@ def test_idnes_run_fetch_retries_transient_server_error(monkeypatch):
     assert len(calls) == 2
     assert calls[0][0:5] == ["curl", "-sL", "--connect-timeout", "15", "--max-time"]
     assert calls[0][5] == "45"
+    assert calls[0][6:8] == ["-A", module.USER_AGENT]
     assert sleeps == [module.DEFAULT_BACKOFF_SECONDS]
     assert [attempt["attempt"] for attempt in attempts] == [1, 2]
     assert [attempt["status"] for attempt in attempts] == ["fetch_error", "ok"]
