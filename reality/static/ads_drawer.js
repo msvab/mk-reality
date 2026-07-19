@@ -277,6 +277,8 @@
     "detail-fetch-error": "chyba detailu",
     "result-fetch-error": "chyba výsledků",
     "failed-result-fetch": "chyba výsledků",
+    "removed-fallback-page": "odstraněný inzerát",
+    "result-no-detail-links": "stránka výsledků bez odkazů na detaily",
   };
 
   const gapReason = (gap) => {
