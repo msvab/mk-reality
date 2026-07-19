@@ -7,7 +7,8 @@ from pathlib import Path
 
 from .build_html_ads import load_real_estate_ads_by_city, render_ads_count_cell, render_ads_drawer_assets
 from .build_html_urls import safe_href
-from .paths import HTML_PATH, SCHOOLS_JSON_PATH
+from .paths import HTML_PATH, OVERPASS_MUNICIPALITIES_PATH, SCHOOLS_JSON_PATH
+from .school_sources import DOBRUSKA
 
 
 def load_cached_school_rows(path: Path = SCHOOLS_JSON_PATH) -> list[dict]:
@@ -19,8 +20,154 @@ def load_cached_school_rows(path: Path = SCHOOLS_JSON_PATH) -> list[dict]:
     return [row for row in payload if isinstance(row, dict)]
 
 
+def load_municipality_centers(path: Path = OVERPASS_MUNICIPALITIES_PATH) -> dict[str, tuple[float, float]]:
+    if not path.exists():
+        return {}
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    response = payload.get("response", {}) if isinstance(payload, dict) else {}
+    centers = {}
+    if not isinstance(response, dict):
+        return centers
+    for el in response.get("elements", []):
+        if not isinstance(el, dict):
+            continue
+        tags = el.get("tags", {})
+        name = tags.get("name") if isinstance(tags, dict) else None
+        if not name:
+            continue
+        if "lat" in el and "lon" in el:
+            lat, lon = el["lat"], el["lon"]
+        elif isinstance(el.get("center"), dict):
+            lat, lon = el["center"].get("lat"), el["center"].get("lon")
+        else:
+            continue
+        try:
+            centers.setdefault(str(name), (float(lat), float(lon)))
+        except (TypeError, ValueError):
+            continue
+    return centers
+
+
+def _row_coordinates(row: dict, centers: dict[str, tuple[float, float]]) -> tuple[float, float] | None:
+    try:
+        return (float(row["lat"]), float(row["lon"]))
+    except (KeyError, TypeError, ValueError):
+        return centers.get(str(row.get("city", "")))
+
+
+def _ad_count_for_city(ads_by_city: dict | None, city: str) -> int:
+    if not ads_by_city:
+        return 0
+    bundle = ads_by_city.get("cities", {}).get(city, {})
+    if not isinstance(bundle, dict):
+        return 0
+    count = bundle.get("count", len(bundle.get("ads", [])))
+    return count if isinstance(count, int) else 0
+
+
+def _map_marker_class(school_type: str, ad_count: int) -> str:
+    if ad_count >= 10:
+        size = "map-marker-large"
+    elif ad_count > 0:
+        size = "map-marker-medium"
+    else:
+        size = "map-marker-empty"
+    if school_type == "1-9":
+        school_class = "map-marker-school-full"
+    elif school_type == "1-5":
+        school_class = "map-marker-school-lower"
+    elif school_type == "Malotřídka":
+        school_class = "map-marker-school-small"
+    else:
+        school_class = "map-marker-school-unknown"
+    return f"{size} {school_class}"
+
+
+def render_map_section(rows: list[dict], ads_by_city: dict | None) -> str:
+    centers = load_municipality_centers()
+    points = []
+    for row in rows:
+        coords = _row_coordinates(row, centers)
+        if coords is None:
+            continue
+        lat, lon = coords
+        points.append({
+            "row": row,
+            "lat": lat,
+            "lon": lon,
+            "ads": _ad_count_for_city(ads_by_city, str(row.get("city", ""))),
+        })
+    if not points:
+        return ""
+
+    points.append({
+        "row": {"city": "Dobruška", "drive_min": 0, "school_type": "referenční bod", "population": None},
+        "lat": DOBRUSKA[0],
+        "lon": DOBRUSKA[1],
+        "ads": 0,
+        "is_origin": True,
+    })
+    lat_values = [point["lat"] for point in points]
+    lon_values = [point["lon"] for point in points]
+    lat_min, lat_max = min(lat_values), max(lat_values)
+    lon_min, lon_max = min(lon_values), max(lon_values)
+    lat_pad = max((lat_max - lat_min) * 0.08, 0.02)
+    lon_pad = max((lon_max - lon_min) * 0.08, 0.02)
+    lat_min -= lat_pad
+    lat_max += lat_pad
+    lon_min -= lon_pad
+    lon_max += lon_pad
+
+    markers = []
+    for point in points:
+        row = point["row"]
+        city = str(row.get("city", ""))
+        left = 100 * (point["lon"] - lon_min) / (lon_max - lon_min)
+        top = 100 * (lat_max - point["lat"]) / (lat_max - lat_min)
+        if point.get("is_origin"):
+            markers.append(
+                f'<span class="map-origin" style="left: {left:.2f}%; top: {top:.2f}%;" title="Dobruška">Dobruška</span>'
+            )
+            continue
+        ad_count = int(point["ads"])
+        school_type = str(row.get("school_type", ""))
+        marker_class = _map_marker_class(school_type, ad_count)
+        city_attr = escape(city, quote=True)
+        title = (
+            f"{city}: {ad_count} inzerátů, dojezd {row.get('drive_min')} min, "
+            f"škola {school_type}, obyvatel {row.get('population') or 'N/A'}"
+        )
+        label = f'<span class="map-marker-label">{escape(city)}</span>' if ad_count >= 10 or row.get("drive_min", 999) <= 20 else ""
+        markers.append(
+            f'<button type="button" class="map-marker {marker_class}" data-map-city="{city_attr}" '
+            f'style="left: {left:.2f}%; top: {top:.2f}%;" title="{escape(title, quote=True)}" '
+            f'aria-label="{escape(title, quote=True)}"><span class="map-marker-dot">{ad_count}</span>{label}</button>'
+        )
+
+    marker_markup = "\n          ".join(markers)
+    return f"""<section class="map-section" aria-label="Mapa obcí">
+        <div class="map-header">
+          <div>
+            <div class="map-title">Mapa obcí a inzerátů</div>
+            <p>Velikost bodu odpovídá počtu aktivních inzerátů. Kliknutím otevřete detail obce.</p>
+          </div>
+          <div class="map-legend" aria-label="Legenda mapy">
+            <span><i class="map-legend-dot map-marker-school-full"></i>1-9</span>
+            <span><i class="map-legend-dot map-marker-school-lower"></i>1-5</span>
+            <span><i class="map-legend-dot map-marker-school-small"></i>Malotřídka</span>
+            <span><i class="map-legend-dot map-marker-school-unknown"></i>Neuvedeno</span>
+          </div>
+        </div>
+        <div class="map-canvas">
+          <div class="map-grid" aria-hidden="true"></div>
+          {marker_markup}
+        </div>
+      </section>"""
+
+
 def render_html(rows: list[dict]) -> str:
     ads_by_city = load_real_estate_ads_by_city()
+    map_section = render_map_section(rows, ads_by_city)
     html_rows = []
     for r in rows:
         pop = f"{r['population']:,}".replace(",", " ") if r["population"] is not None else "N/A"
@@ -56,6 +203,27 @@ def render_html(rows: list[dict]) -> str:
         th, td {{ border: 1px solid #ddd; padding: 8px; text-align: left; }}
         th {{ background: #f4f4f4; }}
         tr:nth-child(even) {{ background: #fafafa; }}
+        .map-section {{ margin: 20px 0; border: 1px solid #d1d5db; border-radius: 8px; overflow: hidden; background: #fff; }}
+        .map-header {{ display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 12px 16px; background: #f9fafb; border-bottom: 1px solid #e5e7eb; }}
+        .map-title {{ font-weight: 700; color: #111827; }}
+        .map-legend {{ display: flex; flex-wrap: wrap; gap: 8px 12px; color: #374151; font-size: 13px; }}
+        .map-legend span {{ display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }}
+        .map-legend-dot {{ display: inline-block; width: 10px; height: 10px; border-radius: 999px; border: 1px solid rgba(17, 24, 39, 0.3); }}
+        .map-canvas {{ position: relative; height: clamp(320px, 48vw, 620px); overflow: hidden; background: #eef7f3; }}
+        .map-grid {{ position: absolute; inset: 0; background-image: linear-gradient(rgba(15, 23, 42, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(15, 23, 42, 0.08) 1px, transparent 1px); background-size: 12.5% 12.5%; }}
+        .map-marker {{ position: absolute; transform: translate(-50%, -50%); border: 2px solid #fff; border-radius: 999px; box-shadow: 0 2px 8px rgba(15, 23, 42, 0.25); color: #fff; cursor: pointer; padding: 0; display: inline-flex; align-items: center; justify-content: center; }}
+        .map-marker:focus-visible {{ outline: 3px solid #111827; outline-offset: 3px; }}
+        .map-marker:hover {{ z-index: 5; transform: translate(-50%, -50%) scale(1.12); }}
+        .map-marker-dot {{ display: inline-flex; align-items: center; justify-content: center; width: 100%; height: 100%; font-weight: 700; font-size: 11px; line-height: 1; }}
+        .map-marker-empty {{ width: 14px; height: 14px; color: transparent; }}
+        .map-marker-medium {{ width: 24px; height: 24px; }}
+        .map-marker-large {{ width: 34px; height: 34px; }}
+        .map-marker-school-full {{ background: #2563eb; }}
+        .map-marker-school-lower {{ background: #16a34a; }}
+        .map-marker-school-small {{ background: #d97706; }}
+        .map-marker-school-unknown {{ background: #6b7280; }}
+        .map-marker-label {{ position: absolute; left: calc(100% + 5px); top: 50%; transform: translateY(-50%); border-radius: 4px; background: rgba(255, 255, 255, 0.92); color: #111827; border: 1px solid #e5e7eb; padding: 2px 5px; font-size: 12px; font-weight: 700; white-space: nowrap; pointer-events: none; }}
+        .map-origin {{ position: absolute; transform: translate(-50%, -50%); background: #111827; color: #fff; border: 2px solid #fff; border-radius: 999px; padding: 4px 8px; font-size: 12px; font-weight: 700; box-shadow: 0 2px 8px rgba(15, 23, 42, 0.25); z-index: 4; }}
         .ads-count {{ display: inline-flex; align-items: center; justify-content: center; min-width: 36px; padding: 4px 10px; border-radius: 999px; font-size: 14px; }}
         .ads-count-empty {{ background: #ececec; color: #666; }}
         .ads-count-button {{ border: 0; background: #0f766e; color: #fff; cursor: pointer; }}
@@ -116,6 +284,9 @@ def render_html(rows: list[dict]) -> str:
         @media (max-width: 720px) {{
           body {{ margin: 12px; }}
           th, td {{ padding: 6px; font-size: 14px; }}
+          .map-header {{ flex-direction: column; gap: 10px; }}
+          .map-canvas {{ height: 360px; }}
+          .map-marker-label {{ display: none; }}
           .ads-drawer-header {{ padding: 16px 16px 8px; }}
           .ads-drawer-meta {{ padding: 12px 16px 0; }}
           .ads-provider-coverage {{ padding: 10px 16px 0; }}
@@ -132,6 +303,7 @@ def render_html(rows: list[dict]) -> str:
     <body>
       <h1>Kde bydlet?</h1>
       <p>Zdroj dat: OpenStreetMap (obce/školy/populace) + OSRM routing. Vygenerováno dne {generated_on}. Záznamů: {len(rows)}.</p>
+      {map_section}
       <section class="ads-changes" id="ads-changes" hidden>
         <div class="ads-changes-header">
           <div>

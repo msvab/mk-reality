@@ -449,6 +449,9 @@
   document.querySelectorAll(".ads-count-button").forEach((button) => {
     button.addEventListener("click", () => openDrawer(button.dataset.city));
   });
+  document.querySelectorAll(".map-marker[data-map-city]").forEach((button) => {
+    button.addEventListener("click", () => openDrawer(button.dataset.mapCity));
+  });
   sortSelect?.addEventListener("change", () => {
     if (currentBundle) renderRows(currentBundle);
   });

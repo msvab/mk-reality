@@ -256,6 +256,8 @@ def build_school_rows(args: argparse.Namespace) -> list[dict]:
 
             return {
                 "city": m["name"],
+                "lat": m["lat"],
+                "lon": m["lon"],
                 "population": m["population"],
                 "drive_min": int(round(dur / 60)),
                 "amenities": ", ".join(
