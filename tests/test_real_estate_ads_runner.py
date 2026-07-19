@@ -517,7 +517,7 @@ def test_merge_local_payload_replaces_only_refreshed_portal_rows():
             {"portal": "reality.idnes.cz", "url": "https://reality.idnes.cz/detail/1", "stage": "detail_fetch", "attempt": 1, "status": "ok"},
             {"portal": "realitymix.cz", "url": "https://realitymix.cz/detail/dobruska/old.html", "stage": "detail_fetch", "attempt": 1, "status": "ok"},
         ],
-        "gaps": ["old-gap"],
+        "gaps": ["old-gap", "idnes-discovery-used-municipality-slug-fallback"],
         "assumptions": ["old-assumption"],
         "listings": [
             {
@@ -571,7 +571,45 @@ def test_merge_local_payload_replaces_only_refreshed_portal_rows():
     assert [attempt["portal"] for attempt in merged["fetch_attempts"]] == ["reality.idnes.cz", "realitymix.cz"]
     assert merged["coverage"]["workers_launched"] == 2
     assert merged["coverage"]["workers_with_results"] == 2
-    assert merged["gaps"] == ["old-gap", "new-realitymix-gap"]
+    assert merged["gaps"] == ["old-gap", "idnes-discovery-used-municipality-slug-fallback", "new-realitymix-gap"]
+
+
+def test_merge_local_payload_removes_gaps_for_refreshed_portal():
+    existing = {
+        "city": "Opočno",
+        "portal_status": {"reality.idnes.cz": {"status": "fallback_page"}},
+        "fetch_attempts": [],
+        "gaps": ["idnes-discovery-used-municipality-slug-fallback", "unrelated-gap"],
+        "listings": [],
+    }
+    local = {
+        "city": "Opočno",
+        "portal_status": {"reality.idnes.cz": {"status": "no_results"}},
+        "fetch_attempts": [],
+        "gaps": ["idnes-discovery-used-locality-id-cache"],
+        "listings": [],
+    }
+
+    merged = merge_local_payload_into_existing_raw(existing, local)
+
+    assert merged["gaps"] == ["unrelated-gap", "idnes-discovery-used-locality-id-cache"]
+
+
+def test_cached_idnes_result_pages_exclude_unscoped_category_pages():
+    aggregate = {
+        "cities": {
+            "Opočno": {
+                "fetch_attempts": [
+                    {"portal": "reality.idnes.cz", "url": "https://reality.idnes.cz/s/prodej/domy/", "stage": "search_fetch", "status": "ok"},
+                    {"portal": "reality.idnes.cz", "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-111953", "stage": "search_fetch", "status": "ok"},
+                ]
+            }
+        }
+    }
+
+    assert cached_reality_idnes_result_page_urls(aggregate, "Opočno") == [
+        "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-111953"
+    ]
 
 
 def test_local_fetchers_run_realitymix_discovery_without_cached_urls(tmp_path, monkeypatch):

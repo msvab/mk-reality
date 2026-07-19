@@ -640,8 +640,8 @@ def build_output(payload: dict) -> dict:
         "workers_with_results": workers_with_results,
         "candidates_gathered": len(normalized),
         "rows_retained": len(deduped),
-        "zero_result_portals": zero_result_portals,
-        "blocked_portals": coverage.get("blocked_portals", []),
+        "zero_result_portals": sorted(dict.fromkeys(str(portal) for portal in zero_result_portals)),
+        "blocked_portals": sorted(dict.fromkeys(str(portal) for portal in coverage.get("blocked_portals", []))),
     }
 
     return {

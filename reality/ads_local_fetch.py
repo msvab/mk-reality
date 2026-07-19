@@ -2,6 +2,7 @@ import json
 import subprocess
 import sys
 from pathlib import Path
+from urllib.parse import parse_qs, urlsplit
 
 from .ads_codex_runner import validate_raw_output
 from .ads_state import atomic_write_json
@@ -138,6 +139,10 @@ def cached_reality_idnes_result_page_urls(previous_aggregate: dict | None, city:
             continue
         if "/s/prodej/" not in url or "/detail/" in url:
             continue
+        parsed_url = urlsplit(url)
+        category_path = parsed_url.path.removeprefix("/s/prodej/").strip("/")
+        if not parse_qs(parsed_url.query).get("s-l") and "/" not in category_path:
+            continue
         if url not in urls:
             urls.append(url)
     return urls
@@ -230,6 +235,18 @@ def payload_portals(payload: dict) -> set[str]:
     return portals & set(SUPPORTED_PORTALS)
 
 
+def gap_belongs_to_portal(gap: str, portal: str) -> bool:
+    if portal in gap:
+        return True
+    portal_prefixes = {
+        "reality.idnes.cz": ("idnes-",),
+        "realitymix.cz": ("realitymix-",),
+        "reality.aktualne.cz": ("aktualne-",),
+        "sreality.cz": ("sreality-",),
+    }
+    return gap.startswith(portal_prefixes.get(portal, ()))
+
+
 def merge_local_payload_into_existing_raw(existing_payload: dict, local_payload: dict) -> dict:
     portals = payload_portals(local_payload)
     if not portals:
@@ -278,7 +295,11 @@ def merge_local_payload_into_existing_raw(existing_payload: dict, local_payload:
         if not (isinstance(attempt, dict) and str(attempt.get("portal")) in portals)
     ] + [attempt for attempt in local_attempts if isinstance(attempt, dict)]
 
-    existing_gaps = [item for item in existing_payload.get("gaps", []) if isinstance(item, str)]
+    existing_gaps = [
+        item
+        for item in existing_payload.get("gaps", [])
+        if isinstance(item, str) and not any(gap_belongs_to_portal(item, portal) for portal in portals)
+    ]
     local_gaps = [item for item in local_payload.get("gaps", []) if isinstance(item, str)]
     merged["gaps"] = list(dict.fromkeys(existing_gaps + local_gaps))
     existing_assumptions = [item for item in existing_payload.get("assumptions", []) if isinstance(item, str)]

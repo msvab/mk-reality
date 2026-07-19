@@ -245,6 +245,53 @@ def test_idnes_discovery_uses_autocomplete_without_cached_details(monkeypatch):
     assert ("search_fetch", "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-12345") in fetched_urls
 
 
+def test_idnes_discovery_uses_locality_id_cache(monkeypatch):
+    module = load_reality_idnes_fetch()
+    fetched_urls = []
+
+    def fake_fetch(url, *, attempts=None, stage="fetch"):
+        fetched_urls.append((stage, url))
+        if url in {
+            "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-111953",
+            "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-111953",
+        }:
+            return "<html>No listings</html>"
+        raise AssertionError(f"unexpected fetch: {stage} {url}")
+
+    monkeypatch.setattr(module, "run_fetch", fake_fetch)
+    cache = {"Opočno": ["CAST_OBCE-111953"]}
+
+    payload = module.build_output("Opočno", "municipality_only", [], discover_results=True, locality_id_cache=cache)
+
+    assert not any(stage == "locality_autocomplete_fetch" for stage, _ in fetched_urls)
+    assert ("search_fetch", "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-111953") in fetched_urls
+    assert "idnes-discovery-used-locality-id-cache" in payload["gaps"]
+
+
+def test_idnes_locality_id_cache_skips_stale_cached_detail_urls(monkeypatch):
+    module = load_reality_idnes_fetch()
+    stale_detail_url = "https://reality.idnes.cz/detail/prodej/dum/unrelated/example/"
+
+    def fake_fetch(url, *, attempts=None, stage="fetch"):
+        if url in {
+            "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-111953",
+            "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-111953",
+        }:
+            return "<html>No listings</html>"
+        raise AssertionError(f"stale URL should not be fetched: {stage} {url}")
+
+    monkeypatch.setattr(module, "run_fetch", fake_fetch)
+    payload = module.build_output(
+        "Opočno",
+        "municipality_only",
+        [stale_detail_url],
+        discover_results=True,
+        locality_id_cache={"Opočno": ["CAST_OBCE-111953"]},
+    )
+
+    assert payload["coverage"]["candidates_gathered"] == 0
+
+
 def test_idnes_discovery_falls_back_to_municipality_slug_when_autocomplete_is_empty(monkeypatch):
     module = load_reality_idnes_fetch()
     fetched_urls = []

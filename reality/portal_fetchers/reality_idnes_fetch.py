@@ -20,6 +20,7 @@ AUTOCOMPLETE_LOCALITY_URL = (
     "?fe=1&st={query}"
     "&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE"
 )
+LOCALITY_ID_CACHE_PATH = Path(__file__).resolve().parents[2] / "data" / "cache" / "reality_idnes_locality_ids.json"
 
 
 def slug_normalize(value: str) -> str:
@@ -187,6 +188,48 @@ def extract_locality_ids(html: str) -> list[str]:
         if locality_id not in ids:
             ids.append(locality_id)
     return ids
+
+
+def load_locality_id_cache(path: Path = LOCALITY_ID_CACHE_PATH) -> dict[str, list[str]]:
+    if not path.exists():
+        return {}
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+    if not isinstance(payload, dict):
+        return {}
+    cache = {}
+    for municipality, locality_ids in payload.items():
+        if not isinstance(municipality, str) or not isinstance(locality_ids, list):
+            continue
+        valid_ids = [
+            locality_id
+            for locality_id in locality_ids
+            if isinstance(locality_id, str) and re.fullmatch(r"CAST_OBCE-\d+", locality_id)
+        ]
+        if valid_ids:
+            cache[municipality] = list(dict.fromkeys(valid_ids))
+    return cache
+
+
+def save_locality_id_cache(cache: dict[str, list[str]], path: Path = LOCALITY_ID_CACHE_PATH) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(dict(sorted(cache.items())), ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def cached_locality_ids(municipality: str, cache: dict[str, list[str]]) -> list[str]:
+    normalized_municipality = slug_normalize(municipality)
+    for cached_municipality, locality_ids in cache.items():
+        if slug_normalize(cached_municipality) == normalized_municipality:
+            return list(locality_ids)
+    return []
+
+
+def remember_cached_locality_ids(municipality: str, locality_ids: list[str], cache: dict[str, list[str]]) -> None:
+    valid_ids = [locality_id for locality_id in locality_ids if re.fullmatch(r"CAST_OBCE-\d+", locality_id)]
+    if valid_ids:
+        cache[municipality] = list(dict.fromkeys([*cached_locality_ids(municipality, cache), *valid_ids]))
 
 
 def autocomplete_locality_ids(municipality: str, *, attempts: list[dict] | None = None) -> list[str]:
@@ -374,6 +417,7 @@ def build_output(
     detail_urls: list[str],
     result_urls: list[str] | None = None,
     discover_results: bool = False,
+    locality_id_cache: dict[str, list[str]] | None = None,
 ) -> dict:
     coverage = {
         "workers_launched": 1,
@@ -386,9 +430,12 @@ def build_output(
     fetch_attempts: list[dict] = []
     gaps: list[str] = []
     listings: list[dict] = []
-    locality_ids: list[str] = []
+    locality_id_cache = locality_id_cache if locality_id_cache is not None else {}
+    locality_ids: list[str] = cached_locality_ids(municipality, locality_id_cache)
+    if locality_ids:
+        gaps.append("idnes-discovery-used-locality-id-cache")
     fetched_detail_html: dict[str, str] = {}
-    candidate_urls = [canonicalize_detail_url(url) for url in detail_urls if "/detail/" in url]
+    candidate_urls = [] if locality_ids else [canonicalize_detail_url(url) for url in detail_urls if "/detail/" in url]
 
     def remember_detail_url(url: str) -> None:
         canonical_url = canonicalize_detail_url(url)
@@ -399,6 +446,7 @@ def build_output(
         for locality_id in extract_locality_ids(html):
             if locality_id not in locality_ids:
                 locality_ids.append(locality_id)
+        remember_cached_locality_ids(municipality, locality_ids, locality_id_cache)
 
     def verify_detail_url(detail_url: str) -> None:
         try:
@@ -409,7 +457,9 @@ def build_output(
         except RuntimeError as exc:
             gaps.append(f"failed-detail-fetch:{detail_url}:{exc}")
             return
-        remember_locality_ids(html)
+        detail_city = extract_meta_content(html, "cXenseParse:qiw-reaCity") or extract_js_string(html, "listing_localityCity") or ""
+        if slug_normalize(detail_city) == slug_normalize(municipality):
+            remember_locality_ids(html)
         listing, reason = listing_from_detail(detail_url, html, municipality)
         if listing is not None:
             listings.append(listing)
@@ -440,6 +490,7 @@ def build_output(
                 for locality_id in autocomplete_locality_ids(municipality, attempts=fetch_attempts):
                     if locality_id not in locality_ids:
                         locality_ids.append(locality_id)
+                remember_cached_locality_ids(municipality, locality_ids, locality_id_cache)
             except RuntimeError as exc:
                 gaps.append(f"idnes-locality-autocomplete-error:{exc}")
         for result_url in result_urls_from_locality_ids(locality_ids):
@@ -514,13 +565,16 @@ def main() -> int:
     parser.add_argument("--output")
     args = parser.parse_args()
 
+    locality_id_cache = load_locality_id_cache()
     payload = build_output(
         municipality=args.municipality,
         location_scope=args.location_scope,
         detail_urls=args.detail_url,
         result_urls=args.result_url,
         discover_results=args.discover_results,
+        locality_id_cache=locality_id_cache,
     )
+    save_locality_id_cache(locality_id_cache)
     rendered = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
     if args.output:
         Path(args.output).write_text(rendered, encoding="utf-8")

@@ -84,6 +84,14 @@ def discover_raw_files(raw_dir: Path) -> list[Path]:
     return sorted(path for path in raw_dir.glob("*.json") if path.is_file())
 
 
+def display_path(path: Path) -> str:
+    repo_root = Path(__file__).resolve().parents[1]
+    try:
+        return str(path.resolve().relative_to(repo_root))
+    except ValueError:
+        return str(path)
+
+
 def normalize_text(text: str) -> str:
     return re.sub(r"\s+", " ", str(text).strip().lower())
 
@@ -271,8 +279,8 @@ def build_aggregate_output(
 
     output: RealEstateAggregate = {
         "generated_at": generated_at,
-        "schools_input": str(schools_input),
-        "raw_dir": str(raw_dir),
+        "schools_input": display_path(schools_input),
+        "raw_dir": display_path(raw_dir),
         "coverage": {
             "school_cities": len(school_cities),
             "raw_files_found": len(raw_files),
