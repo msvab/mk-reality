@@ -280,9 +280,12 @@ def test_hk_drawer_scrolls_without_gaps_text() -> None:
         prices = [parse_price(text) for text in page.locator(".ads-price-cell").all_inner_texts()]
         assert prices[0] == min(prices)
 
+        page.locator("#ads-drawer-close").click()
+        page.locator("#table-view-button").click()
+        assert page.locator("#table-view").is_visible()
+
         new_city = city_with_badge_candidate(page, "new")
         if new_city:
-            page.locator("#ads-drawer-close").click()
             page.locator(f'[data-city="{new_city}"]').click()
             assert page.locator(".ad-badge-new").count() > 0
 
