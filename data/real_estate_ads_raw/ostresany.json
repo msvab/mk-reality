@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 9,
+    "candidates_gathered": 11,
     "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz",
@@ -59,22 +59,6 @@
   "fetch_attempts": [
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/ostresany/6a3e14d7e26b0374510ae77e/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ostresany/69ff24b68cd988c4ed01c292/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/domy/ostresany/",
       "stage": "search_fetch",
       "attempt": 1,
@@ -85,6 +69,30 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/ostresany/",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-116327",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-116327",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/brehy-bahnikova/68e394efe58f07a3ee06d039/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -107,7 +115,23 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vlci-habrina/6a4397c8dc9cad40aa05bb9a/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/ostresany/6a3e14d7e26b0374510ae77e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/jedousov/6a43851c608b41f10e0d4816/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ostresany/69ff24b68cd988c4ed01c292/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -116,6 +140,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/ostresany/6925869324f982567b038479/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/bukovka/6a3bbdeff3f862642803f886/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -203,10 +235,13 @@
     }
   ],
   "gaps": [
+    "idnes-discovery-used-locality-id-cache",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/brehy-bahnikova/68e394efe58f07a3ee06d039/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ostresany-druzstevni-ii/69b8521a53c8a5796107a441/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ostresany-rockova/6a1fddfa80e85deb1d0a6bd0/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/vlci-habrina/6a4397c8dc9cad40aa05bb9a/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/jedousov/6a43851c608b41f10e0d4816/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/ostresany/6925869324f982567b038479/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/bukovka/6a3bbdeff3f862642803f886/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Ost%C5%99e%C5%A1any&form%5Bcena_mena%5D=1",

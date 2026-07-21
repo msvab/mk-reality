@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 9,
+    "candidates_gathered": 14,
     "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
@@ -59,14 +59,6 @@
   "fetch_attempts": [
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/potstejn/65843e725711993acf08b788/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/domy/potstejn/",
       "stage": "search_fetch",
       "attempt": 1,
@@ -76,6 +68,38 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/potstejn/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-126501",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-126501",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-126497",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-126497",
       "stage": "search_fetch",
       "attempt": 1,
       "status": "ok",
@@ -116,6 +140,54 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/potstejn/69aadda7d2d133cb350f5291/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/potstejn/65843e725711993acf08b788/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/zachlumi/6a5006154cf056ed3a01cf07/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/zachlumi/6a56a5372c30ae543d0a3a26/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/zachlumi/695cd88a95cc7679d90c4fb1/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/zachlumi/6a350d5dc8e15047730bc325/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/zamel/69eb454af1a4835f3a081a58/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -203,11 +275,17 @@
     }
   ],
   "gaps": [
+    "idnes-discovery-used-locality-id-cache",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/potstejn/69dd919e99dc673b37049435/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/potstejn-lazenska/69dd8f435906da9d480ea5a5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/potstejn/6757e89fb3e7952039050367/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/potstejn/696634b75d7e768f2b07c7c5/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/potstejn/69aadda7d2d133cb350f5291/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/zachlumi/6a5006154cf056ed3a01cf07/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/zachlumi/6a56a5372c30ae543d0a3a26/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/zachlumi/695cd88a95cc7679d90c4fb1/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/zachlumi/6a350d5dc8e15047730bc325/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/zamel/69eb454af1a4835f3a081a58/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Pot%C5%A1tejn&form%5Bcena_mena%5D=1",

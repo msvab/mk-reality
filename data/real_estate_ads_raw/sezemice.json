@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 1,
-    "candidates_gathered": 10,
-    "rows_retained": 6,
+    "candidates_gathered": 28,
+    "rows_retained": 7,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
@@ -41,13 +41,8 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "fallback_page",
-      "http_status": 404,
-      "stage": "search_fetch",
-      "message": "HTTP 404",
-      "evidence": [
-        "search_fetch:fallback_page:https://reality.idnes.cz/s/prodej/domy/sezemice/"
-      ]
+      "status": "no_results",
+      "message": "No retained in-scope iDNES rows."
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -65,29 +60,219 @@
   "fetch_attempts": [
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Sezemice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-147672",
+      "stage": "search_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/sezemice/",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-147672",
       "stage": "search_fetch",
       "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/sezemice/",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-147664",
       "stage": "search_fetch",
       "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-147664",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-64912",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-64912",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-89079",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-89079",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/brehy-bahnikova/68e394efe58f07a3ee06d039/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice-za-strelnici/6a589d144c8a5520b5099559/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice/69c63211ec6c90a8c608658a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice/6a4664940dfba9716807d9cb/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice-druzstevni/6a454a6654eb65a76307b387/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice-druzstevni/6a45496681b2da59420e4a42/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice-druzstevni/6a3b0ffd84b19fba20097d57/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice-jungmannova/68f73d8823057692030cb027/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/sezemice/6a27eb3f343a11c5da0cc3f8/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice/683042752ced67dddd060a66/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice/6a3e401589fe0317fe004de4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice/68a59ea703d397ea5a001255/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice/691201525fea2533460b1d25/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice/682db59deabdd69eca0aa634/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vlci-habrina/6a4397c8dc9cad40aa05bb9a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/sezemice/69dcb588b085d58b6103b124/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/sezemice/68a439cc1b873b99da0cb304/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/casy/69c25d89f9fba995e70845ae/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice/6a47d0e411ec5da7ee0e9aa7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "realitymix.cz",
@@ -166,24 +351,6 @@
       "url": "https://www.sreality.cz/api/v1/estates/2131968844",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/2131968844",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/2149486668",
-      "stage": "detail_fetch",
-      "attempt": 1,
       "status": "ok",
       "http_status": 200
     },
@@ -255,15 +422,31 @@
     }
   ],
   "gaps": [
-    "idnes-discovery-used-municipality-slug-fallback",
-    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/sezemice/",
-    "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/sezemice/",
+    "idnes-discovery-used-locality-id-cache",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-89079",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/brehy-bahnikova/68e394efe58f07a3ee06d039/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice-za-strelnici/6a589d144c8a5520b5099559/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/69c63211ec6c90a8c608658a/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/6a4664940dfba9716807d9cb/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice-druzstevni/6a454a6654eb65a76307b387/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice-druzstevni/6a45496681b2da59420e4a42/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice-druzstevni/6a3b0ffd84b19fba20097d57/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice-jungmannova/68f73d8823057692030cb027/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/sezemice/6a27eb3f343a11c5da0cc3f8/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/683042752ced67dddd060a66/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/6a3e401589fe0317fe004de4/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/68a59ea703d397ea5a001255/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/691201525fea2533460b1d25/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/682db59deabdd69eca0aa634/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/vlci-habrina/6a4397c8dc9cad40aa05bb9a/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/sezemice/69dcb588b085d58b6103b124/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/sezemice/68a439cc1b873b99da0cb304/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/casy/69c25d89f9fba995e70845ae/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/6a47d0e411ec5da7ee0e9aa7/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3606-pardubice/pardubicky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Sezemice&form%5Bcena_mena%5D=1",
-    "stale-detail-fetch:2131968844:Failed to fetch https://www.sreality.cz/api/v1/estates/2131968844: HTTP 404",
-    "missing-price:https://www.sreality.cz/api/v1/estates/2149486668",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3357184076",
     "stale-detail-fetch:4139679820:Failed to fetch https://www.sreality.cz/api/v1/estates/4139679820: HTTP 404"
   ],
@@ -320,6 +503,25 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3232358476"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej pozemku 1734 m²",
+      "location": "Sezemice, Pardubice",
+      "property_type": "land",
+      "price": "7 800 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1734",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/ostatni/sezemice-veska/2131968844"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2131968844",
+        "buildable-land"
       ]
     },
     {

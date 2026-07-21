@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 0,
-    "candidates_gathered": 7,
+    "candidates_gathered": 8,
     "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
@@ -70,6 +70,22 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/bestovice/",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-3239",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-3239",
       "stage": "search_fetch",
       "attempt": 1,
       "status": "ok",
@@ -126,6 +142,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/chocen/6a2ab3d2e511c1c289088578/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chocen/6852b5ffa5941c3dcf0197d9/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -189,6 +213,7 @@
     }
   ],
   "gaps": [
+    "idnes-discovery-used-locality-id-cache",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/skorenice/6a27c8200fb0b0031b04a45a/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/skorenice/690128f4cfcdf981de0e611b/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/chocen-okruzni/69f4417e975caa5067014202/",
@@ -196,6 +221,7 @@
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/bosin/69a19a78a273697627001386/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/ujezd-u-chocne/66d6d1aedec126f7470f52c6/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/chocen/6a2ab3d2e511c1c289088578/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/chocen/6852b5ffa5941c3dcf0197d9/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=B%C4%9Bstovice&form%5Bcena_mena%5D=1"

@@ -29,11 +29,10 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
-    "candidates_gathered": 6,
-    "rows_retained": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 8,
+    "rows_retained": 6,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz"
     ],
@@ -41,13 +40,8 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "fallback_page",
-      "http_status": 404,
-      "stage": "search_fetch",
-      "message": "HTTP 404",
-      "evidence": [
-        "search_fetch:fallback_page:https://reality.idnes.cz/s/prodej/domy/vsestary/"
-      ]
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -65,29 +59,35 @@
   "fetch_attempts": [
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=V%C5%A1estary&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-187411",
+      "stage": "search_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/vsestary/",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-187411",
       "stage": "search_fetch",
       "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/vsestary/",
-      "stage": "search_fetch",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vsestary/6a303ea0413a915f1c06fbd8/",
+      "stage": "detail_fetch",
       "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vsestary/69e62fa203a8e8302d050b99/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "realitymix.cz",
@@ -243,9 +243,8 @@
     }
   ],
   "gaps": [
-    "idnes-discovery-used-municipality-slug-fallback",
-    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/vsestary/",
-    "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/vsestary/",
+    "idnes-discovery-used-locality-id-cache",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-187411",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3209-praha-vychod/stredocesky/prodej-domy_vily.html",
@@ -255,6 +254,42 @@
     "detail-fallback-page:https://reality.aktualne.cz/detail/vsestary/prodej-souboru-dvou-rodinnych-domku-s-velkorysou-zahradou-a-truhlarskou-dilnou-v-malebne-lokalite-vs-8524209.html"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1432 m2, Všestary - Rosnice",
+      "location": "Všestary, okres Hradec Králové",
+      "property_type": "land",
+      "price": "5 343 248 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1432",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/vsestary/69e62fa203a8e8302d050b99/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemku k bydlení 1293 m2, Rosnice Všestary",
+      "location": "Všestary, okres Hradec Králové",
+      "property_type": "land",
+      "price": "3 990 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1293",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/vsestary/6a303ea0413a915f1c06fbd8/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
     {
       "portal": [
         "sreality.cz"

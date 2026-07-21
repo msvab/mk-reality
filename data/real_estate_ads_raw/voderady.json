@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 0,
-    "candidates_gathered": 0,
+    "candidates_gathered": 2,
     "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
@@ -42,13 +42,8 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "fallback_page",
-      "http_status": 404,
-      "stage": "search_fetch",
-      "message": "HTTP 404",
-      "evidence": [
-        "search_fetch:fallback_page:https://reality.idnes.cz/s/prodej/domy/voderady/"
-      ]
+      "status": "no_results",
+      "message": "No retained in-scope iDNES rows."
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -66,29 +61,51 @@
   "fetch_attempts": [
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Vod%C4%9Brady&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-187542",
+      "stage": "search_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/voderady/",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-187542",
       "stage": "search_fetch",
       "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/voderady/",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-105635",
       "stage": "search_fetch",
       "attempt": 1,
-      "status": "fallback_page",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-105635",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/voderady/6a3f4d227e271627f102f0f7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/prepychy/68da4465862fe54d910f5345/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "realitymix.cz",
@@ -164,9 +181,11 @@
     }
   ],
   "gaps": [
-    "idnes-discovery-used-municipality-slug-fallback",
-    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/voderady/",
-    "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/voderady/",
+    "idnes-discovery-used-locality-id-cache",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-187542",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-105635",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/voderady/6a3f4d227e271627f102f0f7/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/prepychy/68da4465862fe54d910f5345/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",

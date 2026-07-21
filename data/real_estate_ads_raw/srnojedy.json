@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 1,
-    "candidates_gathered": 3,
+    "candidates_gathered": 8,
     "rows_retained": 1,
     "zero_result_portals": [
       "realitymix.cz",
@@ -60,14 +60,6 @@
   "fetch_attempts": [
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/srnojedy/6a3cc3b3e23686f7ba03bf86/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/domy/srnojedy/",
       "stage": "search_fetch",
       "attempt": 1,
@@ -84,7 +76,39 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/bukovina-nad-labem/69f349e16d240979da07b0e4/",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-79090",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-79090",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/brehy-bahnikova/68e394efe58f07a3ee06d039/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/srnojedy/6a3cc3b3e23686f7ba03bf86/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/uhreticka-lhota/6a42816c066c2576190ee904/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -93,6 +117,38 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/srnojedy-svitkovska/69fc89129c0ee0bf3f04818c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice/69c135bd2642c6e7210e5568/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-do-poli/69b3df08093283a28a09f274/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice/6a26b627cfe4aff153073cdf/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/bukovka/6a3bbdeff3f862642803f886/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -156,8 +212,14 @@
     }
   ],
   "gaps": [
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/bukovina-nad-labem/69f349e16d240979da07b0e4/",
+    "idnes-discovery-used-locality-id-cache",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/brehy-bahnikova/68e394efe58f07a3ee06d039/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/uhreticka-lhota/6a42816c066c2576190ee904/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/srnojedy-svitkovska/69fc89129c0ee0bf3f04818c/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice/69c135bd2642c6e7210e5568/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice-do-poli/69b3df08093283a28a09f274/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice/6a26b627cfe4aff153073cdf/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/bukovka/6a3bbdeff3f862642803f886/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Srnojedy&form%5Bcena_mena%5D=1"
