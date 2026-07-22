@@ -29,11 +29,10 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
-    "candidates_gathered": 28,
-    "rows_retained": 7,
+    "workers_with_results": 2,
+    "candidates_gathered": 29,
+    "rows_retained": 8,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz"
     ],
@@ -41,8 +40,8 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -124,7 +123,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/brehy-bahnikova/68e394efe58f07a3ee06d039/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -236,7 +235,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vlci-habrina/6a4397c8dc9cad40aa05bb9a/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/bukovka/6a3bbdeff3f862642803f886/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -260,7 +259,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/casy/69c25d89f9fba995e70845ae/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice/6a5f1b54383268cf530a336a/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -356,6 +355,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2149486668",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/3199721548",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -424,7 +431,7 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-89079",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/brehy-bahnikova/68e394efe58f07a3ee06d039/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice-za-strelnici/6a589d144c8a5520b5099559/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/69c63211ec6c90a8c608658a/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/6a4664940dfba9716807d9cb/",
@@ -438,19 +445,36 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/68a59ea703d397ea5a001255/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/691201525fea2533460b1d25/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/682db59deabdd69eca0aa634/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/vlci-habrina/6a4397c8dc9cad40aa05bb9a/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/bukovka/6a3bbdeff3f862642803f886/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/sezemice/69dcb588b085d58b6103b124/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/sezemice/68a439cc1b873b99da0cb304/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/casy/69c25d89f9fba995e70845ae/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/6a47d0e411ec5da7ee0e9aa7/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3606-pardubice/pardubicky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Sezemice&form%5Bcena_mena%5D=1",
+    "missing-price:https://www.sreality.cz/api/v1/estates/2149486668",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3357184076",
     "stale-detail-fetch:4139679820:Failed to fetch https://www.sreality.cz/api/v1/estates/4139679820: HTTP 404"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu, 98 m2, Sezemice",
+      "location": "Sezemice, okres Pardubice",
+      "property_type": "house",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "98",
+      "land_area_m2": "1561",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/sezemice/6a5f1b54383268cf530a336a/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
     {
       "portal": [
         "sreality.cz"

@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 0,
-    "candidates_gathered": 1,
+    "candidates_gathered": 2,
     "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
@@ -77,7 +77,31 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-180084",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-180084",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/vermerovice/69d4cf818b483728f800f008/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/letohrad/6a5f5da7589a0c1a5606e380/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -141,8 +165,9 @@
     }
   ],
   "gaps": [
-    "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/vermerovice/",
+    "idnes-discovery-used-locality-id-cache",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/vermerovice/69d4cf818b483728f800f008/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/letohrad/6a5f5da7589a0c1a5606e380/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Verm%C4%9B%C5%99ovice&form%5Bcena_mena%5D=1"

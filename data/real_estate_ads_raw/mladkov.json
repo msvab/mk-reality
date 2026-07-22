@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 8,
+    "candidates_gathered": 9,
     "rows_retained": 4,
     "zero_result_portals": [
       "realitymix.cz",
@@ -91,6 +91,38 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-183857",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-183857",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-411442",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-411442",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/mladkov/6a4f9bd06144275d9d08eab6/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -124,6 +156,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/mladkov/6a44add760be3b110a08153e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pastviny/69c66038d576faab300c9837/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -230,9 +270,11 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-411442",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/mladkov/69fce39a5da5fb86b5077e27/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/mladkov/69cd6c4512c1fa0bf50e1528/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/mladkov/67fedcc8da19a41e50009ae6/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/pastviny/69c66038d576faab300c9837/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3611-usti-nad-orlici/pardubicky/prodej-pozemky.html",
