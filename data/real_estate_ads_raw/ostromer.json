@@ -107,8 +107,16 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/markvartice/6a08c693133c0987ff034a92/",
-      "stage": "detail_fetch",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-106739",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-106739",
+      "stage": "search_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -218,6 +226,14 @@
       "http_status": 200
     },
     {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/liskovice/6a39b05b67729eec7c078175/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
       "stage": "house_root_fetch",
@@ -318,7 +334,6 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/markvartice/6a08c693133c0987ff034a92/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ostromer/6a6078a2e076486e320a5de1/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ostromer/68f698e29a712bb7f705f07e/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ostromer/68f66925903b4918f90210be/",
@@ -329,6 +344,7 @@
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/sobcice/6a01bb5ee3ff896cfb02fc31/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/sobcice/6a01bc20ba8df83c7f03a6fc/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/sobcice/6a01bcc353cfb2bfc907d63c/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/liskovice/6a39b05b67729eec7c078175/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Ostrom%C4%9B%C5%99&form%5Bcena_mena%5D=1",

@@ -40,13 +40,8 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "fetch_error",
-      "http_status": 0,
-      "stage": "detail_fetch",
-      "message": "curl exited with 56",
-      "evidence": [
-        "detail_fetch:fetch_error:https://reality.idnes.cz/detail/prodej/pozemek/zachlumi/6a3a9b636be8e2c87e073ba9/"
-      ]
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -91,51 +86,14 @@
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/zachlumi/6a3a9b636be8e2c87e073ba9/",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "fetch_error",
-      "http_status": 0,
-      "error": "curl exited with 56"
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/zachlumi/6a3a9b636be8e2c87e073ba9/",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "fetch_error",
-      "http_status": 0,
-      "error": "curl exited with 56"
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/zachlumi/6a3a9b636be8e2c87e073ba9/",
-      "stage": "detail_fetch",
-      "attempt": 3,
-      "status": "fetch_error",
-      "http_status": 0,
-      "error": "curl exited with 56"
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/zachlumi/69690dec7c9a9c22bc0aa259/",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "fetch_error",
-      "http_status": 0,
-      "error": "curl exited with 56"
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/zachlumi/69690dec7c9a9c22bc0aa259/",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "fetch_error",
-      "http_status": 0,
-      "error": "curl exited with 56"
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/zachlumi/69690dec7c9a9c22bc0aa259/",
-      "stage": "detail_fetch",
-      "attempt": 3,
       "status": "ok",
       "http_status": 200
     },
@@ -232,8 +190,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1197834316",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1197834316",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -279,18 +247,36 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/zachlumi/6a4cec9fce8dc943c805c6d7/",
-    "failed-detail-fetch:https://reality.idnes.cz/detail/prodej/pozemek/zachlumi/6a3a9b636be8e2c87e073ba9/:curl exited with 56",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3611-usti-nad-orlici/pardubicky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Z%C3%A1chlum%C3%AD&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/zachlumi/prodej-pozemku-k-bydleni-1679-m-zachlumi-8357465.html",
+    "stale-detail-fetch:1197834316:Failed to fetch https://www.sreality.cz/api/v1/estates/1197834316: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1832775756",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2378358860",
     "missing-price:https://www.sreality.cz/api/v1/estates/2737692748",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3840077900"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku 3 451 m v obci Záchlumí",
+      "location": "Záchlumí, okres Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "2 380 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "3451",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/zachlumi/6a3a9b636be8e2c87e073ba9/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
     {
       "portal": [
         "reality.idnes.cz"
@@ -325,25 +311,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2782660428"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1277 m²",
-      "location": "Záchlumí, Ústí nad Orlicí",
-      "property_type": "land",
-      "price": "1 850 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1277",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/zachlumi-litice-nad-orlici/1197834316"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1197834316",
-        "buildable-land"
       ]
     }
   ]

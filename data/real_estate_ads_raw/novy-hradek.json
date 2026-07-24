@@ -29,18 +29,19 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 3,
-    "candidates_gathered": 27,
-    "rows_retained": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 26,
+    "rows_retained": 3,
     "zero_result_portals": [
+      "reality.idnes.cz",
       "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
+      "status": "no_results",
+      "message": "No retained in-scope iDNES rows."
     },
     "realitymix.cz": {
       "status": "ok",
@@ -106,7 +107,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/novy-hradek/6a155c7c9c3afb9a0e0d055a/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-petrovice/6a1022ae2f3fb8700209b918/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -372,14 +373,6 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/221614156",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/347947852",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -405,8 +398,10 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-107352",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/novy-hradek/69c39cb705a7b90ab20691cf/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/velke-petrovice/6a1022ae2f3fb8700209b918/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/novy-hradek/6a59f4b99cf1c3ff4205cdeb/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/novy-hradek/6a4ca65fbba44f636d0a05fa/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/novy-hradek/6a2a8dc8d50c7139ac085feb/",
@@ -425,29 +420,10 @@
     "detail-fallback-page:https://reality.aktualne.cz/detail/novy-hradek/prodej-chalupa-162-m2-pozemek-1846-m-novy-hradek-8486767.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1290180700",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/221614156",
     "excluded-chata:https://www.sreality.cz/api/v1/estates/347947852",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/971413596"
   ],
   "listings": [
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej pozemku k bydlení, 1182 m2, Nový Hrádek - Rzy",
-      "location": "Nový Hrádek, okres Náchod",
-      "property_type": "land",
-      "price": "1 590 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1182",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/novy-hradek/6a155c7c9c3afb9a0e0d055a/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
     {
       "portal": [
         "realitymix.cz"

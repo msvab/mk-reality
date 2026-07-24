@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 17,
-    "rows_retained": 5,
+    "candidates_gathered": 19,
+    "rows_retained": 7,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -84,6 +84,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-83941",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/lipa-nad-orlici/6a624475b6e6fb963c04415b/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -290,6 +298,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/318427212",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/483808076",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -363,6 +379,23 @@
     },
     {
       "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej RD, Lípa nad Orlicí 116",
+      "location": "Lípa nad Orlicí, okres Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "5 650 000 Kč",
+      "house_area_m2": "180",
+      "land_area_m2": "1000",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/lipa-nad-orlici/6a624475b6e6fb963c04415b/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
         "realitymix.cz"
       ],
       "title": "Prodej 2 rodinných domů s bazénem Lípa nad Orlicí",
@@ -412,6 +445,24 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/720855884"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 180 m², pozemek 1000 m²",
+      "location": "Lípa nad Orlicí, Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "5 650 000 Kč",
+      "house_area_m2": "180",
+      "land_area_m2": "1000",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/lipa-nad-orlici/318427212"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/318427212"
       ]
     }
   ]

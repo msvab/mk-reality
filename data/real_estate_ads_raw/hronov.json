@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 35,
-    "rows_retained": 6,
+    "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -139,7 +139,15 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-petrovice/6a1022ae2f3fb8700209b918/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hronov/6a4cae94394a7bc0720583aa/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -172,14 +180,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/hronov-husova/6a5cf9d6a61d47756f016803/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/hronov/6a4cae94394a7bc0720583aa/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -299,7 +299,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-petrovice/6a1022ae2f3fb8700209b918/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -536,7 +536,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/velke-petrovice/6a1022ae2f3fb8700209b918/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/hronov/6a1845f439eae7df1e0be964/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/hronov/6a3185cbc032b7a5c204c037/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/hronov/6a4e0e8c82abaf6e8e01cda9/",
@@ -552,7 +552,7 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/hronov/680a2e852a8609e19d0c1977/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hronov/6a33a2cd128d318fa5027d99/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/hronov/69d4aa766e5fce5b170415d3/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/velke-petrovice/6a1022ae2f3fb8700209b918/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/horni-radechova/6a43a6a635757ff9c2088789/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/horni-radechova/6a43a982676a744752014749/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/velke-porici/6a3184a470da38b5120419f6/",
@@ -568,7 +568,8 @@
     "stale-detail-fetch:1996415052:Failed to fetch https://www.sreality.cz/api/v1/estates/1996415052: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2800444236",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3287392332",
-    "stale-detail-fetch:352247884:Failed to fetch https://www.sreality.cz/api/v1/estates/352247884: HTTP 404"
+    "stale-detail-fetch:352247884:Failed to fetch https://www.sreality.cz/api/v1/estates/352247884: HTTP 404",
+    "missing-price:https://www.sreality.cz/api/v1/estates/524283980"
   ],
   "listings": [
     {
@@ -613,7 +614,7 @@
       "title": "Prodej dům Rodinný, 150m2, Hronov, Velký Dřevíč",
       "location": "Hronov, okres Náchod",
       "property_type": "house",
-      "price": "2 290 000 Kč",
+      "price": "Cena na vyžádání",
       "house_area_m2": "150",
       "land_area_m2": "1136",
       "urls": [
@@ -657,24 +658,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/387506252"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 150 m², pozemek 1136 m²",
-      "location": "Hronov, Náchod",
-      "property_type": "house",
-      "price": "2 290 000 Kč",
-      "house_area_m2": "150",
-      "land_area_m2": "1136",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/hronov-velky-drevic/524283980"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/524283980"
       ]
     }
   ]
