@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 13,
-    "rows_retained": 6,
+    "candidates_gathered": 11,
+    "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -75,7 +75,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/destne-v-orlickych-horach/6a5793610b95e18af50895e8/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/destne-v-orlickych-horach/6a6309cdcde82648a5078856/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -91,31 +91,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/sedlonov/67226621871fcde11c09ed37/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/destne-v-orlickych-horach/67ea98ad348790c62a0c17db/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/destne-v-orlickych-horach/682b1a457a2d88139606d2cd/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/destne-v-orlickych-horach/6454d7abb316060b840bc899/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/destne-v-orlickych-horach/6a630f1f786a7725690dbf25/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -263,6 +239,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1304088652",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/1477055308",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -307,8 +291,7 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/destne-v-orlickych-horach/6a16d6f6ab0f6cd1550d570a/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/sedlonov/67226621871fcde11c09ed37/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/destne-v-orlickych-horach/6454d7abb316060b840bc899/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/destne-v-orlickych-horach/6a630f1f786a7725690dbf25/",
     "removed-fallback-page:https://realitymix.cz/detail/destne-v-orlickych-horach/prodej-rodinneho-domu-400-m-destne-v-orlickych-horach-8454415.html",
     "missing-page-url:house",
     "missing-page-url:land",
@@ -318,6 +301,8 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=De%C5%A1tn%C3%A9+v+Orlick%C3%BDch+hor%C3%A1ch&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/destne-v-orlickych-horach/prodej-rodinneho-domu-400-m-destne-v-orlickych-horach-8454415.html",
     "stale-detail-fetch:1067352140:Failed to fetch https://www.sreality.cz/api/v1/estates/1067352140: HTTP 404",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1304088652",
+    "missing-price:https://www.sreality.cz/api/v1/estates/1477055308",
     "stale-detail-fetch:2056414028:Failed to fetch https://www.sreality.cz/api/v1/estates/2056414028: HTTP 404"
   ],
   "listings": [
@@ -325,53 +310,17 @@
       "portal": [
         "reality.idnes.cz"
       ],
-      "title": "Prodej pozemek Bydlení, Deštné v Orlických horách, Jedlová v Orlických horách",
-      "location": "Deštné v Orlických horách, okres Rychnov nad Kněžnou",
-      "property_type": "land",
-      "price": "21 795 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "8718",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/destne-v-orlickych-horach/682b1a457a2d88139606d2cd/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
       "title": "Prodej rodinného domu, 400 m2, Deštné v Orlických horách",
       "location": "Deštné v Orlických horách, okres Rychnov nad Kněžnou",
       "property_type": "house",
-      "price": "14 990 000 Kč",
+      "price": "Cena na vyžádání",
       "house_area_m2": "400",
       "land_area_m2": "1157",
       "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/destne-v-orlickych-horach/6a5793610b95e18af50895e8/"
+        "https://reality.idnes.cz/detail/prodej/dum/destne-v-orlickych-horach/6a6309cdcde82648a5078856/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej pozemek Bydlení, Deštné v Orlických horách",
-      "location": "Deštné v Orlických horách, okres Rychnov nad Kněžnou",
-      "property_type": "land",
-      "price": "6 950 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1167",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/destne-v-orlickych-horach/67ea98ad348790c62a0c17db/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
       ]
     },
     {
@@ -391,24 +340,6 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1982939724",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 400 m², pozemek 1157 m²",
-      "location": "Deštné v Orlických horách, Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "14 990 000 Kč",
-      "house_area_m2": "400",
-      "land_area_m2": "1157",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/destne-v-orlickych-horach/1477055308"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1477055308"
       ]
     },
     {

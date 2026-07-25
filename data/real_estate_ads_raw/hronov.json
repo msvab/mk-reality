@@ -29,12 +29,13 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
-    "candidates_gathered": 35,
-    "rows_retained": 5,
+    "workers_with_results": 1,
+    "candidates_gathered": 34,
+    "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz",
-      "reality.aktualne.cz"
+      "reality.aktualne.cz",
+      "sreality.cz"
     ],
     "blocked_portals": []
   },
@@ -52,8 +53,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Sreality row."
+      "status": "no_results",
+      "message": "No retained in-scope Sreality rows."
     }
   },
   "fetch_attempts": [
@@ -147,14 +148,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/hronov/6a4cae94394a7bc0720583aa/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/hronov/6a1845f439eae7df1e0be964/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -227,6 +220,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hronov/6a33a2cd128d318fa5027d99/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/hronov/69fb1bb05cb5fb527d0980d3/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -275,14 +276,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hronov/6a33a2cd128d318fa5027d99/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/hronov/6a2c1af5f28e870e9d0f5859/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -299,7 +292,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-petrovice/6a1022ae2f3fb8700209b918/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/starkov/6a43a8fb36d7baa97700ff3e/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -522,8 +515,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/387506252",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/387506252",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -545,14 +548,14 @@
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/hronov/69f8679c44dc3df0bf068978/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/hronov/69d4b97999426521820b8ac0/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/hronov/69c425f34ac91920ad026033/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hronov/6a33a2cd128d318fa5027d99/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hronov/69fb1bb05cb5fb527d0980d3/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hronov/6a1b48cd46a0e773b90214e4/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hronov/6a0c26a6f8c724bd1a089509/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hronov/6a4cffa45d2452625e058bb4/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/hronov/680a2e852a8609e19d0c1977/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hronov/6a33a2cd128d318fa5027d99/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/hronov/69d4aa766e5fce5b170415d3/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/velke-petrovice/6a1022ae2f3fb8700209b918/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/starkov/6a43a8fb36d7baa97700ff3e/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/horni-radechova/6a43a6a635757ff9c2088789/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/horni-radechova/6a43a982676a744752014749/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/velke-porici/6a3184a470da38b5120419f6/",
@@ -569,26 +572,10 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2800444236",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3287392332",
     "stale-detail-fetch:352247884:Failed to fetch https://www.sreality.cz/api/v1/estates/352247884: HTTP 404",
+    "stale-detail-fetch:387506252:Failed to fetch https://www.sreality.cz/api/v1/estates/387506252: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/524283980"
   ],
   "listings": [
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej rodinného domu, 115 m2, Hronov",
-      "location": "Hronov, okres Náchod",
-      "property_type": "house",
-      "price": "3 690 000 Kč",
-      "house_area_m2": "230",
-      "land_area_m2": "1005",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/hronov/6a4cae94394a7bc0720583aa/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
     {
       "portal": [
         "reality.idnes.cz"
@@ -640,24 +627,6 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 230 m², pozemek 1005 m²",
-      "location": "Hronov, Náchod",
-      "property_type": "house",
-      "price": "3 690 000 Kč",
-      "house_area_m2": "230",
-      "land_area_m2": "1005",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/hronov-rokytnik/387506252"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/387506252"
       ]
     }
   ]

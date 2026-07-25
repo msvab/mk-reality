@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 8,
-    "rows_retained": 6,
+    "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -222,8 +222,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3267314508",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3267314508",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -251,7 +261,8 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3209-praha-vychod/stredocesky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=V%C5%A1estary&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/vsestary/prodej-pozemku-vsestary-1-073m2-8433537.html",
-    "detail-fallback-page:https://reality.aktualne.cz/detail/vsestary/prodej-souboru-dvou-rodinnych-domku-s-velkorysou-zahradou-a-truhlarskou-dilnou-v-malebne-lokalite-vs-8524209.html"
+    "detail-fallback-page:https://reality.aktualne.cz/detail/vsestary/prodej-souboru-dvou-rodinnych-domku-s-velkorysou-zahradou-a-truhlarskou-dilnou-v-malebne-lokalite-vs-8524209.html",
+    "stale-detail-fetch:3267314508:Failed to fetch https://www.sreality.cz/api/v1/estates/3267314508: HTTP 404"
   ],
   "listings": [
     {
@@ -287,25 +298,6 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1671 m²",
-      "location": "Všestary, Hradec Králové",
-      "property_type": "land",
-      "price": "5 980 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1671",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/vsestary-rosnice/3267314508"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3267314508",
         "buildable-land"
       ]
     },

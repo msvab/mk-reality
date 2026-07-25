@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 29,
-    "rows_retained": 12,
+    "candidates_gathered": 25,
+    "rows_retained": 11,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -155,7 +155,15 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/kladruby-nad-labem/6a3a5d4855cfe05d4103dbfb/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/bukovina-nad-labem/69f349e16d240979da07b0e4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/raby/6a52757903ceb62abe024736/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -203,14 +211,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/raby/6a52757903ceb62abe024736/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/raby/68fa2b8ddb6943f8c305a594/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -220,14 +220,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/raby/6a33cfc0675562c95d045095/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/jedousov/6a43851c608b41f10e0d4816/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -350,16 +342,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1708409676",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/1850454092",
+      "url": "https://www.sreality.cz/api/v1/estates/1708409676",
       "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -372,14 +366,6 @@
     {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/3251856204",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/3377180748",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -400,14 +386,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/869957708",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
@@ -418,9 +396,8 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/raby/69d14dfd6c5ce942600fd785/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/raby/69d1560c21efe8aa8a096098/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/raby/68b73570d0a87c8dac0e1d7f/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/kladruby-nad-labem/6a3a5d4855cfe05d4103dbfb/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/bukovina-nad-labem/69f349e16d240979da07b0e4/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/raby/6a52757903ceb62abe024736/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/jedousov/6a43851c608b41f10e0d4816/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3606-pardubice/pardubicky/prodej-domy_vily.html",
@@ -429,11 +406,9 @@
     "detail-fallback-page:https://reality.aktualne.cz/detail/raby/prodej-pozemku-k-bydleni-2012-m-raby-8059701.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/138207308",
     "missing-price:https://www.sreality.cz/api/v1/estates/1426513996",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1850454092",
+    "stale-detail-fetch:1708409676:Failed to fetch https://www.sreality.cz/api/v1/estates/1708409676: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2029409100",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3377180748",
-    "missing-price:https://www.sreality.cz/api/v1/estates/843046988",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/869957708"
+    "missing-price:https://www.sreality.cz/api/v1/estates/843046988"
   ],
   "listings": [
     {
@@ -594,24 +569,6 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 89 m², pozemek 1001 m²",
-      "location": "Ráby, Pardubice",
-      "property_type": "house",
-      "price": "10 999 000 Kč",
-      "house_area_m2": "89",
-      "land_area_m2": "1001",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/raby/1708409676"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1708409676"
       ]
     },
     {
