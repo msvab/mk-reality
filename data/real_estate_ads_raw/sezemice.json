@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 27,
-    "rows_retained": 8,
+    "rows_retained": 7,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -227,7 +227,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vlci-habrina/6a4397c8dc9cad40aa05bb9a/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/bukovina-nad-labem/69f349e16d240979da07b0e4/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -326,8 +326,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1896317004",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1896317004",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -428,13 +438,14 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/68a59ea703d397ea5a001255/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/691201525fea2533460b1d25/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/682db59deabdd69eca0aa634/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/vlci-habrina/6a4397c8dc9cad40aa05bb9a/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/bukovina-nad-labem/69f349e16d240979da07b0e4/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/sezemice/69dcb588b085d58b6103b124/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/sezemice/68a439cc1b873b99da0cb304/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3606-pardubice/pardubicky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Sezemice&form%5Bcena_mena%5D=1",
+    "stale-detail-fetch:1896317004:Failed to fetch https://www.sreality.cz/api/v1/estates/1896317004: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/2149486668",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3357184076",
     "stale-detail-fetch:4139679820:Failed to fetch https://www.sreality.cz/api/v1/estates/4139679820: HTTP 404"
@@ -455,24 +466,6 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej vily 400 m², pozemek 2846 m²",
-      "location": "Sezemice, Pardubice",
-      "property_type": "house",
-      "price": "27 777 000 Kč",
-      "house_area_m2": "400",
-      "land_area_m2": "2846",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/vila/sezemice-veska/1896317004"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1896317004"
       ]
     },
     {

@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 38,
-    "rows_retained": 20,
+    "candidates_gathered": 36,
+    "rows_retained": 16,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -211,30 +211,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-petrovice/6a1022ae2f3fb8700209b918/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/ceska-skalice/6a1554f644265cdeb9076bbd/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/6a1554007f316bd06201c808/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/6a329a0e00176a2a120b4e06/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -260,6 +236,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/6a0b0e3ae9c71ce86c03a3fd/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -422,8 +406,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/2832991564",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2832991564",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -454,8 +448,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/4177117772",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4177117772",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -476,6 +480,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-21741",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ceska-skalice/6993090438f0b035e30d0da9/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ceska-skalice/69930d21090b730d9a0763f4/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ceska-skalice/69931294a133576cdd0cd439/",
@@ -483,11 +488,11 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ceska-skalice/6993161379f76af1fd074785/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ceska-skalice/699316d64fc28bcd7e001389/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ceska-skalice/6993178cd70abdcc400ddfc6/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/velke-petrovice/6a1022ae2f3fb8700209b918/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/6a329a0e00176a2a120b4e06/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/6a0b0fe0fe05648391097fd3/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/6a0b0f47bbc5ec864107fcb6/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/6a0b0e3ae9c71ce86c03a3fd/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ceska-skalice-bezrucova/6a562d0baede582de209deee/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/697b176d6369e8777e0eb598/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice-svermova/69eb642ed890b24c0d0ba03f/",
@@ -497,6 +502,8 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=%C4%8Cesk%C3%A1+Skalice&form%5Bcena_mena%5D=1",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1040969804",
+    "stale-detail-fetch:2832991564:Failed to fetch https://www.sreality.cz/api/v1/estates/2832991564: HTTP 404",
+    "stale-detail-fetch:4177117772:Failed to fetch https://www.sreality.cz/api/v1/estates/4177117772: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/702309196"
   ],
   "listings": [
@@ -512,41 +519,6 @@
       "land_area_m2": "30928",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/697e660cfbf14fb10e060449/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej rodinného domu, 247 m2, Česká Skalice",
-      "location": "Česká Skalice, okres Náchod",
-      "property_type": "house",
-      "price": "14 990 000 Kč",
-      "house_area_m2": "247",
-      "land_area_m2": "14291",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/ceska-skalice/6a1554f644265cdeb9076bbd/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej pozemku k bydlení, 14291 m2, Česká Skalice, ul. Zlíč",
-      "location": "Česká Skalice, okres Náchod",
-      "property_type": "land",
-      "price": "14 990 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "14291",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/6a1554007f316bd06201c808/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
@@ -694,43 +666,6 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/4002722636",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 14291 m²",
-      "location": "Česká Skalice, Náchod",
-      "property_type": "land",
-      "price": "14 990 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "14291",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/ceska-skalice-zlic/2832991564"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2832991564",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 247 m², pozemek 14291 m²",
-      "location": "Česká Skalice, Náchod",
-      "property_type": "house",
-      "price": "14 990 000 Kč",
-      "house_area_m2": "247",
-      "land_area_m2": "14291",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/ceska-skalice-zlic/4177117772"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/4177117772"
       ]
     },
     {
