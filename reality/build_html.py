@@ -38,6 +38,11 @@ def main() -> None:
         return
 
     rows = build_school_rows(args)
+    if not rows:
+        raise RuntimeError(
+            "Full build produced no school rows; refusing to overwrite the existing report. "
+            "Check upstream worker failures and retry when data sources are available."
+        )
     write_html(rows)
     SCHOOLS_JSON_PATH.parent.mkdir(parents=True, exist_ok=True)
     SCHOOLS_JSON_PATH.write_text(json.dumps(rows, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

@@ -196,25 +196,35 @@ def render_html(rows: list[dict]) -> str:
       <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />
       <title>Kde bydlet?</title>
       <style>
-        body {{ font-family: Arial, sans-serif; margin: 24px; }}
-        h1 {{ margin-bottom: 8px; }}
-        p {{ color: #444; margin-top: 0; }}
-        table {{ border-collapse: collapse; width: 100%; }}
-        th, td {{ border: 1px solid #ddd; padding: 8px; text-align: left; }}
-        th {{ background: #f4f4f4; }}
-        tr:nth-child(even) {{ background: #fafafa; }}
-        .view-switch {{ display: flex; gap: 8px; margin: 20px 0 12px; }}
-        .view-switch-button {{ border: 1px solid #d1d5db; border-radius: 999px; background: #fff; color: #374151; padding: 7px 14px; font: inherit; cursor: pointer; }}
-        .view-switch-button[aria-selected="true"] {{ background: #0f766e; border-color: #0f766e; color: #fff; }}
+        :root {{ color-scheme: light; --ink: #17211f; --muted: #63706c; --line: #dce5e1; --surface: #fff; --surface-subtle: #f5f8f6; --accent: #0f766e; --accent-dark: #0b5d57; }}
+        * {{ box-sizing: border-box; }}
+        body {{ max-width: 1440px; margin: 0 auto; padding: 40px 48px 56px; background: #fbfcfb; color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-size: 15px; line-height: 1.5; }}
+        h1 {{ margin: 0 0 6px; font-size: clamp(28px, 3vw, 38px); letter-spacing: -0.045em; line-height: 1.08; }}
+        p {{ color: var(--muted); margin: 0; }}
+        table {{ width: 100%; border-collapse: separate; border-spacing: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; box-shadow: 0 1px 2px rgba(20, 40, 32, 0.03); }}
+        th, td {{ padding: 12px 14px; text-align: left; border-bottom: 1px solid #eaf0ed; }}
+        th {{ background: var(--surface-subtle); color: #3e504a; font-size: 11px; font-weight: 750; letter-spacing: .065em; text-transform: uppercase; }}
+        td {{ color: #26352f; }}
+        tr:last-child td {{ border-bottom: 0; }}
+        tbody tr {{ transition: background-color .15s ease; }}
+        tbody tr:hover {{ background: #f7fbf9; }}
+        a {{ color: var(--accent); text-underline-offset: 2px; }}
+        a:hover {{ color: var(--accent-dark); }}
+        button, select {{ font: inherit; }}
+        button:focus-visible, select:focus-visible, a:focus-visible {{ outline: 3px solid rgba(15, 118, 110, .28); outline-offset: 2px; }}
+        .view-switch {{ display: inline-flex; gap: 3px; margin: 28px 0 16px; padding: 3px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface); }}
+        .view-switch-button {{ border: 0; border-radius: 6px; background: transparent; color: var(--muted); padding: 7px 12px; font-size: 14px; font-weight: 650; cursor: pointer; transition: background-color .15s ease, color .15s ease; }}
+        .view-switch-button:hover {{ background: var(--surface-subtle); color: var(--ink); }}
+        .view-switch-button[aria-selected="true"] {{ background: var(--accent); color: #fff; box-shadow: 0 1px 2px rgba(15, 118, 110, .25); }}
         .report-view[hidden] {{ display: none; }}
-        .map-section {{ margin: 20px 0; border: 1px solid #d1d5db; border-radius: 8px; overflow: hidden; background: #fff; }}
-        .map-header {{ display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; padding: 12px 16px; background: #f9fafb; border-bottom: 1px solid #e5e7eb; }}
-        .map-title {{ font-weight: 700; color: #111827; }}
-        .map-legend {{ display: flex; flex-wrap: wrap; gap: 8px 12px; color: #374151; font-size: 13px; }}
+        .map-section {{ margin: 0 0 24px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface); box-shadow: 0 1px 2px rgba(20, 40, 32, 0.03); }}
+        .map-header {{ display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 16px 20px; background: var(--surface); border-bottom: 1px solid var(--line); }}
+        .map-title {{ font-size: 16px; font-weight: 750; letter-spacing: -.015em; color: var(--ink); }}
+        .map-legend {{ display: flex; flex-wrap: wrap; gap: 8px 12px; color: var(--muted); font-size: 12px; }}
         .map-legend span {{ display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }}
         .map-legend-dot {{ display: inline-block; width: 10px; height: 10px; border-radius: 999px; border: 1px solid rgba(17, 24, 39, 0.3); }}
-        .map-canvas {{ position: relative; height: clamp(320px, 48vw, 620px); overflow: hidden; background: #eef7f3; }}
-        .map-grid {{ position: absolute; inset: 0; background-image: linear-gradient(rgba(15, 23, 42, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(15, 23, 42, 0.08) 1px, transparent 1px); background-size: 12.5% 12.5%; }}
+        .map-canvas {{ position: relative; height: clamp(320px, 48vw, 620px); overflow: hidden; background: #edf6f1; }}
+        .map-grid {{ position: absolute; inset: 0; background-image: linear-gradient(rgba(15, 70, 57, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(15, 70, 57, 0.07) 1px, transparent 1px); background-size: 12.5% 12.5%; }}
         .map-marker {{ position: absolute; transform: translate(-50%, -50%); border: 2px solid #fff; border-radius: 999px; box-shadow: 0 2px 8px rgba(15, 23, 42, 0.25); color: #fff; cursor: pointer; padding: 0; display: inline-flex; align-items: center; justify-content: center; }}
         .map-marker:focus-visible {{ outline: 3px solid #111827; outline-offset: 3px; }}
         .map-marker:hover {{ z-index: 5; transform: translate(-50%, -50%) scale(1.12); }}
@@ -228,15 +238,15 @@ def render_html(rows: list[dict]) -> str:
         .map-marker-school-unknown {{ background: #6b7280; }}
         .map-marker-label {{ position: absolute; left: calc(100% + 5px); top: 50%; transform: translateY(-50%); border-radius: 4px; background: rgba(255, 255, 255, 0.92); color: #111827; border: 1px solid #e5e7eb; padding: 2px 5px; font-size: 12px; font-weight: 700; white-space: nowrap; pointer-events: none; }}
         .map-origin {{ position: absolute; transform: translate(-50%, -50%); background: #111827; color: #fff; border: 2px solid #fff; border-radius: 999px; padding: 4px 8px; font-size: 12px; font-weight: 700; box-shadow: 0 2px 8px rgba(15, 23, 42, 0.25); z-index: 4; }}
-        .ads-count {{ display: inline-flex; align-items: center; justify-content: center; min-width: 36px; padding: 4px 10px; border-radius: 999px; font-size: 14px; }}
-        .ads-count-empty {{ background: #ececec; color: #666; }}
+        .ads-count {{ display: inline-flex; align-items: center; justify-content: center; min-width: 34px; padding: 4px 9px; border-radius: 6px; font-size: 13px; font-weight: 700; }}
+        .ads-count-empty {{ background: #eef2f0; color: #71807a; }}
         .ads-count-button {{ border: 0; background: #0f766e; color: #fff; cursor: pointer; }}
         .ads-count-button:hover {{ background: #115e59; }}
         .ads-count-button.ads-count-empty {{ background: #ececec; color: #666; }}
         .ads-count-button.ads-count-empty:hover {{ background: #d7d7d7; }}
-        .ads-changes {{ margin: 20px 0; border: 1px solid #d1d5db; border-radius: 8px; overflow: hidden; }}
-        .ads-changes-header {{ display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 16px; background: #f9fafb; border-bottom: 1px solid #e5e7eb; }}
-        .ads-changes-title {{ font-weight: 700; color: #111827; }}
+        .ads-changes {{ margin: 0 0 24px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface); }}
+        .ads-changes-header {{ display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 20px; background: var(--surface); border-bottom: 1px solid var(--line); }}
+        .ads-changes-title {{ font-size: 16px; font-weight: 750; letter-spacing: -.015em; color: var(--ink); }}
         .ads-changes-tabs {{ display: flex; flex-wrap: wrap; gap: 6px; }}
         .ads-changes-tab {{ border: 1px solid #d1d5db; border-radius: 999px; background: #fff; color: #374151; padding: 5px 10px; font: inherit; font-size: 13px; cursor: pointer; }}
         .ads-changes-tab-active {{ background: #0f766e; border-color: #0f766e; color: #fff; }}
