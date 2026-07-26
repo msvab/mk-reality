@@ -177,7 +177,6 @@ def render_map_section(rows: list[dict], ads_by_city: dict | None) -> str:
           </div>
         </div>
         <div class="map-canvas">
-          <div class="map-canvas-caption" aria-hidden="true">Dobruška a okolí</div>
           <svg class="map-boundaries" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">{''.join(boundary_paths)}</svg>
           <div class="map-grid" aria-hidden="true"></div>
           {marker_markup}
@@ -248,7 +247,6 @@ def render_html(rows: list[dict]) -> str:
         .map-boundaries {{ position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; fill: none; stroke: rgba(25, 87, 68, .22); stroke-width: .17; vector-effect: non-scaling-stroke; }}
         .map-boundaries polyline {{ stroke-linecap: round; stroke-linejoin: round; }}
         .map-grid {{ position: absolute; inset: 0; background-image: linear-gradient(rgba(22, 86, 66, .08) 1px, transparent 1px), linear-gradient(90deg, rgba(22, 86, 66, .08) 1px, transparent 1px); background-size: 20% 20%; mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent); opacity: .58; }}
-        .map-canvas-caption {{ position: absolute; top: 16px; left: 18px; color: rgba(23, 33, 31, .42); font-size: 11px; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }}
         .map-marker {{ position: absolute; transform: translate(-50%, -50%); border: 2px solid rgba(255,255,255,.96); border-radius: 999px; box-shadow: 0 3px 10px rgba(15, 64, 49, .23); color: #fff; cursor: pointer; padding: 0; display: inline-flex; align-items: center; justify-content: center; transition: transform .16s ease, box-shadow .16s ease; }}
         .map-marker:focus-visible {{ outline: 3px solid #111827; outline-offset: 3px; }}
         .map-marker:hover {{ z-index: 5; transform: translate(-50%, -50%) scale(1.16); box-shadow: 0 6px 18px rgba(15, 64, 49, .32); }}
