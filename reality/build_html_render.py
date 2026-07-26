@@ -194,7 +194,7 @@ def render_html(rows: list[dict]) -> str:
     <head>
       <meta charset=\"utf-8\" />
       <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />
-      <title>Kde bydlet?</title>
+      <title>Najdeme bydlo?</title>
       <style>
         :root {{ color-scheme: light; --ink: #17211f; --muted: #63706c; --line: #dce5e1; --surface: #fff; --surface-subtle: #f5f8f6; --accent: #0f766e; --accent-dark: #0b5d57; }}
         * {{ box-sizing: border-box; }}
@@ -295,6 +295,7 @@ def render_html(rows: list[dict]) -> str:
         .ad-badge-price {{ background: #fef3c7; color: #92400e; }}
         .ads-price-cell {{ white-space: nowrap; }}
         .ads-empty-row {{ color: #6b7280; text-align: center; }}
+        .report-footer {{ margin-top: 32px; padding-top: 16px; border-top: 1px solid var(--line); color: #8a9691; font-size: 12px; line-height: 1.45; }}
         @media (max-width: 720px) {{
           body {{ margin: 12px; }}
           th, td {{ padding: 6px; font-size: 14px; }}
@@ -315,8 +316,7 @@ def render_html(rows: list[dict]) -> str:
       </style>
     </head>
     <body>
-      <h1>Kde bydlet?</h1>
-      <p>Zdroj dat: OpenStreetMap (obce/školy/populace) + OSRM routing. Vygenerováno dne {generated_on}. Záznamů: {len(rows)}.</p>
+      <h1>Najdeme bydlo?</h1>
       <div class="view-switch" role="tablist" aria-label="Zobrazení přehledu">
         <button type="button" class="view-switch-button" id="table-view-button" role="tab" aria-controls="table-view" aria-selected="true">Tabulka</button>
         <button type="button" class="view-switch-button" id="map-view-button" role="tab" aria-controls="map-view" aria-selected="false">Mapa</button>
@@ -356,6 +356,7 @@ def render_html(rows: list[dict]) -> str:
       <section class="report-view" id="map-view" role="tabpanel" aria-labelledby="map-view-button" hidden>
       {map_section}
       </section>
+      <footer class="report-footer">Zdroj dat: OpenStreetMap (obce/školy/populace) + OSRM routing. Vygenerováno dne {generated_on}. Záznamů: {len(rows)}.</footer>
       {ads_drawer_assets}
       <script>
         (() => {{
