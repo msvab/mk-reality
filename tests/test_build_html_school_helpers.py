@@ -6,6 +6,8 @@ from reality.school_normalization import (
     looks_kindergarten_hint,
     looks_primary_school,
 )
+from reality.municipality_boundaries import boundary_contains_point
+from reality.school_report import _school_municipality
 
 
 def test_amenity_helpers_normalize_supported_values_and_city_names():
@@ -37,3 +39,26 @@ def test_school_type_inference_from_tags_and_text():
     assert infer_school_type_from_text("První stupeň i druhý stupeň základní školy.") == "1-9"
     assert infer_school_type_from_text("Malotřídní škola 1-4") == "Malotřídka (1-4)"
     assert infer_school_type_from_text("Mateřská škola bez základní školy.") == "Neuvedeno"
+
+
+def test_school_municipality_matching_requires_evidence_not_just_proximity():
+    municipality = {"name": "Červená Hora", "lat": 50.4506131, "lon": 16.0611108}
+    outside_school = {"name": "ZŠ a MŠ", "lat": 50.4535828, "lon": 16.0872955, "tags": {}}
+    boundary = {
+        "segments": [
+            [[50.44, 16.04], [50.46, 16.04], [50.46, 16.07], [50.44, 16.07], [50.44, 16.04]]
+        ]
+    }
+
+    assert not boundary_contains_point(boundary, outside_school["lat"], outside_school["lon"])
+    kostelec = {"name": "Červený Kostelec", "lat": 50.4708276, "lon": 16.0922124}
+    kostelec_boundary = {
+        "segments": [
+            [[50.44, 16.075], [50.47, 16.075], [50.47, 16.10], [50.44, 16.10], [50.44, 16.075]]
+        ]
+    }
+    assert _school_municipality(
+        outside_school,
+        [municipality, kostelec],
+        {"Červená Hora": boundary, "Červený Kostelec": kostelec_boundary},
+    ) == kostelec

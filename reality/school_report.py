@@ -8,6 +8,7 @@ import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from .build_html_urls import is_usable_school_url, normalize_url
+from .municipality_boundaries import boundary_contains_point, load_boundaries
 from .school_normalization import (
     amenity_bucket,
     amenity_city_key,
@@ -18,6 +19,38 @@ from .school_normalization import (
     looks_kindergarten_hint,
     looks_primary_school,
 )
+
+
+def _school_municipality(school: dict, municipalities: list[dict], boundaries_by_city: dict[str, dict]) -> dict | None:
+    """Return a municipality for a primary-school point, preferring boundaries."""
+    explicit_key = amenity_city_key(
+        school["tags"].get("addr:city") or school["tags"].get("is_in:city") or ""
+    )
+    if explicit_key:
+        return next((m for m in municipalities if amenity_city_key(m["name"]) == explicit_key), None)
+
+    contained = [
+        m for m in municipalities
+        if (boundary := boundaries_by_city.get(m["name"]))
+        and boundary_contains_point(boundary, school["lat"], school["lon"])
+    ]
+    if len(contained) == 1:
+        return contained[0]
+
+    nearest = min(
+        municipalities,
+        key=lambda m: haversine_km(school["lat"], school["lon"], m["lat"], m["lon"]),
+        default=None,
+    )
+    if nearest is None:
+        return None
+    nearest_d = haversine_km(school["lat"], school["lon"], nearest["lat"], nearest["lon"])
+    # Legacy caches do not yet have every municipality boundary.  Preserve the
+    # established nearest-centre fallback only when no cached boundary can
+    # positively place the point elsewhere.
+    if nearest_d <= 6:
+        return nearest
+    return None
 from .school_sources import (
     DOBRUSKA,
     MAX_DRIVE_SEC,
@@ -45,6 +78,7 @@ from .school_sources import (
 
 def build_school_rows(args: argparse.Namespace) -> list[dict]:
     places, schools, amenities = load_overpass_inputs(args)
+    boundaries_by_city = load_boundaries()
 
     municipalities = []
     for el in places.get("elements", []):
@@ -140,15 +174,9 @@ def build_school_rows(args: argparse.Namespace) -> list[dict]:
             if not s["name"] and s["tags"].get("amenity") == "school":
                 unnamed_school_points.append(s)
             continue
-        nearest = None
-        nearest_d = 999
-        for m in municipalities:
-            d = haversine_km(s["lat"], s["lon"], m["lat"], m["lon"])
-            if d < nearest_d:
-                nearest = m
-                nearest_d = d
-        if nearest is not None and nearest_d <= 6:
-            nearest["schools"].append(s)
+        municipality = _school_municipality(s, municipalities, boundaries_by_city)
+        if municipality is not None:
+            municipality["schools"].append(s)
             if looks_kindergarten_hint(s["tags"], s["name"]):
                 nearest["amenities"]["kindergarten"] = True
 
