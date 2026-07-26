@@ -126,7 +126,7 @@ def render_map_section(rows: list[dict], ads_by_city: dict | None) -> str:
         top = 100 * (lat_max - point["lat"]) / (lat_max - lat_min)
         if point.get("is_origin"):
             markers.append(
-                f'<span class="map-origin" style="left: {left:.2f}%; top: {top:.2f}%;" title="Dobruška">Dobruška</span>'
+                f'<span class="map-origin" role="img" aria-label="Dobruška" style="left: {left:.2f}%; top: {top:.2f}%;" title="Dobruška"></span>'
             )
             continue
         ad_count = int(point["ads"])
@@ -148,7 +148,6 @@ def render_map_section(rows: list[dict], ads_by_city: dict | None) -> str:
     return f"""<section class="map-section" aria-label="Mapa obcí">
         <div class="map-header">
           <div>
-            <div class="map-title">Mapa obcí a inzerátů</div>
             <p>Velikost bodu odpovídá počtu aktivních inzerátů. Kliknutím otevřete detail obce.</p>
           </div>
           <div class="map-legend" aria-label="Legenda mapy">
@@ -220,8 +219,7 @@ def render_html(rows: list[dict]) -> str:
         .report-view[hidden] {{ display: none; }}
         .map-section {{ margin: 0 0 24px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface); box-shadow: 0 1px 2px rgba(20, 40, 32, 0.03); }}
         .map-header {{ display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 18px 20px; background: var(--surface); border-bottom: 1px solid var(--line); }}
-        .map-title {{ font-size: 16px; font-weight: 750; letter-spacing: -.015em; color: var(--ink); }}
-        .map-header p {{ margin-top: 3px; font-size: 13px; }}
+        .map-header p {{ font-size: 13px; }}
         .map-legend {{ display: flex; flex-wrap: wrap; gap: 8px 12px; color: var(--muted); font-size: 12px; }}
         .map-legend span {{ display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }}
         .map-legend-dot {{ display: inline-block; width: 10px; height: 10px; border-radius: 999px; border: 1px solid rgba(17, 24, 39, 0.3); }}
@@ -241,8 +239,7 @@ def render_html(rows: list[dict]) -> str:
         .map-marker-school-small {{ background: #d97706; }}
         .map-marker-school-unknown {{ background: #6b7280; }}
         .map-marker-label {{ position: absolute; left: calc(100% + 7px); top: 50%; transform: translateY(-50%); border-radius: 999px; background: rgba(255, 255, 255, .92); color: #26352f; border: 1px solid rgba(199, 216, 207, .92); box-shadow: 0 1px 2px rgba(20, 40, 32, .08); padding: 3px 7px; font-size: 11px; font-weight: 750; white-space: nowrap; pointer-events: none; }}
-        .map-origin {{ position: absolute; transform: translate(-50%, -50%); background: #17211f; color: #fff; border: 2px solid #fff; border-radius: 999px; padding: 5px 10px; font-size: 12px; font-weight: 750; box-shadow: 0 3px 12px rgba(15, 64, 49, .3); z-index: 4; }}
-        .map-origin::before {{ content: ""; position: absolute; inset: -9px; border: 1px solid rgba(23, 33, 31, .26); border-radius: inherit; }}
+        .map-origin {{ position: absolute; width: 12px; height: 12px; transform: translate(-50%, -50%); background: #17211f; border: 2px solid #fff; border-radius: 999px; box-shadow: 0 2px 7px rgba(15, 64, 49, .3); z-index: 4; }}
         .ads-count {{ display: inline-flex; align-items: center; justify-content: center; min-width: 34px; padding: 4px 9px; border-radius: 6px; font-size: 13px; font-weight: 700; }}
         .ads-count-empty {{ background: #eef2f0; color: #71807a; }}
         .ads-count-button {{ border: 0; background: #0f766e; color: #fff; cursor: pointer; }}
