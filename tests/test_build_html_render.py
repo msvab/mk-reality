@@ -78,7 +78,7 @@ def test_render_html_escapes_school_rows_and_renders_ads_count(monkeypatch):
 
     assert "Dobruška &amp; okolí" in html
     assert "12 345" in html
-    assert "Mapa obcí a inzerátů" in html
+    assert "Velikost bodu odpovídá počtu aktivních inzerátů" in html
     assert 'data-map-city="Dobruška &amp; okolí"' in html
     assert 'href="https://zs.example.cz/path"' in html
     assert "ZŠ &quot;Test&quot; &lt;main&gt;" in html

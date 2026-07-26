@@ -7,7 +7,7 @@ from pathlib import Path
 
 from .build_html_ads import load_real_estate_ads_by_city, render_ads_count_cell, render_ads_drawer_assets
 from .build_html_urls import safe_href
-from .paths import HTML_PATH, OVERPASS_MUNICIPALITIES_PATH, SCHOOLS_JSON_PATH
+from .paths import HTML_PATH, MUNICIPALITY_BOUNDARIES_PATH, OVERPASS_MUNICIPALITIES_PATH, SCHOOLS_JSON_PATH
 from .school_sources import DOBRUSKA
 
 
@@ -53,6 +53,14 @@ def _row_coordinates(row: dict, centers: dict[str, tuple[float, float]]) -> tupl
         return (float(row["lat"]), float(row["lon"]))
     except (KeyError, TypeError, ValueError):
         return centers.get(str(row.get("city", "")))
+
+
+def load_municipality_boundaries(path: Path = MUNICIPALITY_BOUNDARIES_PATH) -> list[dict]:
+    if not path.exists():
+        return []
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    boundaries = payload.get("boundaries", []) if isinstance(payload, dict) else []
+    return [boundary for boundary in boundaries if isinstance(boundary, dict)]
 
 
 def _ad_count_for_city(ads_by_city: dict | None, city: str) -> int:
@@ -118,6 +126,17 @@ def render_map_section(rows: list[dict], ads_by_city: dict | None) -> str:
     lon_min -= lon_pad
     lon_max += lon_pad
 
+    boundary_paths = []
+    for boundary in load_municipality_boundaries():
+        for segment in boundary.get("segments", []):
+            projected = []
+            for lat, lon in segment:
+                left = 100 * (float(lon) - lon_min) / (lon_max - lon_min)
+                top = 100 * (lat_max - float(lat)) / (lat_max - lat_min)
+                projected.append(f"{left:.2f},{top:.2f}")
+            if len(projected) > 1:
+                boundary_paths.append(f'<polyline points="{" ".join(projected)}" />')
+
     markers = []
     for point in points:
         row = point["row"]
@@ -159,6 +178,7 @@ def render_map_section(rows: list[dict], ads_by_city: dict | None) -> str:
         </div>
         <div class="map-canvas">
           <div class="map-canvas-caption" aria-hidden="true">Dobruška a okolí</div>
+          <svg class="map-boundaries" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">{''.join(boundary_paths)}</svg>
           <div class="map-grid" aria-hidden="true"></div>
           {marker_markup}
         </div>
@@ -225,6 +245,8 @@ def render_html(rows: list[dict]) -> str:
         .map-legend-dot {{ display: inline-block; width: 10px; height: 10px; border-radius: 999px; border: 1px solid rgba(17, 24, 39, 0.3); }}
         .map-canvas {{ position: relative; height: clamp(320px, 48vw, 620px); overflow: hidden; isolation: isolate; background: radial-gradient(circle at 20% 22%, rgba(255,255,255,.82), transparent 28%), radial-gradient(circle at 76% 66%, rgba(203, 230, 215, .72), transparent 36%), #e7f2eb; }}
         .map-canvas::before {{ content: ""; position: absolute; inset: -20%; z-index: -1; background: repeating-radial-gradient(ellipse at 36% 52%, transparent 0 25px, rgba(31, 101, 76, .06) 26px 27px, transparent 28px 51px); transform: rotate(-12deg); opacity: .8; }}
+        .map-boundaries {{ position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; fill: none; stroke: rgba(25, 87, 68, .22); stroke-width: .17; vector-effect: non-scaling-stroke; }}
+        .map-boundaries polyline {{ stroke-linecap: round; stroke-linejoin: round; }}
         .map-grid {{ position: absolute; inset: 0; background-image: linear-gradient(rgba(22, 86, 66, .08) 1px, transparent 1px), linear-gradient(90deg, rgba(22, 86, 66, .08) 1px, transparent 1px); background-size: 20% 20%; mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent); opacity: .58; }}
         .map-canvas-caption {{ position: absolute; top: 16px; left: 18px; color: rgba(23, 33, 31, .42); font-size: 11px; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }}
         .map-marker {{ position: absolute; transform: translate(-50%, -50%); border: 2px solid rgba(255,255,255,.96); border-radius: 999px; box-shadow: 0 3px 10px rgba(15, 64, 49, .23); color: #fff; cursor: pointer; padding: 0; display: inline-flex; align-items: center; justify-content: center; transition: transform .16s ease, box-shadow .16s ease; }}

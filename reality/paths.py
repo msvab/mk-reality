@@ -23,6 +23,7 @@ REALITY_IDNES_LOCALITY_ID_CACHE_PATH = CACHE_DIR / "reality_idnes_locality_ids.j
 OVERPASS_MUNICIPALITIES_PATH = OVERPASS_DATA_DIR / "municipalities.json"
 OVERPASS_SCHOOLS_PATH = OVERPASS_DATA_DIR / "schools.json"
 OVERPASS_AMENITIES_PATH = OVERPASS_DATA_DIR / "amenities.json"
+MUNICIPALITY_BOUNDARIES_PATH = OVERPASS_DATA_DIR / "municipality_boundaries.json"
 
 SCHOOLS_JSON_PATH = GENERATED_DATA_DIR / "dobruska_primary_schools.json"
 REAL_ESTATE_ADS_BY_CITY_PATH = GENERATED_DATA_DIR / "real_estate_ads_by_city.json"
