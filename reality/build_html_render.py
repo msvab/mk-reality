@@ -151,6 +151,11 @@ def render_map_section(rows: list[dict], ads_by_city: dict | None) -> str:
         ad_count = int(point["ads"])
         school_type = str(row.get("school_type", ""))
         marker_class = _map_marker_class(school_type, ad_count)
+        school_filter = {
+            "1-9": "full",
+            "1-5": "lower",
+            "Malotřídka": "small",
+        }.get(school_type, "unknown")
         city_attr = escape(city, quote=True)
         title = (
             f"{city}: {ad_count} inzerátů, dojezd {row.get('drive_min')} min, "
@@ -158,7 +163,7 @@ def render_map_section(rows: list[dict], ads_by_city: dict | None) -> str:
         )
         label = f'<span class="map-marker-label">{escape(city)}</span>' if ad_count >= 10 or row.get("drive_min", 999) <= 20 else ""
         markers.append(
-            f'<button type="button" class="map-marker {marker_class}" data-map-city="{city_attr}" '
+            f'<button type="button" class="map-marker {marker_class}" data-map-city="{city_attr}" data-map-school-type="{school_filter}" '
             f'style="left: {left:.2f}%; top: {top:.2f}%;" title="{escape(title, quote=True)}" '
             f'aria-label="{escape(title, quote=True)}"><span class="map-marker-dot">{ad_count}</span>{label}</button>'
         )
@@ -170,10 +175,10 @@ def render_map_section(rows: list[dict], ads_by_city: dict | None) -> str:
             <p>Velikost bodu odpovídá počtu aktivních inzerátů. Kliknutím otevřete detail obce.</p>
           </div>
           <div class="map-legend" aria-label="Legenda mapy">
-            <span><i class="map-legend-dot map-marker-school-full"></i>1-9</span>
-            <span><i class="map-legend-dot map-marker-school-lower"></i>1-5</span>
-            <span><i class="map-legend-dot map-marker-school-small"></i>Malotřídka</span>
-            <span><i class="map-legend-dot map-marker-school-unknown"></i>Neuvedeno</span>
+            <button type="button" class="map-legend-filter" data-map-filter="full" aria-pressed="false"><i class="map-legend-dot map-marker-school-full"></i>1-9</button>
+            <button type="button" class="map-legend-filter" data-map-filter="lower" aria-pressed="false"><i class="map-legend-dot map-marker-school-lower"></i>1-5</button>
+            <button type="button" class="map-legend-filter" data-map-filter="small" aria-pressed="false"><i class="map-legend-dot map-marker-school-small"></i>Malotřídka</button>
+            <button type="button" class="map-legend-filter" data-map-filter="unknown" aria-pressed="false"><i class="map-legend-dot map-marker-school-unknown"></i>Neuvedeno</button>
           </div>
         </div>
         <div class="map-canvas">
@@ -240,7 +245,9 @@ def render_html(rows: list[dict]) -> str:
         .map-header {{ display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 18px 20px; background: var(--surface); border-bottom: 1px solid var(--line); }}
         .map-header p {{ font-size: 13px; }}
         .map-legend {{ display: flex; flex-wrap: wrap; gap: 8px 12px; color: var(--muted); font-size: 12px; }}
-        .map-legend span {{ display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }}
+        .map-legend-filter {{ display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; border: 1px solid transparent; border-radius: 999px; background: transparent; color: inherit; padding: 3px 6px; cursor: pointer; }}
+        .map-legend-filter:hover {{ background: var(--surface-subtle); color: var(--ink); }}
+        .map-legend-filter[aria-pressed="true"] {{ border-color: var(--line); background: var(--surface-subtle); color: var(--ink); }}
         .map-legend-dot {{ display: inline-block; width: 10px; height: 10px; border-radius: 999px; border: 1px solid rgba(17, 24, 39, 0.3); }}
         .map-canvas {{ position: relative; height: clamp(320px, 48vw, 620px); overflow: hidden; isolation: isolate; background: radial-gradient(circle at 20% 22%, rgba(255,255,255,.82), transparent 28%), radial-gradient(circle at 76% 66%, rgba(203, 230, 215, .72), transparent 36%), #e7f2eb; }}
         .map-canvas::before {{ content: ""; position: absolute; inset: -20%; z-index: -1; background: repeating-radial-gradient(ellipse at 36% 52%, transparent 0 25px, rgba(31, 101, 76, .06) 26px 27px, transparent 28px 51px); transform: rotate(-12deg); opacity: .8; }}
@@ -250,6 +257,7 @@ def render_html(rows: list[dict]) -> str:
         .map-marker {{ position: absolute; transform: translate(-50%, -50%); border: 2px solid rgba(255,255,255,.96); border-radius: 999px; box-shadow: 0 3px 10px rgba(15, 64, 49, .23); color: #fff; cursor: pointer; padding: 0; display: inline-flex; align-items: center; justify-content: center; transition: transform .16s ease, box-shadow .16s ease; }}
         .map-marker:focus-visible {{ outline: 3px solid #111827; outline-offset: 3px; }}
         .map-marker:hover {{ z-index: 5; transform: translate(-50%, -50%) scale(1.16); box-shadow: 0 6px 18px rgba(15, 64, 49, .32); }}
+        .map-marker-filtered {{ display: none; }}
         .map-marker-dot {{ display: inline-flex; align-items: center; justify-content: center; width: 100%; height: 100%; font-weight: 700; font-size: 11px; line-height: 1; }}
         .map-marker-empty {{ width: 14px; height: 14px; color: transparent; }}
         .map-marker-medium {{ width: 24px; height: 24px; }}
@@ -392,6 +400,21 @@ def render_html(rows: list[dict]) -> str:
               otherButton.setAttribute("aria-selected", String(selected));
               otherView.hidden = !selected;
             }});
+          }}));
+          const mapFilters = Array.from(document.querySelectorAll(".map-legend-filter"));
+          const mapMarkers = Array.from(document.querySelectorAll(".map-marker[data-map-school-type]"));
+          mapFilters.forEach((filterButton) => filterButton.addEventListener("click", () => {{
+            const selected = filterButton.getAttribute("aria-pressed") !== "true";
+            filterButton.setAttribute("aria-pressed", String(selected));
+            const filters = new Set(
+              mapFilters
+                .filter((button) => button.getAttribute("aria-pressed") === "true")
+                .map((button) => button.dataset.mapFilter),
+            );
+            mapMarkers.forEach((marker) => marker.classList.toggle(
+              "map-marker-filtered",
+              filters.size > 0 && !filters.has(marker.dataset.mapSchoolType),
+            ));
           }}));
         }})();
       </script>

@@ -1,7 +1,7 @@
 import sys
 from pathlib import Path
 
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import expect, sync_playwright
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
@@ -241,11 +241,13 @@ def test_hk_drawer_scrolls_without_gaps_text() -> None:
         assert first_changed_city in page.locator("#ads-drawer-title").inner_text()
         page.locator("#ads-drawer-close").click()
 
-        page.locator('[data-map-city="Hradec Králové"]').click(force=True)
+        hradec_marker = page.locator('[data-map-city="Hradec Králové"]')
+        hradec_marker.scroll_into_view_if_needed()
+        hradec_marker.click()
 
         drawer = page.locator("#ads-drawer")
-        drawer.wait_for(state="visible")
-        assert "Hradec Králové" in page.locator("#ads-drawer-title").inner_text()
+        drawer_title = page.locator("#ads-drawer-title")
+        expect(drawer_title).to_contain_text("Hradec Králové")
         meta_text = page.locator("#ads-drawer-meta").inner_text()
         assert "Mezery:" not in meta_text
         assert "Aktualizováno:" in meta_text

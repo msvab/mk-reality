@@ -420,6 +420,7 @@
   const closeDrawer = () => {
     drawer.setAttribute("aria-hidden", "true");
     drawer.classList.remove("ads-drawer-open");
+    drawer.hidden = true;
     backdrop.hidden = true;
   };
 
@@ -443,6 +444,7 @@
     renderTrustPanel(bundle);
     renderRows(bundle);
 
+    drawer.hidden = false;
     drawer.setAttribute("aria-hidden", "false");
     drawer.classList.add("ads-drawer-open");
     backdrop.hidden = false;

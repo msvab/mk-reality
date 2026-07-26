@@ -101,7 +101,7 @@ def render_ads_drawer_assets(feed: dict | None) -> str:
         payload[city]["generated_at"] = feed.get("generated_at")
     return f"""
       <div class="ads-drawer-backdrop" id="ads-drawer-backdrop" hidden></div>
-      <aside class="ads-drawer" id="ads-drawer" aria-hidden="true">
+<aside class="ads-drawer" id="ads-drawer" aria-hidden="true" hidden>
         <div class="ads-drawer-header">
           <div>
             <h2 id="ads-drawer-title">Inzeráty</h2>
