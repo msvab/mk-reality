@@ -161,7 +161,7 @@ def render_map_section(rows: list[dict], ads_by_city: dict | None) -> str:
             f"{city}: {ad_count} inzerátů, dojezd {row.get('drive_min')} min, "
             f"škola {school_type}, obyvatel {row.get('population') or 'N/A'}"
         )
-        label = f'<span class="map-marker-label">{escape(city)}</span>' if ad_count >= 10 or row.get("drive_min", 999) <= 20 else ""
+        label = f'<span class="map-marker-label">{escape(city)}</span>'
         markers.append(
             f'<button type="button" class="map-marker {marker_class}" data-map-city="{city_attr}" data-map-school-type="{school_filter}" '
             f'style="left: {left:.2f}%; top: {top:.2f}%;" title="{escape(title, quote=True)}" '
@@ -266,7 +266,8 @@ def render_html(rows: list[dict]) -> str:
         .map-marker-school-lower {{ background: #16a34a; }}
         .map-marker-school-small {{ background: #d97706; }}
         .map-marker-school-unknown {{ background: #6b7280; }}
-        .map-marker-label {{ position: absolute; left: calc(100% + 7px); top: 50%; transform: translateY(-50%); border-radius: 999px; background: rgba(255, 255, 255, .92); color: #26352f; border: 1px solid rgba(199, 216, 207, .92); box-shadow: 0 1px 2px rgba(20, 40, 32, .08); padding: 3px 7px; font-size: 11px; font-weight: 750; white-space: nowrap; pointer-events: none; }}
+        .map-marker-label {{ position: absolute; left: calc(100% + 7px); top: 50%; transform: translateY(-50%); border-radius: 999px; background: rgba(255, 255, 255, .92); color: #26352f; border: 1px solid rgba(199, 216, 207, .92); box-shadow: 0 1px 2px rgba(20, 40, 32, .08); padding: 3px 7px; font-size: 11px; font-weight: 750; white-space: nowrap; pointer-events: none; opacity: 0; visibility: hidden; transition: opacity .14s ease; }}
+        .map-marker:hover .map-marker-label, .map-marker:focus-visible .map-marker-label {{ opacity: 1; visibility: visible; }}
         .map-origin {{ position: absolute; width: 12px; height: 12px; transform: translate(-50%, -50%); background: #17211f; border: 2px solid #fff; border-radius: 999px; box-shadow: 0 2px 7px rgba(15, 64, 49, .3); z-index: 4; }}
         .ads-count {{ display: inline-flex; align-items: center; justify-content: center; min-width: 34px; padding: 4px 9px; border-radius: 6px; font-size: 13px; font-weight: 700; }}
         .ads-count-empty {{ background: #eef2f0; color: #71807a; }}
