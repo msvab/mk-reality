@@ -159,6 +159,7 @@ def render_map_section(rows: list[dict], ads_by_city: dict | None) -> str:
           </div>
         </div>
         <div class="map-canvas">
+          <div class="map-canvas-caption" aria-hidden="true">Dobruška a okolí</div>
           <div class="map-grid" aria-hidden="true"></div>
           {marker_markup}
         </div>
@@ -218,16 +219,19 @@ def render_html(rows: list[dict]) -> str:
         .view-switch-button[aria-selected="true"] {{ background: var(--accent); color: #fff; box-shadow: 0 1px 2px rgba(15, 118, 110, .25); }}
         .report-view[hidden] {{ display: none; }}
         .map-section {{ margin: 0 0 24px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface); box-shadow: 0 1px 2px rgba(20, 40, 32, 0.03); }}
-        .map-header {{ display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 16px 20px; background: var(--surface); border-bottom: 1px solid var(--line); }}
+        .map-header {{ display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; padding: 18px 20px; background: var(--surface); border-bottom: 1px solid var(--line); }}
         .map-title {{ font-size: 16px; font-weight: 750; letter-spacing: -.015em; color: var(--ink); }}
+        .map-header p {{ margin-top: 3px; font-size: 13px; }}
         .map-legend {{ display: flex; flex-wrap: wrap; gap: 8px 12px; color: var(--muted); font-size: 12px; }}
         .map-legend span {{ display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }}
         .map-legend-dot {{ display: inline-block; width: 10px; height: 10px; border-radius: 999px; border: 1px solid rgba(17, 24, 39, 0.3); }}
-        .map-canvas {{ position: relative; height: clamp(320px, 48vw, 620px); overflow: hidden; background: #edf6f1; }}
-        .map-grid {{ position: absolute; inset: 0; background-image: linear-gradient(rgba(15, 70, 57, 0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(15, 70, 57, 0.07) 1px, transparent 1px); background-size: 12.5% 12.5%; }}
-        .map-marker {{ position: absolute; transform: translate(-50%, -50%); border: 2px solid #fff; border-radius: 999px; box-shadow: 0 2px 8px rgba(15, 23, 42, 0.25); color: #fff; cursor: pointer; padding: 0; display: inline-flex; align-items: center; justify-content: center; }}
+        .map-canvas {{ position: relative; height: clamp(320px, 48vw, 620px); overflow: hidden; isolation: isolate; background: radial-gradient(circle at 20% 22%, rgba(255,255,255,.82), transparent 28%), radial-gradient(circle at 76% 66%, rgba(203, 230, 215, .72), transparent 36%), #e7f2eb; }}
+        .map-canvas::before {{ content: ""; position: absolute; inset: -20%; z-index: -1; background: repeating-radial-gradient(ellipse at 36% 52%, transparent 0 25px, rgba(31, 101, 76, .06) 26px 27px, transparent 28px 51px); transform: rotate(-12deg); opacity: .8; }}
+        .map-grid {{ position: absolute; inset: 0; background-image: linear-gradient(rgba(22, 86, 66, .08) 1px, transparent 1px), linear-gradient(90deg, rgba(22, 86, 66, .08) 1px, transparent 1px); background-size: 20% 20%; mask-image: linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent); opacity: .58; }}
+        .map-canvas-caption {{ position: absolute; top: 16px; left: 18px; color: rgba(23, 33, 31, .42); font-size: 11px; font-weight: 750; letter-spacing: .1em; text-transform: uppercase; }}
+        .map-marker {{ position: absolute; transform: translate(-50%, -50%); border: 2px solid rgba(255,255,255,.96); border-radius: 999px; box-shadow: 0 3px 10px rgba(15, 64, 49, .23); color: #fff; cursor: pointer; padding: 0; display: inline-flex; align-items: center; justify-content: center; transition: transform .16s ease, box-shadow .16s ease; }}
         .map-marker:focus-visible {{ outline: 3px solid #111827; outline-offset: 3px; }}
-        .map-marker:hover {{ z-index: 5; transform: translate(-50%, -50%) scale(1.12); }}
+        .map-marker:hover {{ z-index: 5; transform: translate(-50%, -50%) scale(1.16); box-shadow: 0 6px 18px rgba(15, 64, 49, .32); }}
         .map-marker-dot {{ display: inline-flex; align-items: center; justify-content: center; width: 100%; height: 100%; font-weight: 700; font-size: 11px; line-height: 1; }}
         .map-marker-empty {{ width: 14px; height: 14px; color: transparent; }}
         .map-marker-medium {{ width: 24px; height: 24px; }}
@@ -236,15 +240,16 @@ def render_html(rows: list[dict]) -> str:
         .map-marker-school-lower {{ background: #16a34a; }}
         .map-marker-school-small {{ background: #d97706; }}
         .map-marker-school-unknown {{ background: #6b7280; }}
-        .map-marker-label {{ position: absolute; left: calc(100% + 5px); top: 50%; transform: translateY(-50%); border-radius: 4px; background: rgba(255, 255, 255, 0.92); color: #111827; border: 1px solid #e5e7eb; padding: 2px 5px; font-size: 12px; font-weight: 700; white-space: nowrap; pointer-events: none; }}
-        .map-origin {{ position: absolute; transform: translate(-50%, -50%); background: #111827; color: #fff; border: 2px solid #fff; border-radius: 999px; padding: 4px 8px; font-size: 12px; font-weight: 700; box-shadow: 0 2px 8px rgba(15, 23, 42, 0.25); z-index: 4; }}
+        .map-marker-label {{ position: absolute; left: calc(100% + 7px); top: 50%; transform: translateY(-50%); border-radius: 999px; background: rgba(255, 255, 255, .92); color: #26352f; border: 1px solid rgba(199, 216, 207, .92); box-shadow: 0 1px 2px rgba(20, 40, 32, .08); padding: 3px 7px; font-size: 11px; font-weight: 750; white-space: nowrap; pointer-events: none; }}
+        .map-origin {{ position: absolute; transform: translate(-50%, -50%); background: #17211f; color: #fff; border: 2px solid #fff; border-radius: 999px; padding: 5px 10px; font-size: 12px; font-weight: 750; box-shadow: 0 3px 12px rgba(15, 64, 49, .3); z-index: 4; }}
+        .map-origin::before {{ content: ""; position: absolute; inset: -9px; border: 1px solid rgba(23, 33, 31, .26); border-radius: inherit; }}
         .ads-count {{ display: inline-flex; align-items: center; justify-content: center; min-width: 34px; padding: 4px 9px; border-radius: 6px; font-size: 13px; font-weight: 700; }}
         .ads-count-empty {{ background: #eef2f0; color: #71807a; }}
         .ads-count-button {{ border: 0; background: #0f766e; color: #fff; cursor: pointer; }}
         .ads-count-button:hover {{ background: #115e59; }}
         .ads-count-button.ads-count-empty {{ background: #ececec; color: #666; }}
         .ads-count-button.ads-count-empty:hover {{ background: #d7d7d7; }}
-        .ads-changes {{ margin: 0 0 24px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface); }}
+        .ads-changes {{ max-width: 880px; margin: 0 0 24px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface); }}
         .ads-changes-header {{ display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 20px; background: var(--surface); border-bottom: 1px solid var(--line); }}
         .ads-changes-title {{ font-size: 16px; font-weight: 750; letter-spacing: -.015em; color: var(--ink); }}
         .ads-changes-tabs {{ display: flex; flex-wrap: wrap; gap: 6px; }}
