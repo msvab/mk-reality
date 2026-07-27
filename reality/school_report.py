@@ -19,6 +19,29 @@ from .school_normalization import (
     looks_kindergarten_hint,
     looks_primary_school,
 )
+from .school_sources import (
+    DOBRUSKA,
+    MAX_DRIVE_SEC,
+    fetch_mapotic_malotridky,
+    find_school_website,
+    find_school_website_by_city,
+    infer_type_from_website,
+    load_cache,
+    load_malotridky_cache,
+    load_overpass_inputs,
+    load_registry_cache,
+    load_type_cache,
+    manual_city_school_url,
+    osrm_duration_sec,
+    registry_city_has_kindergarten,
+    registry_school_website,
+    registry_type_for_city_primary,
+    registry_type_for_school,
+    save_cache,
+    save_malotridky_cache,
+    save_registry_cache,
+    save_type_cache,
+)
 
 
 def _school_municipality(school: dict, municipalities: list[dict], boundaries_by_city: dict[str, dict]) -> dict | None:
@@ -51,29 +74,6 @@ def _school_municipality(school: dict, municipalities: list[dict], boundaries_by
     if nearest_d <= 6:
         return nearest
     return None
-from .school_sources import (
-    DOBRUSKA,
-    MAX_DRIVE_SEC,
-    fetch_mapotic_malotridky,
-    find_school_website,
-    find_school_website_by_city,
-    infer_type_from_website,
-    load_cache,
-    load_malotridky_cache,
-    load_overpass_inputs,
-    load_registry_cache,
-    load_type_cache,
-    manual_city_school_url,
-    osrm_duration_sec,
-    registry_city_has_kindergarten,
-    registry_school_website,
-    registry_type_for_city_primary,
-    registry_type_for_school,
-    save_cache,
-    save_malotridky_cache,
-    save_registry_cache,
-    save_type_cache,
-)
 
 
 def build_school_rows(args: argparse.Namespace) -> list[dict]:

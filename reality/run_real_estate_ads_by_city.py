@@ -47,6 +47,31 @@ def request_stop(_signum, _frame) -> None:
     STOP_REQUESTED = True
 
 
+def prune_retired_city_outputs(cities: list[str], raw_dir: Path, state: dict) -> list[Path]:
+    """Remove artifacts for municipalities no longer present in the school input."""
+    active_slugs = {slugify_city(city) for city in cities}
+    removed = []
+    for path in raw_dir.glob("*.json"):
+        if path.is_file() and path.stem not in active_slugs:
+            path.unlink()
+            removed.append(path)
+
+    active_cities = set(cities)
+    for key in ("completed_cities", "remaining_cities"):
+        value = state.get(key)
+        if isinstance(value, list):
+            state[key] = [city for city in value if city in active_cities]
+    failed = state.get("failed_cities")
+    if isinstance(failed, dict):
+        state["failed_cities"] = {city: detail for city, detail in failed.items() if city in active_cities}
+    daily_refresh = state.get("daily_refresh")
+    if isinstance(daily_refresh, dict) and isinstance(daily_refresh.get("cities"), dict):
+        daily_refresh["cities"] = {
+            city: detail for city, detail in daily_refresh["cities"].items() if city in active_cities
+        }
+    return removed
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Run the real estate ads skill for all school municipalities with resumable per-city outputs.")
     parser.add_argument("--schools-input", default=str(SCHOOLS_JSON_PATH), help="Path to the source city list JSON.")
@@ -115,7 +140,11 @@ def main() -> None:
     signal.signal(signal.SIGTERM, request_stop)
 
     state = load_state(state_path)
-    all_cities = select_cities(load_school_cities(schools_input), args.city)
+    school_cities = load_school_cities(schools_input)
+    retired_outputs = prune_retired_city_outputs(school_cities, raw_dir, state)
+    if retired_outputs:
+        print("Removed retired city outputs: " + ", ".join(path.name for path in retired_outputs), flush=True)
+    all_cities = select_cities(school_cities, args.city)
     failed_cities = state.get("failed_cities", {}) if isinstance(state.get("failed_cities"), dict) else {}
     completed_cities = []
     refreshed_cities = []

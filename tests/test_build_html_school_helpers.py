@@ -1,3 +1,4 @@
+from reality.municipality_boundaries import boundary_contains_point
 from reality.school_normalization import (
     amenity_bucket,
     amenity_city_key,
@@ -6,7 +7,6 @@ from reality.school_normalization import (
     looks_kindergarten_hint,
     looks_primary_school,
 )
-from reality.municipality_boundaries import boundary_contains_point
 from reality.school_report import _school_municipality
 
 

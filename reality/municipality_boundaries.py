@@ -56,7 +56,7 @@ def boundary_contains_point(boundary: dict, lat: float, lon: float) -> bool:
     """Whether a latitude/longitude falls within a cached municipality boundary."""
     for ring in _stitch_segments(boundary.get("segments", [])):
         inside = False
-        for (lat_a, lon_a), (lat_b, lon_b) in zip(ring, ring[1:]):
+        for (lat_a, lon_a), (lat_b, lon_b) in zip(ring, ring[1:], strict=False):
             if (lon_a > lon) == (lon_b > lon):
                 continue
             crossing_lat = (lat_b - lat_a) * (lon - lon_a) / (lon_b - lon_a) + lat_a

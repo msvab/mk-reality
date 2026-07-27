@@ -245,7 +245,6 @@ def test_hk_drawer_scrolls_without_gaps_text() -> None:
         hradec_marker.scroll_into_view_if_needed()
         hradec_marker.click()
 
-        drawer = page.locator("#ads-drawer")
         drawer_title = page.locator("#ads-drawer-title")
         expect(drawer_title).to_contain_text("Hradec Králové")
         meta_text = page.locator("#ads-drawer-meta").inner_text()

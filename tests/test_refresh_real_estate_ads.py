@@ -6,6 +6,7 @@ from reality.refresh_real_estate_ads import (
     render_refresh_summary,
     validate_no_unmatched_raw_files,
 )
+from reality.run_real_estate_ads_by_city import prune_retired_city_outputs
 
 
 def test_refresh_commit_stages_idnes_locality_cache(monkeypatch):
@@ -48,6 +49,28 @@ def test_unmatched_raw_file_validation_fails_with_stale_raw_file():
         validate_no_unmatched_raw_files(aggregate)
 
     assert "brazec.json: Bražec" in str(exc.value)
+
+
+def test_retired_municipality_outputs_are_pruned_with_their_refresh_state(tmp_path):
+    (tmp_path / "opocno.json").write_text("{}", encoding="utf-8")
+    (tmp_path / "cervena-hora.json").write_text("{}", encoding="utf-8")
+    state = {
+        "completed_cities": ["Opočno", "Červená Hora"],
+        "remaining_cities": ["Červená Hora"],
+        "failed_cities": {"Červená Hora": {"error": "old"}},
+        "daily_refresh": {"cities": {"Opočno": {}, "Červená Hora": {}}},
+    }
+
+    removed = prune_retired_city_outputs(["Opočno"], tmp_path, state)
+
+    assert [path.name for path in removed] == ["cervena-hora.json"]
+    assert (tmp_path / "opocno.json").exists()
+    assert state == {
+        "completed_cities": ["Opočno"],
+        "remaining_cities": [],
+        "failed_cities": {},
+        "daily_refresh": {"cities": {"Opočno": {}}},
+    }
 
 
 def test_refresh_summary_reports_totals_warnings_and_city_deltas():
