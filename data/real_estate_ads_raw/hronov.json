@@ -140,7 +140,23 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/zdarky/6a421bc0876cb8910c0d6c32/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-petrovice/6a1022ae2f3fb8700209b918/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hronov/6a4e0e8c82abaf6e8e01cda9/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hronov/6a672a0dad4941efc202fa93/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -164,23 +180,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/hronov/6a4e0e8c82abaf6e8e01cda9/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/hronov-husova/6a5cf9d6a61d47756f016803/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/hronov/6a3265e75060a6fe6c0ec403/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -293,14 +293,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/starkov/6a43a8fb36d7baa97700ff3e/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -460,6 +452,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1157156940",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/1177854028",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -541,16 +541,26 @@
       "url": "https://www.sreality.cz/api/v1/estates/524283980",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/524283980",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/zdarky/6a421bc0876cb8910c0d6c32/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/velke-petrovice/6a1022ae2f3fb8700209b918/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/hronov/6a4e0e8c82abaf6e8e01cda9/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/hronov/6a1845f439eae7df1e0be964/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/hronov/6a3185cbc032b7a5c204c037/",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/hronov/6a4e0e8c82abaf6e8e01cda9/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/hronov-husova/6a5cf9d6a61d47756f016803/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/hronov-husova/6a0b3226f1ba1ed917056ff0/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/hronov/69f8679c44dc3df0bf068978/",
@@ -564,7 +574,6 @@
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hronov/6a4cffa45d2452625e058bb4/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/hronov/69d4aa766e5fce5b170415d3/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/starkov/6a43a8fb36d7baa97700ff3e/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/horni-radechova/6a43a6a635757ff9c2088789/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/horni-radechova/6a43a982676a744752014749/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/velke-porici/6a3184a470da38b5120419f6/",
@@ -576,13 +585,14 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Hronov&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/hronov/prodej-pozemku-k-bydleni-1029-m-hronov-8416181.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/hronov/prodej-pozemku-k-bydleni-1090-m-hronov-cast-rokytnik-8586891.html",
+    "missing-price:https://www.sreality.cz/api/v1/estates/1157156940",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1177854028",
     "stale-detail-fetch:1996415052:Failed to fetch https://www.sreality.cz/api/v1/estates/1996415052: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2800444236",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3287392332",
     "stale-detail-fetch:352247884:Failed to fetch https://www.sreality.cz/api/v1/estates/352247884: HTTP 404",
     "stale-detail-fetch:387506252:Failed to fetch https://www.sreality.cz/api/v1/estates/387506252: HTTP 404",
-    "missing-price:https://www.sreality.cz/api/v1/estates/524283980"
+    "stale-detail-fetch:524283980:Failed to fetch https://www.sreality.cz/api/v1/estates/524283980: HTTP 404"
   ],
   "listings": [
     {
@@ -614,7 +624,7 @@
       "house_area_m2": "150",
       "land_area_m2": "1136",
       "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/hronov/6a3265e75060a6fe6c0ec403/"
+        "https://reality.idnes.cz/detail/prodej/dum/hronov/6a672a0dad4941efc202fa93/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"

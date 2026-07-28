@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 11,
-    "rows_retained": 3,
+    "candidates_gathered": 13,
+    "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -84,6 +84,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/destne-v-orlickych-horach/6a16d6f6ab0f6cd1550d570a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/destne-v-orlickych-horach/6a6738cbf19a58470c079baf/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -281,6 +289,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4257796172",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/662397516",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -306,6 +322,24 @@
     "stale-detail-fetch:2056414028:Failed to fetch https://www.sreality.cz/api/v1/estates/2056414028: HTTP 404"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemků Deštné v Orlických horách",
+      "location": "Deštné v Orlických horách, okres Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "2 990 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1500",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/destne-v-orlickych-horach/6a6738cbf19a58470c079baf/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
     {
       "portal": [
         "reality.idnes.cz"
@@ -358,6 +392,25 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/662397516",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1500 m²",
+      "location": "Deštné v Orlických horách, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "2 990 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1500",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/destne-v-orlickych-horach/4257796172"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/4257796172",
         "buildable-land"
       ]
     }

@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 36,
-    "rows_retained": 16,
+    "candidates_gathered": 37,
+    "rows_retained": 14,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -187,7 +187,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/6916236bc1169247ea0e96e4/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/615b60a93b8dee685c3eaa02/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -195,7 +195,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/615b60a93b8dee685c3eaa02/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/6916236bc1169247ea0e96e4/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -374,8 +374,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1647911756",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1647911756",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -422,6 +432,24 @@
     {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/305717324",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/305717324",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3903377484",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -502,7 +530,10 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=%C4%8Cesk%C3%A1+Skalice&form%5Bcena_mena%5D=1",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1040969804",
+    "stale-detail-fetch:1647911756:Failed to fetch https://www.sreality.cz/api/v1/estates/1647911756: HTTP 404",
     "stale-detail-fetch:2832991564:Failed to fetch https://www.sreality.cz/api/v1/estates/2832991564: HTTP 404",
+    "stale-detail-fetch:305717324:Failed to fetch https://www.sreality.cz/api/v1/estates/305717324: HTTP 404",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3903377484",
     "stale-detail-fetch:4177117772:Failed to fetch https://www.sreality.cz/api/v1/estates/4177117772: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/702309196"
   ],
@@ -738,44 +769,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/4048388172",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 2713 m²",
-      "location": "Česká Skalice, Náchod",
-      "property_type": "land",
-      "price": "4 900 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "2713",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/ceska-skalice-spyta/1647911756"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1647911756",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1356 m²",
-      "location": "Česká Skalice, Náchod",
-      "property_type": "land",
-      "price": "2 450 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1356",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/ceska-skalice-spyta/305717324"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/305717324",
         "buildable-land"
       ]
     },

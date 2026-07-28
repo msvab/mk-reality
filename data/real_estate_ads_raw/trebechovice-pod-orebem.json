@@ -29,10 +29,11 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 3,
-    "candidates_gathered": 33,
-    "rows_retained": 6,
+    "workers_with_results": 2,
+    "candidates_gathered": 32,
+    "rows_retained": 3,
     "zero_result_portals": [
+      "realitymix.cz",
       "reality.aktualne.cz"
     ],
     "blocked_portals": []
@@ -43,8 +44,8 @@
       "message": "Retained at least one detail-verified iDNES row."
     },
     "realitymix.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified RealityMix row."
+      "status": "no_results",
+      "message": "No retained in-scope RealityMix rows."
     },
     "reality.aktualne.cz": {
       "status": "no_results",
@@ -250,14 +251,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/6a4fc6473047cfb5fa071ef3/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/jenikovice/699c0bdc1f74eec1fe04e640/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -298,6 +291,14 @@
     },
     {
       "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trebechovice-pod-orebem/prodej-rd-ve-stylu-venkovskeho-statku-pro-velkou-rodinu-po-rekonstrukci-427-m-pozemek-3-101-m-vnit-8257719.html",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Požadovaný inzerát již není v naší databázi"
+    },
+    {
+      "portal": "realitymix.cz",
       "url": "https://realitymix.cz/detail/trebechovice-pod-orebem/prodej-rodinneho-domu-487-m-trebechovice-pod-orebem-8542373.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -319,6 +320,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trebechovice-pod-orebem/prodej-rd-ve-stylu-venkovskeho-statku-pro-velkou-rodinu-po-rekonstrukci-427-m2-pozemek-3-101-m2-vnit-8257719.html",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Požadovaný inzerát již není v naší databázi"
     },
     {
       "portal": "realitymix.cz",
@@ -471,8 +480,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/4293288524",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4293288524",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -500,12 +519,13 @@
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/trebechovice-pod-orebem/68f6286fd75fda7a9a095eb2/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/trebechovice-pod-orebem/68f62802b36bf4002e09b5e8/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/69dcd8a3475b6022fe0b2e8e/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/6a4fc6473047cfb5fa071ef3/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/jenikovice/699c0bdc1f74eec1fe04e640/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/jenikovice/6964af71c4e740402d0849c6/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/trebechovice-pod-orebem/68f627a3c36045540c09439a/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/ledce/6a453cef27d568fbc40ac8f9/",
+    "removed-fallback-page:https://realitymix.cz/detail/trebechovice-pod-orebem/prodej-rd-ve-stylu-venkovskeho-statku-pro-velkou-rodinu-po-rekonstrukci-427-m-pozemek-3-101-m-vnit-8257719.html",
     "removed-fallback-page:https://realitymix.cz/detail/trebechovice-pod-orebem/prodej-rodinneho-domu-487-m-trebechovice-pod-orebem-8542373.html",
+    "removed-fallback-page:https://realitymix.cz/detail/trebechovice-pod-orebem/prodej-rd-ve-stylu-venkovskeho-statku-pro-velkou-rodinu-po-rekonstrukci-427-m2-pozemek-3-101-m2-vnit-8257719.html",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",
@@ -517,6 +537,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2484314956",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4067644236",
     "stale-detail-fetch:4171595852:Failed to fetch https://www.sreality.cz/api/v1/estates/4171595852: HTTP 404",
+    "stale-detail-fetch:4293288524:Failed to fetch https://www.sreality.cz/api/v1/estates/4293288524: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/85979212"
   ],
   "listings": [
@@ -540,42 +561,6 @@
     },
     {
       "portal": [
-        "realitymix.cz"
-      ],
-      "title": "Prodej RD ve stylu venkovského statku pro velkou rodinu,po rekonstrukci,427 m²,pozemek 3 101 m²,vnit",
-      "location": "Polánky nad Dědinou, Třebechovice pod Orebem, okr. Hradec Králové",
-      "property_type": "house",
-      "price": "10 990 000 Kč",
-      "house_area_m2": "427",
-      "land_area_m2": "3101",
-      "urls": [
-        "https://realitymix.cz/detail/trebechovice-pod-orebem/prodej-rd-ve-stylu-venkovskeho-statku-pro-velkou-rodinu-po-rekonstrukci-427-m-pozemek-3-101-m-vnit-8257719.html"
-      ],
-      "notes": [
-        "detail-url-verified:realitymix.cz",
-        "municipal-part:Polánky nad Dědinou"
-      ]
-    },
-    {
-      "portal": [
-        "realitymix.cz"
-      ],
-      "title": "Prodej RD ve stylu venkovského statku pro velkou rodinu,po rekonstrukci,427 m²,pozemek 3 101 m²,vnit",
-      "location": "Polánky nad Dědinou, Třebechovice pod Orebem, okr. Hradec Králové",
-      "property_type": "house",
-      "price": "10 990 000 Kč",
-      "house_area_m2": "427",
-      "land_area_m2": "3101",
-      "urls": [
-        "https://realitymix.cz/detail/trebechovice-pod-orebem/prodej-rd-ve-stylu-venkovskeho-statku-pro-velkou-rodinu-po-rekonstrukci-427-m-pozemek-3-101-m-vnit-8257719.html"
-      ],
-      "notes": [
-        "detail-url-verified:realitymix.cz",
-        "municipal-part:Polánky nad Dědinou"
-      ]
-    },
-    {
-      "portal": [
         "sreality.cz"
       ],
       "title": "Prodej rodinného domu 219 m², pozemek 1560 m²",
@@ -590,24 +575,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1259122764"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 427 m², pozemek 3101 m²",
-      "location": "Třebechovice pod Orebem, Hradec Králové",
-      "property_type": "house",
-      "price": "10 990 000 Kč",
-      "house_area_m2": "427",
-      "land_area_m2": "3101",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/trebechovice-pod-orebem-polanky-nad-dedinou/4293288524"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/4293288524"
       ]
     },
     {
