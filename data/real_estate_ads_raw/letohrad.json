@@ -29,11 +29,10 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
-    "candidates_gathered": 27,
-    "rows_retained": 4,
+    "workers_with_results": 2,
+    "candidates_gathered": 28,
+    "rows_retained": 5,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz"
     ],
@@ -41,8 +40,8 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -118,6 +117,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-80659",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/letohrad-u-valu/6a6862cf66f4d4eb6b075824/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -433,18 +440,8 @@
       "url": "https://www.sreality.cz/api/v1/estates/3368083532",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/3368083532",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "sreality.cz",
@@ -493,9 +490,26 @@
     "detail-fallback-page:https://reality.aktualne.cz/detail/letohrad/prodej-rodinneho-domu-164m2-letohrad-ul-podmesti-93-8500269.html",
     "excluded-chata:https://www.sreality.cz/api/v1/estates/158044236",
     "stale-detail-fetch:1652965964:Failed to fetch https://www.sreality.cz/api/v1/estates/1652965964: HTTP 404",
-    "stale-detail-fetch:3368083532:Failed to fetch https://www.sreality.cz/api/v1/estates/3368083532: HTTP 404"
+    "missing-price:https://www.sreality.cz/api/v1/estates/3368083532"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu, 165 m2, Letohrad, ul. U Valu",
+      "location": "Letohrad, okres Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "165",
+      "land_area_m2": "1034",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/letohrad-u-valu/6a6862cf66f4d4eb6b075824/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
     {
       "portal": [
         "sreality.cz"

@@ -29,18 +29,20 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 3,
-    "candidates_gathered": 27,
-    "rows_retained": 4,
+    "workers_with_results": 1,
+    "candidates_gathered": 25,
+    "rows_retained": 2,
     "zero_result_portals": [
-      "reality.aktualne.cz"
+      "reality.idnes.cz",
+      "reality.aktualne.cz",
+      "sreality.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
+      "status": "no_results",
+      "message": "No retained in-scope iDNES rows."
     },
     "realitymix.cz": {
       "status": "ok",
@@ -51,8 +53,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Sreality row."
+      "status": "no_results",
+      "message": "No retained in-scope Sreality rows."
     }
   },
   "fetch_attempts": [
@@ -90,7 +92,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/zdarky/6a421bc0876cb8910c0d6c32/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -106,15 +108,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/novy-hradek/6a631d6d87e3659e4100691d/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/novy-hradek/6a2a8dc8d50c7139ac085feb/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -372,14 +366,6 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/221614156",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/347947852",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -391,8 +377,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3626726220",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3626726220",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -405,9 +401,10 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-107352",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/zdarky/6a421bc0876cb8910c0d6c32/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/novy-hradek/69c39cb705a7b90ab20691cf/",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/novy-hradek/6a2a8dc8d50c7139ac085feb/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/novy-hradek/6a59f4b99cf1c3ff4205cdeb/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/novy-hradek/6a4ca65fbba44f636d0a05fa/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/novy-hradek-hradni/68d2653b3f9fc892d008ded6/",
@@ -425,29 +422,11 @@
     "detail-fallback-page:https://reality.aktualne.cz/detail/novy-hradek/prodej-chalupa-162-m2-pozemek-1846-m-novy-hradek-8486767.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/novy-hradek/prodej-pozemku-k-bydleni-1267-m-novy-hradek-rzy-8602889.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1290180700",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/221614156",
     "excluded-chata:https://www.sreality.cz/api/v1/estates/347947852",
+    "stale-detail-fetch:3626726220:Failed to fetch https://www.sreality.cz/api/v1/estates/3626726220: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/971413596"
   ],
   "listings": [
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej pozemku k bydlení, 1182 m2, Nový Hrádek - Rzy",
-      "location": "Nový Hrádek, okres Náchod",
-      "property_type": "land",
-      "price": "1 590 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1182",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/novy-hradek/6a631d6d87e3659e4100691d/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
     {
       "portal": [
         "realitymix.cz"
@@ -482,24 +461,6 @@
       "notes": [
         "detail-url-verified:realitymix.cz",
         "municipal-part:Rzy"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej chalupy 52 m², pozemek 2008 m²",
-      "location": "Nový Hrádek, Náchod",
-      "property_type": "house",
-      "price": "4 190 000 Kč",
-      "house_area_m2": "52",
-      "land_area_m2": "2008",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/chalupa/novy-hradek/3626726220"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3626726220"
       ]
     }
   ]

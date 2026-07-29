@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 13,
-    "rows_retained": 5,
+    "candidates_gathered": 14,
+    "rows_retained": 7,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -69,6 +69,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-410683",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/destne-v-orlickych-horach/6a68dd4aa53eac20cc0eff21/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -232,18 +240,8 @@
       "url": "https://www.sreality.cz/api/v1/estates/1067352140",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/1067352140",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "sreality.cz",
@@ -316,12 +314,28 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=De%C5%A1tn%C3%A9+v+Orlick%C3%BDch+hor%C3%A1ch&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/destne-v-orlickych-horach/prodej-rodinneho-domu-400-m-destne-v-orlickych-horach-8454415.html",
-    "stale-detail-fetch:1067352140:Failed to fetch https://www.sreality.cz/api/v1/estates/1067352140: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1304088652",
     "missing-price:https://www.sreality.cz/api/v1/estates/1477055308",
     "stale-detail-fetch:2056414028:Failed to fetch https://www.sreality.cz/api/v1/estates/2056414028: HTTP 404"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej RD/penzionu, 3195 m2, Deštné v Orlických horách",
+      "location": "Deštné v Orlických horách, okres Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "18 500 000 Kč",
+      "house_area_m2": "590",
+      "land_area_m2": "3195",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/destne-v-orlickych-horach/6a68dd4aa53eac20cc0eff21/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
     {
       "portal": [
         "reality.idnes.cz"
@@ -374,6 +388,24 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1982939724",
         "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 590 m², pozemek 3195 m²",
+      "location": "Deštné v Orlických horách, Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "18 500 000 Kč",
+      "house_area_m2": "590",
+      "land_area_m2": "3195",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/destne-v-orlickych-horach/1067352140"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1067352140"
       ]
     },
     {

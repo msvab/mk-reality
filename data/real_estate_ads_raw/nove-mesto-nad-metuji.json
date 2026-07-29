@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 3,
     "candidates_gathered": 26,
-    "rows_retained": 6,
+    "rows_retained": 7,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -90,7 +90,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-petrovice/6a1022ae2f3fb8700209b918/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -285,18 +285,8 @@
       "url": "https://www.sreality.cz/api/v1/estates/172184396",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/172184396",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "sreality.cz",
@@ -365,7 +355,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/velke-petrovice/6a1022ae2f3fb8700209b918/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-ceskych-legii/69bc04ee84f64412bc0f66e5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/69c7a91890681dcfc0032410/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/ohnisov/69ea7c507343cf82a70a0d18/",
@@ -377,7 +367,6 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Nov%C3%A9+M%C4%9Bsto+nad+Metuj%C3%AD&form%5Bcena_mena%5D=1",
     "missing-price:https://www.sreality.cz/api/v1/estates/1426890828",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1458172492",
-    "stale-detail-fetch:172184396:Failed to fetch https://www.sreality.cz/api/v1/estates/172184396: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1900503884",
     "missing-price:https://www.sreality.cz/api/v1/estates/213893964",
     "missing-price:https://www.sreality.cz/api/v1/estates/2207088716",
@@ -491,6 +480,25 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1701995340"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 3276 m²",
+      "location": "Nové Město nad Metují, Náchod",
+      "property_type": "land",
+      "price": "3 250 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "3276",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/nove-mesto-nad-metuji-spy/172184396"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/172184396",
+        "buildable-land"
       ]
     }
   ]
