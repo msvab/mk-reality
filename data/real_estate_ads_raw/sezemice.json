@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 28,
-    "rows_retained": 7,
+    "candidates_gathered": 29,
+    "rows_retained": 9,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -123,14 +123,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice-za-strelnici/6a589d144c8a5520b5099559/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -187,6 +179,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/sezemice/6a69f65936608226f8069537/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/sezemice/6a27eb3f343a11c5da0cc3f8/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -235,7 +235,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/bukovka/6a3bbdeff3f862642803f886/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a42802b74608e8daa0c460f/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -325,6 +325,14 @@
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2601&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
       "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1438568524",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -433,7 +441,6 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-89079",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice-za-strelnici/6a589d144c8a5520b5099559/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/69c63211ec6c90a8c608658a/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/6a4664940dfba9716807d9cb/",
@@ -447,7 +454,7 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/68a59ea703d397ea5a001255/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/691201525fea2533460b1d25/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/682db59deabdd69eca0aa634/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/bukovka/6a3bbdeff3f862642803f886/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a42802b74608e8daa0c460f/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/sezemice/69dcb588b085d58b6103b124/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/sezemice/68a439cc1b873b99da0cb304/",
     "missing-page-url:house",
@@ -460,6 +467,24 @@
     "stale-detail-fetch:4139679820:Failed to fetch https://www.sreality.cz/api/v1/estates/4139679820: HTTP 404"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemku v obci Veská u Sezemic",
+      "location": "Sezemice, okres Pardubice",
+      "property_type": "land",
+      "price": "4 430 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1751",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/sezemice/6a69f65936608226f8069537/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
     {
       "portal": [
         "reality.idnes.cz"
@@ -529,6 +554,25 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2131968844",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1751 m²",
+      "location": "Sezemice, Pardubice",
+      "property_type": "land",
+      "price": "4 430 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1751",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/sezemice-veska/1438568524"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1438568524",
         "buildable-land"
       ]
     },

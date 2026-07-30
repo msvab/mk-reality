@@ -29,12 +29,13 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
+    "workers_with_results": 1,
     "candidates_gathered": 30,
-    "rows_retained": 3,
+    "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
-      "reality.aktualne.cz"
+      "reality.aktualne.cz",
+      "sreality.cz"
     ],
     "blocked_portals": []
   },
@@ -52,8 +53,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Sreality row."
+      "status": "no_results",
+      "message": "No retained in-scope Sreality rows."
     }
   },
   "fetch_attempts": [
@@ -414,8 +415,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/4112416844",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4112416844",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -464,6 +475,7 @@
     "missing-price:https://www.sreality.cz/api/v1/estates/241931084",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2575536204",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3244523596",
+    "stale-detail-fetch:4112416844:Failed to fetch https://www.sreality.cz/api/v1/estates/4112416844: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/63414348",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/853516364"
   ],
@@ -501,24 +513,6 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 75 m², pozemek 1909 m²",
-      "location": "Vysoké Mýto, Ústí nad Orlicí",
-      "property_type": "house",
-      "price": "2 150 000 Kč",
-      "house_area_m2": "75",
-      "land_area_m2": "1909",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/vysoke-myto/4112416844"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/4112416844"
       ]
     }
   ]
