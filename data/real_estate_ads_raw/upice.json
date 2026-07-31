@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 33,
+    "candidates_gathered": 34,
     "rows_retained": 10,
     "zero_result_portals": [
       "realitymix.cz",
@@ -437,6 +437,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3233665100",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/3888312396",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -448,8 +456,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/401683276",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/401683276",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -489,6 +507,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1908941388",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1985642572",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3888312396",
+    "stale-detail-fetch:401683276:Failed to fetch https://www.sreality.cz/api/v1/estates/401683276: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/4053696588"
   ],
   "listings": [
@@ -619,24 +638,6 @@
       "portal": [
         "sreality.cz"
       ],
-      "title": "Prodej rodinného domu 110 m², pozemek 1592 m²",
-      "location": "Úpice, Chelčického, Trutnov",
-      "property_type": "house",
-      "price": "3 790 000 Kč",
-      "house_area_m2": "110",
-      "land_area_m2": "1592",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/upice-chelcickeho/401683276"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/401683276"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
       "title": "Prodej stavebního pozemku 1627 m²",
       "location": "Úpice, Trutnov",
       "property_type": "land",
@@ -650,6 +651,24 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2075951948",
         "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej chalupy 83 m², pozemek 1660 m²",
+      "location": "Úpice, Wolkerova, Trutnov",
+      "property_type": "house",
+      "price": "2 995 000 Kč",
+      "house_area_m2": "83",
+      "land_area_m2": "1660",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/chalupa/upice-wolkerova/3233665100"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3233665100"
       ]
     },
     {

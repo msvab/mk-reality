@@ -29,19 +29,21 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
-    "candidates_gathered": 4,
-    "rows_retained": 2,
+    "workers_with_results": 0,
+    "candidates_gathered": 3,
+    "rows_retained": 0,
     "zero_result_portals": [
+      "reality.idnes.cz",
       "realitymix.cz",
-      "reality.aktualne.cz"
+      "reality.aktualne.cz",
+      "sreality.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
+      "status": "no_results",
+      "message": "No retained in-scope iDNES rows."
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -52,8 +54,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Sreality row."
+      "status": "no_results",
+      "message": "No retained in-scope Sreality rows."
     }
   },
   "fetch_attempts": [
@@ -85,14 +87,6 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-180084",
       "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vermerovice/6a672639344eb8dd20060c57/",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -174,8 +168,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/266915916",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/266915916",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
@@ -184,43 +188,8 @@
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/letohrad/6a5f5da7589a0c1a5606e380/",
     "missing-page-url:house",
     "missing-page-url:land",
-    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Verm%C4%9B%C5%99ovice&form%5Bcena_mena%5D=1"
+    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Verm%C4%9B%C5%99ovice&form%5Bcena_mena%5D=1",
+    "stale-detail-fetch:266915916:Failed to fetch https://www.sreality.cz/api/v1/estates/266915916: HTTP 404"
   ],
-  "listings": [
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej chlupy v podhůří Orlických hor-Verměřovice",
-      "location": "Verměřovice, okres Ústí nad Orlicí",
-      "property_type": "house",
-      "price": "1 890 000 Kč",
-      "house_area_m2": "150",
-      "land_area_m2": "1562",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/vermerovice/6a672639344eb8dd20060c57/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 150 m², pozemek 1562 m²",
-      "location": "Verměřovice, Ústí nad Orlicí",
-      "property_type": "house",
-      "price": "1 890 000 Kč",
-      "house_area_m2": "150",
-      "land_area_m2": "1562",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/vermerovice/266915916"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/266915916"
-      ]
-    }
-  ]
+  "listings": []
 }
