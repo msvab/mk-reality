@@ -288,3 +288,14 @@ def test_garden_with_only_future_building_potential_is_not_buildable_land():
     }
 
     assert not module.land_is_buildable(item)
+
+
+def test_agricultural_field_with_future_building_speculation_is_not_buildable_land():
+    module = load_sreality_fetch()
+    item = {
+        "advert_name": "Prodej pole 1859 m²",
+        "advert_description": "Zhodnocení je dáno cenou budoucích stavebních parcel.",
+        "category_sub_cb": {"name": "Pole"},
+    }
+
+    assert not module.land_is_buildable(item)

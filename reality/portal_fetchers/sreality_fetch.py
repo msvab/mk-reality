@@ -355,7 +355,7 @@ def land_is_buildable(item: dict) -> bool:
         str(nested_value(item, "category_sub_cb", "name") or ""),
     ]
     lowered = slug_normalize(" ".join(texts))
-    if any(marker in lowered for marker in ["zemedel", "orna puda", "louka", "les", "nestaveb"]):
+    if any(marker in lowered for marker in ["zemedel", "orna puda", "pole", "louka", "les", "nestaveb"]):
         return False
     if "zahrad" in lowered and not any(marker in lowered for marker in ["stavebni pozemek", "pro bydleni"]):
         return False
