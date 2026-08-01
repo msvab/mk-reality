@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 16,
-    "rows_retained": 6,
+    "candidates_gathered": 15,
+    "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -91,7 +91,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-petrovice/6a1022ae2f3fb8700209b918/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -156,14 +156,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/velke-porici/6a565985a2529b54a00a24e8/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -288,8 +280,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/2246500428",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2246500428",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -320,13 +322,12 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/velke-petrovice/6a1022ae2f3fb8700209b918/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/velke-porici-poricska/6a0b4932df1619f3da0b4323/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/velke-porici/6a3184a470da38b5120419f6/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/velke-porici-nachodska/6a424942de4b50a4850e877a/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/velke-porici/6a311fda51cff2872f03d414/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/velke-porici/6a1b50c507c6d6b3e203997d/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-domy_vily.html",
@@ -334,6 +335,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Velk%C3%A9+Po%C5%99%C3%AD%C4%8D%C3%AD&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/velke-porici/prodej-chalupy-155-m2-pozemek-1468-m2-brne-velke-porici-okr-nachod-8333333.html",
     "excluded-chata:https://www.sreality.cz/api/v1/estates/1728294988",
+    "stale-detail-fetch:2246500428:Failed to fetch https://www.sreality.cz/api/v1/estates/2246500428: HTTP 404",
     "stale-detail-fetch:2297271116:Failed to fetch https://www.sreality.cz/api/v1/estates/2297271116: HTTP 404"
   ],
   "listings": [
@@ -407,24 +409,6 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/472445004",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 275 m², pozemek 1300 m²",
-      "location": "Velké Poříčí, V Olšině, Náchod",
-      "property_type": "house",
-      "price": "7 490 000 Kč",
-      "house_area_m2": "275",
-      "land_area_m2": "1300",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/velke-porici-v-olsine/2246500428"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2246500428"
       ]
     },
     {

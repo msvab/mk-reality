@@ -29,19 +29,21 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
-    "candidates_gathered": 5,
-    "rows_retained": 2,
+    "workers_with_results": 0,
+    "candidates_gathered": 4,
+    "rows_retained": 0,
     "zero_result_portals": [
+      "reality.idnes.cz",
       "realitymix.cz",
-      "reality.aktualne.cz"
+      "reality.aktualne.cz",
+      "sreality.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
+      "status": "no_results",
+      "message": "No retained in-scope iDNES rows."
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -52,8 +54,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Sreality row."
+      "status": "no_results",
+      "message": "No retained in-scope Sreality rows."
     }
   },
   "fetch_attempts": [
@@ -100,14 +102,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/cernozice/6a4e4c66c34949913c056257/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cernozice-gen-svobody/6a454c4d188eae940302c29c/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -190,8 +184,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3694297164",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3694297164",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
@@ -202,45 +206,8 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3602-hradec-kralove/kralovehradecky/prodej-pozemky.html",
-    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=%C4%8Cerno%C5%BEice&form%5Bcena_mena%5D=1"
+    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=%C4%8Cerno%C5%BEice&form%5Bcena_mena%5D=1",
+    "stale-detail-fetch:3694297164:Failed to fetch https://www.sreality.cz/api/v1/estates/3694297164: HTTP 404"
   ],
-  "listings": [
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej pozemku k bydlení v Černožicích, ul. Gen. Svobody",
-      "location": "Černožice, okres Hradec Králové",
-      "property_type": "land",
-      "price": "4 490 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1025",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/cernozice-gen-svobody/6a454c4d188eae940302c29c/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1025 m²",
-      "location": "Černožice, Gen. Svobody, Hradec Králové",
-      "property_type": "land",
-      "price": "4 490 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1025",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/cernozice-gen-svobody/3694297164"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3694297164",
-        "buildable-land"
-      ]
-    }
-  ]
+  "listings": []
 }

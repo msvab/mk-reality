@@ -29,14 +29,13 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 0,
-    "candidates_gathered": 16,
-    "rows_retained": 0,
+    "workers_with_results": 1,
+    "candidates_gathered": 18,
+    "rows_retained": 2,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
-      "reality.aktualne.cz",
-      "sreality.cz"
+      "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
@@ -54,8 +53,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Sreality rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -125,7 +124,15 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-petrovice/6a1022ae2f3fb8700209b918/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/starkov/6a6cd5e70b7f0c67e20c33cc/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -182,14 +189,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/starkov/68f6857db60bd58f330bd755/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -306,11 +305,28 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3228356684",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3759984716",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/velke-petrovice/6a1022ae2f3fb8700209b918/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/starkov/6a6cd5e70b7f0c67e20c33cc/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/starkov/6a6ba6ac129d14fdc703d399/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/starkov/6a29211b7ad853cfca035ec6/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/starkov/6987b40860efba521302ac18/",
@@ -318,7 +334,6 @@
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/starkov/699248ed1208f2ec350befa7/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/starkov/69978e7c1feb4d348c0e2acb/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/starkov/68f6857db60bd58f330bd755/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/jivka/6a6b4750b3b6b15ccc071dc5/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/hronov/6a1b48cd46a0e773b90214e4/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/jivka/69f32ec64a102e7ecb03b0e9/",
@@ -330,5 +345,42 @@
     "missing-price:https://www.sreality.cz/api/v1/estates/1497887564",
     "missing-price:https://www.sreality.cz/api/v1/estates/307753804"
   ],
-  "listings": []
+  "listings": [
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej chalupy 128 m², pozemek 3358 m²",
+      "location": "Stárkov, Náchod",
+      "property_type": "house",
+      "price": "4 490 000 Kč",
+      "house_area_m2": "128",
+      "land_area_m2": "3358",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/chalupa/starkov-chlivce/3759984716"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3759984716"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej chalupy 110 m², pozemek 1465 m²",
+      "location": "Stárkov, Náchod",
+      "property_type": "house",
+      "price": "3 990 000 Kč",
+      "house_area_m2": "110",
+      "land_area_m2": "1465",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/chalupa/starkov-bystre/3228356684"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3228356684"
+      ]
+    }
+  ]
 }

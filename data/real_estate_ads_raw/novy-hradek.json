@@ -29,20 +29,18 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
-    "candidates_gathered": 24,
-    "rows_retained": 2,
+    "workers_with_results": 3,
+    "candidates_gathered": 26,
+    "rows_retained": 4,
     "zero_result_portals": [
-      "reality.idnes.cz",
-      "reality.aktualne.cz",
-      "sreality.cz"
+      "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     },
     "realitymix.cz": {
       "status": "ok",
@@ -53,8 +51,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Sreality rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -92,7 +90,15 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-petrovice/6a1022ae2f3fb8700209b918/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/novy-hradek/6a6c7ba5210faea1c4081567/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -358,6 +364,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3456946252",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/347947852",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -394,7 +408,7 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-107352",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/velke-petrovice/6a1022ae2f3fb8700209b918/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/novy-hradek/69c39cb705a7b90ab20691cf/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/novy-hradek/6a59f4b99cf1c3ff4205cdeb/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/novy-hradek/6a4ca65fbba44f636d0a05fa/",
@@ -418,6 +432,23 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/971413596"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu, 160 m2, Nový Hrádek",
+      "location": "Nový Hrádek, okres Náchod",
+      "property_type": "house",
+      "price": "2 500 000 Kč",
+      "house_area_m2": "160",
+      "land_area_m2": "1132",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/novy-hradek/6a6c7ba5210faea1c4081567/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
     {
       "portal": [
         "realitymix.cz"
@@ -452,6 +483,24 @@
       "notes": [
         "detail-url-verified:realitymix.cz",
         "municipal-part:Rzy"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 160 m², pozemek 1132 m²",
+      "location": "Nový Hrádek, Náchod",
+      "property_type": "house",
+      "price": "2 500 000 Kč",
+      "house_area_m2": "160",
+      "land_area_m2": "1132",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/novy-hradek-rzy/3456946252"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3456946252"
       ]
     }
   ]

@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 70,
-    "rows_retained": 19,
+    "candidates_gathered": 69,
+    "rows_retained": 17,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -202,7 +202,15 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-petrovice/6a1022ae2f3fb8700209b918/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod/6a3b863cd01c96daa60629a5/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -235,14 +243,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/nachod-v-namerkach/69eb61d2da14ea8e7e059037/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod/6a3b863cd01c96daa60629a5/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -498,14 +498,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/horni-radechova/68f6f51c5abf77342004d1ce/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -546,7 +538,7 @@
     },
     {
       "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/nachod/prodej-rodinneho-domu-165-m-nachod-brazec-8573911.html",
+      "url": "https://realitymix.cz/detail/nachod/prodej-rodinneho-domu-165-m-s-pozemkem-1-495-m-nachod-brazec-8573911.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -635,14 +627,6 @@
     {
       "portal": "realitymix.cz",
       "url": "https://realitymix.cz/detail/nachod/prodej-rodinneho-domu-143-m-pozemek-530-m-pavlisov-8538081.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/nachod/prodej-rodinneho-domu-165-m-s-pozemkem-1-495-m-nachod-brazec-8573911.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -823,8 +807,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3675037772",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3675037772",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -846,11 +840,11 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-61441",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/velke-petrovice/6a1022ae2f3fb8700209b918/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod/6a3b863cd01c96daa60629a5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod-krapkova/69b9312164d2f31d9d01de28/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/nachod/6a3121084b4cd949bf08cff3/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod-jugoslavska/6a69e8bee6ce1d62b00dc880/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod/6a3b863cd01c96daa60629a5/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/nachod-u-prachovny/6a3a485bbcc887f2e103d500/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/nachod/6a329cc3c407b994cc086e4d/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod-doubicova/6a4253d6913a4fb831031d3e/",
@@ -875,7 +869,6 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nachod-komenskeho/68b95fbc82ddc1a1d7003505/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nachod/68f67ec2a65ef7023c0c33e0/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/nachod/68f638dd1c999107420ba988/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/horni-radechova/68f6f51c5abf77342004d1ce/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/velke-porici/6a1b50c507c6d6b3e203997d/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/velke-porici/6a311ed3c88ca9c007040a25/",
@@ -897,6 +890,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2137330508",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/320959308",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3485565004",
+    "stale-detail-fetch:3675037772:Failed to fetch https://www.sreality.cz/api/v1/estates/3675037772: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4077498444"
   ],
   "listings": [
@@ -1064,23 +1058,6 @@
       "portal": [
         "realitymix.cz"
       ],
-      "title": "Prodej rodinného domu 165 m² s pozemkem 1 495 m² – Náchod, Bražec",
-      "location": "V Náměrkách, Bražec, Náchod",
-      "property_type": "house",
-      "price": "4 980 000 Kč",
-      "house_area_m2": "165",
-      "land_area_m2": "1495",
-      "urls": [
-        "https://realitymix.cz/detail/nachod/prodej-rodinneho-domu-165-m-s-pozemkem-1-495-m-nachod-brazec-8573911.html"
-      ],
-      "notes": [
-        "detail-url-verified:realitymix.cz"
-      ]
-    },
-    {
-      "portal": [
-        "realitymix.cz"
-      ],
       "title": "Prodej stavebního pozemku 1 003 m² - Náchod, Bražec",
       "location": "V Kalhotách, Bražec, Náchod",
       "property_type": "land",
@@ -1130,24 +1107,6 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1361146700",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 544 m², pozemek 1618 m²",
-      "location": "Náchod, Peklo, Náchod",
-      "property_type": "house",
-      "price": "14 000 000 Kč",
-      "house_area_m2": "544",
-      "land_area_m2": "1618",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/nachod-lipi-peklo/3675037772"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3675037772"
       ]
     },
     {
