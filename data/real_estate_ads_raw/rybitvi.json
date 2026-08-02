@@ -29,13 +29,14 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
+    "workers_with_results": 0,
     "candidates_gathered": 9,
-    "rows_retained": 1,
+    "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
-      "reality.aktualne.cz"
+      "reality.aktualne.cz",
+      "sreality.cz"
     ],
     "blocked_portals": []
   },
@@ -53,8 +54,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Sreality row."
+      "status": "no_results",
+      "message": "No retained in-scope Sreality rows."
     }
   },
   "fetch_attempts": [
@@ -230,28 +231,9 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Rybitv%C3%AD&form%5Bcena_mena%5D=1",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1319125836",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/526148684",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/539926604"
   ],
-  "listings": [
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej komerčního pozemku 16259 m²",
-      "location": "Rybitví, Pardubice",
-      "property_type": "land",
-      "price": "59 900 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "16259",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/komercni/rybitvi/1319125836"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1319125836",
-        "buildable-land"
-      ]
-    }
-  ]
+  "listings": []
 }

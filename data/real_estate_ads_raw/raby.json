@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 19,
-    "rows_retained": 8,
+    "rows_retained": 7,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -310,8 +310,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/38400076",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/38400076",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -346,6 +356,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1850454092",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2029409100",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3377180748",
+    "stale-detail-fetch:38400076:Failed to fetch https://www.sreality.cz/api/v1/estates/38400076: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/843046988",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/869957708"
   ],
@@ -455,25 +466,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1708409676"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1152 m²",
-      "location": "Ráby, Pardubice",
-      "property_type": "land",
-      "price": "6 990 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1152",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/raby/38400076"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/38400076",
-        "buildable-land"
       ]
     },
     {

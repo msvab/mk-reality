@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 16,
-    "rows_retained": 11,
+    "candidates_gathered": 17,
+    "rows_retained": 9,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -92,6 +92,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/horni-brusnice/6a6c8b0059d91eb83706a485/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/jivka/6a20145d765789204c06de65/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -230,8 +238,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1079329612",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1079329612",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -270,20 +288,33 @@
       "url": "https://www.sreality.cz/api/v1/estates/692405068",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/692405068",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/horni-brusnice/6a6c8b0059d91eb83706a485/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/jivka/6a20145d765789204c06de65/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/horni-brusnice/67ffe4787d0ff0a08104e7f4/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/dolni-brusnice/6a477620baa708a4ae060c7b/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/mostek/6a4cad7eb10a07450d0d43e6/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Horn%C3%AD+Brusnice&form%5Bcena_mena%5D=1",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2514923596"
+    "stale-detail-fetch:1079329612:Failed to fetch https://www.sreality.cz/api/v1/estates/1079329612: HTTP 404",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2514923596",
+    "stale-detail-fetch:692405068:Failed to fetch https://www.sreality.cz/api/v1/estates/692405068: HTTP 404"
   ],
   "listings": [
     {
@@ -392,42 +423,6 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 230 m², pozemek 8570 m²",
-      "location": "Horní Brusnice, Trutnov",
-      "property_type": "house",
-      "price": "24 990 000 Kč",
-      "house_area_m2": "230",
-      "land_area_m2": "8570",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/horni-brusnice/1079329612"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1079329612"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 230 m², pozemek 4310 m²",
-      "location": "Horní Brusnice, Trutnov",
-      "property_type": "house",
-      "price": "19 950 000 Kč",
-      "house_area_m2": "230",
-      "land_area_m2": "4310",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/horni-brusnice/692405068"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/692405068"
       ]
     },
     {

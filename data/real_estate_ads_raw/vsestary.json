@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 8,
-    "rows_retained": 6,
+    "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -40,8 +40,13 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
+      "status": "fetch_error",
+      "http_status": 0,
+      "stage": "search_fetch",
+      "message": "curl exited with 56",
+      "evidence": [
+        "search_fetch:fetch_error:https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-187411"
+      ]
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -70,12 +75,30 @@
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-187411",
       "stage": "search_fetch",
       "attempt": 1,
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-187411",
+      "stage": "search_fetch",
+      "attempt": 2,
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-187411",
+      "stage": "search_fetch",
+      "attempt": 3,
       "status": "ok",
       "http_status": 200
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vsestary/6a303ea0413a915f1c06fbd8/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vsestary/69e62fa203a8e8302d050b99/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -83,7 +106,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vsestary/69e62fa203a8e8302d050b99/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vsestary/6a303ea0413a915f1c06fbd8/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -251,7 +274,8 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3209-praha-vychod/stredocesky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=V%C5%A1estary&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/vsestary/prodej-pozemku-vsestary-1-073m2-8433537.html",
-    "detail-fallback-page:https://reality.aktualne.cz/detail/vsestary/prodej-souboru-dvou-rodinnych-domku-s-velkorysou-zahradou-a-truhlarskou-dilnou-v-malebne-lokalite-vs-8524209.html"
+    "detail-fallback-page:https://reality.aktualne.cz/detail/vsestary/prodej-souboru-dvou-rodinnych-domku-s-velkorysou-zahradou-a-truhlarskou-dilnou-v-malebne-lokalite-vs-8524209.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/664396364"
   ],
   "listings": [
     {
@@ -325,25 +349,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2042998860",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1074 m²",
-      "location": "Všestary, Hradec Králové",
-      "property_type": "land",
-      "price": "4 790 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1074",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/vsestary/664396364"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/664396364",
         "buildable-land"
       ]
     },
