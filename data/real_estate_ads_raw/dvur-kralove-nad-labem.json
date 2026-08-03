@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 35,
+    "candidates_gathered": 34,
     "rows_retained": 9,
     "zero_result_portals": [
       "realitymix.cz",
@@ -40,13 +40,8 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "fetch_error",
-      "http_status": 0,
-      "stage": "search_fetch",
-      "message": "curl exited with 56",
-      "evidence": [
-        "search_fetch:fetch_error:https://reality.idnes.cz/s/prodej/pozemky/dvur-kralove-nad-labem/"
-      ]
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -75,24 +70,6 @@
       "url": "https://reality.idnes.cz/s/prodej/pozemky/dvur-kralove-nad-labem/",
       "stage": "search_fetch",
       "attempt": 1,
-      "status": "fetch_error",
-      "http_status": 0,
-      "error": "curl exited with 56"
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/dvur-kralove-nad-labem/",
-      "stage": "search_fetch",
-      "attempt": 2,
-      "status": "fetch_error",
-      "http_status": 0,
-      "error": "curl exited with 56"
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/dvur-kralove-nad-labem/",
-      "stage": "search_fetch",
-      "attempt": 3,
       "status": "ok",
       "http_status": 200
     },
@@ -227,14 +204,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem/6a0aff12de715cac450810f7/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/jivka/6a20145d765789204c06de65/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -560,7 +529,6 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem-vorlesska/6a685c35d9c673bc240c2dab/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem-sochorova/6a0f4252b5f344fa970418a7/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem-zirecka/6a651a094ca5ac3969049ee5/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/jivka/6a20145d765789204c06de65/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/dvur-kralove-nad-labem/67ff4640b7aa51796e02b0e9/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/dvur-kralove-nad-labem-ve-strzi/6a6affe80b7d4043c20a83c5/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/dvur-kralove-nad-labem-krkonosska/6a55f32c77eb3df86c0fe1f7/",

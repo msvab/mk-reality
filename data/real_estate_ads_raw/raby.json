@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 19,
+    "candidates_gathered": 18,
     "rows_retained": 7,
     "zero_result_portals": [
       "realitymix.cz",
@@ -85,14 +85,6 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-137197",
       "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/moravany/6a031f51053714ceee0fa41a/",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -310,18 +302,8 @@
       "url": "https://www.sreality.cz/api/v1/estates/38400076",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/38400076",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "sreality.cz",
@@ -342,7 +324,6 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/moravany/6a031f51053714ceee0fa41a/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/raby/68b73570d0a87c8dac0e1d7f/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/raby/6a52757903ceb62abe024736/",
     "missing-page-url:house",
@@ -356,7 +337,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1850454092",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2029409100",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3377180748",
-    "stale-detail-fetch:38400076:Failed to fetch https://www.sreality.cz/api/v1/estates/38400076: HTTP 404",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/38400076",
     "missing-price:https://www.sreality.cz/api/v1/estates/843046988",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/869957708"
   ],
