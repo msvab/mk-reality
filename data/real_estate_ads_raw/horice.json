@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 23,
-    "rows_retained": 8,
+    "rows_retained": 7,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -294,8 +294,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3038310476",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3038310476",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -366,6 +376,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Ho%C5%99ice&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/horice/investicni-prilezitost-v-centru-horic-cinzovni-dum-s-peti-byty-a-povolenim-k-pudni-vestavbe-8540061.html",
     "missing-price:https://www.sreality.cz/api/v1/estates/2267869260",
+    "stale-detail-fetch:3038310476:Failed to fetch https://www.sreality.cz/api/v1/estates/3038310476: HTTP 404",
     "stale-detail-fetch:315188044:Failed to fetch https://www.sreality.cz/api/v1/estates/315188044: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3433160780",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/997949516"
@@ -475,24 +486,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1354010700"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 82 m², pozemek 3374 m²",
-      "location": "Hořice, Jičín",
-      "property_type": "house",
-      "price": "4 990 000 Kč",
-      "house_area_m2": "82",
-      "land_area_m2": "3374",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/horice-chvalina/3038310476"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3038310476"
       ]
     },
     {

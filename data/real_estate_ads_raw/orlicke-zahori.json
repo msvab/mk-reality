@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 14,
-    "rows_retained": 8,
+    "candidates_gathered": 16,
+    "rows_retained": 10,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -108,6 +108,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/orlicke-zahori/6a3bb4e57c0f732751061396/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/orlicke-zahori/6a70886d3f288dbb9a030e9f/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -213,6 +221,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1296224332",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/1486615372",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -312,6 +328,24 @@
       "portal": [
         "reality.idnes.cz"
       ],
+      "title": "Pozemek pro dům nebo chalupu v srdci Orlických hor",
+      "location": "Orlické Záhoří, okres Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "9 236 500 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2639",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/orlicke-zahori/6a70886d3f288dbb9a030e9f/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "normalized-from:chalupa"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
       "title": "Prodej pozemku Orlické Záhoří",
       "location": "Orlické Záhoří, okres Rychnov nad Kněžnou",
       "property_type": "land",
@@ -377,6 +411,25 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3410096204"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 2639 m²",
+      "location": "Orlické Záhoří, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "9 236 500 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2639",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/orlicke-zahori/1296224332"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1296224332",
+        "buildable-land"
       ]
     },
     {

@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 16,
-    "rows_retained": 11,
+    "rows_retained": 10,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -254,8 +254,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/4041650252",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4041650252",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -283,7 +293,8 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Horn%C3%AD+Brusnice&form%5Bcena_mena%5D=1",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2514923596"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2514923596",
+    "stale-detail-fetch:4041650252:Failed to fetch https://www.sreality.cz/api/v1/estates/4041650252: HTTP 404"
   ],
   "listings": [
     {
@@ -464,25 +475,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3842158668",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1127 m²",
-      "location": "Horní Brusnice, Trutnov",
-      "property_type": "land",
-      "price": "945 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1127",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/horni-brusnice/4041650252"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/4041650252",
         "buildable-land"
       ]
     }

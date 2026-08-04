@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 37,
+    "candidates_gathered": 40,
     "rows_retained": 16,
     "zero_result_portals": [
       "realitymix.cz",
@@ -101,6 +101,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-101770",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/6a70732f44b1bfc6340b589b/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -196,6 +204,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-stribrny-vrch/67175bf6f112a60a010bf485/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/6a7071fd4f68f3a4e60b6542/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -324,6 +340,14 @@
     {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/142213708",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1535365196",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -510,6 +534,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/6a70732f44b1bfc6340b589b/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/6a61d70ed2086de8e50f3c28/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-j-v-sladka/6a61d6f357040a54ef0fda84/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-5-kvetna/69baca4aeff263a76c095599/",
@@ -518,6 +543,7 @@
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/698f0acefd5af56170041995/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/6a2a7565fb5457248d05b4b4/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-stribrny-vrch/67175bf6f112a60a010bf485/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/6a7071fd4f68f3a4e60b6542/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/69df7652c31dd8f4690df86c/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/69d8acd9908e2b76aa0a1bb8/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/6964c7903c7a6add90044772/",
@@ -525,6 +551,7 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Rokytnice+v+Orlick%C3%BDch+hor%C3%A1ch&form%5Bcena_mena%5D=1",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1535365196",
     "stale-detail-fetch:1546448972:Failed to fetch https://www.sreality.cz/api/v1/estates/1546448972: HTTP 404",
     "stale-detail-fetch:1772536652:Failed to fetch https://www.sreality.cz/api/v1/estates/1772536652: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/197956428",
