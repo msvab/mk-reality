@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 8,
+    "candidates_gathered": 11,
     "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz",
@@ -69,6 +69,30 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-187411",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vsestary/6a453a9b8af9bb09aa099221/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vsestary/6a4640aaa48aa2cbef01902d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vsestary/6a46424ffa38701d97073fda/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -246,7 +270,9 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-187411",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vsestary/6a453a9b8af9bb09aa099221/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vsestary/6a4640aaa48aa2cbef01902d/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vsestary/6a46424ffa38701d97073fda/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3209-praha-vychod/stredocesky/prodej-domy_vily.html",

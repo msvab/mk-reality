@@ -171,6 +171,22 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-kratka/6a4e81f68dd5010fff0194f7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/holice-smetanova/6a3a42590e0658dff60c29be/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/holice/6a316f4946d24d8efe0dc94b/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -188,14 +204,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/holice-zasterova/6a58f460828a63512f0aa062/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/holice-smetanova/6a3a42590e0658dff60c29be/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -573,24 +581,6 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/3230330956",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/3230330956",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/3431632972",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -658,8 +648,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-410497",
-    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-41203",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice-kratka/6a4e81f68dd5010fff0194f7/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice-vrchlickeho/6a691e6272b8d6e52f02637a/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice-zasterova/6a58f460828a63512f0aa062/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/holice/6a343b8f92f35b9505046b0f/",
@@ -690,7 +679,6 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1543954508",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3070509900",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3114397772",
-    "stale-detail-fetch:3230330956:Failed to fetch https://www.sreality.cz/api/v1/estates/3230330956: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3431632972",
     "missing-price:https://www.sreality.cz/api/v1/estates/3765477452",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/660505164",

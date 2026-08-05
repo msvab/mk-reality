@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 32,
+    "candidates_gathered": 33,
     "rows_retained": 9,
     "zero_result_portals": [
       "realitymix.cz",
@@ -298,14 +298,6 @@
       "http_status": 200
     },
     {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vitezna/685417f183761864e2068635/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
       "stage": "house_root_fetch",
@@ -379,6 +371,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2035888972",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/2207486028",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -396,6 +396,14 @@
     {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/2664534860",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2930147404",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -506,7 +514,6 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-84174",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem/6a6895a6af2786f6ed098414/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem-na-kopecku/6a3cd2421de9bd6181031d12/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem-karlov/6a6a5b0ec9521c76230ec9e2/",
@@ -521,12 +528,13 @@
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/dvur-kralove-nad-labem-sylvarov/69524fcc8c40f8a0f10ca7b5/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/dvur-kralove-nad-labem/68d4f005ad0e3164ad044f79/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/dvur-kralove-nad-labem/68f656fcdd66c8795e03f822/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/vitezna/685417f183761864e2068635/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3610-trutnov/kralovehradecky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Dv%C5%AFr+Kr%C3%A1lov%C3%A9+nad+Labem&form%5Bcena_mena%5D=1",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2035888972",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2664534860",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2930147404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3041203020",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3380512076",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3426934860",

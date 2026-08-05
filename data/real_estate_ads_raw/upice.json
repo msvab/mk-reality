@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 35,
+    "candidates_gathered": 33,
     "rows_retained": 13,
     "zero_result_portals": [
       "realitymix.cz",
@@ -101,6 +101,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-137456",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-svornosti/6a71c27cf8f4cc86a10eefd5/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -260,30 +268,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/upice/68f6b050ac639b6eba01f33b/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trutnov/69dc2b97872ae925600043a7/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/marsov-u-upice/69bd6e5a7bd061c2d70cd1e4/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/suchovrsice/6a3ac62136e5dfadb50ac554/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -478,6 +462,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-svornosti/6a71c27cf8f4cc86a10eefd5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-dr-a-hejny/6a6a4b377de4b2117b03b1a4/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/upice-wolkerova/6a6e032c9826ef79250e0634/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-sukova/68ed54d222bf8d981a0ed9bf/",
@@ -491,9 +476,6 @@
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/upice/69aecb57c5c41641b3099aec/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/upice/6a16bf264a869a836f05df38/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/upice/68f6b050ac639b6eba01f33b/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/trutnov/69dc2b97872ae925600043a7/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/marsov-u-upice/69bd6e5a7bd061c2d70cd1e4/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/suchovrsice/6a3ac62136e5dfadb50ac554/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3610-trutnov/kralovehradecky/prodej-domy_vily.html",

@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 21,
-    "rows_retained": 8,
+    "candidates_gathered": 23,
+    "rows_retained": 9,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -99,7 +99,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/zamberk-sadova/69c3b99907cacd563a07b24b/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/zamberk-tylova/699ab0bdbaeb238b0106c301/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -107,7 +107,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/zamberk-tylova/699ab0bdbaeb238b0106c301/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/zamberk-sadova/69c3b99907cacd563a07b24b/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -188,6 +188,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/zamberk/69b3daa9faf6a290e501b81d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/zamberk-dymlovska/6a722355593bfaec010318ce/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -338,6 +346,14 @@
       "status": "not_found",
       "http_status": 404,
       "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/851234892",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -359,7 +375,8 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3611-usti-nad-orlici/pardubicky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3611-usti-nad-orlici/pardubicky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=%C5%BDamberk&form%5Bcena_mena%5D=1",
-    "stale-detail-fetch:4244238412:Failed to fetch https://www.sreality.cz/api/v1/estates/4244238412: HTTP 404"
+    "stale-detail-fetch:4244238412:Failed to fetch https://www.sreality.cz/api/v1/estates/4244238412: HTTP 404",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/851234892"
   ],
   "listings": [
     {
@@ -408,6 +425,24 @@
       "land_area_m2": "3787",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/pozemek/zamberk/69b3d754c3ff5eb6b6051828/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku 2336 m2 Dymlovská, Žamberk",
+      "location": "Žamberk, okres Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "3 150 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2336",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/zamberk-dymlovska/6a722355593bfaec010318ce/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
