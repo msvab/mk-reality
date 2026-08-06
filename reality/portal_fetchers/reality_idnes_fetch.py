@@ -441,7 +441,12 @@ def build_output(
     if locality_ids:
         gaps.append("idnes-discovery-used-locality-id-cache")
     fetched_detail_html: dict[str, str] = {}
-    candidate_urls = [] if locality_ids else [canonicalize_detail_url(url) for url in detail_urls if "/detail/" in url]
+    # Search-result discovery can briefly omit a still-published listing.  A
+    # direct detail page is stronger evidence of availability, so recheck
+    # cached detail URLs even when the locality cache gives us result pages to
+    # discover as well.  `verified_detail_urls` below prevents fetching a URL
+    # twice when it is also returned by search.
+    candidate_urls = [canonicalize_detail_url(url) for url in detail_urls if "/detail/" in url]
 
     def remember_detail_url(url: str) -> None:
         canonical_url = canonicalize_detail_url(url)

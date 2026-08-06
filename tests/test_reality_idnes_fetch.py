@@ -269,28 +269,45 @@ def test_idnes_discovery_uses_locality_id_cache(monkeypatch):
     assert "idnes-discovery-used-locality-id-cache" in payload["gaps"]
 
 
-def test_idnes_locality_id_cache_skips_stale_cached_detail_urls(monkeypatch):
+def test_idnes_locality_id_cache_rechecks_cached_detail_urls(monkeypatch):
     module = load_reality_idnes_fetch()
-    stale_detail_url = "https://reality.idnes.cz/detail/prodej/dum/unrelated/example/"
+    cached_detail_url = "https://reality.idnes.cz/detail/prodej/pozemek/opocno/example/"
+    detail_html = """
+        <meta name="cXenseParse:qiw-reaCategory" content="Pozemek/Bydlení">
+        <meta name="cXenseParse:qiw-reaCity" content="Opočno">
+        <meta name="cXenseParse:qiw-reaDistrict" content="Rychnov nad Kněžnou">
+        <meta property="og:title" content="Prodej stavebního pozemku 1 100 m²">
+        <meta property="og:description" content="Stavební pozemek 1 100 m².">
+        <script>
+          dataLayer.push({
+            "listing_price":3000000,
+            "listing_localityCity":"Opočno",
+            "listing_landArea":1100
+          });
+        </script>
+    """
 
     def fake_fetch(url, *, attempts=None, stage="fetch"):
+        if url == cached_detail_url:
+            return detail_html
         if url in {
             "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-111953",
             "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-111953",
         }:
             return "<html>No listings</html>"
-        raise AssertionError(f"stale URL should not be fetched: {stage} {url}")
+        raise AssertionError(f"unexpected fetch: {stage} {url}")
 
     monkeypatch.setattr(module, "run_fetch", fake_fetch)
     payload = module.build_output(
         "Opočno",
         "municipality_only",
-        [stale_detail_url],
+        [cached_detail_url],
         discover_results=True,
         locality_id_cache={"Opočno": ["CAST_OBCE-111953"]},
     )
 
-    assert payload["coverage"]["candidates_gathered"] == 0
+    assert [listing["title"] for listing in payload["listings"]] == ["Prodej stavebního pozemku 1 100 m²"]
+    assert payload["coverage"]["candidates_gathered"] == 1
 
 
 def test_idnes_discovery_falls_back_to_municipality_slug_when_autocomplete_is_empty(monkeypatch):
