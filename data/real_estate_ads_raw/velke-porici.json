@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 15,
-    "rows_retained": 4,
+    "candidates_gathered": 14,
+    "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -99,6 +99,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-porici-v-olsine/6a5da9cb9fc6252fa60b0a87/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/velke-porici-poricska/6a0b4932df1619f3da0b4323/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -115,23 +123,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-porici-v-olsine/6a5da9cb9fc6252fa60b0a87/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/velke-porici-nachodska/6a424942de4b50a4850e877a/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod-rajmonova/69d4d481ca746a98be000d1d/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -290,8 +282,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/2246500428",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2246500428",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -326,7 +328,6 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/velke-porici-poricska/6a0b4932df1619f3da0b4323/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/velke-porici/6a3184a470da38b5120419f6/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/velke-porici-nachodska/6a424942de4b50a4850e877a/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/nachod-rajmonova/69d4d481ca746a98be000d1d/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/velke-porici/6a311fda51cff2872f03d414/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/velke-porici/6a1b50c507c6d6b3e203997d/",
     "missing-page-url:house",
@@ -337,6 +338,7 @@
     "detail-fallback-page:https://reality.aktualne.cz/detail/velke-porici/prodej-chalupy-155-m2-pozemek-1468-m2-brne-velke-porici-okr-nachod-8333333.html",
     "stale-detail-fetch:1671618636:Failed to fetch https://www.sreality.cz/api/v1/estates/1671618636: HTTP 404",
     "excluded-chata:https://www.sreality.cz/api/v1/estates/1728294988",
+    "stale-detail-fetch:2246500428:Failed to fetch https://www.sreality.cz/api/v1/estates/2246500428: HTTP 404",
     "stale-detail-fetch:2297271116:Failed to fetch https://www.sreality.cz/api/v1/estates/2297271116: HTTP 404"
   ],
   "listings": [
@@ -392,24 +394,6 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/472445004",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 275 m², pozemek 1300 m²",
-      "location": "Velké Poříčí, V Olšině, Náchod",
-      "property_type": "house",
-      "price": "7 490 000 Kč",
-      "house_area_m2": "275",
-      "land_area_m2": "1300",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/velke-porici-v-olsine/2246500428"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2246500428"
       ]
     }
   ]

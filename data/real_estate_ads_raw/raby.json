@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 19,
-    "rows_retained": 7,
+    "candidates_gathered": 16,
+    "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -91,7 +91,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-kratka/6a4e81f68dd5010fff0194f7/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/raby/6a736666f6bec0e7580c17e2/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -108,14 +108,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/raby/68b73570d0a87c8dac0e1d7f/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/raby/6a2fdc2a2437df55570cddc4/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -251,6 +243,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1188089932",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/138207308",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -270,16 +270,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1708409676",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/1850454092",
+      "url": "https://www.sreality.cz/api/v1/estates/1708409676",
       "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -292,14 +294,6 @@
     {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/3251856204",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/3377180748",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -320,19 +314,11 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/869957708",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice-kratka/6a4e81f68dd5010fff0194f7/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/raby/6a736666f6bec0e7580c17e2/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/raby/68b73570d0a87c8dac0e1d7f/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/raby/6a52757903ceb62abe024736/",
     "missing-page-url:house",
@@ -341,14 +327,13 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3606-pardubice/pardubicky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=R%C3%A1by&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/raby/prodej-pozemku-k-bydleni-2012-m-raby-8059701.html",
+    "missing-price:https://www.sreality.cz/api/v1/estates/1188089932",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/138207308",
     "missing-price:https://www.sreality.cz/api/v1/estates/1426513996",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1850454092",
+    "stale-detail-fetch:1708409676:Failed to fetch https://www.sreality.cz/api/v1/estates/1708409676: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2029409100",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3377180748",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/38400076",
-    "missing-price:https://www.sreality.cz/api/v1/estates/843046988",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/869957708"
+    "missing-price:https://www.sreality.cz/api/v1/estates/843046988"
   ],
   "listings": [
     {
@@ -363,24 +348,6 @@
       "land_area_m2": "8620",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/pozemek/raby/68fa2b8ddb6943f8c305a594/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej stavebního pozemku v obci Ráby, okr. Pardubice, CP 1152 m2",
-      "location": "Ráby, okres Pardubice",
-      "property_type": "land",
-      "price": "6 990 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1152",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/raby/6a2fdc2a2437df55570cddc4/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
@@ -438,24 +405,6 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 89 m², pozemek 1001 m²",
-      "location": "Ráby, Pardubice",
-      "property_type": "house",
-      "price": "10 999 000 Kč",
-      "house_area_m2": "89",
-      "land_area_m2": "1001",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/raby/1708409676"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1708409676"
       ]
     },
     {

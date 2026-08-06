@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 35,
-    "rows_retained": 13,
+    "candidates_gathered": 36,
+    "rows_retained": 15,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -123,8 +123,16 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-kratka/6a4e81f68dd5010fff0194f7/",
-      "stage": "detail_fetch",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-180971",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-180971",
+      "stage": "search_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -300,6 +308,22 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice/6a2fc187a39c4870ce0dda4c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice/6a4aa9613577d16798042ec4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice/6a5a7dbceb767779490287f4/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -498,7 +522,6 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice-kratka/6a4e81f68dd5010fff0194f7/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice-za-strelnici/6a589d144c8a5520b5099559/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/69c63211ec6c90a8c608658a/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/6a4664940dfba9716807d9cb/",
@@ -560,6 +583,40 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Veská, samostatný rodinný dům",
+      "location": "Sezemice, okres Pardubice",
+      "property_type": "house",
+      "price": "14 760 000 Kč",
+      "house_area_m2": "400",
+      "land_area_m2": "1764",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/sezemice/6a5a7dbceb767779490287f4/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Rodinný dům se zahradou - Veská u Sezemic",
+      "location": "Sezemice, okres Pardubice",
+      "property_type": "house",
+      "price": "9 980 000 Kč",
+      "house_area_m2": "107",
+      "land_area_m2": "1233",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/sezemice/6a4aa9613577d16798042ec4/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
       ]
     },
     {

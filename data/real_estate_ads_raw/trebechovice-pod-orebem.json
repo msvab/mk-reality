@@ -29,11 +29,10 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
-    "candidates_gathered": 26,
-    "rows_retained": 2,
+    "workers_with_results": 2,
+    "candidates_gathered": 27,
+    "rows_retained": 3,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz"
     ],
@@ -41,8 +40,8 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -117,6 +116,22 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-169439",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-103373",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-103373",
       "stage": "search_fetch",
       "attempt": 1,
       "status": "ok",
@@ -245,6 +260,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/69dcd8a3475b6022fe0b2e8e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/6a2d575cb423425b0f0b393a/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -489,6 +512,23 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/85979212"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej domy, 150 m2, Třebechovice pod Orebem",
+      "location": "Třebechovice pod Orebem, okres Hradec Králové",
+      "property_type": "house",
+      "price": "9 500 000 Kč",
+      "house_area_m2": "150",
+      "land_area_m2": "2700",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/6a2d575cb423425b0f0b393a/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
     {
       "portal": [
         "sreality.cz"
