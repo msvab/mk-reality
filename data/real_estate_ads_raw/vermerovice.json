@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 0,
-    "candidates_gathered": 12,
+    "candidates_gathered": 13,
     "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
@@ -59,6 +59,22 @@
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vermerovice/6a672639344eb8dd20060c57/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vermerovice/6a672639344eb8dd20060c57/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/domy/vermerovice/",
@@ -256,6 +272,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/vermerovice/6a672639344eb8dd20060c57/",
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-180084",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/vermerovice/69d4cf818b483728f800f008/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/633bf665c8f6d2428d7709a3/",

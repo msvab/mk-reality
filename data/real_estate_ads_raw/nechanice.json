@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 25,
+    "candidates_gathered": 26,
     "rows_retained": 7,
     "zero_result_portals": [
       "realitymix.cz",
@@ -57,6 +57,46 @@
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nechanice/6a38cd65855f71dfa5064407/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nechanice/694e4b187610aace4d083ac2/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nechanice/69de2ad250bd2426db05c729/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nechanice-havlickova/69b27f7c1e508593b906d47a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nechanice-havlickova/69b27f7c1e508593b906d47a/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-158984",
@@ -101,14 +141,6 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-102474",
       "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/nechanice/6a38cd65855f71dfa5064407/",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -180,22 +212,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/nechanice/67ff383409843c2c8e06820b/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/nechanice/694e4b187610aace4d083ac2/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/nechanice/69de2ad250bd2426db05c729/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -428,6 +444,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/nechanice-havlickova/69b27f7c1e508593b906d47a/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nechanice/69a7ea46c930f1380a0389f9/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nechanice/69a7ea82741b4ef2f20f28d3/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nechanice/69b80dbd5f487591620b119f/",

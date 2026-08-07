@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 0,
-    "candidates_gathered": 3,
+    "candidates_gathered": 4,
     "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
@@ -59,6 +59,22 @@
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/castolovice/68a076203c21fcd11e0b391e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/castolovice/68a076203c21fcd11e0b391e/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-18627",
@@ -176,6 +192,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/castolovice/68a076203c21fcd11e0b391e/",
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-18627",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/castolovice-na-skalce/69b019e0ca049a13330ae779/",
     "removed-fallback-page:https://realitymix.cz/detail/castolovice/prodej-rd-v-castolovicich-1513-m2-8396825.html",

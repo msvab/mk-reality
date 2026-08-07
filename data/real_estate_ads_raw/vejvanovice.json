@@ -61,6 +61,22 @@
   "fetch_attempts": [
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vejvanovice/6a057ebda3c51cf7220ffbc9/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vejvanovice/6a057ebda3c51cf7220ffbc9/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/domy/vejvanovice/",
       "stage": "search_fetch",
       "attempt": 1,
@@ -173,14 +189,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vyzice/63b4403f779f9203431a3e72/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/vejvanovice/67ff489b7f5979e1360a3567/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -280,6 +288,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/vejvanovice/6a057ebda3c51cf7220ffbc9/",
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-177628",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/koci/67a9ea7bbe08eab539029648/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/bestvina/68a7231e104bae2bab04018b/",
@@ -291,7 +300,6 @@
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vrbatuv-kostelec/69d794186bf0fc5d560ff377/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/slatinany/69dcc327f63bc6b34b0036d8/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/prosec/69dd1c75e74817e8c00b6361/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/vyzice/63b4403f779f9203431a3e72/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/vejvanovice/67ff489b7f5979e1360a3567/",
     "missing-page-url:house",
     "missing-page-url:land",

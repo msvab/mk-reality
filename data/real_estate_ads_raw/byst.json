@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 13,
+    "candidates_gathered": 14,
     "rows_retained": 4,
     "zero_result_portals": [
       "realitymix.cz",
@@ -57,6 +57,38 @@
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/byst/6a6c4b355d1ea01d2c037f78/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/byst/6a453cb442f3664d71078c19/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/byst/6a3bf1c1af5f72528d0522c6/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/byst/6a3bf1c1af5f72528d0522c6/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/domy/byst/",
@@ -132,22 +164,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/byst/6a43d0b73bea9751f80e2348/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/byst/6a6c4b355d1ea01d2c037f78/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/byst/6a453cb442f3664d71078c19/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -278,6 +294,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/byst/6a3bf1c1af5f72528d0522c6/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/byst/6a2297029740dbbd500de078/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/byst/69e5d3b2a983ab208209e4b7/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/byst/6a41255e9d813c56d8030ab2/",

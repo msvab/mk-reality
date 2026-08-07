@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 13,
+    "candidates_gathered": 14,
     "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
@@ -59,6 +59,30 @@
   "fetch_attempts": [
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/ceske-mezirici-na-nabrezi/69d4d3167cfdbda79005f8b2/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/ceske-mezirici-boz-nemcove/6a496c032ee9b9fb310b66fb/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/ceske-mezirici-boz-nemcove/6a496c032ee9b9fb310b66fb/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-22659",
       "stage": "search_fetch",
       "attempt": 1,
@@ -69,14 +93,6 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-22659",
       "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/ceske-mezirici-na-nabrezi/69d4d3167cfdbda79005f8b2/",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -280,6 +296,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/ceske-mezirici-boz-nemcove/6a496c032ee9b9fb310b66fb/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ceske-mezirici-osvobozeni/69fb31125b66b572e904eb56/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ceske-mezirici-osvobozeni/69d74fe61f3e64302905e0a7/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/ceske-mezirici/68f69709f88b258514020c56/",

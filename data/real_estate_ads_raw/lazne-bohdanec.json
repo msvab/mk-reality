@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 24,
+    "candidates_gathered": 22,
     "rows_retained": 4,
     "zero_result_portals": [
       "realitymix.cz",
@@ -59,6 +59,22 @@
   "fetch_attempts": [
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/lazne-bohdanec-sipkova/6a37af4980248d59910d6bd8/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/lazne-bohdanec/6928307c47a78cb43008fc7e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/domy/lazne-bohdanec/",
       "stage": "search_fetch",
       "attempt": 1,
@@ -85,22 +101,6 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-6173",
       "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/lazne-bohdanec-sipkova/6a37af4980248d59910d6bd8/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/lazne-bohdanec-skroupova/69fd74716d6fa64ada0a6cd5/",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -156,14 +156,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/lazne-bohdanec/6a28083d6d1be1d795060978/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/lazne-bohdanec/6928307c47a78cb43008fc7e/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -291,14 +283,6 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/1224155980",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/2285817932",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -350,7 +334,6 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/lazne-bohdanec-skroupova/69fd74716d6fa64ada0a6cd5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/lazne-bohdanec-kosinova/6a55fc39d20e10fcca051d06/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/lazne-bohdanec/6a5e357388a1bfdb4e026e75/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/lazne-bohdanec/68121332ffd248c09601142e/",
@@ -369,7 +352,6 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=L%C3%A1zn%C4%9B+Bohdane%C4%8D&form%5Bcena_mena%5D=1",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1110827084",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1174831180",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1224155980",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2285817932",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4244722252",
     "stale-detail-fetch:438808652:Failed to fetch https://www.sreality.cz/api/v1/estates/438808652: HTTP 404"

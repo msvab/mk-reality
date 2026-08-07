@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 8,
+    "candidates_gathered": 9,
     "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz",
@@ -57,6 +57,38 @@
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/srch-pardubicka/69f902ace78c6f552400e805/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/srch-pardubicka/6a59f9caeee4c076f70879f7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/srch-na-vysluni/6a4566162ca2e8195408fe89/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/srch-na-vysluni/6a4566162ca2e8195408fe89/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/domy/srch/",
@@ -108,22 +140,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/srch-na-vyhlidce/6a50c63cecac7cf91d04d9df/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/srch-pardubicka/69f902ace78c6f552400e805/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/srch-pardubicka/6a59f9caeee4c076f70879f7/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -238,6 +254,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/srch-na-vysluni/6a4566162ca2e8195408fe89/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/srch-na-vyhlidce/6a50c63cecac7cf91d04d9df/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/srch/6a3be16d17be6028e90bd0f8/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/srch/6a045d8755bec34cf804e4fc/",

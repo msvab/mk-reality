@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 0,
-    "candidates_gathered": 4,
+    "candidates_gathered": 5,
     "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
@@ -59,6 +59,22 @@
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cernozice-gen-svobody/6a454c4d188eae940302c29c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cernozice-gen-svobody/6a454c4d188eae940302c29c/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/domy/cernozice/",
@@ -200,6 +216,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/cernozice-gen-svobody/6a454c4d188eae940302c29c/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cernozice-gen-svobody/6a22a1bacd80b2adf2040c24/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/cernozice/6a4e4c66c34949913c056257/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/cernozice/6a42457f0e4c0820a702941b/",

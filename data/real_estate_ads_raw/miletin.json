@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 0,
-    "candidates_gathered": 15,
+    "candidates_gathered": 17,
     "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
@@ -59,6 +59,38 @@
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/miletin-arnoldova/6a201f018c86f110a301ef49/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/miletin-arnoldova/6a201f018c86f110a301ef49/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/miletin-lhotova/6a201ed865093f0af9062a75/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/miletin-lhotova/6a201ed865093f0af9062a75/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/domy/miletin/",
@@ -290,6 +322,8 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/miletin-arnoldova/6a201f018c86f110a301ef49/",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/miletin-lhotova/6a201ed865093f0af9062a75/",
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-94668",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/jicin/6a665774b9385d8f9f092dd4/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/miletin-jiriho-z-podebrad/6a6a14db727958ee1b0053a3/",

@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 10,
+    "candidates_gathered": 12,
     "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz",
@@ -57,6 +57,46 @@
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/mladkov/6a4f9bd06144275d9d08eab6/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/mladkov/6a44add760be3b110a08153e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/mladkov/6a44add760be3b110a08153e/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/mladkov/6a0dc5294ed45f452f048d94/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/mladkov/6a0dc5294ed45f452f048d94/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/domy/mladkov/",
@@ -140,14 +180,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/mladkov/6a704f4c184920b447043a1d/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/mladkov/6a4f9bd06144275d9d08eab6/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -294,6 +326,8 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/mladkov/6a44add760be3b110a08153e/",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/mladkov/6a0dc5294ed45f452f048d94/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/mladkov/6a704f4c184920b447043a1d/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/mladkov/69fce39a5da5fb86b5077e27/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/mladkov/69cd6c4512c1fa0bf50e1528/",

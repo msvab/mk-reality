@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 16,
+    "candidates_gathered": 17,
     "rows_retained": 10,
     "zero_result_portals": [
       "realitymix.cz",
@@ -57,6 +57,38 @@
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/orlicke-zahori/6a70886d3f288dbb9a030e9f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/orlicke-zahori/69c6799881494b45100e3596/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/orlicke-zahori/6a287714a8ad9d9d3402afaa/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/orlicke-zahori/6a287714a8ad9d9d3402afaa/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/domy/orlicke-zahori/",
@@ -108,22 +140,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/orlicke-zahori/6a3bb4e57c0f732751061396/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/orlicke-zahori/6a70886d3f288dbb9a030e9f/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/orlicke-zahori/69c6799881494b45100e3596/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -312,6 +328,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/orlicke-zahori/6a287714a8ad9d9d3402afaa/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/orlicke-zahori/6a45014a1e6d2e0ad809b56f/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/orlicke-zahori/6a3bb4e57c0f732751061396/",
     "missing-page-url:house",

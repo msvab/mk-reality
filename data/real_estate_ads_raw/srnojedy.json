@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 0,
-    "candidates_gathered": 20,
+    "candidates_gathered": 21,
     "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
@@ -59,6 +59,22 @@
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/srnojedy/6a3cc3b3e23686f7ba03bf86/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/srnojedy/6a3cc3b3e23686f7ba03bf86/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/domy/srnojedy/",
@@ -310,6 +326,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/srnojedy/6a3cc3b3e23686f7ba03bf86/",
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-79090",
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-79090",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/horni-jeleni/6875f78b33916e6f47066b84/",
