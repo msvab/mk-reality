@@ -41,12 +41,12 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "fallback_page",
-      "http_status": 404,
-      "stage": "search_fetch",
-      "message": "HTTP 404",
+      "status": "fetch_error",
+      "http_status": 0,
+      "stage": "locality_autocomplete_fetch",
+      "message": "curl exited with 56",
       "evidence": [
-        "search_fetch:fallback_page:https://reality.idnes.cz/s/prodej/domy/vlcice/"
+        "locality_autocomplete_fetch:fetch_error:https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Vl%C4%8Dice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE"
       ]
     },
     "realitymix.cz": {
@@ -68,14 +68,51 @@
       "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Vl%C4%8Dice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
       "stage": "locality_autocomplete_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Vl%C4%8Dice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 2,
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Vl%C4%8Dice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
+      "stage": "locality_autocomplete_fetch",
+      "attempt": 3,
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
     },
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/domy/vlcice/",
       "stage": "search_fetch",
       "attempt": 1,
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/vlcice/",
+      "stage": "search_fetch",
+      "attempt": 2,
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/vlcice/",
+      "stage": "search_fetch",
+      "attempt": 3,
       "status": "fallback_page",
       "http_status": 404,
       "error": "HTTP 404"
@@ -251,6 +288,7 @@
     }
   ],
   "gaps": [
+    "idnes-locality-autocomplete-error:curl exited with 56",
     "idnes-discovery-used-municipality-slug-fallback",
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/vlcice/",
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/vlcice/",

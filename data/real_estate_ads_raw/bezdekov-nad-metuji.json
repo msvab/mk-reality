@@ -29,13 +29,12 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
+    "workers_with_results": 2,
     "candidates_gathered": 14,
-    "rows_retained": 1,
+    "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
-      "reality.aktualne.cz",
-      "sreality.cz"
+      "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
@@ -53,8 +52,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Sreality rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -247,18 +246,8 @@
       "url": "https://www.sreality.cz/api/v1/estates/809726796",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/809726796",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "sreality.cz",
@@ -296,7 +285,6 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Bezd%C4%9Bkov+nad+Metuj%C3%AD&form%5Bcena_mena%5D=1",
-    "stale-detail-fetch:809726796:Failed to fetch https://www.sreality.cz/api/v1/estates/809726796: HTTP 404",
     "stale-detail-fetch:912056396:Failed to fetch https://www.sreality.cz/api/v1/estates/912056396: HTTP 404"
   ],
   "listings": [
@@ -315,6 +303,24 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 260 m², pozemek 1743 m²",
+      "location": "Bezděkov nad Metují, Náchod",
+      "property_type": "house",
+      "price": "7 499 000 Kč",
+      "house_area_m2": "260",
+      "land_area_m2": "1743",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/bezdekov-nad-metuji/809726796"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/809726796"
       ]
     }
   ]

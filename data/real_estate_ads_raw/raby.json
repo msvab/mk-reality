@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 18,
-    "rows_retained": 5,
+    "candidates_gathered": 20,
+    "rows_retained": 6,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -67,6 +67,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/raby/6a2fdc2a2437df55570cddc4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/raby/699859edf83a9796d8042dcf/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -76,14 +84,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/raby/6a33cfc0675562c95d045095/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/raby/6a2fdc2a2437df55570cddc4/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -310,18 +310,16 @@
       "url": "https://www.sreality.cz/api/v1/estates/1708409676",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/1708409676",
+      "url": "https://www.sreality.cz/api/v1/estates/1850454092",
       "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "sreality.cz",
@@ -341,6 +339,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3377180748",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/38400076",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -349,7 +355,7 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/843046988",
+      "url": "https://www.sreality.cz/api/v1/estates/869957708",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -372,10 +378,11 @@
     "detail-fallback-page:https://reality.aktualne.cz/detail/raby/prodej-pozemku-k-bydleni-2012-m-raby-8059701.html",
     "missing-price:https://www.sreality.cz/api/v1/estates/1188089932",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/138207308",
-    "stale-detail-fetch:1708409676:Failed to fetch https://www.sreality.cz/api/v1/estates/1708409676: HTTP 404",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1850454092",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2029409100",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3377180748",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/38400076",
-    "missing-price:https://www.sreality.cz/api/v1/estates/843046988"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/869957708"
   ],
   "listings": [
     {
@@ -448,6 +455,24 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 89 m², pozemek 1001 m²",
+      "location": "Ráby, Pardubice",
+      "property_type": "house",
+      "price": "10 999 000 Kč",
+      "house_area_m2": "89",
+      "land_area_m2": "1001",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/raby/1708409676"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1708409676"
       ]
     },
     {

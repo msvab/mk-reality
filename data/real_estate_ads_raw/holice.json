@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 46,
-    "rows_retained": 15,
+    "candidates_gathered": 44,
+    "rows_retained": 13,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -96,6 +96,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/holice/6a316f4946d24d8efe0dc94b/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -371,14 +379,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/holice-pod-parkem/69d75af4bbb073fc51037ab7/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/holice/6a3e9cac4b1fb0ac84069079/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -396,14 +396,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/holice-staroholicka/6a01b63d78c26dc7700ace2a/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/holice/63bad68251c5bc7b4e0c1a79/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -666,6 +658,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/holice/6a316f4946d24d8efe0dc94b/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/holice/6a5d264e0d1233429c04428c/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/holice/69b955b952dbcb7d2c093edb/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/holice/6a7334d340f3372518074d7a/",
@@ -683,7 +676,6 @@
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/holice/67ffb7f16139c3cc6d032f85/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/holice/699709633e938213720cbd95/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/holice/6a32aebb08782d20e5040a5d/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/holice-pod-parkem/69d75af4bbb073fc51037ab7/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/holice/6a3e9cac4b1fb0ac84069079/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/holice-staroholicka/6a01b63d78c26dc7700ace2a/",
     "missing-page-url:house",
@@ -778,23 +770,6 @@
       "portal": [
         "reality.idnes.cz"
       ],
-      "title": "Prodej rodinného domu v Holicích",
-      "location": "Holice, okres Pardubice",
-      "property_type": "house",
-      "price": "4 590 000 Kč",
-      "house_area_m2": "76",
-      "land_area_m2": "1343",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/holice/6a316f4946d24d8efe0dc94b/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
       "title": "Rodinný dům, ul. Ve Drahách, Holice",
       "location": "Holice, okres Pardubice",
       "property_type": "house",
@@ -820,24 +795,6 @@
       "land_area_m2": "1775",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/pozemek/holice-pod-parkem/69e0cf1207e6df799a02166e/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej pozemku pro bydlení - Holice",
-      "location": "Holice, okres Pardubice",
-      "property_type": "land",
-      "price": "Cena na vyžádání",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1309",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/holice/63bad68251c5bc7b4e0c1a79/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",

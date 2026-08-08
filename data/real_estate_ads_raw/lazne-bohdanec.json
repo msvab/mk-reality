@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 22,
-    "rows_retained": 4,
+    "candidates_gathered": 21,
+    "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -101,14 +101,6 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-6173",
       "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/lazne-bohdanec-kosinova/6a55fc39d20e10fcca051d06/",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -334,7 +326,6 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/lazne-bohdanec-kosinova/6a55fc39d20e10fcca051d06/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/lazne-bohdanec/6a5e357388a1bfdb4e026e75/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/lazne-bohdanec/68121332ffd248c09601142e/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/lazne-bohdanec/6a69a04925eb233d18026a40/",
@@ -353,27 +344,11 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1110827084",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1174831180",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2285817932",
+    "missing-price:https://www.sreality.cz/api/v1/estates/4012699724",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4244722252",
     "stale-detail-fetch:438808652:Failed to fetch https://www.sreality.cz/api/v1/estates/438808652: HTTP 404"
   ],
   "listings": [
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "RD na rekonstrukci za cenu pozemku, Lázně Bohdaneč, 1205 m2",
-      "location": "Lázně Bohdaneč, okres Pardubice",
-      "property_type": "house",
-      "price": "5 950 000 Kč",
-      "house_area_m2": "92",
-      "land_area_m2": "1205",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/lazne-bohdanec-sipkova/6a37af4980248d59910d6bd8/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
     {
       "portal": [
         "reality.idnes.cz"
@@ -394,6 +369,23 @@
     },
     {
       "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "RD na rekonstrukci za cenu pozemku, Lázně Bohdaneč, 1205 m2",
+      "location": "Lázně Bohdaneč, okres Pardubice",
+      "property_type": "house",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "92",
+      "land_area_m2": "1205",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/lazne-bohdanec-sipkova/6a37af4980248d59910d6bd8/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
         "sreality.cz"
       ],
       "title": "Prodej rodinného domu 164 m², pozemek 1154 m²",
@@ -408,24 +400,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2887521100"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 92 m², pozemek 1205 m²",
-      "location": "Lázně Bohdaneč, Šípkova, Pardubice",
-      "property_type": "house",
-      "price": "5 950 000 Kč",
-      "house_area_m2": "92",
-      "land_area_m2": "1205",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/lazne-bohdanec-sipkova/4012699724"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/4012699724"
       ]
     }
   ]

@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 7,
+    "candidates_gathered": 8,
     "rows_retained": 7,
     "zero_result_portals": [
       "realitymix.cz",
@@ -109,6 +109,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-411302",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pilnikov/60ce3b0e859b060af7568ad1/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -212,6 +220,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/pilnikov/60ce3b0e859b060af7568ad1/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3610-trutnov/kralovehradecky/prodej-domy_vily.html",
