@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 1,
     "candidates_gathered": 6,
-    "rows_retained": 2,
+    "rows_retained": 1,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
@@ -41,12 +41,12 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "fetch_error",
-      "http_status": 0,
-      "stage": "locality_autocomplete_fetch",
-      "message": "curl exited with 56",
+      "status": "fallback_page",
+      "http_status": 404,
+      "stage": "search_fetch",
+      "message": "HTTP 404",
       "evidence": [
-        "locality_autocomplete_fetch:fetch_error:https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Vl%C4%8Dice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE"
+        "search_fetch:fallback_page:https://reality.idnes.cz/s/prodej/domy/vlcice/"
       ]
     },
     "realitymix.cz": {
@@ -68,51 +68,14 @@
       "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Vl%C4%8Dice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
       "stage": "locality_autocomplete_fetch",
       "attempt": 1,
-      "status": "fetch_error",
-      "http_status": 0,
-      "error": "curl exited with 56"
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Vl%C4%8Dice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 2,
-      "status": "fetch_error",
-      "http_status": 0,
-      "error": "curl exited with 56"
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/admin.api/autocomplete-locality?fe=1&st=Vl%C4%8Dice&types%5B0%5D=OBEC&types%5B1%5D=CAST_OBCE",
-      "stage": "locality_autocomplete_fetch",
-      "attempt": 3,
-      "status": "fetch_error",
-      "http_status": 0,
-      "error": "curl exited with 56"
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/domy/vlcice/",
       "stage": "search_fetch",
       "attempt": 1,
-      "status": "fetch_error",
-      "http_status": 0,
-      "error": "curl exited with 56"
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/vlcice/",
-      "stage": "search_fetch",
-      "attempt": 2,
-      "status": "fetch_error",
-      "http_status": 0,
-      "error": "curl exited with 56"
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/vlcice/",
-      "stage": "search_fetch",
-      "attempt": 3,
       "status": "fallback_page",
       "http_status": 404,
       "error": "HTTP 404"
@@ -283,12 +246,21 @@
       "url": "https://www.sreality.cz/api/v1/estates/513527884",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/513527884",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
-    "idnes-locality-autocomplete-error:curl exited with 56",
     "idnes-discovery-used-municipality-slug-fallback",
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/vlcice/",
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/vlcice/",
@@ -299,27 +271,10 @@
     "detail-fallback-page:https://reality.aktualne.cz/detail/vlcice/prodej-pozemku-k-bydleni-5869-m2-vlcice-8232805.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/vlcice/prodej-pozemku-k-bydleni-7089-m2-vlcice-8323721.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/vlcice/prodej-pozemku-vlcice-8633809.html",
-    "missing-price:https://www.sreality.cz/api/v1/estates/4284236364"
+    "missing-price:https://www.sreality.cz/api/v1/estates/4284236364",
+    "stale-detail-fetch:513527884:Failed to fetch https://www.sreality.cz/api/v1/estates/513527884: HTTP 404"
   ],
   "listings": [
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 180 m², pozemek 4759 m²",
-      "location": "Vlčice, Trutnov",
-      "property_type": "house",
-      "price": "7 800 000 Kč",
-      "house_area_m2": "180",
-      "land_area_m2": "4759",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/vlcice/513527884"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/513527884"
-      ]
-    },
     {
       "portal": [
         "sreality.cz"

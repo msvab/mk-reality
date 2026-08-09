@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 12,
-    "rows_retained": 3,
+    "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -179,7 +179,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/mladkov/6a704f4c184920b447043a1d/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/mladkov/69fce39a5da5fb86b5077e27/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -187,7 +187,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/mladkov/69fce39a5da5fb86b5077e27/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/mladkov/6a704f4c184920b447043a1d/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -320,16 +320,26 @@
       "url": "https://www.sreality.cz/api/v1/estates/982442060",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/982442060",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/mladkov/6a44add760be3b110a08153e/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/mladkov/6a0dc5294ed45f452f048d94/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/mladkov/6a704f4c184920b447043a1d/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/mladkov/69fce39a5da5fb86b5077e27/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/mladkov/6a704f4c184920b447043a1d/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/mladkov/69cd6c4512c1fa0bf50e1528/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/mladkov/6a67656b8df2e559680bac67/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/mladkov/67fedcc8da19a41e50009ae6/",
@@ -338,7 +348,8 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3611-usti-nad-orlici/pardubicky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Mladkov&form%5Bcena_mena%5D=1",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2909786188",
-    "stale-detail-fetch:3120599116:Failed to fetch https://www.sreality.cz/api/v1/estates/3120599116: HTTP 404"
+    "stale-detail-fetch:3120599116:Failed to fetch https://www.sreality.cz/api/v1/estates/3120599116: HTTP 404",
+    "stale-detail-fetch:982442060:Failed to fetch https://www.sreality.cz/api/v1/estates/982442060: HTTP 404"
   ],
   "listings": [
     {
@@ -374,24 +385,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1771348044"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 209 m², pozemek 1148 m²",
-      "location": "Mladkov, Ústí nad Orlicí",
-      "property_type": "house",
-      "price": "4 700 000 Kč",
-      "house_area_m2": "209",
-      "land_area_m2": "1148",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/mladkov/982442060"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/982442060"
       ]
     }
   ]
