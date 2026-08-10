@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 33,
-    "rows_retained": 11,
+    "rows_retained": 12,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -40,13 +40,8 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "fetch_error",
-      "http_status": 0,
-      "stage": "detail_fetch",
-      "message": "curl exited with 56",
-      "evidence": [
-        "detail_fetch:fetch_error:https://reality.idnes.cz/detail/prodej/dum/upice-j-w-mezerove/68233c50e54843df140e348c/"
-      ]
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -64,54 +59,9 @@
   "fetch_attempts": [
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-j-w-mezerove/68233c50e54843df140e348c/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "fetch_error",
-      "http_status": 0,
-      "error": "curl exited with 56"
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-j-w-mezerove/68233c50e54843df140e348c/",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "fetch_error",
-      "http_status": 0,
-      "error": "curl exited with 56"
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-j-w-mezerove/68233c50e54843df140e348c/",
-      "stage": "detail_fetch",
-      "attempt": 3,
-      "status": "fetch_error",
-      "http_status": 0,
-      "error": "curl exited with 56"
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/upice-chelcickeho/690b19807107f77e410a4419/",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "fetch_error",
-      "http_status": 0,
-      "error": "curl exited with 56"
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-chelcickeho/690b19807107f77e410a4419/",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "fetch_error",
-      "http_status": 0,
-      "error": "curl exited with 56"
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-chelcickeho/690b19807107f77e410a4419/",
-      "stage": "detail_fetch",
-      "attempt": 3,
       "status": "ok",
       "http_status": 200
     },
@@ -262,6 +212,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/upice-namesti-t-g-masaryka/6a5a500e037503b72a03132d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-j-w-mezerove/68233c50e54843df140e348c/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -504,7 +462,6 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "failed-detail-fetch:https://reality.idnes.cz/detail/prodej/dum/upice-j-w-mezerove/68233c50e54843df140e348c/:curl exited with 56",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-sukova/68ed54d222bf8d981a0ed9bf/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-dr-a-hejny/6a6a4b377de4b2117b03b1a4/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-regnerova/67e4f775cce4ddddeb0397b4/",
@@ -533,6 +490,23 @@
     "missing-price:https://www.sreality.cz/api/v1/estates/4053696588"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej domu po rekonstrukci se dvěma bytovými jednotkami a zahradou v obci Úpice, okres Trutnov",
+      "location": "Úpice, okres Trutnov",
+      "property_type": "house",
+      "price": "4 990 000 Kč",
+      "house_area_m2": "140",
+      "land_area_m2": "1930",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/upice-j-w-mezerove/68233c50e54843df140e348c/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
     {
       "portal": [
         "reality.idnes.cz"

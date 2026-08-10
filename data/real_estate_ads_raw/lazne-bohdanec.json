@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 21,
-    "rows_retained": 3,
+    "candidates_gathered": 22,
+    "rows_retained": 4,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -101,6 +101,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-6173",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-kratka/6a4e81f68dd5010fff0194f7/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -310,22 +318,13 @@
       "url": "https://www.sreality.cz/api/v1/estates/438808652",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/438808652",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice-kratka/6a4e81f68dd5010fff0194f7/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/lazne-bohdanec/6a5e357388a1bfdb4e026e75/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/lazne-bohdanec/68121332ffd248c09601142e/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/lazne-bohdanec/6a69a04925eb233d18026a40/",
@@ -345,8 +344,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1174831180",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2285817932",
     "missing-price:https://www.sreality.cz/api/v1/estates/4012699724",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4244722252",
-    "stale-detail-fetch:438808652:Failed to fetch https://www.sreality.cz/api/v1/estates/438808652: HTTP 404"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4244722252"
   ],
   "listings": [
     {
@@ -382,6 +380,25 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1308 m²",
+      "location": "Lázně Bohdaneč, Polní, Pardubice",
+      "property_type": "land",
+      "price": "9 200 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1308",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/lazne-bohdanec-polni/438808652"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/438808652",
+        "buildable-land"
       ]
     },
     {

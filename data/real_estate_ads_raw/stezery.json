@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 9,
-    "rows_retained": 3,
+    "candidates_gathered": 10,
+    "rows_retained": 4,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -57,6 +57,14 @@
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/stezery-polni/6a588808a3bcb6d6b00fa959/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/stezery/6a3b4bfdef884a42910da40f/",
@@ -148,14 +156,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/stezery/6a33b9e8dfaef8e6180c1997/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/stezery-polni/6a588808a3bcb6d6b00fa959/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -259,6 +259,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2471551052",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/364048460",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -331,6 +339,25 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 14692 m²",
+      "location": "Stěžery, Polní, Hradec Králové",
+      "property_type": "land",
+      "price": "46 990 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "14692",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/stezery-polni/2471551052"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2471551052",
+        "buildable-land"
       ]
     },
     {
