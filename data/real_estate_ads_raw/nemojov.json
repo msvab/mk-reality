@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 13,
-    "rows_retained": 7,
+    "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -272,8 +272,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1917813580",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1917813580",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -304,8 +314,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/4261797964",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4261797964",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -336,8 +356,10 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Nemojov&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/nemojov/nemojov-pekny-stavebni-pozemek-8241167.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/nemojov/roubenka-dolni-nemojov-chalupa-s-kouzlem-i-vynosem-8468943.html",
+    "stale-detail-fetch:1917813580:Failed to fetch https://www.sreality.cz/api/v1/estates/1917813580: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2487644748",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2838352716",
+    "stale-detail-fetch:4261797964:Failed to fetch https://www.sreality.cz/api/v1/estates/4261797964: HTTP 404",
     "stale-detail-fetch:81231948:Failed to fetch https://www.sreality.cz/api/v1/estates/81231948: HTTP 404"
   ],
   "listings": [
@@ -428,43 +450,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3274560332"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 47 m², pozemek 3738 m²",
-      "location": "Nemojov, Trutnov",
-      "property_type": "house",
-      "price": "5 950 000 Kč",
-      "house_area_m2": "47",
-      "land_area_m2": "3738",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/nemojov-dolni-nemojov/4261797964"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/4261797964"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1921 m²",
-      "location": "Nemojov, Trutnov",
-      "property_type": "land",
-      "price": "1 728 900 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1921",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/nemojov-horni-nemojov/1917813580"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1917813580",
-        "buildable-land"
       ]
     }
   ]

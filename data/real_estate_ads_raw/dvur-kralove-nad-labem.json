@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 40,
-    "rows_retained": 13,
+    "rows_retained": 11,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -446,12 +446,30 @@
       "url": "https://www.sreality.cz/api/v1/estates/1430127436",
       "stage": "detail_fetch",
       "attempt": 1,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1430127436",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1600507980",
+      "stage": "detail_fetch",
+      "attempt": 1,
       "status": "ok",
       "http_status": 200
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/1600507980",
+      "url": "https://www.sreality.cz/api/v1/estates/2035888972",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -483,6 +501,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2930147404",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/3041203020",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -499,19 +525,21 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/3380512076",
+      "url": "https://www.sreality.cz/api/v1/estates/3448864844",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/3448864844",
       "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -566,14 +594,6 @@
       "status": "not_found",
       "http_status": 404,
       "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/946959180",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
@@ -601,14 +621,16 @@
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3610-trutnov/kralovehradecky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Dv%C5%AFr+Kr%C3%A1lov%C3%A9+nad+Labem&form%5Bcena_mena%5D=1",
+    "stale-detail-fetch:1430127436:Failed to fetch https://www.sreality.cz/api/v1/estates/1430127436: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1600507980",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2035888972",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2664534860",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2930147404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3041203020",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3380512076",
+    "stale-detail-fetch:3448864844:Failed to fetch https://www.sreality.cz/api/v1/estates/3448864844: HTTP 404",
     "stale-detail-fetch:3745530700:Failed to fetch https://www.sreality.cz/api/v1/estates/3745530700: HTTP 404",
     "stale-detail-fetch:3838247756:Failed to fetch https://www.sreality.cz/api/v1/estates/3838247756: HTTP 404",
-    "stale-detail-fetch:3938443340:Failed to fetch https://www.sreality.cz/api/v1/estates/3938443340: HTTP 404",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/946959180"
+    "stale-detail-fetch:3938443340:Failed to fetch https://www.sreality.cz/api/v1/estates/3938443340: HTTP 404"
   ],
   "listings": [
     {
@@ -776,24 +798,6 @@
       "portal": [
         "sreality.cz"
       ],
-      "title": "Prodej rodinného domu 107 m², pozemek 6795 m²",
-      "location": "Dvůr Králové nad Labem, Trutnov",
-      "property_type": "house",
-      "price": "4 250 000 Kč",
-      "house_area_m2": "107",
-      "land_area_m2": "6795",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/dvur-kralove-nad-labem-zirecka-podstran/3448864844"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3448864844"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
       "title": "Prodej stavebního pozemku 1821 m²",
       "location": "Dvůr Králové nad Labem, Trutnov",
       "property_type": "land",
@@ -825,25 +829,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2331849548",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 2228 m²",
-      "location": "Dvůr Králové nad Labem, Trutnov",
-      "property_type": "land",
-      "price": "1 600 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "2228",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/dvur-kralove-nad-labem-verdek/1430127436"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1430127436",
         "buildable-land"
       ]
     }

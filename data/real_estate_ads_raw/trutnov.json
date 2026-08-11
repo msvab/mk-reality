@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 180,
-    "rows_retained": 78,
+    "candidates_gathered": 179,
+    "rows_retained": 77,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -827,14 +827,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/trutnov/6a62ab0c0e2244e9100164e5/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trutnov/6a31208d6f827a826d0291e4/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -1743,8 +1735,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/740552780",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/740552780",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -1814,7 +1816,6 @@
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/trutnov/625c9f775ee4a7624a388eb2/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/trutnov/625c9166e12ecc04f2461e84/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/trutnov/6a62ab0c0e2244e9100164e5/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/trutnov/6a31208d6f827a826d0291e4/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/trutnov/687fbb298076a9263f08ef76/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/trutnov/6a181e650c3bdd7dfa091c6f/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/trutnov/695a5313aa8f3fd49b01369e/",
@@ -1875,6 +1876,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4287213644",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/559776588",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/635384908",
+    "stale-detail-fetch:740552780:Failed to fetch https://www.sreality.cz/api/v1/estates/740552780: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/831107148",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/849886044",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/951597916"
@@ -1939,7 +1941,7 @@
       "title": "Vícegenerační rodinný dům se 3 samostatnými byty a pozemkem 1 588 m2, Trutnov",
       "location": "Trutnov, okres Trutnov",
       "property_type": "house",
-      "price": "7 200 000 Kč",
+      "price": "6 800 000 Kč",
       "house_area_m2": "621",
       "land_area_m2": "1588",
       "urls": [
@@ -2897,7 +2899,7 @@
       "title": "Prodej vícegeneračního domu 621 m², pozemek 1588 m²",
       "location": "Trutnov, Za Úpou, Trutnov",
       "property_type": "house",
-      "price": "7 200 000 Kč",
+      "price": "6 800 000 Kč",
       "house_area_m2": "621",
       "land_area_m2": "1588",
       "urls": [
@@ -3037,24 +3039,6 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/4278456908",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 212 m², pozemek 2399 m²",
-      "location": "Trutnov, Bezděkovská, Trutnov",
-      "property_type": "house",
-      "price": "4 190 000 Kč",
-      "house_area_m2": "212",
-      "land_area_m2": "2399",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/trutnov-lhota-bezdekovska/740552780"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/740552780"
       ]
     },
     {

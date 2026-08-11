@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 33,
-    "rows_retained": 12,
+    "candidates_gathered": 34,
+    "rows_retained": 14,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -57,6 +57,14 @@
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-j-w-mezerove/68233c50e54843df140e348c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/upice-chelcickeho/690b19807107f77e410a4419/",
@@ -212,14 +220,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/upice-namesti-t-g-masaryka/6a5a500e037503b72a03132d/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-j-w-mezerove/68233c50e54843df140e348c/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -453,6 +453,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/401683276",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/4053696588",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -463,7 +471,6 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-sukova/68ed54d222bf8d981a0ed9bf/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-dr-a-hejny/6a6a4b377de4b2117b03b1a4/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-regnerova/67e4f775cce4ddddeb0397b4/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-zizkova/6a3f7921a4066f9ede0b32d8/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-svornosti/6a71c27cf8f4cc86a10eefd5/",
@@ -599,6 +606,23 @@
       "portal": [
         "reality.idnes.cz"
       ],
+      "title": "Prodej domu, Dr. A. Hejny, Úpice",
+      "location": "Úpice, okres Trutnov",
+      "property_type": "house",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "880",
+      "land_area_m2": "1980",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/upice-dr-a-hejny/6a6a4b377de4b2117b03b1a4/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
       "title": "Nadčasový rodinný dům se zahradou, dvougaráží a vedlejšími stavbami v Úpici, okrese Trutnov",
       "location": "Úpice, okres Trutnov",
       "property_type": "house",
@@ -628,6 +652,24 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2462007884"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 110 m², pozemek 1592 m²",
+      "location": "Úpice, Chelčického, Trutnov",
+      "property_type": "house",
+      "price": "3 790 000 Kč",
+      "house_area_m2": "110",
+      "land_area_m2": "1592",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/upice-chelcickeho/401683276"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/401683276"
       ]
     },
     {

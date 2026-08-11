@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 65,
-    "rows_retained": 20,
+    "candidates_gathered": 64,
+    "rows_retained": 19,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -79,6 +79,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod-rajmonova/69d4d481ca746a98be000d1d/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -395,14 +403,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod-svobody/6a2333edaa5983a468014a97/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod-broumovska/6a2aad97930605a0db0cb7ca/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -797,6 +797,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/nachod-rajmonova/69d4d481ca746a98be000d1d/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod-doubicova/6a4253d6913a4fb831031d3e/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod-krapkova/69b9312164d2f31d9d01de28/",
@@ -813,7 +814,6 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod/6a21f8bd88d624607f007704/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod-alsova/69c14975d66a4ad0d20de8d2/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nachod/67ffb7eec002623136043134/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nachod-broumovska/6a2aad97930605a0db0cb7ca/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nachod/6a61aedeca97086d890284a7/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/nachod/6a311b03ca1176feb90ebd6c/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nachod/67ffe5a35eb4aa1a770767e7/",
@@ -877,24 +877,6 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej výjimečného pozemku u lesa s panoramatickým výhledem – Branka, ul. Rajmonova",
-      "location": "Náchod, okres Náchod",
-      "property_type": "land",
-      "price": "8 485 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "2782",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/nachod-rajmonova/69d4d481ca746a98be000d1d/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
       ]
     },
     {

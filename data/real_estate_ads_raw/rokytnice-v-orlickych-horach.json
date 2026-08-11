@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 38,
-    "rows_retained": 16,
+    "candidates_gathered": 36,
+    "rows_retained": 10,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -75,6 +75,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/69eb516660d4ff9b2602fecf/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/686ea7ab6f31736481066153/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -99,11 +107,27 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/698f0ade09dec1f6b0053565/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/698f0ab1541260b43c02360d/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/698f0ab1541260b43c02360d/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -235,14 +259,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/698f0acefd5af56170041995/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-stribrny-vrch/67175bf6f112a60a010bf485/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -342,8 +358,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/142213708",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/142213708",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -368,8 +394,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1682481228",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1682481228",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -470,16 +506,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/303645260",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/3518579276",
+      "url": "https://www.sreality.cz/api/v1/estates/303645260",
       "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -534,13 +572,15 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/69eb516660d4ff9b2602fecf/",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/698f0ade09dec1f6b0053565/",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/698f0ab1541260b43c02360d/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-namesti-t-g-masaryka/6a0d8052bdee1cdbf8031e07/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/6905e50697d0f0dcdb00c517/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-5-kvetna/69baca4aeff263a76c095599/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/6a61d70ed2086de8e50f3c28/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-j-v-sladka/6a61d6f357040a54ef0fda84/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-skolni/68c3b7046088244d000fa064/",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/698f0acefd5af56170041995/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach-stribrny-vrch/67175bf6f112a60a010bf485/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/6a75d87f984a155d980b01b8/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/69df7652c31dd8f4690df86c/",
@@ -549,13 +589,15 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Rokytnice+v+Orlick%C3%BDch+hor%C3%A1ch&form%5Bcena_mena%5D=1",
+    "stale-detail-fetch:142213708:Failed to fetch https://www.sreality.cz/api/v1/estates/142213708: HTTP 404",
     "stale-detail-fetch:1546448972:Failed to fetch https://www.sreality.cz/api/v1/estates/1546448972: HTTP 404",
+    "stale-detail-fetch:1682481228:Failed to fetch https://www.sreality.cz/api/v1/estates/1682481228: HTTP 404",
     "stale-detail-fetch:1912181580:Failed to fetch https://www.sreality.cz/api/v1/estates/1912181580: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/197956428",
     "stale-detail-fetch:2254475340:Failed to fetch https://www.sreality.cz/api/v1/estates/2254475340: HTTP 404",
     "stale-detail-fetch:2576588876:Failed to fetch https://www.sreality.cz/api/v1/estates/2576588876: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/292479052",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3518579276",
+    "stale-detail-fetch:303645260:Failed to fetch https://www.sreality.cz/api/v1/estates/303645260: HTTP 404",
     "stale-detail-fetch:4034629708:Failed to fetch https://www.sreality.cz/api/v1/estates/4034629708: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/557240396",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/732758860"
@@ -576,24 +618,6 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej rodinného domu, pozemek 1873 m2, Rokytnice v Orlických horách",
-      "location": "Rokytnice v Orlických horách, okres Rychnov nad Kněžnou",
-      "property_type": "land",
-      "price": "6 500 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1873",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/69eb516660d4ff9b2602fecf/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
       ]
     },
     {
@@ -626,41 +650,6 @@
       "land_area_m2": "2779",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/6a16f534a632687ab00d18d8/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej rodinného domu s pozemkem 2.170 m2, Rokytnice v Orlických horách",
-      "location": "Rokytnice v Orlických horách, okres Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "2 900 000 Kč",
-      "house_area_m2": "37",
-      "land_area_m2": "2170",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/rokytnice-v-orlickych-horach/698f0ade09dec1f6b0053565/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej stavebního pozemku, 2.170 m2, Rokytnice v Orlických horách",
-      "location": "Rokytnice v Orlických horách, okres Rychnov nad Kněžnou",
-      "property_type": "land",
-      "price": "2 900 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "2170",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/698f0ab1541260b43c02360d/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
@@ -724,24 +713,6 @@
       "portal": [
         "sreality.cz"
       ],
-      "title": "Prodej rodinného domu 201 m², pozemek 1873 m²",
-      "location": "Rokytnice v Orlických horách, Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "6 500 000 Kč",
-      "house_area_m2": "201",
-      "land_area_m2": "1873",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/rokytnice-v-orlickych-horach/1682481228"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1682481228"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
       "title": "Prodej rodinného domu 253 m², pozemek 1339 m²",
       "location": "Rokytnice v Orlických horách, Školní, Rychnov nad Kněžnou",
       "property_type": "house",
@@ -773,42 +744,6 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/216694860",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 37 m², pozemek 2170 m²",
-      "location": "Rokytnice v Orlických horách, Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "2 900 000 Kč",
-      "house_area_m2": "37",
-      "land_area_m2": "2170",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/rokytnice-v-orlickych-horach/142213708"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/142213708"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej chalupy 37 m², pozemek 2170 m²",
-      "location": "Rokytnice v Orlických horách, Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "2 900 000 Kč",
-      "house_area_m2": "37",
-      "land_area_m2": "2170",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/chalupa/rokytnice-v-orlickych-horach/303645260"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/303645260"
       ]
     },
     {
