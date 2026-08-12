@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 19,
+    "candidates_gathered": 17,
     "rows_retained": 14,
     "zero_result_portals": [
       "realitymix.cz",
@@ -75,7 +75,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/lichkov/6978d85d2e399136a706e83a/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/lichkov/6a7a2f3a5e4ebf61250af966/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -83,11 +83,11 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/lichkov/6978d85d2e399136a706e83a/",
-      "stage": "detail_parse",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/lichkov/6a7a336f3170b2561c07627b/",
+      "stage": "detail_fetch",
       "attempt": 1,
-      "status": "fallback_page",
-      "message": "Detail URL returned fallback or non-detail content."
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "reality.idnes.cz",
@@ -148,22 +148,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/lichkov/6a3ce0fa6966bf4f3700f94e/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/lichkov/6a7a336f3170b2561c07627b/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/lichkov/6a7a2f3a5e4ebf61250af966/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -315,24 +299,6 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/569930572",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/569930572",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/706007116",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -342,15 +308,13 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/lichkov/6978d85d2e399136a706e83a/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/lichkov/6a3ce0fa6966bf4f3700f94e/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/lichkov/69b92eaae94ac48c9800b8c7/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3611-usti-nad-orlici/pardubicky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Lichkov&form%5Bcena_mena%5D=1",
-    "detail-fallback-page:https://reality.aktualne.cz/detail/lichkov/prodej-chalupy-310-m-lichkov-8401587.html",
-    "stale-detail-fetch:569930572:Failed to fetch https://www.sreality.cz/api/v1/estates/569930572: HTTP 404"
+    "detail-fallback-page:https://reality.aktualne.cz/detail/lichkov/prodej-chalupy-310-m-lichkov-8401587.html"
   ],
   "listings": [
     {

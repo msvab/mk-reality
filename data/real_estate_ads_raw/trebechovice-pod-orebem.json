@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 30,
-    "rows_retained": 3,
+    "candidates_gathered": 32,
+    "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -236,6 +236,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/trebechovice-pod-orebem/680c89dc753f27eee908356f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-tynistska/6a7b3bd94dc8ac712e0aa3ef/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -483,6 +491,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3156983884",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/3865477196",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -590,6 +606,23 @@
     },
     {
       "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu v Třebechovicích pod Orebem",
+      "location": "Třebechovice pod Orebem, okres Hradec Králové",
+      "property_type": "house",
+      "price": "9 300 000 Kč",
+      "house_area_m2": "180",
+      "land_area_m2": "1788",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-tynistska/6a7b3bd94dc8ac712e0aa3ef/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
         "sreality.cz"
       ],
       "title": "Prodej rodinného domu 219 m², pozemek 1560 m²",
@@ -622,6 +655,24 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3865477196"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 180 m², pozemek 1788 m²",
+      "location": "Třebechovice pod Orebem, Týnišťská, Hradec Králové",
+      "property_type": "house",
+      "price": "9 300 000 Kč",
+      "house_area_m2": "180",
+      "land_area_m2": "1788",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/trebechovice-pod-orebem-tynistska/3156983884"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3156983884"
       ]
     }
   ]

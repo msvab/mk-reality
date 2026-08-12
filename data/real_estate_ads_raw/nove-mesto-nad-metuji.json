@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 3,
     "candidates_gathered": 34,
-    "rows_retained": 7,
+    "rows_retained": 8,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -71,14 +71,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/69aedd09645e9176190b54b8/",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -170,6 +162,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/615b60a93b8dee685c3eaa02/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/69c7a91890681dcfc0032410/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -243,14 +243,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/68f67d3ae213b295fe08265f/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/690cb396f504571756097dd9/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -469,8 +461,8 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/69aedd09645e9176190b54b8/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/615b60a93b8dee685c3eaa02/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/69c7a91890681dcfc0032410/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-u-zvonice/6a54c37038042cffe305d4a9/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji/6a5e2cc47ff49d45eb00df78/",
@@ -479,7 +471,6 @@
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/68f640b7de08c1629909f86a/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/68f6656e22d0e5719609762d/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/68f67d3ae213b295fe08265f/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/690cb396f504571756097dd9/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/68b0081193cfb13bc60d5e6e/",
     "removed-fallback-page:https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-stavebniho-pozemku-3-112-m2-8430099.html",
     "land-below-threshold:https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-rodinneho-domu-140-m-nove-mesto-nad-metuji-8537981.html",
@@ -514,6 +505,24 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Pozemek u Nového Města nad Metují s panoramatickým výhledem",
+      "location": "Nové Město nad Metují, okres Náchod",
+      "property_type": "land",
+      "price": "3 250 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "3276",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/69aedd09645e9176190b54b8/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
       ]
     },
     {

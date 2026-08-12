@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 18,
-    "rows_retained": 6,
+    "candidates_gathered": 20,
+    "rows_retained": 8,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -165,6 +165,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-65731",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/klasterec-nad-orlici/6a7aaff26ceba506d70d192c/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -347,6 +355,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3252998220",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/501276748",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -391,6 +407,23 @@
     "missing-price:https://www.sreality.cz/api/v1/estates/856195916"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu v Klášterci nad Orlicí",
+      "location": "Klášterec nad Orlicí, okres Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "6 250 000 Kč",
+      "house_area_m2": "194",
+      "land_area_m2": "6657",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/klasterec-nad-orlici/6a7aaff26ceba506d70d192c/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
     {
       "portal": [
         "reality.idnes.cz"
@@ -460,6 +493,24 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 194 m², pozemek 6657 m²",
+      "location": "Klášterec nad Orlicí, Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "6 250 000 Kč",
+      "house_area_m2": "194",
+      "land_area_m2": "6657",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/klasterec-nad-orlici/3252998220"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3252998220"
       ]
     },
     {
