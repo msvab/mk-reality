@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 0,
-    "candidates_gathered": 9,
+    "candidates_gathered": 8,
     "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
@@ -93,6 +93,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-kratka/6a4e81f68dd5010fff0194f7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/rybitvi-capkova/685e5b58bf687c052a05601a/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -102,14 +110,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/rybitvi/6a7a349ec2d0ee5e220fa919/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rybitvi/6a74d996d5f7735e8f0b4f40/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -210,21 +210,13 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/539926604",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice-kratka/6a4e81f68dd5010fff0194f7/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/rybitvi-capkova/685e5b58bf687c052a05601a/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/rybitvi/6a7a349ec2d0ee5e220fa919/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/rybitvi/6a74d996d5f7735e8f0b4f40/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/rybitvi/69aeca831904588d470cb3f5/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/rybitvi/69d660e205aca68d6f032f0c/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/rybitvi/68c91be55eb9a651860e7916/",
@@ -232,8 +224,7 @@
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Rybitv%C3%AD&form%5Bcena_mena%5D=1",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1319125836",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/526148684",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/539926604"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/526148684"
   ],
   "listings": []
 }

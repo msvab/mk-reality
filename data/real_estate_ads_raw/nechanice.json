@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 27,
+    "candidates_gathered": 28,
     "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz",
@@ -64,6 +64,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nechanice/6a38cd65855f71dfa5064407/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -147,6 +155,22 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nechanice-za-kulturnim-domem/6a0d3da3b545293483002303/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nechanice/6a7cb4e66e84345ec50280e0/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/nechanice/66ace4ab7c1b2be8a900682f/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -220,14 +244,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/nechanice/67ff383409843c2c8e06820b/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/nechanice-za-kulturnim-domem/6a0d3da3b545293483002303/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -452,8 +468,10 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/nechanice/6a38cd65855f71dfa5064407/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nechanice/69de2ad250bd2426db05c729/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/nechanice-havlickova/69b27f7c1e508593b906d47a/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nechanice-za-kulturnim-domem/6a0d3da3b545293483002303/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nechanice/69a7ea46c930f1380a0389f9/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nechanice/69a7ea82741b4ef2f20f28d3/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nechanice/69b80dbd5f487591620b119f/",
@@ -463,7 +481,6 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nechanice/67feddf59b5ff282450d8df7/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nechanice/68f6657616b70e5efb0ff88e/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nechanice/67ff383409843c2c8e06820b/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nechanice-za-kulturnim-domem/6a0d3da3b545293483002303/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3602-hradec-kralove/kralovehradecky/prodej-domy_vily.html",
@@ -491,7 +508,7 @@
       "house_area_m2": "154",
       "land_area_m2": "3524",
       "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/nechanice/6a38cd65855f71dfa5064407/"
+        "https://reality.idnes.cz/detail/prodej/dum/nechanice/6a7cb4e66e84345ec50280e0/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"

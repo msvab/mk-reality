@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 1,
-    "candidates_gathered": 36,
+    "candidates_gathered": 34,
     "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz",
@@ -220,6 +220,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hronov/6a7c312f23d4c29d3003e518/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/hronov/6a79c1189dbc7478400ab8c2/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -260,14 +268,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/hronov/6a672a0dad4941efc202fa93/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/hronov/6a3185cbc032b7a5c204c037/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -293,14 +293,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/hronov/69c425f34ac91920ad026033/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/615b60a93b8dee685c3eaa02/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -492,14 +484,6 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/1157156940",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/1177854028",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -581,18 +565,8 @@
       "url": "https://www.sreality.cz/api/v1/estates/524283980",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/524283980",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -611,7 +585,6 @@
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/hronov/69f8679c44dc3df0bf068978/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/hronov/69d4b97999426521820b8ac0/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/hronov/69c425f34ac91920ad026033/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/615b60a93b8dee685c3eaa02/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hronov/69fb1bb05cb5fb527d0980d3/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/hronov/6a6c822b64aba8d75d028625/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/hronov/680a2e852a8609e19d0c1977/",
@@ -626,14 +599,13 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Hronov&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/hronov/prodej-pozemku-k-bydleni-1029-m-hronov-8416181.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/hronov/prodej-pozemku-k-bydleni-1090-m-hronov-cast-rokytnik-8586891.html",
-    "missing-price:https://www.sreality.cz/api/v1/estates/1157156940",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1177854028",
     "stale-detail-fetch:1996415052:Failed to fetch https://www.sreality.cz/api/v1/estates/1996415052: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2800444236",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3287392332",
     "stale-detail-fetch:352247884:Failed to fetch https://www.sreality.cz/api/v1/estates/352247884: HTTP 404",
     "stale-detail-fetch:387506252:Failed to fetch https://www.sreality.cz/api/v1/estates/387506252: HTTP 404",
-    "stale-detail-fetch:524283980:Failed to fetch https://www.sreality.cz/api/v1/estates/524283980: HTTP 404"
+    "missing-price:https://www.sreality.cz/api/v1/estates/524283980"
   ],
   "listings": [
     {
@@ -665,7 +637,7 @@
       "house_area_m2": "150",
       "land_area_m2": "1136",
       "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/hronov/6a672a0dad4941efc202fa93/"
+        "https://reality.idnes.cz/detail/prodej/dum/hronov/6a7c312f23d4c29d3003e518/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"

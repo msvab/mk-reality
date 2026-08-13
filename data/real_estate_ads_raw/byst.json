@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 13,
+    "candidates_gathered": 15,
     "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
@@ -141,6 +141,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-17248",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-kratka/6a4e81f68dd5010fff0194f7/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -261,6 +269,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2133430348",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/2445316172",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -306,6 +322,7 @@
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/byst/6a6c4b355d1ea01d2c037f78/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/byst/6a3bf1c1af5f72528d0522c6/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice-kratka/6a4e81f68dd5010fff0194f7/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/byst/69e5d3b2a983ab208209e4b7/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/byst/6a2297029740dbbd500de078/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/byst/6a41255e9d813c56d8030ab2/",
@@ -315,6 +332,7 @@
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=B%C3%BD%C5%A1%C5%A5&form%5Bcena_mena%5D=1",
     "stale-detail-fetch:1239543884:Failed to fetch https://www.sreality.cz/api/v1/estates/1239543884: HTTP 404",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2133430348",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2445316172",
     "stale-detail-fetch:4184993868:Failed to fetch https://www.sreality.cz/api/v1/estates/4184993868: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/910684236"

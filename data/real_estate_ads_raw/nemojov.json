@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 16,
+    "candidates_gathered": 15,
     "rows_retained": 9,
     "zero_result_portals": [
       "realitymix.cz",
@@ -60,6 +60,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/nemojov/68d4f4e432414779420fc007/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nemojov/6a7b484c63a0efdce5095a7e/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -139,16 +147,16 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/nemojov/6a7b484c63a0efdce5095a7e/",
-      "stage": "detail_fetch",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-103233",
+      "stage": "search_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/jivka/6a20145d765789204c06de65/",
-      "stage": "detail_fetch",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-103233",
+      "stage": "search_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -352,7 +360,6 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/jivka/6a20145d765789204c06de65/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nemojov/67feed2f8ba352a30b0bf494/",
     "missing-page-url:house",
     "missing-page-url:land",

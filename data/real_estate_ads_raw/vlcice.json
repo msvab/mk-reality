@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 1,
     "candidates_gathered": 6,
-    "rows_retained": 1,
+    "rows_retained": 2,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
@@ -246,18 +246,8 @@
       "url": "https://www.sreality.cz/api/v1/estates/513527884",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/513527884",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -271,10 +261,27 @@
     "detail-fallback-page:https://reality.aktualne.cz/detail/vlcice/prodej-pozemku-k-bydleni-5869-m2-vlcice-8232805.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/vlcice/prodej-pozemku-k-bydleni-7089-m2-vlcice-8323721.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/vlcice/prodej-pozemku-vlcice-8633809.html",
-    "missing-price:https://www.sreality.cz/api/v1/estates/4284236364",
-    "stale-detail-fetch:513527884:Failed to fetch https://www.sreality.cz/api/v1/estates/513527884: HTTP 404"
+    "missing-price:https://www.sreality.cz/api/v1/estates/4284236364"
   ],
   "listings": [
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 180 m², pozemek 4759 m²",
+      "location": "Vlčice, Trutnov",
+      "property_type": "house",
+      "price": "7 800 000 Kč",
+      "house_area_m2": "180",
+      "land_area_m2": "4759",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/vlcice/513527884"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/513527884"
+      ]
+    },
     {
       "portal": [
         "sreality.cz"
