@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 37,
-    "rows_retained": 9,
+    "rows_retained": 7,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -80,6 +80,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/698c94c43579c61f50030302/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -446,8 +454,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/2546688844",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2546688844",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -500,6 +518,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/698c94c43579c61f50030302/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/6a6faa557c2c95499a0c68c9/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici-voklik/6a01f867ef542e4282058154/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/6a450cff5377c7ff2c0d525c/",
@@ -528,6 +547,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1157820492",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/180138060",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2289517388",
+    "stale-detail-fetch:2546688844:Failed to fetch https://www.sreality.cz/api/v1/estates/2546688844: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3404915532",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/456912972",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/468677452",
@@ -564,23 +584,6 @@
       "land_area_m2": "1243",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici-v-opatrneho/6a159e6e7cb6a52f870eb1a8/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej domy, 115 m2, Týniště nad Orlicí",
-      "location": "Týniště nad Orlicí, okres Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "5 490 000 Kč",
-      "house_area_m2": "115",
-      "land_area_m2": "2105",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/698c94c43579c61f50030302/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
@@ -656,24 +659,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/4195057740"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 115 m², pozemek 2105 m²",
-      "location": "Týniště nad Orlicí, Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "5 490 000 Kč",
-      "house_area_m2": "115",
-      "land_area_m2": "2105",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/tyniste-nad-orlici-petrovicky/2546688844"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2546688844"
       ]
     },
     {

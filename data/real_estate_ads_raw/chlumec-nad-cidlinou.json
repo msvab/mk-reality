@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 41,
-    "rows_retained": 13,
+    "candidates_gathered": 42,
+    "rows_retained": 12,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -181,6 +181,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-409723",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/smirice/6a7de8fc09c06334d5019b54/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -587,6 +595,7 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/6779442d2cf9d968de0dcb77/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/smirice/6a7de8fc09c06334d5019b54/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-gollova/6a3e0a83a401e0070d0e6ed4/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-na-vinici/6a679f08d7f2a4dc36094a44/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-na-lukach/6a37d826aca346a58c04e0dd/",
@@ -607,6 +616,7 @@
     "detail-fallback-page:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/stavebni-pozemek-1-139-m-projekt-skalka-8601627.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1135316572",
     "stale-detail-fetch:1143747148:Failed to fetch https://www.sreality.cz/api/v1/estates/1143747148: HTTP 404",
+    "missing-price:https://www.sreality.cz/api/v1/estates/173376076",
     "stale-detail-fetch:215781452:Failed to fetch https://www.sreality.cz/api/v1/estates/215781452: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2285556812",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2300588876",
@@ -632,24 +642,6 @@
       "land_area_m2": "1160",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-machova/6a3b9ddae0f3fc80d907df96/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej pozemky pro bydlení, 3 600 m2 - Chlumec nad Cidlinou",
-      "location": "Chlumec nad Cidlinou, okres Hradec Králové",
-      "property_type": "land",
-      "price": "5 760 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "3600",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/66f12f49c44ec8a3d200e396/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
@@ -729,6 +721,24 @@
     },
     {
       "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemky pro bydlení, 3 600 m2 - Chlumec nad Cidlinou",
+      "location": "Chlumec nad Cidlinou, okres Hradec Králové",
+      "property_type": "land",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "unknown",
+      "land_area_m2": "3600",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/66f12f49c44ec8a3d200e396/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
         "sreality.cz"
       ],
       "title": "Prodej vícegeneračního domu 216 m², pozemek 1160 m²",
@@ -761,25 +771,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3674644556"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 3600 m²",
-      "location": "Chlumec nad Cidlinou, Hradec Králové",
-      "property_type": "land",
-      "price": "5 760 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "3600",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/chlumec-nad-cidlinou/173376076"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/173376076",
-        "buildable-land"
       ]
     },
     {

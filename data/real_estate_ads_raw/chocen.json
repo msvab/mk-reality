@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 15,
-    "rows_retained": 4,
+    "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -246,8 +246,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1402684236",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1402684236",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -290,6 +300,7 @@
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3611-usti-nad-orlici/pardubicky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Choce%C5%88&form%5Bcena_mena%5D=1",
+    "stale-detail-fetch:1402684236:Failed to fetch https://www.sreality.cz/api/v1/estates/1402684236: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2052412236"
   ],
   "listings": [
@@ -327,24 +338,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3422150732"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 177 m², pozemek 1185 m²",
-      "location": "Choceň, Ústí nad Orlicí",
-      "property_type": "house",
-      "price": "8 750 000 Kč",
-      "house_area_m2": "177",
-      "land_area_m2": "1185",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/chocen-plchuvky/1402684236"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1402684236"
       ]
     },
     {
