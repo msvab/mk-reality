@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 20,
-    "rows_retained": 6,
+    "candidates_gathered": 21,
+    "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -156,6 +156,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/destne-v-orlickych-horach/6874ade06efb7ad66003aac5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/686ea7ab6f31736481066153/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -354,8 +362,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/4257796172",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4257796172",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -384,6 +402,7 @@
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/destne-v-orlickych-horach/6a71c9c261a1f7900c0e04f5/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/destne-v-orlickych-horach/6889b3fa77560f0a840207d6/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/destne-v-orlickych-horach/6874ade06efb7ad66003aac5/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/rokytnice-v-orlickych-horach/686ea7ab6f31736481066153/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/destne-v-orlickych-horach/6a630f1f786a7725690dbf25/",
     "removed-fallback-page:https://realitymix.cz/detail/destne-v-orlickych-horach/prodej-rodinneho-domu-400-m-destne-v-orlickych-horach-8454415.html",
     "missing-page-url:house",
@@ -397,6 +416,7 @@
     "missing-price:https://www.sreality.cz/api/v1/estates/1477055308",
     "missing-price:https://www.sreality.cz/api/v1/estates/1934741580",
     "stale-detail-fetch:2056414028:Failed to fetch https://www.sreality.cz/api/v1/estates/2056414028: HTTP 404",
+    "stale-detail-fetch:4257796172:Failed to fetch https://www.sreality.cz/api/v1/estates/4257796172: HTTP 404",
     "stale-detail-fetch:662397516:Failed to fetch https://www.sreality.cz/api/v1/estates/662397516: HTTP 404"
   ],
   "listings": [
@@ -487,25 +507,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1067352140"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1500 m²",
-      "location": "Deštné v Orlických horách, Rychnov nad Kněžnou",
-      "property_type": "land",
-      "price": "2 990 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1500",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/destne-v-orlickych-horach/4257796172"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/4257796172",
-        "buildable-land"
       ]
     }
   ]

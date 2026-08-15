@@ -29,12 +29,13 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
+    "workers_with_results": 1,
     "candidates_gathered": 9,
-    "rows_retained": 3,
+    "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
-      "reality.aktualne.cz"
+      "reality.aktualne.cz",
+      "sreality.cz"
     ],
     "blocked_portals": []
   },
@@ -52,8 +53,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Sreality row."
+      "status": "no_results",
+      "message": "No retained in-scope Sreality rows."
     }
   },
   "fetch_attempts": [
@@ -206,8 +207,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1772565324",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1772565324",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -228,6 +239,7 @@
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Hn%C3%A1tnice&form%5Bcena_mena%5D=1",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1385694028",
+    "stale-detail-fetch:1772565324:Failed to fetch https://www.sreality.cz/api/v1/estates/1772565324: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/416023372"
   ],
   "listings": [
@@ -264,25 +276,6 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej pozemku 7673 m²",
-      "location": "Hnátnice, Ústí nad Orlicí",
-      "property_type": "land",
-      "price": "2 685 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "7673",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/ostatni/hnatnice/1772565324"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1772565324",
         "buildable-land"
       ]
     }

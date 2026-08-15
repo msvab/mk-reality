@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 17,
-    "rows_retained": 6,
+    "candidates_gathered": 18,
+    "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -157,6 +157,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-116343",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/moravany/6a031f51053714ceee0fa41a/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -346,6 +354,7 @@
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/ostretin/699d67b1a21d09cf9b0e634f/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/ostretin/6a44e2d15f45676aa304c768/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/moravany/6a031f51053714ceee0fa41a/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ostretin/6a614ba2e8b1614b020d5407/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/ostretin/699309d4285e9ba0cd00b9e0/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/ostretin/690e3396a7227bd9c30f6eff/",
@@ -358,7 +367,8 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2198475596",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3236470860",
     "stale-detail-fetch:3292095308:Failed to fetch https://www.sreality.cz/api/v1/estates/3292095308: HTTP 404",
-    "stale-detail-fetch:3695207244:Failed to fetch https://www.sreality.cz/api/v1/estates/3695207244: HTTP 404"
+    "stale-detail-fetch:3695207244:Failed to fetch https://www.sreality.cz/api/v1/estates/3695207244: HTTP 404",
+    "missing-price:https://www.sreality.cz/api/v1/estates/4024954956"
   ],
   "listings": [
     {
@@ -430,25 +440,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2232938572"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 2451 m²",
-      "location": "Ostřetín, Pardubice",
-      "property_type": "land",
-      "price": "6 200 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "2451",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/ostretin/4024954956"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/4024954956",
-        "buildable-land"
       ]
     },
     {

@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 5,
+    "candidates_gathered": 6,
     "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
@@ -93,6 +93,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-154784",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/moravany/6a031f51053714ceee0fa41a/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -196,6 +204,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/moravany/6a031f51053714ceee0fa41a/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/stare-zdanice/6a37d4374549257d4e03e0cf/",
     "missing-page-url:house",
     "missing-page-url:land",

@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 38,
-    "rows_retained": 15,
+    "candidates_gathered": 40,
+    "rows_retained": 17,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -211,6 +211,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/moravany/6a031f51053714ceee0fa41a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice-jungmannova/6a7cb17ae8bd6dedf301f350/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -292,6 +300,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/sezemice/6a7d6852c23a5c78a1037769/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/sezemice/6a7f21d038684eb6bf0822ff/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -522,18 +538,8 @@
       "url": "https://www.sreality.cz/api/v1/estates/4139679820",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/4139679820",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "sreality.cz",
@@ -547,6 +553,7 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/sezemice/6a69f65936608226f8069537/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/moravany/6a031f51053714ceee0fa41a/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice-jungmannova/6a7cb17ae8bd6dedf301f350/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/69c63211ec6c90a8c608658a/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/6a4664940dfba9716807d9cb/",
@@ -571,8 +578,7 @@
     "stale-detail-fetch:1438568524:Failed to fetch https://www.sreality.cz/api/v1/estates/1438568524: HTTP 404",
     "stale-detail-fetch:1896317004:Failed to fetch https://www.sreality.cz/api/v1/estates/1896317004: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/2149486668",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3357184076",
-    "stale-detail-fetch:4139679820:Failed to fetch https://www.sreality.cz/api/v1/estates/4139679820: HTTP 404"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3357184076"
   ],
   "listings": [
     {
@@ -701,6 +707,24 @@
       "portal": [
         "reality.idnes.cz"
       ],
+      "title": "Letní akce cena snížena z 3 490 000 Kč na 2 990 000 Kč.",
+      "location": "Sezemice, okres Pardubice",
+      "property_type": "land",
+      "price": "2 990 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1150",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/sezemice/6a7f21d038684eb6bf0822ff/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
       "title": "Prodej rodinného domu, 98 m2, Sezemice",
       "location": "Sezemice, okres Pardubice",
       "property_type": "house",
@@ -821,6 +845,25 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/4145508940",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1150 m²",
+      "location": "Sezemice, Pardubice",
+      "property_type": "land",
+      "price": "2 990 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1150",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/sezemice-veska/4139679820"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/4139679820",
         "buildable-land"
       ]
     },
