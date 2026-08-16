@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 43,
+    "candidates_gathered": 42,
     "rows_retained": 10,
     "zero_result_portals": [
       "realitymix.cz",
@@ -83,6 +83,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/696f943fd2e1e391420a5e58/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/6a465a98a48d7f487b0b7176/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -96,14 +104,6 @@
       "attempt": 1,
       "status": "fallback_page",
       "message": "Detail URL returned fallback or non-detail content."
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/696f943fd2e1e391420a5e58/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     },
     {
       "portal": "reality.idnes.cz",
@@ -195,8 +195,16 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-smiricka/68f9c0d167afc202bd06a178/",
-      "stage": "detail_fetch",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-51811",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-51811",
+      "stage": "search_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -622,7 +630,6 @@
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/6a465a98a48d7f487b0b7176/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/6779442d2cf9d968de0dcb77/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-smiricka/68f9c0d167afc202bd06a178/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-gollova/6a3e0a83a401e0070d0e6ed4/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-na-vinici/6a679f08d7f2a4dc36094a44/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-na-lukach/6a37d826aca346a58c04e0dd/",
@@ -681,24 +688,6 @@
       "portal": [
         "reality.idnes.cz"
       ],
-      "title": "Prodej pozemky pro bydlení 1257 m2, Chlumec nad Cidlinou IV",
-      "location": "Chlumec nad Cidlinou, okres Hradec Králové",
-      "property_type": "land",
-      "price": "5 150 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1257",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou-spravedlnost/6a4ba4dab03f45e9570ef4d9/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
       "title": "Prodej domu 95 m2 se zahradou 1263 m2",
       "location": "Chlumec nad Cidlinou, okres Hradec Králové",
       "property_type": "house",
@@ -710,6 +699,24 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemky pro bydlení 1257 m2, Chlumec nad Cidlinou IV",
+      "location": "Chlumec nad Cidlinou, okres Hradec Králové",
+      "property_type": "land",
+      "price": "4 890 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1257",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou-spravedlnost/6a4ba4dab03f45e9570ef4d9/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
       ]
     },
     {
@@ -788,25 +795,6 @@
       "portal": [
         "sreality.cz"
       ],
-      "title": "Prodej stavebního pozemku 1257 m²",
-      "location": "Chlumec nad Cidlinou, Spravedlnost, Hradec Králové",
-      "property_type": "land",
-      "price": "5 150 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1257",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/chlumec-nad-cidlinou-chlumec-nad-cidlinou-iv-spravedlnost/2792939596"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2792939596",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
       "title": "Prodej rodinného domu 95 m², pozemek 1396 m²",
       "location": "Chlumec nad Cidlinou, Spravedlnost, Hradec Králové",
       "property_type": "house",
@@ -819,6 +807,25 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/144012108"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1257 m²",
+      "location": "Chlumec nad Cidlinou, Spravedlnost, Hradec Králové",
+      "property_type": "land",
+      "price": "4 890 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1257",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/chlumec-nad-cidlinou-chlumec-nad-cidlinou-iv-spravedlnost/2792939596"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2792939596",
+        "buildable-land"
       ]
     },
     {

@@ -29,13 +29,14 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
+    "workers_with_results": 0,
     "candidates_gathered": 13,
-    "rows_retained": 1,
+    "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
-      "reality.aktualne.cz"
+      "reality.aktualne.cz",
+      "sreality.cz"
     ],
     "blocked_portals": []
   },
@@ -53,8 +54,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Sreality row."
+      "status": "no_results",
+      "message": "No retained in-scope Sreality rows."
     }
   },
   "fetch_attempts": [
@@ -249,8 +250,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1819533388",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1819533388",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
@@ -268,26 +279,8 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Podhorn%C3%AD+%C3%9Ajezd+a+Vojice&form%5Bcena_mena%5D=1",
-    "detail-fallback-page:https://reality.aktualne.cz/detail/podhorni-ujezd-a-vojice/prodej-pozemku-k-bydleni-1375-m-podhorni-ujezd-a-vojice-8085222.html"
+    "detail-fallback-page:https://reality.aktualne.cz/detail/podhorni-ujezd-a-vojice/prodej-pozemku-k-bydleni-1375-m-podhorni-ujezd-a-vojice-8085222.html",
+    "stale-detail-fetch:1819533388:Failed to fetch https://www.sreality.cz/api/v1/estates/1819533388: HTTP 404"
   ],
-  "listings": [
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej chalupy 200 m², pozemek 2077 m²",
-      "location": "Podhorní Újezd a Vojice, Jičín",
-      "property_type": "house",
-      "price": "4 500 000 Kč",
-      "house_area_m2": "200",
-      "land_area_m2": "2077",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/chalupa/podhorni-ujezd-a-vojice-vojice/1819533388"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1819533388"
-      ]
-    }
-  ]
+  "listings": []
 }

@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 25,
-    "rows_retained": 4,
+    "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -342,8 +342,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/438808652",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/438808652",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
@@ -371,7 +381,8 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1224155980",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2285817932",
     "missing-price:https://www.sreality.cz/api/v1/estates/4012699724",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4244722252"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4244722252",
+    "stale-detail-fetch:438808652:Failed to fetch https://www.sreality.cz/api/v1/estates/438808652: HTTP 404"
   ],
   "listings": [
     {
@@ -407,25 +418,6 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1308 m²",
-      "location": "Lázně Bohdaneč, Polní, Pardubice",
-      "property_type": "land",
-      "price": "9 200 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1308",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/lazne-bohdanec-polni/438808652"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/438808652",
-        "buildable-land"
       ]
     },
     {
