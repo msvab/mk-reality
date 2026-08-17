@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 31,
+    "candidates_gathered": 33,
     "rows_retained": 8,
     "zero_result_portals": [
       "reality.aktualne.cz"
@@ -140,6 +140,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-186520",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -362,6 +370,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/172184396",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/1900503884",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -437,6 +453,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/69c7a91890681dcfc0032410/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-u-zvonice/6a54c37038042cffe305d4a9/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji/6a5e2cc47ff49d45eb00df78/",
@@ -453,6 +470,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Nov%C3%A9+M%C4%9Bsto+nad+Metuj%C3%AD&form%5Bcena_mena%5D=1",
     "missing-price:https://www.sreality.cz/api/v1/estates/1426890828",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1458172492",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/172184396",
     "stale-detail-fetch:1900503884:Failed to fetch https://www.sreality.cz/api/v1/estates/1900503884: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/213893964",
     "missing-price:https://www.sreality.cz/api/v1/estates/2207088716",

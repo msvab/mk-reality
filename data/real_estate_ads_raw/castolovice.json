@@ -29,11 +29,10 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 0,
-    "candidates_gathered": 6,
-    "rows_retained": 0,
+    "workers_with_results": 1,
+    "candidates_gathered": 8,
+    "rows_retained": 1,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz",
       "sreality.cz"
@@ -42,8 +41,8 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -87,6 +86,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-18627",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/castolovice-siroka/6a81efa7a77d2665e00e69a3/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -189,6 +196,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1339605068",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/4109480524",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -209,7 +224,6 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/castolovice/68a076203c21fcd11e0b391e/",
-    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-18627",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/castolovice/69b019e0ca049a13330ae779/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/castolovice/68f6331aa631775a0e0983be/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/castolovice/695c733a8ffab693de03ba0d/",
@@ -217,7 +231,26 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=%C4%8Castolovice&form%5Bcena_mena%5D=1",
+    "missing-price:https://www.sreality.cz/api/v1/estates/1339605068",
     "stale-detail-fetch:4109480524:Failed to fetch https://www.sreality.cz/api/v1/estates/4109480524: HTTP 404"
   ],
-  "listings": []
+  "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu 5+1 v Častolovicích",
+      "location": "Častolovice, okres Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "190",
+      "land_area_m2": "1112",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/castolovice-siroka/6a81efa7a77d2665e00e69a3/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    }
+  ]
 }

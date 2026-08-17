@@ -29,14 +29,13 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 0,
-    "candidates_gathered": 9,
-    "rows_retained": 0,
+    "workers_with_results": 1,
+    "candidates_gathered": 10,
+    "rows_retained": 1,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
-      "reality.aktualne.cz",
-      "sreality.cz"
+      "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
@@ -54,8 +53,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Sreality rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -109,6 +108,22 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/smirice/6a7de8fc09c06334d5019b54/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/cernilov/6a63696a138c631a2a09d397/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/cernilov/6a2d185bfbc4cb0e2d0f1f96/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -118,14 +133,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/cernilov/6a26a478e4df1765f7095e54/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/cernilov/6a63696a138c631a2a09d397/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -232,25 +239,16 @@
       "url": "https://www.sreality.cz/api/v1/estates/2571886668",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/2571886668",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/smirice/6a7de8fc09c06334d5019b54/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cernilov/6a63696a138c631a2a09d397/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cernilov/6a2d185bfbc4cb0e2d0f1f96/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cernilov/6a26a478e4df1765f7095e54/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cernilov/6a63696a138c631a2a09d397/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cernilov/6a22af43ae144024110b3cbd/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cernilov/69a95a956e1fa923a50709ca/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/cernilov/67ff3ce331c357df4b01e429/",
@@ -258,8 +256,26 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=%C4%8Cernilov&form%5Bcena_mena%5D=1",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1017413708",
-    "stale-detail-fetch:2571886668:Failed to fetch https://www.sreality.cz/api/v1/estates/2571886668: HTTP 404"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1017413708"
   ],
-  "listings": []
+  "listings": [
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 300 m², pozemek 1252 m²",
+      "location": "Černilov, Hradec Králové",
+      "property_type": "house",
+      "price": "12 500 000 Kč",
+      "house_area_m2": "300",
+      "land_area_m2": "1252",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/cernilov/2571886668"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2571886668"
+      ]
+    }
+  ]
 }
