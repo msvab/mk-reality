@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 39,
+    "candidates_gathered": 37,
     "rows_retained": 9,
     "zero_result_portals": [
       "realitymix.cz",
@@ -75,27 +75,19 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/6a8156828085b8634105ff9b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/tyniste-nad-orlici/67bc3de5f574f739a2094145/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/698c94c43579c61f50030302/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/698c94c43579c61f50030302/",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -179,7 +171,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/6a8156828085b8634105ff9b/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici-voklik/6a01f867ef542e4282058154/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -196,14 +188,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/6a6faa557c2c95499a0c68c9/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici-voklik/6a01f867ef542e4282058154/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -459,24 +443,6 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/2546688844",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/2546688844",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/2800271436",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -534,10 +500,9 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/698c94c43579c61f50030302/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici-voklik/6a01f867ef542e4282058154/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/6a3925b4348e56a42c0b2b77/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/6a6faa557c2c95499a0c68c9/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici-voklik/6a01f867ef542e4282058154/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/6a450cff5377c7ff2c0d525c/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/6a0ae6ca8b0aa97a2403cfd5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/tyniste-nad-orlici/6a69edb4f4b6dc7c610ecad1/",
@@ -563,7 +528,6 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1157820492",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/180138060",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2289517388",
-    "stale-detail-fetch:2546688844:Failed to fetch https://www.sreality.cz/api/v1/estates/2546688844: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3404915532",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/456912972",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/468677452",

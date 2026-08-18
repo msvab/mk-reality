@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 16,
-    "rows_retained": 4,
+    "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -72,6 +72,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-porici-v-olsine/6a5da9cb9fc6252fa60b0a87/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -346,6 +354,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/velke-porici-v-olsine/6a5da9cb9fc6252fa60b0a87/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/velke-porici/6a565985a2529b54a00a24e8/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/velke-porici-brne/6968e1cc913ad7949805bfad/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
@@ -381,23 +390,6 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej 2 rodinných domů",
-      "location": "Velké Poříčí, okres Náchod",
-      "property_type": "house",
-      "price": "7 490 000 Kč",
-      "house_area_m2": "275",
-      "land_area_m2": "1300",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/velke-porici-v-olsine/6a5da9cb9fc6252fa60b0a87/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
       ]
     },
     {

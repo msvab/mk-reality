@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 3,
     "candidates_gathered": 59,
-    "rows_retained": 18,
+    "rows_retained": 17,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -745,8 +745,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3675037772",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3675037772",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -807,6 +817,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1924048204",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2137330508",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3485565004",
+    "stale-detail-fetch:3675037772:Failed to fetch https://www.sreality.cz/api/v1/estates/3675037772: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4077498444"
   ],
   "listings": [
@@ -1021,24 +1032,6 @@
       "notes": [
         "detail-url-verified:realitymix.cz",
         "municipal-part:Malé Poříčí"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 544 m², pozemek 1618 m²",
-      "location": "Náchod, Peklo, Náchod",
-      "property_type": "house",
-      "price": "14 000 000 Kč",
-      "house_area_m2": "544",
-      "land_area_m2": "1618",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/nachod-lipi-peklo/3675037772"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3675037772"
       ]
     },
     {

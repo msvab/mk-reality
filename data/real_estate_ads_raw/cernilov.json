@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 1,
-    "candidates_gathered": 10,
+    "candidates_gathered": 11,
     "rows_retained": 1,
     "zero_result_portals": [
       "reality.idnes.cz",
@@ -108,7 +108,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/smirice/6a7de8fc09c06334d5019b54/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/cernilov/6a8300b6bcfa8e581b001bc4/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -241,11 +241,19 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3893743692",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/smirice/6a7de8fc09c06334d5019b54/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cernilov/6a8300b6bcfa8e581b001bc4/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cernilov/6a63696a138c631a2a09d397/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cernilov/6a2d185bfbc4cb0e2d0f1f96/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cernilov/6a26a478e4df1765f7095e54/",
@@ -256,7 +264,8 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=%C4%8Cernilov&form%5Bcena_mena%5D=1",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1017413708"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1017413708",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3893743692"
   ],
   "listings": [
     {
