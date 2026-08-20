@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 16,
-    "rows_retained": 3,
+    "candidates_gathered": 15,
+    "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -64,22 +64,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-porici-v-olsine/6a5da9cb9fc6252fa60b0a87/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-porici-v-olsine/6a5da9cb9fc6252fa60b0a87/",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -322,8 +306,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/2246500428",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2246500428",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -354,7 +348,6 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/velke-porici-v-olsine/6a5da9cb9fc6252fa60b0a87/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/velke-porici/6a565985a2529b54a00a24e8/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/velke-porici-brne/6968e1cc913ad7949805bfad/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
@@ -371,6 +364,7 @@
     "detail-fallback-page:https://reality.aktualne.cz/detail/velke-porici/prodej-chalupy-155-m2-pozemek-1468-m2-brne-velke-porici-okr-nachod-8333333.html",
     "stale-detail-fetch:1671618636:Failed to fetch https://www.sreality.cz/api/v1/estates/1671618636: HTTP 404",
     "excluded-chata:https://www.sreality.cz/api/v1/estates/1728294988",
+    "stale-detail-fetch:2246500428:Failed to fetch https://www.sreality.cz/api/v1/estates/2246500428: HTTP 404",
     "stale-detail-fetch:2297271116:Failed to fetch https://www.sreality.cz/api/v1/estates/2297271116: HTTP 404"
   ],
   "listings": [
@@ -409,24 +403,6 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/472445004",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 275 m², pozemek 1300 m²",
-      "location": "Velké Poříčí, V Olšině, Náchod",
-      "property_type": "house",
-      "price": "7 490 000 Kč",
-      "house_area_m2": "275",
-      "land_area_m2": "1300",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/velke-porici-v-olsine/2246500428"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2246500428"
       ]
     }
   ]

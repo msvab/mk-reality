@@ -29,10 +29,11 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
-    "candidates_gathered": 15,
-    "rows_retained": 3,
+    "workers_with_results": 1,
+    "candidates_gathered": 14,
+    "rows_retained": 1,
     "zero_result_portals": [
+      "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz"
     ],
@@ -40,8 +41,8 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
+      "status": "no_results",
+      "message": "No retained in-scope iDNES rows."
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -64,6 +65,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chocen-v-kameni/699db3d70077381eda031c44/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -99,14 +108,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chocen-na-krepcich/68bd27492f82bbf650006294/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/chocen-svatojirska/6a2960dddc9d80bf080d9cf7/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -131,6 +132,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/tatenice/6a560e1b65e6fd28150f4e4a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/chocen/6a443035b5a99cba0a0d64eb/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -140,14 +149,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/chocen/6a4430b1d86fa734b30198c8/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chocen/6a0f3310a59b86b94906b8cb/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -172,6 +173,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/chocen/6a4431262b4dfea7500aca66/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/tatenice/6a560e44f4b56b60ec050083/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -264,16 +273,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1559257932",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/2052412236",
+      "url": "https://www.sreality.cz/api/v1/estates/1559257932",
       "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -286,42 +297,25 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chocen-na-krepcich/68bd27492f82bbf650006294/",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/chocen-v-kameni/699db3d70077381eda031c44/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chocen-svatojirska/6a2960dddc9d80bf080d9cf7/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chocen-jiraskova/6a4282dd432fd9c4b20664b6/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/chocen/6852b5ffa5941c3dcf0197d9/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/tatenice/6a560e1b65e6fd28150f4e4a/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/chocen/6a443035b5a99cba0a0d64eb/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/chocen/6a4430b1d86fa734b30198c8/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/chocen/6a0f3310a59b86b94906b8cb/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/chocen/6a2ab3d2e511c1c289088578/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/chocen/6a442e5876693dc0310afacc/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/chocen/6a4431262b4dfea7500aca66/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/tatenice/6a560e44f4b56b60ec050083/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3611-usti-nad-orlici/pardubicky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Choce%C5%88&form%5Bcena_mena%5D=1",
     "stale-detail-fetch:1402684236:Failed to fetch https://www.sreality.cz/api/v1/estates/1402684236: HTTP 404",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2052412236"
+    "stale-detail-fetch:1559257932:Failed to fetch https://www.sreality.cz/api/v1/estates/1559257932: HTTP 404"
   ],
   "listings": [
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej pozemku k bydlení, 1000 m2, Choceň, ul. V Kamení",
-      "location": "Choceň, okres Ústí nad Orlicí",
-      "property_type": "land",
-      "price": "3 490 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1000",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/chocen-v-kameni/699db3d70077381eda031c44/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
     {
       "portal": [
         "sreality.cz"
@@ -338,25 +332,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3422150732"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1000 m²",
-      "location": "Choceň, V Kamení, Ústí nad Orlicí",
-      "property_type": "land",
-      "price": "3 490 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1000",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/chocen-v-kameni/1559257932"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1559257932",
-        "buildable-land"
       ]
     }
   ]

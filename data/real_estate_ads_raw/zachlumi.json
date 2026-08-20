@@ -29,12 +29,13 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
-    "candidates_gathered": 9,
-    "rows_retained": 2,
+    "workers_with_results": 1,
+    "candidates_gathered": 10,
+    "rows_retained": 1,
     "zero_result_portals": [
       "realitymix.cz",
-      "reality.aktualne.cz"
+      "reality.aktualne.cz",
+      "sreality.cz"
     ],
     "blocked_portals": []
   },
@@ -52,8 +53,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Sreality row."
+      "status": "no_results",
+      "message": "No retained in-scope Sreality rows."
     }
   },
   "fetch_attempts": [
@@ -100,6 +101,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/zachlumi/6a4cec9fce8dc943c805c6d7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/tatenice/6a560e1b65e6fd28150f4e4a/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -232,8 +241,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/2782660428",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2782660428",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -248,6 +267,7 @@
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/zachlumi/69690dec7c9a9c22bc0aa259/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/zachlumi/6a4cec9fce8dc943c805c6d7/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/tatenice/6a560e1b65e6fd28150f4e4a/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3611-usti-nad-orlici/pardubicky/prodej-pozemky.html",
@@ -256,6 +276,7 @@
     "stale-detail-fetch:1197834316:Failed to fetch https://www.sreality.cz/api/v1/estates/1197834316: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1832775756",
     "missing-price:https://www.sreality.cz/api/v1/estates/2737692748",
+    "stale-detail-fetch:2782660428:Failed to fetch https://www.sreality.cz/api/v1/estates/2782660428: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3840077900"
   ],
   "listings": [
@@ -275,24 +296,6 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej chalupy 80 m², pozemek 1199 m²",
-      "location": "Záchlumí, Ústí nad Orlicí",
-      "property_type": "house",
-      "price": "2 790 000 Kč",
-      "house_area_m2": "80",
-      "land_area_m2": "1199",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/chalupa/zachlumi-litice-nad-orlici/2782660428"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2782660428"
       ]
     }
   ]

@@ -29,13 +29,12 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
-    "candidates_gathered": 9,
-    "rows_retained": 2,
+    "workers_with_results": 2,
+    "candidates_gathered": 10,
+    "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz",
-      "reality.aktualne.cz",
-      "sreality.cz"
+      "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
@@ -53,8 +52,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Sreality rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -109,6 +108,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/hnatnice/68f8d34b78d59f23b70fbd6d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/tatenice/6a560dcb4f8574b3840b9c8e/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -207,18 +214,8 @@
       "url": "https://www.sreality.cz/api/v1/estates/1772565324",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/1772565324",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "sreality.cz",
@@ -233,13 +230,13 @@
     "idnes-discovery-used-locality-id-cache",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/hnatnice/697a2ea953babf1e5b092c38/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/hnatnice/68f8d34b78d59f23b70fbd6d/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/tatenice/6a560dcb4f8574b3840b9c8e/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/hnatnice/685546430a430f5e680662d2/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hnatnice/690dbe3a3e1e8e9822053d36/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Hn%C3%A1tnice&form%5Bcena_mena%5D=1",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1385694028",
-    "stale-detail-fetch:1772565324:Failed to fetch https://www.sreality.cz/api/v1/estates/1772565324: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/416023372"
   ],
   "listings": [
@@ -276,6 +273,25 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej pozemku 7673 m²",
+      "location": "Hnátnice, Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "2 685 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "7673",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/ostatni/hnatnice/1772565324"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1772565324",
         "buildable-land"
       ]
     }

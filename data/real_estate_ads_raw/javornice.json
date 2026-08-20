@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 15,
-    "rows_retained": 9,
+    "candidates_gathered": 17,
+    "rows_retained": 11,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -133,6 +133,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-57819",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/javornice/6a847dc6af3dc4b4850bb69c/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -244,6 +252,14 @@
     {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/1078587468",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1083097164",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -385,6 +401,24 @@
     },
     {
       "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemku k bydlení v Javornici",
+      "location": "Javornice, okres Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "3 544 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1772",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/javornice/6a847dc6af3dc4b4850bb69c/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
         "sreality.cz"
       ],
       "title": "Prodej rodinného domu 223 m², pozemek 5844 m²",
@@ -473,6 +507,25 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1078587468"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1772 m²",
+      "location": "Javornice, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "3 544 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1772",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/javornice/1083097164"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1083097164",
+        "buildable-land"
       ]
     }
   ]

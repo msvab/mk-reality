@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 11,
-    "rows_retained": 6,
+    "candidates_gathered": 10,
+    "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -80,6 +80,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/69d654808aed7570eb00d757/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -235,14 +243,6 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/2023338060",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/2721600076",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -252,6 +252,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/69d654808aed7570eb00d757/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/68f68982a3f0cffc380f498d/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/68f6363619d4999f94085a62/",
@@ -260,7 +261,6 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/pronajem-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Velk%C3%A1+Jesenice&form%5Bcena_mena%5D=1",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2023338060",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2721600076"
   ],
   "listings": [
@@ -293,24 +293,6 @@
       "land_area_m2": "3296",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/6807dfa9ed4d3ab666027640/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Stavební pozemek Hradec Králové Náchod Jaroměř Dvůr Králové 1867 m2",
-      "location": "Velká Jesenice, okres Náchod",
-      "property_type": "land",
-      "price": "2 290 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1867",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/69d654808aed7570eb00d757/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
