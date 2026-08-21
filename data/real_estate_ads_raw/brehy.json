@@ -29,10 +29,11 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
-    "candidates_gathered": 8,
-    "rows_retained": 1,
+    "workers_with_results": 0,
+    "candidates_gathered": 7,
+    "rows_retained": 0,
     "zero_result_portals": [
+      "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz",
       "sreality.cz"
@@ -41,8 +42,8 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
+      "status": "no_results",
+      "message": "No retained in-scope iDNES rows."
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -65,6 +66,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/brehy/6a0dec42f790bd5e0a0015df/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -94,6 +103,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-13773",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/moravany/6a82f4e384770560cd0515ac/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -133,14 +150,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/brehy/69b29a5e12208065be0d62c6/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/steblova/6a6713c4804cd037c0099c0f/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -201,47 +210,20 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/2780860492",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/brehy/6a0dec42f790bd5e0a0015df/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/moravany/6a82f4e384770560cd0515ac/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/brehy-bahnikova/68e394efe58f07a3ee06d039/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/brehy-nerudova/6a7dcf85393c6d40c50263df/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/brehy-druzstevni/6a3fcc9e3b0bb6ca930a451b/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/jenikovice/6a719d2531fe0e300906aca4/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/brehy/69b29a5e12208065be0d62c6/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/steblova/6a6713c4804cd037c0099c0f/",
     "missing-page-url:house",
     "missing-page-url:land",
-    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=B%C5%99ehy&form%5Bcena_mena%5D=1",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2780860492"
+    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=B%C5%99ehy&form%5Bcena_mena%5D=1"
   ],
-  "listings": [
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej stavebního pozemku 2 967 m2, Břehy",
-      "location": "Břehy, okres Pardubice",
-      "property_type": "land",
-      "price": "5 340 600 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "2967",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/brehy/6a0dec42f790bd5e0a0015df/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    }
-  ]
+  "listings": []
 }

@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 41,
-    "rows_retained": 13,
+    "candidates_gathered": 39,
+    "rows_retained": 11,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -315,14 +315,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/6a71f29265d892209f0c1257/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -430,8 +422,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1647911756",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1647911756",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -505,14 +507,6 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/305717324",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/3903377484",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -524,8 +518,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/4002722636",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4002722636",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -603,7 +607,6 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/6a0b0fe0fe05648391097fd3/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/6a0b0f47bbc5ec864107fcb6/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/6a0b0e3ae9c71ce86c03a3fd/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/6a71f29265d892209f0c1257/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice-svermova/69eb642ed890b24c0d0ba03f/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/697b176d6369e8777e0eb598/",
@@ -613,12 +616,13 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=%C4%8Cesk%C3%A1+Skalice&form%5Bcena_mena%5D=1",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1011643212",
+    "stale-detail-fetch:1647911756:Failed to fetch https://www.sreality.cz/api/v1/estates/1647911756: HTTP 404",
     "stale-detail-fetch:1809216332:Failed to fetch https://www.sreality.cz/api/v1/estates/1809216332: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2098319436",
     "stale-detail-fetch:2225501004:Failed to fetch https://www.sreality.cz/api/v1/estates/2225501004: HTTP 404",
     "stale-detail-fetch:2832991564:Failed to fetch https://www.sreality.cz/api/v1/estates/2832991564: HTTP 404",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/305717324",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3903377484",
+    "stale-detail-fetch:4002722636:Failed to fetch https://www.sreality.cz/api/v1/estates/4002722636: HTTP 404",
     "stale-detail-fetch:4177117772:Failed to fetch https://www.sreality.cz/api/v1/estates/4177117772: HTTP 404",
     "stale-detail-fetch:43618380:Failed to fetch https://www.sreality.cz/api/v1/estates/43618380: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/702309196"
@@ -768,25 +772,6 @@
       "portal": [
         "sreality.cz"
       ],
-      "title": "Prodej stavebního pozemku 9241 m²",
-      "location": "Česká Skalice, Jiráskova, Náchod",
-      "property_type": "land",
-      "price": "19 900 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "9241",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/ceska-skalice-jiraskova/4002722636"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/4002722636",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
       "title": "Prodej rodinného domu 211 m², pozemek 2261 m²",
       "location": "Česká Skalice, Hurdálkovo náměstí, Náchod",
       "property_type": "house",
@@ -835,25 +820,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/4048388172",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 2713 m²",
-      "location": "Česká Skalice, Náchod",
-      "property_type": "land",
-      "price": "4 900 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "2713",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/ceska-skalice-spyta/1647911756"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1647911756",
         "buildable-land"
       ]
     }

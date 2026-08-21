@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 17,
-    "rows_retained": 11,
+    "candidates_gathered": 18,
+    "rows_retained": 10,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -67,6 +67,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/javornice/6a5f64086e1b2fd7ff0ebd45/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/javornice/692ddc54fe2b2af0b70ad114/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -84,6 +92,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/javornice/6a2fdabdc2a1f3a0bb0732e5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/javornice/6a847dc6af3dc4b4850bb69c/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -139,7 +155,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/javornice/6a847dc6af3dc4b4850bb69c/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/javornice/6a86c1309277fcf0960730f0/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -316,6 +332,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/javornice/6a5f64086e1b2fd7ff0ebd45/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/javornice/6735d4802e512b1892094600/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/javornice/67ff4514e0263712bf0ad5e8/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/javornice/6735d3a172b8bae09f0d65f2/",
@@ -326,26 +343,10 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Javornice&form%5Bcena_mena%5D=1",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2600579148",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2931979084"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2931979084",
+    "missing-price:https://www.sreality.cz/api/v1/estates/752189516"
   ],
   "listings": [
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej rodinného domu, Javornice - Jaroslav",
-      "location": "Javornice, okres Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "14 995 000 Kč",
-      "house_area_m2": "223",
-      "land_area_m2": "5844",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/javornice/6a5f64086e1b2fd7ff0ebd45/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
     {
       "portal": [
         "reality.idnes.cz"
@@ -419,20 +420,19 @@
     },
     {
       "portal": [
-        "sreality.cz"
+        "reality.idnes.cz"
       ],
-      "title": "Prodej rodinného domu 223 m², pozemek 5844 m²",
-      "location": "Javornice, Rychnov nad Kněžnou",
+      "title": "Prodej rodinného domu, Javornice - Jaroslav",
+      "location": "Javornice, okres Rychnov nad Kněžnou",
       "property_type": "house",
-      "price": "14 995 000 Kč",
+      "price": "Cena na vyžádání",
       "house_area_m2": "223",
       "land_area_m2": "5844",
       "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/javornice-jaroslav/752189516"
+        "https://reality.idnes.cz/detail/prodej/dum/javornice/6a86c1309277fcf0960730f0/"
       ],
       "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/752189516"
+        "detail-url-verified:reality.idnes.cz"
       ]
     },
     {
