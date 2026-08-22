@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 28,
-    "rows_retained": 7,
+    "candidates_gathered": 31,
+    "rows_retained": 9,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -186,6 +186,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/6a87ce3aa7dd64b8c6006d6d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/6a848540d642c94986094d2f/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -330,6 +338,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/172184396",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/1900503884",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -355,6 +371,14 @@
     {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/2430219084",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2439233612",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -416,6 +440,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Nov%C3%A9+M%C4%9Bsto+nad+Metuj%C3%AD&form%5Bcena_mena%5D=1",
     "missing-price:https://www.sreality.cz/api/v1/estates/1426890828",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1458172492",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/172184396",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1900503884",
     "missing-price:https://www.sreality.cz/api/v1/estates/213893964",
     "missing-price:https://www.sreality.cz/api/v1/estates/2207088716",
@@ -442,6 +467,24 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemku k bydlení, 4081 m2, Nové Město nad Metují",
+      "location": "Nové Město nad Metují, okres Náchod",
+      "property_type": "land",
+      "price": "7 350 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "4081",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/6a87ce3aa7dd64b8c6006d6d/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
       ]
     },
     {
@@ -548,6 +591,25 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1701995340"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 4081 m²",
+      "location": "Nové Město nad Metují, Náchod",
+      "property_type": "land",
+      "price": "7 350 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "4081",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/nove-mesto-nad-metuji-krcin/2439233612"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2439233612",
+        "buildable-land"
       ]
     }
   ]

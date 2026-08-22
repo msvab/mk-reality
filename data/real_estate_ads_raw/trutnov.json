@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 182,
-    "rows_retained": 79,
+    "candidates_gathered": 183,
+    "rows_retained": 77,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -119,6 +119,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trutnov-za-trati/6a44d0fd9de3f84a3f07eba7/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -274,14 +282,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trutnov-nad-poricskou/67e19202ca5ec59dbd026d54/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov-novorokytnicka/69c26c803292d7ea10056307/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -339,6 +339,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov/69f9a42bc1dbd5c5b0006bd8/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trutnov-nad-poricskou/67e19202ca5ec59dbd026d54/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -946,14 +954,6 @@
     },
     {
       "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/trutnov/prodej-stavebniho-pozemku-1469-m2-nad-poricskou-trutnov-8238383.html",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "realitymix.cz",
       "url": "https://realitymix.cz/detail/trutnov/prodej-pozemku-k-bydleni-2394-m-trutnov-8351291.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -1003,6 +1003,14 @@
     {
       "portal": "realitymix.cz",
       "url": "https://realitymix.cz/detail/trutnov/stavebni-pozemek-2384-m-8351091.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/prodej-stavebniho-pozemku-1469-m2-nad-poricskou-trutnov-8238383.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -1267,6 +1275,14 @@
     {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/1669967948",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1680064588",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -1761,8 +1777,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/803532876",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/803532876",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -1807,6 +1833,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/trutnov-za-trati/6a44d0fd9de3f84a3f07eba7/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/trutnov-petrikovicka/69ec7d238bd95a145000703a/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/trutnov-k-peti-bukum/69f3255591d6e9911d00ec78/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov/6a031a10260598ea110518d8/",
@@ -1855,6 +1882,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1523528780",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1628570188",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1669967948",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1680064588",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1720299596",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/174186572",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/181351500",
@@ -1893,6 +1921,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/635384908",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/721530956",
     "stale-detail-fetch:740552780:Failed to fetch https://www.sreality.cz/api/v1/estates/740552780: HTTP 404",
+    "stale-detail-fetch:803532876:Failed to fetch https://www.sreality.cz/api/v1/estates/803532876: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/831107148",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/849886044",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/951597916"
@@ -2015,24 +2044,6 @@
       "land_area_m2": "2437",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/pozemek/trutnov/69dfe6dfeef060833d05e906/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej, stavební pozemek Trutnov",
-      "location": "Trutnov, okres Trutnov",
-      "property_type": "land",
-      "price": "5 885 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1100",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/trutnov-za-trati/6a44d0fd9de3f84a3f07eba7/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
@@ -2980,25 +2991,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2836508748",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1100 m²",
-      "location": "Trutnov, Za Tratí, Trutnov",
-      "property_type": "land",
-      "price": "5 885 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1100",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/trutnov-horni-predmesti-za-trati/803532876"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/803532876",
         "buildable-land"
       ]
     },

@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 11,
-    "rows_retained": 3,
+    "candidates_gathered": 10,
+    "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -75,6 +75,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ostresany/69ff24b68cd988c4ed01c292/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/domy/ostresany/",
       "stage": "search_fetch",
       "attempt": 1,
@@ -107,7 +115,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/moravany/6a82f4e384770560cd0515ac/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/moravany/6a031f51053714ceee0fa41a/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -139,7 +147,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/steblova/6a6713c4804cd037c0099c0f/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/jenikovice/6a719d2531fe0e300906aca4/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -211,14 +219,6 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/1306234956",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/212303948",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -236,16 +236,16 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/moravany/6a82f4e384770560cd0515ac/",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/ostresany/69ff24b68cd988c4ed01c292/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/moravany/6a031f51053714ceee0fa41a/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ostresany-druzstevni-ii/69b8521a53c8a5796107a441/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ostresany/6a7af3c47017e57b8d0a0c82/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ostresany-rockova/6a1fddfa80e85deb1d0a6bd0/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/steblova/6a6713c4804cd037c0099c0f/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/jenikovice/6a719d2531fe0e300906aca4/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/ostresany/6925869324f982567b038479/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Ost%C5%99e%C5%A1any&form%5Bcena_mena%5D=1",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1306234956",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/517022540"
   ],
   "listings": [
@@ -264,24 +264,6 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej stavebních pozemků celkem 3 106 m2, Ostřešany u Pardubic",
-      "location": "Ostřešany, okres Pardubice",
-      "property_type": "land",
-      "price": "6 790 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "3106",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/ostresany/69ff24b68cd988c4ed01c292/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
       ]
     },
     {
