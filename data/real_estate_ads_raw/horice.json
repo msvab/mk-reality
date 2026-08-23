@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 24,
-    "rows_retained": 7,
+    "rows_retained": 6,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -99,7 +99,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/horice-barakova/6a310d5a561846919105c5eb/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/horice-k-obelisku/6a8571cb15a5ac6835003d40/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -107,7 +107,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/horice-k-obelisku/6a8571cb15a5ac6835003d40/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/horice-barakova/6a310d5a561846919105c5eb/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -278,8 +278,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/2064503628",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2064503628",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -369,8 +379,8 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/horice-vsehrdova/6a4ff9c70791a9f81f0b991f/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/horice-barakova/6a310d5a561846919105c5eb/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/horice-k-obelisku/6a8571cb15a5ac6835003d40/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/horice-barakova/6a310d5a561846919105c5eb/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/horice-karlova/6a2a707ae4ca22d3a50a70e9/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/horice-betlem/6a82d37ee9070d93990ba3b3/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/horice-namesti-jiriho-z-podebrad/6a74d7e976dd196e640fb8ab/",
@@ -384,6 +394,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3604-jicin/kralovehradecky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Ho%C5%99ice&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/horice/investicni-prilezitost-v-centru-horic-cinzovni-dum-s-peti-byty-a-povolenim-k-pudni-vestavbe-8540061.html",
+    "stale-detail-fetch:2064503628:Failed to fetch https://www.sreality.cz/api/v1/estates/2064503628: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/2267869260",
     "stale-detail-fetch:3038310476:Failed to fetch https://www.sreality.cz/api/v1/estates/3038310476: HTTP 404",
     "stale-detail-fetch:315188044:Failed to fetch https://www.sreality.cz/api/v1/estates/315188044: HTTP 404",
@@ -441,24 +452,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3123446348"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 520 m², pozemek 1389 m²",
-      "location": "Hořice, Maixnerova, Jičín",
-      "property_type": "house",
-      "price": "12 700 000 Kč",
-      "house_area_m2": "520",
-      "land_area_m2": "1389",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/horice-maixnerova/2064503628"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2064503628"
       ]
     },
     {

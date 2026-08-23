@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 59,
-    "rows_retained": 18,
+    "candidates_gathered": 60,
+    "rows_retained": 17,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -268,6 +268,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-101354",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -745,8 +753,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3675037772",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3675037772",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -768,6 +786,7 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/nachod/6a3118cf23d2acd8d30ae1c8/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/nachod/6a3121084b4cd949bf08cff3/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod-jugoslavska/6a69e8bee6ce1d62b00dc880/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/nachod-u-prachovny/6a3a485bbcc887f2e103d500/",
@@ -807,6 +826,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2137330508",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3449667660",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3485565004",
+    "stale-detail-fetch:3675037772:Failed to fetch https://www.sreality.cz/api/v1/estates/3675037772: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4077498444"
   ],
   "listings": [
@@ -1021,24 +1041,6 @@
       "notes": [
         "detail-url-verified:realitymix.cz",
         "municipal-part:Malé Poříčí"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 544 m², pozemek 1618 m²",
-      "location": "Náchod, Peklo, Náchod",
-      "property_type": "house",
-      "price": "14 000 000 Kč",
-      "house_area_m2": "544",
-      "land_area_m2": "1618",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/nachod-lipi-peklo/3675037772"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3675037772"
       ]
     },
     {

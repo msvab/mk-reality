@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 9,
+    "candidates_gathered": 10,
     "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz",
@@ -125,6 +125,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-178411",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -245,6 +253,7 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/69d654808aed7570eb00d757/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/68f68982a3f0cffc380f498d/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/68f6363619d4999f94085a62/",
     "missing-page-url:house",

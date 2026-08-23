@@ -123,6 +123,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/machov/69bcf4f5c0b61f365e02d7fa/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -195,24 +203,6 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/2854622028",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/2854622028",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/656544588",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -230,12 +220,12 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/machov/69bcf4f5c0b61f365e02d7fa/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Machov&form%5Bcena_mena%5D=1",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1094337356",
-    "stale-detail-fetch:2854622028:Failed to fetch https://www.sreality.cz/api/v1/estates/2854622028: HTTP 404"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1094337356"
   ],
   "listings": [
     {
