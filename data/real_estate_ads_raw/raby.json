@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 25,
-    "rows_retained": 7,
+    "candidates_gathered": 23,
+    "rows_retained": 6,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -171,7 +171,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/moravany/6a031f51053714ceee0fa41a/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/moravany/6a82f4e384770560cd0515ac/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -212,6 +212,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/raby/6a52757903ceb62abe024736/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/jenikovice/6a719d2531fe0e300906aca4/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -342,16 +350,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1708409676",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/1850454092",
+      "url": "https://www.sreality.cz/api/v1/estates/1708409676",
       "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -364,14 +374,6 @@
     {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/3251856204",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/3377180748",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -392,14 +394,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/869957708",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
@@ -407,11 +401,12 @@
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/raby/69d227b0be872903380bfebc/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/raby/69d226983d5174322a04caf5/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/raby/6a171c906a42a77388051d3b/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/moravany/6a031f51053714ceee0fa41a/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/moravany/6a82f4e384770560cd0515ac/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/raby/6a736666f6bec0e7580c17e2/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/raby/68b73570d0a87c8dac0e1d7f/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/steblova/6a6713c4804cd037c0099c0f/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/raby/6a52757903ceb62abe024736/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/jenikovice/6a719d2531fe0e300906aca4/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3606-pardubice/pardubicky/prodej-domy_vily.html",
@@ -421,12 +416,10 @@
     "missing-price:https://www.sreality.cz/api/v1/estates/1188089932",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/138207308",
     "missing-price:https://www.sreality.cz/api/v1/estates/1426513996",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1850454092",
+    "stale-detail-fetch:1708409676:Failed to fetch https://www.sreality.cz/api/v1/estates/1708409676: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2029409100",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3377180748",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/38400076",
-    "missing-price:https://www.sreality.cz/api/v1/estates/843046988",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/869957708"
+    "missing-price:https://www.sreality.cz/api/v1/estates/843046988"
   ],
   "listings": [
     {
@@ -516,24 +509,6 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 89 m², pozemek 1001 m²",
-      "location": "Ráby, Pardubice",
-      "property_type": "house",
-      "price": "10 999 000 Kč",
-      "house_area_m2": "89",
-      "land_area_m2": "1001",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/raby/1708409676"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1708409676"
       ]
     },
     {
