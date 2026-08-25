@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 35,
+    "candidates_gathered": 34,
     "rows_retained": 7,
     "zero_result_portals": [
       "realitymix.cz",
@@ -59,6 +59,14 @@
   "fetch_attempts": [
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-havlickova/6a8b3fb303a1b10a7e05b38c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/6a2d575cb423425b0f0b393a/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -84,22 +92,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/trebechovice-pod-orebem/698ce8ecee6c70da7e0c38f1/",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Detail URL returned fallback or non-detail content."
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-havlickova/6a298c08a9556ec61b0c7b57/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-havlickova/6a298c08a9556ec61b0c7b57/",
       "stage": "detail_parse",
       "attempt": 1,
       "status": "fallback_page",
@@ -244,14 +236,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/trebechovice-pod-orebem/680c89dc753f27eee908356f/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-havlickova/6a8b3fb303a1b10a7e05b38c/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -531,24 +515,6 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/4171595852",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/4171595852",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/4293288524",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -564,6 +530,14 @@
       "status": "not_found",
       "http_status": 404,
       "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/814923852",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "sreality.cz",
@@ -577,7 +551,6 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/trebechovice-pod-orebem/698ce8ecee6c70da7e0c38f1/",
-    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-havlickova/6a298c08a9556ec61b0c7b57/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/69ce1340801b8004c90c5db5/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-havlickova/69ea0c387faac1f065000996/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/6996e1a87270f3f442021823/",
@@ -607,8 +580,8 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=T%C5%99ebechovice+pod+Orebem&form%5Bcena_mena%5D=1",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1317061452",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2484314956",
-    "stale-detail-fetch:4171595852:Failed to fetch https://www.sreality.cz/api/v1/estates/4171595852: HTTP 404",
     "stale-detail-fetch:4293288524:Failed to fetch https://www.sreality.cz/api/v1/estates/4293288524: HTTP 404",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/814923852",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/85979212"
   ],
   "listings": [

@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 10,
-    "rows_retained": 4,
+    "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -262,8 +262,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/2471551052",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2471551052",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -303,6 +313,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3602-hradec-kralove/kralovehradecky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=St%C4%9B%C5%BEery&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/stezery/pozemek-bydleni-prodej-hribsko-stezery-hradec-kralove-8627107.html",
+    "stale-detail-fetch:2471551052:Failed to fetch https://www.sreality.cz/api/v1/estates/2471551052: HTTP 404",
     "stale-detail-fetch:763662412:Failed to fetch https://www.sreality.cz/api/v1/estates/763662412: HTTP 404"
   ],
   "listings": [
@@ -339,25 +350,6 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 14692 m²",
-      "location": "Stěžery, Polní, Hradec Králové",
-      "property_type": "land",
-      "price": "46 990 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "14692",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/stezery-polni/2471551052"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2471551052",
-        "buildable-land"
       ]
     },
     {

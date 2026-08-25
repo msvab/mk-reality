@@ -29,13 +29,14 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
+    "workers_with_results": 0,
     "candidates_gathered": 13,
-    "rows_retained": 1,
+    "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
-      "reality.aktualne.cz"
+      "reality.aktualne.cz",
+      "sreality.cz"
     ],
     "blocked_portals": []
   },
@@ -53,8 +54,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Sreality row."
+      "status": "no_results",
+      "message": "No retained in-scope Sreality rows."
     }
   },
   "fetch_attempts": [
@@ -265,8 +266,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1984286796",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1984286796",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -330,28 +341,10 @@
     "detail-fallback-page:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinneho-domu-zemedelske-usedlosti-ceske-mezirici-8594143.html",
     "missing-price:https://www.sreality.cz/api/v1/estates/1496948812",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1779180108",
+    "stale-detail-fetch:1984286796:Failed to fetch https://www.sreality.cz/api/v1/estates/1984286796: HTTP 404",
     "stale-detail-fetch:2115625036:Failed to fetch https://www.sreality.cz/api/v1/estates/2115625036: HTTP 404",
     "stale-detail-fetch:3609899084:Failed to fetch https://www.sreality.cz/api/v1/estates/3609899084: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3978162252"
   ],
-  "listings": [
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej zemědělské usedlosti 90 m², pozemek 1359 m²",
-      "location": "České Meziříčí, Záhumenská, Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "3 800 000 Kč",
-      "house_area_m2": "90",
-      "land_area_m2": "1359",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/zemedelska-usedlost/ceske-mezirici-zahumenska/1984286796"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1984286796"
-      ]
-    }
-  ]
+  "listings": []
 }

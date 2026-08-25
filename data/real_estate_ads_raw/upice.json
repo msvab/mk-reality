@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 31,
-    "rows_retained": 11,
+    "candidates_gathered": 30,
+    "rows_retained": 10,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -251,14 +251,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/upice/68f7d125ca1e6bbf23098f75/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/upice/68f6b050ac639b6eba01f33b/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -460,8 +452,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/401683276",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/401683276",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -484,7 +486,6 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-a-bunzla/69d157c1a9ace00b760b38b5/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/upice/69aecb57c5c41641b3099aec/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/upice/6a16bf264a869a836f05df38/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/upice/68f7d125ca1e6bbf23098f75/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/upice/68f6b050ac639b6eba01f33b/",
     "missing-page-url:house",
     "missing-page-url:land",
@@ -498,6 +499,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1985642572",
     "stale-detail-fetch:3233665100:Failed to fetch https://www.sreality.cz/api/v1/estates/3233665100: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3888312396",
+    "stale-detail-fetch:401683276:Failed to fetch https://www.sreality.cz/api/v1/estates/401683276: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/4053696588"
   ],
   "listings": [
@@ -639,24 +641,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2462007884"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 110 m², pozemek 1592 m²",
-      "location": "Úpice, Chelčického, Trutnov",
-      "property_type": "house",
-      "price": "3 790 000 Kč",
-      "house_area_m2": "110",
-      "land_area_m2": "1592",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/upice-chelcickeho/401683276"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/401683276"
       ]
     },
     {
