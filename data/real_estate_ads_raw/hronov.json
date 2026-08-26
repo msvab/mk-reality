@@ -29,13 +29,12 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
-    "candidates_gathered": 32,
-    "rows_retained": 3,
+    "workers_with_results": 2,
+    "candidates_gathered": 34,
+    "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz",
-      "reality.aktualne.cz",
-      "sreality.cz"
+      "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
@@ -53,8 +52,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Sreality rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -213,6 +212,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hronov/6a8d524372ee98c9b70120fa/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -551,6 +558,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/615628876",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -590,6 +605,23 @@
     "missing-price:https://www.sreality.cz/api/v1/estates/524283980"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu ve Velkém Dřevíči",
+      "location": "Hronov, okres Náchod",
+      "property_type": "house",
+      "price": "3 490 000 Kč",
+      "house_area_m2": "260",
+      "land_area_m2": "1162",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/hronov/6a8d524372ee98c9b70120fa/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
     {
       "portal": [
         "reality.idnes.cz"
@@ -641,6 +673,24 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 260 m², pozemek 1162 m²",
+      "location": "Hronov, Náchod",
+      "property_type": "house",
+      "price": "3 490 000 Kč",
+      "house_area_m2": "260",
+      "land_area_m2": "1162",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/hronov-velky-drevic/615628876"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/615628876"
       ]
     }
   ]

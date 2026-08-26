@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 15,
-    "rows_retained": 3,
+    "candidates_gathered": 12,
+    "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -187,23 +187,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/mladkov/69fce39a5da5fb86b5077e27/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/mladkov/69cd6c4512c1fa0bf50e1528/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/tatenice/6a560dcb4f8574b3840b9c8e/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -228,14 +212,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/mladkov/6a67656b8df2e559680bac67/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/tatenice/6a560e1b65e6fd28150f4e4a/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -310,8 +286,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1771348044",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1771348044",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -353,17 +339,15 @@
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/mladkov/6a44add760be3b110a08153e/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/mladkov/6a0dc5294ed45f452f048d94/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/mladkov/6a7eb14e679b81b500016a4e/",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/mladkov/69fce39a5da5fb86b5077e27/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/mladkov/69cd6c4512c1fa0bf50e1528/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/tatenice/6a560dcb4f8574b3840b9c8e/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/mladkov/67fedcc8da19a41e50009ae6/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/mladkov/6a7cebf624cd89159e00cc44/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/mladkov/6a67656b8df2e559680bac67/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/tatenice/6a560e1b65e6fd28150f4e4a/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3611-usti-nad-orlici/pardubicky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Mladkov&form%5Bcena_mena%5D=1",
+    "stale-detail-fetch:1771348044:Failed to fetch https://www.sreality.cz/api/v1/estates/1771348044: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2909786188",
     "stale-detail-fetch:3120599116:Failed to fetch https://www.sreality.cz/api/v1/estates/3120599116: HTTP 404"
   ],
@@ -383,24 +367,6 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej chalupy 135 m², pozemek 1277 m²",
-      "location": "Mladkov, Ústí nad Orlicí",
-      "property_type": "house",
-      "price": "11 990 000 Kč",
-      "house_area_m2": "135",
-      "land_area_m2": "1277",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/chalupa/mladkov-vlckovice/1771348044"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1771348044"
       ]
     },
     {
