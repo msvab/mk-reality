@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 14,
-    "rows_retained": 6,
+    "candidates_gathered": 13,
+    "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -67,6 +67,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nemojov/68d4f4e432414779420fc007/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/nemojov/6a7b484c63a0efdce5095a7e/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -80,6 +88,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nemojov/68d4fb350cd1bfc52a048175/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -317,19 +333,21 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/2838352716",
+      "url": "https://www.sreality.cz/api/v1/estates/3274560332",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/3274560332",
       "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -370,6 +388,8 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/nemojov/68d4f4e432414779420fc007/",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/nemojov/68d4fb350cd1bfc52a048175/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/nemojov/6a671041ef1c95bc6109b534/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nemojov/67feed2f8ba352a30b0bf494/",
     "missing-page-url:house",
@@ -380,28 +400,11 @@
     "detail-fallback-page:https://reality.aktualne.cz/detail/nemojov/nemojov-pekny-stavebni-pozemek-8241167.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/nemojov/roubenka-dolni-nemojov-chalupa-s-kouzlem-i-vynosem-8468943.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2487644748",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2838352716",
+    "stale-detail-fetch:3274560332:Failed to fetch https://www.sreality.cz/api/v1/estates/3274560332: HTTP 404",
     "stale-detail-fetch:4261797964:Failed to fetch https://www.sreality.cz/api/v1/estates/4261797964: HTTP 404",
     "stale-detail-fetch:81231948:Failed to fetch https://www.sreality.cz/api/v1/estates/81231948: HTTP 404"
   ],
   "listings": [
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej novostavby rodinného domu 5+kk - projekt výstavby na výběr z 9 pozemků",
-      "location": "Nemojov, okres Trutnov",
-      "property_type": "house",
-      "price": "8 400 000 Kč",
-      "house_area_m2": "122",
-      "land_area_m2": "1366",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/nemojov/68d4f4e432414779420fc007/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
     {
       "portal": [
         "reality.idnes.cz"
@@ -417,42 +420,6 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej 9 stavebních pozemků, Dolní Nemojov",
-      "location": "Nemojov, okres Trutnov",
-      "property_type": "land",
-      "price": "2 718 340 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1366",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/nemojov/68d4fb350cd1bfc52a048175/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 122 m², pozemek 1366 m²",
-      "location": "Nemojov, Trutnov",
-      "property_type": "house",
-      "price": "8 400 000 Kč",
-      "house_area_m2": "122",
-      "land_area_m2": "1366",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/nemojov/3274560332"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3274560332"
       ]
     },
     {

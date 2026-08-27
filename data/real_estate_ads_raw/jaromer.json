@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 34,
-    "rows_retained": 6,
+    "rows_retained": 4,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -80,6 +80,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/jaromer-sterbova/6a0d6d9545052bd34807c1ab/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -187,7 +195,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/jaromer-rumunska/6a32c4ec64943dfbf30ed0f2/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/jaromer-havlickova/6930134de62728104c0d10c0/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -195,7 +203,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/jaromer-havlickova/6930134de62728104c0d10c0/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/jaromer-rumunska/6a32c4ec64943dfbf30ed0f2/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -462,8 +470,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/2155974732",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2155974732",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -508,9 +526,10 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/jaromer-sterbova/6a0d6d9545052bd34807c1ab/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/jaromer-rumunska/6a32c4ec64943dfbf30ed0f2/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/jaromer-havlickova/6930134de62728104c0d10c0/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/jaromer-rumunska/6a32c4ec64943dfbf30ed0f2/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/jaromer-husova/675f1b09287ffaa4e004b31f/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/jaromer-palackeho/6a7c7b8375934899c70f66e2/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/jaromer-ivanovova/695a55e7266094cd2d0b5cbd/",
@@ -536,6 +555,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Jarom%C4%9B%C5%99&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/jaromer/prodej-rodinneho-domu-46-m-jaromer-ul-sterbova-8599223.html",
+    "stale-detail-fetch:2155974732:Failed to fetch https://www.sreality.cz/api/v1/estates/2155974732: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/2264159052",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2979607884",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4027224140",
@@ -581,23 +601,6 @@
       "portal": [
         "reality.idnes.cz"
       ],
-      "title": "Prodej rodinného domu, 46 m2, Jaroměř, ul. Štěrbova",
-      "location": "Jaroměř, okres Náchod",
-      "property_type": "house",
-      "price": "4 950 000 Kč",
-      "house_area_m2": "46",
-      "land_area_m2": "1226",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/jaromer-sterbova/6a0d6d9545052bd34807c1ab/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
       "title": "Parcela pro rodinnou výstavbu.",
       "location": "Jaroměř, okres Náchod",
       "property_type": "land",
@@ -628,24 +631,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2399036236"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 46 m², pozemek 1226 m²",
-      "location": "Jaroměř, Štěrbova, Náchod",
-      "property_type": "house",
-      "price": "4 950 000 Kč",
-      "house_area_m2": "46",
-      "land_area_m2": "1226",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/jaromer-josefov-sterbova/2155974732"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2155974732"
       ]
     }
   ]
