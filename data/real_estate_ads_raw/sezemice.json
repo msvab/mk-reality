@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 43,
-    "rows_retained": 19,
+    "rows_retained": 17,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -104,6 +104,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice/6a6cb383473b997014057677/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -472,8 +480,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1440534604",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1440534604",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -576,6 +594,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/sezemice/6a6cb383473b997014057677/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/sezemice/6a69f65936608226f8069537/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/moravany/6a82f4e384770560cd0515ac/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice-jungmannova/6a7cb17ae8bd6dedf301f350/",
@@ -601,6 +620,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3606-pardubice/pardubicky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Sezemice&form%5Bcena_mena%5D=1",
     "stale-detail-fetch:1438568524:Failed to fetch https://www.sreality.cz/api/v1/estates/1438568524: HTTP 404",
+    "stale-detail-fetch:1440534604:Failed to fetch https://www.sreality.cz/api/v1/estates/1440534604: HTTP 404",
     "stale-detail-fetch:1896317004:Failed to fetch https://www.sreality.cz/api/v1/estates/1896317004: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/2149486668",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3357184076"
@@ -692,23 +712,6 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prostorný rodinný dům s udržovanou zahradou, garáží, dílnou a vlastním kouskem lesa na klidném místě",
-      "location": "Sezemice, okres Pardubice",
-      "property_type": "house",
-      "price": "7 850 000 Kč",
-      "house_area_m2": "202",
-      "land_area_m2": "1241",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/sezemice/6a6cb383473b997014057677/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
       ]
     },
     {
@@ -815,24 +818,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3232358476"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 202 m², pozemek 1241 m²",
-      "location": "Sezemice, Pardubice",
-      "property_type": "house",
-      "price": "7 850 000 Kč",
-      "house_area_m2": "202",
-      "land_area_m2": "1241",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/sezemice-kladina/1440534604"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1440534604"
       ]
     },
     {
