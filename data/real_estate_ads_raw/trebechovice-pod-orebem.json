@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 35,
-    "rows_retained": 7,
+    "rows_retained": 6,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -64,6 +64,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-havlickova/6a8b3fb303a1b10a7e05b38c/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -558,6 +566,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-havlickova/6a8b3fb303a1b10a7e05b38c/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/trebechovice-pod-orebem/698ce8ecee6c70da7e0c38f1/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/69ce1340801b8004c90c5db5/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-havlickova/69ea0c387faac1f065000996/",
@@ -594,23 +603,6 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/85979212"
   ],
   "listings": [
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej rodinného domu 487 m2, Třebechovice pod Orebem",
-      "location": "Třebechovice pod Orebem, okres Hradec Králové",
-      "property_type": "house",
-      "price": "13 995 000 Kč",
-      "house_area_m2": "436",
-      "land_area_m2": "2452",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-havlickova/6a8b3fb303a1b10a7e05b38c/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
     {
       "portal": [
         "reality.idnes.cz"
