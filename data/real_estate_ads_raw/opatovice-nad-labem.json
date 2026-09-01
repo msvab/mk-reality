@@ -29,13 +29,12 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
+    "workers_with_results": 2,
     "candidates_gathered": 19,
-    "rows_retained": 1,
+    "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
-      "reality.aktualne.cz",
-      "sreality.cz"
+      "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
@@ -53,8 +52,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Sreality rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -94,14 +93,6 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-111554",
       "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/moravany/6a82f4e384770560cd0515ac/",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -156,6 +147,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/opatovice-nad-labem/67fed494f3997d819a0f3a4b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/opatovice-nad-labem/6a1eaab272ad108a07007432/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -173,14 +172,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/opatovice-nad-labem/68540e95ce961276c00e58f5/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/opatovice-nad-labem/67fed494f3997d819a0f3a4b/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -302,6 +293,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1809104972",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/2568847436",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -327,17 +326,16 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/moravany/6a82f4e384770560cd0515ac/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/opatovice-nad-labem-lucni/685406c282d022dba109bc44/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/opatovice-nad-labem-zakova/6852ded0fa985e38a3030784/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/opatovice-nad-labem/6a71a625998568098703bbdd/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/opatovice-nad-labem/695c074a4f9cde2cec0fa253/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/opatovice-nad-labem-k-dubovce/6a215171f0e6c9d58602a273/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/opatovice-nad-labem-kuneticka/6a0490c8aff0f893ea029854/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/opatovice-nad-labem/67fed494f3997d819a0f3a4b/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/opatovice-nad-labem/6a1eaab272ad108a07007432/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/opatovice-nad-labem/6a574d0d6ec71ceb5703dbca/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/opatovice-nad-labem/68540e95ce961276c00e58f5/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/opatovice-nad-labem/67fed494f3997d819a0f3a4b/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/opatovice-nad-labem/6a29146894edc2fcfa0366c0/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/opatovice-nad-labem/6a44ab5535eee26a830a02f8/",
     "missing-page-url:house",
@@ -367,6 +365,24 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 166 m², pozemek 1172 m²",
+      "location": "Opatovice nad Labem, Pardubická, Pardubice",
+      "property_type": "house",
+      "price": "9 830 000 Kč",
+      "house_area_m2": "166",
+      "land_area_m2": "1172",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/opatovice-nad-labem-pardubicka/1809104972"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1809104972"
       ]
     }
   ]

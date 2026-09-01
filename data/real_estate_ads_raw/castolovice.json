@@ -29,12 +29,13 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
+    "workers_with_results": 1,
     "candidates_gathered": 7,
-    "rows_retained": 3,
+    "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
-      "reality.aktualne.cz"
+      "reality.aktualne.cz",
+      "sreality.cz"
     ],
     "blocked_portals": []
   },
@@ -52,8 +53,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Sreality row."
+      "status": "no_results",
+      "message": "No retained in-scope Sreality rows."
     }
   },
   "fetch_attempts": [
@@ -182,8 +183,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1156956236",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1156956236",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -219,6 +230,7 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=%C4%8Castolovice&form%5Bcena_mena%5D=1",
+    "stale-detail-fetch:1156956236:Failed to fetch https://www.sreality.cz/api/v1/estates/1156956236: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/1339605068",
     "stale-detail-fetch:4109480524:Failed to fetch https://www.sreality.cz/api/v1/estates/4109480524: HTTP 404"
   ],
@@ -256,25 +268,6 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 2994 m²",
-      "location": "Častolovice, Široká, Rychnov nad Kněžnou",
-      "property_type": "land",
-      "price": "9 500 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "2994",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/castolovice-siroka/1156956236"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1156956236",
-        "buildable-land"
       ]
     }
   ]

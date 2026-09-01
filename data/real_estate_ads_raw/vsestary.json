@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 18,
-    "rows_retained": 10,
+    "rows_retained": 9,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -147,14 +147,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vsestary/6a4640aaa48aa2cbef01902d/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/vsestary/6a942085f857097a700b11bd/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -164,6 +156,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/vsestary/6a943121cd160e6449045b0a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vsestary/6a956db2e0ec0d48740d1434/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -320,8 +320,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/2042998860",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2042998860",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -358,9 +368,9 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vsestary/6a4640aaa48aa2cbef01902d/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vsestary/6a942085f857097a700b11bd/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vsestary/6a943121cd160e6449045b0a/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vsestary/6a956db2e0ec0d48740d1434/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/vsestary/69e5dea1e963da39a5013ff6/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/vsestary/671209d5378560a8df08a3f5/",
     "missing-page-url:house",
@@ -370,6 +380,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=V%C5%A1estary&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/vsestary/prodej-pozemku-vsestary-1-073m2-8433537.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/vsestary/prodej-souboru-dvou-rodinnych-domku-s-velkorysou-zahradou-a-truhlarskou-dilnou-v-malebne-lokalite-vs-8524209.html",
+    "stale-detail-fetch:2042998860:Failed to fetch https://www.sreality.cz/api/v1/estates/2042998860: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/664396364"
   ],
   "listings": [
@@ -514,25 +525,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3267314508",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1432 m²",
-      "location": "Všestary, Hradec Králové",
-      "property_type": "land",
-      "price": "4 990 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1432",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/vsestary-rosnice/2042998860"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2042998860",
         "buildable-land"
       ]
     },

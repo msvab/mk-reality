@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 58,
-    "rows_retained": 23,
+    "candidates_gathered": 56,
+    "rows_retained": 21,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -277,14 +277,6 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-41173",
       "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/moravany/6a82f4e384770560cd0515ac/",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -624,8 +616,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/2035978316",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2035978316",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -680,8 +682,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3230330956",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3230330956",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -696,8 +708,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3765477452",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3765477452",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -733,14 +755,6 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/776851532",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/959271756",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -761,7 +775,6 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/holice/69b955b952dbcb7d2c093edb/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/moravany/6a82f4e384770560cd0515ac/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/holice/6a343b8f92f35b9505046b0f/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice-jiraskova/6a882a48ad7a301f1200055a/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/holice/6a7334d340f3372518074d7a/",
@@ -793,12 +806,13 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1239449676",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1543954508",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1938997324",
+    "stale-detail-fetch:2035978316:Failed to fetch https://www.sreality.cz/api/v1/estates/2035978316: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3070509900",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3114397772",
-    "missing-price:https://www.sreality.cz/api/v1/estates/3765477452",
+    "stale-detail-fetch:3230330956:Failed to fetch https://www.sreality.cz/api/v1/estates/3230330956: HTTP 404",
+    "stale-detail-fetch:3765477452:Failed to fetch https://www.sreality.cz/api/v1/estates/3765477452: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/617791564",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/660505164",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/776851532",
     "stale-detail-fetch:959271756:Failed to fetch https://www.sreality.cz/api/v1/estates/959271756: HTTP 404"
   ],
   "listings": [
@@ -1088,25 +1102,6 @@
       "portal": [
         "sreality.cz"
       ],
-      "title": "Prodej stavebního pozemku 2219 m²",
-      "location": "Holice, Staroholická, Pardubice",
-      "property_type": "land",
-      "price": "5 490 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "2219",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/holice-stare-holice-staroholicka/2035978316"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2035978316",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
       "title": "Prodej stavebního pozemku 2204 m²",
       "location": "Holice, Pardubice",
       "property_type": "land",
@@ -1120,24 +1115,6 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1533715276",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 76 m², pozemek 1343 m²",
-      "location": "Holice, Pardubice",
-      "property_type": "house",
-      "price": "4 590 000 Kč",
-      "house_area_m2": "76",
-      "land_area_m2": "1343",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/holice-koudelka/3230330956"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3230330956"
       ]
     },
     {

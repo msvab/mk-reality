@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 1,
     "candidates_gathered": 16,
-    "rows_retained": 2,
+    "rows_retained": 1,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
@@ -303,8 +303,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3759984716",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3759984716",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
@@ -325,27 +335,10 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=St%C3%A1rkov&form%5Bcena_mena%5D=1",
     "missing-price:https://www.sreality.cz/api/v1/estates/1497887564",
     "missing-price:https://www.sreality.cz/api/v1/estates/307753804",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3099639884"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3099639884",
+    "stale-detail-fetch:3759984716:Failed to fetch https://www.sreality.cz/api/v1/estates/3759984716: HTTP 404"
   ],
   "listings": [
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej chalupy 128 m², pozemek 3358 m²",
-      "location": "Stárkov, Náchod",
-      "property_type": "house",
-      "price": "4 490 000 Kč",
-      "house_area_m2": "128",
-      "land_area_m2": "3358",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/chalupa/starkov-chlivce/3759984716"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3759984716"
-      ]
-    },
     {
       "portal": [
         "sreality.cz"

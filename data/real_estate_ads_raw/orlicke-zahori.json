@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 18,
-    "rows_retained": 10,
+    "rows_retained": 8,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -264,8 +264,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1862144844",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1862144844",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -288,8 +298,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3566461004",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3566461004",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -322,8 +342,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/473830220",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/473830220",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -345,8 +375,10 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Orlick%C3%A9+Z%C3%A1ho%C5%99%C3%AD&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/orlicke-zahori/prodej-rodinneho-domu-orlicke-zahori-kunstat-u-orlickeho-zahori-okres-rychnov-nad-kneznou-8541339.html",
+    "stale-detail-fetch:1862144844:Failed to fetch https://www.sreality.cz/api/v1/estates/1862144844: HTTP 404",
+    "stale-detail-fetch:3566461004:Failed to fetch https://www.sreality.cz/api/v1/estates/3566461004: HTTP 404",
     "stale-detail-fetch:3988160588:Failed to fetch https://www.sreality.cz/api/v1/estates/3988160588: HTTP 404",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/473830220",
+    "stale-detail-fetch:473830220:Failed to fetch https://www.sreality.cz/api/v1/estates/473830220: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/621167436"
   ],
   "listings": [
@@ -407,24 +439,6 @@
       "portal": [
         "sreality.cz"
       ],
-      "title": "Prodej rodinného domu 303 m², pozemek 1104 m²",
-      "location": "Orlické Záhoří, Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "45 375 000 Kč",
-      "house_area_m2": "303",
-      "land_area_m2": "1104",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/orlicke-zahori/3566461004"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3566461004"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
       "title": "Prodej chalupy 184 m², pozemek 2410 m²",
       "location": "Orlické Záhoří, Rychnov nad Kněžnou",
       "property_type": "house",
@@ -474,25 +488,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2554975052"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1520 m²",
-      "location": "Orlické Záhoří, Rychnov nad Kněžnou",
-      "property_type": "land",
-      "price": "5 700 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1520",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/orlicke-zahori/1862144844"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1862144844",
-        "buildable-land"
       ]
     },
     {

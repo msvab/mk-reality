@@ -29,12 +29,13 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
+    "workers_with_results": 1,
     "candidates_gathered": 24,
-    "rows_retained": 12,
+    "rows_retained": 6,
     "zero_result_portals": [
       "realitymix.cz",
-      "reality.aktualne.cz"
+      "reality.aktualne.cz",
+      "sreality.cz"
     ],
     "blocked_portals": []
   },
@@ -52,8 +53,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Sreality row."
+      "status": "no_results",
+      "message": "No retained in-scope Sreality rows."
     }
   },
   "fetch_attempts": [
@@ -366,48 +367,108 @@
       "url": "https://www.sreality.cz/api/v1/estates/1009774668",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1009774668",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/154136652",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/154136652",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/2133848140",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2133848140",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/2385506380",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2385506380",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/2553278540",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2553278540",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/2838491212",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2838491212",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
@@ -429,7 +490,13 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-pozemky.html",
-    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Opo%C4%8Dno&form%5Bcena_mena%5D=1"
+    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Opo%C4%8Dno&form%5Bcena_mena%5D=1",
+    "stale-detail-fetch:1009774668:Failed to fetch https://www.sreality.cz/api/v1/estates/1009774668: HTTP 404",
+    "stale-detail-fetch:154136652:Failed to fetch https://www.sreality.cz/api/v1/estates/154136652: HTTP 404",
+    "stale-detail-fetch:2133848140:Failed to fetch https://www.sreality.cz/api/v1/estates/2133848140: HTTP 404",
+    "stale-detail-fetch:2385506380:Failed to fetch https://www.sreality.cz/api/v1/estates/2385506380: HTTP 404",
+    "stale-detail-fetch:2553278540:Failed to fetch https://www.sreality.cz/api/v1/estates/2553278540: HTTP 404",
+    "stale-detail-fetch:2838491212:Failed to fetch https://www.sreality.cz/api/v1/estates/2838491212: HTTP 404"
   ],
   "listings": [
     {
@@ -537,120 +604,6 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1199 m²",
-      "location": "Opočno, Rychnov nad Kněžnou",
-      "property_type": "land",
-      "price": "2 398 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1199",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/2838491212"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2838491212",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1198 m²",
-      "location": "Opočno, Rychnov nad Kněžnou",
-      "property_type": "land",
-      "price": "2 396 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1198",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/1009774668"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1009774668",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1198 m²",
-      "location": "Opočno, Rychnov nad Kněžnou",
-      "property_type": "land",
-      "price": "2 396 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1198",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/154136652"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/154136652",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1198 m²",
-      "location": "Opočno, Rychnov nad Kněžnou",
-      "property_type": "land",
-      "price": "2 396 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1198",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/2133848140"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2133848140",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1198 m²",
-      "location": "Opočno, Rychnov nad Kněžnou",
-      "property_type": "land",
-      "price": "2 396 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1198",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/2385506380"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2385506380",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1198 m²",
-      "location": "Opočno, Rychnov nad Kněžnou",
-      "property_type": "land",
-      "price": "2 396 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1198",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/opocno-dobrikovec/2553278540"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2553278540",
         "buildable-land"
       ]
     }

@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 18,
-    "rows_retained": 10,
+    "rows_retained": 9,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -270,8 +270,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1078587468",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1078587468",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -342,6 +352,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Javornice&form%5Bcena_mena%5D=1",
+    "stale-detail-fetch:1078587468:Failed to fetch https://www.sreality.cz/api/v1/estates/1078587468: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2600579148",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2931979084",
     "missing-price:https://www.sreality.cz/api/v1/estates/752189516"
@@ -489,24 +500,6 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/4259442764",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 150 m², pozemek 1734 m²",
-      "location": "Javornice, Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "3 900 000 Kč",
-      "house_area_m2": "150",
-      "land_area_m2": "1734",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/javornice/1078587468"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1078587468"
       ]
     },
     {

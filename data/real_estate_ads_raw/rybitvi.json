@@ -42,8 +42,13 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
+      "status": "fetch_error",
+      "http_status": 0,
+      "stage": "detail_fetch",
+      "message": "curl exited with 56",
+      "evidence": [
+        "detail_fetch:fetch_error:https://reality.idnes.cz/detail/prodej/dum/raby/68b73570d0a87c8dac0e1d7f/"
+      ]
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -104,6 +109,15 @@
       "url": "https://reality.idnes.cz/detail/prodej/dum/raby/68b73570d0a87c8dac0e1d7f/",
       "stage": "detail_fetch",
       "attempt": 1,
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/raby/68b73570d0a87c8dac0e1d7f/",
+      "stage": "detail_fetch",
+      "attempt": 2,
       "status": "ok",
       "http_status": 200
     },

@@ -283,6 +283,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hronov/69fb1bb05cb5fb527d0980d3/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/hronov/6a93557bf0a4909a6c06db0c/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -316,14 +324,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/hronov/6a1b48cd46a0e773b90214e4/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hronov/69fb1bb05cb5fb527d0980d3/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -556,8 +556,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/524283980",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/524283980",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -581,12 +591,12 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/hronov-karoliny-svetle/6a684a6d4fb8e6fe3305fa61/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/hronov/69f8679c44dc3df0bf068978/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/hronov/69d4b97999426521820b8ac0/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hronov/69fb1bb05cb5fb527d0980d3/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hronov/6a93557bf0a4909a6c06db0c/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/hronov/680a2e852a8609e19d0c1977/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hronov/6a0c26a6f8c724bd1a089509/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hronov/6a33a2cd128d318fa5027d99/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hronov/6a1b48cd46a0e773b90214e4/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hronov/69fb1bb05cb5fb527d0980d3/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/hronov/6a6c822b64aba8d75d028625/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hronov/6a4cffa45d2452625e058bb4/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/hronov/69d4aa766e5fce5b170415d3/",
@@ -602,7 +612,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3287392332",
     "stale-detail-fetch:352247884:Failed to fetch https://www.sreality.cz/api/v1/estates/352247884: HTTP 404",
     "stale-detail-fetch:387506252:Failed to fetch https://www.sreality.cz/api/v1/estates/387506252: HTTP 404",
-    "missing-price:https://www.sreality.cz/api/v1/estates/524283980"
+    "stale-detail-fetch:524283980:Failed to fetch https://www.sreality.cz/api/v1/estates/524283980: HTTP 404"
   ],
   "listings": [
     {

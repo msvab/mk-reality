@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 16,
-    "rows_retained": 4,
+    "candidates_gathered": 14,
+    "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -64,6 +64,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ostretin/69eb8d34e3bb6d2a7200f495/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -163,14 +171,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/moravany/6a82f4e384770560cd0515ac/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/ostretin/6a614ba2e8b1614b020d5407/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -253,14 +253,6 @@
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2587&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
       "stage": "land_search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/2198475596",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -356,9 +348,9 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/ostretin/69eb8d34e3bb6d2a7200f495/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/ostretin/699d67b1a21d09cf9b0e634f/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/ostretin/6a44e2d15f45676aa304c768/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/moravany/6a82f4e384770560cd0515ac/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ostretin/6a614ba2e8b1614b020d5407/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/ostretin/690e3396a7227bd9c30f6eff/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/ostretin/67f515dacdee4d3eff04c206/",
@@ -366,7 +358,6 @@
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3606-pardubice/pardubicky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Ost%C5%99et%C3%ADn&form%5Bcena_mena%5D=1",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2198475596",
     "stale-detail-fetch:2232938572:Failed to fetch https://www.sreality.cz/api/v1/estates/2232938572: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3236470860",
     "stale-detail-fetch:3292095308:Failed to fetch https://www.sreality.cz/api/v1/estates/3292095308: HTTP 404",
@@ -374,24 +365,6 @@
     "stale-detail-fetch:4024954956:Failed to fetch https://www.sreality.cz/api/v1/estates/4024954956: HTTP 404"
   ],
   "listings": [
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej pozemku Vysoká u Holic Investiční příležitost pro menší developery",
-      "location": "Ostřetín, okres Pardubice",
-      "property_type": "land",
-      "price": "8 950 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "5742",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/ostretin/69eb8d34e3bb6d2a7200f495/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
     {
       "portal": [
         "reality.idnes.cz"

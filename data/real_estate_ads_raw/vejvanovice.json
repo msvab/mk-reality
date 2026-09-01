@@ -29,14 +29,13 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 0,
-    "candidates_gathered": 15,
-    "rows_retained": 0,
+    "workers_with_results": 1,
+    "candidates_gathered": 16,
+    "rows_retained": 1,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
-      "reality.aktualne.cz",
-      "sreality.cz"
+      "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
@@ -54,8 +53,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Sreality rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -189,7 +188,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vyzice/63b441b4c08acc2ed902e8eb/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vyzice/63b4413c2c755c11831a337b/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -292,6 +291,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2409939020",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -308,7 +315,7 @@
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/krasne/69cd120a82968507f80ceee1/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vortova/69d3f7f69a3d1a6ea2026192/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vrbatuv-kostelec/69d794186bf0fc5d560ff377/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/vyzice/63b441b4c08acc2ed902e8eb/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/vyzice/63b4413c2c755c11831a337b/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/vejvanovice/67ff489b7f5979e1360a3567/",
     "missing-page-url:house",
     "missing-page-url:land",
@@ -317,5 +324,24 @@
     "stale-detail-fetch:2230227020:Failed to fetch https://www.sreality.cz/api/v1/estates/2230227020: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2234626892"
   ],
-  "listings": []
+  "listings": [
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 160 m², pozemek 1100 m²",
+      "location": "Vejvanovice, Chrudim",
+      "property_type": "house",
+      "price": "7 999 000 Kč",
+      "house_area_m2": "160",
+      "land_area_m2": "1100",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/vejvanovice/2409939020"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2409939020"
+      ]
+    }
+  ]
 }
