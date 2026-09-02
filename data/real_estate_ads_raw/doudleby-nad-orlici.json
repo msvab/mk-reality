@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 15,
-    "rows_retained": 9,
+    "candidates_gathered": 16,
+    "rows_retained": 10,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -259,6 +259,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1729119052",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/2643976268",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -278,18 +286,8 @@
       "url": "https://www.sreality.cz/api/v1/estates/793736524",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/793736524",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -302,8 +300,8 @@
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Doudleby+nad+Orlic%C3%AD&form%5Bcena_mena%5D=1",
-    "missing-price:https://www.sreality.cz/api/v1/estates/2643976268",
-    "stale-detail-fetch:793736524:Failed to fetch https://www.sreality.cz/api/v1/estates/793736524: HTTP 404"
+    "excluded-chata:https://www.sreality.cz/api/v1/estates/1729119052",
+    "missing-price:https://www.sreality.cz/api/v1/estates/2643976268"
   ],
   "listings": [
     {
@@ -444,6 +442,25 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1113833548"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 2841 m²",
+      "location": "Doudleby nad Orlicí, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "2 383 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2841",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/doudleby-nad-orlici/793736524"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/793736524",
+        "buildable-land"
       ]
     },
     {

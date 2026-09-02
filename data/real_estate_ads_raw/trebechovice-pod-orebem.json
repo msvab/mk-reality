@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 33,
-    "rows_retained": 5,
+    "candidates_gathered": 34,
+    "rows_retained": 6,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -491,6 +491,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2484314956",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/3156983884",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -502,18 +510,8 @@
       "url": "https://www.sreality.cz/api/v1/estates/3865477196",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/3865477196",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "sreality.cz",
@@ -582,7 +580,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3602-hradec-kralove/kralovehradecky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=T%C5%99ebechovice+pod+Orebem&form%5Bcena_mena%5D=1",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1317061452",
-    "stale-detail-fetch:3865477196:Failed to fetch https://www.sreality.cz/api/v1/estates/3865477196: HTTP 404",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2484314956",
     "stale-detail-fetch:4293288524:Failed to fetch https://www.sreality.cz/api/v1/estates/4293288524: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/814923852",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/85979212"
@@ -656,6 +654,24 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1259122764"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 150 m², pozemek 2700 m²",
+      "location": "Třebechovice pod Orebem, Hradec Králové",
+      "property_type": "house",
+      "price": "9 500 000 Kč",
+      "house_area_m2": "150",
+      "land_area_m2": "2700",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/trebechovice-pod-orebem-nepasice/3865477196"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3865477196"
       ]
     },
     {
