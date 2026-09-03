@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 10,
-    "rows_retained": 7,
+    "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -57,14 +57,6 @@
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/librantice/6a2ea0757ef96568330c1c6d/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/librantice/69b166e7372a9201540fd7b5/",
@@ -109,6 +101,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-83488",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/librantice/6a2ea0757ef96568330c1c6d/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -198,8 +198,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1913742156",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1913742156",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -243,6 +253,8 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Librantice&form%5Bcena_mena%5D=1",
+    "stale-detail-fetch:1913742156:Failed to fetch https://www.sreality.cz/api/v1/estates/1913742156: HTTP 404",
+    "missing-price:https://www.sreality.cz/api/v1/estates/684388428",
     "stale-detail-fetch:720753484:Failed to fetch https://www.sreality.cz/api/v1/estates/720753484: HTTP 404"
   ],
   "listings": [
@@ -296,42 +308,6 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 279 m², pozemek 1487 m²",
-      "location": "Librantice, Hradec Králové",
-      "property_type": "house",
-      "price": "12 970 000 Kč",
-      "house_area_m2": "279",
-      "land_area_m2": "1487",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/librantice/1913742156"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1913742156"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 785 m², pozemek 2182 m²",
-      "location": "Librantice, Hradec Králové",
-      "property_type": "house",
-      "price": "10 990 000 Kč",
-      "house_area_m2": "785",
-      "land_area_m2": "2182",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/librantice/684388428"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/684388428"
       ]
     },
     {
