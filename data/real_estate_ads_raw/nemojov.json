@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 13,
-    "rows_retained": 3,
+    "candidates_gathered": 15,
+    "rows_retained": 4,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -179,6 +179,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nemojov/6a993f0f0de8baa4f101b2f6/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/nemojov/67feed2f8ba352a30b0bf494/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -317,6 +325,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1474834508",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/1917813580",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -399,6 +415,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Nemojov&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/nemojov/nemojov-pekny-stavebni-pozemek-8241167.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/nemojov/roubenka-dolni-nemojov-chalupa-s-kouzlem-i-vynosem-8468943.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1474834508",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2487644748",
     "stale-detail-fetch:3274560332:Failed to fetch https://www.sreality.cz/api/v1/estates/3274560332: HTTP 404",
     "stale-detail-fetch:4261797964:Failed to fetch https://www.sreality.cz/api/v1/estates/4261797964: HTTP 404",
@@ -420,6 +437,24 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej 9 stavebních pozemků, Dolní Nemojov",
+      "location": "Nemojov, okres Trutnov",
+      "property_type": "land",
+      "price": "2 718 340 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1366",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/nemojov/6a993f0f0de8baa4f101b2f6/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
       ]
     },
     {
