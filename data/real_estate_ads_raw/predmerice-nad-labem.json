@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 8,
-    "rows_retained": 6,
+    "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -214,8 +214,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/448262220",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/448262220",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
@@ -224,7 +234,8 @@
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/predmerice-nad-labem/6a942da4744de9acf90a33dc/",
     "missing-page-url:house",
     "missing-page-url:land",
-    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=P%C5%99edm%C4%9B%C5%99ice+nad+Labem&form%5Bcena_mena%5D=1"
+    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=P%C5%99edm%C4%9B%C5%99ice+nad+Labem&form%5Bcena_mena%5D=1",
+    "stale-detail-fetch:448262220:Failed to fetch https://www.sreality.cz/api/v1/estates/448262220: HTTP 404"
   ],
   "listings": [
     {
@@ -296,25 +307,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3824939084"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1749 m²",
-      "location": "Předměřice nad Labem, Zelená cihelna, Hradec Králové",
-      "property_type": "land",
-      "price": "7 450 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1749",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/predmerice-nad-labem-zelena-cihelna/448262220"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/448262220",
-        "buildable-land"
       ]
     },
     {

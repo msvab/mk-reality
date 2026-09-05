@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 16,
-    "rows_retained": 10,
+    "rows_retained": 6,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -75,6 +75,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/doudleby-nad-orlici-fugnerova/6a87e2ac1fa3e487da0dbe6a/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/doudleby-nad-orlici-v-grunde/69ca65049e0e05cf180e9f2a/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -96,6 +104,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/doudleby-nad-orlici-fugnerova/6a87e1e80fa9456310058f9f/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -246,8 +262,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1113833548",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1113833548",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -278,8 +304,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3798188108",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3798188108",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -292,6 +328,8 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/doudleby-nad-orlici-fugnerova/6a87e2ac1fa3e487da0dbe6a/",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/doudleby-nad-orlici-fugnerova/6a87e1e80fa9456310058f9f/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/doudleby-nad-orlici-rude-armady/6a2ab16e4e98436054014a53/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/doudleby-nad-orlici-rude-armady/6a033abc0ca5f9b6090683f5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/doudleby-nad-orlici-svermova/6a2169b5399a457ffb00749a/",
@@ -300,8 +338,10 @@
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Doudleby+nad+Orlic%C3%AD&form%5Bcena_mena%5D=1",
+    "stale-detail-fetch:1113833548:Failed to fetch https://www.sreality.cz/api/v1/estates/1113833548: HTTP 404",
     "excluded-chata:https://www.sreality.cz/api/v1/estates/1729119052",
-    "missing-price:https://www.sreality.cz/api/v1/estates/2643976268"
+    "missing-price:https://www.sreality.cz/api/v1/estates/2643976268",
+    "stale-detail-fetch:3798188108:Failed to fetch https://www.sreality.cz/api/v1/estates/3798188108: HTTP 404"
   ],
   "listings": [
     {
@@ -316,23 +356,6 @@
       "land_area_m2": "1243",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/dum/doudleby-nad-orlici-rude-armady/6a5fc361c0a25ada7f0d0474/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Rodinný dům s ovocným sadem a velkým pozemkem",
-      "location": "Doudleby nad Orlicí, okres Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "3 990 000 Kč",
-      "house_area_m2": "170",
-      "land_area_m2": "3123",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/doudleby-nad-orlici-fugnerova/6a87e2ac1fa3e487da0dbe6a/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
@@ -367,24 +390,6 @@
       "land_area_m2": "2841",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/pozemek/doudleby-nad-orlici/662a393b682f086acb0f8027/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Stavební pozemek 1901m2, Doudleby nad Orlicí",
-      "location": "Doudleby nad Orlicí, okres Rychnov nad Kněžnou",
-      "property_type": "land",
-      "price": "1 650 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1901",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/doudleby-nad-orlici-fugnerova/6a87e1e80fa9456310058f9f/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
@@ -430,24 +435,6 @@
       "portal": [
         "sreality.cz"
       ],
-      "title": "Prodej rodinného domu 170 m², pozemek 3123 m²",
-      "location": "Doudleby nad Orlicí, Fűgnerova, Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "3 990 000 Kč",
-      "house_area_m2": "170",
-      "land_area_m2": "3123",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/doudleby-nad-orlici-fugnerova/1113833548"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1113833548"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
       "title": "Prodej stavebního pozemku 2841 m²",
       "location": "Doudleby nad Orlicí, Rychnov nad Kněžnou",
       "property_type": "land",
@@ -460,25 +447,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/793736524",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1901 m²",
-      "location": "Doudleby nad Orlicí, Fűgnerova, Rychnov nad Kněžnou",
-      "property_type": "land",
-      "price": "1 650 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1901",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/doudleby-nad-orlici-fugnerova/3798188108"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3798188108",
         "buildable-land"
       ]
     }

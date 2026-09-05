@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 38,
-    "rows_retained": 8,
+    "rows_retained": 7,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -88,6 +88,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/dvur-kralove-nad-labem/66a8aa69874b04c49502957b/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -596,6 +604,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/dvur-kralove-nad-labem/66a8aa69874b04c49502957b/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/dvur-kralove-nad-labem-na-pricce/662b8df2a6de83a24e0f758b/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/dvur-kralove-nad-labem/69830c5b2f958900e8022750/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem/6a248615fd4ece0f11081c21/",
@@ -679,24 +688,6 @@
       "land_area_m2": "1821",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/pozemek/dvur-kralove-nad-labem/6a0aff6dbc3282dcf905a1d8/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej Stavebních Pozemků v Obci Lipnice u Dvora Králové",
-      "location": "Dvůr Králové nad Labem, okres Trutnov",
-      "property_type": "land",
-      "price": "2 763 750 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1005",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/dvur-kralove-nad-labem/66a8aa69874b04c49502957b/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",

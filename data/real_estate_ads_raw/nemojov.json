@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 15,
+    "candidates_gathered": 14,
     "rows_retained": 4,
     "zero_result_portals": [
       "realitymix.cz",
@@ -67,6 +67,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nemojov/6a993f0f0de8baa4f101b2f6/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/nemojov/68d4f4e432414779420fc007/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -76,22 +84,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/nemojov/68d4f4e432414779420fc007/",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Detail URL returned fallback or non-detail content."
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nemojov/68d4fb350cd1bfc52a048175/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nemojov/68d4fb350cd1bfc52a048175/",
       "stage": "detail_parse",
       "attempt": 1,
       "status": "fallback_page",
@@ -173,14 +165,6 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-103233",
       "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nemojov/6a993f0f0de8baa4f101b2f6/",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -405,7 +389,6 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/nemojov/68d4f4e432414779420fc007/",
-    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/nemojov/68d4fb350cd1bfc52a048175/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/nemojov/6a671041ef1c95bc6109b534/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nemojov/67feed2f8ba352a30b0bf494/",
     "missing-page-url:house",
