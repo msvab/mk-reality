@@ -235,6 +235,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec-lipky/6a6a571bda6f2f834e0cd8ee/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -324,14 +332,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec/69819c38531dd56a090b3090/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec/68f66aee634ccdfffa06e346/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -540,14 +540,25 @@
       "url": "https://www.sreality.cz/api/v1/estates/691454796",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/691454796",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec-letna/69eb7bee3ca1944cd60cf145/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec/6a33da07e71b493c390ce46e/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec-lipky/6a6a571bda6f2f834e0cd8ee/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec/69c2ba771559b74ee3096d5d/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec-jiraskova/69eb3f143683d52af90985a7/",
@@ -559,7 +570,6 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec/6a996331b14a94924c05491d/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec-koncinska/6a8ede595490f5ef8a005481/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec-v-raji/6a1b5a67919b43b2f90f1d18/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec/68f66aee634ccdfffa06e346/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec/6a7dc7fd0a25b6ec9c0630c2/",
     "missing-page-url:house",
     "missing-page-url:land",
@@ -570,7 +580,7 @@
     "stale-detail-fetch:2107769676:Failed to fetch https://www.sreality.cz/api/v1/estates/2107769676: HTTP 404",
     "stale-detail-fetch:334426188:Failed to fetch https://www.sreality.cz/api/v1/estates/334426188: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/437257036",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/691454796"
+    "stale-detail-fetch:691454796:Failed to fetch https://www.sreality.cz/api/v1/estates/691454796: HTTP 404"
   ],
   "listings": [
     {
