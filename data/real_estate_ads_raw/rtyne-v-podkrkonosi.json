@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 10,
+    "candidates_gathered": 9,
     "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
@@ -123,14 +123,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/rtyne-v-podkrkonosi-upicka/6a7819c85c9685de350f30da/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/rtyne-v-podkrkonosi-kostelecka/6a2fca22c0ddbd3c760f6c75/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -182,8 +174,9 @@
       "url": "https://reality.aktualne.cz/detail/rtyne-v-podkrkonosi/prodej-chaty-chalupy-200-m-pozemek-6-348-m-8203389.html",
       "stage": "discovery_detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "reality.aktualne.cz",
@@ -206,8 +199,9 @@
       "url": "https://reality.aktualne.cz/detail/rtyne-v-podkrkonosi/prodej-chaty-chalupy-200-m-pozemek-6-348-m-8203389.html",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "reality.aktualne.cz",
@@ -262,7 +256,6 @@
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/rtyne-v-podkrkonosi-upicka/69dbc8ae22a4bd632e050510/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/rtyne-v-podkrkonosi-rychetskeho/6a721229ce8406bd6f00236f/",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/rtyne-v-podkrkonosi-upicka/6a7819c85c9685de350f30da/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/rtyne-v-podkrkonosi-kostelecka/6a2fca22c0ddbd3c760f6c75/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/rtyne-v-podkrkonosi-hronovska/682c561070b8dbef290df517/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/rtyne-v-podkrkonosi-upicka/6a1d627f4d7f6fbc520504f9/",

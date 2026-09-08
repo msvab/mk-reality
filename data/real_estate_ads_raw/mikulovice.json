@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 0,
-    "candidates_gathered": 11,
+    "candidates_gathered": 9,
     "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
@@ -71,14 +71,6 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-94374",
       "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice/6a69c77d318e86bb8406aa9f/",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -277,7 +269,7 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2582&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=6067&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
       "stage": "house_search_fetch",
       "attempt": 1,
       "status": "ok",
@@ -285,7 +277,7 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2582&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=6067&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
       "stage": "land_search_fetch",
       "attempt": 1,
       "status": "ok",
@@ -308,19 +300,10 @@
       "status": "not_found",
       "http_status": 404,
       "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/411730508",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice/6a69c77d318e86bb8406aa9f/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/mikulovice-dlouha/6a81c8a9053fea3b58007107/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/mikulovice-dlouha/6a4fec72282a6d6d84081a6e/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/mikulovice-dlouha/6a799f167acec024a20a296c/",
@@ -335,8 +318,7 @@
     "detail-fallback-page:https://reality.aktualne.cz/detail/mikulovice/prodej-pozemek-bydleni-13598-8501871.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/mikulovice/prodej-rodinneho-domu-s-rozsahlymi-stavebnimi-pozemky-v-obci-mikulovice-8625511.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/mikulovice/rodinny-dum-v-mikulovicich-klidne-bydleni-se-zahradou-a-velkym-potencialem-8604629.html",
-    "stale-detail-fetch:2414756684:Failed to fetch https://www.sreality.cz/api/v1/estates/2414756684: HTTP 404",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/411730508"
+    "stale-detail-fetch:2414756684:Failed to fetch https://www.sreality.cz/api/v1/estates/2414756684: HTTP 404"
   ],
   "listings": []
 }

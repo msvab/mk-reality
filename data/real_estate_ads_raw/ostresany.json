@@ -29,12 +29,13 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
-    "candidates_gathered": 10,
-    "rows_retained": 2,
+    "workers_with_results": 1,
+    "candidates_gathered": 6,
+    "rows_retained": 1,
     "zero_result_portals": [
       "realitymix.cz",
-      "reality.aktualne.cz"
+      "reality.aktualne.cz",
+      "sreality.cz"
     ],
     "blocked_portals": []
   },
@@ -52,8 +53,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Sreality row."
+      "status": "no_results",
+      "message": "No retained in-scope Sreality rows."
     }
   },
   "fetch_attempts": [
@@ -115,14 +116,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice/6a69c77d318e86bb8406aa9f/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/ostresany/6a7af3c47017e57b8d0a0c82/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -148,14 +141,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/ostresany/6925869324f982567b038479/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-kratka/6a4e81f68dd5010fff0194f7/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -200,53 +185,19 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2586&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
-      "stage": "house_search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2586&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
-      "stage": "land_search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/212303948",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/517022540",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/ostresany/69ff24b68cd988c4ed01c292/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice/6a69c77d318e86bb8406aa9f/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ostresany/6a7af3c47017e57b8d0a0c82/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ostresany-rockova/6a1fddfa80e85deb1d0a6bd0/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ostresany/6a8d67310f89b6917604ea9d/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/ostresany/6925869324f982567b038479/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice-kratka/6a4e81f68dd5010fff0194f7/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Ost%C5%99e%C5%A1any&form%5Bcena_mena%5D=1",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/517022540"
+    "municipality-not-found"
   ],
   "listings": [
     {
@@ -264,24 +215,6 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 240 m², pozemek 1207 m²",
-      "location": "Ostřešany, Pardubice",
-      "property_type": "house",
-      "price": "7 499 000 Kč",
-      "house_area_m2": "240",
-      "land_area_m2": "1207",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/ostresany/212303948"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/212303948"
       ]
     }
   ]

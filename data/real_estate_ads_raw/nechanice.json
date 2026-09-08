@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 33,
-    "rows_retained": 10,
+    "candidates_gathered": 35,
+    "rows_retained": 11,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -180,6 +180,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/nechanice-prazska/6a96a008c06de8c4af0a6758/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nechanice/6a9ee9ebc2560073fb0d7ff4/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -465,6 +473,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/789327948",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/934522956",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -487,6 +503,7 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nechanice-za-kulturnim-domem/6a0d3da3b545293483002303/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/nechanice/6a7eddf8f89ebde8af00aa62/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nechanice-prazska/6a96a008c06de8c4af0a6758/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/nechanice/6a9ee9ebc2560073fb0d7ff4/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nechanice/69a7ea46c930f1380a0389f9/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nechanice/69a7ea82741b4ef2f20f28d3/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nechanice/69b80dbd5f487591620b119f/",
@@ -685,6 +702,24 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2148930380"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 230 m², pozemek 1587 m²",
+      "location": "Nechanice, Hradec Králové",
+      "property_type": "house",
+      "price": "3 580 000 Kč",
+      "house_area_m2": "230",
+      "land_area_m2": "1587",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/nechanice-stare-nechanice/789327948"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/789327948"
       ]
     }
   ]
