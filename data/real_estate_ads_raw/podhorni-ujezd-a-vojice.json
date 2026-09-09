@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 0,
-    "candidates_gathered": 12,
+    "candidates_gathered": 13,
     "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
@@ -78,14 +78,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/kopidlno/6800bf6e438e62b09e0f3e08/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/lazne-belohrad/68e63420ea32d9a6380b2f8c/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -150,6 +142,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/stara-paka-revolucni/6a1ebe62548a742e7e0ae2c5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/stare-hrady/6a201433eec862d1410fd929/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -228,11 +228,44 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2417&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2417&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1819533388",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1819533388",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/kopidlno/6800bf6e438e62b09e0f3e08/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/lazne-belohrad/68e63420ea32d9a6380b2f8c/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/libosovice/6956af5a5eaea143d50c0244/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/libosovice/69b4a368b693eedbce0c1648/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/nemyceves/69b92fcd3bbe21edad072951/",
@@ -241,12 +274,13 @@
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pecka/6a180b2daa95d77d0d0b4756/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/libun/6a1c030e0b0b476fdc0170b5/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/stara-paka-revolucni/6a1ebe62548a742e7e0ae2c5/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/stare-hrady/6a201433eec862d1410fd929/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/podhorni-ujezd-a-vojice/693947234b5bdcae8206024c/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Podhorn%C3%AD+%C3%9Ajezd+a+Vojice&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/podhorni-ujezd-a-vojice/prodej-pozemku-k-bydleni-1375-m-podhorni-ujezd-a-vojice-8085222.html",
-    "municipality-not-found"
+    "stale-detail-fetch:1819533388:Failed to fetch https://www.sreality.cz/api/v1/estates/1819533388: HTTP 404"
   ],
   "listings": []
 }

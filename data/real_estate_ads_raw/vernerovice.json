@@ -29,13 +29,12 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
-    "candidates_gathered": 5,
-    "rows_retained": 1,
+    "workers_with_results": 2,
+    "candidates_gathered": 8,
+    "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
-      "reality.aktualne.cz",
-      "sreality.cz"
+      "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
@@ -53,8 +52,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Sreality rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -201,6 +200,56 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=793&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "house_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=793&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
+      "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1219769164",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2444853324",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2444853324",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3616645196",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -213,7 +262,8 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Vern%C3%A9%C5%99ovice&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/vernerovice/prodej-rodinneho-domu-dis-5-1-210-m-vernerovice-8478963.html",
-    "municipality-not-found"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1219769164",
+    "stale-detail-fetch:2444853324:Failed to fetch https://www.sreality.cz/api/v1/estates/2444853324: HTTP 404"
   ],
   "listings": [
     {
@@ -231,6 +281,24 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 130 m², pozemek 1907 m²",
+      "location": "Vernéřovice, Náchod",
+      "property_type": "house",
+      "price": "2 200 000 Kč",
+      "house_area_m2": "130",
+      "land_area_m2": "1907",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/vernerovice/3616645196"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3616645196"
       ]
     }
   ]

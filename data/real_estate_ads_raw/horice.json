@@ -52,13 +52,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "fetch_error",
-      "http_status": 500,
-      "stage": "house_search_fetch",
-      "message": "HTTP 500",
-      "evidence": [
-        "house_search_fetch:fetch_error:https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2378&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1"
-      ]
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -187,8 +182,9 @@
       "url": "https://reality.aktualne.cz/detail/horice/investicni-prilezitost-v-centru-horic-cinzovni-dum-s-peti-byty-a-povolenim-k-pudni-vestavbe-8540061.html",
       "stage": "discovery_detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "reality.aktualne.cz",
@@ -211,8 +207,9 @@
       "url": "https://reality.aktualne.cz/detail/horice/investicni-prilezitost-v-centru-horic-cinzovni-dum-s-peti-byty-a-povolenim-k-pudni-vestavbe-8540061.html",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "reality.aktualne.cz",
@@ -235,15 +232,6 @@
       "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2378&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
       "stage": "house_search_fetch",
       "attempt": 1,
-      "status": "fetch_error",
-      "http_status": 500,
-      "error": "HTTP 500"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2378&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
-      "stage": "house_search_fetch",
-      "attempt": 2,
       "status": "ok",
       "http_status": 200
     },
