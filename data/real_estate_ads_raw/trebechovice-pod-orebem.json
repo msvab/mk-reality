@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 35,
-    "rows_retained": 6,
+    "candidates_gathered": 38,
+    "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -136,6 +136,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/69dcd8a3475b6022fe0b2e8e/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -307,6 +315,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-csl-legii/6aa18648636afa29b00ad7ce/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-druzstevni-prace/6a8ea4974a73d4fca5033798/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -332,6 +348,22 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-ambrozova/68e502f98b6628a6790daa45/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/698cabc29680ad68cf0869f5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-sarovcova/6a26c472f84bd7795a06a961/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -478,8 +510,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1259122764",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1259122764",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -562,7 +604,7 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/69ce1340801b8004c90c5db5/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-havlickova/69ea0c387faac1f065000996/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/6996e1a87270f3f442021823/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/69dcd8a3475b6022fe0b2e8e/",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/69dcd8a3475b6022fe0b2e8e/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/6a3e60d38ceeff5d1408908e/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/trebechovice-pod-orebem/6a8e9691805f13c7620c8d8a/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/trebechovice-pod-orebem/683eb2aee3ade64e0d0196b1/",
@@ -574,10 +616,13 @@
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/trebechovice-pod-orebem/6a4e339185a5a450a708ea6d/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/trebechovice-pod-orebem/6a56b6c92b78b3f7800dac18/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/trebechovice-pod-orebem/685528099f743977130fb85c/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-csl-legii/6aa18648636afa29b00ad7ce/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-druzstevni-prace/6a8ea4974a73d4fca5033798/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/6a743944ad4840c44d008d98/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-olbrachtova/6a455426565d03e2cc0be428/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-ambrozova/68e502f98b6628a6790daa45/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/698cabc29680ad68cf0869f5/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem-sarovcova/6a26c472f84bd7795a06a961/",
     "removed-fallback-page:https://realitymix.cz/detail/trebechovice-pod-orebem/prodej-rd-ve-stylu-venkovskeho-statku-pro-velkou-rodinu-po-rekonstrukci-427-m-pozemek-3-101-m-vnit-8257719.html",
     "removed-fallback-page:https://realitymix.cz/detail/trebechovice-pod-orebem/prodej-rodinneho-domu-487-m-trebechovice-pod-orebem-8542373.html",
     "removed-fallback-page:https://realitymix.cz/detail/trebechovice-pod-orebem/prodej-rd-ve-stylu-venkovskeho-statku-pro-velkou-rodinu-po-rekonstrukci-427-m2-pozemek-3-101-m2-vnit-8257719.html",
@@ -587,6 +632,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3602-hradec-kralove/kralovehradecky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=T%C5%99ebechovice+pod+Orebem&form%5Bcena_mena%5D=1",
+    "stale-detail-fetch:1259122764:Failed to fetch https://www.sreality.cz/api/v1/estates/1259122764: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1317061452",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2484314956",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4289540172",
@@ -645,24 +691,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/103989324"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 219 m², pozemek 1560 m²",
-      "location": "Třebechovice pod Orebem, Hradec Králové",
-      "property_type": "house",
-      "price": "11 800 000 Kč",
-      "house_area_m2": "219",
-      "land_area_m2": "1560",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/trebechovice-pod-orebem-polanky-nad-dedinou/1259122764"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1259122764"
       ]
     },
     {

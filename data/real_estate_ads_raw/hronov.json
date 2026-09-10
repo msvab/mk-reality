@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 34,
-    "rows_retained": 5,
+    "candidates_gathered": 36,
+    "rows_retained": 6,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -276,6 +276,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/hronov/69d4b97999426521820b8ac0/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hronov/6aa1484f1b184b34f4096ecd/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -566,6 +574,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/918696012",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -602,7 +618,8 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3287392332",
     "stale-detail-fetch:352247884:Failed to fetch https://www.sreality.cz/api/v1/estates/352247884: HTTP 404",
     "stale-detail-fetch:387506252:Failed to fetch https://www.sreality.cz/api/v1/estates/387506252: HTTP 404",
-    "missing-price:https://www.sreality.cz/api/v1/estates/524283980"
+    "missing-price:https://www.sreality.cz/api/v1/estates/524283980",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/918696012"
   ],
   "listings": [
     {
@@ -620,6 +637,24 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku 2 155 m2, Hronov - Zbečník",
+      "location": "Hronov, okres Náchod",
+      "property_type": "land",
+      "price": "2 395 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2155",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/hronov/6aa1484f1b184b34f4096ecd/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
       ]
     },
     {

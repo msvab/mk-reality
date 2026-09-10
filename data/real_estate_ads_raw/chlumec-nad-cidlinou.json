@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 42,
-    "rows_retained": 10,
+    "candidates_gathered": 44,
+    "rows_retained": 12,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -40,8 +40,13 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
+      "status": "fetch_error",
+      "http_status": 0,
+      "stage": "detail_fetch",
+      "message": "curl exited with 56",
+      "evidence": [
+        "detail_fetch:fetch_error:https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/696f943fd2e1e391420a5e58/"
+      ]
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -86,6 +91,24 @@
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/696f943fd2e1e391420a5e58/",
       "stage": "detail_fetch",
       "attempt": 1,
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/696f943fd2e1e391420a5e58/",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/696f943fd2e1e391420a5e58/",
+      "stage": "detail_fetch",
+      "attempt": 3,
       "status": "ok",
       "http_status": 200
     },
@@ -221,6 +244,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-409731",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-zamostecka/6aa1a284fd98b30e780cb2fe/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -535,6 +566,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2610049100",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/2709918284",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -686,6 +725,23 @@
       "portal": [
         "reality.idnes.cz"
       ],
+      "title": "Investiční dům se studií až pro 6 bytů Chlumec n. C.",
+      "location": "Chlumec nad Cidlinou, okres Hradec Králové",
+      "property_type": "house",
+      "price": "8 500 000 Kč",
+      "house_area_m2": "310",
+      "land_area_m2": "1757",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-zamostecka/6aa1a284fd98b30e780cb2fe/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
       "title": "Prodej domu 95 m2 se zahradou 1263 m2",
       "location": "Chlumec nad Cidlinou, okres Hradec Králové",
       "property_type": "house",
@@ -769,6 +825,24 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 310 m², pozemek 1757 m²",
+      "location": "Chlumec nad Cidlinou, Zámostecká, Hradec Králové",
+      "property_type": "house",
+      "price": "8 500 000 Kč",
+      "house_area_m2": "310",
+      "land_area_m2": "1757",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/chlumec-nad-cidlinou-chlumec-nad-cidlinou-ii-zamostecka/2610049100"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2610049100"
       ]
     },
     {
