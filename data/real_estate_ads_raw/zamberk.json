@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 22,
-    "rows_retained": 4,
+    "candidates_gathered": 24,
+    "rows_retained": 6,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -203,6 +203,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/zamberk-kostelni/6aa2f8cfa8e07641560f1315/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/zamberk-husovo-nabrezi/6a9fcf4d13c46085bd05794f/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -243,7 +251,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/zamberk-kostelni/6a7328e3b5c5a474070a1444/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/zamberk-u-daliborky/6a5df5afbedad4519a0c8bab/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -251,7 +259,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/zamberk-u-daliborky/6a5df5afbedad4519a0c8bab/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/zamberk-28-rijna/69820f0eb21c6c48050ad1a5/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -404,6 +412,14 @@
       "status": "not_found",
       "http_status": 404,
       "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/893399116",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -414,12 +430,12 @@
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/zamberk-dymlovska/6a722355593bfaec010318ce/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/zamberk/6a3149cd3bf15d248c0e9868/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/zamberk-betlem/6a30148107fafda4d30ca6a6/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/zamberk-kostelni/6aa2f8cfa8e07641560f1315/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/zamberk-husovo-nabrezi/6a9fcf4d13c46085bd05794f/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/zamberk-tylova/699ab0bdbaeb238b0106c301/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/zamberk/6a325c470699ec0c650e5896/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/zamberk/69aff08d72eeb436510f021a/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/zamberk/6a1f022fdef9fa711f0d4239/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/zamberk-kostelni/6a7328e3b5c5a474070a1444/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/zamberk-u-daliborky/6a5df5afbedad4519a0c8bab/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/zamberk/6a98b8929e82817f390818d6/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/zamberk/6842dbdf91d05d57eb02eacd/",
@@ -457,11 +473,28 @@
       "title": "Prodej domy, 146 m2, ŽamberkSadová",
       "location": "Žamberk, okres Ústí nad Orlicí",
       "property_type": "house",
-      "price": "9 390 000 Kč",
+      "price": "8 890 000 Kč",
       "house_area_m2": "146",
       "land_area_m2": "1013",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/dum/zamberk-sadova/69c3b99907cacd563a07b24b/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu, 1000 m², Žamberk",
+      "location": "Žamberk, okres Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "5 895 000 Kč",
+      "house_area_m2": "154",
+      "land_area_m2": "1000",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/zamberk-28-rijna/69820f0eb21c6c48050ad1a5/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
@@ -492,7 +525,7 @@
       "title": "Prodej rodinného domu 146 m², pozemek 1013 m²",
       "location": "Žamberk, Sadová, Ústí nad Orlicí",
       "property_type": "house",
-      "price": "9 390 000 Kč",
+      "price": "8 890 000 Kč",
       "house_area_m2": "146",
       "land_area_m2": "1013",
       "urls": [
@@ -501,6 +534,24 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/409748300"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 154 m², pozemek 1000 m²",
+      "location": "Žamberk, Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "5 895 000 Kč",
+      "house_area_m2": "154",
+      "land_area_m2": "1000",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/zamberk/893399116"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/893399116"
       ]
     }
   ]

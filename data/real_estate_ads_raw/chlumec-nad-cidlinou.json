@@ -40,13 +40,8 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "fetch_error",
-      "http_status": 0,
-      "stage": "detail_fetch",
-      "message": "curl exited with 56",
-      "evidence": [
-        "detail_fetch:fetch_error:https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/696f943fd2e1e391420a5e58/"
-      ]
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -62,6 +57,14 @@
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-zamostecka/6aa1a284fd98b30e780cb2fe/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-spravedlnost/698ae1aa66b6c591f20ee5a5/",
@@ -91,24 +94,6 @@
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/696f943fd2e1e391420a5e58/",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "fetch_error",
-      "http_status": 0,
-      "error": "curl exited with 56"
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/696f943fd2e1e391420a5e58/",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "fetch_error",
-      "http_status": 0,
-      "error": "curl exited with 56"
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/696f943fd2e1e391420a5e58/",
-      "stage": "detail_fetch",
-      "attempt": 3,
       "status": "ok",
       "http_status": 200
     },
@@ -250,14 +235,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-zamostecka/6aa1a284fd98b30e780cb2fe/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-celakovskeho/6a9a70d3bd5f282629063e7f/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -330,6 +307,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/5f03a26737ba4d4cdb674ea3/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/6a7f7ca5c3515d906204ecf8/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -339,14 +324,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/6a7cb46a7b8aef8f8803139a/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/5f03a26737ba4d4cdb674ea3/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -694,9 +671,9 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou/6a0ddef22e3ef7b4cc0d7fd7/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-spravedlnost/69abca9262bef6590c000496/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-prazska/69d9db444418125097003196/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/5f03a26737ba4d4cdb674ea3/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/6a7f7ca5c3515d906204ecf8/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/6a7cb46a7b8aef8f8803139a/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/5f03a26737ba4d4cdb674ea3/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/682c3284ee668c3dc1008164/",
     "missing-page-url:house",
     "missing-page-url:land",
