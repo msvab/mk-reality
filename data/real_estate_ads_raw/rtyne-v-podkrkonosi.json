@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 10,
-    "rows_retained": 3,
+    "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -256,8 +256,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/538849356",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/538849356",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
@@ -272,7 +282,8 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3610-trutnov/kralovehradecky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Rtyn%C4%9B+v+Podkrkono%C5%A1%C3%AD&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/rtyne-v-podkrkonosi/prodej-chaty-chalupy-200-m-pozemek-6-348-m-8203389.html",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4189290572"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4189290572",
+    "stale-detail-fetch:538849356:Failed to fetch https://www.sreality.cz/api/v1/estates/538849356: HTTP 404"
   ],
   "listings": [
     {
@@ -291,24 +302,6 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 125 m², pozemek 1330 m²",
-      "location": "Rtyně v Podkrkonoší, Trutnov",
-      "property_type": "house",
-      "price": "10 500 000 Kč",
-      "house_area_m2": "125",
-      "land_area_m2": "1330",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/rtyne-v-podkrkonosi/538849356"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/538849356"
       ]
     },
     {

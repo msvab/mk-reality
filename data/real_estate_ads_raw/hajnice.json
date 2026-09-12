@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 12,
-    "rows_retained": 3,
+    "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -246,8 +246,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/4283424844",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4283424844",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
@@ -264,7 +274,8 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/281679180",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2915201868",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3730956364",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3782144076"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3782144076",
+    "stale-detail-fetch:4283424844:Failed to fetch https://www.sreality.cz/api/v1/estates/4283424844: HTTP 404"
   ],
   "listings": [
     {
@@ -283,24 +294,6 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 115 m², pozemek 1471 m²",
-      "location": "Hajnice, Trutnov",
-      "property_type": "house",
-      "price": "6 800 000 Kč",
-      "house_area_m2": "115",
-      "land_area_m2": "1471",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/hajnice/4283424844"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/4283424844"
       ]
     },
     {
