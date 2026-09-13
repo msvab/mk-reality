@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 11,
-    "rows_retained": 6,
+    "candidates_gathered": 10,
+    "rows_retained": 5,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -116,14 +116,6 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-83941",
       "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/lipa-nad-orlici/6a845a3a6cb0e35a06022fcf/",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -237,8 +229,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/4007575628",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4007575628",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -278,7 +280,6 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/lipa-nad-orlici/699f0369aea5f378f1069974/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/lipa-nad-orlici/6a845a3a6cb0e35a06022fcf/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/lipa-nad-orlici/67ffb0e47a9535c364038975/",
     "missing-page-url:house",
     "missing-page-url:land",
@@ -286,6 +287,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=L%C3%ADpa+nad+Orlic%C3%AD&form%5Bcena_mena%5D=1",
+    "stale-detail-fetch:4007575628:Failed to fetch https://www.sreality.cz/api/v1/estates/4007575628: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4167184460",
     "stale-detail-fetch:720855884:Failed to fetch https://www.sreality.cz/api/v1/estates/720855884: HTTP 404"
   ],
@@ -357,24 +359,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/483808076"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 250 m², pozemek 1413 m²",
-      "location": "Lípa nad Orlicí, Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "6 890 000 Kč",
-      "house_area_m2": "250",
-      "land_area_m2": "1413",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/lipa-nad-orlici/4007575628"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/4007575628"
       ]
     },
     {
