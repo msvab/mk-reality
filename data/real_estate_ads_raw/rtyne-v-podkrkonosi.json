@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 10,
-    "rows_retained": 2,
+    "candidates_gathered": 12,
+    "rows_retained": 4,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -109,6 +109,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-143146",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/rtyne-v-podkrkonosi-ke-skalce/6aa686269d9edb29290150d6/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -245,6 +253,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2508664908",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/4189290572",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -290,6 +306,24 @@
       "portal": [
         "reality.idnes.cz"
       ],
+      "title": "Prodej rodinného domu 122 m2, pozemek 1330 m2, Ke Skalce, Rtyně v Podkrkonoší",
+      "location": "Rtyně v Podkrkonoší, okres Trutnov",
+      "property_type": "land",
+      "price": "10 500 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1330",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/rtyne-v-podkrkonosi-ke-skalce/6aa686269d9edb29290150d6/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
       "title": "Prodej pozemku k bydlení, 3195 m2, Rtyně v Podkrkonoší",
       "location": "Rtyně v Podkrkonoší, okres Trutnov",
       "property_type": "land",
@@ -302,6 +336,24 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 122 m², pozemek 1330 m²",
+      "location": "Rtyně v Podkrkonoší, Ke Skalce, Trutnov",
+      "property_type": "house",
+      "price": "10 500 000 Kč",
+      "house_area_m2": "122",
+      "land_area_m2": "1330",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/rtyne-v-podkrkonosi-ke-skalce/2508664908"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2508664908"
       ]
     },
     {

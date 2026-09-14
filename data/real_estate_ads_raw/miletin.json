@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 0,
-    "candidates_gathered": 15,
+    "candidates_gathered": 24,
     "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
@@ -42,8 +42,13 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
+      "status": "fetch_error",
+      "http_status": 0,
+      "stage": "search_fetch",
+      "message": "curl exited with 56",
+      "evidence": [
+        "search_fetch:fetch_error:https://reality.idnes.cz/s/prodej/pozemky/miletin/"
+      ]
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -104,6 +109,15 @@
       "url": "https://reality.idnes.cz/s/prodej/pozemky/miletin/",
       "stage": "search_fetch",
       "attempt": 1,
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/miletin/",
+      "stage": "search_fetch",
+      "attempt": 2,
       "status": "ok",
       "http_status": 200
     },
@@ -125,7 +139,79 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/miletin-jiriho-z-podebrad/6a6a14db727958ee1b0053a3/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/kopidlno/6800bf6e438e62b09e0f3e08/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/libosovice/6956af5a5eaea143d50c0244/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/libosovice/69b4a368b693eedbce0c1648/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nemyceves/69b92fcd3bbe21edad072951/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/jicin/69ef014cbf411ae44908cb03/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/bechary/69f93fc66f0da90de307c018/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pecka/6a180b2daa95d77d0d0b4756/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/libun/6a1c030e0b0b476fdc0170b5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/stara-paka-revolucni/6a1ebe62548a742e7e0ae2c5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/stare-hrady/6a201433eec862d1410fd929/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -308,8 +394,18 @@
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/miletin-arnoldova/6a201f018c86f110a301ef49/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/miletin-lhotova/6a201ed865093f0af9062a75/",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-94668",
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-94668",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/miletin-jiriho-z-podebrad/6a6a14db727958ee1b0053a3/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/kopidlno/6800bf6e438e62b09e0f3e08/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/libosovice/6956af5a5eaea143d50c0244/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/libosovice/69b4a368b693eedbce0c1648/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/nemyceves/69b92fcd3bbe21edad072951/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/jicin/69ef014cbf411ae44908cb03/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/bechary/69f93fc66f0da90de307c018/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pecka/6a180b2daa95d77d0d0b4756/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/libun/6a1c030e0b0b476fdc0170b5/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/stara-paka-revolucni/6a1ebe62548a742e7e0ae2c5/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/stare-hrady/6a201433eec862d1410fd929/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/jicin/640633275501354f2602047c/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/ubislavice/66fe9fc52148e009de0cdaa5/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/detenice/6759a24b14bb48b56301e4e9/",
