@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 28,
+    "candidates_gathered": 29,
     "rows_retained": 10,
     "zero_result_portals": [
       "realitymix.cz",
@@ -163,6 +163,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-smetanova/6aa8379adffd2976980237c3/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/upice-dr-a-hejny/6a99c8c61957c007df0f7d90/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -228,14 +236,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/upice/6a56a2d5cfd75cfa830056bf/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-a-bunzla/69d157c1a9ace00b760b38b5/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -407,6 +407,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2524483660",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/3233665100",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -436,8 +444,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/401683276",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/401683276",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -451,6 +469,7 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/upice-macharova/6a704cc6b66519c6d80a19d5/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-smetanova/6aa8379adffd2976980237c3/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-regnerova/67e4f775cce4ddddeb0397b4/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-sukova/68ed54d222bf8d981a0ed9bf/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/upice-wolkerova/6a9c06bb8bf408cbc30f2b9b/",
@@ -458,7 +477,6 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-palackeho/6a8dd62c047eeeffed0bb3fa/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-namesti-t-g-masaryka/6a5a500e037503b72a03132d/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/upice/6a56a2d5cfd75cfa830056bf/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-a-bunzla/69d157c1a9ace00b760b38b5/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/upice/69aecb57c5c41641b3099aec/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/upice/68f6b050ac639b6eba01f33b/",
     "missing-page-url:house",
@@ -472,6 +490,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1908941388",
     "stale-detail-fetch:3233665100:Failed to fetch https://www.sreality.cz/api/v1/estates/3233665100: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3888312396",
+    "stale-detail-fetch:401683276:Failed to fetch https://www.sreality.cz/api/v1/estates/401683276: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/4053696588"
   ],
   "listings": [
@@ -619,24 +638,6 @@
       "portal": [
         "sreality.cz"
       ],
-      "title": "Prodej rodinného domu 110 m², pozemek 1592 m²",
-      "location": "Úpice, Chelčického, Trutnov",
-      "property_type": "house",
-      "price": "3 790 000 Kč",
-      "house_area_m2": "110",
-      "land_area_m2": "1592",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/upice-chelcickeho/401683276"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/401683276"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
       "title": "Prodej stavebního pozemku 1627 m²",
       "location": "Úpice, Pod Velbabou, Trutnov",
       "property_type": "land",
@@ -649,6 +650,25 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2075951948",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1649 m²",
+      "location": "Úpice, Puškinova, Trutnov",
+      "property_type": "land",
+      "price": "1 899 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1649",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/upice-puskinova/2524483660"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2524483660",
         "buildable-land"
       ]
     }

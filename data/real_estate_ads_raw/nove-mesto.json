@@ -42,12 +42,12 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "fetch_error",
-      "http_status": 0,
+      "status": "fallback_page",
+      "http_status": 404,
       "stage": "search_fetch",
-      "message": "curl exited with 56",
+      "message": "HTTP 404",
       "evidence": [
-        "search_fetch:fetch_error:https://reality.idnes.cz/s/prodej/domy/nove-mesto/"
+        "search_fetch:fallback_page:https://reality.idnes.cz/s/prodej/domy/nove-mesto/"
       ]
     },
     "realitymix.cz": {
@@ -77,15 +77,6 @@
       "url": "https://reality.idnes.cz/s/prodej/domy/nove-mesto/",
       "stage": "search_fetch",
       "attempt": 1,
-      "status": "fetch_error",
-      "http_status": 0,
-      "error": "curl exited with 56"
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/domy/nove-mesto/",
-      "stage": "search_fetch",
-      "attempt": 2,
       "status": "fallback_page",
       "http_status": 404,
       "error": "HTTP 404"

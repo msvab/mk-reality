@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 25,
-    "rows_retained": 8,
+    "rows_retained": 6,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -80,6 +80,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vamberk-janackova/69f265b95cd2e431c0049d0f/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -374,8 +382,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3275989068",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3275989068",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -396,6 +414,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/vamberk-janackova/69f265b95cd2e431c0049d0f/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vamberk/6aa1829995f0ecaa59066be7/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vamberk-koukolova/65ee234b71f22a265e05379c/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vamberk/68df98b96519bbc30305967c/",
@@ -416,6 +435,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Vamberk&form%5Bcena_mena%5D=1",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1042276428",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2469122124",
+    "stale-detail-fetch:3275989068:Failed to fetch https://www.sreality.cz/api/v1/estates/3275989068: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3857658956",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/460513356"
   ],
@@ -450,23 +470,6 @@
       "land_area_m2": "1005",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/dum/vamberk-krajkarska/67d5626348d2fdee450d3a35/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej rodinného domu Vamberk",
-      "location": "Vamberk, okres Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "5 390 000 Kč",
-      "house_area_m2": "180",
-      "land_area_m2": "2143",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/vamberk-janackova/69f265b95cd2e431c0049d0f/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
@@ -543,24 +546,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1741107276"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 180 m², pozemek 2143 m²",
-      "location": "Vamberk, Janáčkova, Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "5 390 000 Kč",
-      "house_area_m2": "180",
-      "land_area_m2": "2143",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/vamberk-janackova/3275989068"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3275989068"
       ]
     }
   ]

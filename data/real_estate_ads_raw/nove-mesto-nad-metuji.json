@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 37,
+    "candidates_gathered": 38,
     "rows_retained": 12,
     "zero_result_portals": [
       "reality.aktualne.cz"
@@ -163,6 +163,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-na-bobecku/6aa7a91ce45ac3516304293b/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -370,14 +378,6 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/172184396",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/1900503884",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -387,6 +387,14 @@
     {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/213893964",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2146840652",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -468,6 +476,7 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-na-bobecku/6aa7a91ce45ac3516304293b/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-studynka/6aa3ce7aac416c681403865f/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-komenskeho/6aa28969a998ddffcd0f5e7c/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/69c7a91890681dcfc0032410/",
@@ -482,9 +491,9 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Nov%C3%A9+M%C4%9Bsto+nad+Metuj%C3%AD&form%5Bcena_mena%5D=1",
     "missing-price:https://www.sreality.cz/api/v1/estates/1426890828",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1458172492",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/172184396",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1900503884",
     "missing-price:https://www.sreality.cz/api/v1/estates/213893964",
+    "excluded-chata:https://www.sreality.cz/api/v1/estates/2146840652",
     "missing-price:https://www.sreality.cz/api/v1/estates/2207088716",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2430219084",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2827927628",

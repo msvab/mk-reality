@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 8,
-    "rows_retained": 7,
+    "candidates_gathered": 9,
+    "rows_retained": 8,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -83,6 +83,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pilnikov/6aa6a9c31f27967c010bf51f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/domy/pilnikov/",
       "stage": "search_fetch",
       "attempt": 1,
@@ -109,14 +117,6 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-411302",
       "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pilnikov/6aa6a9c31f27967c010bf51f/",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -189,6 +189,14 @@
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2931&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
       "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3521949772",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -350,6 +358,24 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3759648844",
         "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 85 m², pozemek 1000 m²",
+      "location": "Pilníkov, Pražská, Trutnov",
+      "property_type": "house",
+      "price": "2 790 000 Kč",
+      "house_area_m2": "85",
+      "land_area_m2": "1000",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/pilnikov-prazska/3521949772"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3521949772"
       ]
     }
   ]

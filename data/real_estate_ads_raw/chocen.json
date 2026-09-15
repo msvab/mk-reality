@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 14,
-    "rows_retained": 5,
+    "candidates_gathered": 15,
+    "rows_retained": 4,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -123,6 +123,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chocen-na-krepcich/68bd27492f82bbf650006294/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/chocen-svatojirska/6a2960dddc9d80bf080d9cf7/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -147,7 +155,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chocen/6a442e5876693dc0310afacc/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chocen/6a2ab3d2e511c1c289088578/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -155,7 +163,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chocen/6a2ab3d2e511c1c289088578/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chocen/6a442e5876693dc0310afacc/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -256,8 +264,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1445052492",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1445052492",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -307,16 +325,18 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/chocen-v-kameni/699db3d70077381eda031c44/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chocen-na-krepcich/68bd27492f82bbf650006294/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chocen-svatojirska/6a2960dddc9d80bf080d9cf7/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chocen-jiraskova/6a4282dd432fd9c4b20664b6/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/chocen/6852b5ffa5941c3dcf0197d9/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/chocen/6a442e5876693dc0310afacc/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/chocen/6a2ab3d2e511c1c289088578/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/chocen/6a442e5876693dc0310afacc/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3611-usti-nad-orlici/pardubicky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Choce%C5%88&form%5Bcena_mena%5D=1",
     "stale-detail-fetch:1402684236:Failed to fetch https://www.sreality.cz/api/v1/estates/1402684236: HTTP 404",
+    "stale-detail-fetch:1445052492:Failed to fetch https://www.sreality.cz/api/v1/estates/1445052492: HTTP 404",
     "stale-detail-fetch:1559257932:Failed to fetch https://www.sreality.cz/api/v1/estates/1559257932: HTTP 404",
     "stale-detail-fetch:3422150732:Failed to fetch https://www.sreality.cz/api/v1/estates/3422150732: HTTP 404"
   ],
@@ -393,24 +413,6 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2522333260",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 190 m², pozemek 1007 m²",
-      "location": "Choceň, Dvořákova, Ústí nad Orlicí",
-      "property_type": "house",
-      "price": "5 000 000 Kč",
-      "house_area_m2": "190",
-      "land_area_m2": "1007",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/chocen-dvorakova/1445052492"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1445052492"
       ]
     }
   ]
