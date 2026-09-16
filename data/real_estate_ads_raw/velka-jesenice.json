@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 11,
-    "rows_retained": 5,
+    "rows_retained": 4,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -238,8 +238,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1460446028",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1460446028",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -270,6 +280,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/pronajem-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Velk%C3%A1+Jesenice&form%5Bcena_mena%5D=1",
+    "stale-detail-fetch:1460446028:Failed to fetch https://www.sreality.cz/api/v1/estates/1460446028: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2598187084"
   ],
   "listings": [
@@ -324,24 +335,6 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 200 m², pozemek 1149 m²",
-      "location": "Velká Jesenice, Náchod",
-      "property_type": "house",
-      "price": "5 998 000 Kč",
-      "house_area_m2": "200",
-      "land_area_m2": "1149",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/velka-jesenice/1460446028"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1460446028"
       ]
     },
     {
