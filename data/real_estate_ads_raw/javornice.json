@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 18,
-    "rows_retained": 10,
+    "candidates_gathered": 17,
+    "rows_retained": 7,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -72,6 +72,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/javornice/6a4283e24fe72749990d3184/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -149,14 +157,6 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-57819",
       "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/javornice/6a86c1309277fcf0960730f0/",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -318,20 +318,41 @@
       "url": "https://www.sreality.cz/api/v1/estates/4259442764",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4259442764",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/752189516",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/752189516",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/javornice/6a4283e24fe72749990d3184/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/javornice/6a5f64086e1b2fd7ff0ebd45/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/javornice/6735d4802e512b1892094600/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/javornice/6735d3a172b8bae09f0d65f2/",
@@ -344,7 +365,8 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Javornice&form%5Bcena_mena%5D=1",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2600579148",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2931979084",
-    "missing-price:https://www.sreality.cz/api/v1/estates/752189516"
+    "stale-detail-fetch:4259442764:Failed to fetch https://www.sreality.cz/api/v1/estates/4259442764: HTTP 404",
+    "stale-detail-fetch:752189516:Failed to fetch https://www.sreality.cz/api/v1/estates/752189516: HTTP 404"
   ],
   "listings": [
     {
@@ -359,24 +381,6 @@
       "land_area_m2": "1779",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/pozemek/javornice/692ddc54fe2b2af0b70ad114/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej pozemku k bydlení, 4450 m2, Javornice",
-      "location": "Javornice, okres Rychnov nad Kněžnou",
-      "property_type": "land",
-      "price": "3 999 999 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "4450",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/javornice/6a4283e24fe72749990d3184/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
@@ -420,23 +424,6 @@
     },
     {
       "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej rodinného domu, Javornice - Jaroslav",
-      "location": "Javornice, okres Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "Cena na vyžádání",
-      "house_area_m2": "223",
-      "land_area_m2": "5844",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/javornice/6a86c1309277fcf0960730f0/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
         "sreality.cz"
       ],
       "title": "Prodej rodinného domu 183 m², pozemek 1329 m²",
@@ -469,25 +456,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/4213449548",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 4450 m²",
-      "location": "Javornice, Rychnov nad Kněžnou",
-      "property_type": "land",
-      "price": "3 999 999 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "4450",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/javornice/4259442764"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/4259442764",
         "buildable-land"
       ]
     },

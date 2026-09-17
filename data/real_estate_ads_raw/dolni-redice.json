@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 12,
-    "rows_retained": 6,
+    "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -222,8 +222,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3803845452",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3803845452",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -270,6 +280,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Doln%C3%AD+%C5%98edice&form%5Bcena_mena%5D=1",
     "missing-price:https://www.sreality.cz/api/v1/estates/2354917452",
     "missing-price:https://www.sreality.cz/api/v1/estates/3057712988",
+    "stale-detail-fetch:3803845452:Failed to fetch https://www.sreality.cz/api/v1/estates/3803845452: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/3954045516",
     "stale-detail-fetch:837341260:Failed to fetch https://www.sreality.cz/api/v1/estates/837341260: HTTP 404"
   ],
@@ -343,25 +354,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/734711884"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1158 m²",
-      "location": "Dolní Ředice, Drahošská, Pardubice",
-      "property_type": "land",
-      "price": "3 755 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1158",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/dolni-redice-drahosska/3803845452"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3803845452",
-        "buildable-land"
       ]
     },
     {
