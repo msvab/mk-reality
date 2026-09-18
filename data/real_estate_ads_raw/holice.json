@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 63,
-    "rows_retained": 22,
+    "candidates_gathered": 64,
+    "rows_retained": 21,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -717,6 +717,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3114397772",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/3133009996",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -728,8 +736,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3230330956",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3230330956",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -849,6 +867,8 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1239449676",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1938997324",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3070509900",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3114397772",
+    "stale-detail-fetch:3230330956:Failed to fetch https://www.sreality.cz/api/v1/estates/3230330956: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/3765477452",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/617791564",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/660505164",
@@ -981,24 +1001,6 @@
       "portal": [
         "reality.idnes.cz"
       ],
-      "title": "Stavební pozemek v blízkosti centra Holic",
-      "location": "Holice, okres Pardubice",
-      "property_type": "land",
-      "price": "3 290 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1252",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/holice/6a82ccad22aa9a99ca0e4df0/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
       "title": "Prodej rodinného domu, 80 m2, Holice",
       "location": "Holice, okres Pardubice",
       "property_type": "house",
@@ -1010,6 +1012,24 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Stavební pozemek v blízkosti centra Holic",
+      "location": "Holice, okres Pardubice",
+      "property_type": "land",
+      "price": "2 980 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1252",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/holice/6a82ccad22aa9a99ca0e4df0/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
       ]
     },
     {
@@ -1162,24 +1182,6 @@
       "portal": [
         "sreality.cz"
       ],
-      "title": "Prodej rodinného domu 76 m², pozemek 1343 m²",
-      "location": "Holice, Pardubice",
-      "property_type": "house",
-      "price": "4 590 000 Kč",
-      "house_area_m2": "76",
-      "land_area_m2": "1343",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/holice-koudelka/3230330956"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3230330956"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
       "title": "Prodej rodinného domu 100 m², pozemek 1037 m²",
       "location": "Holice, Ve Drahách, Pardubice",
       "property_type": "house",
@@ -1216,25 +1218,6 @@
       "portal": [
         "sreality.cz"
       ],
-      "title": "Prodej stavebního pozemku 1252 m²",
-      "location": "Holice, Pardubice",
-      "property_type": "land",
-      "price": "3 290 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1252",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/holice/2255470668"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2255470668",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
       "title": "Prodej rodinného domu 80 m², pozemek 1384 m²",
       "location": "Holice, Pardubice",
       "property_type": "house",
@@ -1247,6 +1230,25 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2917253196"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1252 m²",
+      "location": "Holice, Pardubice",
+      "property_type": "land",
+      "price": "2 980 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1252",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/holice/2255470668"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2255470668",
+        "buildable-land"
       ]
     }
   ]

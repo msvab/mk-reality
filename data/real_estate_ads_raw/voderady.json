@@ -29,13 +29,14 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
-    "candidates_gathered": 2,
-    "rows_retained": 1,
+    "workers_with_results": 0,
+    "candidates_gathered": 3,
+    "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
-      "reality.aktualne.cz"
+      "reality.aktualne.cz",
+      "sreality.cz"
     ],
     "blocked_portals": []
   },
@@ -53,8 +54,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Sreality row."
+      "status": "no_results",
+      "message": "No retained in-scope Sreality rows."
     }
   },
   "fetch_attempts": [
@@ -108,7 +109,15 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/voderady/6a880767babecd6d8c0b4f55/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/voderady/6aacc31c58a2d73439097522/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/voderady/6aacdba010f59dded60df0a9/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -200,31 +209,14 @@
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-187542",
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-105635",
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-184217",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/voderady/6a880767babecd6d8c0b4f55/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/voderady/6aacc31c58a2d73439097522/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/voderady/6aacdba010f59dded60df0a9/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html",
-    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Vod%C4%9Brady&form%5Bcena_mena%5D=1"
+    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Vod%C4%9Brady&form%5Bcena_mena%5D=1",
+    "missing-price:https://www.sreality.cz/api/v1/estates/1816379468"
   ],
-  "listings": [
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej chalupy 100 m², pozemek 1619 m²",
-      "location": "Voděrady, Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "1 989 999 Kč",
-      "house_area_m2": "100",
-      "land_area_m2": "1619",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/chalupa/voderady-uhrinovice/1816379468"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1816379468"
-      ]
-    }
-  ]
+  "listings": []
 }

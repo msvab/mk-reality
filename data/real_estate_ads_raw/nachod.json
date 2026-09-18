@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 60,
+    "candidates_gathered": 59,
     "rows_retained": 19,
     "zero_result_portals": [
       "reality.aktualne.cz"
@@ -290,8 +290,16 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
-      "stage": "detail_fetch",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-27448",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-27448",
+      "stage": "search_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -801,7 +809,6 @@
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/nachod-jugoslavska/6a743c236f3f9a22bd0a2359/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/nachod/6a3118cf23d2acd8d30ae1c8/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod/6aaaab41e66688a385088339/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod-jugoslavska/6a69e8bee6ce1d62b00dc880/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod-doubicova/6a4253d6913a4fb831031d3e/",

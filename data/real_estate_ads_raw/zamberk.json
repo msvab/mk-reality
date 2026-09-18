@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 27,
-    "rows_retained": 7,
+    "rows_retained": 6,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -442,8 +442,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/893399116",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/893399116",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
@@ -472,7 +482,8 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3611-usti-nad-orlici/pardubicky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=%C5%BDamberk&form%5Bcena_mena%5D=1",
     "stale-detail-fetch:3249558348:Failed to fetch https://www.sreality.cz/api/v1/estates/3249558348: HTTP 404",
-    "stale-detail-fetch:4244238412:Failed to fetch https://www.sreality.cz/api/v1/estates/4244238412: HTTP 404"
+    "stale-detail-fetch:4244238412:Failed to fetch https://www.sreality.cz/api/v1/estates/4244238412: HTTP 404",
+    "stale-detail-fetch:893399116:Failed to fetch https://www.sreality.cz/api/v1/estates/893399116: HTTP 404"
   ],
   "listings": [
     {
@@ -578,24 +589,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/409748300"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 154 m², pozemek 1000 m²",
-      "location": "Žamberk, Ústí nad Orlicí",
-      "property_type": "house",
-      "price": "5 895 000 Kč",
-      "house_area_m2": "154",
-      "land_area_m2": "1000",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/zamberk/893399116"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/893399116"
       ]
     }
   ]

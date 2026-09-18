@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 23,
-    "rows_retained": 5,
+    "rows_retained": 4,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -235,6 +235,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/letohrad/5f271b4637ba4d35045ba663/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/letohrad/5f272ce937ba4d42ff086ca3/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -260,14 +268,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/letohrad/5f27224b558f0703b15dcfe3/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/letohrad/5f271b4637ba4d35045ba663/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -450,8 +450,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/4072980556",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4072980556",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
@@ -465,11 +475,11 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/letohrad-ul-snp/6a5fd121f6ab42fa160a7124/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/letohrad-u-biatlonu/68cbc70cd3bb7edf3406f88c/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/letohrad-u-biatlonu/680a20f992674095f2013436/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/letohrad/5f271b4637ba4d35045ba663/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/letohrad/5f272ce937ba4d42ff086ca3/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/letohrad/6a5f5da7589a0c1a5606e380/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/letohrad/6a903d136b57b9237f01bca5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/letohrad/5f27224b558f0703b15dcfe3/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/letohrad/5f271b4637ba4d35045ba663/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3611-usti-nad-orlici/pardubicky/prodej-domy_vily.html",
@@ -478,7 +488,8 @@
     "detail-fallback-page:https://reality.aktualne.cz/detail/letohrad/prodej-domu-vyrazne-snizeni-ceny-zahrada-dvojgaraz-letohrad-8445479.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/letohrad/prodej-rodinneho-domu-164m2-letohrad-ul-podmesti-93-8500269.html",
     "stale-detail-fetch:1652965964:Failed to fetch https://www.sreality.cz/api/v1/estates/1652965964: HTTP 404",
-    "missing-price:https://www.sreality.cz/api/v1/estates/3368083532"
+    "missing-price:https://www.sreality.cz/api/v1/estates/3368083532",
+    "stale-detail-fetch:4072980556:Failed to fetch https://www.sreality.cz/api/v1/estates/4072980556: HTTP 404"
   ],
   "listings": [
     {
@@ -551,24 +562,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3956834380"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 120 m², pozemek 1027 m²",
-      "location": "Letohrad, Komenského, Ústí nad Orlicí",
-      "property_type": "house",
-      "price": "3 490 000 Kč",
-      "house_area_m2": "120",
-      "land_area_m2": "1027",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/letohrad-komenskeho/4072980556"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/4072980556"
       ]
     }
   ]
