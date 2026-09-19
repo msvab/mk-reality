@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 30,
-    "rows_retained": 11,
+    "rows_retained": 10,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -72,6 +72,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-chelcickeho/690b19807107f77e410a4419/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -163,6 +171,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-dr-a-hejny/6a99c8c61957c007df0f7d90/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/upice-regnerova/67e4f775cce4ddddeb0397b4/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -188,14 +204,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/upice-smetanova/6aa8379adffd2976980237c3/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-dr-a-hejny/6a99c8c61957c007df0f7d90/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -466,6 +474,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/upice-chelcickeho/690b19807107f77e410a4419/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/upice-macharova/6a704cc6b66519c6d80a19d5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-regnerova/67e4f775cce4ddddeb0397b4/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-svornosti/6aaa5ae3252f3409d6086881/",
@@ -504,23 +513,6 @@
       "land_area_m2": "1930",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/dum/upice-j-w-mezerove/68233c50e54843df140e348c/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej rodinného domu, 110 m2, Úpice, ul. Chelčického",
-      "location": "Úpice, okres Trutnov",
-      "property_type": "house",
-      "price": "3 790 000 Kč",
-      "house_area_m2": "110",
-      "land_area_m2": "1592",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/upice-chelcickeho/690b19807107f77e410a4419/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"

@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 20,
+    "candidates_gathered": 18,
     "rows_retained": 9,
     "zero_result_portals": [
       "realitymix.cz",
@@ -59,7 +59,7 @@
   "fetch_attempts": [
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/lichkov/6a4ce34a225bb399eb05b73b/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/lichkov/6aabec03b44dd6c3cd0102f6/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -67,11 +67,19 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/lichkov/6a4ce34a225bb399eb05b73b/",
-      "stage": "detail_parse",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/lichkov/6aacd555a262fe752c0d533b/",
+      "stage": "detail_fetch",
       "attempt": 1,
-      "status": "fallback_page",
-      "message": "Detail URL returned fallback or non-detail content."
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/lichkov/6aacd54cd3b2cfe28707aaf1/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "reality.idnes.cz",
@@ -80,22 +88,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/lichkov/69767d774b8bb0199c033119/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/lichkov/69767d774b8bb0199c033119/",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -187,31 +179,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/lichkov/6aabec03b44dd6c3cd0102f6/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/lichkov/6a3ce0fa6966bf4f3700f94e/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/lichkov/6aacd54cd3b2cfe28707aaf1/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/lichkov/6aacd555a262fe752c0d533b/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -402,8 +370,6 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/lichkov/6a4ce34a225bb399eb05b73b/",
-    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/lichkov/69767d774b8bb0199c033119/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/lichkov/69767ce3a9b4c678440e75e1/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/lichkov/69767d1ad21113e13607a9ab/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/lichkov/69767d4fe8dd7acbe90463d7/",

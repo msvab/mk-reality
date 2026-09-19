@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 78,
-    "rows_retained": 22,
+    "candidates_gathered": 79,
+    "rows_retained": 20,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -79,6 +79,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-skroupova/6a70515c464101ef7100363c/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -394,14 +402,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-malecka/6a15bab12bcb0b57a801c641/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim/69ea2eda7a8540c745079045/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -410,7 +410,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-gorkeho/69bff8416bf56951ca098f44/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim/69ea2cb5f07a2b655908832c/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -419,6 +419,30 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-malecka/687504d9eff91a176c0b1266/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-na-kopanici/693c1fdacde6c2a060013278/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-malecka/6a15bab12bcb0b57a801c641/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-gorkeho/69bff8416bf56951ca098f44/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -443,22 +467,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-vlci-hora/6a3a3b7bf4efd274aa093d2c/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim/69ea2cb5f07a2b655908832c/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chrudim-na-kopanici/693c1fdacde6c2a060013278/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -539,6 +547,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/5fbad4f33ae2ac68cd68ad4a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chrudim/6aad205d7c0ba71c84070c00/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -943,8 +959,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/4207136844",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4207136844",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -983,6 +1009,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/chrudim-skroupova/6a70515c464101ef7100363c/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69df412ec3e25425e5051535/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69de1453b42a69929f07e935/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/chrudim/69dcaaad795e798420037564/",
@@ -993,15 +1020,15 @@
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/chrudim-caslavska/6a5e0cb92a214657e10862fe/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/chrudim-caslavska/6a5e16218669824bb2073e88/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/chrudim-na-kopci/673471a52d12f622840e8e9f/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim-malecka/6a15bab12bcb0b57a801c641/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim/69ea2eda7a8540c745079045/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim-gorkeho/69bff8416bf56951ca098f44/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim/69ea2cb5f07a2b655908832c/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim-malecka/687504d9eff91a176c0b1266/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim-na-kopanici/693c1fdacde6c2a060013278/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim-malecka/6a15bab12bcb0b57a801c641/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim-gorkeho/69bff8416bf56951ca098f44/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim-s-k-neumanna/6a7df2ef951da4977c048856/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/chrudim/6aa801eea0ac7acf59055ee9/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim-vlci-hora/6a3a3b7bf4efd274aa093d2c/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim/69ea2cb5f07a2b655908832c/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim-na-kopanici/693c1fdacde6c2a060013278/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim-svermova/6a97ef38d8cdb626ce007e77/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim/6a96d1bd9a2786582e0b2e24/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim-obce-lezaku/6a02ed19382f69ac570fd69c/",
@@ -1012,6 +1039,7 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim-jungmannovo-nabrezi/6a3166dd58941478bf01a78b/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chrudim-smetanova/6a9697255a127453180c4675/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/chrudim/5fbad4f33ae2ac68cd68ad4a/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/chrudim/6aad205d7c0ba71c84070c00/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/chrudim/6800d25e486aff05a50e9bf2/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/chrudim/6a1d4c55ddbb7b6c7f04c4e7/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/chrudim/695a68d23fa032c39e0d6e0d/",
@@ -1039,6 +1067,7 @@
     "excluded-chata:https://www.sreality.cz/api/v1/estates/357131084",
     "stale-detail-fetch:4067811404:Failed to fetch https://www.sreality.cz/api/v1/estates/4067811404: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4186284108",
+    "stale-detail-fetch:4207136844:Failed to fetch https://www.sreality.cz/api/v1/estates/4207136844: HTTP 404",
     "stale-detail-fetch:927395916:Failed to fetch https://www.sreality.cz/api/v1/estates/927395916: HTTP 404"
   ],
   "listings": [
@@ -1071,23 +1100,6 @@
       "land_area_m2": "2514",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/dum/chrudim-na-vysluni/63496a10c8f409663c429fbd/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej rodinného domu v Chrudimi, ul. Škroupova",
-      "location": "Chrudim, okres Chrudim",
-      "property_type": "house",
-      "price": "9 499 000 Kč",
-      "house_area_m2": "134",
-      "land_area_m2": "1300",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/chrudim-skroupova/6a70515c464101ef7100363c/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
@@ -1322,24 +1334,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2868062028"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 134 m², pozemek 1300 m²",
-      "location": "Chrudim, Škroupova, Chrudim",
-      "property_type": "house",
-      "price": "9 499 000 Kč",
-      "house_area_m2": "134",
-      "land_area_m2": "1300",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/chrudim-chrudim-iii-skroupova/4207136844"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/4207136844"
       ]
     },
     {

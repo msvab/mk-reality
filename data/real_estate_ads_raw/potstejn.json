@@ -29,10 +29,11 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
-    "candidates_gathered": 12,
+    "workers_with_results": 1,
+    "candidates_gathered": 13,
     "rows_retained": 2,
     "zero_result_portals": [
+      "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz"
     ],
@@ -40,8 +41,8 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
+      "status": "no_results",
+      "message": "No retained in-scope iDNES rows."
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -64,6 +65,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/potstejn/65843e725711993acf08b788/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -227,6 +236,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1182277708",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/3019100236",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -260,6 +277,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/potstejn/65843e725711993acf08b788/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/potstejn/69dd919e99dc673b37049435/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/potstejn-lazenska/69dd8f435906da9d480ea5a5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/potstejn/6757e89fb3e7952039050367/",
@@ -277,19 +295,20 @@
   "listings": [
     {
       "portal": [
-        "reality.idnes.cz"
+        "sreality.cz"
       ],
-      "title": "Pozemek pro stavbu rodinného domu v Potštejně, okr. RK",
-      "location": "Potštejn, okres Rychnov nad Kněžnou",
+      "title": "Prodej stavebního pozemku 2066 m²",
+      "location": "Potštejn, Pod Nádražím, Rychnov nad Kněžnou",
       "property_type": "land",
       "price": "4 500 000 Kč",
       "house_area_m2": "unknown",
       "land_area_m2": "2066",
       "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/potstejn/65843e725711993acf08b788/"
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/potstejn-pod-nadrazim/1182277708"
       ],
       "notes": [
-        "detail-url-verified:reality.idnes.cz",
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1182277708",
         "buildable-land"
       ]
     },
