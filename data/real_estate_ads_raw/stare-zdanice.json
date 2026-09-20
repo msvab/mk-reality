@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 6,
+    "candidates_gathered": 7,
     "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
@@ -93,6 +93,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-154784",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice/6a69c77d318e86bb8406aa9f/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -204,6 +212,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice/6a69c77d318e86bb8406aa9f/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/stare-zdanice/6aa955e6e2fc985d43040df6/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/stare-zdanice/6a87584d510ba1a0e9000a84/",
     "missing-page-url:house",

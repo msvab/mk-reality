@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 1,
-    "candidates_gathered": 17,
+    "candidates_gathered": 19,
     "rows_retained": 3,
     "zero_result_portals": [
       "reality.idnes.cz",
@@ -118,6 +118,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-154831",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -268,6 +276,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1472733260",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/1497887564",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -279,8 +295,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/2181967948",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2181967948",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -317,6 +343,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/starkov/6a6ba6ac129d14fdc703d399/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/starkov/6a6cd5e70b7f0c67e20c33cc/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/starkov/6a29211b7ad853cfca035ec6/",
@@ -332,6 +359,7 @@
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=St%C3%A1rkov&form%5Bcena_mena%5D=1",
     "missing-price:https://www.sreality.cz/api/v1/estates/1497887564",
+    "stale-detail-fetch:2181967948:Failed to fetch https://www.sreality.cz/api/v1/estates/2181967948: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/307753804",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3099639884"
   ],
@@ -343,15 +371,15 @@
       "title": "Prodej rodinného domu 107 m², pozemek 1182 m²",
       "location": "Stárkov, Náchod",
       "property_type": "house",
-      "price": "7 590 000 Kč",
+      "price": "6 990 000 Kč",
       "house_area_m2": "107",
       "land_area_m2": "1182",
       "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/starkov/2181967948"
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/starkov/1472733260"
       ],
       "notes": [
         "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2181967948"
+        "api-detail:https://www.sreality.cz/api/v1/estates/1472733260"
       ]
     },
     {
