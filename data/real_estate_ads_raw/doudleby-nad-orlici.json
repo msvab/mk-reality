@@ -67,19 +67,11 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/doudleby-nad-orlici-rude-armady/6a5fc361c0a25ada7f0d0474/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/doudleby-nad-orlici-rude-armady/6aae7c2aa4e4aa0d210f3d4b/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/doudleby-nad-orlici-rude-armady/6a5fc361c0a25ada7f0d0474/",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -188,14 +180,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/doudleby-nad-orlici-rude-armady/6a2ab16e4e98436054014a53/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/doudleby-nad-orlici-rude-armady/6aae7c2aa4e4aa0d210f3d4b/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -344,8 +328,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/2643976268",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2643976268",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -364,11 +358,18 @@
       "status": "not_found",
       "http_status": 404,
       "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/793736524",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/doudleby-nad-orlici-rude-armady/6a5fc361c0a25ada7f0d0474/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/doudleby-nad-orlici-fugnerova/6a87e2ac1fa3e487da0dbe6a/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/doudleby-nad-orlici-fugnerova/6a87e1e80fa9456310058f9f/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/doudleby-nad-orlici-liskova/6aabd24deaf775384f0568d6/",
@@ -383,6 +384,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Doudleby+nad+Orlic%C3%AD&form%5Bcena_mena%5D=1",
     "stale-detail-fetch:1113833548:Failed to fetch https://www.sreality.cz/api/v1/estates/1113833548: HTTP 404",
     "excluded-chata:https://www.sreality.cz/api/v1/estates/1729119052",
+    "stale-detail-fetch:2643976268:Failed to fetch https://www.sreality.cz/api/v1/estates/2643976268: HTTP 404",
     "stale-detail-fetch:3798188108:Failed to fetch https://www.sreality.cz/api/v1/estates/3798188108: HTTP 404"
   ],
   "listings": [
@@ -459,24 +461,6 @@
       "portal": [
         "sreality.cz"
       ],
-      "title": "Prodej rodinného domu 287 m², pozemek 2074 m²",
-      "location": "Doudleby nad Orlicí, Rudé armády, Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "6 800 000 Kč",
-      "house_area_m2": "287",
-      "land_area_m2": "2074",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/doudleby-nad-orlici-rude-armady/2643976268"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2643976268"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
       "title": "Prodej rodinného domu 128 m², pozemek 1243 m²",
       "location": "Doudleby nad Orlicí, Rudé armády, Rychnov nad Kněžnou",
       "property_type": "house",
@@ -489,6 +473,25 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1537122380"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 2841 m²",
+      "location": "Doudleby nad Orlicí, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "2 383 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2841",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/doudleby-nad-orlici/793736524"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/793736524",
+        "buildable-land"
       ]
     }
   ]

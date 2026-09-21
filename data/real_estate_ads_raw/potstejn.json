@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 1,
     "candidates_gathered": 13,
-    "rows_retained": 2,
+    "rows_retained": 1,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
@@ -239,8 +239,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1182277708",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1182277708",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -288,30 +298,12 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Pot%C5%A1tejn&form%5Bcena_mena%5D=1",
+    "stale-detail-fetch:1182277708:Failed to fetch https://www.sreality.cz/api/v1/estates/1182277708: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/3019100236",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3950428748",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/999632972"
   ],
   "listings": [
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 2066 m²",
-      "location": "Potštejn, Pod Nádražím, Rychnov nad Kněžnou",
-      "property_type": "land",
-      "price": "4 500 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "2066",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/potstejn-pod-nadrazim/1182277708"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1182277708",
-        "buildable-land"
-      ]
-    },
     {
       "portal": [
         "sreality.cz"
