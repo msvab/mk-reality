@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 18,
-    "rows_retained": 6,
+    "candidates_gathered": 17,
+    "rows_retained": 7,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -187,14 +187,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/doudleby-nad-orlici/69d60dfb49139e4de60e52f7/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/doudleby-nad-orlici-rude-armady/6a033abc0ca5f9b6090683f5/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -328,18 +320,8 @@
       "url": "https://www.sreality.cz/api/v1/estates/2643976268",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/2643976268",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "sreality.cz",
@@ -374,7 +356,6 @@
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/doudleby-nad-orlici-fugnerova/6a87e1e80fa9456310058f9f/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/doudleby-nad-orlici-liskova/6aabd24deaf775384f0568d6/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/doudleby-nad-orlici-rude-armady/6a2ab16e4e98436054014a53/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/doudleby-nad-orlici/69d60dfb49139e4de60e52f7/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/doudleby-nad-orlici-rude-armady/6a033abc0ca5f9b6090683f5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/doudleby-nad-orlici-svermova/6a2169b5399a457ffb00749a/",
     "removed-fallback-page:https://realitymix.cz/detail/doudleby-nad-orlici/prodej-pozemku-k-bydleni-1901-m-doudleby-nad-orlici-8353441.html",
@@ -384,7 +365,6 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Doudleby+nad+Orlic%C3%AD&form%5Bcena_mena%5D=1",
     "stale-detail-fetch:1113833548:Failed to fetch https://www.sreality.cz/api/v1/estates/1113833548: HTTP 404",
     "excluded-chata:https://www.sreality.cz/api/v1/estates/1729119052",
-    "stale-detail-fetch:2643976268:Failed to fetch https://www.sreality.cz/api/v1/estates/2643976268: HTTP 404",
     "stale-detail-fetch:3798188108:Failed to fetch https://www.sreality.cz/api/v1/estates/3798188108: HTTP 404"
   ],
   "listings": [
@@ -455,6 +435,24 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 287 m², pozemek 2074 m²",
+      "location": "Doudleby nad Orlicí, Rudé armády, Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "6 800 000 Kč",
+      "house_area_m2": "287",
+      "land_area_m2": "2074",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/doudleby-nad-orlici-rude-armady/2643976268"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2643976268"
       ]
     },
     {

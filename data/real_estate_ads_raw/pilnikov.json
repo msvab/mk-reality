@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 10,
-    "rows_retained": 9,
+    "rows_retained": 7,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -80,6 +80,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pilnikov-prazska/69dcee4faa6a91269a02abb5/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -198,8 +206,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3521949772",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3521949772",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -236,11 +254,13 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/pilnikov-prazska/69dcee4faa6a91269a02abb5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/pilnikov/60ce3b0e859b060af7568ad1/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3610-trutnov/kralovehradecky/prodej-domy_vily.html",
-    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Piln%C3%ADkov&form%5Bcena_mena%5D=1"
+    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Piln%C3%ADkov&form%5Bcena_mena%5D=1",
+    "stale-detail-fetch:3521949772:Failed to fetch https://www.sreality.cz/api/v1/estates/3521949772: HTTP 404"
   ],
   "listings": [
     {
@@ -276,23 +296,6 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej domu 2+1, Pilníkov",
-      "location": "Pilníkov, okres Trutnov",
-      "property_type": "house",
-      "price": "2 790 000 Kč",
-      "house_area_m2": "85",
-      "land_area_m2": "1000",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/pilnikov-prazska/69dcee4faa6a91269a02abb5/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
       ]
     },
     {
@@ -366,24 +369,6 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3759648844",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 85 m², pozemek 1000 m²",
-      "location": "Pilníkov, Pražská, Trutnov",
-      "property_type": "house",
-      "price": "2 790 000 Kč",
-      "house_area_m2": "85",
-      "land_area_m2": "1000",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/pilnikov-prazska/3521949772"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3521949772"
       ]
     },
     {

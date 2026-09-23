@@ -29,10 +29,11 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
-    "candidates_gathered": 13,
-    "rows_retained": 1,
+    "workers_with_results": 0,
+    "candidates_gathered": 12,
+    "rows_retained": 0,
     "zero_result_portals": [
+      "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz",
       "sreality.cz"
@@ -41,8 +42,8 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
+      "status": "no_results",
+      "message": "No retained in-scope iDNES rows."
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -102,14 +103,6 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-100960",
       "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-stribrna/65b2523bdc987840c2023e7a/",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -188,7 +181,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/mzany/6a901545d505b641b3015af6/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-rozkvet-miru-ii/6a7498de2eec179bfb050825/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -271,7 +264,6 @@
     "idnes-discovery-used-locality-id-cache",
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-100943",
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-100960",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-stribrna/65b2523bdc987840c2023e7a/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-zahradkarska-osada-u-labe/683eb5a9f1246564b90a7426/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/698cabc29680ad68cf0869f5/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-spravedlnost/69abca9262bef6590c000496/",
@@ -281,30 +273,12 @@
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-lesni/6a467516c77814b3ea0b127a/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-zahradkarska-osada-doliky/6a70644df577204fc703287d/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-zahradkarska-osada-slatina/6a72dbd4572605c6ed087334/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-rozkvet-miru-ii/6a7498de2eec179bfb050825/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/mzany/6aaa591aeae89e8c100f3b94/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/mzany/68b00a316e0219aa9805d5bd/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=M%C5%BEany&form%5Bcena_mena%5D=1"
   ],
-  "listings": [
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Pozemky Stračovská Lhota",
-      "location": "Mžany, okres Hradec Králové",
-      "property_type": "land",
-      "price": "Cena na vyžádání",
-      "house_area_m2": "unknown",
-      "land_area_m2": "22709",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/mzany/6a901545d505b641b3015af6/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    }
-  ]
+  "listings": []
 }

@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 1,
-    "candidates_gathered": 13,
-    "rows_retained": 1,
+    "candidates_gathered": 15,
+    "rows_retained": 2,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
@@ -133,6 +133,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/potstejn-lazenska/69dd8f435906da9d480ea5a5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/potstejn-ustecka/6ab2d9320b365edec702cf8c/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -278,6 +286,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4138541132",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/999632972",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -290,6 +306,7 @@
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/potstejn/65843e725711993acf08b788/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/potstejn/69dd919e99dc673b37049435/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/potstejn-lazenska/69dd8f435906da9d480ea5a5/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/potstejn-ustecka/6ab2d9320b365edec702cf8c/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/potstejn/6757e89fb3e7952039050367/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/potstejn/6a7cb59f27122af28d050206/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/potstejn/6aa90810e675fdfdce0804fb/",
@@ -304,6 +321,24 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/999632972"
   ],
   "listings": [
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 130 m², pozemek 1408 m²",
+      "location": "Potštejn, Ústecká, Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "4 700 000 Kč",
+      "house_area_m2": "130",
+      "land_area_m2": "1408",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/potstejn-ustecka/4138541132"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/4138541132"
+      ]
+    },
     {
       "portal": [
         "sreality.cz"

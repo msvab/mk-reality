@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 63,
-    "rows_retained": 21,
+    "candidates_gathered": 62,
+    "rows_retained": 20,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -104,6 +104,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/holice/6a316f4946d24d8efe0dc94b/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -291,7 +299,15 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-kratka/6a4e81f68dd5010fff0194f7/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/holice-nezvalova/6a9702f84ec91da233057c62/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/holice/6a343b8f92f35b9505046b0f/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -323,14 +339,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/holice-nezvalova/6a9702f84ec91da233057c62/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/holice-hradecka/6aaab4d785c08f61060d8007/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -340,14 +348,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/holice/6aa7e5acb755b98204055e5b/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/holice/6a343b8f92f35b9505046b0f/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -808,16 +808,16 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/holice/6a316f4946d24d8efe0dc94b/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/holice/6a7b54f085c2e2c0df0b75a6/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/holice/69b955b952dbcb7d2c093edb/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice-kratka/6a4e81f68dd5010fff0194f7/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice-nezvalova/6a9702f84ec91da233057c62/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/holice/6a343b8f92f35b9505046b0f/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice-staroholicka/6a96fe0931d1d0d5d70cc89b/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/holice/6a7334d340f3372518074d7a/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice-ruzickova/6aab95b2bdffb4c05c043605/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice-nezvalova/6a9702f84ec91da233057c62/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice-hradecka/6aaab4d785c08f61060d8007/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice/6aa7e5acb755b98204055e5b/",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/holice/6a343b8f92f35b9505046b0f/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice-palackeho/6aa662663fcdbc0e940b7374/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice-ve-drahach/6aa14c150b80e3fb9309a883/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice-husova/6aa11d2299045188330e37c3/",
@@ -942,23 +942,6 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej rodinného domu v Holicích",
-      "location": "Holice, okres Pardubice",
-      "property_type": "house",
-      "price": "4 590 000 Kč",
-      "house_area_m2": "76",
-      "land_area_m2": "1343",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/holice/6a316f4946d24d8efe0dc94b/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
       ]
     },
     {

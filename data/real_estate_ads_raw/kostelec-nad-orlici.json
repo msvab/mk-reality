@@ -29,12 +29,13 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
-    "candidates_gathered": 17,
-    "rows_retained": 2,
+    "workers_with_results": 1,
+    "candidates_gathered": 18,
+    "rows_retained": 1,
     "zero_result_portals": [
       "realitymix.cz",
-      "reality.aktualne.cz"
+      "reality.aktualne.cz",
+      "sreality.cz"
     ],
     "blocked_portals": []
   },
@@ -52,8 +53,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Sreality row."
+      "status": "no_results",
+      "message": "No retained in-scope Sreality rows."
     }
   },
   "fetch_attempts": [
@@ -64,6 +65,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici-stradinska/6a9a765de8978af3790a93d7/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -125,6 +134,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-70327",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici-stradinska/6ab2943db081430df2022dfd/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -318,6 +335,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici-stradinska/6a9a765de8978af3790a93d7/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici-u-tutlek/6a4ca780e8b0e7713805b1f0/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici-pod-branou/6aac6c8f0d3a180659002c44/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici-kanerova/6aaa3935e76a0d8d6e0344c0/",
@@ -335,6 +353,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Kostelec+nad+Orlic%C3%AD&form%5Bcena_mena%5D=1",
     "stale-detail-fetch:3222335564:Failed to fetch https://www.sreality.cz/api/v1/estates/3222335564: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4199805004",
+    "missing-price:https://www.sreality.cz/api/v1/estates/4212179020",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/887607372"
   ],
   "listings": [
@@ -345,32 +364,14 @@
       "title": "Prodej rodinného domu v Kostelci nad Orlicí, ul. Stradinská",
       "location": "Kostelec nad Orlicí, okres Rychnov nad Kněžnou",
       "property_type": "house",
-      "price": "4 990 000 Kč",
+      "price": "Cena na vyžádání",
       "house_area_m2": "170",
       "land_area_m2": "2796",
       "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici-stradinska/6a9a765de8978af3790a93d7/"
+        "https://reality.idnes.cz/detail/prodej/dum/kostelec-nad-orlici-stradinska/6ab2943db081430df2022dfd/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 170 m², pozemek 2796 m²",
-      "location": "Kostelec nad Orlicí, Stradinská, Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "4 990 000 Kč",
-      "house_area_m2": "170",
-      "land_area_m2": "2796",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/kostelec-nad-orlici-stradinska/4212179020"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/4212179020"
       ]
     }
   ]

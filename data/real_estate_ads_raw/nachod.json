@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 3,
     "candidates_gathered": 57,
-    "rows_retained": 19,
+    "rows_retained": 18,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -314,14 +314,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod-u-prachovny/6a3a485bbcc887f2e103d500/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/nachod/6aaaab41e66688a385088339/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -330,7 +322,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod/6a329cc3c407b994cc086e4d/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod-jugoslavska/6a69e8bee6ce1d62b00dc880/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -338,7 +330,15 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod-jugoslavska/6a69e8bee6ce1d62b00dc880/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod-u-prachovny/6a3a485bbcc887f2e103d500/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod/6a329cc3c407b994cc086e4d/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -761,8 +761,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3675037772",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3675037772",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -794,10 +804,10 @@
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/nachod-jugoslavska/6a743c236f3f9a22bd0a2359/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/nachod/6a3118cf23d2acd8d30ae1c8/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/nachod-u-prachovny/6a3a485bbcc887f2e103d500/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod/6aaaab41e66688a385088339/",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/nachod/6a329cc3c407b994cc086e4d/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod-jugoslavska/6a69e8bee6ce1d62b00dc880/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/nachod-u-prachovny/6a3a485bbcc887f2e103d500/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/nachod/6a329cc3c407b994cc086e4d/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod-doubicova/6a4253d6913a4fb831031d3e/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod-krapkova/69b9312164d2f31d9d01de28/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod/69dcef714ccd4327820edd60/",
@@ -829,6 +839,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2137330508",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3449667660",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3485565004",
+    "stale-detail-fetch:3675037772:Failed to fetch https://www.sreality.cz/api/v1/estates/3675037772: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4077498444",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/594591820"
   ],
@@ -1044,24 +1055,6 @@
       "notes": [
         "detail-url-verified:realitymix.cz",
         "municipal-part:Malé Poříčí"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej vícegeneračního domu 544 m², pozemek 1618 m²",
-      "location": "Náchod, Peklo, Náchod",
-      "property_type": "house",
-      "price": "14 000 000 Kč",
-      "house_area_m2": "544",
-      "land_area_m2": "1618",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/vicegeneracni-dum/nachod-lipi-peklo/3675037772"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3675037772"
       ]
     },
     {

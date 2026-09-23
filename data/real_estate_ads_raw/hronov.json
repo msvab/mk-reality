@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 33,
-    "rows_retained": 5,
+    "candidates_gathered": 35,
+    "rows_retained": 7,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -228,6 +228,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hronov/6ab23468c899f845ca0fe73c/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -475,6 +483,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1687035980",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/1996415052",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -617,6 +633,23 @@
       "portal": [
         "reality.idnes.cz"
       ],
+      "title": "Prodej rodinného domu, 440 m2, Hronov",
+      "location": "Hronov, okres Náchod",
+      "property_type": "house",
+      "price": "2 880 000 Kč",
+      "house_area_m2": "1200",
+      "land_area_m2": "1251",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/hronov/6ab23468c899f845ca0fe73c/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
       "title": "Prodej stavebního pozemku 2 155 m2, Hronov - Zbečník",
       "location": "Hronov, okres Náchod",
       "property_type": "land",
@@ -682,6 +715,24 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/615628876"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 1200 m², pozemek 1251 m²",
+      "location": "Hronov, Náchod",
+      "property_type": "house",
+      "price": "2 880 000 Kč",
+      "house_area_m2": "1200",
+      "land_area_m2": "1251",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/hronov-zabokrky/1687035980"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1687035980"
       ]
     }
   ]

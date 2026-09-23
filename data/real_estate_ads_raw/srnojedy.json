@@ -29,11 +29,10 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 0,
+    "workers_with_results": 1,
     "candidates_gathered": 6,
-    "rows_retained": 0,
+    "rows_retained": 1,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz",
       "sreality.cz"
@@ -42,8 +41,8 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -109,7 +108,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-kratka/6a4e81f68dd5010fff0194f7/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/srnojedy-slunecni/6aa65122f5256aeb3e03b42d/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -117,7 +116,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/srnojedy-slunecni/6aa65122f5256aeb3e03b42d/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/srnojedy/6ab21e7dc2c4b0386c0c8978/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -207,7 +206,6 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/srnojedy/6a3cc3b3e23686f7ba03bf86/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice-kratka/6a4e81f68dd5010fff0194f7/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/srnojedy-slunecni/6aa65122f5256aeb3e03b42d/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/srnojedy-na-mokrinach/6a970aaffc1fe4e5590c11d5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/srnojedy-v-purku/6a96e41bcd5da7867d035c34/",
@@ -216,5 +214,23 @@
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Srnojedy&form%5Bcena_mena%5D=1"
   ],
-  "listings": []
+  "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "K. ú. Srnojedy - spoluvlastnický podíl o velikosti 1/4 ke stavbě bez čp/če (bývalá zemědělská stavba",
+      "location": "Srnojedy, okres Pardubice",
+      "property_type": "house",
+      "price": "625 250 Kč",
+      "house_area_m2": "1719",
+      "land_area_m2": "1719",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/srnojedy/6ab21e7dc2c4b0386c0c8978/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    }
+  ]
 }
