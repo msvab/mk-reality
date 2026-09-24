@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 0,
-    "candidates_gathered": 8,
+    "candidates_gathered": 6,
     "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
@@ -101,6 +101,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rybitvi/69aeca831904588d470cb3f5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/rybitvi/6aaed060c43bbd107a07f996/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -110,14 +118,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/rybitvi/6aa7aa9c683128f5ce0d2f33/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rybitvi/69aeca831904588d470cb3f5/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -178,53 +178,20 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=2597&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
-      "stage": "house_search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2597&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
-      "stage": "land_search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/1319125836",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/526148684",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/rybitvi/6a9813694d5aa57b5d046621/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/rybitvi/69aeca831904588d470cb3f5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/rybitvi/6aaed060c43bbd107a07f996/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/rybitvi/6aa7aa9c683128f5ce0d2f33/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/rybitvi/69aeca831904588d470cb3f5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/rybitvi/6a7a349ec2d0ee5e220fa919/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/rybitvi/69d660e205aca68d6f032f0c/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Rybitv%C3%AD&form%5Bcena_mena%5D=1",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1319125836",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/526148684"
+    "municipality-not-found"
   ],
   "listings": []
 }
