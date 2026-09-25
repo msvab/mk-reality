@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 10,
-    "rows_retained": 5,
+    "candidates_gathered": 12,
+    "rows_retained": 7,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -101,6 +101,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-83488",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/librantice/6ab5fbe5cb88fbc0a9047bd9/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -213,6 +221,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2727551052",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/3081917260",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -258,6 +274,23 @@
     "stale-detail-fetch:720753484:Failed to fetch https://www.sreality.cz/api/v1/estates/720753484: HTTP 404"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej dům Rodinný, 226m2, Librantice",
+      "location": "Librantice, okres Hradec Králové",
+      "property_type": "house",
+      "price": "9 950 000 Kč",
+      "house_area_m2": "226",
+      "land_area_m2": "1564",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/librantice/6ab5fbe5cb88fbc0a9047bd9/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
     {
       "portal": [
         "reality.idnes.cz"
@@ -308,6 +341,24 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 226 m², pozemek 1566 m²",
+      "location": "Librantice, Hradec Králové",
+      "property_type": "house",
+      "price": "9 950 000 Kč",
+      "house_area_m2": "226",
+      "land_area_m2": "1566",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/librantice/2727551052"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2727551052"
       ]
     },
     {

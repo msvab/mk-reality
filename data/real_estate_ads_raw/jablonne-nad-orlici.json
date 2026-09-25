@@ -29,11 +29,10 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
-    "candidates_gathered": 3,
-    "rows_retained": 1,
+    "workers_with_results": 2,
+    "candidates_gathered": 5,
+    "rows_retained": 3,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz"
     ],
@@ -41,8 +40,8 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -86,6 +85,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-56197",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/jablonne-nad-orlici-jamenska/6ab530110fcad417b00c9d14/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -169,6 +176,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3855818828",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -180,6 +195,23 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Jablonn%C3%A9+nad+Orlic%C3%AD&form%5Bcena_mena%5D=1"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu 375 m2, s pozemkem 1.190 m2, Jablonné nad Orlicí",
+      "location": "Jablonné nad Orlicí, okres Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "5 500 000 Kč",
+      "house_area_m2": "375",
+      "land_area_m2": "1190",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/jablonne-nad-orlici-jamenska/6ab530110fcad417b00c9d14/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
     {
       "portal": [
         "sreality.cz"
@@ -196,6 +228,24 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1752994636"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 375 m², pozemek 1190 m²",
+      "location": "Jablonné nad Orlicí, Jamenská, Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "5 500 000 Kč",
+      "house_area_m2": "375",
+      "land_area_m2": "1190",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/jablonne-nad-orlici-jamenska/3855818828"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3855818828"
       ]
     }
   ]
