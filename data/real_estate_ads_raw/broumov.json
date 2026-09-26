@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 49,
-    "rows_retained": 18,
+    "rows_retained": 16,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -64,6 +64,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/broumov/6a564214ef20760aaa0898d0/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -694,8 +702,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/787669068",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/787669068",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -716,6 +734,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/broumov/6a564214ef20760aaa0898d0/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/broumov/6a564217fdc64a7af502facf/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/broumov/6a5a6ed3877f48ccd7038867/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/broumov-kladska/6a4e2af97d7b5e23f308bd9d/",
@@ -751,26 +770,10 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3365487436",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3721114444",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3844399948",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4032200780"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4032200780",
+    "stale-detail-fetch:787669068:Failed to fetch https://www.sreality.cz/api/v1/estates/787669068: HTTP 404"
   ],
   "listings": [
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Precizně zrekonstruovaná usedlost - Broumov",
-      "location": "Broumov, okres Náchod",
-      "property_type": "house",
-      "price": "7 990 000 Kč",
-      "house_area_m2": "350",
-      "land_area_m2": "6133",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/broumov/6a564214ef20760aaa0898d0/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
     {
       "portal": [
         "reality.idnes.cz"
@@ -929,24 +932,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1300140876"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 350 m², pozemek 6133 m²",
-      "location": "Broumov, Náchod",
-      "property_type": "house",
-      "price": "7 990 000 Kč",
-      "house_area_m2": "350",
-      "land_area_m2": "6133",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/broumov-benesov/787669068"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/787669068"
       ]
     },
     {

@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 12,
-    "rows_retained": 7,
+    "rows_retained": 6,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -57,6 +57,22 @@
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/librantice/6ab5fbe5cb88fbc0a9047bd9/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/librantice/6ab5fbe5cb88fbc0a9047bd9/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/librantice/69b166e7372a9201540fd7b5/",
@@ -101,14 +117,6 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-83488",
       "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/librantice/6ab5fbe5cb88fbc0a9047bd9/",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -264,6 +272,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/librantice/6ab5fbe5cb88fbc0a9047bd9/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/librantice/69e08e27cfc35365110bbba2/",
     "removed-fallback-page:https://realitymix.cz/detail/librantice/statek-s-velkym-pozemkem-cca-2182-m2-librantice-8565045.html",
     "missing-page-url:house",
@@ -274,23 +283,6 @@
     "stale-detail-fetch:720753484:Failed to fetch https://www.sreality.cz/api/v1/estates/720753484: HTTP 404"
   ],
   "listings": [
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej dům Rodinný, 226m2, Librantice",
-      "location": "Librantice, okres Hradec Králové",
-      "property_type": "house",
-      "price": "9 950 000 Kč",
-      "house_area_m2": "226",
-      "land_area_m2": "1564",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/librantice/6ab5fbe5cb88fbc0a9047bd9/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
     {
       "portal": [
         "reality.idnes.cz"
