@@ -29,11 +29,10 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 0,
-    "candidates_gathered": 11,
-    "rows_retained": 0,
+    "workers_with_results": 1,
+    "candidates_gathered": 13,
+    "rows_retained": 1,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz",
       "sreality.cz"
@@ -42,8 +41,8 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -103,6 +102,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-22659",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceske-mezirici-boz-nemcove/6ab77fb216a007f9d7014485/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -231,6 +238,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1299259468",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/1496948812",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -321,6 +336,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=%C4%8Cesk%C3%A9+Mezi%C5%99%C3%AD%C4%8D%C3%AD&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/ceske-mezirici/prodej-rodinneho-domu-zemedelske-usedlosti-ceske-mezirici-8594143.html",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1299259468",
     "missing-price:https://www.sreality.cz/api/v1/estates/1496948812",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1779180108",
     "stale-detail-fetch:1984286796:Failed to fetch https://www.sreality.cz/api/v1/estates/1984286796: HTTP 404",
@@ -328,5 +344,24 @@
     "stale-detail-fetch:3609899084:Failed to fetch https://www.sreality.cz/api/v1/estates/3609899084: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3978162252"
   ],
-  "listings": []
+  "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "PRODEJ rozsáhlého pozemku pro stavbu nemovitostí",
+      "location": "České Meziříčí, okres Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "3 799 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "2423",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/ceske-mezirici-boz-nemcove/6ab77fb216a007f9d7014485/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    }
+  ]
 }
