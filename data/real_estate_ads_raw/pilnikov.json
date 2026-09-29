@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 10,
-    "rows_retained": 7,
+    "candidates_gathered": 12,
+    "rows_retained": 9,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -131,6 +131,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pilnikov-trutnovska/6abaa8ea881d24819e00bed6/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/pilnikov/60ce3b0e859b060af7568ad1/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -197,6 +205,14 @@
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2931&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
       "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2928746572",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -318,6 +334,23 @@
     },
     {
       "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Rodinný dům ke kompletní rekonstrukci v Pilníkově",
+      "location": "Pilníkov, okres Trutnov",
+      "property_type": "house",
+      "price": "1 090 000 Kč",
+      "house_area_m2": "100",
+      "land_area_m2": "1784",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/pilnikov-trutnovska/6abaa8ea881d24819e00bed6/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
         "sreality.cz"
       ],
       "title": "Prodej rodinného domu 145 m², pozemek 2965 m²",
@@ -388,6 +421,24 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/517611596",
         "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 100 m², pozemek 1784 m²",
+      "location": "Pilníkov, Trutnovská, Trutnov",
+      "property_type": "house",
+      "price": "1 090 000 Kč",
+      "house_area_m2": "100",
+      "land_area_m2": "1784",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/pilnikov-trutnovska/2928746572"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2928746572"
       ]
     }
   ]

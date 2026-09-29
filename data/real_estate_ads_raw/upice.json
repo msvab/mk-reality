@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 29,
-    "rows_retained": 10,
+    "rows_retained": 9,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -96,6 +96,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/upice-puskinova/6a02ee44a902387d3f024646/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -458,6 +466,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/upice-puskinova/6a02ee44a902387d3f024646/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/upice-macharova/6a704cc6b66519c6d80a19d5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-smetanova/6aa8379adffd2976980237c3/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-sukova/6ab3e7288d45d24c1d0de5b5/",
@@ -548,24 +557,6 @@
       "land_area_m2": "5361",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/pozemek/upice-machova/679b6e9faca37f92ae0c6238/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej stavebního pozemku, Úpice",
-      "location": "Úpice, okres Trutnov",
-      "property_type": "land",
-      "price": "1 899 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1649",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/upice-puskinova/6a02ee44a902387d3f024646/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",

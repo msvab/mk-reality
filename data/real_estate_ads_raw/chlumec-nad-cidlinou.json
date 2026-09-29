@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 48,
-    "rows_retained": 13,
+    "candidates_gathered": 50,
+    "rows_retained": 14,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -245,6 +245,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-110353",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-klicperovo-namesti/6abb81288f8ad9ce04005394/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -663,6 +671,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4123009100",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/61211468",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -725,6 +741,7 @@
     "stale-detail-fetch:3674644556:Failed to fetch https://www.sreality.cz/api/v1/estates/3674644556: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3869610828",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3888812108",
+    "missing-price:https://www.sreality.cz/api/v1/estates/4123009100",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/857683020",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/868107084"
   ],
@@ -833,6 +850,23 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej bytového domu s pozemkem, Klicperovo náměstí, Chlumec nad Cidlinou",
+      "location": "Chlumec nad Cidlinou, okres Hradec Králové",
+      "property_type": "house",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "700",
+      "land_area_m2": "4338",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-klicperovo-namesti/6abb81288f8ad9ce04005394/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
       ]
     },
     {

@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 3,
     "candidates_gathered": 177,
-    "rows_retained": 77,
+    "rows_retained": 76,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -1955,8 +1955,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/837849164",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/837849164",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -2083,6 +2093,7 @@
     "stale-detail-fetch:740552780:Failed to fetch https://www.sreality.cz/api/v1/estates/740552780: HTTP 404",
     "stale-detail-fetch:803532876:Failed to fetch https://www.sreality.cz/api/v1/estates/803532876: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/831107148",
+    "stale-detail-fetch:837849164:Failed to fetch https://www.sreality.cz/api/v1/estates/837849164: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/849886044",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/951597916"
   ],
@@ -3375,25 +3386,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/103903820",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 3084 m²",
-      "location": "Trutnov, Sedloňovská, Trutnov",
-      "property_type": "land",
-      "price": "3 300 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "3084",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/trutnov-lhota-sedlonovska/837849164"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/837849164",
         "buildable-land"
       ]
     },

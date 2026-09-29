@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 13,
-    "rows_retained": 3,
+    "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -72,6 +72,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/stezery-polni/6a588808a3bcb6d6b00fa959/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -320,6 +328,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/stezery-polni/6a588808a3bcb6d6b00fa959/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/stezery/6aa92024c90a2370ed0e3ddc/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/stezery/6a8ee0c4b8a4686f8800c830/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/stezery/6a91a01d4ee0b976820aa742/",
@@ -351,24 +360,6 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Developerský pozemek, 14 692 m2, Projekt pro cca 24 rodinných domů, Stěžery",
-      "location": "Stěžery, okres Hradec Králové",
-      "property_type": "land",
-      "price": "Cena na vyžádání",
-      "house_area_m2": "unknown",
-      "land_area_m2": "14692",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/stezery-polni/6a588808a3bcb6d6b00fa959/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
       ]
     },
     {
