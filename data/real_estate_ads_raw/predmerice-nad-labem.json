@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 7,
+    "candidates_gathered": 8,
     "rows_retained": 4,
     "zero_result_portals": [
       "realitymix.cz",
@@ -109,6 +109,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-134295",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-labska-zahrada/6ab142400871085714080bef/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -223,6 +231,7 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/predmerice-nad-labem-pod-nadrazim/6992d2826d6847b7c207e25c/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-labska-zahrada/6ab142400871085714080bef/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/predmerice-nad-labem/6a942da4744de9acf90a33dc/",
     "missing-page-url:house",
     "missing-page-url:land",
