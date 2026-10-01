@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 21,
-    "rows_retained": 8,
+    "rows_retained": 6,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -64,6 +64,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/horice-janakova/67c6bc802058ea1bd10ad777/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -290,8 +298,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3123446348",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3123446348",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -346,6 +364,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/horice-janakova/67c6bc802058ea1bd10ad777/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/horice-vsehrdova/6a4ff9c70791a9f81f0b991f/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/horice-tylova/6ab3a68aa89a65ee0a0511f8/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/horice-otakarova/6aaac0e32f0ae9b38904d438/",
@@ -360,28 +379,12 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Ho%C5%99ice&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/horice/investicni-prilezitost-v-centru-horic-cinzovni-dum-s-peti-byty-a-povolenim-k-pudni-vestavbe-8540061.html",
     "stale-detail-fetch:3038310476:Failed to fetch https://www.sreality.cz/api/v1/estates/3038310476: HTTP 404",
+    "stale-detail-fetch:3123446348:Failed to fetch https://www.sreality.cz/api/v1/estates/3123446348: HTTP 404",
     "stale-detail-fetch:315188044:Failed to fetch https://www.sreality.cz/api/v1/estates/315188044: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3433160780",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/997949516"
   ],
   "listings": [
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej rodinného domu, Hořice, ul. Janákova",
-      "location": "Hořice, okres Jičín",
-      "property_type": "house",
-      "price": "13 900 000 Kč",
-      "house_area_m2": "705",
-      "land_area_m2": "2972",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/horice-janakova/67c6bc802058ea1bd10ad777/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
     {
       "portal": [
         "reality.idnes.cz"
@@ -415,24 +418,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/525213772"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 705 m², pozemek 2972 m²",
-      "location": "Hořice, Janákova, Jičín",
-      "property_type": "house",
-      "price": "13 900 000 Kč",
-      "house_area_m2": "705",
-      "land_area_m2": "2972",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/horice-janakova/3123446348"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3123446348"
       ]
     },
     {

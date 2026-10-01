@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 29,
-    "rows_retained": 9,
+    "candidates_gathered": 30,
+    "rows_retained": 10,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -84,6 +84,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/upice-machova/679b6e9faca37f92ae0c6238/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/upice-puskinova/6a02ee44a902387d3f024646/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -163,6 +171,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-zizkova/6abd5d8916f84fab7a0e332b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/upice-smetanova/6aa8379adffd2976980237c3/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -228,14 +244,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/upice/69aecb57c5c41641b3099aec/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/upice-puskinova/6a02ee44a902387d3f024646/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -444,18 +452,8 @@
       "url": "https://www.sreality.cz/api/v1/estates/401683276",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/401683276",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "sreality.cz",
@@ -470,6 +468,7 @@
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/upice-macharova/6a704cc6b66519c6d80a19d5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-sukova/6abba4971571f82fe6098139/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-zizkova/6abd5d8916f84fab7a0e332b/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-smetanova/6aa8379adffd2976980237c3/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-sukova/68ed54d222bf8d981a0ed9bf/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-regnerova/67e4f775cce4ddddeb0397b4/",
@@ -491,7 +490,6 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1908941388",
     "stale-detail-fetch:3233665100:Failed to fetch https://www.sreality.cz/api/v1/estates/3233665100: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3888312396",
-    "stale-detail-fetch:401683276:Failed to fetch https://www.sreality.cz/api/v1/estates/401683276: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/4053696588"
   ],
   "listings": [
@@ -616,6 +614,24 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2462007884"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 110 m², pozemek 1592 m²",
+      "location": "Úpice, Chelčického, Trutnov",
+      "property_type": "house",
+      "price": "3 790 000 Kč",
+      "house_area_m2": "110",
+      "land_area_m2": "1592",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/upice-chelcickeho/401683276"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/401683276"
       ]
     },
     {

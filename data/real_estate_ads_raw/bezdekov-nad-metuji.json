@@ -29,13 +29,12 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
-    "candidates_gathered": 5,
-    "rows_retained": 2,
+    "workers_with_results": 2,
+    "candidates_gathered": 6,
+    "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz",
-      "reality.aktualne.cz",
-      "sreality.cz"
+      "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
@@ -53,8 +52,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Sreality rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -180,6 +179,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/809726796",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/912056396",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -240,6 +247,24 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 260 m², pozemek 1743 m²",
+      "location": "Bezděkov nad Metují, Náchod",
+      "property_type": "house",
+      "price": "7 499 000 Kč",
+      "house_area_m2": "260",
+      "land_area_m2": "1743",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/bezdekov-nad-metuji/809726796"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/809726796"
       ]
     }
   ]

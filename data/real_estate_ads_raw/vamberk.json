@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 25,
-    "rows_retained": 6,
+    "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -72,6 +72,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vamberk-krajkarska/67d5626348d2fdee450d3a35/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -414,6 +422,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/vamberk-krajkarska/67d5626348d2fdee450d3a35/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/vamberk-janackova/69f265b95cd2e431c0049d0f/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vamberk-koukolova/65ee234b71f22a265e05379c/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vamberk/6ab127b0c67d9c73730e7bbc/",
@@ -456,23 +465,6 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej rodinného domu, 211 m2 - Vamberk",
-      "location": "Vamberk, okres Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "5 500 000 Kč",
-      "house_area_m2": "211",
-      "land_area_m2": "1005",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/vamberk-krajkarska/67d5626348d2fdee450d3a35/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
       ]
     },
     {
