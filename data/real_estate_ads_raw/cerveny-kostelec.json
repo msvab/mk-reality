@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 33,
-    "rows_retained": 12,
+    "candidates_gathered": 32,
+    "rows_retained": 11,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -237,14 +237,6 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-110361",
       "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -482,8 +474,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/2860048460",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2860048460",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -569,7 +571,6 @@
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec/6a464cf31a6c7241200a929a/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec-letna/69eb7bee3ca1944cd60cf145/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec/6a33da07e71b493c390ce46e/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec-vysehrad/6aabd24d0bfa78f28a01d31e/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec/6aacea4ac534985e2302df0d/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec-jiraskova/6a0321a360fa41c819030bcf/",
@@ -587,6 +588,7 @@
     "detail-fallback-page:https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-rodinneho-domu-80-m2-cerveny-kostelec-8568477.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1789235276",
     "stale-detail-fetch:2107769676:Failed to fetch https://www.sreality.cz/api/v1/estates/2107769676: HTTP 404",
+    "stale-detail-fetch:2860048460:Failed to fetch https://www.sreality.cz/api/v1/estates/2860048460: HTTP 404",
     "stale-detail-fetch:334426188:Failed to fetch https://www.sreality.cz/api/v1/estates/334426188: HTTP 404",
     "stale-detail-fetch:3860087628:Failed to fetch https://www.sreality.cz/api/v1/estates/3860087628: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/437257036",
@@ -697,24 +699,6 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 253 m², pozemek 5652 m²",
-      "location": "Červený Kostelec, Devět křížů, Náchod",
-      "property_type": "house",
-      "price": "12 900 000 Kč",
-      "house_area_m2": "253",
-      "land_area_m2": "5652",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/cerveny-kostelec-lhota-za-cervenym-kostelcem-devet-krizu/2860048460"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2860048460"
       ]
     },
     {

@@ -29,13 +29,14 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
-    "candidates_gathered": 5,
-    "rows_retained": 1,
+    "workers_with_results": 0,
+    "candidates_gathered": 13,
+    "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
-      "reality.aktualne.cz"
+      "reality.aktualne.cz",
+      "sreality.cz"
     ],
     "blocked_portals": []
   },
@@ -53,8 +54,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Sreality row."
+      "status": "no_results",
+      "message": "No retained in-scope Sreality rows."
     }
   },
   "fetch_attempts": [
@@ -140,7 +141,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/mezimesti/68c4828d344d6b3fe303b18b/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -148,7 +149,71 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/provodov-sonov/69e0a54e2dd614fd9c08d832/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hronov/69d4b97999426521820b8ac0/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/slavonov/69dce50a7d98c71af908fea1/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/mezimesti-tovarni/69dce69dfb7664ab6501700f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hronov/69f8679c44dc3df0bf068978/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/police-nad-metuji/6a266ac51925d7066e0b7ec4/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod/6a3121084b4cd949bf08cff3/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-porici/6a3184a470da38b5120419f6/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod/6a329cc3c407b994cc086e4d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/slatina-nad-upou/6a3907e7266e6e8988002b14/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -239,8 +304,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1468117068",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1468117068",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -253,34 +328,28 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/provodov-sonov/69e0a54e2dd614fd9c08d832/",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-133906",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-133876",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-133892",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-162922",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/mezimesti/68c4828d344d6b3fe303b18b/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/hronov/69d4b97999426521820b8ac0/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/slavonov/69dce50a7d98c71af908fea1/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/mezimesti-tovarni/69dce69dfb7664ab6501700f/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/hronov/69f8679c44dc3df0bf068978/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/police-nad-metuji/6a266ac51925d7066e0b7ec4/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/nachod/6a3121084b4cd949bf08cff3/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/velke-porici/6a3184a470da38b5120419f6/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/nachod/6a329cc3c407b994cc086e4d/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/slatina-nad-upou/6a3907e7266e6e8988002b14/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/provodov-sonov/6a71f2578298ca2bec052b13/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Provodov-%C5%A0onov&form%5Bcena_mena%5D=1",
+    "stale-detail-fetch:1468117068:Failed to fetch https://www.sreality.cz/api/v1/estates/1468117068: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/756142156"
   ],
-  "listings": [
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 100 m², pozemek 1232 m²",
-      "location": "Provodov-Šonov, Náchod",
-      "property_type": "house",
-      "price": "3 500 000 Kč",
-      "house_area_m2": "100",
-      "land_area_m2": "1232",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/provodov-sonov-kleny/1468117068"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1468117068"
-      ]
-    }
-  ]
+  "listings": []
 }

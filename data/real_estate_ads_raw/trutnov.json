@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 183,
-    "rows_retained": 79,
+    "candidates_gathered": 181,
+    "rows_retained": 76,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -79,6 +79,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov/6a3ef28d36543e12950c7078/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -794,14 +802,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov-bozeny-nemcove/6a93541f5665c084f208462b/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov-na-terase/6a85d2b38539eb8d6401b47a/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -1034,6 +1034,14 @@
     },
     {
       "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/prodej-dvougeneracni-rodinny-dum-stary-rokytnik-8634205.html",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Požadovaný inzerát již není v naší databázi"
+    },
+    {
+      "portal": "realitymix.cz",
       "url": "https://realitymix.cz/detail/trutnov/prodej-rodinneho-domu-238-m2-rychorska-trutnov-8701207.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -1220,14 +1228,6 @@
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/kralovehradecky/trutnov",
       "stage": "house_result_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/trutnov/prodej-rd-trutnov-kryblice-8345371.html",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -1471,8 +1471,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1825042508",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1825042508",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -2035,6 +2045,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/trutnov/6a3ef28d36543e12950c7078/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/trutnov/6aaced5912512251bc0ccaa6/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/trutnov-vysoky-most/688b32383e465bb29108a1b8/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/trutnov-novorokytnicka/69c26c803292d7ea10056307/",
@@ -2050,7 +2061,6 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov-dlouha/6aae957784a9c280e00234f9/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/trutnov-zahradni-mesto/6a7ae4f5e9126368bf01cc76/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov-horska/6a9583b44f64f8d0fd00ba6f/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov-bozeny-nemcove/6a93541f5665c084f208462b/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov-na-terase/6a85d2b38539eb8d6401b47a/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov-manesova/6a62204c174bf755530d198e/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov-marie-kuderikove/6a4ca6dfd97886c7f10d2142/",
@@ -2077,10 +2087,10 @@
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/trutnov/695a53a9e49c06bffb0483f6/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/trutnov-junaku/6a3e5060582fc9b6500368cb/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/trutnov-horska/6a0314e9155d7307df060169/",
+    "removed-fallback-page:https://realitymix.cz/detail/trutnov/prodej-dvougeneracni-rodinny-dum-stary-rokytnik-8634205.html",
     "removed-fallback-page:https://realitymix.cz/detail/trutnov/stavebni-pozemek-2384-m-8351091.html",
     "removed-fallback-page:https://realitymix.cz/detail/trutnov/prodej-domu-732-m-pozemek-1-494-m-8551751.html",
     "removed-fallback-page:https://realitymix.cz/detail/trutnov/prodej-domy-rodinny-216-m2-stary-rokytnik-228-54101-trutnov-trutnov-id-83473-8534935.html",
-    "land-below-threshold:https://realitymix.cz/detail/trutnov/prodej-rd-trutnov-kryblice-8345371.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3610-trutnov/kralovehradecky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3610-trutnov/kralovehradecky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Trutnov&form%5Bcena_mena%5D=1",
@@ -2097,6 +2107,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/174186572",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/181351500",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1820962892",
+    "stale-detail-fetch:1825042508:Failed to fetch https://www.sreality.cz/api/v1/estates/1825042508: HTTP 404",
     "stale-detail-fetch:1853153356:Failed to fetch https://www.sreality.cz/api/v1/estates/1853153356: HTTP 404",
     "stale-detail-fetch:18641740:Failed to fetch https://www.sreality.cz/api/v1/estates/18641740: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/1890542156",
@@ -2170,23 +2181,6 @@
       "land_area_m2": "1100",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/dum/trutnov-za-trati/6a44d43a582c8021d10964a1/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej, dvougenerační rodinný dům, Starý Rokytník",
-      "location": "Trutnov, okres Trutnov",
-      "property_type": "house",
-      "price": "9 250 000 Kč",
-      "house_area_m2": "240",
-      "land_area_m2": "1129",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/trutnov/6a3ef28d36543e12950c7078/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
@@ -2803,24 +2797,6 @@
       "portal": [
         "realitymix.cz"
       ],
-      "title": "Prodej, dvougenerační rodinný dům, Starý Rokytník",
-      "location": "Starý Rokytník, Trutnov",
-      "property_type": "house",
-      "price": "9 250 000 Kč",
-      "house_area_m2": "240",
-      "land_area_m2": "1129",
-      "urls": [
-        "https://realitymix.cz/detail/trutnov/prodej-dvougeneracni-rodinny-dum-stary-rokytnik-8634205.html"
-      ],
-      "notes": [
-        "detail-url-verified:realitymix.cz",
-        "municipal-part:Starý Rokytník"
-      ]
-    },
-    {
-      "portal": [
-        "realitymix.cz"
-      ],
       "title": "Prodej rodinného domu 238 m2 Rýchorská, Trutnov",
       "location": "Rýchorská, Horní Staré Město, Trutnov",
       "property_type": "house",
@@ -3147,24 +3123,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/636809292"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 240 m², pozemek 1129 m²",
-      "location": "Trutnov, Trutnov",
-      "property_type": "house",
-      "price": "9 250 000 Kč",
-      "house_area_m2": "240",
-      "land_area_m2": "1129",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/trutnov-stary-rokytnik/1825042508"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1825042508"
       ]
     },
     {
