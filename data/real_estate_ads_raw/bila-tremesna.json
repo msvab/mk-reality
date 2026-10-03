@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 11,
-    "rows_retained": 3,
+    "candidates_gathered": 13,
+    "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -109,6 +109,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-106356",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/bila-tremesna/6abf7c18893c73eff505423f/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -219,6 +227,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1864638540",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/2940395596",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -293,6 +309,23 @@
     },
     {
       "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu, 129 m2, Bílá Třemešná",
+      "location": "Bílá Třemešná, okres Trutnov",
+      "property_type": "house",
+      "price": "4 000 000 Kč",
+      "house_area_m2": "129",
+      "land_area_m2": "2740",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/bila-tremesna/6abf7c18893c73eff505423f/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
         "sreality.cz"
       ],
       "title": "Prodej komerčního pozemku 12667 m²",
@@ -326,6 +359,24 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2940395596"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 129 m², pozemek 2740 m²",
+      "location": "Bílá Třemešná, Trutnov",
+      "property_type": "house",
+      "price": "4 000 000 Kč",
+      "house_area_m2": "129",
+      "land_area_m2": "2740",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/bila-tremesna/1864638540"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1864638540"
       ]
     }
   ]

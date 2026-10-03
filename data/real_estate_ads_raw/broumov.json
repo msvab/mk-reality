@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 50,
-    "rows_retained": 16,
+    "candidates_gathered": 51,
+    "rows_retained": 15,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -120,6 +120,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/broumov/6a51017695052e04c80a316b/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -411,7 +419,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/broumov-trida-soukenicka/6a7a29919bf1fc9ce30b1c6b/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/broumov-dukelska/6a02534b302a4320be0ecf1c/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -419,7 +427,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/broumov-dukelska/6a02534b302a4320be0ecf1c/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/broumov-trida-soukenicka/6a7a29919bf1fc9ce30b1c6b/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -651,6 +659,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2499027020",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/3365487436",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -736,12 +752,23 @@
       "url": "https://www.sreality.cz/api/v1/estates/963515212",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/963515212",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/broumov/6a51017695052e04c80a316b/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/broumov/6a564214ef20760aaa0898d0/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/broumov/6a564217fdc64a7af502facf/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/broumov/6a5a6ed3877f48ccd7038867/",
@@ -759,8 +786,8 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/broumov-hvezdecka/6949573a113027cf3e0e5b18/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/broumov/6a475da343d13dca540fddc7/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/broumov/6a5a6ed40a3515a52c072e96/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/broumov-trida-soukenicka/6a7a29919bf1fc9ce30b1c6b/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/broumov-dukelska/6a02534b302a4320be0ecf1c/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/broumov-trida-soukenicka/6a7a29919bf1fc9ce30b1c6b/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/broumov-trida-osvobozeni/6a0576c7528f77b94701ee0a/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/broumov-konecna/6a4416af5d0175e14b0ab103/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/broumov/6a05774077ccef2f31019404/",
@@ -780,7 +807,8 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3844399948",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4032200780",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/51216460",
-    "stale-detail-fetch:787669068:Failed to fetch https://www.sreality.cz/api/v1/estates/787669068: HTTP 404"
+    "stale-detail-fetch:787669068:Failed to fetch https://www.sreality.cz/api/v1/estates/787669068: HTTP 404",
+    "stale-detail-fetch:963515212:Failed to fetch https://www.sreality.cz/api/v1/estates/963515212: HTTP 404"
   ],
   "listings": [
     {
@@ -909,24 +937,6 @@
     },
     {
       "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej pozemku k bydlení, 1045 m2, Broumov",
-      "location": "Broumov, okres Náchod",
-      "property_type": "land",
-      "price": "739 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1045",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/broumov/6a51017695052e04c80a316b/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
         "sreality.cz"
       ],
       "title": "Prodej vily 360 m², pozemek 1307 m²",
@@ -977,6 +987,25 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/917495884"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej komerčního pozemku 10175 m²",
+      "location": "Broumov, Náchod",
+      "property_type": "land",
+      "price": "4 490 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "10175",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/komercni/broumov-velka-ves/2499027020"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2499027020",
+        "buildable-land"
       ]
     },
     {
@@ -1051,25 +1080,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1957032780",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1045 m²",
-      "location": "Broumov, Náchod",
-      "property_type": "land",
-      "price": "739 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1045",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/broumov-benesov/963515212"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/963515212",
         "buildable-land"
       ]
     }
