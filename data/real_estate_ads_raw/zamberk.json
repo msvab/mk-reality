@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 27,
-    "rows_retained": 5,
+    "rows_retained": 4,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -227,6 +227,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/zamberk-kostelni/6aa2f8cfa8e07641560f1315/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/zamberk-tylova/699ab0bdbaeb238b0106c301/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -236,14 +244,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/zamberk-nadrazni/6abfb69ab1392c9b460e0c59/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/zamberk-kostelni/6aa2f8cfa8e07641560f1315/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -406,8 +406,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/2798166092",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2798166092",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -463,9 +473,9 @@
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/zamberk-dymlovska/6a722355593bfaec010318ce/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/zamberk/6a3149cd3bf15d248c0e9868/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/zamberk-betlem/6a30148107fafda4d30ca6a6/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/zamberk-kostelni/6aa2f8cfa8e07641560f1315/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/zamberk-tylova/699ab0bdbaeb238b0106c301/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/zamberk-nadrazni/6abfb69ab1392c9b460e0c59/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/zamberk-kostelni/6aa2f8cfa8e07641560f1315/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/zamberk-husovo-nabrezi/6a9fcf4d13c46085bd05794f/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/zamberk/6a325c470699ec0c650e5896/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/zamberk-draha/6aaa76baa78fa7ceb2073402/",
@@ -481,6 +491,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3611-usti-nad-orlici/pardubicky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3611-usti-nad-orlici/pardubicky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=%C5%BDamberk&form%5Bcena_mena%5D=1",
+    "stale-detail-fetch:2798166092:Failed to fetch https://www.sreality.cz/api/v1/estates/2798166092: HTTP 404",
     "stale-detail-fetch:3249558348:Failed to fetch https://www.sreality.cz/api/v1/estates/3249558348: HTTP 404",
     "stale-detail-fetch:4244238412:Failed to fetch https://www.sreality.cz/api/v1/estates/4244238412: HTTP 404"
   ],
@@ -535,24 +546,6 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 460 m², pozemek 3238 m²",
-      "location": "Žamberk, Albertova, Ústí nad Orlicí",
-      "property_type": "house",
-      "price": "23 900 000 Kč",
-      "house_area_m2": "460",
-      "land_area_m2": "3238",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/zamberk-albertova/2798166092"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2798166092"
       ]
     },
     {

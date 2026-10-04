@@ -29,12 +29,13 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
+    "workers_with_results": 1,
     "candidates_gathered": 10,
-    "rows_retained": 2,
+    "rows_retained": 1,
     "zero_result_portals": [
       "realitymix.cz",
-      "reality.aktualne.cz"
+      "reality.aktualne.cz",
+      "sreality.cz"
     ],
     "blocked_portals": []
   },
@@ -52,8 +53,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Sreality row."
+      "status": "no_results",
+      "message": "No retained in-scope Sreality rows."
     }
   },
   "fetch_attempts": [
@@ -324,8 +325,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/982442060",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/982442060",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
@@ -341,7 +352,8 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Mladkov&form%5Bcena_mena%5D=1",
     "stale-detail-fetch:1771348044:Failed to fetch https://www.sreality.cz/api/v1/estates/1771348044: HTTP 404",
     "stale-detail-fetch:3120599116:Failed to fetch https://www.sreality.cz/api/v1/estates/3120599116: HTTP 404",
-    "stale-detail-fetch:459223116:Failed to fetch https://www.sreality.cz/api/v1/estates/459223116: HTTP 404"
+    "stale-detail-fetch:459223116:Failed to fetch https://www.sreality.cz/api/v1/estates/459223116: HTTP 404",
+    "stale-detail-fetch:982442060:Failed to fetch https://www.sreality.cz/api/v1/estates/982442060: HTTP 404"
   ],
   "listings": [
     {
@@ -359,24 +371,6 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 209 m², pozemek 1148 m²",
-      "location": "Mladkov, Ústí nad Orlicí",
-      "property_type": "house",
-      "price": "4 500 000 Kč",
-      "house_area_m2": "209",
-      "land_area_m2": "1148",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/mladkov/982442060"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/982442060"
       ]
     }
   ]
