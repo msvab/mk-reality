@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 14,
+    "candidates_gathered": 15,
     "rows_retained": 4,
     "zero_result_portals": [
       "realitymix.cz",
@@ -117,6 +117,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-85308",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/zachlumi/6aa13c4ba50db57d040c4a0f/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -303,8 +311,7 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/zachlumi/69690dec7c9a9c22bc0aa259/",
-    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-190306",
-    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-85308",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/zachlumi/6aa13c4ba50db57d040c4a0f/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/zachlumi/6ab10e5f8a3a218b1206a06e/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/zachlumi/6a9a66a03cc6bae9cd0c9494/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/zachlumi/695cd88a95cc7679d90c4fb1/",
