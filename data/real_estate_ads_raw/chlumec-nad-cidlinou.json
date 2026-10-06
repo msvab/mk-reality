@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 49,
-    "rows_retained": 14,
+    "candidates_gathered": 52,
+    "rows_retained": 15,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -88,6 +88,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/6a8c47693ec8c15aeb0761e0/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -259,6 +267,22 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-machova/6ac4ac413b47f78fe109d2ea/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-machova/6ac4ab5b7a4cc33802009f34/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-klicperovo-namesti/6abb81288f8ad9ce04005394/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -324,14 +348,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-spravedlnost/69abca9262bef6590c000496/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-prazska/69d9db444418125097003196/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -549,7 +565,23 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1513689164",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/173376076",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2017005644",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -616,8 +648,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3347832908",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3347832908",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -696,9 +738,11 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/6a8c47693ec8c15aeb0761e0/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/6aacebb3d66202a1af0b37c7/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-machova/6a3b9ddae0f3fc80d907df96/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-labska-zahrada/6ab142400871085714080bef/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-machova/6ac4ab5b7a4cc33802009f34/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou/6aa9077b71c681f98601cc33/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-celakovskeho/6a9a70d3bd5f282629063e7f/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-zamostecka/6a99eb3969bb58858f0668b6/",
@@ -707,7 +751,6 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-palackeho/6a24578c7d28a4240f0ffae7/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou/6a0ddef22e3ef7b4cc0d7fd7/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-spravedlnost/69abca9262bef6590c000496/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-prazska/69d9db444418125097003196/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/6a7f7ca5c3515d906204ecf8/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/5f03a26737ba4d4cdb674ea3/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/6a7cb46a7b8aef8f8803139a/",
@@ -729,6 +772,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2300588876",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2709918284",
     "excluded-chata:https://www.sreality.cz/api/v1/estates/3031323468",
+    "stale-detail-fetch:3347832908:Failed to fetch https://www.sreality.cz/api/v1/estates/3347832908: HTTP 404",
     "stale-detail-fetch:3674644556:Failed to fetch https://www.sreality.cz/api/v1/estates/3674644556: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3869610828",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3888812108",
@@ -737,6 +781,24 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/868107084"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prvorepubliková vila 216 m2, vícegenerační bydlení, pozemek 1.160 m2, Chlumec nad Cidlinou IV",
+      "location": "Chlumec nad Cidlinou, okres Hradec Králové",
+      "property_type": "land",
+      "price": "9 900 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1160",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-machova/6ac4ac413b47f78fe109d2ea/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
     {
       "portal": [
         "reality.idnes.cz"
@@ -783,24 +845,6 @@
       "land_area_m2": "1257",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou-spravedlnost/6a4ba4dab03f45e9570ef4d9/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej pozemku k bydlení, 1107 m2, Chlumec nad Cidlinou",
-      "location": "Chlumec nad Cidlinou, okres Hradec Králové",
-      "property_type": "land",
-      "price": "3 795 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1107",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/6a8c47693ec8c15aeb0761e0/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
@@ -858,6 +902,42 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej vícegeneračního domu 216 m², pozemek 1160 m²",
+      "location": "Chlumec nad Cidlinou, Máchova, Hradec Králové",
+      "property_type": "house",
+      "price": "9 900 000 Kč",
+      "house_area_m2": "216",
+      "land_area_m2": "1160",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/vicegeneracni-dum/chlumec-nad-cidlinou-chlumec-nad-cidlinou-iv-machova/1513689164"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1513689164"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 216 m², pozemek 1160 m²",
+      "location": "Chlumec nad Cidlinou, Máchova, Hradec Králové",
+      "property_type": "house",
+      "price": "9 900 000 Kč",
+      "house_area_m2": "216",
+      "land_area_m2": "1160",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/chlumec-nad-cidlinou-chlumec-nad-cidlinou-iv-machova/2017005644"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2017005644"
       ]
     },
     {
@@ -931,25 +1011,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2792939596",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1107 m²",
-      "location": "Chlumec nad Cidlinou, Hradec Králové",
-      "property_type": "land",
-      "price": "3 795 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1107",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/chlumec-nad-cidlinou-chlumec-nad-cidlinou-iii/3347832908"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3347832908",
         "buildable-land"
       ]
     },

@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 38,
-    "rows_retained": 13,
+    "candidates_gathered": 37,
+    "rows_retained": 12,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -189,14 +189,6 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-137197",
       "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-kratka/6a4e81f68dd5010fff0194f7/",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -390,8 +382,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1188089932",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1188089932",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -502,7 +504,6 @@
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/raby/69d227b0be872903380bfebc/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/raby/6a2fdc2a2437df55570cddc4/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice-kratka/6a4e81f68dd5010fff0194f7/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/raby/6a736666f6bec0e7580c17e2/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/raby/68b73570d0a87c8dac0e1d7f/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/raby/6a52757903ceb62abe024736/",
@@ -519,6 +520,7 @@
     "detail-fallback-page:https://reality.aktualne.cz/detail/raby/prodej-pozemku-k-bydleni-2012-m-raby-8059701.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1053302860",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1176879180",
+    "stale-detail-fetch:1188089932:Failed to fetch https://www.sreality.cz/api/v1/estates/1188089932: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/138207308",
     "missing-price:https://www.sreality.cz/api/v1/estates/1426513996",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1562755148",
@@ -709,24 +711,6 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 718 m², pozemek 1306 m²",
-      "location": "Ráby, Pardubice",
-      "property_type": "house",
-      "price": "48 000 000 Kč",
-      "house_area_m2": "718",
-      "land_area_m2": "1306",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/raby/1188089932"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1188089932"
       ]
     },
     {

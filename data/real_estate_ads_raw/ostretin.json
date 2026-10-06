@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 17,
-    "rows_retained": 5,
+    "candidates_gathered": 25,
+    "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -40,8 +40,13 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
+      "status": "fetch_error",
+      "http_status": 0,
+      "stage": "detail_fetch",
+      "message": "curl exited with 56",
+      "evidence": [
+        "detail_fetch:fetch_error:https://reality.idnes.cz/detail/prodej/dum/pardubice/69e649cb1dbd9fd488069dba/"
+      ]
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -67,27 +72,19 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ostretin/6a9691bc30d7765eab0853c3/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ostretin/6a9691bc30d7765eab0853c3/",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Detail URL returned fallback or non-detail content."
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/ostretin/69dcabced291c79059086c6c/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/ostretin/69dcabced291c79059086c6c/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -179,7 +176,116 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-kratka/6a4e81f68dd5010fff0194f7/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/horni-jeleni/6875f78b33916e6f47066b84/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/raby/68b73570d0a87c8dac0e1d7f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/kunetice/69397a8d716274238400dbb5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/libisany/6989db623015502f290a57f0/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/svojsice/69aae25a5c3035c0890253ec/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/holotin/69cea10cdb0a2f750f0eef5d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/holotin/69d5029ae423759dbf0e7103/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice/69e649cb1dbd9fd488069dba/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice/69e649cb1dbd9fd488069dba/",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice/69e649cb1dbd9fd488069dba/",
+      "stage": "detail_fetch",
+      "attempt": 3,
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/holice/6a1d6631dcb176e31e077c79/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/holice/6a1d6631dcb176e31e077c79/",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/holice/6a1d6631dcb176e31e077c79/",
+      "stage": "detail_fetch",
+      "attempt": 3,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/horni-jeleni-u-koupaliste/6a214dba5299341daa006601/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -296,8 +402,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/2355933260",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2355933260",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -372,10 +488,21 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/ostretin/6a9691bc30d7765eab0853c3/",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/ostretin/69dcabced291c79059086c6c/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/ostretin/699d67b1a21d09cf9b0e634f/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/ostretin/6a44e2d15f45676aa304c768/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice-kratka/6a4e81f68dd5010fff0194f7/",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-116335",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-116343",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/horni-jeleni/6875f78b33916e6f47066b84/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/raby/68b73570d0a87c8dac0e1d7f/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/kunetice/69397a8d716274238400dbb5/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/libisany/6989db623015502f290a57f0/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/svojsice/69aae25a5c3035c0890253ec/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/holotin/69cea10cdb0a2f750f0eef5d/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/holotin/69d5029ae423759dbf0e7103/",
+    "failed-detail-fetch:https://reality.idnes.cz/detail/prodej/dum/pardubice/69e649cb1dbd9fd488069dba/:curl exited with 56",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/holice/6a1d6631dcb176e31e077c79/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/horni-jeleni-u-koupaliste/6a214dba5299341daa006601/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ostretin/6a614ba2e8b1614b020d5407/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/ostretin/67f515dacdee4d3eff04c206/",
     "missing-page-url:house",
@@ -384,6 +511,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Ost%C5%99et%C3%ADn&form%5Bcena_mena%5D=1",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2198475596",
     "stale-detail-fetch:2232938572:Failed to fetch https://www.sreality.cz/api/v1/estates/2232938572: HTTP 404",
+    "stale-detail-fetch:2355933260:Failed to fetch https://www.sreality.cz/api/v1/estates/2355933260: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3236470860",
     "stale-detail-fetch:3292095308:Failed to fetch https://www.sreality.cz/api/v1/estates/3292095308: HTTP 404",
     "stale-detail-fetch:3695207244:Failed to fetch https://www.sreality.cz/api/v1/estates/3695207244: HTTP 404",
@@ -406,23 +534,6 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prostorný rodinný/vícegenerační dům s pozemkem 1 406 m2 a velkým potenciálem Ostřetín - REZERVACE",
-      "location": "Ostřetín, okres Pardubice",
-      "property_type": "house",
-      "price": "4 773 000 Kč",
-      "house_area_m2": "153",
-      "land_area_m2": "1406",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/ostretin/69dcabced291c79059086c6c/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
       ]
     },
     {
@@ -460,24 +571,6 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3434819660",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 153 m², pozemek 1406 m²",
-      "location": "Ostřetín, Pardubice",
-      "property_type": "house",
-      "price": "4 773 000 Kč",
-      "house_area_m2": "153",
-      "land_area_m2": "1406",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/ostretin/2355933260"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2355933260"
       ]
     }
   ]

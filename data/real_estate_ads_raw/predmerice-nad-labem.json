@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 10,
-    "rows_retained": 5,
+    "candidates_gathered": 18,
+    "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -64,6 +64,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/predmerice-nad-labem-obrancu-miru/69deb37367edf46eb306a987/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -115,7 +123,79 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-klicperovo-namesti/6abb81288f8ad9ce04005394/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-zahradkarska-osada-u-labe/683eb5a9f1246564b90a7426/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/698cabc29680ad68cf0869f5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-spravedlnost/69abca9262bef6590c000496/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-zahradkarska-osada-doliky/69fc4310867bedee02084a8a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/mysteves/6a141147a65061f9bc0087b3/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-cerveny-dvur/6a324859afd3ed97130baf35/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-lesni/6a467516c77814b3ea0b127a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-zahradkarska-osada-doliky/6a70644df577204fc703287d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-zahradkarska-osada-slatina/6a72dbd4572605c6ed087334/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-rozkvet-miru-ii/6a7498de2eec179bfb050825/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -132,14 +212,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/predmerice-nad-labem/6a942da4744de9acf90a33dc/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-labska-zahrada/6ab142400871085714080bef/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -214,8 +286,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3338842188",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3338842188",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -246,33 +328,27 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/predmerice-nad-labem-obrancu-miru/69deb37367edf46eb306a987/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/predmerice-nad-labem-pod-nadrazim/6992d2826d6847b7c207e25c/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-klicperovo-namesti/6abb81288f8ad9ce04005394/",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-134295",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-zahradkarska-osada-u-labe/683eb5a9f1246564b90a7426/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/trebechovice-pod-orebem/698cabc29680ad68cf0869f5/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-spravedlnost/69abca9262bef6590c000496/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-zahradkarska-osada-doliky/69fc4310867bedee02084a8a/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/mysteves/6a141147a65061f9bc0087b3/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-cerveny-dvur/6a324859afd3ed97130baf35/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-lesni/6a467516c77814b3ea0b127a/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-zahradkarska-osada-doliky/6a70644df577204fc703287d/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-zahradkarska-osada-slatina/6a72dbd4572605c6ed087334/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-rozkvet-miru-ii/6a7498de2eec179bfb050825/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/predmerice-nad-labem/6a942da4744de9acf90a33dc/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-labska-zahrada/6ab142400871085714080bef/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=P%C5%99edm%C4%9B%C5%99ice+nad+Labem&form%5Bcena_mena%5D=1",
+    "stale-detail-fetch:3338842188:Failed to fetch https://www.sreality.cz/api/v1/estates/3338842188: HTTP 404",
     "stale-detail-fetch:448262220:Failed to fetch https://www.sreality.cz/api/v1/estates/448262220: HTTP 404"
   ],
   "listings": [
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej vily 379 m2 Obránců míru, Předměřice nad Labem",
-      "location": "Předměřice nad Labem, okres Hradec Králové",
-      "property_type": "house",
-      "price": "28 840 000 Kč",
-      "house_area_m2": "379",
-      "land_area_m2": "1897",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/predmerice-nad-labem-obrancu-miru/69deb37367edf46eb306a987/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
     {
       "portal": [
         "reality.idnes.cz"
@@ -289,24 +365,6 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej vily 379 m², pozemek 1897 m²",
-      "location": "Předměřice nad Labem, Obránců míru, Hradec Králové",
-      "property_type": "house",
-      "price": "28 840 000 Kč",
-      "house_area_m2": "379",
-      "land_area_m2": "1897",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/vila/predmerice-nad-labem-obrancu-miru/3338842188"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3338842188"
       ]
     },
     {
