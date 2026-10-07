@@ -29,21 +29,19 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 0,
-    "candidates_gathered": 20,
-    "rows_retained": 0,
+    "workers_with_results": 2,
+    "candidates_gathered": 12,
+    "rows_retained": 2,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz",
-      "reality.aktualne.cz",
-      "sreality.cz"
+      "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -54,8 +52,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Sreality rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -93,79 +91,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/horni-jeleni/6875f78b33916e6f47066b84/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/raby/68b73570d0a87c8dac0e1d7f/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/kunetice/69397a8d716274238400dbb5/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/libisany/6989db623015502f290a57f0/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/svojsice/69aae25a5c3035c0890253ec/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/holotin/69cea10cdb0a2f750f0eef5d/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/holotin/69d5029ae423759dbf0e7103/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice/69e649cb1dbd9fd488069dba/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/holice/6a1d6631dcb176e31e077c79/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/horni-jeleni-u-koupaliste/6a214dba5299341daa006601/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/rohovladova-bela/6ac5ee3d8ad1736bd1051a33/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -306,22 +232,19 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2986872908",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-140449",
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-140449",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/horni-jeleni/6875f78b33916e6f47066b84/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/raby/68b73570d0a87c8dac0e1d7f/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/kunetice/69397a8d716274238400dbb5/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/libisany/6989db623015502f290a57f0/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/svojsice/69aae25a5c3035c0890253ec/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/holotin/69cea10cdb0a2f750f0eef5d/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/holotin/69d5029ae423759dbf0e7103/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice/69e649cb1dbd9fd488069dba/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/holice/6a1d6631dcb176e31e077c79/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/horni-jeleni-u-koupaliste/6a214dba5299341daa006601/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/stare-hradiste/6299b8615b4dcf0c5110eb12/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/65afb3a4cbdea9c74d01ed2a/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/65afb603765b9aa0da01d2e6/",
@@ -336,5 +259,41 @@
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Rohovl%C3%A1dova+B%C4%9Bl%C3%A1&form%5Bcena_mena%5D=1"
   ],
-  "listings": []
+  "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu 193 m2, Rohovládova Bělá",
+      "location": "Rohovládova Bělá, okres Pardubice",
+      "property_type": "house",
+      "price": "13 490 000 Kč",
+      "house_area_m2": "193",
+      "land_area_m2": "1396",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/rohovladova-bela/6ac5ee3d8ad1736bd1051a33/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 193 m², pozemek 1396 m²",
+      "location": "Rohovládova Bělá, Pardubice",
+      "property_type": "house",
+      "price": "13 490 000 Kč",
+      "house_area_m2": "193",
+      "land_area_m2": "1396",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/rohovladova-bela/2986872908"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2986872908"
+      ]
+    }
+  ]
 }
