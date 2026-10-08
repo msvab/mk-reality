@@ -251,7 +251,15 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-labska-zahrada/6ab142400871085714080bef/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-tylova/6ac644c8eede5e58a604af01/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-prazska/6ac6355cee7d3d679c07c61f/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -518,8 +526,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1135316572",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1135316572",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -645,14 +663,6 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/3888812108",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/4123009100",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -688,7 +698,8 @@
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/6a8c47693ec8c15aeb0761e0/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/6aacebb3d66202a1af0b37c7/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-labska-zahrada/6ab142400871085714080bef/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-tylova/6ac644c8eede5e58a604af01/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-prazska/6ac6355cee7d3d679c07c61f/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-machova/6ac4ab5b7a4cc33802009f34/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou/6aa9077b71c681f98601cc33/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-celakovskeho/6a9a70d3bd5f282629063e7f/",
@@ -712,7 +723,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Chlumec+nad+Cidlinou&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/prostorny-stavebni-pozemek-1411m2-projekt-skalka-8601623.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/stavebni-pozemek-1-139-m-projekt-skalka-8601627.html",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1135316572",
+    "stale-detail-fetch:1135316572:Failed to fetch https://www.sreality.cz/api/v1/estates/1135316572: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/173376076",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2285556812",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2300588876",
@@ -720,7 +731,6 @@
     "excluded-chata:https://www.sreality.cz/api/v1/estates/3031323468",
     "stale-detail-fetch:3347832908:Failed to fetch https://www.sreality.cz/api/v1/estates/3347832908: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3869610828",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3888812108",
     "missing-price:https://www.sreality.cz/api/v1/estates/4123009100",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/857683020",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/868107084"

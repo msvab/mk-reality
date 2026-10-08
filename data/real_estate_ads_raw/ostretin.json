@@ -29,13 +29,12 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
-    "candidates_gathered": 25,
-    "rows_retained": 2,
+    "workers_with_results": 2,
+    "candidates_gathered": 26,
+    "rows_retained": 4,
     "zero_result_portals": [
       "realitymix.cz",
-      "reality.aktualne.cz",
-      "sreality.cz"
+      "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
@@ -53,8 +52,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Sreality rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -252,6 +251,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ostretin/6a9691bc30d7765eab0853c3/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/ostretin/6a614ba2e8b1614b020d5407/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -405,18 +412,8 @@
       "url": "https://www.sreality.cz/api/v1/estates/3434819660",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/3434819660",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "sreality.cz",
@@ -483,7 +480,6 @@
     "stale-detail-fetch:2355933260:Failed to fetch https://www.sreality.cz/api/v1/estates/2355933260: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3236470860",
     "stale-detail-fetch:3292095308:Failed to fetch https://www.sreality.cz/api/v1/estates/3292095308: HTTP 404",
-    "stale-detail-fetch:3434819660:Failed to fetch https://www.sreality.cz/api/v1/estates/3434819660: HTTP 404",
     "stale-detail-fetch:3695207244:Failed to fetch https://www.sreality.cz/api/v1/estates/3695207244: HTTP 404",
     "stale-detail-fetch:4024954956:Failed to fetch https://www.sreality.cz/api/v1/estates/4024954956: HTTP 404"
   ],
@@ -510,6 +506,24 @@
       "portal": [
         "reality.idnes.cz"
       ],
+      "title": "Prodej pozemku pro budoucí výstavbu, Ostřetín",
+      "location": "Ostřetín, okres Pardubice",
+      "property_type": "land",
+      "price": "7 990 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "13253",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/ostretin/6a9691bc30d7765eab0853c3/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
       "title": "Prodej pozemku pro rodinný dům Vysoká u Holic",
       "location": "Ostřetín, okres Pardubice",
       "property_type": "land",
@@ -521,6 +535,25 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 13253 m²",
+      "location": "Ostřetín, Pardubice",
+      "property_type": "land",
+      "price": "7 990 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "13253",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/ostretin/3434819660"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3434819660",
         "buildable-land"
       ]
     }

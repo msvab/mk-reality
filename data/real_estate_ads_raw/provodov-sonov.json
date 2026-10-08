@@ -29,14 +29,13 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 0,
-    "candidates_gathered": 13,
-    "rows_retained": 0,
+    "workers_with_results": 1,
+    "candidates_gathered": 14,
+    "rows_retained": 1,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
-      "reality.aktualne.cz",
-      "sreality.cz"
+      "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
@@ -54,8 +53,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Sreality rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -319,6 +318,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3155103820",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/756142156",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -351,5 +358,24 @@
     "stale-detail-fetch:1468117068:Failed to fetch https://www.sreality.cz/api/v1/estates/1468117068: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/756142156"
   ],
-  "listings": []
+  "listings": [
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 129 m², pozemek 1054 m²",
+      "location": "Provodov-Šonov, Náchod",
+      "property_type": "house",
+      "price": "14 500 000 Kč",
+      "house_area_m2": "129",
+      "land_area_m2": "1054",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/provodov-sonov-vaclavice/3155103820"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3155103820"
+      ]
+    }
+  ]
 }

@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 39,
-    "rows_retained": 10,
+    "candidates_gathered": 38,
+    "rows_retained": 7,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -63,6 +63,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-lesni/6a9ec829e90ca050a30451c1/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -266,6 +274,14 @@
     },
     {
       "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-domy-rodinny-281-m2-lesni-1148-54901-nove-mesto-nad-metuji-nachod-id-88581-8690733.html",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Požadovaný inzerát již není v naší databázi"
+    },
+    {
+      "portal": "realitymix.cz",
       "url": "https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-pozemku-k-bydleni-v-novem-meste-nad-metuji-8578121.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -455,8 +471,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/2673619020",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2673619020",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -501,6 +527,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-lesni/6a9ec829e90ca050a30451c1/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-rezek/69991032788d156d9209e3bf/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-lesni/6aabd8e53d0740e29f01cdd8/",
@@ -511,6 +538,7 @@
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/6a848540d642c94986094d2f/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/68b0081193cfb13bc60d5e6e/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/685909470e0bcd7d240cecc2/",
+    "removed-fallback-page:https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-domy-rodinny-281-m2-lesni-1148-54901-nove-mesto-nad-metuji-nachod-id-88581-8690733.html",
     "removed-fallback-page:https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-stavebniho-pozemku-3-112-m2-8430099.html",
     "land-below-threshold:https://realitymix.cz/detail/nove-mesto-nad-metuji/bytovy-dum-nove-mesto-nad-metuji-centrum-8693691.html",
     "land-below-threshold:https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-domy-rodinny-128-3-m2-lesni-1159-54901-nove-mesto-nad-metuji-nachod-id-89347-8700535.html",
@@ -525,6 +553,7 @@
     "missing-price:https://www.sreality.cz/api/v1/estates/213893964",
     "excluded-chata:https://www.sreality.cz/api/v1/estates/2146840652",
     "missing-price:https://www.sreality.cz/api/v1/estates/2207088716",
+    "stale-detail-fetch:2673619020:Failed to fetch https://www.sreality.cz/api/v1/estates/2673619020: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2827927628",
     "missing-price:https://www.sreality.cz/api/v1/estates/2898248524",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3504849740",
@@ -532,23 +561,6 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4207342412"
   ],
   "listings": [
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej domy, 281 m2, Nové Město nad MetujíLesní",
-      "location": "Nové Město nad Metují, okres Náchod",
-      "property_type": "house",
-      "price": "8 490 000 Kč",
-      "house_area_m2": "281",
-      "land_area_m2": "1664",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-lesni/6a9ec829e90ca050a30451c1/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
     {
       "portal": [
         "reality.idnes.cz"
@@ -642,24 +654,6 @@
       "portal": [
         "realitymix.cz"
       ],
-      "title": "Prodej, domy/rodinný, 281 m2, Lesní 1148, 54901 Nové Město nad Metují, Náchod [ID 88581]",
-      "location": "Lesní, Nové Město nad Metují, okr. Náchod",
-      "property_type": "house",
-      "price": "8 490 000 Kč",
-      "house_area_m2": "281",
-      "land_area_m2": "1664",
-      "urls": [
-        "https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-domy-rodinny-281-m2-lesni-1148-54901-nove-mesto-nad-metuji-nachod-id-88581-8690733.html"
-      ],
-      "notes": [
-        "detail-url-verified:realitymix.cz",
-        "municipal-part:Lesní"
-      ]
-    },
-    {
-      "portal": [
-        "realitymix.cz"
-      ],
       "title": "Prodej pozemku k bydlení v Novém Městě nad Metují",
       "location": "Nové Město nad Metují, okr. Náchod",
       "property_type": "land",
@@ -671,24 +665,6 @@
       ],
       "notes": [
         "detail-url-verified:realitymix.cz"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 281 m², pozemek 1664 m²",
-      "location": "Nové Město nad Metují, Lesní, Náchod",
-      "property_type": "house",
-      "price": "8 490 000 Kč",
-      "house_area_m2": "281",
-      "land_area_m2": "1664",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/nove-mesto-nad-metuji-lesni/2673619020"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2673619020"
       ]
     },
     {

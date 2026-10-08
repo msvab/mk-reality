@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 54,
-    "rows_retained": 15,
+    "candidates_gathered": 51,
+    "rows_retained": 13,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -622,8 +622,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1102045260",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1102045260",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -636,14 +646,6 @@
     {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/1957032780",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/2013978700",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -668,14 +670,6 @@
     {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/2499027020",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/3121516620",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -723,14 +717,6 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/4112420940",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/479228492",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -768,8 +754,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/917495884",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/917495884",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -825,16 +821,15 @@
     "detail-fallback-page:https://reality.aktualne.cz/detail/broumov/prodej-domu-128-m-s-pozemkem-1-552-m-v-broumove-8263337.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/broumov/prodej-pozemek-bydleni-1915-8608861.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1047494732",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2013978700",
+    "stale-detail-fetch:1102045260:Failed to fetch https://www.sreality.cz/api/v1/estates/1102045260: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2159534156",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3121516620",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3365487436",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3721114444",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3844399948",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4032200780",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4112420940",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/51216460",
     "stale-detail-fetch:787669068:Failed to fetch https://www.sreality.cz/api/v1/estates/787669068: HTTP 404",
+    "stale-detail-fetch:917495884:Failed to fetch https://www.sreality.cz/api/v1/estates/917495884: HTTP 404",
     "stale-detail-fetch:963515212:Failed to fetch https://www.sreality.cz/api/v1/estates/963515212: HTTP 404"
   ],
   "listings": [
@@ -978,42 +973,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1300140876"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 260 m², pozemek 2350 m²",
-      "location": "Broumov, Kladská, Náchod",
-      "property_type": "house",
-      "price": "6 250 000 Kč",
-      "house_area_m2": "260",
-      "land_area_m2": "2350",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/broumov-velka-ves-kladska/1102045260"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1102045260"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej chalupy 260 m², pozemek 2350 m²",
-      "location": "Broumov, Kladská, Náchod",
-      "property_type": "house",
-      "price": "6 250 000 Kč",
-      "house_area_m2": "260",
-      "land_area_m2": "2350",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/chalupa/broumov-velka-ves-kladska/917495884"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/917495884"
       ]
     },
     {
