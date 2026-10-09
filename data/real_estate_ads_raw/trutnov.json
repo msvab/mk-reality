@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 3,
     "candidates_gathered": 186,
-    "rows_retained": 75,
+    "rows_retained": 73,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -87,6 +87,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov-za-upou/6a60a18ce6c8c36c6f0d5185/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -274,6 +282,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trutnov/6ac74909b02265cef60af681/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/trutnov-nad-poricskou/67e19202ca5ec59dbd026d54/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -282,19 +298,11 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trutnov/6a31165c1c08b12caa0806f3/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trutnov/6ac63ae504c4b7a3e206d451/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trutnov/6a31165c1c08b12caa0806f3/",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -327,6 +335,22 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trutnov/6a31165c1c08b12caa0806f3/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trutnov/6a31165c1c08b12caa0806f3/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -875,22 +899,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov/69c6517a815842fae10895c4/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trutnov/6ac74909b02265cef60af681/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trutnov/6ac63ae504c4b7a3e206d451/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -1731,8 +1739,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/2791034956",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2791034956",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -2135,6 +2153,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/trutnov-za-upou/6a60a18ce6c8c36c6f0d5185/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/trutnov/6a31165c1c08b12caa0806f3/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/trutnov/6ab2a49e5668290f4e0c61a0/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/trutnov/6a3ef28d36543e12950c7078/",
@@ -2215,6 +2234,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2609492044",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2708545612",
     "stale-detail-fetch:2710757452:Failed to fetch https://www.sreality.cz/api/v1/estates/2710757452: HTTP 404",
+    "stale-detail-fetch:2791034956:Failed to fetch https://www.sreality.cz/api/v1/estates/2791034956: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2907243084",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2962821196",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3072323660",
@@ -2295,23 +2315,6 @@
       "land_area_m2": "1245",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/dum/trutnov-rychorska/6aacf1859381db06720599e2/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Vícegenerační rodinný dům se 3 samostatnými byty a pozemkem 1 588 m2, Trutnov",
-      "location": "Trutnov, okres Trutnov",
-      "property_type": "house",
-      "price": "6 600 000 Kč",
-      "house_area_m2": "621",
-      "land_area_m2": "1588",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/trutnov-za-upou/6a60a18ce6c8c36c6f0d5185/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
@@ -2910,23 +2913,6 @@
       "portal": [
         "realitymix.cz"
       ],
-      "title": "Prodej rodinného domu 216 m2 Ve Vilkách, Trutnov",
-      "location": "Ve Vilkách, Volanov, Trutnov",
-      "property_type": "house",
-      "price": "5 990 000 Kč",
-      "house_area_m2": "216",
-      "land_area_m2": "1028",
-      "urls": [
-        "https://realitymix.cz/detail/trutnov/prodej-rodinneho-domu-216-m2-ve-vilkach-trutnov-8710105.html"
-      ],
-      "notes": [
-        "detail-url-verified:realitymix.cz"
-      ]
-    },
-    {
-      "portal": [
-        "realitymix.cz"
-      ],
       "title": "Stavební pozemek, Trutnov - Voletiny, 3 743 m²",
       "location": "Při Ohradě, Trutnov",
       "property_type": "land",
@@ -3186,6 +3172,23 @@
     },
     {
       "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej rodinného domu 216 m2 Ve Vilkách, Trutnov",
+      "location": "Ve Vilkách, Volanov, Trutnov",
+      "property_type": "house",
+      "price": "Rezervováno",
+      "house_area_m2": "216",
+      "land_area_m2": "1028",
+      "urls": [
+        "https://realitymix.cz/detail/trutnov/prodej-rodinneho-domu-216-m2-ve-vilkach-trutnov-8710105.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz"
+      ]
+    },
+    {
+      "portal": [
         "sreality.cz"
       ],
       "title": "Prodej rodinného domu 715 m², pozemek 1494 m²",
@@ -3236,24 +3239,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2012815436"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej vícegeneračního domu 621 m², pozemek 1588 m²",
-      "location": "Trutnov, Za Úpou, Trutnov",
-      "property_type": "house",
-      "price": "6 600 000 Kč",
-      "house_area_m2": "621",
-      "land_area_m2": "1588",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/vicegeneracni-dum/trutnov-dolni-stare-mesto-za-upou/2791034956"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2791034956"
       ]
     },
     {

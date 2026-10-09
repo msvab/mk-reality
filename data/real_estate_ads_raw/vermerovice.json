@@ -42,8 +42,13 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
+      "status": "fetch_error",
+      "http_status": 0,
+      "stage": "detail_fetch",
+      "message": "curl exited with 56",
+      "evidence": [
+        "detail_fetch:fetch_error:https://reality.idnes.cz/detail/prodej/dum/vermerovice/6a672639344eb8dd20060c57/"
+      ]
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -64,6 +69,24 @@
       "url": "https://reality.idnes.cz/detail/prodej/dum/vermerovice/6a672639344eb8dd20060c57/",
       "stage": "detail_fetch",
       "attempt": 1,
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vermerovice/6a672639344eb8dd20060c57/",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vermerovice/6a672639344eb8dd20060c57/",
+      "stage": "detail_fetch",
+      "attempt": 3,
       "status": "ok",
       "http_status": 200
     },
