@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 5,
+    "candidates_gathered": 6,
     "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz",
@@ -93,6 +93,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-3590",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -198,6 +206,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Bezd%C4%9Bkov+nad+Metuj%C3%AD&form%5Bcena_mena%5D=1",
@@ -205,6 +214,24 @@
     "stale-detail-fetch:912056396:Failed to fetch https://www.sreality.cz/api/v1/estates/912056396: HTTP 404"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebních pozemků 14 349m2 v Bezděkově nad Metují, okr. Náchod",
+      "location": "Bezděkov nad Metují, okres Náchod",
+      "property_type": "land",
+      "price": "13 900 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "14349",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/bezdekov-nad-metuji/6aa3fe3d7024c101a305645e/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
     {
       "portal": [
         "reality.idnes.cz"
@@ -220,24 +247,6 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej stavebních pozemků 14 349m2 v Bezděkově nad Metují, okr. Náchod",
-      "location": "Bezděkov nad Metují, okres Náchod",
-      "property_type": "land",
-      "price": "Cena na vyžádání",
-      "house_area_m2": "unknown",
-      "land_area_m2": "14349",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/bezdekov-nad-metuji/6aa3fe3d7024c101a305645e/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
       ]
     },
     {
