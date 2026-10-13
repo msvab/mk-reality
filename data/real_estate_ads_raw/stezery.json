@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 13,
-    "rows_retained": 4,
+    "candidates_gathered": 14,
+    "rows_retained": 6,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -179,7 +179,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/stezery/6a7e38cc4dbab3c8d00888ee/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/stezery/6acc9c14030ced68e00f2494/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -301,6 +301,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4206628940",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/763662412",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -325,7 +333,6 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/stezery/6ac912d18b4bbbbaf80350a2/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/stezery/6a91a01d4ee0b976820aa742/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/stezery-lipova/6a9a4ca46c17b1bbc20359b8/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/stezery/6a7e38cc4dbab3c8d00888ee/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/stezery-mala-strana/68e3b936ff811a0ede0caa3c/",
     "missing-page-url:house",
     "missing-page-url:land",
@@ -372,6 +379,24 @@
     },
     {
       "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Stavební pozemek o výměře 1291 m2, Stěžírky - Hradec Králové",
+      "location": "Stěžery, okres Hradec Králové",
+      "property_type": "land",
+      "price": "6 400 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1291",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/stezery/6acc9c14030ced68e00f2494/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
         "sreality.cz"
       ],
       "title": "Prodej stavebního pozemku 14692 m²",
@@ -405,6 +430,25 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/364048460"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1291 m²",
+      "location": "Stěžery, Hradec Králové",
+      "property_type": "land",
+      "price": "6 400 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1291",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/stezery-stezirky/4206628940"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/4206628940",
+        "buildable-land"
       ]
     }
   ]

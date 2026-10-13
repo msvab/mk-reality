@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 185,
-    "rows_retained": 72,
+    "candidates_gathered": 186,
+    "rows_retained": 73,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -319,6 +319,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov/69f9a42bc1dbd5c5b0006bd8/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -786,6 +794,30 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov/6a031a10260598ea110518d8/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov-novorokytnicka/6accd65d752c7b1f7e0d3e60/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov-benesova/6a1142e1dd6cf5d1450dc3e7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov-ivana-olbrachta/6acb43807efb28afd109c798/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -795,22 +827,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov-dolni/6ac3a26e7fea539f180fdfb0/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov/6a031a10260598ea110518d8/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov-benesova/6a1142e1dd6cf5d1450dc3e7/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -1282,6 +1298,14 @@
     },
     {
       "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/prodej-rodinneho-domu-72-m2-novorokytnicka-trutnov-8721533.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/kralovehradecky/trutnov",
       "stage": "land_result_fetch",
       "attempt": 1,
@@ -1331,14 +1355,6 @@
     {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2877&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
-      "stage": "land_search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2877&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=2",
       "stage": "land_search_fetch",
       "attempt": 1,
       "status": "ok",
@@ -1420,14 +1436,6 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/1406668876",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/1517609036",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -1447,8 +1455,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1549918284",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1549918284",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -1509,14 +1527,6 @@
     {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/1741623372",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/174186572",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -1599,6 +1609,14 @@
       "status": "not_found",
       "http_status": 404,
       "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1896026188",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "sreality.cz",
@@ -1771,14 +1789,6 @@
     {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/2948522060",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/2962821196",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -2136,6 +2146,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/849886044",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/868204620",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -2153,6 +2171,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/trutnov/69f9a42bc1dbd5c5b0006bd8/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/trutnov-za-upou/6a60a18ce6c8c36c6f0d5185/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/trutnov/6a31165c1c08b12caa0806f3/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/trutnov/6ab2a49e5668290f4e0c61a0/",
@@ -2165,10 +2184,10 @@
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/trutnov-za-trati/6a44d0fd9de3f84a3f07eba7/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/trutnov-petrikovicka/69ec7d238bd95a145000703a/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/trutnov-k-peti-bukum/69f3255591d6e9911d00ec78/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov-ivana-olbrachta/6acb43807efb28afd109c798/",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/trutnov-dolni/6ac3a26e7fea539f180fdfb0/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov/6a031a10260598ea110518d8/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov-benesova/6a1142e1dd6cf5d1450dc3e7/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov-ivana-olbrachta/6acb43807efb28afd109c798/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/trutnov-dolni/6ac3a26e7fea539f180fdfb0/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/trutnov-bohuslavicka/6ab2501bc14e9e460d0b0464/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov-dlouha/6aae957784a9c280e00234f9/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/trutnov-zahradni-mesto/6a7ae4f5e9126368bf01cc76/",
@@ -2211,14 +2230,13 @@
     "stale-detail-fetch:1279492940:Failed to fetch https://www.sreality.cz/api/v1/estates/1279492940: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1317646412",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1384659804",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1406668876",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1523528780",
+    "stale-detail-fetch:1549918284:Failed to fetch https://www.sreality.cz/api/v1/estates/1549918284: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1628570188",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1637490764",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1669967948",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1720299596",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1741623372",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/174186572",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1745358924",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/181351500",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1820962892",
@@ -2237,7 +2255,6 @@
     "stale-detail-fetch:2710757452:Failed to fetch https://www.sreality.cz/api/v1/estates/2710757452: HTTP 404",
     "stale-detail-fetch:2791034956:Failed to fetch https://www.sreality.cz/api/v1/estates/2791034956: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2907243084",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2962821196",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3072323660",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3078685260",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3112808524",
@@ -2266,6 +2283,7 @@
     "stale-detail-fetch:740552780:Failed to fetch https://www.sreality.cz/api/v1/estates/740552780: HTTP 404",
     "stale-detail-fetch:803532876:Failed to fetch https://www.sreality.cz/api/v1/estates/803532876: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/831107148",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/849886044",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/951597916"
   ],
   "listings": [
@@ -2772,6 +2790,23 @@
       "portal": [
         "reality.idnes.cz"
       ],
+      "title": "Prodej rodinného domu 72 m2 Novorokytnická, Trutnov",
+      "location": "Trutnov, okres Trutnov",
+      "property_type": "house",
+      "price": "2 750 000 Kč",
+      "house_area_m2": "72",
+      "land_area_m2": "1599",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/trutnov-novorokytnicka/6accd65d752c7b1f7e0d3e60/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
       "title": "Prodej pozemku k bydlení, 1788 m2, Trutnov",
       "location": "Trutnov, okres Trutnov",
       "property_type": "land",
@@ -2838,23 +2873,6 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej 1/3 rodinného domu Trutnov - k. ú. Babí",
-      "location": "Trutnov, okres Trutnov",
-      "property_type": "house",
-      "price": "600 000 Kč",
-      "house_area_m2": "80",
-      "land_area_m2": "1468",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/trutnov/69f9a42bc1dbd5c5b0006bd8/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
       ]
     },
     {
@@ -3131,6 +3149,23 @@
       "land_area_m2": "2394",
       "urls": [
         "https://realitymix.cz/detail/trutnov/prodej-pozemku-k-bydleni-2394-m-trutnov-8528343.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej rodinného domu 72 m2 Novorokytnická, Trutnov",
+      "location": "Novorokytnická, Nový Rokytník, Trutnov",
+      "property_type": "house",
+      "price": "2 750 000 Kč",
+      "house_area_m2": "72",
+      "land_area_m2": "1599",
+      "urls": [
+        "https://realitymix.cz/detail/trutnov/prodej-rodinneho-domu-72-m2-novorokytnicka-trutnov-8721533.html"
       ],
       "notes": [
         "detail-url-verified:realitymix.cz"
@@ -3510,6 +3545,24 @@
       "portal": [
         "sreality.cz"
       ],
+      "title": "Prodej rodinného domu 72 m², pozemek 1599 m²",
+      "location": "Trutnov, Novorokytnická, Trutnov",
+      "property_type": "house",
+      "price": "2 750 000 Kč",
+      "house_area_m2": "72",
+      "land_area_m2": "1599",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/trutnov-novy-rokytnik-novorokytnicka/1896026188"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1896026188"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
       "title": "Prodej stavebního pozemku 1585 m²",
       "location": "Trutnov, Za Mostem, Trutnov",
       "property_type": "land",
@@ -3522,25 +3575,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1307882316",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 2507 m²",
-      "location": "Trutnov, Trutnov",
-      "property_type": "land",
-      "price": "1 591 945 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "2507",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/trutnov-stary-rokytnik/1549918284"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1549918284",
         "buildable-land"
       ]
     },

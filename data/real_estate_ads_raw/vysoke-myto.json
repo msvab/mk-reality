@@ -29,12 +29,13 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
-    "candidates_gathered": 34,
-    "rows_retained": 3,
+    "workers_with_results": 1,
+    "candidates_gathered": 31,
+    "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
-      "reality.aktualne.cz"
+      "reality.aktualne.cz",
+      "sreality.cz"
     ],
     "blocked_portals": []
   },
@@ -52,8 +53,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Sreality row."
+      "status": "no_results",
+      "message": "No retained in-scope Sreality rows."
     }
   },
   "fetch_attempts": [
@@ -187,14 +188,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-sv-cecha/6a79f80b643635c86001aa14/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-na-vrchach/69c3fd58371cb40ca007bd44/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -204,14 +197,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-jozky-svobody/6952ced624f9a0cbc8066ff7/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto-prokopa-velikeho/6ab6408ff6eb91f2d10b6c29/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -422,8 +407,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3611398220",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3611398220",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -461,14 +456,6 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/706097228",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/853516364",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -483,10 +470,8 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-b-smetany/69bc2659c76200360a0e362b/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-a-v-sembery/6abf738e755639011908d5f9/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-spalenec/6a85bf5cfa4ba36a8c00e5a8/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-sv-cecha/6a79f80b643635c86001aa14/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-na-vrchach/69c3fd58371cb40ca007bd44/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vysoke-myto-jozky-svobody/6952ced624f9a0cbc8066ff7/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto-prokopa-velikeho/6ab6408ff6eb91f2d10b6c29/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto/6ac4c2d092282871370568ad/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto/6ac4c2c252be9f97740bc7e8/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto/67ffd793c245395374023548/",
@@ -507,10 +492,10 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2234115404",
     "missing-price:https://www.sreality.cz/api/v1/estates/241931084",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2575536204",
+    "stale-detail-fetch:3611398220:Failed to fetch https://www.sreality.cz/api/v1/estates/3611398220: HTTP 404",
     "stale-detail-fetch:4112416844:Failed to fetch https://www.sreality.cz/api/v1/estates/4112416844: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/48828492",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/63414348",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/706097228",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/853516364"
   ],
   "listings": [
@@ -547,24 +532,6 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 160 m², pozemek 1087 m²",
-      "location": "Vysoké Mýto, Luční, Ústí nad Orlicí",
-      "property_type": "house",
-      "price": "2 121 000 Kč",
-      "house_area_m2": "160",
-      "land_area_m2": "1087",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/vysoke-myto-chocenske-predmesti-lucni/3611398220"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3611398220"
       ]
     }
   ]

@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 19,
-    "rows_retained": 5,
+    "candidates_gathered": 21,
+    "rows_retained": 7,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -188,6 +188,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/doudleby-nad-orlici/6aca45988181ebf6480f7c87/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/doudleby-nad-orlici-dukelska/6accd3954e78f7b695065305/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -377,6 +385,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4082307148",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/793736524",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -406,6 +422,23 @@
     "stale-detail-fetch:3798188108:Failed to fetch https://www.sreality.cz/api/v1/estates/3798188108: HTTP 404"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prostorná nemovitost s byty, restaurací, obchodem a vlastní fotovoltaickou elektrárnou Doudleby na",
+      "location": "Doudleby nad Orlicí, okres Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "6 990 000 Kč",
+      "house_area_m2": "450",
+      "land_area_m2": "1453",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/doudleby-nad-orlici-dukelska/6accd3954e78f7b695065305/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
     {
       "portal": [
         "reality.idnes.cz"
@@ -456,6 +489,24 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej vícegeneračního domu 450 m², pozemek 1453 m²",
+      "location": "Doudleby nad Orlicí, Dukelská, Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "6 990 000 Kč",
+      "house_area_m2": "450",
+      "land_area_m2": "1453",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/vicegeneracni-dum/doudleby-nad-orlici-dukelska/4082307148"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/4082307148"
       ]
     },
     {

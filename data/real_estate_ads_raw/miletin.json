@@ -28,11 +28,12 @@
     "`municipality_only` includes municipal parts explicitly shown by RealityMix as part of Miletín."
   ],
   "coverage": {
-    "workers_launched": 3,
+    "workers_launched": 4,
     "workers_with_results": 0,
-    "candidates_gathered": 2,
+    "candidates_gathered": 4,
     "rows_retained": 0,
     "zero_result_portals": [
+      "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz",
       "sreality.cz"
@@ -40,6 +41,10 @@
     "blocked_portals": []
   },
   "portal_status": {
+    "reality.idnes.cz": {
+      "status": "no_results",
+      "message": "No retained in-scope iDNES rows."
+    },
     "realitymix.cz": {
       "status": "no_results",
       "message": "No retained in-scope RealityMix rows."
@@ -54,6 +59,54 @@
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/miletin-arnoldova/6a201f018c86f110a301ef49/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/miletin-arnoldova/6a201f018c86f110a301ef49/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/miletin-lhotova/6a201ed865093f0af9062a75/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/miletin-lhotova/6a201ed865093f0af9062a75/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-94668",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-94668",
+      "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
@@ -148,6 +201,11 @@
     }
   ],
   "gaps": [
+    "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/miletin-arnoldova/6a201f018c86f110a301ef49/",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/miletin-lhotova/6a201ed865093f0af9062a75/",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-94668",
+    "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-94668",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Milet%C3%ADn&form%5Bcena_mena%5D=1",
