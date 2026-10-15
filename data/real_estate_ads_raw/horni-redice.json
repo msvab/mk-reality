@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 5,
+    "candidates_gathered": 7,
     "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
@@ -93,6 +93,22 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-44016",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/horni-redice/6acf58e40fc72032a103dfe0/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/horni-redice/6ace18a85d76523dee022534/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -188,6 +204,8 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/horni-redice/6acf58e40fc72032a103dfe0/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/horni-redice/6ace18a85d76523dee022534/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/horni-redice/6a7324d4ac268c9a800300c6/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/horni-redice/69cf9db9bd7add1892000f02/",
     "missing-page-url:house",

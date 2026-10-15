@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 14,
+    "candidates_gathered": 11,
     "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz",
@@ -57,6 +57,14 @@
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/provodov-sonov/6accb51a924918ace20c425f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/domy/provodov-sonov/",
@@ -155,14 +163,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/provodov-sonov/6accb51a924918ace20c425f/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/provodov-sonov/6accca32880852bdbb036e4e/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -172,14 +172,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/provodov-sonov/6accc726d0fc8c70670d8005/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/provodov-sonov/6a71f2578298ca2bec052b13/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -259,24 +251,6 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/1468117068",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/1468117068",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/1515393100",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -322,14 +296,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/756142156",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
@@ -338,16 +304,13 @@
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/provodov-sonov/6acce436c677d41423004b5a/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/provodov-sonov/6accca32880852bdbb036e4e/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/provodov-sonov/6accc726d0fc8c70670d8005/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/provodov-sonov/6a71f2578298ca2bec052b13/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Provodov-%C5%A0onov&form%5Bcena_mena%5D=1",
-    "stale-detail-fetch:1468117068:Failed to fetch https://www.sreality.cz/api/v1/estates/1468117068: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1515393100",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3559067724",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/756142156"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3559067724"
   ],
   "listings": [
     {

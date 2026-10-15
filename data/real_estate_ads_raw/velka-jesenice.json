@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 12,
+    "candidates_gathered": 13,
     "rows_retained": 4,
     "zero_result_portals": [
       "realitymix.cz",
@@ -67,7 +67,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/6abcdb115c9e45b60d0705d3/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/69e569f5af1679385f01b8f9/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -75,7 +75,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/69e569f5af1679385f01b8f9/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/6abcdb115c9e45b60d0705d3/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -254,6 +254,24 @@
       "url": "https://www.sreality.cz/api/v1/estates/1782435916",
       "stage": "detail_fetch",
       "attempt": 1,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1782435916",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2582777932",
+      "stage": "detail_fetch",
+      "attempt": 1,
       "status": "ok",
       "http_status": 200
     },
@@ -280,6 +298,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/pronajem-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Velk%C3%A1+Jesenice&form%5Bcena_mena%5D=1",
+    "stale-detail-fetch:1782435916:Failed to fetch https://www.sreality.cz/api/v1/estates/1782435916: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2598187084"
   ],
   "listings": [
@@ -340,18 +359,18 @@
       "portal": [
         "sreality.cz"
       ],
-      "title": "Prodej rodinného domu 80 m², pozemek 1000 m²",
+      "title": "Prodej rodinného domu 80 m², pozemek 1068 m²",
       "location": "Velká Jesenice, Náchod",
       "property_type": "house",
       "price": "2 900 000 Kč",
       "house_area_m2": "80",
-      "land_area_m2": "1000",
+      "land_area_m2": "1068",
       "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/velka-jesenice/1782435916"
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/velka-jesenice/2582777932"
       ],
       "notes": [
         "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1782435916"
+        "api-detail:https://www.sreality.cz/api/v1/estates/2582777932"
       ]
     }
   ]

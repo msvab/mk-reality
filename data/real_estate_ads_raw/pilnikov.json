@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 13,
-    "rows_retained": 10,
+    "rows_retained": 7,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -88,6 +88,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pilnikov-trutnovska/6abaa8ea881d24819e00bed6/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -214,8 +222,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/2928746572",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2928746572",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -240,8 +258,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3759648844",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3759648844",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -278,13 +306,16 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/pilnikov-trutnovska/6abaa8ea881d24819e00bed6/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/pilnikov-prazska/69dcee4faa6a91269a02abb5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/pilnikov/60ce3b0e859b060af7568ad1/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3610-trutnov/kralovehradecky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Piln%C3%ADkov&form%5Bcena_mena%5D=1",
-    "stale-detail-fetch:3521949772:Failed to fetch https://www.sreality.cz/api/v1/estates/3521949772: HTTP 404"
+    "stale-detail-fetch:2928746572:Failed to fetch https://www.sreality.cz/api/v1/estates/2928746572: HTTP 404",
+    "stale-detail-fetch:3521949772:Failed to fetch https://www.sreality.cz/api/v1/estates/3521949772: HTTP 404",
+    "stale-detail-fetch:3759648844:Failed to fetch https://www.sreality.cz/api/v1/estates/3759648844: HTTP 404"
   ],
   "listings": [
     {
@@ -342,23 +373,6 @@
     },
     {
       "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Rodinný dům ke kompletní rekonstrukci v Pilníkově",
-      "location": "Pilníkov, okres Trutnov",
-      "property_type": "house",
-      "price": "1 090 000 Kč",
-      "house_area_m2": "100",
-      "land_area_m2": "1784",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/pilnikov-trutnovska/6abaa8ea881d24819e00bed6/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
         "sreality.cz"
       ],
       "title": "Prodej rodinného domu 145 m², pozemek 2965 m²",
@@ -397,25 +411,6 @@
       "portal": [
         "sreality.cz"
       ],
-      "title": "Prodej stavebního pozemku 2883 m²",
-      "location": "Pilníkov, Novoměstská, Trutnov",
-      "property_type": "land",
-      "price": "6 198 450 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "2883",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/pilnikov-novomestska/3759648844"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3759648844",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
       "title": "Prodej stavebního pozemku 1684 m²",
       "location": "Pilníkov, Nádražní, Trutnov",
       "property_type": "land",
@@ -448,24 +443,6 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/517611596",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 100 m², pozemek 1784 m²",
-      "location": "Pilníkov, Trutnovská, Trutnov",
-      "property_type": "house",
-      "price": "1 090 000 Kč",
-      "house_area_m2": "100",
-      "land_area_m2": "1784",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/pilnikov-trutnovska/2928746572"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2928746572"
       ]
     }
   ]

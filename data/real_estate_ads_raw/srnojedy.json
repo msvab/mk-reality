@@ -29,10 +29,11 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
-    "candidates_gathered": 11,
-    "rows_retained": 1,
+    "workers_with_results": 0,
+    "candidates_gathered": 12,
+    "rows_retained": 0,
     "zero_result_portals": [
+      "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz",
       "sreality.cz"
@@ -41,8 +42,8 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
+      "status": "no_results",
+      "message": "No retained in-scope iDNES rows."
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -65,6 +66,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/srnojedy/6ab21e7dc2c4b0386c0c8978/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -94,6 +103,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-79090",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/srnojedy-slunecni/6aa65122f5256aeb3e03b42d/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -148,14 +165,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice-ve-stezkach/67370d1e336f7aba2f0898ef/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/pobezovice-u-prelouce/67dd57748616836b7c0b87e9/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -173,6 +182,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/sezemice/67e426b5d982cf221702138d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nemcice/6836c3b35ba59cd4f407ea04/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -237,38 +254,22 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/srnojedy/6ab21e7dc2c4b0386c0c8978/",
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-79090",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/srnojedy-slunecni/6aa65122f5256aeb3e03b42d/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/dasice/619a7fea30a444778522eb91/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/stare-hradiste/6299b8615b4dcf0c5110eb12/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/holice/63bad68251c5bc7b4e0c1a79/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/65afb3a4cbdea9c74d01ed2a/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/65afb603765b9aa0da01d2e6/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/litosice/670906ba0693882cdc0a1d43/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/pardubice-ve-stezkach/67370d1e336f7aba2f0898ef/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/pobezovice-u-prelouce/67dd57748616836b7c0b87e9/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/sezemice/67e420d21d8b0cd10e04c627/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/sezemice/67e426b5d982cf221702138d/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/nemcice/6836c3b35ba59cd4f407ea04/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Srnojedy&form%5Bcena_mena%5D=1"
   ],
-  "listings": [
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "K. ú. Srnojedy - spoluvlastnický podíl o velikosti 1/4 ke stavbě bez čp/če (bývalá zemědělská stavba",
-      "location": "Srnojedy, okres Pardubice",
-      "property_type": "house",
-      "price": "625 250 Kč",
-      "house_area_m2": "1719",
-      "land_area_m2": "1719",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/srnojedy/6ab21e7dc2c4b0386c0c8978/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    }
-  ]
+  "listings": []
 }

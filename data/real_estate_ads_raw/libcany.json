@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 14,
+    "candidates_gathered": 13,
     "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
@@ -40,13 +40,8 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "fetch_error",
-      "http_status": 0,
-      "stage": "detail_fetch",
-      "message": "curl exited with 56",
-      "evidence": [
-        "detail_fetch:fetch_error:https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/6480884826558b7fa60b9b51/"
-      ]
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -104,14 +99,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-labska-zahrada/6ab142400871085714080bef/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/libcany/6a99328d508a5c62010a88f0/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -123,42 +110,14 @@
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/6480884826558b7fa60b9b51/",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "fetch_error",
-      "http_status": 0,
-      "error": "curl exited with 56"
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/6480884826558b7fa60b9b51/",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "fetch_error",
-      "http_status": 0,
-      "error": "curl exited with 56"
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/6480884826558b7fa60b9b51/",
-      "stage": "detail_fetch",
-      "attempt": 3,
-      "status": "fetch_error",
-      "http_status": 0,
-      "error": "curl exited with 56"
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/divec/659d36c5825b87f68b02e72f/",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "fetch_error",
-      "http_status": 0,
-      "error": "curl exited with 56"
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/divec/659d36c5825b87f68b02e72f/",
-      "stage": "detail_fetch",
-      "attempt": 2,
       "status": "ok",
       "http_status": 200
     },
@@ -294,9 +253,8 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-81728",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-labska-zahrada/6ab142400871085714080bef/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/libcany/6a99328d508a5c62010a88f0/",
-    "failed-detail-fetch:https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/6480884826558b7fa60b9b51/:curl exited with 56",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/6480884826558b7fa60b9b51/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/divec/659d36c5825b87f68b02e72f/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/praskacka/65f8320042e22c4b320e8796/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/nechanice/66ace4ab7c1b2be8a900682f/",
