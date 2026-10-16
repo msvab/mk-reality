@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 40,
-    "rows_retained": 12,
+    "rows_retained": 11,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -67,6 +67,22 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/raby/69cfed8db12d67902f0e761b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/raby/69d227b0be872903380bfebc/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/raby/6a037874b1c0dcbef70c5c95/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -75,7 +91,31 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/raby/6a037874b1c0dcbef70c5c95/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/raby/6aa71a28552b0c681606a9c1/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/raby/69d226983d5174322a04caf5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/raby/6a171c906a42a77388051d3b/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -171,14 +211,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/raby/69d227b0be872903380bfebc/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/raby/6a2fdc2a2437df55570cddc4/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -243,14 +275,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/raby/69cfed8db12d67902f0e761b/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/raby/69d0b173edba9e4e80067324/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -300,22 +324,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/raby/6a52757903ceb62abe024736/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/raby/69d226983d5174322a04caf5/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/raby/6a171c906a42a77388051d3b/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -548,6 +556,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/raby/6a037874b1c0dcbef70c5c95/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/raby/6aab9472d412b337900a7695/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/raby/6aab8b135a7586c40b078ae2/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/raby/6aab946e0f49a73a6a0a7f3a/",
@@ -630,24 +639,6 @@
       "land_area_m2": "1168",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/pozemek/raby/69d227b0be872903380bfebc/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Stavební pozemek Ráby",
-      "location": "Ráby, okres Pardubice",
-      "property_type": "land",
-      "price": "6 912 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1152",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/raby/6a037874b1c0dcbef70c5c95/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",

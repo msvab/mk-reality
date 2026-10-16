@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 58,
-    "rows_retained": 20,
+    "rows_retained": 21,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -57,6 +57,14 @@
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/holice/6acf3216a4fe92e54606373c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/holice-smetanova/6a856b072c08461d4a04b81d/",
@@ -307,7 +315,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/holice/6acf3216a4fe92e54606373c/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/holice-staroholicka/6a96fe0931d1d0d5d70cc89b/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -332,14 +340,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/holice-nezvalova/6a9702f84ec91da233057c62/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/holice-staroholicka/6a96fe0931d1d0d5d70cc89b/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -798,10 +798,10 @@
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/holice/6a316f4946d24d8efe0dc94b/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/holice/6a7b54f085c2e2c0df0b75a6/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/holice/69b955b952dbcb7d2c093edb/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice-staroholicka/6a96fe0931d1d0d5d70cc89b/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/holice/6ace16429f1ad21a6400becb/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice-zasterova/6ace15e52e99e0cf230d0261/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice-nezvalova/6a9702f84ec91da233057c62/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice-staroholicka/6a96fe0931d1d0d5d70cc89b/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice/6aa7e5acb755b98204055e5b/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice-k-zastavce/6ac555ac3aacb1560b011af7/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice-palackeho/6aa662663fcdbc0e940b7374/",
@@ -832,7 +832,6 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1239449676",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1938997324",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3070509900",
-    "missing-price:https://www.sreality.cz/api/v1/estates/3765477452",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/660505164",
     "stale-detail-fetch:754311244:Failed to fetch https://www.sreality.cz/api/v1/estates/754311244: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/776851532",
@@ -1102,6 +1101,24 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3572600908"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 200 m², pozemek 1272 m²",
+      "location": "Holice, Bratří Čapků, Pardubice",
+      "property_type": "house",
+      "price": "6 400 000 Kč",
+      "house_area_m2": "200",
+      "land_area_m2": "1272",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/holice-bratri-capku/3765477452"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3765477452"
       ]
     },
     {

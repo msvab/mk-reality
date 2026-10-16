@@ -29,14 +29,13 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 0,
-    "candidates_gathered": 20,
-    "rows_retained": 0,
+    "workers_with_results": 1,
+    "candidates_gathered": 13,
+    "rows_retained": 1,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
-      "reality.aktualne.cz",
-      "sreality.cz"
+      "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
@@ -54,8 +53,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Sreality rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -93,7 +92,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/mezimesti/68c4828d344d6b3fe303b18b/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -101,71 +100,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/slavonov/69dce50a7d98c71af908fea1/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/mezimesti-tovarni/69dce69dfb7664ab6501700f/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/hronov/69f8679c44dc3df0bf068978/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/police-nad-metuji/6a266ac51925d7066e0b7ec4/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/velke-porici/6a3184a470da38b5120419f6/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod/6a329cc3c407b994cc086e4d/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/slatina-nad-upou/6a3907e7266e6e8988002b14/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod-u-prachovny/6a3a485bbcc887f2e103d500/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/police-nad-metuji/6a424a0682c78a4306040812/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/horicky/6ad115fd378803bc710a1203/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -306,22 +241,21 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/655822924",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "result-no-detail-links:https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-45284",
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-45284",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/mezimesti/68c4828d344d6b3fe303b18b/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/slavonov/69dce50a7d98c71af908fea1/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/mezimesti-tovarni/69dce69dfb7664ab6501700f/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/hronov/69f8679c44dc3df0bf068978/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/police-nad-metuji/6a266ac51925d7066e0b7ec4/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/velke-porici/6a3184a470da38b5120419f6/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/nachod/6a329cc3c407b994cc086e4d/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/slatina-nad-upou/6a3907e7266e6e8988002b14/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/nachod-u-prachovny/6a3a485bbcc887f2e103d500/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/police-nad-metuji/6a424a0682c78a4306040812/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/horicky/6ad115fd378803bc710a1203/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/615b60a93b8dee685c3eaa02/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/studnice/6527190464ba530239027332/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/lhota-pod-horickami/6728bf73849943fadd0fade4/",
@@ -336,5 +270,24 @@
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Ho%C5%99i%C4%8Dky&form%5Bcena_mena%5D=1"
   ],
-  "listings": []
+  "listings": [
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 338 m², pozemek 2938 m²",
+      "location": "Hořičky, Náchod",
+      "property_type": "house",
+      "price": "18 500 000 Kč",
+      "house_area_m2": "338",
+      "land_area_m2": "2938",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/horicky/655822924"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/655822924"
+      ]
+    }
+  ]
 }

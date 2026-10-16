@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 27,
-    "rows_retained": 5,
+    "rows_retained": 6,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -157,14 +157,6 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-118877",
       "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/lipa-nad-orlici/6ab191caee99a0176d0259ef/",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -413,6 +405,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3603370060",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/3857658956",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -431,7 +431,6 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/vamberk-janackova/69f265b95cd2e431c0049d0f/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/lipa-nad-orlici/6ab191caee99a0176d0259ef/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vamberk-17-listopadu/6acf600c2bcbd18be807b8c5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vamberk/6ab127b0c67d9c73730e7bbc/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/vamberk/6ac74f6392acf68534099f5f/",
@@ -548,6 +547,24 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1741107276"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej chalupy 35 m², pozemek 2060 m²",
+      "location": "Vamberk, Sebranice, Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "1 760 000 Kč",
+      "house_area_m2": "35",
+      "land_area_m2": "2060",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/chalupa/vamberk-sebranice/3603370060"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3603370060"
       ]
     }
   ]
