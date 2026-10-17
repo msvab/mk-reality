@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 18,
-    "rows_retained": 3,
+    "candidates_gathered": 20,
+    "rows_retained": 4,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -203,6 +203,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/predmerice-nad-labem/6ad1e6b4f1113b45970fa02c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/predmerice-nad-labem-obrancu-miru/68934c3728c32853890b08a4/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -269,6 +277,14 @@
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2220&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
       "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1518800972",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -345,10 +361,29 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=P%C5%99edm%C4%9B%C5%99ice+nad+Labem&form%5Bcena_mena%5D=1",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1518800972",
     "stale-detail-fetch:3338842188:Failed to fetch https://www.sreality.cz/api/v1/estates/3338842188: HTTP 404",
     "stale-detail-fetch:448262220:Failed to fetch https://www.sreality.cz/api/v1/estates/448262220: HTTP 404"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej investičního pozemkového celku 63 998 m2 u Hradce Králové.",
+      "location": "Předměřice nad Labem, okres Hradec Králové",
+      "property_type": "land",
+      "price": "50 800 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "63998",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/predmerice-nad-labem/6ad1e6b4f1113b45970fa02c/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
     {
       "portal": [
         "reality.idnes.cz"
