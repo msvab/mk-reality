@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 170,
-    "rows_retained": 42,
+    "candidates_gathered": 169,
+    "rows_retained": 41,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -618,6 +618,22 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice/6a674061ec0e3f927f0cba3e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice/6a970aaffc1fe4e5590c11d5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-vychodni/6ad2787a119f09421d090337/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -651,14 +667,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice/6a74b7f602eb919f1401e397/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice/6a674061ec0e3f927f0cba3e/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -715,14 +723,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice/6a0e0082bce8e163330f03b6/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice/6a970aaffc1fe4e5590c11d5/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -931,14 +931,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6ab3c4fb88b8777a9c07e989/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/volec/69531c0fec2b9ca5fd058526/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -1899,8 +1891,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/387322700",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/387322700",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -2011,12 +2013,13 @@
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a3bcba1060fde0c160c4e05/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a3f1178b8cf60b2810fcf74/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice/6a674061ec0e3f927f0cba3e/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice/6a970aaffc1fe4e5590c11d5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice-vychodni/6ad2787a119f09421d090337/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice-vychodni/6ad27440bbb2b4eb61087db8/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice-28-rijna/68ddee078e1167093d060b0f/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice-chelcickeho/6abbc1b110374e4fde0200d3/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/pardubice/6a74b7f602eb919f1401e397/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice/6a674061ec0e3f927f0cba3e/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice-kratka/6a4e81f68dd5010fff0194f7/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice-hrabalova/6a70aa262c250f19cf0aab4b/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice-pod-lipami/6a1fbcdb9683e6341504e384/",
@@ -2024,7 +2027,6 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice/69dbcf98df462e1fbb0b0a57/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice-nabrezni/69de6292eae233add907ff84/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/pardubice/6a0e0082bce8e163330f03b6/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice/6a970aaffc1fe4e5590c11d5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice-tolarova/6ab5089e028a05ac410b81b3/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice-cernoborska/6ac8f55b69d4f93ce1057f89/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice-na-babce/6ac8ba57dfff2c9e3701c242/",
@@ -2050,7 +2052,6 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/608ef6bd9ced0d3ccb1eaed3/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6a90547f92aa954baf038e12/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/pardubice/6ab3c4fb88b8777a9c07e989/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/volec/69531c0fec2b9ca5fd058526/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice/6a71a09520a353e8b3084ce7/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice/69b7d2fd1405bb72db0e5dea/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/pardubice-pichlova/6abf9910a89e8fde640c8907/",
@@ -2129,6 +2130,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3639485772",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3784118348",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3839533900",
+    "stale-detail-fetch:387322700:Failed to fetch https://www.sreality.cz/api/v1/estates/387322700: HTTP 404",
     "stale-detail-fetch:3925909580:Failed to fetch https://www.sreality.cz/api/v1/estates/3925909580: HTTP 404",
     "stale-detail-fetch:495312972:Failed to fetch https://www.sreality.cz/api/v1/estates/495312972: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/624743500",
@@ -2553,24 +2555,6 @@
       "notes": [
         "detail-url-verified:realitymix.cz",
         "municipal-part:Pardubice VI"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej vily 350 m², pozemek 1115 m²",
-      "location": "Pardubice, Jahnova, Pardubice",
-      "property_type": "house",
-      "price": "27 500 000 Kč",
-      "house_area_m2": "350",
-      "land_area_m2": "1115",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/vila/pardubice-zelene-predmesti-jahnova/387322700"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/387322700"
       ]
     },
     {
