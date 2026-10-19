@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 20,
-    "rows_retained": 7,
+    "candidates_gathered": 22,
+    "rows_retained": 9,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -173,6 +173,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-65731",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/klasterec-nad-orlici/6ad5b93bd7468bef770562c6/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -363,6 +371,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3588558924",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/501276748",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -423,6 +439,24 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej chalupy 330 m², pozemek 5182 m² Klášterec nad Orlicí",
+      "location": "Klášterec nad Orlicí, okres Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "4 990 000 Kč",
+      "house_area_m2": "330",
+      "land_area_m2": "5182",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/klasterec-nad-orlici/6ad5b93bd7468bef770562c6/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "normalized-from:chalupa"
       ]
     },
     {
@@ -512,6 +546,24 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/501276748"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej chalupy 330 m², pozemek 5182 m²",
+      "location": "Klášterec nad Orlicí, Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "4 990 000 Kč",
+      "house_area_m2": "330",
+      "land_area_m2": "5182",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/chalupa/klasterec-nad-orlici/3588558924"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3588558924"
       ]
     },
     {
