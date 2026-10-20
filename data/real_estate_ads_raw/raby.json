@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 39,
-    "rows_retained": 11,
+    "candidates_gathered": 38,
+    "rows_retained": 10,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -64,6 +64,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/raby/68fa2b8ddb6943f8c305a594/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -245,14 +253,6 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-137197",
       "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -540,13 +540,13 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/raby/68fa2b8ddb6943f8c305a594/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/raby/6aab9472d412b337900a7695/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/raby/6aab8b135a7586c40b078ae2/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/raby/6aab946e0f49a73a6a0a7f3a/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/raby/6aab8b1721cae55b160e61f6/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/raby/6aab8fbfc72ac07ccd0bd77d/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/raby/6a2fdc2a2437df55570cddc4/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/raby/69cfe6d74a2ffbb8ae0a6766/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/raby/69d0b173edba9e4e80067324/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/raby/69d0b7845e61d7ef8905f4c4/",
@@ -575,24 +575,6 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/869957708"
   ],
   "listings": [
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej pozemku k bydlení, 8620 m2, Ráby",
-      "location": "Ráby, okres Pardubice",
-      "property_type": "land",
-      "price": "41 807 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "8620",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/raby/68fa2b8ddb6943f8c305a594/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
     {
       "portal": [
         "reality.idnes.cz"

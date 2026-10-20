@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 68,
-    "rows_retained": 13,
+    "candidates_gathered": 67,
+    "rows_retained": 12,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -88,6 +88,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/6819b3b681ef53507f02b7af/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -283,7 +291,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/ceska-trebova-chelcickeho/6ad5dc31fd16c82cad01e33b/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/ceska-trebova-v-zahradkach/6ac2212a97618323ee030436/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -291,7 +299,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/ceska-trebova-v-zahradkach/6ac2212a97618323ee030436/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/ceska-trebova-chelcickeho/6ad5dc31fd16c82cad01e33b/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -749,14 +757,6 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/3590672972",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/4117123916",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -814,11 +814,12 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/6819b3b681ef53507f02b7af/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/6a5f01896112260f60089edd/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/ceska-trebova/69c7ab76994913835b03a05d/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/68592f6a7b112bbca804d53b/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ceska-trebova-chelcickeho/6ad5dc31fd16c82cad01e33b/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ceska-trebova-v-zahradkach/6ac2212a97618323ee030436/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ceska-trebova-chelcickeho/6ad5dc31fd16c82cad01e33b/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ceska-trebova-cechova/6a9b30e35ba87ca0a708c420/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/ceska-trebova/6ad12517350d1f0fcf0ddded/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ceska-trebova-cechova/6ace753321a13c8de80d8048/",
@@ -867,7 +868,6 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3424597068",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/348426828",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3542917964",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3590672972",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4117123916",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/43844428",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/488584268",
@@ -922,24 +922,6 @@
       "land_area_m2": "6890",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/6a8db17bca4f0d9fef0a2274/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Parcela číslo 954, voda, elektrika 3126m2, Česká Třebová - Studená Hůra",
-      "location": "Česká Třebová, okres Ústí nad Orlicí",
-      "property_type": "land",
-      "price": "2 989 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "3126",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/6819b3b681ef53507f02b7af/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
