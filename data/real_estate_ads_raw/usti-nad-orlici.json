@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 65,
+    "candidates_gathered": 67,
     "rows_retained": 15,
     "zero_result_portals": [
       "reality.aktualne.cz"
@@ -212,6 +212,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-175331",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/usti-nad-orlici-boz-nemcove/6ad73552bd27c035a502d4d1/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -514,6 +522,14 @@
     },
     {
       "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/usti-nad-orlici/prodej-rodinny-dum-v-usti-nad-orlici-8728457.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/pardubicky/usti-nad-orlici",
       "stage": "land_result_fetch",
       "attempt": 1,
@@ -742,6 +758,7 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/usti-nad-orlici/6a300757a93ad0e36e0f815e/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/usti-nad-orlici-boz-nemcove/6ad73552bd27c035a502d4d1/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/usti-nad-orlici-pod-lesem/6a914266cbe66a3fb00510fc/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/usti-nad-orlici-t-g-masaryka/6accf44a56a2bc4cde00dc44/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/usti-nad-orlici/6ac3548b50c438a1150c7e64/",
@@ -773,6 +790,7 @@
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/usti-nad-orlici/68d50a5c65fc93bd1d064bfd/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/usti-nad-orlici/68f6ef21e24434b7e203d977/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/usti-nad-orlici/68f61d4ba5d3fc3f070c02d5/",
+    "land-below-threshold:https://realitymix.cz/detail/usti-nad-orlici/prodej-rodinny-dum-v-usti-nad-orlici-8728457.html",
     "land-below-threshold:https://realitymix.cz/detail/usti-nad-orlici/prodej-stavebni-pozemek-807-m-v-hylvatech-v-usti-nad-orlici-8518871.html",
     "land-below-threshold:https://realitymix.cz/detail/usti-nad-orlici/prodej-stavebni-pozemek-816-m-v-hylvatech-v-usti-nad-orlici-8518753.html",
     "land-below-threshold:https://realitymix.cz/detail/usti-nad-orlici/prodej-stavebni-pozemek-822-m-v-hylvatech-v-usti-nad-orlici-8518787.html",

@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 14,
+    "candidates_gathered": 15,
     "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz",
@@ -155,6 +155,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/srch-na-vyhlidce/6a50c63cecac7cf91d04d9df/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -196,6 +204,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/srch/6a3be16d17be6028e90bd0f8/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/volec/69531c0fec2b9ca5fd058526/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -267,14 +283,6 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/1775210572",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/2481045580",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -311,16 +319,17 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/srch-na-vysluni/6a4566162ca2e8195408fe89/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/srch-na-vyhlidce/6a50c63cecac7cf91d04d9df/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/srch/6a7da1632cafaef3ff06cc00/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/srch-k-zahradkam/6a9fcd9dbf6d6af41505e665/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/srch/6a8c996918e1a07a920763e2/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/srch/6a045d8755bec34cf804e4fc/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/srch/6a3be16d17be6028e90bd0f8/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/volec/69531c0fec2b9ca5fd058526/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Srch&form%5Bcena_mena%5D=1",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1775210572",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2481045580",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4265074764",
     "stale-detail-fetch:892067916:Failed to fetch https://www.sreality.cz/api/v1/estates/892067916: HTTP 404"

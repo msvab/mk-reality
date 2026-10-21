@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 19,
-    "rows_retained": 3,
+    "candidates_gathered": 24,
+    "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -99,6 +99,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/mikulovice-jizni/6abffcaf75ce4349f108c824/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -147,7 +155,31 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/mikulovice/6ad7bb811d89344085020b3c/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/mikulovice/6ad7b5d32314a46dc20a4096/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/mikulovice-v-zahradach/6ac9f6c9f9682d2b8005ea80/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/volec/69531c0fec2b9ca5fd058526/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -394,17 +426,28 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/746192972",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/mikulovice-jizni/6abffcaf75ce4349f108c824/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/mikulovice-jizni/6ac0b311ff90c874b30c346e/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/mikulovice/6ad1d3574a6c5f326f0b70b4/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/mikulovice-dlouha/6ac52d59f9e2117cf507c0e6/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/mikulovice-dlouha/6a81c8a9053fea3b58007107/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/mikulovice-dlouha/6a799f167acec024a20a296c/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/mikulovice/6ad7bb811d89344085020b3c/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/mikulovice-v-zahradach/6ac9f6c9f9682d2b8005ea80/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/volec/69531c0fec2b9ca5fd058526/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/mikulovice/6a7481b2b015450a240029e7/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/mikulovice/6ab563fce628c23685015736/",
     "missing-page-url:house",
@@ -441,6 +484,24 @@
     },
     {
       "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1 297 m2, Mikulovice",
+      "location": "Mikulovice, okres Pardubice",
+      "property_type": "land",
+      "price": "10 881 830 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1297",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/mikulovice/6ad7b5d32314a46dc20a4096/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
         "sreality.cz"
       ],
       "title": "Prodej rodinného domu 320 m², pozemek 1755 m²",
@@ -455,6 +516,25 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1698832460"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1297 m²",
+      "location": "Mikulovice, Pardubice",
+      "property_type": "land",
+      "price": "10 881 830 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1297",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/mikulovice/746192972"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/746192972",
+        "buildable-land"
       ]
     },
     {
