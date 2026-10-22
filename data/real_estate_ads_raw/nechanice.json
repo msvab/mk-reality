@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 38,
-    "rows_retained": 9,
+    "candidates_gathered": 36,
+    "rows_retained": 10,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -67,7 +67,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/nechanice/6a8d93946c9f8dae4701ae75/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nechanice/6ad734ef95f1e837760e7964/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -75,11 +75,11 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/nechanice/6a8d93946c9f8dae4701ae75/",
-      "stage": "detail_parse",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nechanice/6ad86d587ae7182acf0e56fb/",
+      "stage": "detail_fetch",
       "attempt": 1,
-      "status": "fallback_page",
-      "message": "Detail URL returned fallback or non-detail content."
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "reality.idnes.cz",
@@ -179,22 +179,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-labska-zahrada/6ab142400871085714080bef/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/nechanice/6ad734ef95f1e837760e7964/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/nechanice/66ace4ab7c1b2be8a900682f/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -243,14 +227,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nechanice/6ad86d587ae7182acf0e56fb/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/nechanice/67feddf59b5ff282450d8df7/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -268,6 +244,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/nechanice/67ff383409843c2c8e06820b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nechanice/6ad8a1917f003a86550c5f18/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -408,18 +392,8 @@
       "url": "https://www.sreality.cz/api/v1/estates/2247303244",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/2247303244",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "sreality.cz",
@@ -507,18 +481,9 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/3844128844",
+      "url": "https://www.sreality.cz/api/v1/estates/4235903052",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/3844128844",
-      "stage": "detail_fetch",
-      "attempt": 2,
       "status": "not_found",
       "http_status": 404,
       "error": "HTTP 404"
@@ -527,9 +492,10 @@
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/4235903052",
       "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -558,11 +524,9 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/nechanice/6a8d93946c9f8dae4701ae75/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/nechanice/6ab51aa31e0c3689c001f9a1/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/nechanice/6a7cb4e66e84345ec50280e0/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nechanice/69de2ad250bd2426db05c729/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-labska-zahrada/6ab142400871085714080bef/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nechanice/69a7ea46c930f1380a0389f9/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nechanice/69a7ea82741b4ef2f20f28d3/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nechanice/69b80dbd5f487591620b119f/",
@@ -581,14 +545,13 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Nechanice&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/nechanice/prodej-rodinneho-domu-135-m2-s-pozemkem-1127-m2-v-nechanicich-8356451.html",
     "missing-price:https://www.sreality.cz/api/v1/estates/2057216588",
-    "stale-detail-fetch:2247303244:Failed to fetch https://www.sreality.cz/api/v1/estates/2247303244: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2400845900",
     "stale-detail-fetch:2617672524:Failed to fetch https://www.sreality.cz/api/v1/estates/2617672524: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2663412812",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3038621772",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3058394188",
     "stale-detail-fetch:3556569164:Failed to fetch https://www.sreality.cz/api/v1/estates/3556569164: HTTP 404",
-    "stale-detail-fetch:3844128844:Failed to fetch https://www.sreality.cz/api/v1/estates/3844128844: HTTP 404",
+    "stale-detail-fetch:4235903052:Failed to fetch https://www.sreality.cz/api/v1/estates/4235903052: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/482374732",
     "missing-price:https://www.sreality.cz/api/v1/estates/936915020"
   ],
@@ -622,6 +585,23 @@
       "land_area_m2": "3464",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/dum/nechanice/6ad734ef95f1e837760e7964/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej Rodinný dům, 160m2, Nechanice, Staré Nechanice",
+      "location": "Nechanice, okres Hradec Králové",
+      "property_type": "house",
+      "price": "4 799 999 Kč",
+      "house_area_m2": "160",
+      "land_area_m2": "1012",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/nechanice/6ad8a1917f003a86550c5f18/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
@@ -720,18 +700,18 @@
       "portal": [
         "sreality.cz"
       ],
-      "title": "Prodej rodinného domu 200 m², pozemek 2980 m²",
+      "title": "Prodej rodinného domu 160 m², pozemek 1012 m²",
       "location": "Nechanice, Hradec Králové",
       "property_type": "house",
-      "price": "5 190 000 Kč",
-      "house_area_m2": "200",
-      "land_area_m2": "2980",
+      "price": "4 799 999 Kč",
+      "house_area_m2": "160",
+      "land_area_m2": "1012",
       "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/nechanice-stare-nechanice/4235903052"
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/nechanice-stare-nechanice/2247303244"
       ],
       "notes": [
         "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/4235903052"
+        "api-detail:https://www.sreality.cz/api/v1/estates/2247303244"
       ]
     },
     {

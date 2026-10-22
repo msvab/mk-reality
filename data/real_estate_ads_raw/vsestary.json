@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 16,
+    "candidates_gathered": 15,
     "rows_retained": 8,
     "zero_result_portals": [
       "realitymix.cz",
@@ -163,14 +163,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-labska-zahrada/6ab142400871085714080bef/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/vsestary/671209d5378560a8df08a3f5/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -206,8 +198,9 @@
       "url": "https://reality.aktualne.cz/detail/vsestary/prodej-souboru-dvou-rodinnych-domku-s-velkorysou-zahradou-a-truhlarskou-dilnou-v-malebne-lokalite-vs-8524209.html",
       "stage": "discovery_detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "reality.aktualne.cz",
@@ -264,8 +257,9 @@
       "url": "https://reality.aktualne.cz/detail/vsestary/prodej-souboru-dvou-rodinnych-domku-s-velkorysou-zahradou-a-truhlarskou-dilnou-v-malebne-lokalite-vs-8524209.html",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "reality.aktualne.cz",
@@ -362,7 +356,6 @@
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/vsestary/6a303ea0413a915f1c06fbd8/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/vsestary/69e5dea1e963da39a5013ff6/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-labska-zahrada/6ab142400871085714080bef/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/vsestary/671209d5378560a8df08a3f5/",
     "missing-page-url:house",
     "missing-page-url:land",

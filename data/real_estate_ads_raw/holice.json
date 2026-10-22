@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 61,
+    "candidates_gathered": 60,
     "rows_retained": 19,
     "zero_result_portals": [
       "realitymix.cz",
@@ -40,8 +40,13 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
+      "status": "fetch_error",
+      "http_status": 0,
+      "stage": "detail_fetch",
+      "message": "curl exited with 56",
+      "evidence": [
+        "detail_fetch:fetch_error:https://reality.idnes.cz/detail/prodej/pozemek/holice/699709633e938213720cbd95/"
+      ]
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -323,7 +328,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/volec/69531c0fec2b9ca5fd058526/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/holice-nezvalova/6a9702f84ec91da233057c62/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -340,14 +345,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/holice-k-zastavce/6ac555ac3aacb1560b011af7/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/holice-nezvalova/6a9702f84ec91da233057c62/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -478,22 +475,69 @@
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/holice/699709633e938213720cbd95/",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/holice/699709633e938213720cbd95/",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/holice/699709633e938213720cbd95/",
+      "stage": "detail_fetch",
+      "attempt": 3,
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
     },
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/holice/6a3e9cac4b1fb0ac84069079/",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/holice/6a3e9cac4b1fb0ac84069079/",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/holice/6a3e9cac4b1fb0ac84069079/",
+      "stage": "detail_fetch",
+      "attempt": 3,
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
     },
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/holice/6a6adcbb3805e0cbc90bb877/",
       "stage": "detail_fetch",
       "attempt": 1,
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/holice/6a6adcbb3805e0cbc90bb877/",
+      "stage": "detail_fetch",
+      "attempt": 2,
       "status": "ok",
       "http_status": 200
     },
@@ -841,10 +885,9 @@
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/holice/6a316f4946d24d8efe0dc94b/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/holice/6a7b54f085c2e2c0df0b75a6/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/holice/69b955b952dbcb7d2c093edb/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/volec/69531c0fec2b9ca5fd058526/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice-nezvalova/6a9702f84ec91da233057c62/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice-staroholicka/6a96fe0931d1d0d5d70cc89b/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice-k-zastavce/6ac555ac3aacb1560b011af7/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice-nezvalova/6a9702f84ec91da233057c62/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/holice/6ace16429f1ad21a6400becb/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice-zasterova/6ace15e52e99e0cf230d0261/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/holice/6aa7e5acb755b98204055e5b/",
@@ -860,8 +903,8 @@
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/holice/6ad226787e113a5c8a061b15/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/holice/67ff6a99383c32453102ef8b/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/holice/67ffb7f16139c3cc6d032f85/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/holice/699709633e938213720cbd95/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/holice/6a3e9cac4b1fb0ac84069079/",
+    "failed-detail-fetch:https://reality.idnes.cz/detail/prodej/pozemek/holice/699709633e938213720cbd95/:curl exited with 56",
+    "failed-detail-fetch:https://reality.idnes.cz/detail/prodej/pozemek/holice/6a3e9cac4b1fb0ac84069079/:curl exited with 56",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/holice/6a6adcbb3805e0cbc90bb877/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/holice/6a32aebb08782d20e5040a5d/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/holice-pod-parkem/69d75af4bbb073fc51037ab7/",

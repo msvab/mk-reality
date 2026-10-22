@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 14,
-    "rows_retained": 2,
+    "candidates_gathered": 15,
+    "rows_retained": 4,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -99,7 +99,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-labska-zahrada/6ab142400871085714080bef/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/libcany/6ad956c66831b4900d07d6de/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -256,12 +256,19 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/705232972",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-81728",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/hradec-kralove-labska-zahrada/6ab142400871085714080bef/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/libcany/6a99328d508a5c62010a88f0/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/hradec-kralove/6480884826558b7fa60b9b51/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/divec/659d36c5825b87f68b02e72f/",
@@ -282,6 +289,23 @@
       "portal": [
         "reality.idnes.cz"
       ],
+      "title": "Prodej rodinného domu, 195 m2, Libčany",
+      "location": "Libčany, okres Hradec Králové",
+      "property_type": "house",
+      "price": "20 000 000 Kč",
+      "house_area_m2": "195",
+      "land_area_m2": "3952",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/libcany/6ad956c66831b4900d07d6de/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
       "title": "Prodej dům Rodinný, 115m2, Libčany",
       "location": "Libčany, okres Hradec Králové",
       "property_type": "house",
@@ -293,6 +317,24 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 195 m², pozemek 3952 m²",
+      "location": "Libčany, Hradec Králové",
+      "property_type": "house",
+      "price": "20 000 000 Kč",
+      "house_area_m2": "195",
+      "land_area_m2": "3952",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/libcany/705232972"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/705232972"
       ]
     },
     {
