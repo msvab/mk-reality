@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 46,
-    "rows_retained": 7,
+    "rows_retained": 6,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -291,7 +291,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem/6a6895a6af2786f6ed098414/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem-sochorova/6adae12d6505f4b6240a6170/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -300,6 +300,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem-klicperova/6ab682e820983186b30211aa/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem/6a6895a6af2786f6ed098414/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -332,14 +340,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem-na-pricce/6ab1102db442a0bd410fc7c1/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem-sochorova/6a9d9f29e8edc425dc0008f7/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -552,8 +552,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/2331849548",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2331849548",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -711,13 +721,13 @@
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/dvur-kralove-nad-labem/66a8aa69874b04c49502957b/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem/6a248615fd4ece0f11081c21/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem/69ca41a3f7b030c90d084aae/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem/6a6895a6af2786f6ed098414/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem-sochorova/6adae12d6505f4b6240a6170/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem-klicperova/6ab682e820983186b30211aa/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem/6a6895a6af2786f6ed098414/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem-nerudova/6ab3baaa845cb7eced031640/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem-r-a-dvorskeho/6ad098920da1cf51dc073027/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem-lucni/6ac6314cc6106699d80279df/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem-na-pricce/6ab1102db442a0bd410fc7c1/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem-sochorova/6a9d9f29e8edc425dc0008f7/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem-karlov/6a6a5b0ec9521c76230ec9e2/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/dvur-kralove-nad-labem-vorlesska/6a685c35d9c673bc240c2dab/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/dvur-kralove-nad-labem-krkonosska/6abbb7323e2554df5c0b9136/",
@@ -736,6 +746,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Dv%C5%AFr+Kr%C3%A1lov%C3%A9+nad+Labem&form%5Bcena_mena%5D=1",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2035888972",
     "stale-detail-fetch:2207486028:Failed to fetch https://www.sreality.cz/api/v1/estates/2207486028: HTTP 404",
+    "stale-detail-fetch:2331849548:Failed to fetch https://www.sreality.cz/api/v1/estates/2331849548: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2664534860",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2930147404",
     "stale-detail-fetch:3264450636:Failed to fetch https://www.sreality.cz/api/v1/estates/3264450636: HTTP 404",
@@ -835,25 +846,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2956730444"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1109 m²",
-      "location": "Dvůr Králové nad Labem, Trutnov",
-      "property_type": "land",
-      "price": "2 500 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1109",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/dvur-kralove-nad-labem/2331849548"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2331849548",
-        "buildable-land"
       ]
     },
     {
