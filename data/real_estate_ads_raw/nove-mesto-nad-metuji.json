@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 35,
+    "candidates_gathered": 38,
     "rows_retained": 5,
     "zero_result_portals": [
       "reality.aktualne.cz"
@@ -71,6 +71,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/69aedd09645e9176190b54b8/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -242,15 +250,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/6a848540d642c94986094d2f/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/68b0081193cfb13bc60d5e6e/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji-dubinky/6ad8b0b695ddda625e013b85/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -259,6 +259,46 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/685909470e0bcd7d240cecc2/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/68f640b7de08c1629909f86a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/68f6656e22d0e5719609762d/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/6a848540d642c94986094d2f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/6a9febd61691740a2f0d356b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/68b0081193cfb13bc60d5e6e/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -428,14 +468,6 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/172184396",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/1900503884",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -511,6 +543,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/69aedd09645e9176190b54b8/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-lesni/6a9ec829e90ca050a30451c1/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-rezek/69991032788d156d9209e3bf/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/68eb7613f4e8379a6207acaa/",
@@ -520,9 +553,12 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-komenskeho/6aa28969a998ddffcd0f5e7c/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji-lestinska/6ad8bc7652df671f340f98da/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/69c7a91890681dcfc0032410/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/6a848540d642c94986094d2f/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/68b0081193cfb13bc60d5e6e/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/685909470e0bcd7d240cecc2/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/68f640b7de08c1629909f86a/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/68f6656e22d0e5719609762d/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/6a848540d642c94986094d2f/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/6a9febd61691740a2f0d356b/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/68b0081193cfb13bc60d5e6e/",
     "removed-fallback-page:https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-domy-rodinny-281-m2-lesni-1148-54901-nove-mesto-nad-metuji-nachod-id-88581-8690733.html",
     "removed-fallback-page:https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-stavebniho-pozemku-3-112-m2-8430099.html",
     "land-below-threshold:https://realitymix.cz/detail/nove-mesto-nad-metuji/bytovy-dum-nove-mesto-nad-metuji-centrum-8693691.html",
@@ -534,7 +570,6 @@
     "missing-price:https://www.sreality.cz/api/v1/estates/1426890828",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1458172492",
     "stale-detail-fetch:1701995340:Failed to fetch https://www.sreality.cz/api/v1/estates/1701995340: HTTP 404",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/172184396",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1900503884",
     "excluded-chata:https://www.sreality.cz/api/v1/estates/2146840652",
     "stale-detail-fetch:2673619020:Failed to fetch https://www.sreality.cz/api/v1/estates/2673619020: HTTP 404",
@@ -548,14 +583,14 @@
       "portal": [
         "reality.idnes.cz"
       ],
-      "title": "Prodej pozemku k bydlení, 4081 m2, Nové Město nad Metují",
+      "title": "Prodej spoluvlastnického podílu na souboru pozemků",
       "location": "Nové Město nad Metují, okres Náchod",
       "property_type": "land",
-      "price": "7 350 000 Kč",
+      "price": "35 000 000 Kč",
       "house_area_m2": "unknown",
-      "land_area_m2": "4081",
+      "land_area_m2": "89097",
       "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/6a87ce3aa7dd64b8c6006d6d/"
+        "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji-dubinky/6ad8b0b695ddda625e013b85/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
@@ -566,14 +601,14 @@
       "portal": [
         "reality.idnes.cz"
       ],
-      "title": "Pozemek u Nového Města nad Metují s panoramatickým výhledem",
+      "title": "Prodej pozemku k bydlení, 4081 m2, Nové Město nad Metují",
       "location": "Nové Město nad Metují, okres Náchod",
       "property_type": "land",
-      "price": "3 250 000 Kč",
+      "price": "7 350 000 Kč",
       "house_area_m2": "unknown",
-      "land_area_m2": "3276",
+      "land_area_m2": "4081",
       "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/69aedd09645e9176190b54b8/"
+        "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/6a87ce3aa7dd64b8c6006d6d/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",

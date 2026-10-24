@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 21,
-    "rows_retained": 5,
+    "candidates_gathered": 22,
+    "rows_retained": 7,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -124,7 +124,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/lipa-nad-orlici/6ab191caee99a0176d0259ef/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/destne-v-orlickych-horach/6adb24ed3cd82d6c5c0b2542/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -403,13 +403,20 @@
       "status": "not_found",
       "http_status": 404,
       "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/949485644",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/destne-v-orlickych-horach/6a5793610b95e18af50895e8/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/destne-v-orlickych-horach/69b7f484e55e4f764b0dc832/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/lipa-nad-orlici/6ab191caee99a0176d0259ef/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/destne-v-orlickych-horach/6a7ad95d965069a57d070b0a/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/destne-v-orlickych-horach/6ad8b0eeb0485ba011004e1c/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/destne-v-orlickych-horach/6ad8b01b93ef5cdfce028cba/",
@@ -443,6 +450,23 @@
       "land_area_m2": "3195",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/dum/destne-v-orlickych-horach/6aacc29b65f8fc80b005a186/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu, 850 m2, Deštné v Orlických horách",
+      "location": "Deštné v Orlických horách, okres Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "14 490 000 Kč",
+      "house_area_m2": "850",
+      "land_area_m2": "1846",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/destne-v-orlickych-horach/6adb24ed3cd82d6c5c0b2542/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
@@ -501,6 +525,24 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1067352140"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 850 m², pozemek 1846 m²",
+      "location": "Deštné v Orlických horách, Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "14 490 000 Kč",
+      "house_area_m2": "850",
+      "land_area_m2": "1846",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/destne-v-orlickych-horach/949485644"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/949485644"
       ]
     },
     {
