@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 25,
-    "rows_retained": 4,
+    "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -57,6 +57,14 @@
     }
   },
   "fetch_attempts": [
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/letohrad-tauslova/67b301edd89756257d0954a2/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/letohrad/682f1de4f9b45ae242006229/",
@@ -187,14 +195,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/letohrad-tauslova/67b301edd89756257d0954a2/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/letohrad/6ac74acc954494bf34088eec/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -259,6 +259,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/letohrad/5f272ce937ba4d42ff086ca3/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/letohrad/6ac62dc26804bc60660da3ca/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -276,14 +284,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/letohrad/5f271b4637ba4d35045ba663/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/letohrad/5f272ce937ba4d42ff086ca3/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -434,8 +434,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1726026316",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1726026316",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -503,10 +513,10 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/letohrad-u-biatlonu/68cbc70cd3bb7edf3406f88c/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/letohrad-u-biatlonu/680a20f992674095f2013436/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/letohrad/6a5f5da7589a0c1a5606e380/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/letohrad/5f272ce937ba4d42ff086ca3/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/letohrad/6ac62dc26804bc60660da3ca/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/letohrad/5f27224b558f0703b15dcfe3/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/letohrad/5f271b4637ba4d35045ba663/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/letohrad/5f272ce937ba4d42ff086ca3/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3611-usti-nad-orlici/pardubicky/prodej-domy_vily.html",
@@ -515,6 +525,7 @@
     "detail-fallback-page:https://reality.aktualne.cz/detail/letohrad/prodej-domu-vyrazne-snizeni-ceny-zahrada-dvojgaraz-letohrad-8445479.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/letohrad/prodej-rodinneho-domu-164m2-letohrad-ul-podmesti-93-8500269.html",
     "stale-detail-fetch:1652965964:Failed to fetch https://www.sreality.cz/api/v1/estates/1652965964: HTTP 404",
+    "stale-detail-fetch:1726026316:Failed to fetch https://www.sreality.cz/api/v1/estates/1726026316: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/3368083532",
     "stale-detail-fetch:3956834380:Failed to fetch https://www.sreality.cz/api/v1/estates/3956834380: HTTP 404",
     "stale-detail-fetch:4072980556:Failed to fetch https://www.sreality.cz/api/v1/estates/4072980556: HTTP 404"
@@ -571,24 +582,6 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3871776844",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 322 m², pozemek 1175 m²",
-      "location": "Letohrad, Taušlova, Ústí nad Orlicí",
-      "property_type": "house",
-      "price": "5 499 000 Kč",
-      "house_area_m2": "322",
-      "land_area_m2": "1175",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/letohrad-tauslova/1726026316"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1726026316"
       ]
     }
   ]

@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 32,
-    "rows_retained": 7,
+    "candidates_gathered": 31,
+    "rows_retained": 6,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -72,6 +72,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/lazne-bohdanec/6928307c47a78cb43008fc7e/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -117,14 +125,6 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-6173",
       "stage": "search_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -404,7 +404,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/lazne-bohdanec/6928307c47a78cb43008fc7e/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/lazne-bohdanec-sipkova/6a886b62e4199b25470a2366/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/lazne-bohdanec-dr-tyrse/6a796167bc121898520f3e75/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/lazne-bohdanec/6a8701755862d9f61b04898b/",
@@ -446,24 +446,6 @@
       "land_area_m2": "1396",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/pozemek/lazne-bohdanec-sipkova/6aad3ed2516cda04d40ecfe7/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej pozemků v obci Lázně Bohdaneč u čerpací stanice, o celkové ploše 3376 m2",
-      "location": "Lázně Bohdaneč, okres Pardubice",
-      "property_type": "land",
-      "price": "5 739 200 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "3376",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/lazne-bohdanec/6928307c47a78cb43008fc7e/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
