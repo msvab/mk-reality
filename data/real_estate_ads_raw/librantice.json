@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 17,
-    "rows_retained": 10,
+    "rows_retained": 9,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -272,8 +272,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3740078156",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3740078156",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -312,6 +322,7 @@
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Librantice&form%5Bcena_mena%5D=1",
     "stale-detail-fetch:1913742156:Failed to fetch https://www.sreality.cz/api/v1/estates/1913742156: HTTP 404",
+    "stale-detail-fetch:3740078156:Failed to fetch https://www.sreality.cz/api/v1/estates/3740078156: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/684388428",
     "stale-detail-fetch:720753484:Failed to fetch https://www.sreality.cz/api/v1/estates/720753484: HTTP 404"
   ],
@@ -454,25 +465,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1352278860",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1001 m²",
-      "location": "Librantice, Hradec Králové",
-      "property_type": "land",
-      "price": "4 890 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1001",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/librantice/3740078156"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3740078156",
         "buildable-land"
       ]
     },

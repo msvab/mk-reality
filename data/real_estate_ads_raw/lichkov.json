@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 17,
+    "candidates_gathered": 18,
     "rows_retained": 9,
     "zero_result_portals": [
       "realitymix.cz",
@@ -64,6 +64,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/lichkov/6aabec03b44dd6c3cd0102f6/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -173,6 +181,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-83747",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/lichkov/6adf06b037b00e713a06572e/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -362,6 +378,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/lichkov/6aabec03b44dd6c3cd0102f6/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/lichkov/69767ce3a9b4c678440e75e1/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/lichkov/69767d1ad21113e13607a9ab/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/lichkov/69767d4fe8dd7acbe90463d7/",
@@ -383,11 +400,11 @@
       "title": "Prodej rodinného domu, 737 m2, Lichkov",
       "location": "Lichkov, okres Ústí nad Orlicí",
       "property_type": "house",
-      "price": "11 875 000 Kč",
+      "price": "11 460 000 Kč",
       "house_area_m2": "737",
       "land_area_m2": "3827",
       "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/lichkov/6aabec03b44dd6c3cd0102f6/"
+        "https://reality.idnes.cz/detail/prodej/dum/lichkov/6adf06b037b00e713a06572e/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
@@ -472,7 +489,7 @@
       "title": "Prodej rodinného domu 737 m², pozemek 3827 m²",
       "location": "Lichkov, Ústí nad Orlicí",
       "property_type": "house",
-      "price": "11 875 000 Kč",
+      "price": "11 460 000 Kč",
       "house_area_m2": "737",
       "land_area_m2": "3827",
       "urls": [

@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 31,
+    "candidates_gathered": 33,
     "rows_retained": 6,
     "zero_result_portals": [
       "realitymix.cz",
@@ -67,22 +67,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/lazne-bohdanec/6928307c47a78cb43008fc7e/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/lazne-bohdanec/6928307c47a78cb43008fc7e/",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Detail URL returned fallback or non-detail content."
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/lazne-bohdanec-sipkova/6a37af4980248d59910d6bd8/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -96,6 +80,22 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/lazne-bohdanec/6928307c47a78cb43008fc7e/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/lazne-bohdanec/6928307c47a78cb43008fc7e/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -125,6 +125,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-6173",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -260,6 +268,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/lazne-bohdanec/68f6360aa33214e216004ccd/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/volec/69531c0fec2b9ca5fd058526/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -405,6 +421,7 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/lazne-bohdanec/6928307c47a78cb43008fc7e/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/lazne-bohdanec-sipkova/6a886b62e4199b25470a2366/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/lazne-bohdanec-dr-tyrse/6a796167bc121898520f3e75/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/lazne-bohdanec/6a8701755862d9f61b04898b/",
@@ -422,6 +439,7 @@
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/lazne-bohdanec/692757606852cb4b380e9209/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/lazne-bohdanec/69162f2d3623cf21b50fa87c/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/lazne-bohdanec/68f6360aa33214e216004ccd/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/volec/69531c0fec2b9ca5fd058526/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=L%C3%A1zn%C4%9B+Bohdane%C4%8D&form%5Bcena_mena%5D=1",
