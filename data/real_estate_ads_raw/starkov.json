@@ -29,13 +29,14 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
-    "candidates_gathered": 17,
-    "rows_retained": 1,
+    "workers_with_results": 0,
+    "candidates_gathered": 16,
+    "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
-      "reality.aktualne.cz"
+      "reality.aktualne.cz",
+      "sreality.cz"
     ],
     "blocked_portals": []
   },
@@ -53,8 +54,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Sreality row."
+      "status": "no_results",
+      "message": "No retained in-scope Sreality rows."
     }
   },
   "fetch_attempts": [
@@ -125,14 +126,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/starkov/6a6cd5e70b7f0c67e20c33cc/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -331,14 +324,23 @@
       "url": "https://www.sreality.cz/api/v1/estates/3759984716",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3759984716",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/starkov/6a6cd5e70b7f0c67e20c33cc/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/starkov/6a29211b7ad853cfca035ec6/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/starkov/6a8e0e0f6de1e8a580017578/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/starkov/6a8e0a908251533dcd09b685/",
@@ -355,26 +357,8 @@
     "missing-price:https://www.sreality.cz/api/v1/estates/1497887564",
     "missing-price:https://www.sreality.cz/api/v1/estates/307753804",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3099639884",
-    "stale-detail-fetch:3228356684:Failed to fetch https://www.sreality.cz/api/v1/estates/3228356684: HTTP 404"
+    "stale-detail-fetch:3228356684:Failed to fetch https://www.sreality.cz/api/v1/estates/3228356684: HTTP 404",
+    "stale-detail-fetch:3759984716:Failed to fetch https://www.sreality.cz/api/v1/estates/3759984716: HTTP 404"
   ],
-  "listings": [
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej chalupy 128 m², pozemek 3358 m²",
-      "location": "Stárkov, Náchod",
-      "property_type": "house",
-      "price": "4 490 000 Kč",
-      "house_area_m2": "128",
-      "land_area_m2": "3358",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/chalupa/starkov-chlivce/3759984716"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3759984716"
-      ]
-    }
-  ]
+  "listings": []
 }

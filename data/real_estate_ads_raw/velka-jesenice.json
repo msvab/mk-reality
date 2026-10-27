@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 12,
+    "candidates_gathered": 14,
     "rows_retained": 4,
     "zero_result_portals": [
       "realitymix.cz",
@@ -148,6 +148,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/velka-jesenice/6ad1e570d393ca1808019574/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/6adf6055ec0850c636083ba7/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -282,6 +290,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2598187084",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -290,6 +306,7 @@
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/6807dfa9ed4d3ab666027640/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/velka-jesenice/6ad1e570d393ca1808019574/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/6adf6055ec0850c636083ba7/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/6aa0067acbde2b88d0018385/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/68f68982a3f0cffc380f498d/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/68f6363619d4999f94085a62/",
@@ -298,7 +315,8 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/pronajem-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Velk%C3%A1+Jesenice&form%5Bcena_mena%5D=1",
-    "stale-detail-fetch:1782435916:Failed to fetch https://www.sreality.cz/api/v1/estates/1782435916: HTTP 404"
+    "stale-detail-fetch:1782435916:Failed to fetch https://www.sreality.cz/api/v1/estates/1782435916: HTTP 404",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2598187084"
   ],
   "listings": [
     {

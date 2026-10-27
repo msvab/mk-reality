@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 1,
-    "candidates_gathered": 14,
-    "rows_retained": 2,
+    "candidates_gathered": 13,
+    "rows_retained": 1,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
@@ -124,7 +124,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/potstejn-ustecka/6ab2d9320b365edec702cf8c/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/lipa-nad-orlici/6ab191caee99a0176d0259ef/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -149,14 +149,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/potstejn/6a703f8966307550080aa8a6/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/potstejn/6abb8f757815f3d6640377e1/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -281,8 +273,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/4138541132",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4138541132",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -296,11 +298,10 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/potstejn/65843e725711993acf08b788/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/potstejn-ustecka/6ab2d9320b365edec702cf8c/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/lipa-nad-orlici/6ab191caee99a0176d0259ef/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/potstejn/6757e89fb3e7952039050367/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/potstejn/6acb7ca2cf05933c150692e2/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/potstejn/6a703f8966307550080aa8a6/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/potstejn/6abb8f757815f3d6640377e1/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/potstejn/6aa90810e675fdfdce0804fb/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/potstejn/69aadda7d2d133cb350f5291/",
     "missing-page-url:house",
@@ -309,27 +310,10 @@
     "stale-detail-fetch:1182277708:Failed to fetch https://www.sreality.cz/api/v1/estates/1182277708: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/3019100236",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3950428748",
+    "stale-detail-fetch:4138541132:Failed to fetch https://www.sreality.cz/api/v1/estates/4138541132: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/999632972"
   ],
   "listings": [
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 130 m², pozemek 1408 m²",
-      "location": "Potštejn, Ústecká, Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "4 700 000 Kč",
-      "house_area_m2": "130",
-      "land_area_m2": "1408",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/potstejn-ustecka/4138541132"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/4138541132"
-      ]
-    },
     {
       "portal": [
         "sreality.cz"

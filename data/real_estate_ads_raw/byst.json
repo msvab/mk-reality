@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 16,
-    "rows_retained": 2,
+    "candidates_gathered": 22,
+    "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -72,14 +72,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/byst/6a9420f26f1e3a17a501089e/",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -163,14 +155,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/volec/69531c0fec2b9ca5fd058526/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/byst/6abb911c8f7b0d73400f3707/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -187,7 +171,31 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/byst/6adf540f77b1fc389e01f5be/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/byst/6adf544c88f49ada870f5d48/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/byst/6adf53712e7e9716b505341b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/byst/6adf536b705c070557061eba/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -277,7 +285,23 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1767702604",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/2133430348",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2304573516",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -301,6 +325,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3109879884",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/3576291404",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -316,6 +348,14 @@
       "status": "not_found",
       "http_status": 404,
       "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3646750796",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "sreality.cz",
@@ -356,21 +396,26 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/byst/6a9420f26f1e3a17a501089e/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/byst/6a6c4b355d1ea01d2c037f78/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/byst/6a3bf1c1af5f72528d0522c6/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/volec/69531c0fec2b9ca5fd058526/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/byst/6abb911c8f7b0d73400f3707/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/byst/6a2297029740dbbd500de078/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/byst/6adf540f77b1fc389e01f5be/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/byst/6adf544c88f49ada870f5d48/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/byst/6adf53712e7e9716b505341b/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/byst/6adf536b705c070557061eba/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=B%C3%BD%C5%A1%C5%A5&form%5Bcena_mena%5D=1",
     "stale-detail-fetch:1239543884:Failed to fetch https://www.sreality.cz/api/v1/estates/1239543884: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1303167052",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1767702604",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2133430348",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2304573516",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2445316172",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3109879884",
     "stale-detail-fetch:3576291404:Failed to fetch https://www.sreality.cz/api/v1/estates/3576291404: HTTP 404",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3646750796",
     "stale-detail-fetch:4184993868:Failed to fetch https://www.sreality.cz/api/v1/estates/4184993868: HTTP 404",
     "stale-detail-fetch:910684236:Failed to fetch https://www.sreality.cz/api/v1/estates/910684236: HTTP 404"
   ],
@@ -387,6 +432,24 @@
       "land_area_m2": "3478",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/pozemek/byst/6a8724898c8f05576c0e7d81/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemku určeného ke stavbě rodinného domu o velikosti 1601 m2 v obci Bělečko",
+      "location": "Býšť, okres Pardubice",
+      "property_type": "land",
+      "price": "7 990 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1601",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/byst/6a9420f26f1e3a17a501089e/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
