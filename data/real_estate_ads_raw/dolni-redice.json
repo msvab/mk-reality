@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 10,
-    "rows_retained": 4,
+    "candidates_gathered": 11,
+    "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -64,6 +64,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice-drahosska/693189896443eb54ad0682b9/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -109,6 +117,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-30139",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -224,8 +240,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3803845452",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3803845452",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -264,7 +290,9 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice-drahosska/693189896443eb54ad0682b9/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice/6a4cbfb08dd4af884b0a5bd7/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice/68f667613e5ab0bfbf0fc3f1/",
     "missing-page-url:house",
     "missing-page-url:land",
@@ -272,28 +300,11 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Doln%C3%AD+%C5%98edice&form%5Bcena_mena%5D=1",
     "stale-detail-fetch:1005117516:Failed to fetch https://www.sreality.cz/api/v1/estates/1005117516: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/3057712988",
+    "stale-detail-fetch:3803845452:Failed to fetch https://www.sreality.cz/api/v1/estates/3803845452: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/3954045516",
     "stale-detail-fetch:837341260:Failed to fetch https://www.sreality.cz/api/v1/estates/837341260: HTTP 404"
   ],
   "listings": [
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej stavebního pozemku Dolní Ředice",
-      "location": "Dolní Ředice, okres Pardubice",
-      "property_type": "land",
-      "price": "3 755 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1158",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice-drahosska/693189896443eb54ad0682b9/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
     {
       "portal": [
         "reality.idnes.cz"
@@ -327,25 +338,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/734711884"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1158 m²",
-      "location": "Dolní Ředice, Drahošská, Pardubice",
-      "property_type": "land",
-      "price": "3 755 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1158",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/dolni-redice-drahosska/3803845452"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3803845452",
-        "buildable-land"
       ]
     }
   ]

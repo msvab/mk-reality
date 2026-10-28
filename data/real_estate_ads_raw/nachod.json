@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 63,
-    "rows_retained": 17,
+    "candidates_gathered": 64,
+    "rows_retained": 15,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -82,7 +82,31 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod/6ac7532b69957d687908199f/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/nachod-v-namerkach/69eb61d2da14ea8e7e059037/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod-v-kalhotach/6a510cccce7bf7778a0c6a34/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod/6a33da0e94c0c4782b00078e/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -103,22 +127,6 @@
       "attempt": 1,
       "status": "fallback_page",
       "message": "Detail URL returned fallback or non-detail content."
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod-v-kalhotach/6a510cccce7bf7778a0c6a34/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod/6a33da0e94c0c4782b00078e/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     },
     {
       "portal": "reality.idnes.cz",
@@ -322,7 +330,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod/6a329cc3c407b994cc086e4d/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod-u-prachovny/6ae0e9026d41bf68900ce084/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -330,7 +338,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod-krapkova/6abe6fa34e816adcb201840f/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod/6ae0a85206732a43010ed4b5/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -346,7 +354,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod/6ac75493ea7ded4ee4050865/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod/6a329cc3c407b994cc086e4d/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -355,6 +363,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/nachod-k-brodu/6a17ec5ddc2cf0689709a065/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod-cermakova/6ab4338d7531acae8c0515d9/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -787,8 +803,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3389046860",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3389046860",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -803,8 +829,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3453947980",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3453947980",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -819,18 +855,8 @@
       "url": "https://www.sreality.cz/api/v1/estates/3675037772",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/3675037772",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "sreality.cz",
@@ -867,15 +893,17 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/nachod/6ac7532b69957d687908199f/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/nachod-jilova/6a326927953727dc280b6370/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/nachod-jugoslavska/6a743c236f3f9a22bd0a2359/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/nachod/6a3118cf23d2acd8d30ae1c8/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/nachod/6a329cc3c407b994cc086e4d/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod-krapkova/6abe6fa34e816adcb201840f/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/nachod-u-prachovny/6ae0e9026d41bf68900ce084/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod/6ae0a85206732a43010ed4b5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod/6adb0c96145580589004416f/",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/nachod/6ac75493ea7ded4ee4050865/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/nachod/6a329cc3c407b994cc086e4d/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod-k-brodu/6a17ec5ddc2cf0689709a065/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod-cermakova/6ab4338d7531acae8c0515d9/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod-jugoslavska/6a69e8bee6ce1d62b00dc880/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod/69dcef714ccd4327820edd60/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod/6aaaab41e66688a385088339/",
@@ -909,9 +937,10 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2137330508",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2204311628",
     "stale-detail-fetch:3140481100:Failed to fetch https://www.sreality.cz/api/v1/estates/3140481100: HTTP 404",
+    "stale-detail-fetch:3389046860:Failed to fetch https://www.sreality.cz/api/v1/estates/3389046860: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3449667660",
+    "stale-detail-fetch:3453947980:Failed to fetch https://www.sreality.cz/api/v1/estates/3453947980: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3485565004",
-    "stale-detail-fetch:3675037772:Failed to fetch https://www.sreality.cz/api/v1/estates/3675037772: HTTP 404",
     "excluded-chata:https://www.sreality.cz/api/v1/estates/3678150732",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4077498444",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/594591820"
@@ -950,23 +979,6 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej rodinného domu v Lipí u Náchoda s pozemkem 13608 m2",
-      "location": "Náchod, okres Náchod",
-      "property_type": "house",
-      "price": "4 999 999 Kč",
-      "house_area_m2": "139",
-      "land_area_m2": "13608",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/nachod/6ac7532b69957d687908199f/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
       ]
     },
     {
@@ -1115,6 +1127,24 @@
       "portal": [
         "sreality.cz"
       ],
+      "title": "Prodej vícegeneračního domu 544 m², pozemek 1618 m²",
+      "location": "Náchod, Peklo, Náchod",
+      "property_type": "house",
+      "price": "14 000 000 Kč",
+      "house_area_m2": "544",
+      "land_area_m2": "1618",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/vicegeneracni-dum/nachod-lipi-peklo/3675037772"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3675037772"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
       "title": "Prodej rodinného domu 207 m², pozemek 4889 m²",
       "location": "Náchod, Tylova, Náchod",
       "property_type": "house",
@@ -1127,42 +1157,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3297480780"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 139 m², pozemek 13608 m²",
-      "location": "Náchod, Náchod",
-      "property_type": "house",
-      "price": "4 999 999 Kč",
-      "house_area_m2": "139",
-      "land_area_m2": "13608",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/nachod-lipi/3389046860"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3389046860"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej chalupy 139 m², pozemek 13608 m²",
-      "location": "Náchod, Náchod",
-      "property_type": "house",
-      "price": "4 999 999 Kč",
-      "house_area_m2": "139",
-      "land_area_m2": "13608",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/chalupa/nachod-lipi/3453947980"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3453947980"
       ]
     },
     {

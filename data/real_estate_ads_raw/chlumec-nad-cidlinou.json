@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 51,
+    "candidates_gathered": 50,
     "rows_retained": 17,
     "zero_result_portals": [
       "realitymix.cz",
@@ -251,7 +251,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-klicperovo-namesti/6abb81288f8ad9ce04005394/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-kozelkova/6ad912d46f3fe2a4120147c3/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -259,7 +259,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-kozelkova/6ad912d46f3fe2a4120147c3/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-klicperovo-namesti/6abb81288f8ad9ce04005394/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -526,8 +526,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1135316572",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1135316572",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -653,14 +663,6 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/3888812108",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/4123009100",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -721,14 +723,13 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Chlumec+nad+Cidlinou&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/prostorny-stavebni-pozemek-1411m2-projekt-skalka-8601623.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/stavebni-pozemek-1-139-m-projekt-skalka-8601627.html",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1135316572",
+    "stale-detail-fetch:1135316572:Failed to fetch https://www.sreality.cz/api/v1/estates/1135316572: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2285556812",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2300588876",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2709918284",
     "excluded-chata:https://www.sreality.cz/api/v1/estates/3031323468",
     "stale-detail-fetch:3487703116:Failed to fetch https://www.sreality.cz/api/v1/estates/3487703116: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3869610828",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3888812108",
     "missing-price:https://www.sreality.cz/api/v1/estates/4123009100",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/857683020",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/868107084"

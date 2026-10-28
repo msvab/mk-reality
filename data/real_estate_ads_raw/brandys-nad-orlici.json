@@ -29,11 +29,10 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
-    "candidates_gathered": 13,
-    "rows_retained": 2,
+    "workers_with_results": 2,
+    "candidates_gathered": 14,
+    "rows_retained": 3,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz"
     ],
@@ -41,8 +40,8 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -86,6 +85,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-9270",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/brandys-nad-orlici-v-lipach/6ae06040e2b90adf09012026/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -270,6 +277,23 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Brand%C3%BDs+nad+Orlic%C3%AD&form%5Bcena_mena%5D=1"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu Brandýs nad Orlicí",
+      "location": "Brandýs nad Orlicí, okres Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "3 150 000 Kč",
+      "house_area_m2": "75",
+      "land_area_m2": "1068",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/brandys-nad-orlici-v-lipach/6ae06040e2b90adf09012026/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
     {
       "portal": [
         "sreality.cz"
