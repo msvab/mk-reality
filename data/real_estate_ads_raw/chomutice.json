@@ -29,19 +29,21 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
+    "workers_with_results": 0,
     "candidates_gathered": 4,
-    "rows_retained": 2,
+    "rows_retained": 0,
     "zero_result_portals": [
+      "reality.idnes.cz",
       "realitymix.cz",
-      "reality.aktualne.cz"
+      "reality.aktualne.cz",
+      "sreality.cz"
     ],
     "blocked_portals": []
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
+      "status": "no_results",
+      "message": "No retained in-scope iDNES rows."
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -52,8 +54,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Sreality row."
+      "status": "no_results",
+      "message": "No retained in-scope Sreality rows."
     }
   },
   "fetch_attempts": [
@@ -64,6 +66,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chomutice/6a195d89ab4a2bfb200a4ce8/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -174,53 +184,29 @@
       "url": "https://www.sreality.cz/api/v1/estates/3057156172",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3057156172",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/chomutice/6a195d89ab4a2bfb200a4ce8/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chomutice/69b577fd4d69441b3c055c97/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/chomutice/6a9ff7e564ff73c421009399/",
     "missing-page-url:house",
     "missing-page-url:land",
-    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Chomutice&form%5Bcena_mena%5D=1"
+    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Chomutice&form%5Bcena_mena%5D=1",
+    "stale-detail-fetch:3057156172:Failed to fetch https://www.sreality.cz/api/v1/estates/3057156172: HTTP 404"
   ],
-  "listings": [
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Dům k rekonstrukci v Chomuticích místo, které si můžete vytvořit podle sebe",
-      "location": "Chomutice, okres Jičín",
-      "property_type": "house",
-      "price": "4 000 000 Kč",
-      "house_area_m2": "145",
-      "land_area_m2": "1100",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/chomutice/6a195d89ab4a2bfb200a4ce8/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 145 m², pozemek 1100 m²",
-      "location": "Chomutice, Jičín",
-      "property_type": "house",
-      "price": "4 000 000 Kč",
-      "house_area_m2": "145",
-      "land_area_m2": "1100",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/chomutice/3057156172"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3057156172"
-      ]
-    }
-  ]
+  "listings": []
 }

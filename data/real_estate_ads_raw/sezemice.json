@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 46,
+    "candidates_gathered": 45,
     "rows_retained": 14,
     "zero_result_portals": [
       "realitymix.cz",
@@ -40,8 +40,13 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
+      "status": "fetch_error",
+      "http_status": 0,
+      "stage": "detail_fetch",
+      "message": "curl exited with 56",
+      "evidence": [
+        "detail_fetch:fetch_error:https://reality.idnes.cz/detail/prodej/dum/sezemice-druzstevni/6a9422d92c6f5a83970508e9/"
+      ]
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -259,7 +264,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/volec/69531c0fec2b9ca5fd058526/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice-nova/6abe5ce51f2713c5a1072590/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -268,14 +273,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice-bezdickova/6adf44554c070e8bab03a4be/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice-nova/6abe5ce51f2713c5a1072590/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -318,6 +315,15 @@
       "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice-druzstevni/6a9422d92c6f5a83970508e9/",
       "stage": "detail_fetch",
       "attempt": 1,
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice-druzstevni/6a9422d92c6f5a83970508e9/",
+      "stage": "detail_fetch",
+      "attempt": 2,
       "status": "ok",
       "http_status": 200
     },
@@ -657,9 +663,8 @@
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/sezemice/6a7f21d038684eb6bf0822ff/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/sezemice/6a6cb383473b997014057677/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/sezemice/6a69f65936608226f8069537/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/volec/69531c0fec2b9ca5fd058526/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice-bezdickova/6adf44554c070e8bab03a4be/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice-nova/6abe5ce51f2713c5a1072590/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice-bezdickova/6adf44554c070e8bab03a4be/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/69c63211ec6c90a8c608658a/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice-vychodni/6aa9328101d17d1ba3090a36/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice-jungmannova/6acb7c2a4166cb94b60c2d2b/",

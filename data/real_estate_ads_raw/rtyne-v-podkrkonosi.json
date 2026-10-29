@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 11,
-    "rows_retained": 3,
+    "candidates_gathered": 12,
+    "rows_retained": 4,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -64,6 +64,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rtyne-v-podkrkonosi/6a5dee1356206ee3c20cbca8/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -140,6 +148,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/rtyne-v-podkrkonosi-upicka/6a1d627f4d7f6fbc520504f9/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rtyne-v-podkrkonosi/6ae2f68787b7ecf8500346bb/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -280,6 +296,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/rtyne-v-podkrkonosi/6a5dee1356206ee3c20cbca8/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/rtyne-v-podkrkonosi-ke-skalce/6aa686269d9edb29290150d6/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/rtyne-v-podkrkonosi-upicka/69dbc8ae22a4bd632e050510/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/rtyne-v-podkrkonosi-kostelecka/6a2fca22c0ddbd3c760f6c75/",
@@ -290,7 +307,6 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3610-trutnov/kralovehradecky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Rtyn%C4%9B+v+Podkrkono%C5%A1%C3%AD&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/rtyne-v-podkrkonosi/prodej-chaty-chalupy-200-m-pozemek-6-348-m-8203389.html",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4189290572",
     "stale-detail-fetch:538849356:Failed to fetch https://www.sreality.cz/api/v1/estates/538849356: HTTP 404"
   ],
   "listings": [
@@ -305,7 +321,7 @@
       "house_area_m2": "unknown",
       "land_area_m2": "3195",
       "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/rtyne-v-podkrkonosi/6a5dee1356206ee3c20cbca8/"
+        "https://reality.idnes.cz/detail/prodej/pozemek/rtyne-v-podkrkonosi/6ae2f68787b7ecf8500346bb/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
@@ -346,6 +362,25 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1739731020",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 3195 m²",
+      "location": "Rtyně v Podkrkonoší, Trutnov",
+      "property_type": "land",
+      "price": "1 700 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "3195",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/rtyne-v-podkrkonosi/4189290572"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/4189290572",
         "buildable-land"
       ]
     }
