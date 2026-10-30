@@ -29,11 +29,10 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
+    "workers_with_results": 2,
     "candidates_gathered": 10,
-    "rows_retained": 2,
+    "rows_retained": 3,
     "zero_result_portals": [
-      "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz"
     ],
@@ -41,8 +40,8 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope iDNES rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -58,22 +57,6 @@
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/ostresany/6ac8d75736d93ddfef0005c7/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/ostresany/6ac8d75736d93ddfef0005c7/",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Detail URL returned fallback or non-detail content."
-    },
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/ostresany/69ff24b68cd988c4ed01c292/",
@@ -141,6 +124,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/ostresany/6a7af3c47017e57b8d0a0c82/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/ostresany/6ac8d75736d93ddfef0005c7/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -245,7 +236,6 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/ostresany/6ac8d75736d93ddfef0005c7/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/ostresany/69ff24b68cd988c4ed01c292/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ostresany-rockova/6a1fddfa80e85deb1d0a6bd0/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ostresany-druzstevni-ii/6abe99e403042b74db0696da/",
@@ -258,6 +248,23 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/517022540"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Ostřešany prodej rodinný dům",
+      "location": "Ostřešany, okres Pardubice",
+      "property_type": "house",
+      "price": "7 499 000 Kč",
+      "house_area_m2": "240",
+      "land_area_m2": "1207",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/ostresany/6ac8d75736d93ddfef0005c7/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
     {
       "portal": [
         "sreality.cz"

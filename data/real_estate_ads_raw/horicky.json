@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 1,
-    "candidates_gathered": 13,
-    "rows_retained": 1,
+    "candidates_gathered": 15,
+    "rows_retained": 2,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
@@ -93,6 +93,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/horicky/6ae309db3749bf8c7604ac68/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -244,6 +252,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1371734092",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/655822924",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -255,6 +271,7 @@
     "idnes-discovery-used-locality-id-cache",
     "result-no-detail-links:https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-45284",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/horicky/6ae309db3749bf8c7604ac68/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/horicky/6ad115fd378803bc710a1203/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/615b60a93b8dee685c3eaa02/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/studnice/6527190464ba530239027332/",
@@ -271,6 +288,24 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Ho%C5%99i%C4%8Dky&form%5Bcena_mena%5D=1"
   ],
   "listings": [
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej vily 338 m², pozemek 2938 m²",
+      "location": "Hořičky, Náchod",
+      "property_type": "house",
+      "price": "18 500 000 Kč",
+      "house_area_m2": "338",
+      "land_area_m2": "2938",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/vila/horicky/1371734092"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1371734092"
+      ]
+    },
     {
       "portal": [
         "sreality.cz"

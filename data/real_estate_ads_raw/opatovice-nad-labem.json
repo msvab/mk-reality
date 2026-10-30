@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 16,
-    "rows_retained": 2,
+    "candidates_gathered": 18,
+    "rows_retained": 4,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -93,6 +93,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-111554",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/opatovice-nad-labem/6ae3103386b4e48b5a0de6eb/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -298,6 +306,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3955425356",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -338,6 +354,41 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej výjimečného bungalovu 5+kk s bazénem a domem pro hosty 1+kk, Opatovice nad Labem",
+      "location": "Opatovice nad Labem, okres Pardubice",
+      "property_type": "house",
+      "price": "24 900 000 Kč",
+      "house_area_m2": "290",
+      "land_area_m2": "1479",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/opatovice-nad-labem/6ae3103386b4e48b5a0de6eb/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 290 m², pozemek 1479 m²",
+      "location": "Opatovice nad Labem, Pardubice",
+      "property_type": "house",
+      "price": "24 900 000 Kč",
+      "house_area_m2": "290",
+      "land_area_m2": "1479",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/opatovice-nad-labem/3955425356"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3955425356"
       ]
     },
     {

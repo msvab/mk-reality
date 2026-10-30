@@ -29,12 +29,13 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
+    "workers_with_results": 1,
     "candidates_gathered": 22,
-    "rows_retained": 3,
+    "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
-      "reality.aktualne.cz"
+      "reality.aktualne.cz",
+      "sreality.cz"
     ],
     "blocked_portals": []
   },
@@ -52,8 +53,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Sreality row."
+      "status": "no_results",
+      "message": "No retained in-scope Sreality rows."
     }
   },
   "fetch_attempts": [
@@ -320,8 +321,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/2979213388",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2979213388",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -413,6 +424,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2133430348",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2304573516",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2445316172",
+    "stale-detail-fetch:2979213388:Failed to fetch https://www.sreality.cz/api/v1/estates/2979213388: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3109879884",
     "stale-detail-fetch:3576291404:Failed to fetch https://www.sreality.cz/api/v1/estates/3576291404: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3646750796",
@@ -427,7 +439,7 @@
       "title": "Prodej pozemek Bydlení, 3478m2, Býšť",
       "location": "Býšť, okres Pardubice",
       "property_type": "land",
-      "price": "13 970 000 Kč",
+      "price": "13 470 000 Kč",
       "house_area_m2": "unknown",
       "land_area_m2": "3478",
       "urls": [
@@ -454,24 +466,6 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 260 m², pozemek 1255 m²",
-      "location": "Býšť, Pardubice",
-      "property_type": "house",
-      "price": "7 850 000 Kč",
-      "house_area_m2": "260",
-      "land_area_m2": "1255",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/byst/2979213388"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2979213388"
       ]
     }
   ]
