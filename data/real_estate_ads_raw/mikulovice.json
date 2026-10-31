@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 17,
+    "candidates_gathered": 18,
     "rows_retained": 4,
     "zero_result_portals": [
       "realitymix.cz",
@@ -67,22 +67,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/mikulovice/6ad7b5d32314a46dc20a4096/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/mikulovice/6ad7b5d32314a46dc20a4096/",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Detail URL returned fallback or non-detail content."
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/domy/?s-l=CAST_OBCE-94374",
       "stage": "search_fetch",
       "attempt": 1,
@@ -115,6 +99,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/volec/69531c0fec2b9ca5fd058526/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/mikulovice-dlouha/6a81c8a9053fea3b58007107/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -140,6 +132,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/mikulovice-v-zahradach/6ac9f6c9f9682d2b8005ea80/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -390,11 +390,12 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/mikulovice/6ad7b5d32314a46dc20a4096/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/volec/69531c0fec2b9ca5fd058526/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/mikulovice-dlouha/6a81c8a9053fea3b58007107/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/mikulovice-dlouha/6ac52d59f9e2117cf507c0e6/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/mikulovice-dlouha/6a799f167acec024a20a296c/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/mikulovice-v-zahradach/6ac9f6c9f9682d2b8005ea80/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/mikulovice/6a7481b2b015450a240029e7/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/mikulovice/6ab563fce628c23685015736/",
     "missing-page-url:house",

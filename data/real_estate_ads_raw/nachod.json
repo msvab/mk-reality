@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 63,
+    "candidates_gathered": 64,
     "rows_retained": 15,
     "zero_result_portals": [
       "reality.aktualne.cz"
@@ -39,13 +39,8 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "fetch_error",
-      "http_status": 500,
-      "stage": "detail_fetch",
-      "message": "HTTP 500",
-      "evidence": [
-        "detail_fetch:fetch_error:https://reality.idnes.cz/detail/prodej/dum/nachod-k-brodu/6a17ec5ddc2cf0689709a065/"
-      ]
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     },
     "realitymix.cz": {
       "status": "ok",
@@ -335,6 +330,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod-pod-homolkou/6ae45da8682b3482930c607f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/nachod-cermakova/6ab4338d7531acae8c0515d9/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -370,24 +373,6 @@
       "url": "https://reality.idnes.cz/detail/prodej/dum/nachod-k-brodu/6a17ec5ddc2cf0689709a065/",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "fetch_error",
-      "http_status": 500,
-      "error": "HTTP 500"
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod-k-brodu/6a17ec5ddc2cf0689709a065/",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "fetch_error",
-      "http_status": 500,
-      "error": "HTTP 500"
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/nachod-k-brodu/6a17ec5ddc2cf0689709a065/",
-      "stage": "detail_fetch",
-      "attempt": 3,
       "status": "ok",
       "http_status": 200
     },
@@ -913,6 +898,7 @@
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/nachod-jugoslavska/6a743c236f3f9a22bd0a2359/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/nachod/6a3118cf23d2acd8d30ae1c8/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod-pod-homolkou/6ae45da8682b3482930c607f/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod-cermakova/6ab4338d7531acae8c0515d9/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod/6ae0a85206732a43010ed4b5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nachod/6adb0c96145580589004416f/",
