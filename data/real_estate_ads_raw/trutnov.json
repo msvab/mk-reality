@@ -1437,8 +1437,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1180962892",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1180962892",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -1960,6 +1970,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3302031436",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/3354645580",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -2304,6 +2322,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3610-trutnov/kralovehradecky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Trutnov&form%5Bcena_mena%5D=1",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1171628876",
+    "stale-detail-fetch:1180962892:Failed to fetch https://www.sreality.cz/api/v1/estates/1180962892: HTTP 404",
     "stale-detail-fetch:1279492940:Failed to fetch https://www.sreality.cz/api/v1/estates/1279492940: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1317646412",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1384659804",
@@ -3689,6 +3708,25 @@
       "portal": [
         "sreality.cz"
       ],
+      "title": "Prodej stavebního pozemku 1106 m²",
+      "location": "Trutnov, Trutnov",
+      "property_type": "land",
+      "price": "3 650 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1106",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/trutnov/3302031436"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3302031436",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
       "title": "Prodej stavebního pozemku 1011 m²",
       "location": "Trutnov, Na Terase, Trutnov",
       "property_type": "land",
@@ -3739,25 +3777,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/837849164",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 4756 m²",
-      "location": "Trutnov, Trutnov",
-      "property_type": "land",
-      "price": "3 091 400 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "4756",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/trutnov-stary-rokytnik/1180962892"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1180962892",
         "buildable-land"
       ]
     },

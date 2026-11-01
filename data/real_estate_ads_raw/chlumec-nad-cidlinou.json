@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 51,
-    "rows_retained": 17,
+    "rows_retained": 15,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -88,6 +88,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-spravedlnost/698ae1aa66b6c591f20ee5a5/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -363,6 +371,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/olesnice/6aa9077b71c681f98601cc33/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/olesnice/6ae503ca5a09ae1f87014306/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -372,14 +388,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/olesnice/6ace0b7cc3ff235db002ec9b/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/olesnice/6aa9077b71c681f98601cc33/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -552,8 +560,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/144012108",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/144012108",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -704,6 +722,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-spravedlnost/698ae1aa66b6c591f20ee5a5/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/6aacebb3d66202a1af0b37c7/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-kozelkova/6ad912d46f3fe2a4120147c3/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-palackeho/6ae450faa84b25df25052d51/",
@@ -719,9 +738,9 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/6a7f7ca5c3515d906204ecf8/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/6acb7c8fba785eb5240174a4/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/chlumec-nad-cidlinou/682c3284ee668c3dc1008164/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/olesnice/6aa9077b71c681f98601cc33/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/olesnice/6ae503ca5a09ae1f87014306/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/olesnice/6ace0b7cc3ff235db002ec9b/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/olesnice/6aa9077b71c681f98601cc33/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/olesnice/6ab659ef17f7d2c9f3022d9a/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/olesnice/68f679c7095b99f9a500bc06/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/pozemek/olesnice/6a300117ab8352aad8099ed8/",
@@ -733,6 +752,7 @@
     "detail-fallback-page:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/prostorny-stavebni-pozemek-1411m2-projekt-skalka-8601623.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/chlumec-nad-cidlinou/stavebni-pozemek-1-139-m-projekt-skalka-8601627.html",
     "stale-detail-fetch:1135316572:Failed to fetch https://www.sreality.cz/api/v1/estates/1135316572: HTTP 404",
+    "stale-detail-fetch:144012108:Failed to fetch https://www.sreality.cz/api/v1/estates/144012108: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2285556812",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2300588876",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2709918284",
@@ -795,23 +815,6 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej domu 95 m2 se zahradou 1263 m2",
-      "location": "Chlumec nad Cidlinou, okres Hradec Králové",
-      "property_type": "house",
-      "price": "4 900 000 Kč",
-      "house_area_m2": "95",
-      "land_area_m2": "1396",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/chlumec-nad-cidlinou-spravedlnost/698ae1aa66b6c591f20ee5a5/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
       ]
     },
     {
@@ -956,24 +959,6 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/173376076",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 95 m², pozemek 1396 m²",
-      "location": "Chlumec nad Cidlinou, Spravedlnost, Hradec Králové",
-      "property_type": "house",
-      "price": "4 900 000 Kč",
-      "house_area_m2": "95",
-      "land_area_m2": "1396",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/chlumec-nad-cidlinou-chlumec-nad-cidlinou-iv-spravedlnost/144012108"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/144012108"
       ]
     },
     {
