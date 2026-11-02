@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 36,
-    "rows_retained": 8,
+    "candidates_gathered": 35,
+    "rows_retained": 6,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -91,11 +91,27 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hronov/6ab657bb1bddd1f7bf072072/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/hronov/6ab657bcafee50ca7f07ce75/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hronov/6ab657bcafee50ca7f07ce75/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -523,14 +539,6 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/1177854028",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/1687035980",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -636,6 +644,8 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/hronov/6ab657bb1bddd1f7bf072072/",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/hronov/6ab657bcafee50ca7f07ce75/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/hronov/6ab5352105604e326b003c9e/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/hronov/6a4cae94394a7bc0720583aa/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/hronov/6a3265e75060a6fe6c0ec403/",
@@ -661,7 +671,6 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Hronov&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/hronov/prodej-pozemku-k-bydleni-1029-m-hronov-8416181.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/hronov/prodej-pozemku-k-bydleni-1090-m-hronov-cast-rokytnik-8586891.html",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1177854028",
     "stale-detail-fetch:1943216204:Failed to fetch https://www.sreality.cz/api/v1/estates/1943216204: HTTP 404",
     "stale-detail-fetch:1996415052:Failed to fetch https://www.sreality.cz/api/v1/estates/1996415052: HTTP 404",
     "stale-detail-fetch:352247884:Failed to fetch https://www.sreality.cz/api/v1/estates/352247884: HTTP 404",
@@ -716,42 +725,6 @@
       "land_area_m2": "2155",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/pozemek/hronov/6aa1484f1b184b34f4096ecd/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej pozemku k bydlení, 1090 m2, Hronov, část Rokytník",
-      "location": "Hronov, okres Náchod",
-      "property_type": "land",
-      "price": "2 290 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1090",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/hronov/6ab657bb1bddd1f7bf072072/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej pozemku k bydlení, 1090 m2, Hronov, část Rokytník",
-      "location": "Hronov, okres Náchod",
-      "property_type": "land",
-      "price": "2 290 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1090",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/hronov/6ab657bcafee50ca7f07ce75/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
