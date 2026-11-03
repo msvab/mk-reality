@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 0,
-    "candidates_gathered": 4,
+    "candidates_gathered": 5,
     "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
@@ -196,6 +196,14 @@
       "status": "not_found",
       "http_status": 404,
       "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/693666380",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -206,7 +214,8 @@
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Chomutice&form%5Bcena_mena%5D=1",
-    "stale-detail-fetch:3057156172:Failed to fetch https://www.sreality.cz/api/v1/estates/3057156172: HTTP 404"
+    "stale-detail-fetch:3057156172:Failed to fetch https://www.sreality.cz/api/v1/estates/3057156172: HTTP 404",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/693666380"
   ],
   "listings": []
 }

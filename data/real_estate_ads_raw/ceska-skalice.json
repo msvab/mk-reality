@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 40,
-    "rows_retained": 15,
+    "rows_retained": 14,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -496,8 +496,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/4002722636",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4002722636",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -588,6 +598,7 @@
     "stale-detail-fetch:2832991564:Failed to fetch https://www.sreality.cz/api/v1/estates/2832991564: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2857570380",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/305717324",
+    "stale-detail-fetch:4002722636:Failed to fetch https://www.sreality.cz/api/v1/estates/4002722636: HTTP 404",
     "stale-detail-fetch:4177117772:Failed to fetch https://www.sreality.cz/api/v1/estates/4177117772: HTTP 404",
     "stale-detail-fetch:43618380:Failed to fetch https://www.sreality.cz/api/v1/estates/43618380: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/702309196"
@@ -730,25 +741,6 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 9241 m²",
-      "location": "Česká Skalice, Jiráskova, Náchod",
-      "property_type": "land",
-      "price": "19 900 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "9241",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/ceska-skalice-jiraskova/4002722636"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/4002722636",
         "buildable-land"
       ]
     },
