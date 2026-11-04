@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 18,
+    "candidates_gathered": 20,
     "rows_retained": 9,
     "zero_result_portals": [
       "realitymix.cz",
@@ -180,6 +180,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/lichkov/6adf84c4d87cb5c54f02fe7f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/lichkov/6aea41f7f5d5a8392d05f61f/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -361,6 +369,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/4126539852",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/706007116",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -374,6 +390,7 @@
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/lichkov/69767d1ad21113e13607a9ab/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/lichkov/69767d4fe8dd7acbe90463d7/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/lichkov/6adf84c4d87cb5c54f02fe7f/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/lichkov/6aea41f7f5d5a8392d05f61f/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3611-usti-nad-orlici/pardubicky/prodej-pozemky.html",
@@ -382,6 +399,7 @@
     "stale-detail-fetch:114979660:Failed to fetch https://www.sreality.cz/api/v1/estates/114979660: HTTP 404",
     "stale-detail-fetch:1457156940:Failed to fetch https://www.sreality.cz/api/v1/estates/1457156940: HTTP 404",
     "stale-detail-fetch:2799334220:Failed to fetch https://www.sreality.cz/api/v1/estates/2799334220: HTTP 404",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4126539852",
     "missing-price:https://www.sreality.cz/api/v1/estates/706007116"
   ],
   "listings": [

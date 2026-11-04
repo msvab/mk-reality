@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 22,
-    "rows_retained": 8,
+    "rows_retained": 7,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -334,8 +334,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1251005004",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1251005004",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -434,6 +444,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3611-usti-nad-orlici/pardubicky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Kl%C3%A1%C5%A1terec+nad+Orlic%C3%AD&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/klasterec-nad-orlici/prodej-pozemku-k-bydleni-2348-m-klasterec-nad-orlici-8476729.html",
+    "stale-detail-fetch:1251005004:Failed to fetch https://www.sreality.cz/api/v1/estates/1251005004: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2259776332",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2517573708",
     "missing-price:https://www.sreality.cz/api/v1/estates/268276556",
@@ -566,25 +577,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3588558924"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 3186 m²",
-      "location": "Klášterec nad Orlicí, Ústí nad Orlicí",
-      "property_type": "land",
-      "price": "2 890 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "3186",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/klasterec-nad-orlici/1251005004"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1251005004",
-        "buildable-land"
       ]
     }
   ]

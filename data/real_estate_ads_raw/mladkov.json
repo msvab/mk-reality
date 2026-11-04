@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 11,
-    "rows_retained": 3,
+    "candidates_gathered": 10,
+    "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -195,14 +195,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/mladkov/6ac36de59f7d7d01720bf59d/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/mladkov/67fedcc8da19a41e50009ae6/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -322,8 +314,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/982442060",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/982442060",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
@@ -332,14 +334,14 @@
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/mladkov/6a0dc5294ed45f452f048d94/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/mladkov/6adbdacf00944e045f0b2fe3/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/mladkov/6ac8c7ede68ce84f3d09df97/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/mladkov/6ac36de59f7d7d01720bf59d/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/mladkov/67fedcc8da19a41e50009ae6/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3611-usti-nad-orlici/pardubicky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Mladkov&form%5Bcena_mena%5D=1",
     "stale-detail-fetch:1771348044:Failed to fetch https://www.sreality.cz/api/v1/estates/1771348044: HTTP 404",
-    "stale-detail-fetch:3120599116:Failed to fetch https://www.sreality.cz/api/v1/estates/3120599116: HTTP 404"
+    "stale-detail-fetch:3120599116:Failed to fetch https://www.sreality.cz/api/v1/estates/3120599116: HTTP 404",
+    "stale-detail-fetch:982442060:Failed to fetch https://www.sreality.cz/api/v1/estates/982442060: HTTP 404"
   ],
   "listings": [
     {
@@ -375,24 +377,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/459223116"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 209 m², pozemek 1148 m²",
-      "location": "Mladkov, Ústí nad Orlicí",
-      "property_type": "house",
-      "price": "4 300 000 Kč",
-      "house_area_m2": "209",
-      "land_area_m2": "1148",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/mladkov/982442060"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/982442060"
       ]
     }
   ]

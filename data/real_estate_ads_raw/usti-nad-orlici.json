@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 3,
     "candidates_gathered": 70,
-    "rows_retained": 14,
+    "rows_retained": 13,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -71,6 +71,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/usti-nad-orlici/691215bbe41c76a087089bc7/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -807,6 +815,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/usti-nad-orlici/691215bbe41c76a087089bc7/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/usti-nad-orlici/6a300757a93ad0e36e0f815e/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/usti-nad-orlici/6ac3548b50c438a1150c7e64/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/usti-nad-orlici-boz-nemcove/6ad73552bd27c035a502d4d1/",
@@ -878,23 +887,6 @@
       "land_area_m2": "1224",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/dum/usti-nad-orlici-a-staska/6a4d561a25c2b31f560a8655/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Rodinný dům s velkou zahradou u lesa v Dolním Houžovci u Ústí nad Orlicí",
-      "location": "Ústí nad Orlicí, okres Ústí nad Orlicí",
-      "property_type": "house",
-      "price": "5 500 000 Kč",
-      "house_area_m2": "150",
-      "land_area_m2": "3188",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/usti-nad-orlici/691215bbe41c76a087089bc7/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
