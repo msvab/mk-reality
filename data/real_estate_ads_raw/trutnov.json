@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 195,
-    "rows_retained": 85,
+    "candidates_gathered": 196,
+    "rows_retained": 82,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -130,6 +130,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trutnov-pod-antonickem/6a4f8fa036aa24f2d60dcb7d/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/trutnov-vysoka-stran/662774b006ad87a56b071830/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -146,11 +154,27 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov-k-vebrovce/69f48d1f05a439461b01b445/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/trutnov-serikova/69de81bc4cc3b8e7570b5104/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trutnov-serikova/69de81bc4cc3b8e7570b5104/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -858,6 +882,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov-benesova/6a1142e1dd6cf5d1450dc3e7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov/6aeae9abe983758fdc0b1e82/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -875,14 +907,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov-dolni/6ae44898084ff16f0b07bb20/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov-benesova/6a1142e1dd6cf5d1450dc3e7/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -1027,6 +1051,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/trutnov/67226e5f79a1c5217f0d3189/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trutnov-pod-antonickem/6aec5638b29e27e180034e95/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -1429,8 +1461,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1084399692",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1084399692",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -2259,6 +2301,9 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/trutnov-pod-antonickem/6a4f8fa036aa24f2d60dcb7d/",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/trutnov-k-vebrovce/69f48d1f05a439461b01b445/",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/trutnov-serikova/69de81bc4cc3b8e7570b5104/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/trutnov-ve-vilkach/6abbb8a6574cf4feda0b752a/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/trutnov/69f9a42bc1dbd5c5b0006bd8/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/trutnov-za-upou/6a60a18ce6c8c36c6f0d5185/",
@@ -2273,10 +2318,10 @@
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/trutnov-za-trati/6a44d0fd9de3f84a3f07eba7/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/trutnov-petrikovicka/69ec7d238bd95a145000703a/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/trutnov-k-peti-bukum/69f3255591d6e9911d00ec78/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov-benesova/6a1142e1dd6cf5d1450dc3e7/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/trutnov/6aeae9abe983758fdc0b1e82/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov/6a031a10260598ea110518d8/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov-dolni/6ae44898084ff16f0b07bb20/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov-benesova/6a1142e1dd6cf5d1450dc3e7/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/trutnov/6ad768daedc57e98170ddb61/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov-na-terase/6ad61e749bdfcd7142075884/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/trutnov/6ad3909a8cb9f84ab40b97cc/",
@@ -2312,6 +2357,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3610-trutnov/kralovehradecky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3610-trutnov/kralovehradecky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Trutnov&form%5Bcena_mena%5D=1",
+    "stale-detail-fetch:1084399692:Failed to fetch https://www.sreality.cz/api/v1/estates/1084399692: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1171628876",
     "stale-detail-fetch:1279492940:Failed to fetch https://www.sreality.cz/api/v1/estates/1279492940: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1317646412",
@@ -2517,24 +2563,6 @@
       "portal": [
         "reality.idnes.cz"
       ],
-      "title": "Pozemek k bydlení 1831m2 v Trutnově, Horní Staré Město",
-      "location": "Trutnov, okres Trutnov",
-      "property_type": "land",
-      "price": "5 181 500 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1831",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/trutnov-pod-antonickem/6a4f8fa036aa24f2d60dcb7d/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
       "title": "Prodej slunného stavebního pozemku v Trutnově na Vysoké stráni",
       "location": "Trutnov, okres Trutnov",
       "property_type": "land",
@@ -2553,31 +2581,14 @@
       "portal": [
         "reality.idnes.cz"
       ],
-      "title": "Prodej rodinného domu s velkým pozemkem v Trutnově",
-      "location": "Trutnov, okres Trutnov",
-      "property_type": "house",
-      "price": "4 900 000 Kč",
-      "house_area_m2": "151",
-      "land_area_m2": "1813",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/trutnov-k-vebrovce/69f48d1f05a439461b01b445/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Stavební pozemek - Horní Staré Město - Trutnov",
+      "title": "Pozemek k bydlení 1831m2 v Trutnově, Horní Staré Město",
       "location": "Trutnov, okres Trutnov",
       "property_type": "land",
-      "price": "4 750 000 Kč",
+      "price": "4 879 000 Kč",
       "house_area_m2": "unknown",
-      "land_area_m2": "1424",
+      "land_area_m2": "1831",
       "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/trutnov-serikova/69de81bc4cc3b8e7570b5104/"
+        "https://reality.idnes.cz/detail/prodej/pozemek/trutnov-pod-antonickem/6aec5638b29e27e180034e95/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
@@ -3550,25 +3561,6 @@
       "portal": [
         "sreality.cz"
       ],
-      "title": "Prodej stavebního pozemku 1831 m²",
-      "location": "Trutnov, Pod Antoníčkem, Trutnov",
-      "property_type": "land",
-      "price": "5 181 500 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1831",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/trutnov-pod-antonickem/2948522060"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2948522060",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
       "title": "Prodej stavebního pozemku 2200 m²",
       "location": "Trutnov, Anenská, Trutnov",
       "property_type": "land",
@@ -3588,18 +3580,19 @@
       "portal": [
         "sreality.cz"
       ],
-      "title": "Prodej rodinného domu 151 m², pozemek 1813 m²",
-      "location": "Trutnov, K Vébrovce, Trutnov",
-      "property_type": "house",
-      "price": "4 900 000 Kč",
-      "house_area_m2": "151",
-      "land_area_m2": "1813",
+      "title": "Prodej stavebního pozemku 1831 m²",
+      "location": "Trutnov, Pod Antoníčkem, Trutnov",
+      "property_type": "land",
+      "price": "4 879 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1831",
       "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/trutnov-voletiny-k-vebrovce/1084399692"
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/trutnov-pod-antonickem/2948522060"
       ],
       "notes": [
         "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1084399692"
+        "api-detail:https://www.sreality.cz/api/v1/estates/2948522060",
+        "buildable-land"
       ]
     },
     {
@@ -3643,24 +3636,6 @@
       "portal": [
         "sreality.cz"
       ],
-      "title": "Prodej rodinného domu 109 m², pozemek 1997 m²",
-      "location": "Trutnov, Trutnov",
-      "property_type": "house",
-      "price": "3 900 000 Kč",
-      "house_area_m2": "109",
-      "land_area_m2": "1997",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/trutnov-stary-rokytnik/1703714892"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1703714892"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
       "title": "Prodej rodinného domu 223 m², pozemek 3747 m²",
       "location": "Trutnov, K Vébrovce, Trutnov",
       "property_type": "house",
@@ -3673,6 +3648,24 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2635534412"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 109 m², pozemek 1997 m²",
+      "location": "Trutnov, Trutnov",
+      "property_type": "house",
+      "price": "3 790 000 Kč",
+      "house_area_m2": "109",
+      "land_area_m2": "1997",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/trutnov-stary-rokytnik/1703714892"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1703714892"
       ]
     },
     {

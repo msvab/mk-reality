@@ -29,13 +29,12 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
+    "workers_with_results": 2,
     "candidates_gathered": 30,
-    "rows_retained": 2,
+    "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz",
-      "reality.aktualne.cz",
-      "sreality.cz"
+      "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
@@ -53,8 +52,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Sreality rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -472,7 +471,6 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Vysok%C3%A9+M%C3%BDto&form%5Bcena_mena%5D=1",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1391005772",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2234115404",
-    "missing-price:https://www.sreality.cz/api/v1/estates/241931084",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2575536204",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2918187084",
     "stale-detail-fetch:4112416844:Failed to fetch https://www.sreality.cz/api/v1/estates/4112416844: HTTP 404",
@@ -480,6 +478,24 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/853516364"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemku k bydlení, 4725 m2, Vysoké Mýto",
+      "location": "Vysoké Mýto, okres Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "23 500 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "4725",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto/6862987aa0ca6577240db5eb/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
     {
       "portal": [
         "reality.idnes.cz"
@@ -499,19 +515,20 @@
     },
     {
       "portal": [
-        "reality.idnes.cz"
+        "sreality.cz"
       ],
-      "title": "Prodej pozemku k bydlení, 4725 m2, Vysoké Mýto",
-      "location": "Vysoké Mýto, okres Ústí nad Orlicí",
+      "title": "Prodej stavebního pozemku 4725 m²",
+      "location": "Vysoké Mýto, Ústí nad Orlicí",
       "property_type": "land",
-      "price": "Cena na vyžádání",
+      "price": "23 500 000 Kč",
       "house_area_m2": "unknown",
       "land_area_m2": "4725",
       "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/vysoke-myto/6862987aa0ca6577240db5eb/"
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/vysoke-myto-vysoke-myto-mesto/241931084"
       ],
       "notes": [
-        "detail-url-verified:reality.idnes.cz",
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/241931084",
         "buildable-land"
       ]
     }
