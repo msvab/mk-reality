@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 12,
-    "rows_retained": 4,
+    "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -288,8 +288,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3892555852",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3892555852",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -312,7 +322,8 @@
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Ostrom%C4%9B%C5%99&form%5Bcena_mena%5D=1",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1009066060",
-    "stale-detail-fetch:1290933068:Failed to fetch https://www.sreality.cz/api/v1/estates/1290933068: HTTP 404"
+    "stale-detail-fetch:1290933068:Failed to fetch https://www.sreality.cz/api/v1/estates/1290933068: HTTP 404",
+    "stale-detail-fetch:3892555852:Failed to fetch https://www.sreality.cz/api/v1/estates/3892555852: HTTP 404"
   ],
   "listings": [
     {
@@ -365,24 +376,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/788242508"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 96 m², pozemek 1597 m²",
-      "location": "Ostroměř, Jičín",
-      "property_type": "house",
-      "price": "3 900 000 Kč",
-      "house_area_m2": "96",
-      "land_area_m2": "1597",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/ostromer-domoslavice/3892555852"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3892555852"
       ]
     }
   ]

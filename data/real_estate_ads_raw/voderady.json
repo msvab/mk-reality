@@ -29,13 +29,12 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
+    "workers_with_results": 2,
     "candidates_gathered": 4,
-    "rows_retained": 1,
+    "rows_retained": 3,
     "zero_result_portals": [
       "realitymix.cz",
-      "reality.aktualne.cz",
-      "sreality.cz"
+      "reality.aktualne.cz"
     ],
     "blocked_portals": []
   },
@@ -53,8 +52,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "no_results",
-      "message": "No retained in-scope Sreality rows."
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -108,7 +107,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/voderady/6aacdba010f59dded60df0a9/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/voderady/6aec792deaf6565f64057b04/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -116,7 +115,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/voderady/6aacee5fb78eecc34f0056d2/",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/voderady/6aec7938492e0cc13b099005/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -213,14 +212,12 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/voderady/6aacdba010f59dded60df0a9/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/voderady/6aec792deaf6565f64057b04/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html",
-    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Vod%C4%9Brady&form%5Bcena_mena%5D=1",
-    "missing-price:https://www.sreality.cz/api/v1/estates/1816379468",
-    "missing-price:https://www.sreality.cz/api/v1/estates/368648268"
+    "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Vod%C4%9Brady&form%5Bcena_mena%5D=1"
   ],
   "listings": [
     {
@@ -230,14 +227,51 @@
       "title": "Prodej pozemku k bydlení, 1619 m2, Voděrady - Uhřínovice",
       "location": "Voděrady, okres Rychnov nad Kněžnou",
       "property_type": "land",
-      "price": "Cena na vyžádání",
+      "price": "1 989 999 Kč",
       "house_area_m2": "unknown",
       "land_area_m2": "1619",
       "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/voderady/6aacee5fb78eecc34f0056d2/"
+        "https://reality.idnes.cz/detail/prodej/pozemek/voderady/6aec7938492e0cc13b099005/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej chalupy 100 m², pozemek 1619 m²",
+      "location": "Voděrady, Rychnov nad Kněžnou",
+      "property_type": "house",
+      "price": "1 989 999 Kč",
+      "house_area_m2": "100",
+      "land_area_m2": "1619",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/chalupa/voderady-uhrinovice/1816379468"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1816379468"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1619 m²",
+      "location": "Voděrady, Rychnov nad Kněžnou",
+      "property_type": "land",
+      "price": "1 989 999 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1619",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/voderady-uhrinovice/368648268"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/368648268",
         "buildable-land"
       ]
     }
