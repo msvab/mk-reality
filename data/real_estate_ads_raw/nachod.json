@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 62,
-    "rows_retained": 16,
+    "candidates_gathered": 64,
+    "rows_retained": 15,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -418,6 +418,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod-svobody/6a2333edaa5983a468014a97/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod-weyrova/6ad5d64a03f0dcb630044857/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -435,14 +443,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod/6a85e49fed04a9175f02eb97/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod-svobody/6a2333edaa5983a468014a97/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -554,6 +554,14 @@
     },
     {
       "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/nachod/prodej-pozemku-k-bydleni-1382-m-nachod-male-porici-8519679.html",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Požadovaný inzerát již není v naší databázi"
+    },
+    {
+      "portal": "realitymix.cz",
       "url": "https://realitymix.cz/detail/nachod/prodej-rodinneho-domu-1130-m-nachod-8446033.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -594,7 +602,15 @@
     },
     {
       "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/nachod/prodej-rodinneho-domu-143-m-pozemek-530-m-pavlisov-8538081.html",
+      "url": "https://realitymix.cz/detail/nachod/prodej-rodinneho-domu-260-m-nachod-8747709.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/nachod/prodej-rodinneho-domu-riviera-8748105.html",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -604,6 +620,14 @@
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/kralovehradecky/nachod",
       "stage": "land_result_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/nachod/prodej-pozemku-k-bydleni-nachod-male-porici-8743315.html",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -839,8 +863,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3675037772",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3675037772",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -905,9 +939,11 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nachod-komenskeho/68b95fbc82ddc1a1d7003505/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nachod/68f67ec2a65ef7023c0c33e0/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/nachod/68f638dd1c999107420ba988/",
+    "removed-fallback-page:https://realitymix.cz/detail/nachod/prodej-pozemku-k-bydleni-1382-m-nachod-male-porici-8519679.html",
     "removed-fallback-page:https://realitymix.cz/detail/nachod/prodej-rodinneho-domu-1130-m-nachod-8446033.html",
     "removed-fallback-page:https://realitymix.cz/detail/nachod/nachod-prodej-rodinneho-domu-s-garazi-a-pozemkem-1271-m2-7781068.html",
-    "land-below-threshold:https://realitymix.cz/detail/nachod/prodej-rodinneho-domu-143-m-pozemek-530-m-pavlisov-8538081.html",
+    "land-below-threshold:https://realitymix.cz/detail/nachod/prodej-rodinneho-domu-260-m-nachod-8747709.html",
+    "land-below-threshold:https://realitymix.cz/detail/nachod/prodej-rodinneho-domu-riviera-8748105.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=N%C3%A1chod&form%5Bcena_mena%5D=1",
@@ -922,6 +958,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3449667660",
     "stale-detail-fetch:3453947980:Failed to fetch https://www.sreality.cz/api/v1/estates/3453947980: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3485565004",
+    "stale-detail-fetch:3675037772:Failed to fetch https://www.sreality.cz/api/v1/estates/3675037772: HTTP 404",
     "excluded-chata:https://www.sreality.cz/api/v1/estates/3678150732",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4077498444",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/594591820"
@@ -983,6 +1020,24 @@
       "portal": [
         "reality.idnes.cz"
       ],
+      "title": "Prodej stavebního pozemku 1 657 m2 Náchod",
+      "location": "Náchod, okres Náchod",
+      "property_type": "land",
+      "price": "3 990 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1657",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/nachod-svobody/6a2333edaa5983a468014a97/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
       "title": "Prodej stavebního pozemku 1 003 m2 - Náchod, Bražec",
       "location": "Náchod, okres Náchod",
       "property_type": "land",
@@ -1009,24 +1064,6 @@
       "land_area_m2": "1381",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/pozemek/nachod/6a33da0e94c0c4782b00078e/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1 657 m2 Náchod",
-      "location": "Náchod, okres Náchod",
-      "property_type": "land",
-      "price": "Cena na vyžádání",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1657",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/nachod-svobody/6a2333edaa5983a468014a97/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
@@ -1090,36 +1127,18 @@
       "portal": [
         "realitymix.cz"
       ],
-      "title": "Prodej pozemku k bydlení, 1382 m², Náchod, Malé Poříčí",
+      "title": "Prodej pozemku k bydlení, Náchod, Malé Poříčí",
       "location": "Malé Poříčí, Náchod",
       "property_type": "land",
-      "price": "2 960 000 Kč",
+      "price": "2 590 000 Kč",
       "house_area_m2": "unknown",
-      "land_area_m2": "1382",
+      "land_area_m2": "1381",
       "urls": [
-        "https://realitymix.cz/detail/nachod/prodej-pozemku-k-bydleni-1382-m-nachod-male-porici-8519679.html"
+        "https://realitymix.cz/detail/nachod/prodej-pozemku-k-bydleni-nachod-male-porici-8743315.html"
       ],
       "notes": [
         "detail-url-verified:realitymix.cz",
         "municipal-part:Malé Poříčí"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej vícegeneračního domu 544 m², pozemek 1618 m²",
-      "location": "Náchod, Peklo, Náchod",
-      "property_type": "house",
-      "price": "14 000 000 Kč",
-      "house_area_m2": "544",
-      "land_area_m2": "1618",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/vicegeneracni-dum/nachod-lipi-peklo/3675037772"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3675037772"
       ]
     },
     {

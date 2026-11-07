@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 34,
-    "rows_retained": 6,
+    "candidates_gathered": 35,
+    "rows_retained": 7,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -338,16 +338,16 @@
     },
     {
       "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-rodinneho-domu-635-m-nove-mesto-nmet-ul-1-maje-8540683.html",
-      "stage": "detail_fetch",
+      "url": "https://realitymix.cz/reality/pozemky/pro-bydleni/kralovehradecky/nachod/nove-mesto-nad-metuji",
+      "stage": "land_result_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
     },
     {
       "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/reality/pozemky/pro-bydleni/kralovehradecky/nachod/nove-mesto-nad-metuji",
-      "stage": "land_result_fetch",
+      "url": "https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-pozemku-k-bydleni-4081-m-nove-mesto-nad-metuji-8745351.html",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -439,8 +439,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1900503884",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1900503884",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -467,6 +477,14 @@
       "status": "not_found",
       "http_status": 404,
       "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2740678732",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "sreality.cz",
@@ -519,15 +537,15 @@
     "removed-fallback-page:https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-stavebniho-pozemku-3-112-m2-8430099.html",
     "land-below-threshold:https://realitymix.cz/detail/nove-mesto-nad-metuji/bytovy-dum-nove-mesto-nad-metuji-centrum-8693691.html",
     "land-below-threshold:https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-domy-rodinny-128-3-m2-lesni-1159-54901-nove-mesto-nad-metuji-nachod-id-89347-8700535.html",
-    "land-below-threshold:https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-rodinneho-domu-635-m-nove-mesto-nmet-ul-1-maje-8540683.html",
     "land-below-threshold:https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-stavebniho-pozemku-660-m-nove-mesto-nad-metuji-8729759.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Nov%C3%A9+M%C4%9Bsto+nad+Metuj%C3%AD&form%5Bcena_mena%5D=1",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1458172492",
     "stale-detail-fetch:1701995340:Failed to fetch https://www.sreality.cz/api/v1/estates/1701995340: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/172184396",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1900503884",
+    "stale-detail-fetch:1900503884:Failed to fetch https://www.sreality.cz/api/v1/estates/1900503884: HTTP 404",
     "stale-detail-fetch:2673619020:Failed to fetch https://www.sreality.cz/api/v1/estates/2673619020: HTTP 404",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/2740678732",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2827927628",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3504849740",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3745985356",
@@ -604,6 +622,24 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej pozemku k bydlení, 4081 m², Nové Město nad Metují",
+      "location": "Krčín, Nové Město nad Metují, okr. Náchod",
+      "property_type": "land",
+      "price": "7 350 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "4081",
+      "urls": [
+        "https://realitymix.cz/detail/nove-mesto-nad-metuji/prodej-pozemku-k-bydleni-4081-m-nove-mesto-nad-metuji-8745351.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz",
+        "municipal-part:Krčín"
       ]
     },
     {
