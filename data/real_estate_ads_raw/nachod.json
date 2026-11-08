@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 3,
     "candidates_gathered": 64,
-    "rows_retained": 15,
+    "rows_retained": 16,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -75,6 +75,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/nachod-v-namerkach/69eb61d2da14ea8e7e059037/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod-svobody/6a2333edaa5983a468014a97/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -418,14 +426,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod-svobody/6a2333edaa5983a468014a97/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/nachod-weyrova/6ad5d64a03f0dcb630044857/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -546,6 +546,14 @@
     },
     {
       "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/nachod/prodej-pozemku-k-bydleni-nachod-male-porici-8743315.html",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
       "url": "https://realitymix.cz/detail/nachod/prodej-pozemku-k-bydleni-1382-m-nachod-male-porici-8519679.html",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -620,14 +628,6 @@
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/pozemky/pro-bydleni/kralovehradecky/nachod",
       "stage": "land_result_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "realitymix.cz",
-      "url": "https://realitymix.cz/detail/nachod/prodej-pozemku-k-bydleni-nachod-male-porici-8743315.html",
-      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -863,30 +863,12 @@
       "url": "https://www.sreality.cz/api/v1/estates/3675037772",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/3675037772",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/3678150732",
-      "stage": "detail_fetch",
-      "attempt": 1,
       "status": "ok",
       "http_status": 200
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/4077498444",
+      "url": "https://www.sreality.cz/api/v1/estates/3678150732",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -958,9 +940,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3449667660",
     "stale-detail-fetch:3453947980:Failed to fetch https://www.sreality.cz/api/v1/estates/3453947980: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3485565004",
-    "stale-detail-fetch:3675037772:Failed to fetch https://www.sreality.cz/api/v1/estates/3675037772: HTTP 404",
     "excluded-chata:https://www.sreality.cz/api/v1/estates/3678150732",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/4077498444",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/594591820"
   ],
   "listings": [
@@ -1139,6 +1119,24 @@
       "notes": [
         "detail-url-verified:realitymix.cz",
         "municipal-part:Malé Poříčí"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej vícegeneračního domu 544 m², pozemek 1618 m²",
+      "location": "Náchod, Peklo, Náchod",
+      "property_type": "house",
+      "price": "14 000 000 Kč",
+      "house_area_m2": "544",
+      "land_area_m2": "1618",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/vicegeneracni-dum/nachod-lipi-peklo/3675037772"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/3675037772"
       ]
     },
     {
