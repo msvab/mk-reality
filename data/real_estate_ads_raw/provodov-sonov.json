@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 11,
+    "candidates_gathered": 13,
     "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz",
@@ -156,6 +156,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/provodov-sonov/6acce436c677d41423004b5a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/provodov-sonov/6af1a4939456c5c28e02f717/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -296,12 +304,21 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/797601868",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/dum/provodov-sonov/6acce436c677d41423004b5a/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/provodov-sonov/6af1a4939456c5c28e02f717/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/provodov-sonov/6accca32880852bdbb036e4e/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/provodov-sonov/6accc726d0fc8c70670d8005/",
     "missing-page-url:house",
@@ -310,7 +327,8 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Provodov-%C5%A0onov&form%5Bcena_mena%5D=1",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1515393100",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3559067724"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3559067724",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/797601868"
   ],
   "listings": [
     {

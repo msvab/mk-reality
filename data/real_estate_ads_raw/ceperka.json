@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 0,
-    "candidates_gathered": 4,
+    "candidates_gathered": 6,
     "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
@@ -93,6 +93,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/horni-jeleni-lesni/6aa01d0d9b249e3d4e096b6f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/ceperka-dvorakova/6aa79e7601cca42fa703144f/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -110,6 +118,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceperka-dvorakova/6aa79d562715efd70c0b8065/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/horni-jeleni-lesni/6a9f16541c475d5fd30ef505/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -144,8 +160,9 @@
       "url": "https://reality.aktualne.cz/detail/ceperka/prodej-pozemku-k-bydleni-7676-m-ceperka-7741822.html",
       "stage": "discovery_detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "reality.aktualne.cz",
@@ -168,8 +185,9 @@
       "url": "https://reality.aktualne.cz/detail/ceperka/prodej-pozemku-k-bydleni-7676-m-ceperka-7741822.html",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "fallback_page",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "reality.aktualne.cz",
@@ -206,9 +224,11 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/horni-jeleni-lesni/6aa01d0d9b249e3d4e096b6f/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ceperka-dvorakova/6aa79e7601cca42fa703144f/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ceperka-havlickova/6a834ec84c38716f6308736d/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ceperka-dvorakova/6aa79d562715efd70c0b8065/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/horni-jeleni-lesni/6a9f16541c475d5fd30ef505/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3606-pardubice/pardubicky/prodej-pozemky.html",
