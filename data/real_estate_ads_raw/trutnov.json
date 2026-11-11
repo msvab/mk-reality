@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 3,
     "candidates_gathered": 203,
-    "rows_retained": 80,
+    "rows_retained": 78,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -303,6 +303,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trutnov-u-druzstva/6ae1abb36d77afe19d08db8d/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -875,14 +883,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov-benesova/6a1142e1dd6cf5d1450dc3e7/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov/6a031a10260598ea110518d8/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -1782,6 +1782,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1971862364",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/2012815436",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -1827,8 +1835,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/2086862924",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2086862924",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -2367,6 +2385,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/trutnov-u-druzstva/6ae1abb36d77afe19d08db8d/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/trutnov-k-vebrovce/69f48d1f05a439461b01b445/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/trutnov-serikova/69de81bc4cc3b8e7570b5104/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/trutnov-ve-vilkach/6abbb8a6574cf4feda0b752a/",
@@ -2384,7 +2403,6 @@
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/trutnov-petrikovicka/69ec7d238bd95a145000703a/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/trutnov-k-peti-bukum/69f3255591d6e9911d00ec78/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov-benesova/6a1142e1dd6cf5d1450dc3e7/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov/6a031a10260598ea110518d8/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/trutnov/6aeae9abe983758fdc0b1e82/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/trutnov/6aec9d6b3106b327c60d6615/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov-dolni/6ae44898084ff16f0b07bb20/",
@@ -2448,7 +2466,9 @@
     "stale-detail-fetch:1853153356:Failed to fetch https://www.sreality.cz/api/v1/estates/1853153356: HTTP 404",
     "stale-detail-fetch:18641740:Failed to fetch https://www.sreality.cz/api/v1/estates/18641740: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1950425164",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1971862364",
     "stale-detail-fetch:2063257676:Failed to fetch https://www.sreality.cz/api/v1/estates/2063257676: HTTP 404",
+    "stale-detail-fetch:2086862924:Failed to fetch https://www.sreality.cz/api/v1/estates/2086862924: HTTP 404",
     "stale-detail-fetch:2160914508:Failed to fetch https://www.sreality.cz/api/v1/estates/2160914508: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2206838860",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2319556684",
@@ -3022,24 +3042,6 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Stavební parcela pro výstavbu rodinného domu, Trutnov - Volanov",
-      "location": "Trutnov, okres Trutnov",
-      "property_type": "land",
-      "price": "2 650 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1478",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/trutnov-u-druzstva/6ae1abb36d77afe19d08db8d/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
       ]
     },
     {
@@ -3834,25 +3836,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1896026188"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1478 m²",
-      "location": "Trutnov, U Družstva, Trutnov",
-      "property_type": "land",
-      "price": "2 650 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1478",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/trutnov-volanov-u-druzstva/2086862924"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2086862924",
-        "buildable-land"
       ]
     },
     {
