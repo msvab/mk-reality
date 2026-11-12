@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 17,
+    "candidates_gathered": 18,
     "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz",
@@ -99,6 +99,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/horni-jeleni-lesni/6aa018acffcd12437d0a57bc/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/mikulovice-dlouha/6a81c8a9053fea3b58007107/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -116,6 +124,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/mikulovice-v-zahradach/6ac9f6c9f9682d2b8005ea80/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/horni-jeleni-lesni/6aa01d0d9b249e3d4e096b6f/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -331,24 +347,6 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/2414756684",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/2414756684",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/3768787020",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -382,9 +380,11 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/horni-jeleni-lesni/6aa018acffcd12437d0a57bc/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/mikulovice-dlouha/6a81c8a9053fea3b58007107/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/mikulovice-dlouha/6ac52d59f9e2117cf507c0e6/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/mikulovice-v-zahradach/6ac9f6c9f9682d2b8005ea80/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/horni-jeleni-lesni/6aa01d0d9b249e3d4e096b6f/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/mikulovice/6a7481b2b015450a240029e7/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/mikulovice/6ab563fce628c23685015736/",
     "missing-page-url:house",
@@ -397,7 +397,6 @@
     "detail-fallback-page:https://reality.aktualne.cz/detail/mikulovice/prodej-pozemek-bydleni-13598-8501871.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/mikulovice/prodej-rodinneho-domu-s-rozsahlymi-stavebnimi-pozemky-v-obci-mikulovice-8625511.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/mikulovice/rodinny-dum-v-mikulovicich-klidne-bydleni-se-zahradou-a-velkym-potencialem-8604629.html",
-    "stale-detail-fetch:2414756684:Failed to fetch https://www.sreality.cz/api/v1/estates/2414756684: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3768787020",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/411730508"
   ],

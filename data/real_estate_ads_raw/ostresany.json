@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 10,
-    "rows_retained": 3,
+    "candidates_gathered": 13,
+    "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -115,6 +115,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/horni-jeleni-lesni/6aa01d0d9b249e3d4e096b6f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/ostresany-rockova/6a1fddfa80e85deb1d0a6bd0/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -132,6 +140,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/ostresany/6a7af3c47017e57b8d0a0c82/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ostresany/6af4c2ffb11fcf9ec40e5afc/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -219,6 +235,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2035183692",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/212303948",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -237,6 +261,7 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/ostresany/69ff24b68cd988c4ed01c292/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/horni-jeleni-lesni/6aa01d0d9b249e3d4e096b6f/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ostresany-rockova/6a1fddfa80e85deb1d0a6bd0/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ostresany-druzstevni-ii/6abe99e403042b74db0696da/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ostresany/6a7af3c47017e57b8d0a0c82/",
@@ -263,6 +288,24 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej stavebního pozemku pro bydlení, 1141 m2, Ostřešany",
+      "location": "Ostřešany, okres Pardubice",
+      "property_type": "land",
+      "price": "6 790 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1141",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/ostresany/6af4c2ffb11fcf9ec40e5afc/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
       ]
     },
     {
@@ -299,6 +342,25 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/212303948"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 1141 m²",
+      "location": "Ostřešany, Pardubice",
+      "property_type": "land",
+      "price": "6 790 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1141",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/ostresany/2035183692"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2035183692",
+        "buildable-land"
       ]
     }
   ]

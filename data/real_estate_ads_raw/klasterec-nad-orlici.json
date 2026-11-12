@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 22,
-    "rows_retained": 7,
+    "rows_retained": 6,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -80,6 +80,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/klasterec-nad-orlici/69178f6387fc4b97c50d4065/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -434,6 +442,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/klasterec-nad-orlici/69178f6387fc4b97c50d4065/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/klasterec-nad-orlici/6a7aaff26ceba506d70d192c/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/klasterec-nad-orlici/686d34368c08b1919a075f9d/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/klasterec-nad-orlici/6ace0e0809790ee4db0c8f81/",
@@ -489,24 +498,6 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "normalized-from:chalupa"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "PRODEJ - pozemek v Klášterci nad Orlicí",
-      "location": "Klášterec nad Orlicí, okres Ústí nad Orlicí",
-      "property_type": "land",
-      "price": "3 495 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "3200",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/klasterec-nad-orlici/69178f6387fc4b97c50d4065/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
       ]
     },
     {
