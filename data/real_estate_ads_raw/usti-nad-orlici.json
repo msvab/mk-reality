@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 3,
     "candidates_gathered": 46,
-    "rows_retained": 12,
+    "rows_retained": 13,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -39,13 +39,8 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "fetch_error",
-      "http_status": 0,
-      "stage": "search_fetch",
-      "message": "curl exited with 56",
-      "evidence": [
-        "search_fetch:fetch_error:https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-411361"
-      ]
+      "status": "ok",
+      "message": "Retained at least one detail-verified iDNES row."
     },
     "realitymix.cz": {
       "status": "ok",
@@ -146,24 +141,6 @@
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-411361",
       "stage": "search_fetch",
       "attempt": 1,
-      "status": "fetch_error",
-      "http_status": 0,
-      "error": "curl exited with 56"
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-411361",
-      "stage": "search_fetch",
-      "attempt": 2,
-      "status": "fetch_error",
-      "http_status": 0,
-      "error": "curl exited with 56"
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-411361",
-      "stage": "search_fetch",
-      "attempt": 3,
       "status": "ok",
       "http_status": 200
     },
@@ -321,7 +298,23 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/usti-nad-orlici/691215bbe41c76a087089bc7/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/usti-nad-orlici/6891d3d204e66c16e50bbd34/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/usti-nad-orlici/6af64903f5109a7a0b0c2817/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -426,22 +419,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/usti-nad-orlici/68f6ef21e24434b7e203d977/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/usti-nad-orlici/68f61d4ba5d3fc3f070c02d5/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/usti-nad-orlici/68f61d3e6badd05c32070ed9/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -656,6 +633,7 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/usti-nad-orlici-17-listopadu/6a045df8e2f3f7b2830083be/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/usti-nad-orlici/69f218cc0cbd7609f20ec3ca/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/usti-nad-orlici/6891d3d204e66c16e50bbd34/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/usti-nad-orlici/6af64903f5109a7a0b0c2817/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/usti-nad-orlici/67b58cf82e2115b4a10b7383/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/usti-nad-orlici/6adfebb113d05f0b2106d4f7/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/usti-nad-orlici/67b58ade583c694e1d0a0b08/",
@@ -669,8 +647,6 @@
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/usti-nad-orlici/69b9e1a6078376a4f30cb4f2/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/usti-nad-orlici/68d50a5c65fc93bd1d064bfd/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/usti-nad-orlici/68f6ef21e24434b7e203d977/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/usti-nad-orlici/68f61d4ba5d3fc3f070c02d5/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/usti-nad-orlici/68f61d3e6badd05c32070ed9/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/usti-nad-orlici/667976529609d5214f0f4471/",
     "removed-fallback-page:https://realitymix.cz/detail/usti-nad-orlici/prodej-pozemku-k-bydleni-1714-m-usti-nad-orlici-7741717.html",
     "land-below-threshold:https://realitymix.cz/detail/usti-nad-orlici/prodej-rodinneho-domu-198-m-usti-nad-orlici-ul-a-staska-8463591.html",
@@ -695,6 +671,23 @@
       "land_area_m2": "1224",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/dum/usti-nad-orlici-a-staska/6a4d561a25c2b31f560a8655/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Rodinný dům s velkou zahradou u lesa v Dolním Houžovci u Ústí nad Orlicí",
+      "location": "Ústí nad Orlicí, okres Ústí nad Orlicí",
+      "property_type": "house",
+      "price": "5 500 000 Kč",
+      "house_area_m2": "150",
+      "land_area_m2": "3188",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/usti-nad-orlici/691215bbe41c76a087089bc7/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"

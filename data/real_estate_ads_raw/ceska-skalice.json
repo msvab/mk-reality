@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 39,
-    "rows_retained": 12,
+    "candidates_gathered": 40,
+    "rows_retained": 10,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -80,6 +80,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/ceska-skalice-hurdalkovo-namesti/6a6b0436d5fdf35e5b0bbb08/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -276,6 +284,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/ceska-skalice/6993145cd2ee3ea681052273/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/ceska-skalice/6993161379f76af1fd074785/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -568,12 +584,23 @@
       "url": "https://www.sreality.cz/api/v1/estates/707645516",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/707645516",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/ceska-skalice-hurdalkovo-namesti/6a6b0436d5fdf35e5b0bbb08/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/ceska-skalice/6a1554f644265cdeb9076bbd/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/6a1554007f316bd06201c808/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/ceska-skalice/6980bdcd428390448b009084/",
@@ -583,6 +610,7 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ceska-skalice/69930d21090b730d9a0763f4/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ceska-skalice/69931294a133576cdd0cd439/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ceska-skalice/6993145cd2ee3ea681052273/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ceska-skalice/6993161379f76af1fd074785/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/6a329a0e00176a2a120b4e06/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/6a0b0fe0fe05648391097fd3/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/6a0b0f47bbc5ec864107fcb6/",
@@ -604,7 +632,8 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/305717324",
     "stale-detail-fetch:4177117772:Failed to fetch https://www.sreality.cz/api/v1/estates/4177117772: HTTP 404",
     "stale-detail-fetch:43618380:Failed to fetch https://www.sreality.cz/api/v1/estates/43618380: HTTP 404",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/702309196"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/702309196",
+    "stale-detail-fetch:707645516:Failed to fetch https://www.sreality.cz/api/v1/estates/707645516: HTTP 404"
   ],
   "listings": [
     {
@@ -637,23 +666,6 @@
       "land_area_m2": "1011",
       "urls": [
         "https://reality.idnes.cz/detail/prodej/dum/ceska-skalice/69930f1d311c0a5e6804b183/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej rodinného domu 5+1 211m2 v České Skalici, okr. Náchod",
-      "location": "Česká Skalice, okres Náchod",
-      "property_type": "house",
-      "price": "10 390 000 Kč",
-      "house_area_m2": "211",
-      "land_area_m2": "2261",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/ceska-skalice-hurdalkovo-namesti/6a6b0436d5fdf35e5b0bbb08/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
@@ -764,24 +776,6 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/4002722636",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 211 m², pozemek 2261 m²",
-      "location": "Česká Skalice, Hurdálkovo náměstí, Náchod",
-      "property_type": "house",
-      "price": "10 390 000 Kč",
-      "house_area_m2": "211",
-      "land_area_m2": "2261",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/ceska-skalice-mala-skalice-hurdalkovo-namesti/707645516"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/707645516"
       ]
     },
     {

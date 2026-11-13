@@ -52,12 +52,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "fetch_error",
-      "stage": "house_search_parse",
-      "message": "Search response did not include expected municipality/area filters.",
-      "evidence": [
-        "house_search_parse:fetch_error:https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=793&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1"
-      ]
+      "status": "ok",
+      "message": "Retained at least one detail-verified Sreality row."
     }
   },
   "fetch_attempts": [
@@ -217,14 +213,6 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=793&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
-      "stage": "house_search_parse",
-      "attempt": 1,
-      "status": "fetch_error",
-      "message": "Search response did not include expected municipality/area filters."
-    },
-    {
-      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=793&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
       "stage": "land_search_fetch",
       "attempt": 1,
@@ -276,7 +264,6 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Vern%C3%A9%C5%99ovice&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/vernerovice/prodej-rodinneho-domu-dis-5-1-210-m-vernerovice-8478963.html",
-    "unfiltered-search-response:https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=2&locality_country_id=112&locality_entity_id=793&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1219769164",
     "stale-detail-fetch:2444853324:Failed to fetch https://www.sreality.cz/api/v1/estates/2444853324: HTTP 404"
   ],
