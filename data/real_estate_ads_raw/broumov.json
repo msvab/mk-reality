@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 49,
-    "rows_retained": 14,
+    "rows_retained": 13,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -678,8 +678,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3455648588",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3455648588",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -804,6 +814,7 @@
     "detail-fallback-page:https://reality.aktualne.cz/detail/broumov/prodej-domu-128-m-s-pozemkem-1-552-m-v-broumove-8263337.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/broumov/prodej-pozemek-bydleni-1915-8608861.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3365487436",
+    "stale-detail-fetch:3455648588:Failed to fetch https://www.sreality.cz/api/v1/estates/3455648588: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3721114444",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3844399948",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4032200780",
@@ -1043,25 +1054,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1957032780",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 1398 m²",
-      "location": "Broumov, Šaldova, Náchod",
-      "property_type": "land",
-      "price": "1 190 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "1398",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/broumov-saldova/3455648588"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3455648588",
         "buildable-land"
       ]
     }

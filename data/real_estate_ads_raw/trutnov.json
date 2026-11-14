@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 203,
-    "rows_retained": 78,
+    "candidates_gathered": 206,
+    "rows_retained": 80,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -39,8 +39,13 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
+      "status": "fetch_error",
+      "http_status": 0,
+      "stage": "search_fetch",
+      "message": "curl exited with 56",
+      "evidence": [
+        "search_fetch:fetch_error:https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-169153"
+      ]
     },
     "realitymix.cz": {
       "status": "ok",
@@ -685,6 +690,24 @@
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-169153",
       "stage": "search_fetch",
       "attempt": 1,
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-169153",
+      "stage": "search_fetch",
+      "attempt": 2,
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-169153",
+      "stage": "search_fetch",
+      "attempt": 3,
       "status": "ok",
       "http_status": 200
     },
@@ -882,6 +905,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov-suchovrsicka/6af74fb22a6b593ab00a7e1b/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov/6aeae9abe983758fdc0b1e82/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -994,6 +1025,22 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trutnov/6736f8bd2d1924ef5c01b966/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trutnov/626e64afe3c39a53eb194e48/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/trutnov/625c9f775ee4a7624a388eb2/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -1059,22 +1106,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/trutnov/626db4e75c7afe24db765c39/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trutnov/625b2e55a26b88727a711258/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/trutnov/626c636789b72d18b82f020a/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -1428,6 +1459,14 @@
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/kralovehradecky/trutnov",
       "stage": "house_result_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "realitymix.cz",
+      "url": "https://realitymix.cz/detail/trutnov/prodej-rodinneho-domu-s-rozsahlym-pozemkem-bohuslavice-nad-upou-8760595.html",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -2144,6 +2183,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3593236556",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/3610972236",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -2416,6 +2463,8 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov-zahradni-mesto/6ae9cdb5aab5d20e890a941e/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/trutnov/69d89bbe595a5f96d70a75b4/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/trutnov/69c6517a815842fae10895c4/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/trutnov/6736f8bd2d1924ef5c01b966/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/trutnov/626e64afe3c39a53eb194e48/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/trutnov/625c9f775ee4a7624a388eb2/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/trutnov/625c9166e12ecc04f2461e84/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/trutnov/68f618afb4f75529b60a99dc/",
@@ -2425,8 +2474,6 @@
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/trutnov/67fee3d243b5fe5e7100bc7b/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/trutnov/625c6e411c95ce3cf778d1a4/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/trutnov/626db4e75c7afe24db765c39/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/trutnov/625b2e55a26b88727a711258/",
-    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/trutnov/626c636789b72d18b82f020a/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/trutnov/68f6826c98579afa5a09b525/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/trutnov/6a181e650c3bdd7dfa091c6f/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/trutnov/6ac618126ae90e65e50928d6/",
@@ -2489,6 +2536,7 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3354645580",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3402576972",
     "stale-detail-fetch:3491291212:Failed to fetch https://www.sreality.cz/api/v1/estates/3491291212: HTTP 404",
+    "missing-price:https://www.sreality.cz/api/v1/estates/3593236556",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3610972236",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3648578636",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3696948044",
@@ -3136,6 +3184,23 @@
     },
     {
       "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej rodinného domu s rozsáhlým pozemkem, Bohuslavice nad Úpou",
+      "location": "Trutnov, okres Trutnov",
+      "property_type": "house",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "240",
+      "land_area_m2": "4569",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/trutnov-suchovrsicka/6af74fb22a6b593ab00a7e1b/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
         "realitymix.cz"
       ],
       "title": "Prodej rodinného domu 196 m2 Náchodská, Trutnov",
@@ -3464,6 +3529,23 @@
       "notes": [
         "detail-url-verified:realitymix.cz",
         "municipal-part:Starý Rokytník"
+      ]
+    },
+    {
+      "portal": [
+        "realitymix.cz"
+      ],
+      "title": "Prodej rodinného domu s rozsáhlým pozemkem, Bohuslavice nad Úpou",
+      "location": "Suchovršická, Bohuslavice, Trutnov",
+      "property_type": "house",
+      "price": "Cena na vyžádání",
+      "house_area_m2": "240",
+      "land_area_m2": "4569",
+      "urls": [
+        "https://realitymix.cz/detail/trutnov/prodej-rodinneho-domu-s-rozsahlym-pozemkem-bohuslavice-nad-upou-8760595.html"
+      ],
+      "notes": [
+        "detail-url-verified:realitymix.cz"
       ]
     },
     {
