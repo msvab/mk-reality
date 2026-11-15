@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 1,
     "candidates_gathered": 8,
-    "rows_retained": 3,
+    "rows_retained": 2,
     "zero_result_portals": [
       "reality.idnes.cz",
       "realitymix.cz",
@@ -234,8 +234,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1691644748",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1691644748",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -281,6 +291,7 @@
     "detail-fallback-page:https://reality.aktualne.cz/detail/vlcice/prodej-pozemku-k-bydleni-5869-m2-vlcice-8232805.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/vlcice/prodej-pozemku-k-bydleni-7089-m2-vlcice-8323721.html",
     "detail-fallback-page:https://reality.aktualne.cz/detail/vlcice/prodej-pozemku-vlcice-8633809.html",
+    "stale-detail-fetch:1691644748:Failed to fetch https://www.sreality.cz/api/v1/estates/1691644748: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/4284236364",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/537489484"
   ],
@@ -319,24 +330,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1875820620"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 280 m², pozemek 1390 m²",
-      "location": "Vlčice, Trutnov",
-      "property_type": "house",
-      "price": "3 990 000 Kč",
-      "house_area_m2": "280",
-      "land_area_m2": "1390",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/vlcice/1691644748"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1691644748"
       ]
     }
   ]
