@@ -29,10 +29,11 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 1,
-    "candidates_gathered": 13,
-    "rows_retained": 1,
+    "workers_with_results": 0,
+    "candidates_gathered": 12,
+    "rows_retained": 0,
     "zero_result_portals": [
+      "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz",
       "sreality.cz"
@@ -41,8 +42,8 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
+      "status": "no_results",
+      "message": "No retained in-scope iDNES rows."
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -188,14 +189,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/mzany/6a901545d505b641b3015af6/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/mzany/6aaa591aeae89e8c100f3b94/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -287,24 +280,5 @@
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=M%C5%BEany&form%5Bcena_mena%5D=1"
   ],
-  "listings": [
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Pozemky Stračovská Lhota",
-      "location": "Mžany, okres Hradec Králové",
-      "property_type": "land",
-      "price": "Cena na vyžádání",
-      "house_area_m2": "unknown",
-      "land_area_m2": "22709",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/mzany/6a901545d505b641b3015af6/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz",
-        "buildable-land"
-      ]
-    }
-  ]
+  "listings": []
 }
