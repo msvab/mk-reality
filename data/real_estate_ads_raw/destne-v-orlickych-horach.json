@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 23,
-    "rows_retained": 8,
+    "rows_retained": 7,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -417,8 +417,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/949485644",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/949485644",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     }
   ],
   "gaps": [
@@ -443,7 +453,8 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2479165516",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3450716236",
     "stale-detail-fetch:40317004:Failed to fetch https://www.sreality.cz/api/v1/estates/40317004: HTTP 404",
-    "stale-detail-fetch:662397516:Failed to fetch https://www.sreality.cz/api/v1/estates/662397516: HTTP 404"
+    "stale-detail-fetch:662397516:Failed to fetch https://www.sreality.cz/api/v1/estates/662397516: HTTP 404",
+    "stale-detail-fetch:949485644:Failed to fetch https://www.sreality.cz/api/v1/estates/949485644: HTTP 404"
   ],
   "listings": [
     {
@@ -551,24 +562,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/3544580172"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 850 m², pozemek 1846 m²",
-      "location": "Deštné v Orlických horách, Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "14 490 000 Kč",
-      "house_area_m2": "850",
-      "land_area_m2": "1846",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/destne-v-orlickych-horach/949485644"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/949485644"
       ]
     },
     {
