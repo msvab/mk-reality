@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 33,
-    "rows_retained": 7,
+    "candidates_gathered": 34,
+    "rows_retained": 8,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -402,6 +402,14 @@
       "http_status": 200
     },
     {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/hronov/6afc346f29a5f09b52072a17/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
       "stage": "house_root_fetch",
@@ -649,6 +657,7 @@
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hronov/69fb1bb05cb5fb527d0980d3/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hronov/6a93557bf0a4909a6c06db0c/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/hronov/6a0c26a6f8c724bd1a089509/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/hronov/6afc346f29a5f09b52072a17/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3605-nachod/kralovehradecky/prodej-pozemky.html",
@@ -660,7 +669,6 @@
     "stale-detail-fetch:1996415052:Failed to fetch https://www.sreality.cz/api/v1/estates/1996415052: HTTP 404",
     "stale-detail-fetch:352247884:Failed to fetch https://www.sreality.cz/api/v1/estates/352247884: HTTP 404",
     "stale-detail-fetch:387506252:Failed to fetch https://www.sreality.cz/api/v1/estates/387506252: HTTP 404",
-    "missing-price:https://www.sreality.cz/api/v1/estates/524283980",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/918696012"
   ],
   "listings": [
@@ -720,6 +728,23 @@
       "portal": [
         "reality.idnes.cz"
       ],
+      "title": "Prodej dům Rodinný, 150m2, Hronov, Velký Dřevíč",
+      "location": "Hronov, okres Náchod",
+      "property_type": "house",
+      "price": "2 290 000 Kč",
+      "house_area_m2": "150",
+      "land_area_m2": "1136",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/dum/hronov/6a7c312f23d4c29d3003e518/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
       "title": "Prodej pozemku k bydlení, 1025 m2, Hronov",
       "location": "Hronov, okres Náchod",
       "property_type": "land",
@@ -732,23 +757,6 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej dům Rodinný, 150m2, Hronov, Velký Dřevíč",
-      "location": "Hronov, okres Náchod",
-      "property_type": "house",
-      "price": "Cena na vyžádání",
-      "house_area_m2": "150",
-      "land_area_m2": "1136",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/hronov/6a7c312f23d4c29d3003e518/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
       ]
     },
     {
@@ -785,6 +793,24 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1687035980"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej rodinného domu 150 m², pozemek 1136 m²",
+      "location": "Hronov, Náchod",
+      "property_type": "house",
+      "price": "2 290 000 Kč",
+      "house_area_m2": "150",
+      "land_area_m2": "1136",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/rodinny/hronov-velky-drevic/524283980"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/524283980"
       ]
     }
   ]
