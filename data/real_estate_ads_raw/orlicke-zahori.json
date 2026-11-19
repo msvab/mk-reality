@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 17,
+    "candidates_gathered": 19,
     "rows_retained": 9,
     "zero_result_portals": [
       "realitymix.cz",
@@ -125,6 +125,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-410748",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/orlicke-zahori/6afe9f20a22eb422ec04134a/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -253,6 +261,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/181497932",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/1862144844",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -359,6 +375,7 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/orlicke-zahori/6a287714a8ad9d9d3402afaa/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/orlicke-zahori/6afe9f20a22eb422ec04134a/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/orlicke-zahori/6ac615db6d4e1b389203cdfe/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/orlicke-zahori/6a3bb4e57c0f732751061396/",
     "missing-page-url:house",
@@ -366,6 +383,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Orlick%C3%A9+Z%C3%A1ho%C5%99%C3%AD&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/orlicke-zahori/prodej-rodinneho-domu-orlicke-zahori-kunstat-u-orlickeho-zahori-okres-rychnov-nad-kneznou-8541339.html",
+    "missing-price:https://www.sreality.cz/api/v1/estates/181497932",
     "stale-detail-fetch:1862144844:Failed to fetch https://www.sreality.cz/api/v1/estates/1862144844: HTTP 404",
     "stale-detail-fetch:3566461004:Failed to fetch https://www.sreality.cz/api/v1/estates/3566461004: HTTP 404",
     "stale-detail-fetch:3988160588:Failed to fetch https://www.sreality.cz/api/v1/estates/3988160588: HTTP 404",

@@ -29,11 +29,12 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 3,
-    "candidates_gathered": 32,
-    "rows_retained": 5,
+    "workers_with_results": 2,
+    "candidates_gathered": 33,
+    "rows_retained": 4,
     "zero_result_portals": [
-      "reality.aktualne.cz"
+      "reality.aktualne.cz",
+      "sreality.cz"
     ],
     "blocked_portals": []
   },
@@ -51,8 +52,8 @@
       "message": "No retained in-scope Reality Aktuálně rows."
     },
     "sreality.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified Sreality row."
+      "status": "no_results",
+      "message": "No retained in-scope Sreality rows."
     }
   },
   "fetch_attempts": [
@@ -219,6 +220,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji-v-aleji/6ad8bc7652df671f340f98da/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji/6afec37169bc3441bc02c941/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -431,8 +440,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/2439233612",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2439233612",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -502,6 +521,7 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-lesni/6aabd8e53d0740e29f01cdd8/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji-komenskeho/6aa28969a998ddffcd0f5e7c/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji-v-aleji/6ad8bc7652df671f340f98da/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/nove-mesto-nad-metuji/6afec37169bc3441bc02c941/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/6a848540d642c94986094d2f/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/68b0081193cfb13bc60d5e6e/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/nove-mesto-nad-metuji/685909470e0bcd7d240cecc2/",
@@ -517,6 +537,7 @@
     "stale-detail-fetch:1701995340:Failed to fetch https://www.sreality.cz/api/v1/estates/1701995340: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/172184396",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1900503884",
+    "stale-detail-fetch:2439233612:Failed to fetch https://www.sreality.cz/api/v1/estates/2439233612: HTTP 404",
     "stale-detail-fetch:2673619020:Failed to fetch https://www.sreality.cz/api/v1/estates/2673619020: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2740678732",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2827927628",
@@ -595,25 +616,6 @@
       "notes": [
         "detail-url-verified:realitymix.cz",
         "municipal-part:Krčín"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 4081 m²",
-      "location": "Nové Město nad Metují, Náchod",
-      "property_type": "land",
-      "price": "7 350 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "4081",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/nove-mesto-nad-metuji-krcin/2439233612"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2439233612",
-        "buildable-land"
       ]
     }
   ]

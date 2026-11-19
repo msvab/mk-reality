@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 22,
-    "rows_retained": 6,
+    "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -350,8 +350,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/1741107276",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1741107276",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -417,6 +427,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3607-rychnov-nad-kneznou/kralovehradecky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Vamberk&form%5Bcena_mena%5D=1",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1042276428",
+    "stale-detail-fetch:1741107276:Failed to fetch https://www.sreality.cz/api/v1/estates/1741107276: HTTP 404",
     "stale-detail-fetch:3275989068:Failed to fetch https://www.sreality.cz/api/v1/estates/3275989068: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3857658956"
   ],
@@ -491,24 +502,6 @@
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/2019296076",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 211 m², pozemek 1005 m²",
-      "location": "Vamberk, Krajkařská, Rychnov nad Kněžnou",
-      "property_type": "house",
-      "price": "5 500 000 Kč",
-      "house_area_m2": "211",
-      "land_area_m2": "1005",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/vamberk-krajkarska/1741107276"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/1741107276"
       ]
     },
     {

@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 39,
+    "candidates_gathered": 42,
     "rows_retained": 9,
     "zero_result_portals": [
       "realitymix.cz",
@@ -57,22 +57,6 @@
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec-devet-krizu/6a4bb6b61c87b39b040dfc9a/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec-devet-krizu/6a4bb6b61c87b39b040dfc9a/",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Detail URL returned fallback or non-detail content."
-    },
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec-chrby/6a479330b35a2fc2bc0478bd/",
@@ -104,6 +88,22 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec-devet-krizu/6a4bb6b61c87b39b040dfc9a/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec-devet-krizu/6a4bb6b61c87b39b040dfc9a/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -363,6 +363,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec/6afdb935efe4b034e00ce88f/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec/6ac50280ed261290db0d145b/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -510,6 +518,14 @@
     {
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/1789235276",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/204566604",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -670,6 +686,14 @@
       "status": "not_found",
       "http_status": 404,
       "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/791818828",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
@@ -688,6 +712,7 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec-jiraskova/6a0321a360fa41c819030bcf/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec/6ac0db8a64a4b44b800d757f/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/cerveny-kostelec/6aacea4ac534985e2302df0d/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec/6afdb935efe4b034e00ce88f/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec/6ac50280ed261290db0d145b/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec-v-raji/6a1b5a67919b43b2f90f1d18/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/cerveny-kostelec-koncinska/6a8ede595490f5ef8a005481/",
@@ -699,6 +724,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=%C4%8Cerven%C3%BD+Kostelec&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/cerveny-kostelec/pronajem-rodinneho-domu-80-m2-cerveny-kostelec-8568477.html",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1789235276",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/204566604",
     "stale-detail-fetch:2107769676:Failed to fetch https://www.sreality.cz/api/v1/estates/2107769676: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2149806156",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2392395852",
@@ -707,7 +733,8 @@
     "stale-detail-fetch:334426188:Failed to fetch https://www.sreality.cz/api/v1/estates/334426188: HTTP 404",
     "stale-detail-fetch:3860087628:Failed to fetch https://www.sreality.cz/api/v1/estates/3860087628: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/4187557964",
-    "stale-detail-fetch:691454796:Failed to fetch https://www.sreality.cz/api/v1/estates/691454796: HTTP 404"
+    "stale-detail-fetch:691454796:Failed to fetch https://www.sreality.cz/api/v1/estates/691454796: HTTP 404",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/791818828"
   ],
   "listings": [
     {

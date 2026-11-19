@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 206,
-    "rows_retained": 80,
+    "candidates_gathered": 209,
+    "rows_retained": 79,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -898,6 +898,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov/6afd98f6a7c846d24108eb36/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov/6aeae9abe983758fdc0b1e82/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -947,6 +955,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov/6ad3909a8cb9f84ab40b97cc/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov-ivana-olbrachta/6acb43807efb28afd109c798/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -2411,12 +2427,30 @@
       "url": "https://www.sreality.cz/api/v1/estates/837849164",
       "stage": "detail_fetch",
       "attempt": 1,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/837849164",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/868204620",
+      "stage": "detail_fetch",
+      "attempt": 1,
       "status": "ok",
       "http_status": 200
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/868204620",
+      "url": "https://www.sreality.cz/api/v1/estates/951597916",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -2442,12 +2476,14 @@
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/trutnov-za-trati/6a44d0fd9de3f84a3f07eba7/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/trutnov-petrikovicka/69ec7d238bd95a145000703a/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/trutnov-k-peti-bukum/69f3255591d6e9911d00ec78/",
+    "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/trutnov/6afd98f6a7c846d24108eb36/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/trutnov/6aeae9abe983758fdc0b1e82/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/trutnov/6aec9d6b3106b327c60d6615/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov-dolni/6ae44898084ff16f0b07bb20/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/trutnov/6ad768daedc57e98170ddb61/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov-na-terase/6ad61e749bdfcd7142075884/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/trutnov/6ad3909a8cb9f84ab40b97cc/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov-ivana-olbrachta/6acb43807efb28afd109c798/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/trutnov-bohuslavicka/6ab2501bc14e9e460d0b0464/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov-dlouha/6aae957784a9c280e00234f9/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov-horska/6a9583b44f64f8d0fd00ba6f/",
@@ -2548,7 +2584,9 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/721530956",
     "stale-detail-fetch:740552780:Failed to fetch https://www.sreality.cz/api/v1/estates/740552780: HTTP 404",
     "stale-detail-fetch:803532876:Failed to fetch https://www.sreality.cz/api/v1/estates/803532876: HTTP 404",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/831107148"
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/831107148",
+    "stale-detail-fetch:837849164:Failed to fetch https://www.sreality.cz/api/v1/estates/837849164: HTTP 404",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/951597916"
   ],
   "listings": [
     {
@@ -3854,25 +3892,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/103903820",
-        "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej stavebního pozemku 3084 m²",
-      "location": "Trutnov, Sedloňovská, Trutnov",
-      "property_type": "land",
-      "price": "3 300 000 Kč",
-      "house_area_m2": "unknown",
-      "land_area_m2": "3084",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/trutnov-lhota-sedlonovska/837849164"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/837849164",
         "buildable-land"
       ]
     },

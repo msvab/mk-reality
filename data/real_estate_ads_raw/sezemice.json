@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 51,
-    "rows_retained": 15,
+    "candidates_gathered": 49,
+    "rows_retained": 16,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -84,6 +84,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/sezemice/6afaac7e204075b24b0317eb/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice/6afd5d68f1fc02bb0f0539d5/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -267,14 +275,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/horni-jeleni-lesni/6aa01d0d9b249e3d4e096b6f/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice-nova/6abe5ce51f2713c5a1072590/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -347,14 +347,6 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/horni-jeleni-lesni/6aa018acffcd12437d0a57bc/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice/683042752ced67dddd060a66/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -412,14 +404,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/sezemice/68a439cc1b873b99da0cb304/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/sezemice/6afd5d68f1fc02bb0f0539d5/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -562,18 +546,8 @@
       "url": "https://www.sreality.cz/api/v1/estates/1632645196",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/1632645196",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "sreality.cz",
@@ -707,7 +681,6 @@
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/sezemice/6a7f21d038684eb6bf0822ff/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/sezemice/6a6cb383473b997014057677/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/sezemice/6a69f65936608226f8069537/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/horni-jeleni-lesni/6aa01d0d9b249e3d4e096b6f/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice-nova/6abe5ce51f2713c5a1072590/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice-bezdickova/6adf44554c070e8bab03a4be/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/69c63211ec6c90a8c608658a/",
@@ -717,7 +690,6 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice-druzstevni/6a9422d92c6f5a83970508e9/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice-druzstevni/6a942298cdaa8ce7d408ef59/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/sezemice/6a86c0f89fb1a411a20780ca/",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/horni-jeleni-lesni/6aa018acffcd12437d0a57bc/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/683042752ced67dddd060a66/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/6a3e401589fe0317fe004de4/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/sezemice/68a59ea703d397ea5a001255/",
@@ -736,7 +708,6 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Sezemice&form%5Bcena_mena%5D=1",
     "stale-detail-fetch:1438568524:Failed to fetch https://www.sreality.cz/api/v1/estates/1438568524: HTTP 404",
     "stale-detail-fetch:1440534604:Failed to fetch https://www.sreality.cz/api/v1/estates/1440534604: HTTP 404",
-    "stale-detail-fetch:1632645196:Failed to fetch https://www.sreality.cz/api/v1/estates/1632645196: HTTP 404",
     "excluded-chata:https://www.sreality.cz/api/v1/estates/301469772",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3357184076",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3899879500",
@@ -864,6 +835,24 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej vily 400 m², pozemek 2846 m²",
+      "location": "Sezemice, Pardubice",
+      "property_type": "house",
+      "price": "28 333 000 Kč",
+      "house_area_m2": "400",
+      "land_area_m2": "2846",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/dum/vila/sezemice-veska/1632645196"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/1632645196"
       ]
     },
     {
