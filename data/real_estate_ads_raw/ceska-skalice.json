@@ -40,8 +40,13 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
+      "status": "fetch_error",
+      "http_status": 0,
+      "stage": "detail_fetch",
+      "message": "curl exited with 56",
+      "evidence": [
+        "detail_fetch:fetch_error:https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/6a0b0f47bbc5ec864107fcb6/"
+      ]
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -318,6 +323,24 @@
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/6a0b0f47bbc5ec864107fcb6/",
       "stage": "detail_fetch",
       "attempt": 1,
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/6a0b0f47bbc5ec864107fcb6/",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "fetch_error",
+      "http_status": 0,
+      "error": "curl exited with 56"
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-skalice/6a0b0f47bbc5ec864107fcb6/",
+      "stage": "detail_fetch",
+      "attempt": 3,
       "status": "ok",
       "http_status": 200
     },
@@ -738,7 +761,7 @@
       "title": "Prodej pozemků u vodní nádrže Rozkoš, 2713 m2",
       "location": "Česká Skalice, okres Náchod",
       "property_type": "land",
-      "price": "4 500 000 Kč",
+      "price": "3 900 000 Kč",
       "house_area_m2": "unknown",
       "land_area_m2": "2713",
       "urls": [
@@ -756,7 +779,7 @@
       "title": "Prodej pozemků u vodní nádrže Rozkoš, 1356 m2",
       "location": "Česká Skalice, okres Náchod",
       "property_type": "land",
-      "price": "2 250 000 Kč",
+      "price": "1 950 000 Kč",
       "house_area_m2": "unknown",
       "land_area_m2": "1356",
       "urls": [
@@ -830,7 +853,7 @@
       "title": "Prodej stavebního pozemku 2713 m²",
       "location": "Česká Skalice, Náchod",
       "property_type": "land",
-      "price": "4 500 000 Kč",
+      "price": "3 900 000 Kč",
       "house_area_m2": "unknown",
       "land_area_m2": "2713",
       "urls": [

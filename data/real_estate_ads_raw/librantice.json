@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 15,
+    "candidates_gathered": 17,
     "rows_retained": 9,
     "zero_result_portals": [
       "realitymix.cz",
@@ -99,6 +99,14 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/librantice/6acd29868fd802fac4093e22/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/librantice/69e08e27cfc35365110bbba2/",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -125,6 +133,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-83488",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/librantice/6aff276d58070cfd75062648/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -271,6 +287,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/392654924",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/684388428",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -298,6 +322,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/librantice/6acd29868fd802fac4093e22/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/librantice/69e08e27cfc35365110bbba2/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/librantice/6902fdbe328c4b9c6b057a1b/",
     "removed-fallback-page:https://realitymix.cz/detail/librantice/statek-s-velkym-pozemkem-cca-2182-m2-librantice-8565045.html",
@@ -306,6 +331,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Librantice&form%5Bcena_mena%5D=1",
     "stale-detail-fetch:1913742156:Failed to fetch https://www.sreality.cz/api/v1/estates/1913742156: HTTP 404",
     "stale-detail-fetch:3740078156:Failed to fetch https://www.sreality.cz/api/v1/estates/3740078156: HTTP 404",
+    "missing-price:https://www.sreality.cz/api/v1/estates/392654924",
     "stale-detail-fetch:720753484:Failed to fetch https://www.sreality.cz/api/v1/estates/720753484: HTTP 404"
   ],
   "listings": [
@@ -389,7 +415,7 @@
       "house_area_m2": "123",
       "land_area_m2": "1299",
       "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/librantice/6acd29868fd802fac4093e22/"
+        "https://reality.idnes.cz/detail/prodej/dum/librantice/6aff276d58070cfd75062648/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"

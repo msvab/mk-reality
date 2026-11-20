@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 13,
+    "candidates_gathered": 15,
     "rows_retained": 4,
     "zero_result_portals": [
       "realitymix.cz",
@@ -117,6 +117,22 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-411400",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chocen-pernerova/6afeff5582a6f80da506ff53/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chocen-na-krepcich/6af9f1c642a9129361080089/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -309,6 +325,8 @@
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/chocen-v-kameni/699db3d70077381eda031c44/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chocen-pernerova/6afeff5582a6f80da506ff53/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chocen-na-krepcich/6af9f1c642a9129361080089/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/chocen/6852b5ffa5941c3dcf0197d9/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/chocen/6aea8396ccc86e0cc30c1b92/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/chocen/6a2ab3d2e511c1c289088578/",
