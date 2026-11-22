@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 29,
-    "rows_retained": 8,
+    "rows_retained": 6,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -67,15 +67,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-chelcickeho/690b19807107f77e410a4419/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-chelcickeho/690b19807107f77e410a4419/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-j-w-mezerove/68233c50e54843df140e348c/",
       "stage": "detail_parse",
       "attempt": 1,
       "status": "fallback_page",
@@ -104,6 +96,22 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-chelcickeho/690b19807107f77e410a4419/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/upice-chelcickeho/690b19807107f77e410a4419/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -410,8 +418,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/2462007884",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2462007884",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -476,6 +494,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/upice-j-w-mezerove/68233c50e54843df140e348c/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/upice-chelcickeho/690b19807107f77e410a4419/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/upice-macharova/6a704cc6b66519c6d80a19d5/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/upice-puskinova/6abe52c6d71374a26602af29/",
@@ -498,29 +517,13 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1372786764",
     "stale-detail-fetch:1593451340:Failed to fetch https://www.sreality.cz/api/v1/estates/1593451340: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1908941388",
+    "stale-detail-fetch:2462007884:Failed to fetch https://www.sreality.cz/api/v1/estates/2462007884: HTTP 404",
     "stale-detail-fetch:3233665100:Failed to fetch https://www.sreality.cz/api/v1/estates/3233665100: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3888312396",
     "stale-detail-fetch:401683276:Failed to fetch https://www.sreality.cz/api/v1/estates/401683276: HTTP 404",
     "missing-price:https://www.sreality.cz/api/v1/estates/4053696588"
   ],
   "listings": [
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Prodej domu po rekonstrukci se dvěma bytovými jednotkami a zahradou v obci Úpice, okres Trutnov",
-      "location": "Úpice, okres Trutnov",
-      "property_type": "house",
-      "price": "4 500 000 Kč",
-      "house_area_m2": "140",
-      "land_area_m2": "1930",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/upice-j-w-mezerove/68233c50e54843df140e348c/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
     {
       "portal": [
         "reality.idnes.cz"
@@ -590,24 +593,6 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 140 m², pozemek 1930 m²",
-      "location": "Úpice, J. W. Mezerové, Trutnov",
-      "property_type": "house",
-      "price": "4 500 000 Kč",
-      "house_area_m2": "140",
-      "land_area_m2": "1930",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/upice-j-w-mezerove/2462007884"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2462007884"
       ]
     },
     {

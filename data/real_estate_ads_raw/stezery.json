@@ -147,7 +147,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/stezery/6ac912d18b4bbbbaf80350a2/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/stezery/6a8d38ce46370d7a6408f095/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -155,7 +155,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/stezery/6a8d38ce46370d7a6408f095/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/stezery/6ac912d18b4bbbbaf80350a2/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -280,8 +280,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/2471551052",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2471551052",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -320,8 +330,8 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/stezery/6ac912d18b4bbbbaf80350a2/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/stezery/6a8d38ce46370d7a6408f095/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/stezery/6ac912d18b4bbbbaf80350a2/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/stezery/6a91a01d4ee0b976820aa742/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/stezery/6ae6522e6959249ed80f9ed4/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/stezery-mala-strana/6adb38476bff011cdc0c2a35/",
@@ -330,7 +340,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3602-hradec-kralove/kralovehradecky/prodej-pozemky.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=St%C4%9B%C5%BEery&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/stezery/pozemek-bydleni-prodej-hribsko-stezery-hradec-kralove-8627107.html",
-    "missing-price:https://www.sreality.cz/api/v1/estates/2471551052",
+    "stale-detail-fetch:2471551052:Failed to fetch https://www.sreality.cz/api/v1/estates/2471551052: HTTP 404",
     "stale-detail-fetch:763662412:Failed to fetch https://www.sreality.cz/api/v1/estates/763662412: HTTP 404"
   ],
   "listings": [
