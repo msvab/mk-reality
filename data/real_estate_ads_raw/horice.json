@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 23,
-    "rows_retained": 7,
+    "rows_retained": 6,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -280,8 +280,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/2631213132",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/2631213132",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -394,6 +404,7 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vyhledavani/r-3604-jicin/kralovehradecky/prodej-domy_vily.html",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Ho%C5%99ice&form%5Bcena_mena%5D=1",
     "detail-fallback-page:https://reality.aktualne.cz/detail/horice/investicni-prilezitost-v-centru-horic-cinzovni-dum-s-peti-byty-a-povolenim-k-pudni-vestavbe-8540061.html",
+    "stale-detail-fetch:2631213132:Failed to fetch https://www.sreality.cz/api/v1/estates/2631213132: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3037397068",
     "stale-detail-fetch:3038310476:Failed to fetch https://www.sreality.cz/api/v1/estates/3038310476: HTTP 404",
     "stale-detail-fetch:3123446348:Failed to fetch https://www.sreality.cz/api/v1/estates/3123446348: HTTP 404",
@@ -489,24 +500,6 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/1354010700"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 140 m², pozemek 5016 m²",
-      "location": "Hořice, Jičín",
-      "property_type": "house",
-      "price": "4 490 000 Kč",
-      "house_area_m2": "140",
-      "land_area_m2": "5016",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/horice-brezovice/2631213132"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/2631213132"
       ]
     },
     {

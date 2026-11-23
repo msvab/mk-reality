@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 28,
+    "candidates_gathered": 31,
     "rows_retained": 7,
     "zero_result_portals": [
       "realitymix.cz",
@@ -117,6 +117,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-6173",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/horni-jeleni-lesni/6aa018acffcd12437d0a57bc/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -250,6 +258,14 @@
       "http_status": 200
     },
     {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/horni-jeleni-lesni/6a9f16541c475d5fd30ef505/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
       "portal": "realitymix.cz",
       "url": "https://www.realitymix.cz/reality/domy/prodej/",
       "stage": "house_root_fetch",
@@ -301,6 +317,14 @@
       "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/search?category_type_cb=1&category_main_cb=3&locality_country_id=112&locality_entity_id=2544&locality_entity_type=municipality&estate_area_from=1000&limit=60&page=1",
       "stage": "land_search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/1088426060",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -372,6 +396,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/horni-jeleni-lesni/6aa018acffcd12437d0a57bc/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/lazne-bohdanec-sipkova/6a886b62e4199b25470a2366/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/lazne-bohdanec-dr-tyrse/6a796167bc121898520f3e75/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/lazne-bohdanec/6a8701755862d9f61b04898b/",
@@ -388,9 +413,11 @@
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/lazne-bohdanec/692757606852cb4b380e9209/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/lazne-bohdanec/69162f2d3623cf21b50fa87c/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/lazne-bohdanec/68f6360aa33214e216004ccd/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/horni-jeleni-lesni/6a9f16541c475d5fd30ef505/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=L%C3%A1zn%C4%9B+Bohdane%C4%8D&form%5Bcena_mena%5D=1",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/1088426060",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1174831180",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/1224155980",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3578273868",

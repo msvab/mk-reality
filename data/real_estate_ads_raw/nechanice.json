@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 2,
     "candidates_gathered": 37,
-    "rows_retained": 13,
+    "rows_retained": 11,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -67,7 +67,23 @@
     },
     {
       "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nechanice-havlickova/6aeaf5dacfaf336ebc0d10a6/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
+    },
+    {
+      "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/nechanice/6ad734ef95f1e837760e7964/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/nechanice/6a995940377902c34f0f3765/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -92,14 +108,6 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/pozemek/nechanice/6ad86d587ae7182acf0e56fb/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/nechanice/6a995940377902c34f0f3765/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -478,8 +486,18 @@
       "url": "https://www.sreality.cz/api/v1/estates/3640770636",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "ok",
-      "http_status": 200
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3640770636",
+      "stage": "detail_fetch",
+      "attempt": 2,
+      "status": "not_found",
+      "http_status": 404,
+      "error": "HTTP 404"
     },
     {
       "portal": "sreality.cz",
@@ -534,6 +552,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/nechanice-havlickova/6aeaf5dacfaf336ebc0d10a6/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/nechanice/6ad86d587ae7182acf0e56fb/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/nechanice/6a7cb4e66e84345ec50280e0/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/nechanice/69de2ad250bd2426db05c729/",
@@ -560,27 +579,11 @@
     "stale-detail-fetch:3038621772:Failed to fetch https://www.sreality.cz/api/v1/estates/3038621772: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3058394188",
     "stale-detail-fetch:3556569164:Failed to fetch https://www.sreality.cz/api/v1/estates/3556569164: HTTP 404",
+    "stale-detail-fetch:3640770636:Failed to fetch https://www.sreality.cz/api/v1/estates/3640770636: HTTP 404",
     "stale-detail-fetch:4235903052:Failed to fetch https://www.sreality.cz/api/v1/estates/4235903052: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/482374732"
   ],
   "listings": [
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Rodinný dům 5+kk, s pozemkem 1031m2",
-      "location": "Nechanice, okres Hradec Králové",
-      "property_type": "house",
-      "price": "10 500 000 Kč",
-      "house_area_m2": "132",
-      "land_area_m2": "1031",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/nechanice-havlickova/6aeaf5dacfaf336ebc0d10a6/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
     {
       "portal": [
         "reality.idnes.cz"
@@ -602,14 +605,14 @@
       "portal": [
         "reality.idnes.cz"
       ],
-      "title": "Prodej rodinného domu 8+2, 220 m2, Staré Nechanice",
+      "title": "Prodej rodinného domu 200 m2, Nechanice - Staré Nechanice",
       "location": "Nechanice, okres Hradec Králové",
       "property_type": "house",
       "price": "5 190 000 Kč",
-      "house_area_m2": "220",
+      "house_area_m2": "200",
       "land_area_m2": "1034",
       "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/nechanice/6af2fd37157d564e290808d4/"
+        "https://reality.idnes.cz/detail/prodej/dum/nechanice/6a995940377902c34f0f3765/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
@@ -619,14 +622,14 @@
       "portal": [
         "reality.idnes.cz"
       ],
-      "title": "Prodej rodinného domu 200 m2, Nechanice - Staré Nechanice",
+      "title": "Prodej rodinného domu 8+2, 220 m2, Staré Nechanice",
       "location": "Nechanice, okres Hradec Králové",
       "property_type": "house",
       "price": "5 190 000 Kč",
-      "house_area_m2": "200",
+      "house_area_m2": "220",
       "land_area_m2": "1034",
       "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/nechanice/6a995940377902c34f0f3765/"
+        "https://reality.idnes.cz/detail/prodej/dum/nechanice/6af2fd37157d564e290808d4/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
@@ -665,24 +668,6 @@
       "notes": [
         "detail-url-verified:reality.idnes.cz",
         "buildable-land"
-      ]
-    },
-    {
-      "portal": [
-        "sreality.cz"
-      ],
-      "title": "Prodej rodinného domu 132 m², pozemek 1031 m²",
-      "location": "Nechanice, Havlíčkova, Hradec Králové",
-      "property_type": "house",
-      "price": "10 500 000 Kč",
-      "house_area_m2": "132",
-      "land_area_m2": "1031",
-      "urls": [
-        "https://www.sreality.cz/detail/prodej/dum/rodinny/nechanice-havlickova/3640770636"
-      ],
-      "notes": [
-        "detail-url-verified:sreality.cz",
-        "api-detail:https://www.sreality.cz/api/v1/estates/3640770636"
       ]
     },
     {

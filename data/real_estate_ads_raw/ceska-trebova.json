@@ -30,8 +30,8 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 76,
-    "rows_retained": 9,
+    "candidates_gathered": 77,
+    "rows_retained": 11,
     "zero_result_portals": [
       "realitymix.cz",
       "reality.aktualne.cz"
@@ -307,7 +307,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/ceska-trebova-cechova/6a9b30e35ba87ca0a708c420/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/ceska-trebova-v-zahradkach/6ac2212a97618323ee030436/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -315,7 +315,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/ceska-trebova-v-zahradkach/6ac2212a97618323ee030436/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/ceska-trebova-cechova/6a9b30e35ba87ca0a708c420/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -460,6 +460,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/ceska-trebova/69cb868a3be5fa360206c9b9/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova-bezdekov/6b03f6435bfb635094029ec8/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -776,18 +784,8 @@
       "url": "https://www.sreality.cz/api/v1/estates/2626585420",
       "stage": "detail_fetch",
       "attempt": 1,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/2626585420",
-      "stage": "detail_fetch",
-      "attempt": 2,
-      "status": "not_found",
-      "http_status": 404,
-      "error": "HTTP 404"
+      "status": "ok",
+      "http_status": 200
     },
     {
       "portal": "sreality.cz",
@@ -918,8 +916,8 @@
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/6a5f01896112260f60089edd/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/ceska-trebova/69c7ab76994913835b03a05d/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova/68592f6a7b112bbca804d53b/",
-    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ceska-trebova-cechova/6a9b30e35ba87ca0a708c420/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ceska-trebova-v-zahradkach/6ac2212a97618323ee030436/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/ceska-trebova-cechova/6a9b30e35ba87ca0a708c420/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/ceska-trebova-skuhrovska/6af5cc46d2e885b3e304c9df/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/ceska-trebova/6aec775fb67b37174706822e/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/ceska-trebova/6aec642fd57ef7dce802d511/",
@@ -970,7 +968,6 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/193335372",
     "stale-detail-fetch:2121352012:Failed to fetch https://www.sreality.cz/api/v1/estates/2121352012: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2409087820",
-    "stale-detail-fetch:2626585420:Failed to fetch https://www.sreality.cz/api/v1/estates/2626585420: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2724724812",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3157143628",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3424597068",
@@ -1000,6 +997,24 @@
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz"
+      ]
+    },
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemku k bydlení, 4130m2, Česká Třebová, ul. Bezděkov",
+      "location": "Česká Třebová, okres Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "12 267 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "4130",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/ceska-trebova-bezdekov/6b03f6435bfb635094029ec8/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
       ]
     },
     {
@@ -1108,6 +1123,25 @@
       "notes": [
         "detail-url-verified:sreality.cz",
         "api-detail:https://www.sreality.cz/api/v1/estates/556405580"
+      ]
+    },
+    {
+      "portal": [
+        "sreality.cz"
+      ],
+      "title": "Prodej stavebního pozemku 4130 m²",
+      "location": "Česká Třebová, Bezděkov, Ústí nad Orlicí",
+      "property_type": "land",
+      "price": "12 267 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "4130",
+      "urls": [
+        "https://www.sreality.cz/detail/prodej/pozemek/bydleni/ceska-trebova-bezdekov/2626585420"
+      ],
+      "notes": [
+        "detail-url-verified:sreality.cz",
+        "api-detail:https://www.sreality.cz/api/v1/estates/2626585420",
+        "buildable-land"
       ]
     },
     {
