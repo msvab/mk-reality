@@ -31,7 +31,7 @@
     "workers_launched": 4,
     "workers_with_results": 3,
     "candidates_gathered": 30,
-    "rows_retained": 6,
+    "rows_retained": 7,
     "zero_result_portals": [
       "reality.aktualne.cz"
     ],
@@ -56,22 +56,6 @@
     }
   },
   "fetch_attempts": [
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/novy-hradek/6af0b8c9a358a094f803c84f/",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/pozemek/novy-hradek/6af0b8c9a358a094f803c84f/",
-      "stage": "detail_parse",
-      "attempt": 1,
-      "status": "fallback_page",
-      "message": "Detail URL returned fallback or non-detail content."
-    },
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/novy-hradek/6a6c7ba5210faea1c4081567/",
@@ -140,6 +124,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/novy-hradek/6a97d9e9d35f4460140112f2/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/novy-hradek/6af0b8c9a358a094f803c84f/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -462,7 +454,6 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/novy-hradek/6af0b8c9a358a094f803c84f/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/dum/novy-hradek-konciny/67e3dead943bbbb1da000bd2/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/novy-hradek/6a97d9e9d35f4460140112f2/",
@@ -488,6 +479,24 @@
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/971413596"
   ],
   "listings": [
+    {
+      "portal": [
+        "reality.idnes.cz"
+      ],
+      "title": "Prodej pozemku pro výstavbu rodinného domu, 1179 m2, Nový Hrádek",
+      "location": "Nový Hrádek, okres Náchod",
+      "property_type": "land",
+      "price": "2 750 000 Kč",
+      "house_area_m2": "unknown",
+      "land_area_m2": "1179",
+      "urls": [
+        "https://reality.idnes.cz/detail/prodej/pozemek/novy-hradek/6af0b8c9a358a094f803c84f/"
+      ],
+      "notes": [
+        "detail-url-verified:reality.idnes.cz",
+        "buildable-land"
+      ]
+    },
     {
       "portal": [
         "reality.idnes.cz"
