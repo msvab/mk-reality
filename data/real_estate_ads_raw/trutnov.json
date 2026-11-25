@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 3,
-    "candidates_gathered": 206,
+    "candidates_gathered": 207,
     "rows_retained": 78,
     "zero_result_portals": [
       "reality.aktualne.cz"
@@ -971,6 +971,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov-dlouha/6aae957784a9c280e00234f9/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/trutnov-polska/6a988c7333fc263cac0c388c/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -2008,6 +2016,14 @@
     },
     {
       "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3056296012",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/3072323660",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -2423,14 +2439,6 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/951597916",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
     }
   ],
   "gaps": [
@@ -2461,6 +2469,7 @@
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov-ivana-olbrachta/6acb43807efb28afd109c798/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/trutnov-bohuslavicka/6ab2501bc14e9e460d0b0464/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov-dlouha/6aae957784a9c280e00234f9/",
+    "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov-polska/6a988c7333fc263cac0c388c/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov-horska/6a9583b44f64f8d0fd00ba6f/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov-na-terase/6a85d2b38539eb8d6401b47a/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/trutnov-manesova/6a62204c174bf755530d198e/",
@@ -2528,6 +2537,7 @@
     "stale-detail-fetch:2710757452:Failed to fetch https://www.sreality.cz/api/v1/estates/2710757452: HTTP 404",
     "stale-detail-fetch:2791034956:Failed to fetch https://www.sreality.cz/api/v1/estates/2791034956: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/2907243084",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3056296012",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3072323660",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3078685260",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/3112808524",
@@ -2559,8 +2569,7 @@
     "stale-detail-fetch:740552780:Failed to fetch https://www.sreality.cz/api/v1/estates/740552780: HTTP 404",
     "stale-detail-fetch:803532876:Failed to fetch https://www.sreality.cz/api/v1/estates/803532876: HTTP 404",
     "non-buildable-land:https://www.sreality.cz/api/v1/estates/831107148",
-    "stale-detail-fetch:837849164:Failed to fetch https://www.sreality.cz/api/v1/estates/837849164: HTTP 404",
-    "non-buildable-land:https://www.sreality.cz/api/v1/estates/951597916"
+    "stale-detail-fetch:837849164:Failed to fetch https://www.sreality.cz/api/v1/estates/837849164: HTTP 404"
   ],
   "listings": [
     {

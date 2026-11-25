@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 5,
+    "candidates_gathered": 6,
     "rows_retained": 2,
     "zero_result_portals": [
       "realitymix.cz",
@@ -93,6 +93,14 @@
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/s/prodej/pozemky/?s-l=CAST_OBCE-52426",
       "stage": "search_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/chyjice/6a292462f91c214a0202fb09/",
+      "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
       "http_status": 200
@@ -188,6 +196,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/chyjice/6a292462f91c214a0202fb09/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/chomutice/69b577fd4d69441b3c055c97/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/chomutice/6a9ff7e564ff73c421009399/",
     "missing-page-url:house",

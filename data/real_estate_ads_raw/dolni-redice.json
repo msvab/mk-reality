@@ -29,10 +29,11 @@
   ],
   "coverage": {
     "workers_launched": 4,
-    "workers_with_results": 2,
-    "candidates_gathered": 10,
-    "rows_retained": 2,
+    "workers_with_results": 1,
+    "candidates_gathered": 9,
+    "rows_retained": 1,
     "zero_result_portals": [
+      "reality.idnes.cz",
       "realitymix.cz",
       "reality.aktualne.cz"
     ],
@@ -40,8 +41,8 @@
   },
   "portal_status": {
     "reality.idnes.cz": {
-      "status": "ok",
-      "message": "Retained at least one detail-verified iDNES row."
+      "status": "no_results",
+      "message": "No retained in-scope iDNES rows."
     },
     "realitymix.cz": {
       "status": "no_results",
@@ -123,7 +124,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/dolni-redice-farmarska/6ae45de54c6982f48400562d/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/moravany-jizni/6a031f51053714ceee0fa41a/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -247,14 +248,6 @@
     },
     {
       "portal": "sreality.cz",
-      "url": "https://www.sreality.cz/api/v1/estates/4075946060",
-      "stage": "detail_fetch",
-      "attempt": 1,
-      "status": "ok",
-      "http_status": 200
-    },
-    {
-      "portal": "sreality.cz",
       "url": "https://www.sreality.cz/api/v1/estates/734711884",
       "stage": "detail_fetch",
       "attempt": 1,
@@ -284,6 +277,7 @@
     "idnes-discovery-used-locality-id-cache",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice/6af981e799f31f811b02b125/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice-drahosska/693189896443eb54ad0682b9/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/moravany-jizni/6a031f51053714ceee0fa41a/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/dolni-redice-pardubicka/6a44ec26f1b2473b490252b3/",
     "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/dolni-redice/68f667613e5ab0bfbf0fc3f1/",
     "missing-page-url:house",
@@ -292,27 +286,9 @@
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Doln%C3%AD+%C5%98edice&form%5Bcena_mena%5D=1",
     "stale-detail-fetch:1005117516:Failed to fetch https://www.sreality.cz/api/v1/estates/1005117516: HTTP 404",
     "stale-detail-fetch:3803845452:Failed to fetch https://www.sreality.cz/api/v1/estates/3803845452: HTTP 404",
-    "missing-price:https://www.sreality.cz/api/v1/estates/4075946060",
     "stale-detail-fetch:837341260:Failed to fetch https://www.sreality.cz/api/v1/estates/837341260: HTTP 404"
   ],
   "listings": [
-    {
-      "portal": [
-        "reality.idnes.cz"
-      ],
-      "title": "Rodinný dům v pěkné lokalitě, prodej",
-      "location": "Dolní Ředice, okres Pardubice",
-      "property_type": "house",
-      "price": "Cena na vyžádání",
-      "house_area_m2": "465",
-      "land_area_m2": "4116",
-      "urls": [
-        "https://reality.idnes.cz/detail/prodej/dum/dolni-redice-farmarska/6ae45de54c6982f48400562d/"
-      ],
-      "notes": [
-        "detail-url-verified:reality.idnes.cz"
-      ]
-    },
     {
       "portal": [
         "sreality.cz"
