@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 0,
-    "candidates_gathered": 5,
+    "candidates_gathered": 7,
     "rows_retained": 0,
     "zero_result_portals": [
       "reality.idnes.cz",
@@ -93,7 +93,7 @@
     },
     {
       "portal": "reality.idnes.cz",
-      "url": "https://reality.idnes.cz/detail/prodej/dum/moravany-jizni/6a031f51053714ceee0fa41a/",
+      "url": "https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -110,6 +110,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/rybitvi/6a7a349ec2d0ee5e220fa919/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/rybitvi/6b0871dacb5b39dc0000bd34/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -196,18 +204,28 @@
       "status": "not_found",
       "http_status": 404,
       "error": "HTTP 404"
+    },
+    {
+      "portal": "sreality.cz",
+      "url": "https://www.sreality.cz/api/v1/estates/3904528460",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
     }
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
-    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/moravany-jizni/6a031f51053714ceee0fa41a/",
+    "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/pardubice-terezy-novakove/6a2c25565ad242ee2c0af395/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/dum/rybitvi/6ae4f57885b08937d3012d19/",
     "excluded-chata:https://reality.idnes.cz/detail/prodej/dum/rybitvi/6a7a349ec2d0ee5e220fa919/",
+    "non-buildable-land:https://reality.idnes.cz/detail/prodej/pozemek/rybitvi/6b0871dacb5b39dc0000bd34/",
     "land-below-threshold:https://reality.idnes.cz/detail/prodej/pozemek/rybitvi/6aaed060c43bbd107a07f996/",
     "missing-page-url:house",
     "missing-page-url:land",
     "no-detail-urls-found:https://reality.aktualne.cz/vypis-nabidek/?form%5Bsearch_in_city%5D=Rybitv%C3%AD&form%5Bcena_mena%5D=1",
-    "stale-detail-fetch:1319125836:Failed to fetch https://www.sreality.cz/api/v1/estates/1319125836: HTTP 404"
+    "stale-detail-fetch:1319125836:Failed to fetch https://www.sreality.cz/api/v1/estates/1319125836: HTTP 404",
+    "non-buildable-land:https://www.sreality.cz/api/v1/estates/3904528460"
   ],
   "listings": []
 }

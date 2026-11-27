@@ -30,7 +30,7 @@
   "coverage": {
     "workers_launched": 4,
     "workers_with_results": 2,
-    "candidates_gathered": 14,
+    "candidates_gathered": 15,
     "rows_retained": 5,
     "zero_result_portals": [
       "realitymix.cz",
@@ -80,6 +80,14 @@
       "attempt": 1,
       "status": "ok",
       "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/69e569f5af1679385f01b8f9/",
+      "stage": "detail_parse",
+      "attempt": 1,
+      "status": "fallback_page",
+      "message": "Detail URL returned fallback or non-detail content."
     },
     {
       "portal": "reality.idnes.cz",
@@ -156,6 +164,14 @@
     {
       "portal": "reality.idnes.cz",
       "url": "https://reality.idnes.cz/detail/prodej/dum/velka-jesenice/6ad1e570d393ca1808019574/",
+      "stage": "detail_fetch",
+      "attempt": 1,
+      "status": "ok",
+      "http_status": 200
+    },
+    {
+      "portal": "reality.idnes.cz",
+      "url": "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/6b082be89dea638d2a0807b3/",
       "stage": "detail_fetch",
       "attempt": 1,
       "status": "ok",
@@ -302,6 +318,7 @@
   ],
   "gaps": [
     "idnes-discovery-used-locality-id-cache",
+    "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/69e569f5af1679385f01b8f9/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/6abcdb115c9e45b60d0705d3/",
     "detail-fallback-page:https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/6807dfa9ed4d3ab666027640/",
     "outside-municipality:https://reality.idnes.cz/detail/prodej/dum/vestec/672899c4312f3a6d090e82a5/",
@@ -364,7 +381,7 @@
       "house_area_m2": "unknown",
       "land_area_m2": "1001",
       "urls": [
-        "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/69e569f5af1679385f01b8f9/"
+        "https://reality.idnes.cz/detail/prodej/pozemek/velka-jesenice/6b082be89dea638d2a0807b3/"
       ],
       "notes": [
         "detail-url-verified:reality.idnes.cz",
